@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,6 +40,8 @@ type FargateComputeEnvironment interface {
 	ComputeEnvironmentArn() *string
 	// The name of the ComputeEnvironment.
 	ComputeEnvironmentName() *string
+	// A reference to a ComputeEnvironment resource.
+	ComputeEnvironmentRef() *interfacesawsbatch.ComputeEnvironmentReference
 	// The network connections associated with this resource.
 	Connections() awsec2.Connections
 	// Whether or not this ComputeEnvironment can accept jobs from a Queue.
@@ -178,6 +181,16 @@ func (j *jsiiProxy_FargateComputeEnvironment) ComputeEnvironmentName() *string {
 	_jsii_.Get(
 		j,
 		"computeEnvironmentName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateComputeEnvironment) ComputeEnvironmentRef() *interfacesawsbatch.ComputeEnvironmentReference {
+	var returns *interfacesawsbatch.ComputeEnvironmentReference
+	_jsii_.Get(
+		j,
+		"computeEnvironmentRef",
 		&returns,
 	)
 	return returns

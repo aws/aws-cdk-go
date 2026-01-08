@@ -8,3 +8,7 @@ func (i *jsiiProxy_IReportGroup) validateGrantWriteParameters(identity awsiam.IG
 	return nil
 }
 
+func (i *jsiiProxy_IReportGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

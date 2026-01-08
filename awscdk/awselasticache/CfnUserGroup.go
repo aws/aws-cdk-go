@@ -21,7 +21,7 @@ import (
 //   cfnUserGroup := awscdk.Aws_elasticache.NewCfnUserGroup(this, jsii.String("MyCfnUserGroup"), &CfnUserGroupProps{
 //   	Engine: jsii.String("engine"),
 //   	UserGroupId: jsii.String("userGroupId"),
-//   	UserIds: []interface{}{
+//   	UserIds: []*string{
 //   		jsii.String("userIds"),
 //   	},
 //

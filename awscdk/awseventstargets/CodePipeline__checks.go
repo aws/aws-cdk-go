@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 func (c *jsiiProxy_CodePipeline) validateBindParameters(rule awsevents.IRule) error {
@@ -19,7 +19,7 @@ func (c *jsiiProxy_CodePipeline) validateBindParameters(rule awsevents.IRule) er
 	return nil
 }
 
-func validateNewCodePipelineParameters(pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) error {
+func validateNewCodePipelineParameters(pipeline interfacesawscodepipeline.IPipelineRef, options *CodePipelineTargetOptions) error {
 	if pipeline == nil {
 		return fmt.Errorf("parameter pipeline is required, but nil was provided")
 	}

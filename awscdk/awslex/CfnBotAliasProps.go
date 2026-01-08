@@ -1,5 +1,8 @@
 package awslex
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnBotAlias`.
 //
@@ -31,7 +34,7 @@ package awslex
 //   			LocaleId: jsii.String("localeId"),
 //   		},
 //   	},
-//   	BotAliasTags: []interface{}{
+//   	BotAliasTags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
@@ -93,7 +96,7 @@ type CfnBotAliasProps struct {
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliastags
 	//
-	BotAliasTags interface{} `field:"optional" json:"botAliasTags" yaml:"botAliasTags"`
+	BotAliasTags *[]*awscdk.CfnTag `field:"optional" json:"botAliasTags" yaml:"botAliasTags"`
 	// The version of the bot that the bot alias references.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botversion
 	//

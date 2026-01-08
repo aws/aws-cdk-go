@@ -8,7 +8,7 @@ func validateMonitor_FromCfnMonitorsPropertyParameters(monitorsProperty *CfnEnvi
 	return nil
 }
 
-func validateMonitor_FromCloudWatchAlarmParameters(alarm awscloudwatch.IAlarm) error {
+func validateMonitor_FromCloudWatchAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef) error {
 	return nil
 }
 

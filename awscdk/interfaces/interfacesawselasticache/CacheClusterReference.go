@@ -9,11 +9,11 @@ package interfacesawselasticache
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cacheClusterReference := &CacheClusterReference{
-//   	CacheClusterId: jsii.String("cacheClusterId"),
+//   	ClusterName: jsii.String("clusterName"),
 //   }
 //
 type CacheClusterReference struct {
-	// The Id of the CacheCluster resource.
-	CacheClusterId *string `field:"required" json:"cacheClusterId" yaml:"cacheClusterId"`
+	// The ClusterName of the CacheCluster resource.
+	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 }
 

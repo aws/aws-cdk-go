@@ -9,11 +9,11 @@ package interfacesawscodedeploy
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   deploymentGroupReference := &DeploymentGroupReference{
-//   	DeploymentGroupId: jsii.String("deploymentGroupId"),
+//   	DeploymentGroupName: jsii.String("deploymentGroupName"),
 //   }
 //
 type DeploymentGroupReference struct {
-	// The Id of the DeploymentGroup resource.
-	DeploymentGroupId *string `field:"required" json:"deploymentGroupId" yaml:"deploymentGroupId"`
+	// The DeploymentGroupName of the DeploymentGroup resource.
+	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 }
 

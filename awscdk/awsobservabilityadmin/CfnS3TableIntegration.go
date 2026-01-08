@@ -54,7 +54,7 @@ type CfnS3TableIntegration interface {
 	awscdk.IInspectable
 	interfacesawsobservabilityadmin.IS3TableIntegrationRef
 	awscdk.ITaggableV2
-	// The ARN of the S3 Table Integration.
+	// The Amazon Resource Name (ARN) of the S3 Table integration.
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -81,7 +81,7 @@ type CfnS3TableIntegration interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The CloudWatch Logs data sources to associate with the S3 Table Integration.
+	// A data source with an S3 Table integration for query access in the `logs` namespace.
 	LogSources() interface{}
 	SetLogSources(val interface{})
 	// The tree node.
@@ -91,7 +91,7 @@ type CfnS3TableIntegration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The ARN of the role used to access the S3 Table Integration.
+	// The Amazon Resource Name (ARN) of the IAM role that grants permissions for the S3 Table integration to access necessary resources.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// A reference to a S3TableIntegration resource.
@@ -100,7 +100,7 @@ type CfnS3TableIntegration interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The key-value pairs to associate with the S3 Table integration resource for categorization and management purposes.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

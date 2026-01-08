@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::VPNConcentrator.
+// Describes a VPN concentrator.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -4,10 +4,10 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsschedulertargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 // Use an AWS CodePipeline pipeline as a target for AWS EventBridge Scheduler.
@@ -52,7 +52,7 @@ func (j *jsiiProxy_CodePipelineStartPipelineExecution) TargetArn() *string {
 }
 
 
-func NewCodePipelineStartPipelineExecution(pipeline awscodepipeline.IPipeline, props *ScheduleTargetBaseProps) CodePipelineStartPipelineExecution {
+func NewCodePipelineStartPipelineExecution(pipeline interfacesawscodepipeline.IPipelineRef, props *ScheduleTargetBaseProps) CodePipelineStartPipelineExecution {
 	_init_.Initialize()
 
 	if err := validateNewCodePipelineStartPipelineExecutionParameters(pipeline, props); err != nil {
@@ -69,7 +69,7 @@ func NewCodePipelineStartPipelineExecution(pipeline awscodepipeline.IPipeline, p
 	return &j
 }
 
-func NewCodePipelineStartPipelineExecution_Override(c CodePipelineStartPipelineExecution, pipeline awscodepipeline.IPipeline, props *ScheduleTargetBaseProps) {
+func NewCodePipelineStartPipelineExecution_Override(c CodePipelineStartPipelineExecution, pipeline interfacesawscodepipeline.IPipelineRef, props *ScheduleTargetBaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

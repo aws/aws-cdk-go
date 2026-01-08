@@ -8,3 +8,7 @@ func (i *jsiiProxy_IProduct) validateAssociateTagOptionsParameters(tagOptions Ta
 	return nil
 }
 
+func (i *jsiiProxy_IProduct) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

@@ -14,8 +14,12 @@ import (
 //   cfnContactFlowModuleMixinProps := &CfnContactFlowModuleMixinProps{
 //   	Content: jsii.String("content"),
 //   	Description: jsii.String("description"),
+//   	ExternalInvocationConfiguration: &ExternalInvocationConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
+//   	Settings: jsii.String("settings"),
 //   	State: jsii.String("state"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -36,6 +40,10 @@ type CfnContactFlowModuleMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The external invocation configuration for the flow module.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-externalinvocationconfiguration
+	//
+	ExternalInvocationConfiguration interface{} `field:"optional" json:"externalInvocationConfiguration" yaml:"externalInvocationConfiguration"`
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-instancearn
 	//
@@ -44,6 +52,10 @@ type CfnContactFlowModuleMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The configuration settings for the flow module.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-settings
+	//
+	Settings *string `field:"optional" json:"settings" yaml:"settings"`
 	// The state of the flow module.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-state
 	//

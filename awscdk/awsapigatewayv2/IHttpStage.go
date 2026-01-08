@@ -3,11 +3,16 @@ package awsapigatewayv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents the HttpStage.
 type IHttpStage interface {
+	IHttpStageRef
 	IStage
 	// Metric for the number of client-side errors captured in a given period.
 	// Default: - sum over 5 minutes.
@@ -43,6 +48,7 @@ type IHttpStage interface {
 
 // The jsii proxy for IHttpStage
 type jsiiProxy_IHttpStage struct {
+	jsiiProxy_IHttpStageRef
 	jsiiProxy_IStage
 }
 
@@ -142,6 +148,44 @@ func (i *jsiiProxy_IHttpStage) MetricServerError(props *awscloudwatch.MetricOpti
 	return returns
 }
 
+func (i *jsiiProxy_IHttpStage) AddStageVariable(name *string, value *string) {
+	if err := i.validateAddStageVariableParameters(name, value); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"addStageVariable",
+		[]interface{}{name, value},
+	)
+}
+
+func (i *jsiiProxy_IHttpStage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (i *jsiiProxy_IHttpStage) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IHttpStage) Api() IHttpApi {
 	var returns IHttpApi
 	_jsii_.Get(
@@ -157,6 +201,76 @@ func (j *jsiiProxy_IHttpStage) DomainUrl() *string {
 	_jsii_.Get(
 		j,
 		"domainUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) IsHttpStage() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isHttpStage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) StageName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stageName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) StageRef() *interfacesawsapigatewayv2.StageReference {
+	var returns *interfacesawsapigatewayv2.StageReference
+	_jsii_.Get(
+		j,
+		"stageRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpStage) Url() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"url",
 		&returns,
 	)
 	return returns

@@ -154,6 +154,7 @@ import (
 //   				},
 //   				Placement: &SpotPlacementProperty{
 //   					AvailabilityZone: jsii.String("availabilityZone"),
+//   					AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   					GroupName: jsii.String("groupName"),
 //   					Tenancy: jsii.String("tenancy"),
 //   				},
@@ -190,6 +191,7 @@ import (
 //   				Overrides: []interface{}{
 //   					&LaunchTemplateOverridesProperty{
 //   						AvailabilityZone: jsii.String("availabilityZone"),
+//   						AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   						InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   							AcceleratorCount: &AcceleratorCountRequestProperty{
 //   								Max: jsii.Number(123),

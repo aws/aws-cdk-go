@@ -160,6 +160,10 @@ func init() {
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AdConditioningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationPropsMixin.AdDecisionServerConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AdDecisionServerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationPropsMixin.AdMarkerPassthroughProperty",
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AdMarkerPassthroughProperty)(nil)).Elem(),
 	)
@@ -186,6 +190,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationPropsMixin.HlsConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_HlsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationPropsMixin.HttpRequestProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_HttpRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationPropsMixin.LivePreRollConfigurationProperty",

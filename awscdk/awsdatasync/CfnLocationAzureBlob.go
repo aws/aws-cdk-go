@@ -96,14 +96,14 @@ type CfnLocationAzureBlob interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
 	CmkSecretConfig() interface{}
 	SetCmkSecretConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text.
+	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab).
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment

@@ -9,11 +9,11 @@ package interfacesawselasticloadbalancing
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   loadBalancerReference := &LoadBalancerReference{
-//   	LoadBalancerId: jsii.String("loadBalancerId"),
+//   	LoadBalancerName: jsii.String("loadBalancerName"),
 //   }
 //
 type LoadBalancerReference struct {
-	// The Id of the LoadBalancer resource.
-	LoadBalancerId *string `field:"required" json:"loadBalancerId" yaml:"loadBalancerId"`
+	// The LoadBalancerName of the LoadBalancer resource.
+	LoadBalancerName *string `field:"required" json:"loadBalancerName" yaml:"loadBalancerName"`
 }
 

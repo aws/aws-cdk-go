@@ -4,9 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
 // Start a CodeBuild build when an Amazon EventBridge rule is triggered.
@@ -44,7 +44,7 @@ type jsiiProxy_CodeBuildProject struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectProps) CodeBuildProject {
+func NewCodeBuildProject(project interfacesawscodebuild.IProjectRef, props *CodeBuildProjectProps) CodeBuildProject {
 	_init_.Initialize()
 
 	if err := validateNewCodeBuildProjectParameters(project, props); err != nil {
@@ -61,7 +61,7 @@ func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectP
 	return &j
 }
 
-func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProject, props *CodeBuildProjectProps) {
+func NewCodeBuildProject_Override(c CodeBuildProject, project interfacesawscodebuild.IProjectRef, props *CodeBuildProjectProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

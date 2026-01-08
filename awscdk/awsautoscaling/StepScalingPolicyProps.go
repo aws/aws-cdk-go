@@ -3,6 +3,7 @@ package awsautoscaling
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 )
 
 // Example:
@@ -11,12 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var metric Metric
 //
 //   stepScalingPolicyProps := &StepScalingPolicyProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	Metric: metric,
 //   	ScalingSteps: []ScalingInterval{
 //   		&ScalingInterval{
@@ -93,6 +95,6 @@ type StepScalingPolicyProps struct {
 	//
 	MinAdjustmentMagnitude *float64 `field:"optional" json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// The auto scaling group.
-	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
+	AutoScalingGroup interfacesawsautoscaling.IAutoScalingGroupRef `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 

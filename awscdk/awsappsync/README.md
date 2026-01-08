@@ -815,7 +815,7 @@ pipelineResolver := appsync.NewResolver(this, jsii.String("pipeline"), &Resolver
 	TypeName: jsii.String("typeName"),
 	FieldName: jsii.String("fieldName"),
 	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
-	PipelineConfig: []IAppsyncFunction{
+	PipelineConfig: []IFunctionConfigurationRef{
 		appsyncFunction,
 	},
 	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),
@@ -855,7 +855,7 @@ appsync.NewResolver(this, jsii.String("PipelineResolver"), &ResolverProps{
 	    }
 	  `)),
 	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
-	PipelineConfig: []IAppsyncFunction{
+	PipelineConfig: []IFunctionConfigurationRef{
 		myJsFunction,
 	},
 })

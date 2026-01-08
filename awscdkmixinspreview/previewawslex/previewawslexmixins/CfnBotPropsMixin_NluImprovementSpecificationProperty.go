@@ -11,17 +11,35 @@ package previewawslexmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   nluImprovementSpecificationProperty := &NluImprovementSpecificationProperty{
+//   	AssistedNluMode: jsii.String("assistedNluMode"),
 //   	Enabled: jsii.Boolean(false),
+//   	IntentDisambiguationSettings: &IntentDisambiguationSettingsProperty{
+//   		CustomDisambiguationMessage: jsii.String("customDisambiguationMessage"),
+//   		Enabled: jsii.Boolean(false),
+//   		MaxDisambiguationIntents: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-nluimprovementspecification.html
 //
 type CfnBotPropsMixin_NluImprovementSpecificationProperty struct {
+	// Specifies the mode for Assisted NLU operation.
+	//
+	// Use `Primary` to make Assisted NLU the primary intent recognition method, or `Fallback` to use it only when standard NLU confidence is low.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-nluimprovementspecification.html#cfn-lex-bot-nluimprovementspecification-assistednlumode
+	//
+	AssistedNluMode *string `field:"optional" json:"assistedNluMode" yaml:"assistedNluMode"`
 	// Determines whether the Assisted NLU feature is enabled for the bot.
 	//
 	// When set to `true` , Amazon Lex uses advanced models to improve intent recognition and slot resolution, with the default being `false` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-nluimprovementspecification.html#cfn-lex-bot-nluimprovementspecification-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// An object containing specifications for the Intent Disambiguation feature within the Assisted NLU settings.
+	//
+	// These settings determine how the bot handles ambiguous user inputs that could match multiple intents.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-nluimprovementspecification.html#cfn-lex-bot-nluimprovementspecification-intentdisambiguationsettings
+	//
+	IntentDisambiguationSettings interface{} `field:"optional" json:"intentDisambiguationSettings" yaml:"intentDisambiguationSettings"`
 }
 

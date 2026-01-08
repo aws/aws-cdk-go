@@ -32,7 +32,7 @@ type CfnChannel_ChannelStorageProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html#cfn-iotanalytics-channel-channelstorage-customermanageds3
 	//
 	CustomerManagedS3 interface{} `field:"optional" json:"customerManagedS3" yaml:"customerManagedS3"`
-	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics .
+	// Used to store channel data in an S3 bucket managed by ITA .
 	//
 	// You can't change the choice of S3 storage after the data store is created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-channelstorage.html#cfn-iotanalytics-channel-channelstorage-servicemanageds3

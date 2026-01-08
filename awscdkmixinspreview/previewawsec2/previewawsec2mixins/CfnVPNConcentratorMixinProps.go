@@ -29,7 +29,7 @@ type CfnVPNConcentratorMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The ID of the transit gateway.
+	// The ID of the transit gateway associated with the VPN concentrator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-transitgatewayid
 	//
 	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`

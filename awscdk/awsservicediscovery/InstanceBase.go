@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,6 +26,8 @@ type InstanceBase interface {
 	Env() *interfaces.ResourceEnvironment
 	// The Id of the instance.
 	InstanceId() *string
+	// A reference to a Instance resource.
+	InstanceRef() *interfacesawsservicediscovery.InstanceReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -90,6 +93,16 @@ func (j *jsiiProxy_InstanceBase) InstanceId() *string {
 	_jsii_.Get(
 		j,
 		"instanceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_InstanceBase) InstanceRef() *interfacesawsservicediscovery.InstanceReference {
+	var returns *interfacesawsservicediscovery.InstanceReference
+	_jsii_.Get(
+		j,
+		"instanceRef",
 		&returns,
 	)
 	return returns

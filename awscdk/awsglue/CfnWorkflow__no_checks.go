@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnWorkflow) validateValidatePropertiesParameters(_properties
 	return nil
 }
 
+func validateCfnWorkflow_ArnForWorkflowParameters(resource interfacesawsglue.IWorkflowRef) error {
+	return nil
+}
+
+func validateCfnWorkflow_FromWorkflowNameParameters(scope constructs.Construct, id *string, workflowName *string) error {
+	return nil
+}
+
 func validateCfnWorkflow_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -1,5 +1,8 @@
 package awsefs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
+)
 
 // Attributes that can be specified when importing an AccessPoint.
 //
@@ -24,6 +27,6 @@ type AccessPointAttributes struct {
 	// The EFS file system.
 	// Default: - no EFS file system.
 	//
-	FileSystem IFileSystem `field:"optional" json:"fileSystem" yaml:"fileSystem"`
+	FileSystem interfacesawsefs.IFileSystemRef `field:"optional" json:"fileSystem" yaml:"fileSystem"`
 }
 

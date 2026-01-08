@@ -11,7 +11,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines.
+// Creates a telemetry pipeline for processing and transforming telemetry data.
+//
+// The pipeline defines how data flows from sources through processors to destinations, enabling data transformation and delivering capabilities.
+//
+// **Using CloudWatch as a pipeline source** The following is an example of a `Body` property value for the `Configuration` object. { "Type": "AWS::ObservabilityAdmin::TelemetryPipelines", "Properties": { "Configuration": { "Body": "pipeline:\n source:\n cloudwatch_logs:\n log_event_metadata:\n data_source_name: \"my_data_source\"\n data_source_type: \"default\"\n aws:\n sts_role_arn: \"arn:aws:iam::123456789012:role/MyPipelineAccessRole\"\n processor:\n - parse_json: {}\n sink:\n - cloudwatch_logs:\n log_group: \"@original\"" } }
+// } Type: AWS::ObservabilityAdmin::TelemetryPipelines
+// Properties: Configuration: Body: | pipeline: source: cloudwatch_logs: log_event_metadata: data_source_name: "my_data_source" data_source_type: "default" aws: sts_role_arn: "arn:aws:iam::123456789012:role/MyPipelineAccessRole" processor: - parse_json: {} sink: - cloudwatch_logs: log_group: "@original" **Using Amazon S3 as a pipeline source** The following is an example of a `Body` property value for the `Configuration` object. { "Type": "AWS::ObservabilityAdmin::TelemetryPipelines", "Properties": { "Configuration": { "Body": "pipeline:\n source:\n s3:\n sqs:\n visibility_timeout: \"PT60S\"\n visibility_duplication_protection: true\n maximum_messages: 10\n queue_url: \"https://sqs.us-east-1.amazonaws.com/123456789012/my-sqs-queue\"\n notification_type: \"sqs\"\n codec:\n ndjson: {}\n aws:\n region: \"us-east-1\"\n sts_role_arn: \"arn:aws:iam::123456789012:role/MyAccessRole\"\n data_source_name: \"crowdstrike_falcon\"\n processor:\n - ocsf:\n version: \"1.5\"\n mapping_version: \"1.5.0\"\n schema:\n crowdstrike_falcon:\n sink:\n - cloudwatch_logs:\n log_group: \"my-log-group\"" } }
+// } Type: AWS::ObservabilityAdmin::TelemetryPipelines
+// Properties: Configuration: Body: | pipeline: source: s3: sqs: visibility_timeout: "PT60S" visibility_duplication_protection: true maximum_messages: 10 queue_url: "https://sqs.us-east-1.amazonaws.com/123456789012/my-sqs-queue" notification_type: "sqs" codec: ndjson: {} aws: region: "us-east-1" sts_role_arn: "arn:aws:iam::123456789012:role/MyAccessRole" data_source_name: "crowdstrike_falcon" processor: - ocsf: version: "1.5" mapping_version: "1.5.0" schema: crowdstrike_falcon: sink: - cloudwatch_logs: log_group: "my-log-group"
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -40,9 +48,12 @@ type CfnTelemetryPipelines interface {
 	awscdk.IInspectable
 	interfacesawsobservabilityadmin.ITelemetryPipelinesRef
 	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the created telemetry pipeline.
 	AttrArn() *string
 	AttrPipeline() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
 	AttrPipelineIdentifier() *string
+	// The current status of the telemetry pipeline.
 	AttrStatus() *string
 	AttrStatusReason() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
@@ -52,6 +63,7 @@ type CfnTelemetryPipelines interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations.
 	Configuration() interface{}
 	SetConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -69,6 +81,7 @@ type CfnTelemetryPipelines interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The name of the telemetry pipeline to create.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
@@ -82,7 +95,7 @@ type CfnTelemetryPipelines interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// An array of key-value pairs to apply to this resource.
+	// The key-value pairs to associate with the telemetry pipeline resource for categorization and management purposes.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// A reference to a TelemetryPipelines resource.

@@ -590,6 +590,10 @@ func init() {
 		reflect.TypeOf((*CfnAssistantAssociation_AssociationDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociation.ExternalBedrockKnowledgeBaseConfigProperty",
+		reflect.TypeOf((*CfnAssistantAssociation_ExternalBedrockKnowledgeBaseConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAssistantAssociationProps",
 		reflect.TypeOf((*CfnAssistantAssociationProps)(nil)).Elem(),
 	)

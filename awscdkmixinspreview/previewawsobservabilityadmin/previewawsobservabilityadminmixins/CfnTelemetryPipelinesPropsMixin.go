@@ -10,7 +10,15 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines.
+// Creates a telemetry pipeline for processing and transforming telemetry data.
+//
+// The pipeline defines how data flows from sources through processors to destinations, enabling data transformation and delivering capabilities.
+//
+// **Using CloudWatch as a pipeline source** The following is an example of a `Body` property value for the `Configuration` object. { "Type": "AWS::ObservabilityAdmin::TelemetryPipelines", "Properties": { "Configuration": { "Body": "pipeline:\n source:\n cloudwatch_logs:\n log_event_metadata:\n data_source_name: \"my_data_source\"\n data_source_type: \"default\"\n aws:\n sts_role_arn: \"arn:aws:iam::123456789012:role/MyPipelineAccessRole\"\n processor:\n - parse_json: {}\n sink:\n - cloudwatch_logs:\n log_group: \"@original\"" } }
+// } Type: AWS::ObservabilityAdmin::TelemetryPipelines
+// Properties: Configuration: Body: | pipeline: source: cloudwatch_logs: log_event_metadata: data_source_name: "my_data_source" data_source_type: "default" aws: sts_role_arn: "arn:aws:iam::123456789012:role/MyPipelineAccessRole" processor: - parse_json: {} sink: - cloudwatch_logs: log_group: "@original" **Using Amazon S3 as a pipeline source** The following is an example of a `Body` property value for the `Configuration` object. { "Type": "AWS::ObservabilityAdmin::TelemetryPipelines", "Properties": { "Configuration": { "Body": "pipeline:\n source:\n s3:\n sqs:\n visibility_timeout: \"PT60S\"\n visibility_duplication_protection: true\n maximum_messages: 10\n queue_url: \"https://sqs.us-east-1.amazonaws.com/123456789012/my-sqs-queue\"\n notification_type: \"sqs\"\n codec:\n ndjson: {}\n aws:\n region: \"us-east-1\"\n sts_role_arn: \"arn:aws:iam::123456789012:role/MyAccessRole\"\n data_source_name: \"crowdstrike_falcon\"\n processor:\n - ocsf:\n version: \"1.5\"\n mapping_version: \"1.5.0\"\n schema:\n crowdstrike_falcon:\n sink:\n - cloudwatch_logs:\n log_group: \"my-log-group\"" } }
+// } Type: AWS::ObservabilityAdmin::TelemetryPipelines
+// Properties: Configuration: Body: | pipeline: source: s3: sqs: visibility_timeout: "PT60S" visibility_duplication_protection: true maximum_messages: 10 queue_url: "https://sqs.us-east-1.amazonaws.com/123456789012/my-sqs-queue" notification_type: "sqs" codec: ndjson: {} aws: region: "us-east-1" sts_role_arn: "arn:aws:iam::123456789012:role/MyAccessRole" data_source_name: "crowdstrike_falcon" processor: - ocsf: version: "1.5" mapping_version: "1.5.0" schema: crowdstrike_falcon: sink: - cloudwatch_logs: log_group: "my-log-group"
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

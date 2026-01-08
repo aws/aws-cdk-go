@@ -200,7 +200,7 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	KubernetesNamespace *string `field:"required" json:"kubernetesNamespace" yaml:"kubernetesNamespace"`
 	// The allocation strategy to use if not enough instances of the best fitting instance type can be allocated.
 	// Default: - `BEST_FIT_PROGRESSIVE` if not using Spot instances,
-	// `SPOT_CAPACITY_OPTIMIZED` if using Spot instances.
+	// `SPOT_PRICE_CAPACITY_OPTIMIZED` if using Spot instances.
 	//
 	AllocationStrategy AllocationStrategy `field:"optional" json:"allocationStrategy" yaml:"allocationStrategy"`
 	// Use batch's default instance types.

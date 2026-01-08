@@ -2,8 +2,8 @@ package awsstepfunctionstasks
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 )
 
 // Properties for DynamoPutItem Task.
@@ -138,7 +138,7 @@ type DynamoPutItemProps struct {
 	//
 	Item *map[string]DynamoAttributeValue `field:"required" json:"item" yaml:"item"`
 	// The name of the table where the item should be written .
-	Table awsdynamodb.ITable `field:"required" json:"table" yaml:"table"`
+	Table interfacesawsdynamodb.ITableRef `field:"required" json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional PutItem operation to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html#DDB-PutItem-request-ConditionExpression
 	//

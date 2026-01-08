@@ -13,6 +13,24 @@ package previewawsbedrockagentcoremixins
 //   	AllowedClients: []*string{
 //   		jsii.String("allowedClients"),
 //   	},
+//   	AllowedScopes: []*string{
+//   		jsii.String("allowedScopes"),
+//   	},
+//   	CustomClaims: []interface{}{
+//   		&CustomClaimValidationTypeProperty{
+//   			AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   				ClaimMatchOperator: jsii.String("claimMatchOperator"),
+//   				ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   					MatchValueString: jsii.String("matchValueString"),
+//   					MatchValueStringList: []*string{
+//   						jsii.String("matchValueStringList"),
+//   					},
+//   				},
+//   			},
+//   			InboundTokenClaimName: jsii.String("inboundTokenClaimName"),
+//   			InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
+//   		},
+//   	},
 //   	DiscoveryUrl: jsii.String("discoveryUrl"),
 //   }
 //
@@ -26,6 +44,12 @@ type CfnGatewayPropsMixin_CustomJWTAuthorizerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-allowedclients
 	//
 	AllowedClients *[]*string `field:"optional" json:"allowedClients" yaml:"allowedClients"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-allowedscopes
+	//
+	AllowedScopes *[]*string `field:"optional" json:"allowedScopes" yaml:"allowedScopes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-customclaims
+	//
+	CustomClaims interface{} `field:"optional" json:"customClaims" yaml:"customClaims"`
 	// The discovery URL for the authorizer configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-discoveryurl
 	//

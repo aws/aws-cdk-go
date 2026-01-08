@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,9 +24,22 @@ import (
 //   Step Scaling, so the Dynamo subclass won't expose this method).
 type BaseScalableAttribute interface {
 	constructs.Construct
+	interfacesawsapplicationautoscaling.IScalableTargetRef
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	Props() *BaseScalableAttributeProps
+	// A reference to a ScalableTarget resource.
+	ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference
 	// Scale out or in based on a metric value.
 	DoScaleOnMetric(id *string, props *BasicStepScalingPolicyProps)
 	// Scale out or in based on time.
@@ -38,6 +53,17 @@ type BaseScalableAttribute interface {
 // The jsii proxy struct for BaseScalableAttribute
 type jsiiProxy_BaseScalableAttribute struct {
 	internal.Type__constructsConstruct
+	internal.Type__interfacesawsapplicationautoscalingIScalableTargetRef
+}
+
+func (j *jsiiProxy_BaseScalableAttribute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_BaseScalableAttribute) Node() constructs.Node {
@@ -55,6 +81,16 @@ func (j *jsiiProxy_BaseScalableAttribute) Props() *BaseScalableAttributeProps {
 	_jsii_.Get(
 		j,
 		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BaseScalableAttribute) ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference {
+	var returns *interfacesawsapplicationautoscaling.ScalableTargetReference
+	_jsii_.Get(
+		j,
+		"scalableTargetRef",
 		&returns,
 	)
 	return returns

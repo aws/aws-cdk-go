@@ -8,7 +8,7 @@ func (a *jsiiProxy_AlbTarget) validateAttachToNetworkTargetGroupParameters(targe
 	return nil
 }
 
-func validateNewAlbTargetParameters(alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) error {
+func validateNewAlbTargetParameters(alb awselasticloadbalancingv2.IApplicationLoadBalancerRef, port *float64) error {
 	return nil
 }
 

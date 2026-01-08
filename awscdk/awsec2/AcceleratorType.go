@@ -9,14 +9,10 @@ package awsec2
 // inference chips for ML workloads).
 //
 // Example:
-//   var infrastructureRole Role
-//   var instanceProfile InstanceProfile
 //   var vpc Vpc
 //
 //
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-//   	InfrastructureRole: InfrastructureRole,
-//   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		// Required: CPU and memory constraints

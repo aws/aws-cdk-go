@@ -9,13 +9,10 @@ package interfacesawsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   serviceReference := &ServiceReference{
-//   	Cluster: jsii.String("cluster"),
 //   	ServiceArn: jsii.String("serviceArn"),
 //   }
 //
 type ServiceReference struct {
-	// The Cluster of the Service resource.
-	Cluster *string `field:"required" json:"cluster" yaml:"cluster"`
 	// The ServiceArn of the Service resource.
 	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
 }

@@ -27,7 +27,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html
 //
 type CfnVPNConcentratorProps struct {
-	// The ID of the transit gateway.
+	// The ID of the transit gateway associated with the VPN concentrator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-transitgatewayid
 	//
 	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`

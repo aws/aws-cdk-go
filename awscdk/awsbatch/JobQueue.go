@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,6 +77,8 @@ type JobQueue interface {
 	// It can be up to 128 letters long.
 	// It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	JobQueueName() *string
+	// A reference to a JobQueue resource.
+	JobQueueRef() *interfacesawsbatch.JobQueueReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -101,7 +104,7 @@ type JobQueue interface {
 	// Add a `ComputeEnvironment` to this Queue.
 	//
 	// The Queue will prefer lower-order `ComputeEnvironment`s.
-	AddComputeEnvironment(computeEnvironment IComputeEnvironment, order *float64)
+	AddComputeEnvironment(computeEnvironment interfacesawsbatch.IComputeEnvironmentRef, order *float64)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -181,6 +184,16 @@ func (j *jsiiProxy_JobQueue) JobQueueName() *string {
 	_jsii_.Get(
 		j,
 		"jobQueueName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_JobQueue) JobQueueRef() *interfacesawsbatch.JobQueueReference {
+	var returns *interfacesawsbatch.JobQueueReference
+	_jsii_.Get(
+		j,
+		"jobQueueRef",
 		&returns,
 	)
 	return returns
@@ -367,7 +380,7 @@ func JobQueue_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (j *jsiiProxy_JobQueue) AddComputeEnvironment(computeEnvironment IComputeEnvironment, order *float64) {
+func (j *jsiiProxy_JobQueue) AddComputeEnvironment(computeEnvironment interfacesawsbatch.IComputeEnvironmentRef, order *float64) {
 	if err := j.validateAddComputeEnvironmentParameters(computeEnvironment, order); err != nil {
 		panic(err)
 	}

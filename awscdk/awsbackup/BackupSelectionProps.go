@@ -2,6 +2,7 @@ package awsbackup
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 )
 
 // Properties for a BackupSelection.
@@ -11,13 +12,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var backupPlan BackupPlan
+//   var backupPlanRef IBackupPlanRef
 //   var backupResource BackupResource
 //   var role Role
 //
 //   backupSelectionProps := &BackupSelectionProps{
-//   	BackupPlan: backupPlan,
+//   	BackupPlan: backupPlanRef,
 //   	Resources: []BackupResource{
 //   		backupResource,
 //   	},
@@ -61,6 +63,6 @@ type BackupSelectionProps struct {
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The backup plan for this selection.
-	BackupPlan IBackupPlan `field:"required" json:"backupPlan" yaml:"backupPlan"`
+	BackupPlan interfacesawsbackup.IBackupPlanRef `field:"required" json:"backupPlan" yaml:"backupPlan"`
 }
 

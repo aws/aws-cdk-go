@@ -10,13 +10,10 @@ package interfacesawsappmesh
 //
 //   virtualServiceReference := &VirtualServiceReference{
 //   	VirtualServiceArn: jsii.String("virtualServiceArn"),
-//   	VirtualServiceId: jsii.String("virtualServiceId"),
 //   }
 //
 type VirtualServiceReference struct {
-	// The ARN of the VirtualService resource.
+	// The Arn of the VirtualService resource.
 	VirtualServiceArn *string `field:"required" json:"virtualServiceArn" yaml:"virtualServiceArn"`
-	// The Id of the VirtualService resource.
-	VirtualServiceId *string `field:"required" json:"virtualServiceId" yaml:"virtualServiceId"`
 }
 

@@ -12,7 +12,7 @@ func validateBackupResource_FromConstructParameters(construct constructs.Constru
 	return nil
 }
 
-func validateBackupResource_FromDynamoDbTableParameters(table awsdynamodb.ITable) error {
+func validateBackupResource_FromDynamoDbTableParameters(table interfacesawsdynamodb.ITableRef) error {
 	return nil
 }
 
@@ -20,7 +20,7 @@ func validateBackupResource_FromEc2InstanceParameters(instance interfacesawsec2.
 	return nil
 }
 
-func validateBackupResource_FromEfsFileSystemParameters(fileSystem awsefs.IFileSystem) error {
+func validateBackupResource_FromEfsFileSystemParameters(fileSystem interfacesawsefs.IFileSystemRef) error {
 	return nil
 }
 

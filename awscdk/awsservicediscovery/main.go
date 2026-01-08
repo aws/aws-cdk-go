@@ -18,6 +18,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
@@ -386,6 +387,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
@@ -460,6 +462,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceArn", GoGetter: "HttpNamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceId", GoGetter: "HttpNamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceName", GoGetter: "HttpNamespaceName"},
+			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceRef", GoGetter: "HttpNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceArn", GoGetter: "NamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceName", GoGetter: "NamespaceName"},
@@ -490,6 +493,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "httpNamespaceRef", GoGetter: "HttpNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceArn", GoGetter: "NamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceName", GoGetter: "NamespaceName"},
@@ -499,6 +503,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IHttpNamespace{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIHttpNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INamespace)
 			return &j
 		},
@@ -510,12 +515,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IInstance{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIInstanceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -549,12 +556,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceName", GoGetter: "NamespaceName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceRef", GoGetter: "PrivateDnsNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPrivateDnsNamespace{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INamespace)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIPrivateDnsNamespaceRef)
 			return &j
 		},
 	)
@@ -568,12 +577,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceName", GoGetter: "NamespaceName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceRef", GoGetter: "PublicDnsNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPublicDnsNamespace{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_INamespace)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIPublicDnsNamespaceRef)
 			return &j
 		},
 	)
@@ -591,11 +602,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceId", GoGetter: "ServiceId"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicediscoveryIServiceRef)
 			return &j
 		},
 	)
@@ -609,6 +622,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
@@ -633,6 +647,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv4", GoGetter: "Ipv4"},
 			_jsii_.MemberProperty{JsiiProperty: "ipv6", GoGetter: "Ipv6"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -676,6 +691,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceRef", GoGetter: "InstanceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "service", GoGetter: "Service"},
@@ -716,6 +732,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceArn", GoGetter: "PrivateDnsNamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceId", GoGetter: "PrivateDnsNamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceName", GoGetter: "PrivateDnsNamespaceName"},
+			_jsii_.MemberProperty{JsiiProperty: "privateDnsNamespaceRef", GoGetter: "PrivateDnsNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
@@ -754,6 +771,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceArn", GoGetter: "PublicDnsNamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceId", GoGetter: "PublicDnsNamespaceId"},
 			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceName", GoGetter: "PublicDnsNamespaceName"},
+			_jsii_.MemberProperty{JsiiProperty: "publicDnsNamespaceRef", GoGetter: "PublicDnsNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
@@ -803,6 +821,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceId", GoGetter: "ServiceId"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRef", GoGetter: "ServiceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

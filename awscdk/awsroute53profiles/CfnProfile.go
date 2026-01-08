@@ -43,7 +43,7 @@ type CfnProfile interface {
 	AttrClientToken() *string
 	// ID of the Profile.
 	AttrId() *string
-	// The sharing status of the profile.
+	// Sharing status for the Profile.
 	AttrShareStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

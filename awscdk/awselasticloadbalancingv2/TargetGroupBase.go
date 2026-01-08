@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -14,6 +16,8 @@ type TargetGroupBase interface {
 	ITargetGroup
 	// Default port configured for members of this target group.
 	DefaultPort() *float64
+	// The environment this resource belongs to.
+	Env() *interfaces.ResourceEnvironment
 	// Full name of first load balancer.
 	//
 	// This identifier is emitted as a dimensions of the metrics of this target
@@ -40,6 +44,8 @@ type TargetGroupBase interface {
 	TargetGroupLoadBalancerArns() *[]*string
 	// The name of the target group.
 	TargetGroupName() *string
+	// A reference to this target group.
+	TargetGroupRef() *interfacesawselasticloadbalancingv2.TargetGroupReference
 	// The types of the directly registered members of this target group.
 	TargetType() TargetType
 	SetTargetType(val TargetType)
@@ -68,6 +74,16 @@ func (j *jsiiProxy_TargetGroupBase) DefaultPort() *float64 {
 	_jsii_.Get(
 		j,
 		"defaultPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TargetGroupBase) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns
@@ -168,6 +184,16 @@ func (j *jsiiProxy_TargetGroupBase) TargetGroupName() *string {
 	_jsii_.Get(
 		j,
 		"targetGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TargetGroupBase) TargetGroupRef() *interfacesawselasticloadbalancingv2.TargetGroupReference {
+	var returns *interfacesawselasticloadbalancingv2.TargetGroupReference
+	_jsii_.Get(
+		j,
+		"targetGroupRef",
 		&returns,
 	)
 	return returns

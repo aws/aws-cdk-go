@@ -4,10 +4,13 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 )
 
 // Interface for scalable attributes.
 type IScalableTableAttribute interface {
+	interfacesawsapplicationautoscaling.IScalableTargetRef
 	// Add scheduled scaling for this scaling attribute.
 	ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in to keep utilization at a given level.
@@ -16,7 +19,7 @@ type IScalableTableAttribute interface {
 
 // The jsii proxy for IScalableTableAttribute
 type jsiiProxy_IScalableTableAttribute struct {
-	_ byte // padding
+	internal.Type__interfacesawsapplicationautoscalingIScalableTargetRef
 }
 
 func (i *jsiiProxy_IScalableTableAttribute) ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule) {

@@ -19,6 +19,7 @@ package awsec2
 //   	Overrides: []interface{}{
 //   		&LaunchTemplateOverridesProperty{
 //   			AvailabilityZone: jsii.String("availabilityZone"),
+//   			AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				AcceleratorCount: &AcceleratorCountRequestProperty{
 //   					Max: jsii.Number(123),

@@ -9,11 +9,11 @@ package interfacesawsroute53
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   recordSetReference := &RecordSetReference{
-//   	RecordSetId: jsii.String("recordSetId"),
+//   	RecordSetName: jsii.String("recordSetName"),
 //   }
 //
 type RecordSetReference struct {
-	// The Id of the RecordSet resource.
-	RecordSetId *string `field:"required" json:"recordSetId" yaml:"recordSetId"`
+	// The Name of the RecordSet resource.
+	RecordSetName *string `field:"required" json:"recordSetName" yaml:"recordSetName"`
 }
 

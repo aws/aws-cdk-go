@@ -164,38 +164,6 @@ func validateCfnJobDefinition_ArnForJobDefinitionParameters(resource interfacesa
 	return nil
 }
 
-func validateCfnJobDefinition_FromJobDefinitionArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnJobDefinition_FromJobDefinitionNameParameters(scope constructs.Construct, id *string, jobDefinitionName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if jobDefinitionName == nil {
-		return fmt.Errorf("parameter jobDefinitionName is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnJobDefinition_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

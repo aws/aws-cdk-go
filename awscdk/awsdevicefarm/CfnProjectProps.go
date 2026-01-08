@@ -16,6 +16,13 @@ import (
 //
 //   	// the properties below are optional
 //   	DefaultJobTimeoutMinutes: jsii.Number(123),
+//   	EnvironmentVariables: []interface{}{
+//   		&EnvironmentVariableProperty{
+//   			Name: jsii.String("name"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -46,6 +53,12 @@ type CfnProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-defaultjobtimeoutminutes
 	//
 	DefaultJobTimeoutMinutes *float64 `field:"optional" json:"defaultJobTimeoutMinutes" yaml:"defaultJobTimeoutMinutes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-environmentvariables
+	//
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-executionrolearn
+	//
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The tags to add to the resource.
 	//
 	// A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.

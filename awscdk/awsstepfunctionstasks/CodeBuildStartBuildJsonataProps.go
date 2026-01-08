@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
 // Properties for CodeBuildStartBuild using JSONata.
@@ -15,16 +16,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
 //   var outputs interface{}
-//   var project Project
+//   var projectRef IProjectRef
 //   var taskRole TaskRole
 //   var timeout Timeout
 //   var value interface{}
 //
 //   codeBuildStartBuildJsonataProps := &CodeBuildStartBuildJsonataProps{
-//   	Project: project,
+//   	Project: projectRef,
 //
 //   	// the properties below are optional
 //   	Assign: map[string]interface{}{
@@ -133,7 +135,7 @@ type CodeBuildStartBuildJsonataProps struct {
 	//
 	Outputs interface{} `field:"optional" json:"outputs" yaml:"outputs"`
 	// CodeBuild project to start.
-	Project awscodebuild.IProject `field:"required" json:"project" yaml:"project"`
+	Project interfacesawscodebuild.IProjectRef `field:"required" json:"project" yaml:"project"`
 	// A set of environment variables to be used for this build only.
 	// Default: - the latest environment variables already defined in the build project.
 	//

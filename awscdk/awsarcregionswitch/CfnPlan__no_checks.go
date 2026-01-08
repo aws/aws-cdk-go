@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnPlan) validateSetRegionsParameters(val *[]*string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlan) validateSetReportConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlan) validateSetTriggersParameters(val interface{}) error {
 	return nil
 }

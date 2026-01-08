@@ -4,9 +4,11 @@ package awscloudwatch
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
-func validateAlarmRule_FromAlarmParameters(alarm IAlarm, alarmState AlarmState) error {
+func validateAlarmRule_FromAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef, alarmState AlarmState) error {
 	if alarm == nil {
 		return fmt.Errorf("parameter alarm is required, but nil was provided")
 	}

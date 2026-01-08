@@ -71,6 +71,7 @@ import (
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
 //   	},
+//   	EndpointIpAddressType: jsii.String("endpointIpAddressType"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -88,6 +89,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	TrafficIpAddressType: jsii.String("trafficIpAddressType"),
 //   	TransportProtocol: jsii.String("transportProtocol"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpnPort: jsii.Number(123),
@@ -138,6 +140,9 @@ type CfnClientVpnEndpoint interface {
 	// Information about the DNS servers to be used for DNS resolution.
 	DnsServers() *[]*string
 	SetDnsServers(val *[]*string)
+	// The IP address type of the Client VPN endpoint.
+	EndpointIpAddressType() *string
+	SetEndpointIpAddressType(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -178,6 +183,9 @@ type CfnClientVpnEndpoint interface {
 	// The tags to apply to the Client VPN endpoint during creation.
 	TagSpecifications() interface{}
 	SetTagSpecifications(val interface{})
+	// The IP address type of the Client VPN endpoint.
+	TrafficIpAddressType() *string
+	SetTrafficIpAddressType(val *string)
 	// The transport protocol to be used by the VPN session.
 	TransportProtocol() *string
 	SetTransportProtocol(val *string)
@@ -484,6 +492,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) DnsServers() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) EndpointIpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endpointIpAddressType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -589,6 +607,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) TagSpecifications() interface{} {
 	_jsii_.Get(
 		j,
 		"tagSpecifications",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint) TrafficIpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"trafficIpAddressType",
 		&returns,
 	)
 	return returns
@@ -764,6 +792,14 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetDnsServers(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetEndpointIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"endpointIpAddressType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint)SetSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
@@ -817,6 +853,14 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetTagSpecifications(val interface{}) {
 	_jsii_.Set(
 		j,
 		"tagSpecifications",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetTrafficIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"trafficIpAddressType",
 		val,
 	)
 }

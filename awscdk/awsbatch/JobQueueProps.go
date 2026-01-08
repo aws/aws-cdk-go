@@ -1,5 +1,8 @@
 package awsbatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
+)
 
 // Props to configure a JobQueue.
 //
@@ -74,6 +77,6 @@ type JobQueueProps struct {
 	// Instructs the Scheduler how to schedule different jobs.
 	// Default: - no scheduling policy.
 	//
-	SchedulingPolicy ISchedulingPolicy `field:"optional" json:"schedulingPolicy" yaml:"schedulingPolicy"`
+	SchedulingPolicy interfacesawsbatch.ISchedulingPolicyRef `field:"optional" json:"schedulingPolicy" yaml:"schedulingPolicy"`
 }
 

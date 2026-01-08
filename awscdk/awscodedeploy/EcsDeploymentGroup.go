@@ -5,10 +5,10 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,7 +77,7 @@ type EcsDeploymentGroup interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Associates an additional alarm with this Deployment Group.
-	AddAlarm(alarm awscloudwatch.IAlarm)
+	AddAlarm(alarm interfacesawscloudwatch.IAlarmRef)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -337,7 +337,7 @@ func EcsDeploymentGroup_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (e *jsiiProxy_EcsDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
+func (e *jsiiProxy_EcsDeploymentGroup) AddAlarm(alarm interfacesawscloudwatch.IAlarmRef) {
 	if err := e.validateAddAlarmParameters(alarm); err != nil {
 		panic(err)
 	}

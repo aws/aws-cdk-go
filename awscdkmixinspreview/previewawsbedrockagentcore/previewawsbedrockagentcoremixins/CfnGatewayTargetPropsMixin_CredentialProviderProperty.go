@@ -17,6 +17,8 @@ package previewawsbedrockagentcoremixins
 //   		CustomParameters: map[string]*string{
 //   			"customParametersKey": jsii.String("customParameters"),
 //   		},
+//   		DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   		GrantType: jsii.String("grantType"),
 //   		ProviderArn: jsii.String("providerArn"),
 //   		Scopes: []*string{
 //   			jsii.String("scopes"),

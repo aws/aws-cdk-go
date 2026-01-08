@@ -9,11 +9,11 @@ package interfacesawscodepipeline
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   webhookReference := &WebhookReference{
-//   	WebhookId: jsii.String("webhookId"),
+//   	WebhookName: jsii.String("webhookName"),
 //   }
 //
 type WebhookReference struct {
-	// The Id of the Webhook resource.
-	WebhookId *string `field:"required" json:"webhookId" yaml:"webhookId"`
+	// The Name of the Webhook resource.
+	WebhookName *string `field:"required" json:"webhookName" yaml:"webhookName"`
 }
 

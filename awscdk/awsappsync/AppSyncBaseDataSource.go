@@ -14,6 +14,7 @@ import (
 // Do not use directly but use subclasses for concrete datasources.
 type AppSyncBaseDataSource interface {
 	constructs.Construct
+	// The API this data source is attached to Set the API this data source is attached to.
 	Api() IApi
 	SetApi(val IApi)
 	// The name of the data source.

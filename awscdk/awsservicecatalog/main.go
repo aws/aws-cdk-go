@@ -937,6 +937,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assetBuckets", GoGetter: "AssetBuckets"},
 			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProductRef", GoGetter: "CloudFormationProductRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1002,6 +1003,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "notifyOnStackEvents", GoMethod: "NotifyOnStackEvents"},
 			_jsii_.MemberProperty{JsiiProperty: "portfolioArn", GoGetter: "PortfolioArn"},
 			_jsii_.MemberProperty{JsiiProperty: "portfolioId", GoGetter: "PortfolioId"},
+			_jsii_.MemberProperty{JsiiProperty: "portfolioRef", GoGetter: "PortfolioRef"},
 			_jsii_.MemberMethod{JsiiMethod: "setLaunchRole", GoMethod: "SetLaunchRole"},
 			_jsii_.MemberMethod{JsiiMethod: "setLocalLaunchRole", GoMethod: "SetLocalLaunchRole"},
 			_jsii_.MemberMethod{JsiiMethod: "setLocalLaunchRoleName", GoMethod: "SetLocalLaunchRoleName"},
@@ -1010,6 +1012,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IPortfolio{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogIPortfolioRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1021,6 +1024,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assetBuckets", GoGetter: "AssetBuckets"},
 			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProductRef", GoGetter: "CloudFormationProductRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "productArn", GoGetter: "ProductArn"},
@@ -1029,6 +1033,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IProduct{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsservicecatalogICloudFormationProductRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1066,6 +1071,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "portfolioArn", GoGetter: "PortfolioArn"},
 			_jsii_.MemberProperty{JsiiProperty: "portfolioId", GoGetter: "PortfolioId"},
+			_jsii_.MemberProperty{JsiiProperty: "portfolioRef", GoGetter: "PortfolioRef"},
 			_jsii_.MemberMethod{JsiiMethod: "setLaunchRole", GoMethod: "SetLaunchRole"},
 			_jsii_.MemberMethod{JsiiMethod: "setLocalLaunchRole", GoMethod: "SetLocalLaunchRole"},
 			_jsii_.MemberMethod{JsiiMethod: "setLocalLaunchRoleName", GoMethod: "SetLocalLaunchRoleName"},
@@ -1095,6 +1101,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assetBuckets", GoGetter: "AssetBuckets"},
 			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFormationProductRef", GoGetter: "CloudFormationProductRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1127,6 +1134,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "bundlingRequired", GoGetter: "BundlingRequired"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberMethod{JsiiMethod: "exportStringListValue", GoMethod: "ExportStringListValue"},
 			_jsii_.MemberMethod{JsiiMethod: "exportValue", GoMethod: "ExportValue"},

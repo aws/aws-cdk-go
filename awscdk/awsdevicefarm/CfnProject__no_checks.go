@@ -88,6 +88,10 @@ func validateCfnProject_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetEnvironmentVariablesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProject) validateSetNameParameters(val *string) error {
 	return nil
 }

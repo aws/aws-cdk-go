@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnLoadBalancer) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
+func validateCfnLoadBalancer_ArnForLoadBalancerParameters(resource interfacesawselasticloadbalancing.ILoadBalancerRef) error {
+	return nil
+}
+
+func validateCfnLoadBalancer_FromLoadBalancerNameParameters(scope constructs.Construct, id *string, loadBalancerName *string) error {
+	return nil
+}
+
 func validateCfnLoadBalancer_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

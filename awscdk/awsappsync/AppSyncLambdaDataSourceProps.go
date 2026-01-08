@@ -3,6 +3,7 @@ package awsappsync
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // Properties for an AppSync Lambda datasource.
@@ -13,13 +14,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api IApi
+//   var apiRef IApiRef
 //   var function_ Function
 //   var role Role
 //
 //   appSyncLambdaDataSourceProps := &AppSyncLambdaDataSourceProps{
-//   	Api: api,
+//   	Api: apiRef,
 //   	LambdaFunction: function_,
 //
 //   	// the properties below are optional
@@ -30,7 +32,7 @@ import (
 //
 type AppSyncLambdaDataSourceProps struct {
 	// The API to attach this data source to.
-	Api IApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IApiRef `field:"required" json:"api" yaml:"api"`
 	// The description of the data source.
 	// Default: - None.
 	//

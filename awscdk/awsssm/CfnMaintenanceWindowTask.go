@@ -99,8 +99,7 @@ type CfnMaintenanceWindowTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsssm.IMaintenanceWindowTaskRef
-	AttrId() *string
-	// Unique identifier of the maintenance window task.
+	// The task ID.
 	AttrWindowTaskId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -322,16 +321,6 @@ type jsiiProxy_CfnMaintenanceWindowTask struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsssmIMaintenanceWindowTaskRef
-}
-
-func (j *jsiiProxy_CfnMaintenanceWindowTask) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindowTask) AttrWindowTaskId() *string {

@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnVPCEncryptionControl) validateValidatePropertiesParameters
 	return nil
 }
 
+func validateCfnVPCEncryptionControl_ArnForVPCEncryptionControlParameters(resource interfacesawsec2.IVPCEncryptionControlRef) error {
+	return nil
+}
+
+func validateCfnVPCEncryptionControl_FromVpcEncryptionControlIdParameters(scope constructs.Construct, id *string, vpcEncryptionControlId *string) error {
+	return nil
+}
+
 func validateCfnVPCEncryptionControl_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

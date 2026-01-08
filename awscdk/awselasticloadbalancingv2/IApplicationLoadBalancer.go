@@ -7,11 +7,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An application load balancer.
 type IApplicationLoadBalancer interface {
+	IApplicationLoadBalancerRef
 	awsec2.IConnectable
 	ILoadBalancerV2
 	// Add a new listener to this load balancer.
@@ -46,6 +48,7 @@ type IApplicationLoadBalancer interface {
 
 // The jsii proxy for IApplicationLoadBalancer
 type jsiiProxy_IApplicationLoadBalancer struct {
+	jsiiProxy_IApplicationLoadBalancerRef
 	internal.Type__awsec2IConnectable
 	jsiiProxy_ILoadBalancerV2
 }
@@ -147,6 +150,16 @@ func (j *jsiiProxy_IApplicationLoadBalancer) Env() *interfaces.ResourceEnvironme
 	return returns
 }
 
+func (j *jsiiProxy_IApplicationLoadBalancer) IsApplicationLoadBalancer() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isApplicationLoadBalancer",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IApplicationLoadBalancer) LoadBalancerCanonicalHostedZoneId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -162,6 +175,16 @@ func (j *jsiiProxy_IApplicationLoadBalancer) LoadBalancerDnsName() *string {
 	_jsii_.Get(
 		j,
 		"loadBalancerDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplicationLoadBalancer) LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference {
+	var returns *interfacesawselasticloadbalancingv2.LoadBalancerReference
+	_jsii_.Get(
+		j,
+		"loadBalancerRef",
 		&returns,
 	)
 	return returns

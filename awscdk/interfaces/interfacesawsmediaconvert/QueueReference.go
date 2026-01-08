@@ -10,13 +10,13 @@ package interfacesawsmediaconvert
 //
 //   queueReference := &QueueReference{
 //   	QueueArn: jsii.String("queueArn"),
-//   	QueueId: jsii.String("queueId"),
+//   	QueueName: jsii.String("queueName"),
 //   }
 //
 type QueueReference struct {
 	// The ARN of the Queue resource.
 	QueueArn *string `field:"required" json:"queueArn" yaml:"queueArn"`
-	// The Id of the Queue resource.
-	QueueId *string `field:"required" json:"queueId" yaml:"queueId"`
+	// The Name of the Queue resource.
+	QueueName *string `field:"required" json:"queueName" yaml:"queueName"`
 }
 

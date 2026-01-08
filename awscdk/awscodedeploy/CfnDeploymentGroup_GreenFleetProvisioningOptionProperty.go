@@ -18,7 +18,7 @@ type CfnDeploymentGroup_GreenFleetProvisioningOptionProperty struct {
 	// The method used to add instances to a replacement environment.
 	//
 	// - `DISCOVER_EXISTING` : Use instances that already exist or will be created manually.
-	// - `COPY_AUTO_SCALING_GROUP` : Use settings from a specified Amazon EC2 Auto Scaling group to define and create instances in a new Amazon EC2 Auto Scaling group.
+	// - `COPY_AUTO_SCALING_GROUP` : Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-greenfleetprovisioningoption.html#cfn-codedeploy-deploymentgroup-greenfleetprovisioningoption-action
 	//
 	Action *string `field:"optional" json:"action" yaml:"action"`

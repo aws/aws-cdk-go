@@ -16,7 +16,13 @@ package previewawsiotmixins
 //   			SigningRegion: jsii.String("signingRegion"),
 //   		},
 //   	},
+//   	BatchConfig: &BatchConfigProperty{
+//   		MaxBatchOpenMs: jsii.Number(123),
+//   		MaxBatchSize: jsii.Number(123),
+//   		MaxBatchSizeBytes: jsii.Number(123),
+//   	},
 //   	ConfirmationUrl: jsii.String("confirmationUrl"),
+//   	EnableBatching: jsii.Boolean(false),
 //   	Headers: []interface{}{
 //   		&HttpActionHeaderProperty{
 //   			Key: jsii.String("key"),
@@ -33,12 +39,18 @@ type CfnTopicRulePropsMixin_HttpActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
 	//
 	Auth interface{} `field:"optional" json:"auth" yaml:"auth"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-batchconfig
+	//
+	BatchConfig interface{} `field:"optional" json:"batchConfig" yaml:"batchConfig"`
 	// The URL to which AWS IoT sends a confirmation message.
 	//
 	// The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
 	//
 	ConfirmationUrl *string `field:"optional" json:"confirmationUrl" yaml:"confirmationUrl"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-enablebatching
+	//
+	EnableBatching interface{} `field:"optional" json:"enableBatching" yaml:"enableBatching"`
 	// The HTTP headers to send with the message data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
 	//

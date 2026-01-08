@@ -99,6 +99,14 @@ import (
 //   			Port: jsii.Number(123),
 //   			ServerName: jsii.String("serverName"),
 //   		},
+//   		SybaseAseSettings: &SybaseAseSettingsProperty{
+//   			CertificateArn: jsii.String("certificateArn"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			EncryptPassword: jsii.Boolean(false),
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//   		},
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

@@ -9,11 +9,11 @@ package interfacesawsdax
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   subnetGroupReference := &SubnetGroupReference{
-//   	SubnetGroupId: jsii.String("subnetGroupId"),
+//   	SubnetGroupName: jsii.String("subnetGroupName"),
 //   }
 //
 type SubnetGroupReference struct {
-	// The Id of the SubnetGroup resource.
-	SubnetGroupId *string `field:"required" json:"subnetGroupId" yaml:"subnetGroupId"`
+	// The SubnetGroupName of the SubnetGroup resource.
+	SubnetGroupName *string `field:"required" json:"subnetGroupName" yaml:"subnetGroupName"`
 }
 

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -25,7 +26,7 @@ import (
 type ApplicationScalingAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an ApplicationScaling StepScalingAction as an alarm action.
-	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for ApplicationScalingAction
@@ -60,7 +61,7 @@ func NewApplicationScalingAction_Override(a ApplicationScalingAction, stepScalin
 	)
 }
 
-func (a *jsiiProxy_ApplicationScalingAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (a *jsiiProxy_ApplicationScalingAction) Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig {
 	if err := a.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}

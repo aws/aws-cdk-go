@@ -9,11 +9,11 @@ package interfacesawsdax
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   parameterGroupReference := &ParameterGroupReference{
-//   	ParameterGroupId: jsii.String("parameterGroupId"),
+//   	ParameterGroupName: jsii.String("parameterGroupName"),
 //   }
 //
 type ParameterGroupReference struct {
-	// The Id of the ParameterGroup resource.
-	ParameterGroupId *string `field:"required" json:"parameterGroupId" yaml:"parameterGroupId"`
+	// The ParameterGroupName of the ParameterGroup resource.
+	ParameterGroupName *string `field:"required" json:"parameterGroupName" yaml:"parameterGroupName"`
 }
 

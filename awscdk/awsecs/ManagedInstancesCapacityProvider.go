@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,35 +17,18 @@ import (
 //
 // Example:
 //   var vpc Vpc
-//   var infrastructureRole Role
-//   var instanceProfile InstanceProfile
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   // Create a Managed Instances Capacity Provider
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-//   	InfrastructureRole: InfrastructureRole,
-//   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
-//   	SecurityGroups: []ISecurityGroup{
-//   		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
-//   			Vpc: *Vpc,
-//   		}),
-//   	},
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-//   		CpuManufacturers: []CpuManufacturer{
-//   			ec2.CpuManufacturer_INTEL,
-//   		},
-//   		AcceleratorManufacturers: []AcceleratorManufacturer{
-//   			ec2.AcceleratorManufacturer_NVIDIA,
-//   		},
 //   	},
-//   	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 //   })
 //
 //   // Optionally configure security group rules using IConnectable interface
@@ -82,8 +66,14 @@ type ManagedInstancesCapacityProvider interface {
 	awsec2.IConnectable
 	// Capacity provider name.
 	CapacityProviderName() *string
+	// The cluster this capacity provider is associated with.
+	Cluster() ICluster
 	// The network connections associated with this resource.
 	Connections() awsec2.Connections
+	// The EC2 instance profile attached to instances launched by this capacity provider.
+	Ec2InstanceProfile() awsiam.IInstanceProfile
+	// The IAM role that ECS uses to manage the infrastructure for the capacity provider.
+	InfrastructureRole() awsiam.IRole
 	// The tree node.
 	Node() constructs.Node
 	// Associates the capacity provider with the specified cluster.
@@ -110,11 +100,41 @@ func (j *jsiiProxy_ManagedInstancesCapacityProvider) CapacityProviderName() *str
 	return returns
 }
 
+func (j *jsiiProxy_ManagedInstancesCapacityProvider) Cluster() ICluster {
+	var returns ICluster
+	_jsii_.Get(
+		j,
+		"cluster",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ManagedInstancesCapacityProvider) Connections() awsec2.Connections {
 	var returns awsec2.Connections
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ManagedInstancesCapacityProvider) Ec2InstanceProfile() awsiam.IInstanceProfile {
+	var returns awsiam.IInstanceProfile
+	_jsii_.Get(
+		j,
+		"ec2InstanceProfile",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ManagedInstancesCapacityProvider) InfrastructureRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"infrastructureRole",
 		&returns,
 	)
 	return returns

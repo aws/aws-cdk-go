@@ -1,5 +1,8 @@
 package awselasticloadbalancingv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
+)
 
 // The mutual authentication configuration information.
 //
@@ -55,6 +58,6 @@ type MutualAuthentication struct {
 	// Cannot be used with MutualAuthenticationMode.OFF or MutualAuthenticationMode.PASS_THROUGH
 	// Default: - no trust store.
 	//
-	TrustStore ITrustStore `field:"optional" json:"trustStore" yaml:"trustStore"`
+	TrustStore interfacesawselasticloadbalancingv2.ITrustStoreRef `field:"optional" json:"trustStore" yaml:"trustStore"`
 }
 

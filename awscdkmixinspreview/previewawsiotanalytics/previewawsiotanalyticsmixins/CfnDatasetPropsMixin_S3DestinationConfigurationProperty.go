@@ -45,7 +45,7 @@ type CfnDatasetPropsMixin_S3DestinationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-key
 	//
 	Key *string `field:"optional" json:"key" yaml:"key"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

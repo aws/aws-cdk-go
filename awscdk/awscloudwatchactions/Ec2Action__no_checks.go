@@ -4,7 +4,7 @@ package awscloudwatchactions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (e *jsiiProxy_Ec2Action) validateBindParameters(scope constructs.Construct, alarm awscloudwatch.IAlarm) error {
+func (e *jsiiProxy_Ec2Action) validateBindParameters(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) error {
 	return nil
 }
 

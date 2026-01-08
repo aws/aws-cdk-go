@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SES::Tenant.
+// Create a tenant.
+//
+// *Tenants* are logical containers that group related SES resources together. Each tenant can have its own set of resources like email identities, configuration sets, and templates, along with reputation metrics and sending status. This helps isolate and manage email sending for different customers or business units within your Amazon SES API v2 account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

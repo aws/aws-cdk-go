@@ -1,7 +1,9 @@
 package awscloudfront
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // S3 origin configuration for CloudFront.
@@ -37,7 +39,7 @@ type S3OriginConfig struct {
 	// The optional Origin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
 	// Default: No Origin Access Identity which requires the S3 bucket to be public accessible.
 	//
-	OriginAccessIdentity IOriginAccessIdentity `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
+	OriginAccessIdentity interface{ interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef;awsiam.IGrantable } `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 	// Any additional headers to pass to the origin.
 	// Default: - No additional headers are passed.
 	//

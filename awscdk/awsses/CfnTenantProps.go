@@ -31,7 +31,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html
 //
 type CfnTenantProps struct {
-	// The name of the tenant.
+	// The name of a tenant.
+	//
+	// The name can contain up to 64 alphanumeric characters, including letters, numbers, hyphens (-) and underscores (_) only.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-tenantname
 	//
 	TenantName *string `field:"required" json:"tenantName" yaml:"tenantName"`
@@ -39,7 +41,7 @@ type CfnTenantProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-resourceassociations
 	//
 	ResourceAssociations interface{} `field:"optional" json:"resourceAssociations" yaml:"resourceAssociations"`
-	// The tags (keys and values) associated with the tenant.
+	// An array of objects that define the tags (keys and values) associated with the tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

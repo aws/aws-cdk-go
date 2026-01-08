@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,6 +45,8 @@ type AppsyncFunction interface {
 	Env() *interfaces.ResourceEnvironment
 	// the ARN of the AppSync function.
 	FunctionArn() *string
+	// A reference to a FunctionConfiguration resource.
+	FunctionConfigurationRef() *interfacesawsappsync.FunctionConfigurationReference
 	// the ID of the AppSync function.
 	FunctionId() *string
 	// the name of this AppSync Function.
@@ -119,6 +122,16 @@ func (j *jsiiProxy_AppsyncFunction) FunctionArn() *string {
 	_jsii_.Get(
 		j,
 		"functionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AppsyncFunction) FunctionConfigurationRef() *interfacesawsappsync.FunctionConfigurationReference {
+	var returns *interfacesawsappsync.FunctionConfigurationReference
+	_jsii_.Get(
+		j,
+		"functionConfigurationRef",
 		&returns,
 	)
 	return returns

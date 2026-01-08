@@ -7,11 +7,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Properties to reference an existing listener.
 type IApplicationListener interface {
+	IApplicationListenerRef
 	awsec2.IConnectable
 	IListener
 	// Perform the given action on incoming requests.
@@ -51,6 +53,7 @@ type IApplicationListener interface {
 
 // The jsii proxy for IApplicationListener
 type jsiiProxy_IApplicationListener struct {
+	jsiiProxy_IApplicationListenerRef
 	internal.Type__awsec2IConnectable
 	jsiiProxy_IListener
 }
@@ -146,11 +149,31 @@ func (j *jsiiProxy_IApplicationListener) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_IApplicationListener) IsApplicationListener() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isApplicationListener",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_IApplicationListener) ListenerArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"listenerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApplicationListener) ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference {
+	var returns *interfacesawselasticloadbalancingv2.ListenerReference
+	_jsii_.Get(
+		j,
+		"listenerRef",
 		&returns,
 	)
 	return returns

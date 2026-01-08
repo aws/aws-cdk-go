@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -99,6 +100,8 @@ type NestedStack interface {
 	BundlingRequired() *bool
 	// Return the stacks this stack depends on.
 	Dependencies() *[]Stack
+	// The environment this Stack deploys to.
+	Env() *interfaces.ResourceEnvironment
 	// The environment coordinates in which this stack is deployed.
 	//
 	// In the form
@@ -433,6 +436,16 @@ func (j *jsiiProxy_NestedStack) Dependencies() *[]Stack {
 	_jsii_.Get(
 		j,
 		"dependencies",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NestedStack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

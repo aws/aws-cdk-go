@@ -16,12 +16,13 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var schedule Schedule
 //
 //   scheduledAction := awscdk.Aws_autoscaling.NewScheduledAction(this, jsii.String("MyScheduledAction"), &ScheduledActionProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	Schedule: schedule,
 //
 //   	// the properties below are optional

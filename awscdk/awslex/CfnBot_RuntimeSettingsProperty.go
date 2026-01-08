@@ -11,6 +11,16 @@ package awslex
 //   runtimeSettingsProperty := &RuntimeSettingsProperty{
 //   	NluImprovementSpecification: &NluImprovementSpecificationProperty{
 //   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		AssistedNluMode: jsii.String("assistedNluMode"),
+//   		IntentDisambiguationSettings: &IntentDisambiguationSettingsProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			CustomDisambiguationMessage: jsii.String("customDisambiguationMessage"),
+//   			MaxDisambiguationIntents: jsii.Number(123),
+//   		},
 //   	},
 //   	SlotResolutionImprovementSpecification: &SlotResolutionImprovementSpecificationProperty{
 //   		Enabled: jsii.Boolean(false),

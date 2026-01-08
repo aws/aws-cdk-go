@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,13 +20,14 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var lifecycleHookTarget ILifecycleHookTarget
 //   var role Role
 //
 //   lifecycleHook := awscdk.Aws_autoscaling.NewLifecycleHook(this, jsii.String("MyLifecycleHook"), &LifecycleHookProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	LifecycleTransition: awscdk.*Aws_autoscaling.LifecycleTransition_INSTANCE_LAUNCHING,
 //
 //   	// the properties below are optional
@@ -52,6 +54,8 @@ type LifecycleHook interface {
 	Env() *interfaces.ResourceEnvironment
 	// The name of this lifecycle hook.
 	LifecycleHookName() *string
+	// A reference to a LifecycleHook resource.
+	LifecycleHookRef() *interfacesawsautoscaling.LifecycleHookReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -118,6 +122,16 @@ func (j *jsiiProxy_LifecycleHook) LifecycleHookName() *string {
 	_jsii_.Get(
 		j,
 		"lifecycleHookName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LifecycleHook) LifecycleHookRef() *interfacesawsautoscaling.LifecycleHookReference {
+	var returns *interfacesawsautoscaling.LifecycleHookReference
+	_jsii_.Get(
+		j,
+		"lifecycleHookRef",
 		&returns,
 	)
 	return returns

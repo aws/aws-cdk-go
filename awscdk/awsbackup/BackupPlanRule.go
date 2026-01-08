@@ -3,6 +3,8 @@ package awsbackup
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 )
 
 // A backup plan rule.
@@ -64,7 +66,7 @@ func NewBackupPlanRule_Override(b BackupPlanRule, props *BackupPlanRuleProps) {
 }
 
 // Daily with 35 days retention.
-func BackupPlanRule_Daily(backupVault IBackupVault) BackupPlanRule {
+func BackupPlanRule_Daily(backupVault interfacesawsbackup.IBackupVaultRef) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
@@ -80,7 +82,7 @@ func BackupPlanRule_Daily(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 1 year retention, move to cold storage after 1 month.
-func BackupPlanRule_Monthly1Year(backupVault IBackupVault) BackupPlanRule {
+func BackupPlanRule_Monthly1Year(backupVault interfacesawsbackup.IBackupVaultRef) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
@@ -96,7 +98,7 @@ func BackupPlanRule_Monthly1Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 5 year retention, move to cold storage after 3 months.
-func BackupPlanRule_Monthly5Year(backupVault IBackupVault) BackupPlanRule {
+func BackupPlanRule_Monthly5Year(backupVault interfacesawsbackup.IBackupVaultRef) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
@@ -112,7 +114,7 @@ func BackupPlanRule_Monthly5Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 7 year retention, move to cold storage after 3 months.
-func BackupPlanRule_Monthly7Year(backupVault IBackupVault) BackupPlanRule {
+func BackupPlanRule_Monthly7Year(backupVault interfacesawsbackup.IBackupVaultRef) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule
@@ -128,7 +130,7 @@ func BackupPlanRule_Monthly7Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Weekly with 3 months retention.
-func BackupPlanRule_Weekly(backupVault IBackupVault) BackupPlanRule {
+func BackupPlanRule_Weekly(backupVault interfacesawsbackup.IBackupVaultRef) BackupPlanRule {
 	_init_.Initialize()
 
 	var returns BackupPlanRule

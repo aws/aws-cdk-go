@@ -10,6 +10,7 @@ package previewawsec2mixins
 //
 //   spotPlacementProperty := &SpotPlacementProperty{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	GroupName: jsii.String("groupName"),
 //   	Tenancy: jsii.String("tenancy"),
 //   }
@@ -23,6 +24,9 @@ type CfnSpotFleetPropsMixin_SpotPlacementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzoneid
+	//
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// The name of the placement group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-groupname
 	//

@@ -15,6 +15,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,6 +64,8 @@ type GraphqlApi interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// A reference to a GraphQLApi resource.
+	GraphQlApiRef() *interfacesawsappsync.GraphQLApiReference
 	// The GraphQL endpoint ARN.
 	GraphQLEndpointArn() *string
 	// the URL of the endpoint created by AppSync.
@@ -203,6 +206,16 @@ func (j *jsiiProxy_GraphqlApi) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GraphqlApi) GraphQlApiRef() *interfacesawsappsync.GraphQLApiReference {
+	var returns *interfacesawsappsync.GraphQLApiReference
+	_jsii_.Get(
+		j,
+		"graphQlApiRef",
 		&returns,
 	)
 	return returns

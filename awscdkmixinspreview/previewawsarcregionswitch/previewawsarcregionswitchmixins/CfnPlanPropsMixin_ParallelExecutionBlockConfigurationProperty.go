@@ -43,6 +43,19 @@ package previewawsarcregionswitchmixins
 //   						Behavior: jsii.String("behavior"),
 //   					},
 //   				},
+//   				DocumentDbConfig: &DocumentDbConfigurationProperty{
+//   					Behavior: jsii.String("behavior"),
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					DatabaseClusterArns: []*string{
+//   						jsii.String("databaseClusterArns"),
+//   					},
+//   					ExternalId: jsii.String("externalId"),
+//   					GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   					TimeoutMinutes: jsii.Number(123),
+//   					Ungraceful: &DocumentDbUngracefulProperty{
+//   						Ungraceful: jsii.String("ungraceful"),
+//   					},
+//   				},
 //   				Ec2AsgCapacityIncreaseConfig: &Ec2AsgCapacityIncreaseConfigurationProperty{
 //   					Asgs: []interface{}{
 //   						&AsgProperty{

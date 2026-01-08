@@ -743,44 +743,6 @@ func CfnJobDefinition_ArnForJobDefinition(resource interfacesawsbatch.IJobDefini
 	return returns
 }
 
-// Creates a new IJobDefinitionRef from an ARN.
-func CfnJobDefinition_FromJobDefinitionArn(scope constructs.Construct, id *string, arn *string) interfacesawsbatch.IJobDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnJobDefinition_FromJobDefinitionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsbatch.IJobDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition",
-		"fromJobDefinitionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IJobDefinitionRef from a jobDefinitionName.
-func CfnJobDefinition_FromJobDefinitionName(scope constructs.Construct, id *string, jobDefinitionName *string) interfacesawsbatch.IJobDefinitionRef {
-	_init_.Initialize()
-
-	if err := validateCfnJobDefinition_FromJobDefinitionNameParameters(scope, id, jobDefinitionName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsbatch.IJobDefinitionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition",
-		"fromJobDefinitionName",
-		[]interface{}{scope, id, jobDefinitionName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

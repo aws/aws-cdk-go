@@ -3,6 +3,7 @@ package awscloudfrontorigins
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // Properties for configuring a Lambda Functions URLs with OAC.
@@ -112,6 +113,6 @@ type FunctionUrlOriginWithOACProps struct {
 	// An optional Origin Access Control.
 	// Default: - an Origin Access Control will be created.
 	//
-	OriginAccessControl awscloudfront.IOriginAccessControl `field:"optional" json:"originAccessControl" yaml:"originAccessControl"`
+	OriginAccessControl interfacesawscloudfront.IOriginAccessControlRef `field:"optional" json:"originAccessControl" yaml:"originAccessControl"`
 }
 

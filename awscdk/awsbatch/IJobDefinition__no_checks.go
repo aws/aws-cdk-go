@@ -8,3 +8,7 @@ func (i *jsiiProxy_IJobDefinition) validateAddRetryStrategyParameters(strategy R
 	return nil
 }
 
+func (i *jsiiProxy_IJobDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

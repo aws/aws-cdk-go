@@ -6,11 +6,11 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (a *jsiiProxy_ApplicationScalingAction) validateBindParameters(scope constructs.Construct, alarm awscloudwatch.IAlarm) error {
+func (a *jsiiProxy_ApplicationScalingAction) validateBindParameters(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

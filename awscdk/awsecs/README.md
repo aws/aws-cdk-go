@@ -1812,37 +1812,26 @@ Managed Instances Capacity Providers allow you to use AWS-managed EC2 instances 
 
 See [ECS documentation for Managed Instances Capacity Provider](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-capacity-providers-concept.html) for more documentation.
 
+#### IAM Roles Setup
+
+Managed instances require an infrastructure and an EC2 instance profile. You can either provide your own infrastructure role and/or instance profile, or let the construct create them automatically.
+
+Option 1: Let CDK create the role and instance profile automatically
+
 ```go
 var vpc Vpc
-var infrastructureRole Role
-var instanceProfile InstanceProfile
 
 
 cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	Vpc: Vpc,
 })
 
-// Create a Managed Instances Capacity Provider
 miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-	InfrastructureRole: InfrastructureRole,
-	Ec2InstanceProfile: instanceProfile,
 	Subnets: vpc.PrivateSubnets,
-	SecurityGroups: []ISecurityGroup{
-		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
-			Vpc: *Vpc,
-		}),
-	},
 	InstanceRequirements: &InstanceRequirementsConfig{
 		VCpuCountMin: jsii.Number(1),
 		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-		CpuManufacturers: []CpuManufacturer{
-			ec2.CpuManufacturer_INTEL,
-		},
-		AcceleratorManufacturers: []AcceleratorManufacturer{
-			ec2.AcceleratorManufacturer_NVIDIA,
-		},
 	},
-	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 })
 
 // Optionally configure security group rules using IConnectable interface
@@ -1876,17 +1865,90 @@ ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
 })
 ```
 
+Option 2: If you don't want to use the `AmazonECSInfrastructureRolePolicyForManagedInstances` managed policy for the ECS infrastructure role, you can create a custom infrastructure role with the required permissions. See [documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) for what permissions are needed for the ECS infrastructure role.
+
+You can also choose not to use the automatically created ec2InstanceProfile. See [ECS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) for what permissions are required for the profile's role.
+
+```go
+var vpc Vpc
+
+
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+// Add your custom policies to the role.
+customInstanceRole := iam.NewRole(this, jsii.String("CustomInstanceRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ec2.amazonaws.com")),
+})
+
+customInstanceProfile := iam.NewInstanceProfile(this, jsii.String("CustomInstanceProfile"), &InstanceProfileProps{
+	Role: customInstanceRole,
+})
+
+// Add your custom policies to the role.
+customInfrastructureRole := iam.NewRole(this, jsii.String("CustomInfrastructureRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("ecs.amazonaws.com")),
+})
+
+// Add PassRole permission to allow ECS to pass the instance role to EC2.
+customInfrastructureRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Effect: iam.Effect_ALLOW,
+	Actions: []*string{
+		jsii.String("iam:PassRole"),
+	},
+	Resources: []*string{
+		customInstanceRole.RoleArn,
+	},
+	Conditions: map[string]interface{}{
+		"StringEquals": map[string]*string{
+			"iam:PassedToService": jsii.String("ec2.amazonaws.com"),
+		},
+	},
+}))
+
+miCapacityProviderCustom := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProviderCustomRoles"), &ManagedInstancesCapacityProviderProps{
+	InfrastructureRole: customInfrastructureRole,
+	Ec2InstanceProfile: customInstanceProfile,
+	Subnets: vpc.PrivateSubnets,
+})
+
+// Add the capacity provider to the cluster
+cluster.AddManagedInstancesCapacityProvider(miCapacityProviderCustom)
+
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
+	MemoryMiB: jsii.String("512"),
+	Cpu: jsii.String("256"),
+	NetworkMode: ecs.NetworkMode_AWS_VPC,
+	Compatibility: ecs.Compatibility_MANAGED_INSTANCES,
+})
+
+taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+	MemoryReservationMiB: jsii.Number(256),
+})
+
+ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	MinHealthyPercent: jsii.Number(100),
+	CapacityProviderStrategies: []CapacityProviderStrategy{
+		&CapacityProviderStrategy{
+			CapacityProvider: miCapacityProviderCustom.CapacityProviderName,
+			Weight: jsii.Number(1),
+		},
+	},
+})
+```
+
 You can specify detailed instance requirements to control which types of instances are used:
 
 ```go
-var infrastructureRole Role
-var instanceProfile InstanceProfile
 var vpc Vpc
 
 
 miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-	InfrastructureRole: InfrastructureRole,
-	Ec2InstanceProfile: instanceProfile,
 	Subnets: vpc.PrivateSubnets,
 	InstanceRequirements: &InstanceRequirementsConfig{
 		// Required: CPU and memory constraints

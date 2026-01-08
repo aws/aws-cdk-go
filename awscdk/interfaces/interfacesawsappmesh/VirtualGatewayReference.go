@@ -10,13 +10,10 @@ package interfacesawsappmesh
 //
 //   virtualGatewayReference := &VirtualGatewayReference{
 //   	VirtualGatewayArn: jsii.String("virtualGatewayArn"),
-//   	VirtualGatewayId: jsii.String("virtualGatewayId"),
 //   }
 //
 type VirtualGatewayReference struct {
-	// The ARN of the VirtualGateway resource.
+	// The Arn of the VirtualGateway resource.
 	VirtualGatewayArn *string `field:"required" json:"virtualGatewayArn" yaml:"virtualGatewayArn"`
-	// The Id of the VirtualGateway resource.
-	VirtualGatewayId *string `field:"required" json:"virtualGatewayId" yaml:"virtualGatewayId"`
 }
 

@@ -97,6 +97,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	NetworkType: jsii.String("networkType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -169,6 +170,9 @@ type CfnConnector interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The network type of the connector.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies which plugin to use for the connector.
@@ -520,6 +524,16 @@ func (j *jsiiProxy_CfnConnector) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnector) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -732,6 +746,14 @@ func (j *jsiiProxy_CfnConnector)SetLogDelivery(val interface{}) {
 	_jsii_.Set(
 		j,
 		"logDelivery",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

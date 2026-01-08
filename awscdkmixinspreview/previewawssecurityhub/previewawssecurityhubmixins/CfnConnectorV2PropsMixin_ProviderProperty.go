@@ -9,15 +9,10 @@ package previewawssecurityhubmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   providerProperty := &ProviderProperty{
-//   	JiraCloud: &JiraCloudProperty{
-//   		AuthStatus: jsii.String("authStatus"),
-//   		AuthUrl: jsii.String("authUrl"),
-//   		CloudId: jsii.String("cloudId"),
-//   		Domain: jsii.String("domain"),
+//   	JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   		ProjectKey: jsii.String("projectKey"),
 //   	},
-//   	ServiceNow: &ServiceNowProperty{
-//   		AuthStatus: jsii.String("authStatus"),
+//   	ServiceNow: &ServiceNowProviderConfigurationProperty{
 //   		InstanceName: jsii.String("instanceName"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},

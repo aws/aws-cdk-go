@@ -2,6 +2,7 @@ package awsautoscaling
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 )
 
 // Properties for a scaling policy.
@@ -11,11 +12,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //
 //   stepScalingActionProps := &StepScalingActionProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.Aws_autoscaling.AdjustmentType_CHANGE_IN_CAPACITY,
@@ -27,7 +29,7 @@ import (
 //
 type StepScalingActionProps struct {
 	// The auto scaling group.
-	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
+	AutoScalingGroup interfacesawsautoscaling.IAutoScalingGroupRef `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
 	// How the adjustment numbers are interpreted.
 	// Default: ChangeInCapacity.
 	//

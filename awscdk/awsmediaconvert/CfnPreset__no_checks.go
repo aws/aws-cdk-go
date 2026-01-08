@@ -72,6 +72,14 @@ func validateCfnPreset_ArnForPresetParameters(resource interfacesawsmediaconvert
 	return nil
 }
 
+func validateCfnPreset_FromPresetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnPreset_FromPresetNameParameters(scope constructs.Construct, id *string, presetName *string) error {
+	return nil
+}
+
 func validateCfnPreset_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

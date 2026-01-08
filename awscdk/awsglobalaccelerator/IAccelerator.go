@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The interface of the Accelerator.
 type IAccelerator interface {
+	interfacesawsglobalaccelerator.IAcceleratorRef
 	awscdk.IResource
 	// The ARN of the accelerator.
 	AcceleratorArn() *string
@@ -28,7 +32,19 @@ type IAccelerator interface {
 
 // The jsii proxy for IAccelerator
 type jsiiProxy_IAccelerator struct {
+	internal.Type__interfacesawsglobalacceleratorIAcceleratorRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IAccelerator) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IAccelerator) AcceleratorArn() *string {
@@ -76,6 +92,46 @@ func (j *jsiiProxy_IAccelerator) Ipv6Addresses() *[]*string {
 	_jsii_.Get(
 		j,
 		"ipv6Addresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAccelerator) AcceleratorRef() *interfacesawsglobalaccelerator.AcceleratorReference {
+	var returns *interfacesawsglobalaccelerator.AcceleratorReference
+	_jsii_.Get(
+		j,
+		"acceleratorRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAccelerator) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAccelerator) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAccelerator) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

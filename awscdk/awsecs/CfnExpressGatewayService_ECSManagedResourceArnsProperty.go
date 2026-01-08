@@ -45,12 +45,15 @@ type CfnExpressGatewayService_ECSManagedResourceArnsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-ecsmanagedresourcearns.html#cfn-ecs-expressgatewayservice-ecsmanagedresourcearns-ingresspath
 	//
 	IngressPath interface{} `field:"optional" json:"ingressPath" yaml:"ingressPath"`
+	// The list of Log Group ARNs associated with the express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-ecsmanagedresourcearns.html#cfn-ecs-expressgatewayservice-ecsmanagedresourcearns-loggroups
 	//
 	LogGroups *[]*string `field:"optional" json:"logGroups" yaml:"logGroups"`
+	// The list of Metric Alarm ARNs associated with the express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-ecsmanagedresourcearns.html#cfn-ecs-expressgatewayservice-ecsmanagedresourcearns-metricalarms
 	//
 	MetricAlarms *[]*string `field:"optional" json:"metricAlarms" yaml:"metricAlarms"`
+	// The list of Security Group ARNs associated with the express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-ecsmanagedresourcearns.html#cfn-ecs-expressgatewayservice-ecsmanagedresourcearns-servicesecuritygroups
 	//
 	ServiceSecurityGroups *[]*string `field:"optional" json:"serviceSecurityGroups" yaml:"serviceSecurityGroups"`

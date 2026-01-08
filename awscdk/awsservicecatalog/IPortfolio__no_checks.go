@@ -56,3 +56,7 @@ func (i *jsiiProxy_IPortfolio) validateShareWithAccountParameters(accountId *str
 	return nil
 }
 
+func (i *jsiiProxy_IPortfolio) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

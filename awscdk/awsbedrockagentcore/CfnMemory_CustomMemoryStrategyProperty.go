@@ -13,6 +13,25 @@ package awsbedrockagentcore
 //
 //   	// the properties below are optional
 //   	Configuration: &CustomConfigurationInputProperty{
+//   		EpisodicOverride: &EpisodicOverrideProperty{
+//   			Consolidation: &EpisodicOverrideConsolidationConfigurationInputProperty{
+//   				AppendToPrompt: jsii.String("appendToPrompt"),
+//   				ModelId: jsii.String("modelId"),
+//   			},
+//   			Extraction: &EpisodicOverrideExtractionConfigurationInputProperty{
+//   				AppendToPrompt: jsii.String("appendToPrompt"),
+//   				ModelId: jsii.String("modelId"),
+//   			},
+//   			Reflection: &EpisodicOverrideReflectionConfigurationInputProperty{
+//   				AppendToPrompt: jsii.String("appendToPrompt"),
+//   				ModelId: jsii.String("modelId"),
+//
+//   				// the properties below are optional
+//   				Namespaces: []*string{
+//   					jsii.String("namespaces"),
+//   				},
+//   			},
+//   		},
 //   		SelfManagedConfiguration: &SelfManagedConfigurationProperty{
 //   			HistoricalContextWindowSize: jsii.Number(123),
 //   			InvocationConfiguration: &InvocationConfigurationInputProperty{

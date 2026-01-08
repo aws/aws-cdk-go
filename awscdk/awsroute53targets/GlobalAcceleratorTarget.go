@@ -4,8 +4,8 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 )
 
 // Use a Global Accelerator instance domain name as an alias record target.
@@ -37,7 +37,7 @@ type jsiiProxy_GlobalAcceleratorTarget struct {
 }
 
 // Create an Alias Target for a Global Accelerator instance.
-func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator, props IAliasRecordTargetProps) GlobalAcceleratorTarget {
+func NewGlobalAcceleratorTarget(accelerator interfacesawsglobalaccelerator.IAcceleratorRef, props IAliasRecordTargetProps) GlobalAcceleratorTarget {
 	_init_.Initialize()
 
 	if err := validateNewGlobalAcceleratorTargetParameters(accelerator); err != nil {
@@ -55,7 +55,7 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator, p
 }
 
 // Create an Alias Target for a Global Accelerator instance.
-func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator awsglobalaccelerator.IAccelerator, props IAliasRecordTargetProps) {
+func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator interfacesawsglobalaccelerator.IAcceleratorRef, props IAliasRecordTargetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

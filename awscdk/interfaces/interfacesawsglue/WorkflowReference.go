@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   workflowReference := &WorkflowReference{
-//   	WorkflowId: jsii.String("workflowId"),
+//   	WorkflowName: jsii.String("workflowName"),
 //   }
 //
 type WorkflowReference struct {
-	// The Id of the Workflow resource.
-	WorkflowId *string `field:"required" json:"workflowId" yaml:"workflowId"`
+	// The Name of the Workflow resource.
+	WorkflowName *string `field:"required" json:"workflowName" yaml:"workflowName"`
 }
 

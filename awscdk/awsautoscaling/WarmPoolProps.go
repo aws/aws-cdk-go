@@ -1,5 +1,8 @@
 package awsautoscaling
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
+)
 
 // Properties for a warm pool.
 //
@@ -7,11 +10,12 @@ package awsautoscaling
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //
 //   warmPoolProps := &WarmPoolProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //
 //   	// the properties below are optional
 //   	MaxGroupPreparedCapacity: jsii.Number(123),
@@ -44,6 +48,6 @@ type WarmPoolProps struct {
 	//
 	ReuseOnScaleIn *bool `field:"optional" json:"reuseOnScaleIn" yaml:"reuseOnScaleIn"`
 	// The Auto Scaling group to add the warm pool to.
-	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
+	AutoScalingGroup interfacesawsautoscaling.IAutoScalingGroupRef `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 

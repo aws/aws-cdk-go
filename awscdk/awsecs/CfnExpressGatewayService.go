@@ -98,18 +98,30 @@ type CfnExpressGatewayService interface {
 	AttrCreatedAt() *string
 	AttrEcsManagedResourceArns() awscdk.IResolvable
 	AttrEcsManagedResourceArnsAutoScaling() awscdk.IResolvable
+	// The list of Auto Scaling policy ARNs associated with the express service.
 	AttrEcsManagedResourceArnsAutoScalingApplicationAutoScalingPolicies() *[]*string
+	// The Auto Scaling Scalable Target ARN associated with the express service.
 	AttrEcsManagedResourceArnsAutoScalingScalableTarget() *string
 	AttrEcsManagedResourceArnsIngressPath() awscdk.IResolvable
+	// The Certificate ARN associated with the express service.
 	AttrEcsManagedResourceArnsIngressPathCertificateArn() *string
+	// The ARN of the Load Balancer listener associated with the express service.
 	AttrEcsManagedResourceArnsIngressPathListenerArn() *string
+	// The ARN of the Load Balancer listener rule associated with the express service.
 	AttrEcsManagedResourceArnsIngressPathListenerRuleArn() *string
+	// The ARN of the Load Balancer associated with the express service.
 	AttrEcsManagedResourceArnsIngressPathLoadBalancerArn() *string
+	// The list of Load Balancer Security Group ARNs associated with the express service.
 	AttrEcsManagedResourceArnsIngressPathLoadBalancerSecurityGroups() *[]*string
+	// The list of Target Group ARNs associated with the express service.
 	AttrEcsManagedResourceArnsIngressPathTargetGroupArns() *[]*string
+	// The list of Log Group ARNs associated with the express service.
 	AttrEcsManagedResourceArnsLogGroups() *[]*string
+	// The list of Metric Alarm ARNs associated with the express service.
 	AttrEcsManagedResourceArnsMetricAlarms() *[]*string
+	// The list of Security Group ARNs associated with the express service.
 	AttrEcsManagedResourceArnsServiceSecurityGroups() *[]*string
+	// The Endpoint of the express service.
 	AttrEndpoint() *string
 	// The ARN that identifies the Express service.
 	AttrServiceArn() *string

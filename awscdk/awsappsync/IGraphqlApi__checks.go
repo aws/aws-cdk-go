@@ -225,3 +225,11 @@ func (i *jsiiProxy_IGraphqlApi) validateGrantSubscriptionParameters(grantee awsi
 	return nil
 }
 
+func (i *jsiiProxy_IGraphqlApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
+	}
+
+	return nil
+}
+

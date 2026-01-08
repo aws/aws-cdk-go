@@ -37,6 +37,7 @@ import (
 //
 type AppSyncOpenSearchDataSource interface {
 	AppSyncBackedDataSource
+	// The API this data source is attached to Set the API this data source is attached to.
 	Api() IApi
 	SetApi(val IApi)
 	// The principal of the data source to be IGrantable.

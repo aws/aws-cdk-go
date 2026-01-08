@@ -4,7 +4,7 @@ package awscloudwatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAlarmRule_FromAlarmParameters(alarm IAlarm, alarmState AlarmState) error {
+func validateAlarmRule_FromAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef, alarmState AlarmState) error {
 	return nil
 }
 

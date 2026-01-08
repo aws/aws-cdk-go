@@ -7,7 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
 func validateMonitor_FromCfnMonitorsPropertyParameters(monitorsProperty *CfnEnvironment_MonitorsProperty) error {
@@ -21,7 +21,7 @@ func validateMonitor_FromCfnMonitorsPropertyParameters(monitorsProperty *CfnEnvi
 	return nil
 }
 
-func validateMonitor_FromCloudWatchAlarmParameters(alarm awscloudwatch.IAlarm) error {
+func validateMonitor_FromCloudWatchAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef) error {
 	if alarm == nil {
 		return fmt.Errorf("parameter alarm is required, but nil was provided")
 	}

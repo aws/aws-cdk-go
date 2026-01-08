@@ -9,11 +9,11 @@ package interfacesawseventschemas
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   registryPolicyReference := &RegistryPolicyReference{
-//   	RegistryPolicyId: jsii.String("registryPolicyId"),
+//   	RegistryName: jsii.String("registryName"),
 //   }
 //
 type RegistryPolicyReference struct {
-	// The Id of the RegistryPolicy resource.
-	RegistryPolicyId *string `field:"required" json:"registryPolicyId" yaml:"registryPolicyId"`
+	// The RegistryName of the RegistryPolicy resource.
+	RegistryName *string `field:"required" json:"registryName" yaml:"registryName"`
 }
 

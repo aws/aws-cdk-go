@@ -12,7 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnCollectionMixinProps := &CfnCollectionMixinProps{
+//   	CollectionGroupName: jsii.String("collectionGroupName"),
 //   	Description: jsii.String("description"),
+//   	EncryptionConfig: &EncryptionConfigProperty{
+//   		AwsOwnedKey: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []CfnTag{
@@ -27,10 +32,24 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html
 //
 type CfnCollectionMixinProps struct {
+	// The name of the collection group.
+	//
+	// The name must meet the following criteria:
+	// Unique to your account and AWS Region
+	// Starts with a lowercase letter
+	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+	// Contains between 3 and 32 characters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-collectiongroupname
+	//
+	CollectionGroupName *string `field:"optional" json:"collectionGroupName" yaml:"collectionGroupName"`
 	// A description of the collection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The configuration to encrypt the collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-encryptionconfig
+	//
+	EncryptionConfig interface{} `field:"optional" json:"encryptionConfig" yaml:"encryptionConfig"`
 	// The name of the collection.
 	//
 	// Collection names must meet the following criteria:

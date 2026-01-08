@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,6 +54,8 @@ type FileSystem interface {
 	FileSystemArn() *string
 	// The ID of the file system, assigned by Amazon EFS.
 	FileSystemId() *string
+	// A reference to a FileSystem resource.
+	FileSystemRef() *interfacesawsefs.FileSystemReference
 	// Dependable that can be depended upon to ensure the mount targets of the filesystem are ready.
 	MountTargetsAvailable() constructs.IDependable
 	// The tree node.
@@ -152,6 +155,16 @@ func (j *jsiiProxy_FileSystem) FileSystemId() *string {
 	_jsii_.Get(
 		j,
 		"fileSystemId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FileSystem) FileSystemRef() *interfacesawsefs.FileSystemReference {
+	var returns *interfacesawsefs.FileSystemReference
+	_jsii_.Get(
+		j,
+		"fileSystemRef",
 		&returns,
 	)
 	return returns

@@ -3,12 +3,12 @@ module github.com/aws/aws-cdk-go/awscdkiotactionsalpha/v2
 go 1.23
 
 require (
-	github.com/aws/jsii-runtime-go v1.121.0
-	github.com/aws/aws-cdk-go/awscdkiotalpha/v2 v2.233.0-alpha.0
-	github.com/aws/aws-cdk-go/awscdkioteventsalpha/v2 v2.233.0-alpha.0
-	github.com/aws/aws-cdk-go/awscdk/v2 v2.233.0
-	github.com/aws/constructs-go/constructs/v10 v10.4.3
-	github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2 v2.2.242 // indirect
+	github.com/aws/jsii-runtime-go v1.125.0
+	github.com/aws/aws-cdk-go/awscdkiotalpha/v2 v2.234.0-alpha.0
+	github.com/aws/aws-cdk-go/awscdkioteventsalpha/v2 v2.234.0-alpha.0
+	github.com/aws/aws-cdk-go/awscdk/v2 v2.234.0
+	github.com/aws/constructs-go/constructs/v10 v10.4.4
+	github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2 v2.2.258 // indirect
 	github.com/cdklabs/awscdk-asset-node-proxy-agent-go/nodeproxyagentv6/v2 v2.1.0 // indirect
 	github.com/cdklabs/cloud-assembly-schema-go/awscdkcloudassemblyschema/v48 v48.20.0 // indirect
 )

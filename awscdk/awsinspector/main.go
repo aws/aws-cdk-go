@@ -195,12 +195,14 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assessmentTemplateArn", GoGetter: "AssessmentTemplateArn"},
+			_jsii_.MemberProperty{JsiiProperty: "assessmentTemplateRef", GoGetter: "AssessmentTemplateRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IAssessmentTemplate{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsinspectorIAssessmentTemplateRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

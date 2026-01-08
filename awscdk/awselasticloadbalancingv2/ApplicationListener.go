@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,8 +61,15 @@ type ApplicationListener interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Indicates that this is an ALB listener.
+	//
+	// Will always return true, but is necessary to prevent accidental structural
+	// equality in TypeScript.
+	IsApplicationListener() *bool
 	// ARN of the listener.
 	ListenerArn() *string
+	// A reference to this listener.
+	ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference
 	// Load balancer this listener is associated with.
 	LoadBalancer() IApplicationLoadBalancer
 	// The tree node.
@@ -182,11 +190,31 @@ func (j *jsiiProxy_ApplicationListener) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_ApplicationListener) IsApplicationListener() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isApplicationListener",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApplicationListener) ListenerArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"listenerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationListener) ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference {
+	var returns *interfacesawselasticloadbalancingv2.ListenerReference
+	_jsii_.Get(
+		j,
+		"listenerRef",
 		&returns,
 	)
 	return returns

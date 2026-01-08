@@ -2,6 +2,7 @@ package awsappsync
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // properties for an AppSync datasource backed by a resource.
@@ -11,12 +12,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //   var role Role
 //
 //   backedDataSourceProps := &BackedDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -26,7 +28,7 @@ import (
 //
 type BackedDataSourceProps struct {
 	// The API to attach this data source to.
-	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IGraphQLApiRef `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Default: - None.
 	//

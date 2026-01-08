@@ -10,6 +10,7 @@ package previewawsec2mixins
 //
 //   launchTemplateOverridesProperty := &LaunchTemplateOverridesProperty{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
@@ -99,10 +100,15 @@ package previewawsec2mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html
 //
 type CfnSpotFleetPropsMixin_LaunchTemplateOverridesProperty struct {
-	// The Availability Zone in which to launch the instances.
+	// The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-availabilityzoneid
+	//
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// The instance requirements.
 	//
 	// When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.

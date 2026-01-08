@@ -23,7 +23,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnCollectionPropsMixin := awscdkmixinspreview.Mixins.NewCfnCollectionPropsMixin(&CfnCollectionMixinProps{
+//   	CollectionGroupName: jsii.String("collectionGroupName"),
 //   	Description: jsii.String("description"),
+//   	EncryptionConfig: &EncryptionConfigProperty{
+//   		AwsOwnedKey: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []CfnTag{

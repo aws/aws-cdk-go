@@ -1663,6 +1663,7 @@ rds.NewOptionGroup(this, jsii.String("Options"), &OptionGroupProps{
 			},
 		},
 	},
+	OptionGroupName: jsii.String("MyOptionGroup"),
 })
 ```
 

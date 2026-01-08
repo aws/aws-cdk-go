@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -81,6 +82,8 @@ type Secret interface {
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
 	SecretName() *string
+	// A reference to a Secret resource.
+	SecretRef() *interfacesawssecretsmanager.SecretReference
 	// Retrieve the value of the stored secret as a `SecretValue`.
 	SecretValue() awscdk.SecretValue
 	// The stack in which this resource is defined.
@@ -240,6 +243,16 @@ func (j *jsiiProxy_Secret) SecretName() *string {
 	_jsii_.Get(
 		j,
 		"secretName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Secret) SecretRef() *interfacesawssecretsmanager.SecretReference {
+	var returns *interfacesawssecretsmanager.SecretReference
+	_jsii_.Get(
+		j,
+		"secretRef",
 		&returns,
 	)
 	return returns

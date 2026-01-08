@@ -51,6 +51,21 @@ package awsarcregionswitch
 //   						Behavior: jsii.String("behavior"),
 //   					},
 //   				},
+//   				DocumentDbConfig: &DocumentDbConfigurationProperty{
+//   					Behavior: jsii.String("behavior"),
+//   					DatabaseClusterArns: []*string{
+//   						jsii.String("databaseClusterArns"),
+//   					},
+//   					GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//
+//   					// the properties below are optional
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					ExternalId: jsii.String("externalId"),
+//   					TimeoutMinutes: jsii.Number(123),
+//   					Ungraceful: &DocumentDbUngracefulProperty{
+//   						Ungraceful: jsii.String("ungraceful"),
+//   					},
+//   				},
 //   				Ec2AsgCapacityIncreaseConfig: &Ec2AsgCapacityIncreaseConfigurationProperty{
 //   					Asgs: []interface{}{
 //   						&AsgProperty{

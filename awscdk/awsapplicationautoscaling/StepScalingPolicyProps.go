@@ -3,6 +3,7 @@ package awsapplicationautoscaling
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 )
 
 // Example:
@@ -11,9 +12,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var metric Metric
-//   var scalableTarget ScalableTarget
+//   var scalableTargetRef IScalableTargetRef
 //
 //   stepScalingPolicyProps := &StepScalingPolicyProps{
 //   	Metric: metric,
@@ -26,7 +28,7 @@ import (
 //   			Upper: jsii.Number(123),
 //   		},
 //   	},
-//   	ScalingTarget: scalableTarget,
+//   	ScalingTarget: scalableTargetRef,
 //
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.Aws_applicationautoscaling.AdjustmentType_CHANGE_IN_CAPACITY,
@@ -94,6 +96,6 @@ type StepScalingPolicyProps struct {
 	//
 	MinAdjustmentMagnitude *float64 `field:"optional" json:"minAdjustmentMagnitude" yaml:"minAdjustmentMagnitude"`
 	// The scaling target.
-	ScalingTarget IScalableTarget `field:"required" json:"scalingTarget" yaml:"scalingTarget"`
+	ScalingTarget interfacesawsapplicationautoscaling.IScalableTargetRef `field:"required" json:"scalingTarget" yaml:"scalingTarget"`
 }
 

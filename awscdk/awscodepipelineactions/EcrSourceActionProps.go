@@ -2,8 +2,8 @@ package awscodepipelineactions
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 )
 
 // Construction properties of `EcrSourceAction`.
@@ -60,7 +60,7 @@ type EcrSourceActionProps struct {
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	Output awscodepipeline.Artifact `field:"required" json:"output" yaml:"output"`
 	// The repository that will be watched for changes.
-	Repository awsecr.IRepository `field:"required" json:"repository" yaml:"repository"`
+	Repository interfacesawsecr.IRepositoryRef `field:"required" json:"repository" yaml:"repository"`
 	// The image tag that will be checked for changes.
 	//
 	// It is not possible to trigger on changes to more than one tag.

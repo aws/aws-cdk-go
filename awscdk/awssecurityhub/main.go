@@ -407,11 +407,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrLastCheckedAt", GoGetter: "AttrLastCheckedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedAt", GoGetter: "AttrLastUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMessage", GoGetter: "AttrMessage"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProviderJiraCloudAuthStatus", GoGetter: "AttrProviderJiraCloudAuthStatus"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProviderJiraCloudAuthUrl", GoGetter: "AttrProviderJiraCloudAuthUrl"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProviderJiraCloudCloudId", GoGetter: "AttrProviderJiraCloudCloudId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProviderJiraCloudDomain", GoGetter: "AttrProviderJiraCloudDomain"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProviderServiceNowAuthStatus", GoGetter: "AttrProviderServiceNowAuthStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -453,16 +448,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_securityhub.CfnConnectorV2.JiraCloudProperty",
-		reflect.TypeOf((*CfnConnectorV2_JiraCloudProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_securityhub.CfnConnectorV2.JiraCloudProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorV2_JiraCloudProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_securityhub.CfnConnectorV2.ProviderProperty",
 		reflect.TypeOf((*CfnConnectorV2_ProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_securityhub.CfnConnectorV2.ServiceNowProperty",
-		reflect.TypeOf((*CfnConnectorV2_ServiceNowProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_securityhub.CfnConnectorV2.ServiceNowProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorV2_ServiceNowProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_securityhub.CfnConnectorV2Props",

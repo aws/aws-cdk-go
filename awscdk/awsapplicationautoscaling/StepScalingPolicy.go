@@ -21,9 +21,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var metric Metric
-//   var scalableTarget ScalableTarget
+//   var scalableTargetRef IScalableTargetRef
 //
 //   stepScalingPolicy := awscdk.Aws_applicationautoscaling.NewStepScalingPolicy(this, jsii.String("MyStepScalingPolicy"), &StepScalingPolicyProps{
 //   	Metric: metric,
@@ -36,7 +37,7 @@ import (
 //   			Upper: jsii.Number(123),
 //   		},
 //   	},
-//   	ScalingTarget: scalableTarget,
+//   	ScalingTarget: scalableTargetRef,
 //
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.*Aws_applicationautoscaling.AdjustmentType_CHANGE_IN_CAPACITY,

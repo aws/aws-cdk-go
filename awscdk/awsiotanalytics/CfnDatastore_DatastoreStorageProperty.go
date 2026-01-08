@@ -44,7 +44,7 @@ type CfnDatastore_DatastoreStorageProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-iotsitewisemultilayerstorage
 	//
 	IotSiteWiseMultiLayerStorage interface{} `field:"optional" json:"iotSiteWiseMultiLayerStorage" yaml:"iotSiteWiseMultiLayerStorage"`
-	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service.
+	// Use this to store data store data in an S3 bucket managed by the  service.
 	//
 	// The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-datastorestorage.html#cfn-iotanalytics-datastore-datastorestorage-servicemanageds3

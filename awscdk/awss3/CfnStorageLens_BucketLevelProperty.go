@@ -51,7 +51,7 @@ type CfnStorageLens_BucketLevelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advanceddataprotectionmetrics
 	//
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
-	// Advanced Performance Metrics.
+	// A property for bucket-level advanced performance metrics for S3 Storage Lens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advancedperformancemetrics
 	//
 	AdvancedPerformanceMetrics interface{} `field:"optional" json:"advancedPerformanceMetrics" yaml:"advancedPerformanceMetrics"`

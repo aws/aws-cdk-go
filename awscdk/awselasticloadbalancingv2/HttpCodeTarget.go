@@ -48,7 +48,7 @@ package awselasticloadbalancingv2
 //
 //   codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 //   	// CodeDeploy will monitor these alarms during a deployment and automatically roll back
-//   	Alarms: []IAlarm{
+//   	Alarms: []IAlarmRef{
 //   		blueUnhealthyHosts,
 //   		greenUnhealthyHosts,
 //   		blueApiFailure,

@@ -49,7 +49,7 @@ func (n *jsiiProxy_NetworkTargetGroup) validateMetricUnHealthyHostCountParameter
 	return nil
 }
 
-func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListener) error {
+func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListenerRef) error {
 	if listener == nil {
 		return fmt.Errorf("parameter listener is required, but nil was provided")
 	}

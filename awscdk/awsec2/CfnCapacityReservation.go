@@ -35,7 +35,7 @@ import (
 //   	InstanceMatchCriteria: jsii.String("instanceMatchCriteria"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []TagSpecificationProperty{
+//   	TagSpecifications: []interface{}{
 //   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []CfnTag{
@@ -56,7 +56,6 @@ type CfnCapacityReservation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsec2.ICapacityReservationRef
-	awscdk.ITaggableV2
 	// Returns the Availability Zone in which the capacity is reserved.
 	//
 	// For example: `us-east-1a` .
@@ -121,8 +120,6 @@ type CfnCapacityReservation interface {
 	SetAvailabilityZoneId(val *string)
 	// A reference to a CapacityReservation resource.
 	CapacityReservationRef() *interfacesawsec2.CapacityReservationReference
-	// Tag Manager which manages the tags for this resource.
-	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -187,8 +184,8 @@ type CfnCapacityReservation interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// The tags to apply to the Capacity Reservation during launch.
-	TagSpecifications() *[]*CfnCapacityReservation_TagSpecificationProperty
-	SetTagSpecifications(val *[]*CfnCapacityReservation_TagSpecificationProperty)
+	TagSpecifications() interface{}
+	SetTagSpecifications(val interface{})
 	// Indicates the tenancy of the Capacity Reservation.
 	//
 	// A Capacity Reservation can have one of the following tenancy settings:.
@@ -342,7 +339,6 @@ type jsiiProxy_CfnCapacityReservation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsec2ICapacityReservationRef
-	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnCapacityReservation) AttrAvailabilityZone() *string {
@@ -530,16 +526,6 @@ func (j *jsiiProxy_CfnCapacityReservation) CapacityReservationRef() *interfacesa
 	_jsii_.Get(
 		j,
 		"capacityReservationRef",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCapacityReservation) CdkTagManager() awscdk.TagManager {
-	var returns awscdk.TagManager
-	_jsii_.Get(
-		j,
-		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -735,8 +721,8 @@ func (j *jsiiProxy_CfnCapacityReservation) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) TagSpecifications() *[]*CfnCapacityReservation_TagSpecificationProperty {
-	var returns *[]*CfnCapacityReservation_TagSpecificationProperty
+func (j *jsiiProxy_CfnCapacityReservation) TagSpecifications() interface{} {
+	var returns interface{}
 	_jsii_.Get(
 		j,
 		"tagSpecifications",
@@ -926,7 +912,7 @@ func (j *jsiiProxy_CfnCapacityReservation)SetPlacementGroupArn(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnCapacityReservation)SetTagSpecifications(val *[]*CfnCapacityReservation_TagSpecificationProperty) {
+func (j *jsiiProxy_CfnCapacityReservation)SetTagSpecifications(val interface{}) {
 	if err := j.validateSetTagSpecificationsParameters(val); err != nil {
 		panic(err)
 	}

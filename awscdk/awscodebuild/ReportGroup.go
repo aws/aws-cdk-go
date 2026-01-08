@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,6 +63,8 @@ type ReportGroup interface {
 	ReportGroupArn() *string
 	// The name of the ReportGroup.
 	ReportGroupName() *string
+	// A reference to a ReportGroup resource.
+	ReportGroupRef() *interfacesawscodebuild.ReportGroupReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	Type() ReportGroupType
@@ -156,6 +159,16 @@ func (j *jsiiProxy_ReportGroup) ReportGroupName() *string {
 	_jsii_.Get(
 		j,
 		"reportGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ReportGroup) ReportGroupRef() *interfacesawscodebuild.ReportGroupReference {
+	var returns *interfacesawscodebuild.ReportGroupReference
+	_jsii_.Get(
+		j,
+		"reportGroupRef",
 		&returns,
 	)
 	return returns

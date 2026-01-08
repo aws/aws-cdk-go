@@ -1,6 +1,10 @@
 package awsses
 
 
+// An object that contains route configuration.
+//
+// Includes secondary region name.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

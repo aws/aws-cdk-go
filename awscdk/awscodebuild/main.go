@@ -639,6 +639,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetArn", GoGetter: "FleetArn"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetName", GoGetter: "FleetName"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
@@ -806,6 +807,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "environmentType", GoGetter: "EnvironmentType"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetArn", GoGetter: "FleetArn"},
 			_jsii_.MemberProperty{JsiiProperty: "fleetName", GoGetter: "FleetName"},
+			_jsii_.MemberProperty{JsiiProperty: "fleetRef", GoGetter: "FleetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -813,6 +815,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IFleet{}
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildIFleetRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
@@ -846,6 +849,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
 			_jsii_.MemberProperty{JsiiProperty: "projectArn", GoGetter: "ProjectArn"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
+			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -854,6 +858,7 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscodestarnotificationsINotificationRuleSource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildIProjectRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -868,10 +873,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "reportGroupArn", GoGetter: "ReportGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "reportGroupName", GoGetter: "ReportGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "reportGroupRef", GoGetter: "ReportGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IReportGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodebuildIReportGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1069,6 +1076,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "projectArn", GoGetter: "ProjectArn"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
+			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1119,6 +1127,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "projectArn", GoGetter: "ProjectArn"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
+			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1173,6 +1182,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "reportGroupArn", GoGetter: "ReportGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "reportGroupName", GoGetter: "ReportGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "reportGroupRef", GoGetter: "ReportGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},

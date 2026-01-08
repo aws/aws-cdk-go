@@ -9,11 +9,11 @@ package interfacesawssecretsmanager
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   resourcePolicyReference := &ResourcePolicyReference{
-//   	ResourcePolicyId: jsii.String("resourcePolicyId"),
+//   	SecretId: jsii.String("secretId"),
 //   }
 //
 type ResourcePolicyReference struct {
-	// The Id of the ResourcePolicy resource.
-	ResourcePolicyId *string `field:"required" json:"resourcePolicyId" yaml:"resourcePolicyId"`
+	// The SecretId of the ResourcePolicy resource.
+	SecretId *string `field:"required" json:"secretId" yaml:"secretId"`
 }
 

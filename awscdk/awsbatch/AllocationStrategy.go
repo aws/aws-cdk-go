@@ -35,9 +35,9 @@ const (
 	// To make the most use of this allocation strategy,
 	// it is recommended to use as many instance classes as is feasible for your workload.
 	AllocationStrategy_BEST_FIT_PROGRESSIVE AllocationStrategy = "BEST_FIT_PROGRESSIVE"
-	// If your workflow tolerates interruptions, you should enable `spot` on your `ComputeEnvironment` and use `SPOT_CAPACITY_OPTIMIZED` (this is the default if `spot` is enabled).
+	// If your workflow tolerates interruptions, you should enable `spot` on your `ComputeEnvironment` and use `SPOT_CAPACITY_OPTIMIZED`.
 	//
-	// This will tell Batch to choose the instance types from the ones you’ve specified that have
+	// This will tell Batch to choose the instance types from the ones you've specified that have
 	// the most spot capacity available to minimize the chance of interruption.
 	// To get the most benefit from your spot instances,
 	// you should allow Batch to choose from as many different instance types as possible.

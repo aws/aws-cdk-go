@@ -160,7 +160,7 @@ type CfnStorageLensPropsMixin_StorageLensConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
 	//
 	Exclude interface{} `field:"optional" json:"exclude" yaml:"exclude"`
-	// Expanded Prefixes Data Export.
+	// This property configures your S3 Storage Lens expanded prefixes metrics report.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-expandedprefixesdataexport
 	//
 	ExpandedPrefixesDataExport interface{} `field:"optional" json:"expandedPrefixesDataExport" yaml:"expandedPrefixesDataExport"`

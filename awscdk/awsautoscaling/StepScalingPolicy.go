@@ -21,12 +21,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var metric Metric
 //
 //   stepScalingPolicy := awscdk.Aws_autoscaling.NewStepScalingPolicy(this, jsii.String("MyStepScalingPolicy"), &StepScalingPolicyProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	Metric: metric,
 //   	ScalingSteps: []ScalingInterval{
 //   		&ScalingInterval{

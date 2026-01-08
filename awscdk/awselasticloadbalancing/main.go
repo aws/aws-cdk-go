@@ -117,6 +117,23 @@ func init() {
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancing.ILoadBalancer",
+		reflect.TypeOf((*ILoadBalancer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILoadBalancer{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingILoadBalancerRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_elasticloadbalancing.ILoadBalancerTarget",
 		reflect.TypeOf((*ILoadBalancerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -172,6 +189,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneNameId", GoGetter: "LoadBalancerCanonicalHostedZoneNameId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerName", GoGetter: "LoadBalancerName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSourceSecurityGroupGroupName", GoGetter: "LoadBalancerSourceSecurityGroupGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSourceSecurityGroupOwnerAlias", GoGetter: "LoadBalancerSourceSecurityGroupOwnerAlias"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -183,6 +201,7 @@ func init() {
 			j := jsiiProxy_LoadBalancer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoadBalancer)
 			return &j
 		},
 	)

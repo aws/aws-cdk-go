@@ -37,7 +37,9 @@ import (
 //
 //   			// the properties below are optional
 //   			AlwaysOnCapacity: jsii.Number(123),
+//   			MaximumCapacity: jsii.Number(123),
 //   			OnDemandCapacity: jsii.Number(123),
+//   			TargetIdleCapacity: jsii.Number(123),
 //   		},
 //   	},
 //   	StreamClass: jsii.String("streamClass"),

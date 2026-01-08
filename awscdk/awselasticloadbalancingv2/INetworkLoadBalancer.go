@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -164,6 +165,16 @@ func (j *jsiiProxy_INetworkLoadBalancer) LoadBalancerDnsName() *string {
 	_jsii_.Get(
 		j,
 		"loadBalancerDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INetworkLoadBalancer) LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference {
+	var returns *interfacesawselasticloadbalancingv2.LoadBalancerReference
+	_jsii_.Get(
+		j,
+		"loadBalancerRef",
 		&returns,
 	)
 	return returns

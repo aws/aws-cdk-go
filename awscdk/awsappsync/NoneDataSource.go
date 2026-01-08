@@ -14,11 +14,12 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //
 //   noneDataSource := awscdk.Aws_appsync.NewNoneDataSource(this, jsii.String("MyNoneDataSource"), &NoneDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -27,6 +28,7 @@ import (
 //
 type NoneDataSource interface {
 	BaseDataSource
+	// The API this data source is attached to Set the API this data source is attached to.
 	Api() IGraphqlApi
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.

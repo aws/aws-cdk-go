@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for an API.
 type IApi interface {
+	interfacesawsappsync.IApiRef
 	awscdk.IResource
 	// The ARN of the AWS AppSync Api.
 	ApiArn() *string
@@ -18,7 +22,19 @@ type IApi interface {
 
 // The jsii proxy for IApi
 type jsiiProxy_IApi struct {
+	internal.Type__interfacesawsappsyncIApiRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IApi) ApiArn() *string {
@@ -36,6 +52,46 @@ func (j *jsiiProxy_IApi) ApiId() *string {
 	_jsii_.Get(
 		j,
 		"apiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApi) ApiRef() *interfacesawsappsync.ApiReference {
+	var returns *interfacesawsappsync.ApiReference
+	_jsii_.Get(
+		j,
+		"apiRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApi) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApi) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

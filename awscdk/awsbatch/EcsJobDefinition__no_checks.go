@@ -20,7 +20,7 @@ func (e *jsiiProxy_EcsJobDefinition) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
-func (e *jsiiProxy_EcsJobDefinition) validateGrantSubmitJobParameters(identity awsiam.IGrantable, queue IJobQueue) error {
+func (e *jsiiProxy_EcsJobDefinition) validateGrantSubmitJobParameters(identity awsiam.IGrantable, queue interfacesawsbatch.IJobQueueRef) error {
 	return nil
 }
 

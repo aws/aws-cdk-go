@@ -6,7 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2integrations/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 )
 
 // The Service Discovery integration resource for HTTP API.
@@ -101,7 +101,7 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) PayloadFormatVersion() awsap
 }
 
 
-func NewHttpServiceDiscoveryIntegration(id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) HttpServiceDiscoveryIntegration {
+func NewHttpServiceDiscoveryIntegration(id *string, service interfacesawsservicediscovery.IServiceRef, props *HttpServiceDiscoveryIntegrationProps) HttpServiceDiscoveryIntegration {
 	_init_.Initialize()
 
 	if err := validateNewHttpServiceDiscoveryIntegrationParameters(id, service, props); err != nil {
@@ -118,7 +118,7 @@ func NewHttpServiceDiscoveryIntegration(id *string, service awsservicediscovery.
 	return &j
 }
 
-func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegration, id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) {
+func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegration, id *string, service interfacesawsservicediscovery.IServiceRef, props *HttpServiceDiscoveryIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

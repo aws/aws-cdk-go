@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,6 +18,7 @@ import (
 // so this interface can be used as a Target for CloudWatch Events.
 type IPipeline interface {
 	awscodestarnotifications.INotificationRuleSource
+	interfacesawscodepipeline.IPipelineRef
 	awscdk.IResource
 	// Defines a CodeStar notification rule triggered when the pipeline events emitted by you specified, it very similar to `onEvent` API.
 	//
@@ -55,6 +57,7 @@ type IPipeline interface {
 // The jsii proxy for IPipeline
 type jsiiProxy_IPipeline struct {
 	internal.Type__awscodestarnotificationsINotificationRuleSource
+	internal.Type__interfacesawscodepipelineIPipelineRef
 	internal.Type__awscdkIResource
 }
 
@@ -232,6 +235,16 @@ func (j *jsiiProxy_IPipeline) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPipeline) PipelineRef() *interfacesawscodepipeline.PipelineReference {
+	var returns *interfacesawscodepipeline.PipelineReference
+	_jsii_.Get(
+		j,
+		"pipelineRef",
 		&returns,
 	)
 	return returns

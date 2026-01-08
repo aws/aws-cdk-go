@@ -1021,6 +1021,14 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsServiceProps",
 		reflect.TypeOf((*CallAwsServiceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.CapacityProviderOptions",
+		reflect.TypeOf((*CapacityProviderOptions)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CapacityProviderOptions{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.Channel",
 		reflect.TypeOf((*Channel)(nil)).Elem(),

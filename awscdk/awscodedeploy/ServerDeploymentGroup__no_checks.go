@@ -4,7 +4,7 @@ package awscodedeploy
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_ServerDeploymentGroup) validateAddAlarmParameters(alarm awscloudwatch.IAlarm) error {
+func (s *jsiiProxy_ServerDeploymentGroup) validateAddAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef) error {
 	return nil
 }
 

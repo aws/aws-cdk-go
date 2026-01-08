@@ -670,6 +670,44 @@ func CfnJobTemplate_ArnForJobTemplate(resource interfacesawsmediaconvert.IJobTem
 	return returns
 }
 
+// Creates a new IJobTemplateRef from an ARN.
+func CfnJobTemplate_FromJobTemplateArn(scope constructs.Construct, id *string, arn *string) interfacesawsmediaconvert.IJobTemplateRef {
+	_init_.Initialize()
+
+	if err := validateCfnJobTemplate_FromJobTemplateArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmediaconvert.IJobTemplateRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"fromJobTemplateArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IJobTemplateRef from a jobTemplateName.
+func CfnJobTemplate_FromJobTemplateName(scope constructs.Construct, id *string, jobTemplateName *string) interfacesawsmediaconvert.IJobTemplateRef {
+	_init_.Initialize()
+
+	if err := validateCfnJobTemplate_FromJobTemplateNameParameters(scope, id, jobTemplateName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmediaconvert.IJobTemplateRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnJobTemplate",
+		"fromJobTemplateName",
+		[]interface{}{scope, id, jobTemplateName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

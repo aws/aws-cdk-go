@@ -1,5 +1,8 @@
 package previewawslexmixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnBotPropsMixin.
 //
@@ -28,7 +31,7 @@ type CfnBotMixinProps struct {
 	// You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottags
 	//
-	BotTags interface{} `field:"optional" json:"botTags" yaml:"botTags"`
+	BotTags *[]*awscdk.CfnTag `field:"optional" json:"botTags" yaml:"botTags"`
 	// By default, data stored by Amazon Lex is encrypted.
 	//
 	// The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.

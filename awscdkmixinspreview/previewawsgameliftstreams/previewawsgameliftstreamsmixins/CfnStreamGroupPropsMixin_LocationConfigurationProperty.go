@@ -13,15 +13,17 @@ package previewawsgameliftstreamsmixins
 //   locationConfigurationProperty := &LocationConfigurationProperty{
 //   	AlwaysOnCapacity: jsii.Number(123),
 //   	LocationName: jsii.String("locationName"),
+//   	MaximumCapacity: jsii.Number(123),
 //   	OnDemandCapacity: jsii.Number(123),
+//   	TargetIdleCapacity: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html
 //
 type CfnStreamGroupPropsMixin_LocationConfigurationProperty struct {
-	// The streaming capacity that is allocated and ready to handle stream requests without delay.
+	// This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service.
 	//
-	// You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
+	// You pay for this base level of capacity at all times, whether used or idle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-alwaysoncapacity
 	//
 	AlwaysOnCapacity *float64 `field:"optional" json:"alwaysOnCapacity" yaml:"alwaysOnCapacity"`
@@ -31,11 +33,17 @@ type CfnStreamGroupPropsMixin_LocationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-locationname
 	//
 	LocationName *string `field:"optional" json:"locationName" yaml:"locationName"`
-	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-maximumcapacity
 	//
-	// This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
+	MaximumCapacity *float64 `field:"optional" json:"maximumCapacity" yaml:"maximumCapacity"`
+	// This field is deprecated. Use MaximumCapacity instead. This parameter is ignored when MaximumCapacity is specified.
+	//
+	// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when you create a stream group or add a location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-ondemandcapacity
 	//
 	OnDemandCapacity *float64 `field:"optional" json:"onDemandCapacity" yaml:"onDemandCapacity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-targetidlecapacity
+	//
+	TargetIdleCapacity *float64 `field:"optional" json:"targetIdleCapacity" yaml:"targetIdleCapacity"`
 }
 

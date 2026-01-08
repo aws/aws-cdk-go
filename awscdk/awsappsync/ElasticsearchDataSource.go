@@ -16,13 +16,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domain Domain
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //   var role Role
 //
 //   elasticsearchDataSource := awscdk.Aws_appsync.NewElasticsearchDataSource(this, jsii.String("MyElasticsearchDataSource"), &ElasticsearchDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //   	Domain: domain,
 //
 //   	// the properties below are optional
@@ -34,6 +35,7 @@ import (
 // Deprecated: - use `OpenSearchDataSource`.
 type ElasticsearchDataSource interface {
 	BackedDataSource
+	// The API this data source is attached to Set the API this data source is attached to.
 	// Deprecated: - use `OpenSearchDataSource`.
 	Api() IGraphqlApi
 	// Deprecated: - use `OpenSearchDataSource`.

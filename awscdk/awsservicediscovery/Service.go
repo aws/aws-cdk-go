@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,6 +80,8 @@ type Service interface {
 	ServiceId() *string
 	// A name for the Cloudmap Service.
 	ServiceName() *string
+	// A reference to a Service resource.
+	ServiceRef() *interfacesawsservicediscovery.ServiceReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -218,6 +221,16 @@ func (j *jsiiProxy_Service) ServiceName() *string {
 	_jsii_.Get(
 		j,
 		"serviceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Service) ServiceRef() *interfacesawsservicediscovery.ServiceReference {
+	var returns *interfacesawsservicediscovery.ServiceReference
+	_jsii_.Get(
+		j,
+		"serviceRef",
 		&returns,
 	)
 	return returns

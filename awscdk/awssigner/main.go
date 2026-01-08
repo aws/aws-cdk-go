@@ -133,6 +133,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileArn", GoGetter: "SigningProfileArn"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileName", GoGetter: "SigningProfileName"},
+			_jsii_.MemberProperty{JsiiProperty: "signingProfileRef", GoGetter: "SigningProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileVersion", GoGetter: "SigningProfileVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileVersionArn", GoGetter: "SigningProfileVersionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -140,6 +141,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ISigningProfile{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssignerISigningProfileRef)
 			return &j
 		},
 	)
@@ -166,6 +168,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileArn", GoGetter: "SigningProfileArn"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileName", GoGetter: "SigningProfileName"},
+			_jsii_.MemberProperty{JsiiProperty: "signingProfileRef", GoGetter: "SigningProfileRef"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileVersion", GoGetter: "SigningProfileVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "signingProfileVersionArn", GoGetter: "SigningProfileVersionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

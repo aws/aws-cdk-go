@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnContactFlowModule) validateSetContentParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnContactFlowModule) validateSetExternalInvocationConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnContactFlowModule) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }

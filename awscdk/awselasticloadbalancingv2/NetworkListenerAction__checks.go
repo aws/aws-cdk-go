@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (n *jsiiProxy_NetworkListenerAction) validateBindParameters(scope constructs.Construct, listener INetworkListener) error {
+func (n *jsiiProxy_NetworkListenerAction) validateBindParameters(scope constructs.Construct, listener INetworkListenerRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

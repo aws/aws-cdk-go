@@ -28,7 +28,7 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) validateSetPayloadFormatVers
 	return nil
 }
 
-func validateNewHttpServiceDiscoveryIntegrationParameters(id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) error {
+func validateNewHttpServiceDiscoveryIntegrationParameters(id *string, service interfacesawsservicediscovery.IServiceRef, props *HttpServiceDiscoveryIntegrationProps) error {
 	return nil
 }
 

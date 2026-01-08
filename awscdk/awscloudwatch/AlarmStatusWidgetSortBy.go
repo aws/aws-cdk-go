@@ -10,7 +10,7 @@ package awscloudwatch
 //
 //   dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
 //   	Title: jsii.String("Errors"),
-//   	Alarms: []IAlarm{
+//   	Alarms: []IAlarmRef{
 //   		errorAlarm,
 //   	},
 //   	SortBy: cloudwatch.AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,

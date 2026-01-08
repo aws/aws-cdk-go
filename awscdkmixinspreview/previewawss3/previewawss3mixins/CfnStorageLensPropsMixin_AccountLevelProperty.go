@@ -78,7 +78,7 @@ type CfnStorageLensPropsMixin_AccountLevelProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advanceddataprotectionmetrics
 	//
 	AdvancedDataProtectionMetrics interface{} `field:"optional" json:"advancedDataProtectionMetrics" yaml:"advancedDataProtectionMetrics"`
-	// Advanced Performance Metrics.
+	// This property contains the account-level details for S3 Storage Lens advanced performance metrics.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-advancedperformancemetrics
 	//
 	AdvancedPerformanceMetrics interface{} `field:"optional" json:"advancedPerformanceMetrics" yaml:"advancedPerformanceMetrics"`

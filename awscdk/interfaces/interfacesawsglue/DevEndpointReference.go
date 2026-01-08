@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   devEndpointReference := &DevEndpointReference{
-//   	DevEndpointId: jsii.String("devEndpointId"),
+//   	EndpointName: jsii.String("endpointName"),
 //   }
 //
 type DevEndpointReference struct {
-	// The Id of the DevEndpoint resource.
-	DevEndpointId *string `field:"required" json:"devEndpointId" yaml:"devEndpointId"`
+	// The EndpointName of the DevEndpoint resource.
+	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 }
 

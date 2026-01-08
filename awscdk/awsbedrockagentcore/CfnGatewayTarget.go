@@ -49,6 +49,8 @@ import (
 //   					CustomParameters: map[string]*string{
 //   						"customParametersKey": jsii.String("customParameters"),
 //   					},
+//   					DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   					GrantType: jsii.String("grantType"),
 //   				},
 //   			},
 //   		},
@@ -122,6 +124,17 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	GatewayIdentifier: jsii.String("gatewayIdentifier"),
+//   	MetadataConfiguration: &MetadataConfigurationProperty{
+//   		AllowedQueryParameters: []*string{
+//   			jsii.String("allowedQueryParameters"),
+//   		},
+//   		AllowedRequestHeaders: []*string{
+//   			jsii.String("allowedRequestHeaders"),
+//   		},
+//   		AllowedResponseHeaders: []*string{
+//   			jsii.String("allowedResponseHeaders"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html
@@ -173,6 +186,8 @@ type CfnGatewayTarget interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MetadataConfiguration() interface{}
+	SetMetadataConfiguration(val interface{})
 	// The name for the gateway target.
 	Name() *string
 	SetName(val *string)
@@ -507,6 +522,16 @@ func (j *jsiiProxy_CfnGatewayTarget) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) MetadataConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metadataConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -630,6 +655,17 @@ func (j *jsiiProxy_CfnGatewayTarget)SetGatewayIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"gatewayIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGatewayTarget)SetMetadataConfiguration(val interface{}) {
+	if err := j.validateSetMetadataConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metadataConfiguration",
 		val,
 	)
 }

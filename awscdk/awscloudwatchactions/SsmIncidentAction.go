@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -21,7 +22,7 @@ import (
 type SsmIncidentAction interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an SSM Incident as an alarm action based on an Incident Manager Response Plan.
-	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for SsmIncidentAction
@@ -56,7 +57,7 @@ func NewSsmIncidentAction_Override(s SsmIncidentAction, responsePlanName *string
 	)
 }
 
-func (s *jsiiProxy_SsmIncidentAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (s *jsiiProxy_SsmIncidentAction) Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig {
 	if err := s.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}

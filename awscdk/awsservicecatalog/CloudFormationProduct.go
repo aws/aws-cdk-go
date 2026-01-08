@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,6 +46,8 @@ type CloudFormationProduct interface {
 	// Default: - Empty - no assets are used in this product.
 	//
 	AssetBuckets() *[]awss3.IBucket
+	// A reference to a CloudFormationProduct resource.
+	CloudFormationProductRef() *interfacesawsservicecatalog.CloudFormationProductReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -114,6 +117,16 @@ func (j *jsiiProxy_CloudFormationProduct) AssetBuckets() *[]awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"assetBuckets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationProduct) CloudFormationProductRef() *interfacesawsservicecatalog.CloudFormationProductReference {
+	var returns *interfacesawsservicecatalog.CloudFormationProductReference
+	_jsii_.Get(
+		j,
+		"cloudFormationProductRef",
 		&returns,
 	)
 	return returns

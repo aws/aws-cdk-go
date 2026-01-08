@@ -53,7 +53,9 @@ type CfnStorageLens_DataExportProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 	//
 	S3BucketDestination interface{} `field:"optional" json:"s3BucketDestination" yaml:"s3BucketDestination"`
-	// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+	// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed.
+	//
+	// This property enables you to store your Storage Lens metrics in read-only S3 Tables.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-storagelenstabledestination
 	//
 	StorageLensTableDestination interface{} `field:"optional" json:"storageLensTableDestination" yaml:"storageLensTableDestination"`

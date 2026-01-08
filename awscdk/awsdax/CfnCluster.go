@@ -806,6 +806,44 @@ func CfnCluster_ArnForCluster(resource interfacesawsdax.IClusterRef) *string {
 	return returns
 }
 
+// Creates a new IClusterRef from an ARN.
+func CfnCluster_FromClusterArn(scope constructs.Construct, id *string, arn *string) interfacesawsdax.IClusterRef {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_FromClusterArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdax.IClusterRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dax.CfnCluster",
+		"fromClusterArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IClusterRef from a clusterName.
+func CfnCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) interfacesawsdax.IClusterRef {
+	_init_.Initialize()
+
+	if err := validateCfnCluster_FromClusterNameParameters(scope, id, clusterName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdax.IClusterRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dax.CfnCluster",
+		"fromClusterName",
+		[]interface{}{scope, id, clusterName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnCluster.
 func CfnCluster_IsCfnCluster(x interface{}) *bool {
 	_init_.Initialize()

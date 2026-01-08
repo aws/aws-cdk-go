@@ -3,6 +3,7 @@ package awsappsync
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // Properties for the OpenSearch Data Source.
@@ -13,13 +14,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domain Domain
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //   var role Role
 //
 //   openSearchDataSourceProps := &OpenSearchDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //   	Domain: domain,
 //
 //   	// the properties below are optional
@@ -30,7 +32,7 @@ import (
 //
 type OpenSearchDataSourceProps struct {
 	// The API to attach this data source to.
-	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IGraphQLApiRef `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Default: - None.
 	//

@@ -593,6 +593,43 @@ func (j *jsiiProxy_CfnWebhook)SetTargetPipelineVersion(val *float64) {
 	)
 }
 
+func CfnWebhook_ArnForWebhook(resource interfacesawscodepipeline.IWebhookRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnWebhook_ArnForWebhookParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"arnForWebhook",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IWebhookRef from a webhookName.
+func CfnWebhook_FromWebhookName(scope constructs.Construct, id *string, webhookName *string) interfacesawscodepipeline.IWebhookRef {
+	_init_.Initialize()
+
+	if err := validateCfnWebhook_FromWebhookNameParameters(scope, id, webhookName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawscodepipeline.IWebhookRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
+		"fromWebhookName",
+		[]interface{}{scope, id, webhookName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -8,7 +8,7 @@ func (c *jsiiProxy_CodePipeline) validateBindParameters(rule awsevents.IRule) er
 	return nil
 }
 
-func validateNewCodePipelineParameters(pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) error {
+func validateNewCodePipelineParameters(pipeline interfacesawscodepipeline.IPipelineRef, options *CodePipelineTargetOptions) error {
 	return nil
 }
 

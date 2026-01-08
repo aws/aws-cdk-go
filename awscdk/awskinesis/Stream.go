@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,6 +66,8 @@ type Stream interface {
 	StreamArn() *string
 	// The name of the stream.
 	StreamName() *string
+	// A reference to this stream.
+	StreamRef() *interfacesawskinesis.StreamReference
 	// Adds a statement to the IAM resource policy associated with this stream.
 	//
 	// If this stream was created in this stack (`new Stream`), a resource policy
@@ -319,6 +322,16 @@ func (j *jsiiProxy_Stream) StreamName() *string {
 	_jsii_.Get(
 		j,
 		"streamName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Stream) StreamRef() *interfacesawskinesis.StreamReference {
+	var returns *interfacesawskinesis.StreamReference
+	_jsii_.Get(
+		j,
+		"streamRef",
 		&returns,
 	)
 	return returns

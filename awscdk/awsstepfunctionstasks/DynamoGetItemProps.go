@@ -2,8 +2,8 @@ package awsstepfunctionstasks
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 )
 
 // Properties for DynamoGetItem Task.
@@ -137,7 +137,7 @@ type DynamoGetItemProps struct {
 	//
 	Key *map[string]DynamoAttributeValue `field:"required" json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	Table awsdynamodb.ITable `field:"required" json:"table" yaml:"table"`
+	Table interfacesawsdynamodb.ITableRef `field:"required" json:"table" yaml:"table"`
 	// Determines the read consistency model: If set to true, then the operation uses strongly consistent reads;
 	//
 	// otherwise, the operation uses eventually consistent reads.

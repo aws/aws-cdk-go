@@ -92,7 +92,13 @@ import (
 //   							SigningRegion: jsii.String("signingRegion"),
 //   						},
 //   					},
+//   					BatchConfig: &BatchConfigProperty{
+//   						MaxBatchOpenMs: jsii.Number(123),
+//   						MaxBatchSize: jsii.Number(123),
+//   						MaxBatchSizeBytes: jsii.Number(123),
+//   					},
 //   					ConfirmationUrl: jsii.String("confirmationUrl"),
+//   					EnableBatching: jsii.Boolean(false),
 //   					Headers: []interface{}{
 //   						&HttpActionHeaderProperty{
 //   							Key: jsii.String("key"),
@@ -338,7 +344,13 @@ import (
 //   						SigningRegion: jsii.String("signingRegion"),
 //   					},
 //   				},
+//   				BatchConfig: &BatchConfigProperty{
+//   					MaxBatchOpenMs: jsii.Number(123),
+//   					MaxBatchSize: jsii.Number(123),
+//   					MaxBatchSizeBytes: jsii.Number(123),
+//   				},
 //   				ConfirmationUrl: jsii.String("confirmationUrl"),
+//   				EnableBatching: jsii.Boolean(false),
 //   				Headers: []interface{}{
 //   					&HttpActionHeaderProperty{
 //   						Key: jsii.String("key"),

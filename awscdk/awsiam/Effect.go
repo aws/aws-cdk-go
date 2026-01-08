@@ -4,15 +4,30 @@ package awsiam
 // The Effect element of an IAM policy.
 //
 // Example:
-//   var books Resource
-//   var iamUser User
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // This function handles your connect route
+//   var connectHandler Function
 //
 //
-//   getBooks := books.AddMethod(jsii.String("GET"), apigateway.NewHttpIntegration(jsii.String("http://amazon.com")), &MethodOptions{
-//   	AuthorizationType: apigateway.AuthorizationType_IAM,
+//   webSocketApi := apigwv2.NewWebSocketApi(this, jsii.String("WebSocketApi"))
+//
+//   webSocketApi.AddRoute(jsii.String("$connect"), &WebSocketRouteOptions{
+//   	Integration: awscdk.NewWebSocketLambdaIntegration(jsii.String("Integration"), connectHandler),
+//   	Authorizer: awscdk.NewWebSocketIamAuthorizer(),
 //   })
 //
-//   iamUser.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowBooks"), &PolicyProps{
+//   // Create an IAM user (identity)
+//   user := iam.NewUser(this, jsii.String("User"))
+//
+//   webSocketArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
+//   	Service: jsii.String("execute-api"),
+//   	Resource: webSocketApi.ApiId,
+//   })
+//
+//   // Grant access to the IAM user
+//   user.AttachInlinePolicy(iam.NewPolicy(this, jsii.String("AllowInvoke"), &PolicyProps{
 //   	Statements: []PolicyStatement{
 //   		iam.NewPolicyStatement(&PolicyStatementProps{
 //   			Actions: []*string{
@@ -20,7 +35,7 @@ package awsiam
 //   			},
 //   			Effect: iam.Effect_ALLOW,
 //   			Resources: []*string{
-//   				getBooks.methodArn,
+//   				webSocketArn,
 //   			},
 //   		}),
 //   	},

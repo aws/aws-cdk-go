@@ -7,11 +7,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A secret in AWS Secrets Manager.
 type ISecret interface {
 	awscdk.IResource
+	interfacesawssecretsmanager.ISecretRef
 	// Adds a rotation schedule to the secret.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
@@ -62,6 +66,7 @@ type ISecret interface {
 // The jsii proxy for ISecret
 type jsiiProxy_ISecret struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawssecretsmanagerISecretRef
 }
 
 func (i *jsiiProxy_ISecret) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
@@ -184,6 +189,17 @@ func (i *jsiiProxy_ISecret) SecretValueFromJson(key *string) awscdk.SecretValue 
 	return returns
 }
 
+func (i *jsiiProxy_ISecret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_ISecret) EncryptionKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -229,6 +245,46 @@ func (j *jsiiProxy_ISecret) SecretValue() awscdk.SecretValue {
 	_jsii_.Get(
 		j,
 		"secretValue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISecret) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISecret) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISecret) SecretRef() *interfacesawssecretsmanager.SecretReference {
+	var returns *interfacesawssecretsmanager.SecretReference
+	_jsii_.Get(
+		j,
+		"secretRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISecret) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

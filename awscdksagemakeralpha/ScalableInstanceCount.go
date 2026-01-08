@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 	"github.com/aws/aws-cdk-go/awscdksagemakeralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -41,11 +43,25 @@ import (
 // Experimental.
 type ScalableInstanceCount interface {
 	awsapplicationautoscaling.BaseScalableAttribute
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
+	// Experimental.
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
 	// Experimental.
 	Props() *awsapplicationautoscaling.BaseScalableAttributeProps
+	// A reference to a ScalableTarget resource.
+	// Experimental.
+	ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference
 	// Scale out or in based on a metric value.
 	// Experimental.
 	DoScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps)
@@ -68,6 +84,16 @@ type jsiiProxy_ScalableInstanceCount struct {
 	internal.Type__awsapplicationautoscalingBaseScalableAttribute
 }
 
+func (j *jsiiProxy_ScalableInstanceCount) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ScalableInstanceCount) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -83,6 +109,16 @@ func (j *jsiiProxy_ScalableInstanceCount) Props() *awsapplicationautoscaling.Bas
 	_jsii_.Get(
 		j,
 		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScalableInstanceCount) ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference {
+	var returns *interfacesawsapplicationautoscaling.ScalableTargetReference
+	_jsii_.Get(
+		j,
+		"scalableTargetRef",
 		&returns,
 	)
 	return returns

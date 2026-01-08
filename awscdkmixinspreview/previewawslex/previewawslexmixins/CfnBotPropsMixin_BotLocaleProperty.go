@@ -40,6 +40,12 @@ type CfnBotPropsMixin_BotLocaleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-slottypes
 	//
 	SlotTypes interface{} `field:"optional" json:"slotTypes" yaml:"slotTypes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-speechdetectionsensitivity
+	//
+	SpeechDetectionSensitivity *string `field:"optional" json:"speechDetectionSensitivity" yaml:"speechDetectionSensitivity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-unifiedspeechsettings
+	//
+	UnifiedSpeechSettings interface{} `field:"optional" json:"unifiedSpeechSettings" yaml:"unifiedSpeechSettings"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
 	// Valid values include:

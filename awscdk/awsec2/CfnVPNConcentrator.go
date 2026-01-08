@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::EC2::VPNConcentrator.
+// Describes a VPN concentrator.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,9 +38,9 @@ type CfnVPNConcentrator interface {
 	awscdk.IInspectable
 	interfacesawsec2.IVPNConcentratorRef
 	awscdk.ITaggableV2
-	// The ID of the transit gateway attachment.
+	// The ID of the transit gateway attachment for the VPN concentrator.
 	AttrTransitGatewayAttachmentId() *string
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	AttrVpnConcentratorId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -78,7 +78,7 @@ type CfnVPNConcentrator interface {
 	// Any tags assigned to the VPN concentrator.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The ID of the transit gateway.
+	// The ID of the transit gateway associated with the VPN concentrator.
 	TransitGatewayId() *string
 	SetTransitGatewayId(val *string)
 	// The type of VPN concentrator.
@@ -475,6 +475,43 @@ func (j *jsiiProxy_CfnVPNConcentrator)SetType(val *string) {
 		"type",
 		val,
 	)
+}
+
+func CfnVPNConcentrator_ArnForVPNConcentrator(resource interfacesawsec2.IVPNConcentratorRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPNConcentrator_ArnForVPNConcentratorParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPNConcentrator",
+		"arnForVPNConcentrator",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IVPNConcentratorRef from a vpnConcentratorId.
+func CfnVPNConcentrator_FromVpnConcentratorId(scope constructs.Construct, id *string, vpnConcentratorId *string) interfacesawsec2.IVPNConcentratorRef {
+	_init_.Initialize()
+
+	if err := validateCfnVPNConcentrator_FromVpnConcentratorIdParameters(scope, id, vpnConcentratorId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.IVPNConcentratorRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPNConcentrator",
+		"fromVpnConcentratorId",
+		[]interface{}{scope, id, vpnConcentratorId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

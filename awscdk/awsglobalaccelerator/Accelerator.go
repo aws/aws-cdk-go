@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,6 +57,8 @@ type Accelerator interface {
 	IAccelerator
 	// The ARN of the accelerator.
 	AcceleratorArn() *string
+	// A reference to a Accelerator resource.
+	AcceleratorRef() *interfacesawsglobalaccelerator.AcceleratorReference
 	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
 	DnsName() *string
 	// The DNS name that points to the dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
@@ -127,6 +130,16 @@ func (j *jsiiProxy_Accelerator) AcceleratorArn() *string {
 	_jsii_.Get(
 		j,
 		"acceleratorArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Accelerator) AcceleratorRef() *interfacesawsglobalaccelerator.AcceleratorReference {
+	var returns *interfacesawsglobalaccelerator.AcceleratorReference
+	_jsii_.Get(
+		j,
+		"acceleratorRef",
 		&returns,
 	)
 	return returns

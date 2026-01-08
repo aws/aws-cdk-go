@@ -64,3 +64,7 @@ func (i *jsiiProxy_IGraphqlApi) validateGrantSubscriptionParameters(grantee awsi
 	return nil
 }
 
+func (i *jsiiProxy_IGraphqlApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

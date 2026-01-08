@@ -24,7 +24,7 @@ import (
 //   	TypeName: jsii.String("typeName"),
 //   	FieldName: jsii.String("fieldName"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
-//   	PipelineConfig: []IAppsyncFunction{
+//   	PipelineConfig: []IFunctionConfigurationRef{
 //   		appsyncFunction,
 //   	},
 //   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),
@@ -32,6 +32,7 @@ import (
 //
 type BaseDataSource interface {
 	constructs.Construct
+	// The API this data source is attached to Set the API this data source is attached to.
 	Api() IGraphqlApi
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.

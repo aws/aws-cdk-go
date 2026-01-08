@@ -23,6 +23,13 @@ import (
 //
 //   	// the properties below are optional
 //   	DefaultJobTimeoutMinutes: jsii.Number(123),
+//   	EnvironmentVariables: []interface{}{
+//   		&EnvironmentVariableProperty{
+//   			Name: jsii.String("name"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -64,6 +71,10 @@ type CfnProject interface {
 	DefaultJobTimeoutMinutes() *float64
 	SetDefaultJobTimeoutMinutes(val *float64)
 	Env() *interfaces.ResourceEnvironment
+	EnvironmentVariables() interface{}
+	SetEnvironmentVariables(val interface{})
+	ExecutionRoleArn() *string
+	SetExecutionRoleArn(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -316,6 +327,26 @@ func (j *jsiiProxy_CfnProject) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) EnvironmentVariables() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"environmentVariables",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) ExecutionRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -460,6 +491,25 @@ func (j *jsiiProxy_CfnProject)SetDefaultJobTimeoutMinutes(val *float64) {
 	_jsii_.Set(
 		j,
 		"defaultJobTimeoutMinutes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetEnvironmentVariables(val interface{}) {
+	if err := j.validateSetEnvironmentVariablesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"environmentVariables",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetExecutionRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"executionRoleArn",
 		val,
 	)
 }

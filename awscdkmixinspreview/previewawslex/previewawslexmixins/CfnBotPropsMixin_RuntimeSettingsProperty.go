@@ -10,7 +10,13 @@ package previewawslexmixins
 //
 //   runtimeSettingsProperty := &RuntimeSettingsProperty{
 //   	NluImprovementSpecification: &NluImprovementSpecificationProperty{
+//   		AssistedNluMode: jsii.String("assistedNluMode"),
 //   		Enabled: jsii.Boolean(false),
+//   		IntentDisambiguationSettings: &IntentDisambiguationSettingsProperty{
+//   			CustomDisambiguationMessage: jsii.String("customDisambiguationMessage"),
+//   			Enabled: jsii.Boolean(false),
+//   			MaxDisambiguationIntents: jsii.Number(123),
+//   		},
 //   	},
 //   	SlotResolutionImprovementSpecification: &SlotResolutionImprovementSpecificationProperty{
 //   		BedrockModelSpecification: &BedrockModelSpecificationProperty{

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,6 +30,8 @@ type BackupVault interface {
 	BackupVaultArn() *string
 	// The name of a logical container where backups are stored.
 	BackupVaultName() *string
+	// A reference to a BackupVault resource.
+	BackupVaultRef() *interfacesawsbackup.BackupVaultReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -106,6 +109,16 @@ func (j *jsiiProxy_BackupVault) BackupVaultName() *string {
 	_jsii_.Get(
 		j,
 		"backupVaultName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BackupVault) BackupVaultRef() *interfacesawsbackup.BackupVaultReference {
+	var returns *interfacesawsbackup.BackupVaultReference
+	_jsii_.Get(
+		j,
+		"backupVaultRef",
 		&returns,
 	)
 	return returns

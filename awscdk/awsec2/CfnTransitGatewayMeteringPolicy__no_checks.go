@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnTransitGatewayMeteringPolicy) validateValidatePropertiesPa
 	return nil
 }
 
+func validateCfnTransitGatewayMeteringPolicy_ArnForTransitGatewayMeteringPolicyParameters(resource interfacesawsec2.ITransitGatewayMeteringPolicyRef) error {
+	return nil
+}
+
+func validateCfnTransitGatewayMeteringPolicy_FromTransitGatewayMeteringPolicyIdParameters(scope constructs.Construct, id *string, transitGatewayMeteringPolicyId *string) error {
+	return nil
+}
+
 func validateCfnTransitGatewayMeteringPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

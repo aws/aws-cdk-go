@@ -26,6 +26,7 @@ type CfnBot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawslex.IBotRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the bot.
 	AttrArn() *string
 	// The unique identifier of the bot.
@@ -42,8 +43,10 @@ type CfnBot interface {
 	// A reference to a Bot resource.
 	BotRef() *interfacesawslex.BotReference
 	// A list of tags to add to the bot.
-	BotTags() interface{}
-	SetBotTags(val interface{})
+	BotTags() *[]*awscdk.CfnTag
+	SetBotTags(val *[]*awscdk.CfnTag)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -245,6 +248,7 @@ type jsiiProxy_CfnBot struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawslexIBotRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBot) AttrArn() *string {
@@ -307,11 +311,21 @@ func (j *jsiiProxy_CfnBot) BotRef() *interfacesawslex.BotReference {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBot) BotTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnBot) BotTags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"botTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBot) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -580,7 +594,7 @@ func (j *jsiiProxy_CfnBot)SetBotLocales(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnBot)SetBotTags(val interface{}) {
+func (j *jsiiProxy_CfnBot)SetBotTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetBotTagsParameters(val); err != nil {
 		panic(err)
 	}

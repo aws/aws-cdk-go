@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnVPNConcentrator) validateValidatePropertiesParameters(_pro
 	return nil
 }
 
+func validateCfnVPNConcentrator_ArnForVPNConcentratorParameters(resource interfacesawsec2.IVPNConcentratorRef) error {
+	return nil
+}
+
+func validateCfnVPNConcentrator_FromVpnConcentratorIdParameters(scope constructs.Construct, id *string, vpnConcentratorId *string) error {
+	return nil
+}
+
 func validateCfnVPNConcentrator_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

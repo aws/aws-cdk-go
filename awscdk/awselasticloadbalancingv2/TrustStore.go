@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,6 +78,8 @@ type TrustStore interface {
 	TrustStoreArn() *string
 	// The name of the trust store.
 	TrustStoreName() *string
+	// A reference to this trust store.
+	TrustStoreRef() *interfacesawselasticloadbalancingv2.TrustStoreReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -186,6 +189,16 @@ func (j *jsiiProxy_TrustStore) TrustStoreName() *string {
 	_jsii_.Get(
 		j,
 		"trustStoreName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TrustStore) TrustStoreRef() *interfacesawselasticloadbalancingv2.TrustStoreReference {
+	var returns *interfacesawselasticloadbalancingv2.TrustStoreReference
+	_jsii_.Get(
+		j,
+		"trustStoreRef",
 		&returns,
 	)
 	return returns

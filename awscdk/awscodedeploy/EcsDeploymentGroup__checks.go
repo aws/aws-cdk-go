@@ -8,11 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (e *jsiiProxy_EcsDeploymentGroup) validateAddAlarmParameters(alarm awscloudwatch.IAlarm) error {
+func (e *jsiiProxy_EcsDeploymentGroup) validateAddAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef) error {
 	if alarm == nil {
 		return fmt.Errorf("parameter alarm is required, but nil was provided")
 	}

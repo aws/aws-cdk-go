@@ -45,7 +45,7 @@ import (
 //   			LocaleId: jsii.String("localeId"),
 //   		},
 //   	},
-//   	BotAliasTags: []interface{}{
+//   	BotAliasTags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
@@ -89,6 +89,7 @@ type CfnBotAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawslex.IBotAliasRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the bot alias.
 	AttrArn() *string
 	// The unique identifier of the bot alias.
@@ -106,14 +107,16 @@ type CfnBotAlias interface {
 	// A reference to a BotAlias resource.
 	BotAliasRef() *interfacesawslex.BotAliasReference
 	// An array of key-value pairs to apply to this resource.
-	BotAliasTags() interface{}
-	SetBotAliasTags(val interface{})
+	BotAliasTags() *[]*awscdk.CfnTag
+	SetBotAliasTags(val *[]*awscdk.CfnTag)
 	// The unique identifier of the bot.
 	BotId() *string
 	SetBotId(val *string)
 	// The version of the bot that the bot alias references.
 	BotVersion() *string
 	SetBotVersion(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -299,6 +302,7 @@ type jsiiProxy_CfnBotAlias struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawslexIBotAliasRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBotAlias) AttrArn() *string {
@@ -361,8 +365,8 @@ func (j *jsiiProxy_CfnBotAlias) BotAliasRef() *interfacesawslex.BotAliasReferenc
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotAlias) BotAliasTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnBotAlias) BotAliasTags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
 		j,
 		"botAliasTags",
@@ -386,6 +390,16 @@ func (j *jsiiProxy_CfnBotAlias) BotVersion() *string {
 	_jsii_.Get(
 		j,
 		"botVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBotAlias) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -583,7 +597,7 @@ func (j *jsiiProxy_CfnBotAlias)SetBotAliasName(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnBotAlias)SetBotAliasTags(val interface{}) {
+func (j *jsiiProxy_CfnBotAlias)SetBotAliasTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetBotAliasTagsParameters(val); err != nil {
 		panic(err)
 	}

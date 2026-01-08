@@ -92,7 +92,7 @@ import (
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   	},
-//   	LoadBalancerNames: []interface{}{
+//   	LoadBalancerNames: []*string{
 //   		jsii.String("loadBalancerNames"),
 //   	},
 //   	MaxInstanceLifetime: jsii.Number(123),
@@ -334,6 +334,7 @@ type CfnAutoScalingGroup interface {
 	// The ID of the instance used to base the launch configuration on.
 	InstanceId() *string
 	SetInstanceId(val *string)
+	// The instance lifecycle policy for the Auto Scaling group.
 	InstanceLifecyclePolicy() interface{}
 	SetInstanceLifecyclePolicy(val interface{})
 	// An instance maintenance policy.

@@ -16,7 +16,7 @@ func (c *jsiiProxy_CodeBuildStartBuild) validateBindBaseTargetConfigParameters(_
 	return nil
 }
 
-func validateNewCodeBuildStartBuildParameters(project awscodebuild.IProject, props *ScheduleTargetBaseProps) error {
+func validateNewCodeBuildStartBuildParameters(project interfacesawscodebuild.IProjectRef, props *ScheduleTargetBaseProps) error {
 	return nil
 }
 

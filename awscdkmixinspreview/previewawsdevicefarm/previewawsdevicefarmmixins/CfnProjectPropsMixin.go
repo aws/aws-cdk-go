@@ -20,6 +20,13 @@ import (
 //
 //   cfnProjectPropsMixin := awscdkmixinspreview.Mixins.NewCfnProjectPropsMixin(&CfnProjectMixinProps{
 //   	DefaultJobTimeoutMinutes: jsii.Number(123),
+//   	EnvironmentVariables: []interface{}{
+//   		&EnvironmentVariableProperty{
+//   			Name: jsii.String("name"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

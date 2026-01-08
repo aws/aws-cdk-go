@@ -4,7 +4,7 @@ package awscloudwatchactions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AutoScalingAction) validateBindParameters(scope constructs.Construct, alarm awscloudwatch.IAlarm) error {
+func (a *jsiiProxy_AutoScalingAction) validateBindParameters(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) error {
 	return nil
 }
 

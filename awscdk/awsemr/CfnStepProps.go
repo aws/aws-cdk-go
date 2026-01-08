@@ -27,6 +27,10 @@ package awsemr
 //   	},
 //   	JobFlowId: jsii.String("jobFlowId"),
 //   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	LogUri: jsii.String("logUri"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
@@ -52,5 +56,17 @@ type CfnStepProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+	//
+	// When omitted, EMR falls back to cluster-level logging behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-encryptionkeyarn
+	//
+	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
+	// The Amazon S3 destination URI for log publishing.
+	//
+	// When omitted, EMR falls back to cluster-level logging behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-emr-step-loguri
+	//
+	LogUri *string `field:"optional" json:"logUri" yaml:"logUri"`
 }
 

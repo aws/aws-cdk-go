@@ -1,7 +1,9 @@
 package previewawss3mixins
 
 
-// Advanced Performance Metrics.
+// A property for S3 Storage Lens advanced performance metrics.
+//
+// Advanced performance metrics provide insights into application performance such as access patterns and network originality metrics.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -15,7 +17,7 @@ package previewawss3mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedperformancemetrics.html
 //
 type CfnStorageLensPropsMixin_AdvancedPerformanceMetricsProperty struct {
-	// Specifies whether the Advanced Performance Metrics is enabled or disabled.
+	// This property indicates whether the advanced performance metrics are enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedperformancemetrics.html#cfn-s3-storagelens-advancedperformancemetrics-isenabled
 	//
 	IsEnabled interface{} `field:"optional" json:"isEnabled" yaml:"isEnabled"`

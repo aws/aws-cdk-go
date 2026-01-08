@@ -504,11 +504,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineArn", GoGetter: "PipelineArn"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineName", GoGetter: "PipelineName"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPipeline{}
 			_jsii_.InitJsiiProxy(&j.Type__awscodestarnotificationsINotificationRuleSource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodepipelineIPipelineRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -554,6 +556,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineArn", GoGetter: "PipelineArn"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineName", GoGetter: "PipelineName"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
 			_jsii_.MemberProperty{JsiiProperty: "pipelineVersion", GoGetter: "PipelineVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

@@ -14,7 +14,7 @@ import (
 //
 //   dashboard.AddWidgets(
 //   cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-//   	Alarms: []IAlarm{
+//   	Alarms: []IAlarmRef{
 //   		errorAlarm,
 //   	},
 //   }))

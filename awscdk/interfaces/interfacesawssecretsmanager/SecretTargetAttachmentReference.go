@@ -9,11 +9,11 @@ package interfacesawssecretsmanager
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   secretTargetAttachmentReference := &SecretTargetAttachmentReference{
-//   	SecretTargetAttachmentId: jsii.String("secretTargetAttachmentId"),
+//   	SecretId: jsii.String("secretId"),
 //   }
 //
 type SecretTargetAttachmentReference struct {
-	// The Id of the SecretTargetAttachment resource.
-	SecretTargetAttachmentId *string `field:"required" json:"secretTargetAttachmentId" yaml:"secretTargetAttachmentId"`
+	// The SecretId of the SecretTargetAttachment resource.
+	SecretId *string `field:"required" json:"secretId" yaml:"secretId"`
 }
 

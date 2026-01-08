@@ -70,6 +70,7 @@ type CfnAnycastIpList_AnycastIpListProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipaddresstype
 	//
 	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
+	// The results for the IPAM CIDRs that defines a specific IP address range, IPAM pool, and associated Anycast IP address.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipamcidrconfigresults
 	//
 	IpamCidrConfigResults interface{} `field:"optional" json:"ipamCidrConfigResults" yaml:"ipamCidrConfigResults"`

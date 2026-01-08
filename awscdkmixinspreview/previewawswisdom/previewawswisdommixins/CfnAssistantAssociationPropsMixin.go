@@ -23,6 +23,10 @@ import (
 //   cfnAssistantAssociationPropsMixin := awscdkmixinspreview.Mixins.NewCfnAssistantAssociationPropsMixin(&CfnAssistantAssociationMixinProps{
 //   	AssistantId: jsii.String("assistantId"),
 //   	Association: &AssociationDataProperty{
+//   		ExternalBedrockKnowledgeBaseConfig: &ExternalBedrockKnowledgeBaseConfigProperty{
+//   			AccessRoleArn: jsii.String("accessRoleArn"),
+//   			BedrockKnowledgeBaseArn: jsii.String("bedrockKnowledgeBaseArn"),
+//   		},
 //   		KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   	},
 //   	AssociationType: jsii.String("associationType"),

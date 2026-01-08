@@ -546,6 +546,44 @@ func CfnPreset_ArnForPreset(resource interfacesawsmediaconvert.IPresetRef) *stri
 	return returns
 }
 
+// Creates a new IPresetRef from an ARN.
+func CfnPreset_FromPresetArn(scope constructs.Construct, id *string, arn *string) interfacesawsmediaconvert.IPresetRef {
+	_init_.Initialize()
+
+	if err := validateCfnPreset_FromPresetArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmediaconvert.IPresetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"fromPresetArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPresetRef from a presetName.
+func CfnPreset_FromPresetName(scope constructs.Construct, id *string, presetName *string) interfacesawsmediaconvert.IPresetRef {
+	_init_.Initialize()
+
+	if err := validateCfnPreset_FromPresetNameParameters(scope, id, presetName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmediaconvert.IPresetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnPreset",
+		"fromPresetName",
+		[]interface{}{scope, id, presetName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

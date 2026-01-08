@@ -131,7 +131,7 @@ type CfnResolverEndpoint interface {
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType() *string
 	SetResolverEndpointType(val *string)
-	// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints.
+	// Indicates whether RNI enhanced metrics are enabled for the Resolver endpoint.
 	RniEnhancedMetricsEnabled() interface{}
 	SetRniEnhancedMetricsEnabled(val interface{})
 	// The ID of one or more security groups that control access to this VPC.
@@ -146,7 +146,7 @@ type CfnResolverEndpoint interface {
 	// Route 53 Resolver doesn't support updating tags through CloudFormation.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint.
+	// Indicates whether target name server metrics are enabled for the outbound Resolver endpoint.
 	TargetNameServerMetricsEnabled() interface{}
 	SetTargetNameServerMetricsEnabled(val interface{})
 	// Deprecated.

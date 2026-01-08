@@ -72,3 +72,7 @@ func (i *jsiiProxy_ITable) validateMetricUserErrorsParameters(props *awscloudwat
 	return nil
 }
 
+func (i *jsiiProxy_ITable) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

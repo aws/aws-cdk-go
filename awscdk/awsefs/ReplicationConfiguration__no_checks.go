@@ -4,7 +4,7 @@ package awsefs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateReplicationConfiguration_ExistingFileSystemParameters(destinationFileSystem IFileSystem) error {
+func validateReplicationConfiguration_ExistingFileSystemParameters(destinationFileSystem interfacesawsefs.IFileSystemRef) error {
 	return nil
 }
 

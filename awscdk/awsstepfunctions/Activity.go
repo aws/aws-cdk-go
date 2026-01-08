@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,6 +31,8 @@ type Activity interface {
 	ActivityArn() *string
 	// The name of the activity.
 	ActivityName() *string
+	// A reference to a Activity resource.
+	ActivityRef() *interfacesawsstepfunctions.ActivityReference
 	// The encryptionConfiguration object used for server-side encryption of the activity inputs.
 	EncryptionConfiguration() EncryptionConfiguration
 	// The environment this resource belongs to.
@@ -145,6 +148,16 @@ func (j *jsiiProxy_Activity) ActivityName() *string {
 	_jsii_.Get(
 		j,
 		"activityName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Activity) ActivityRef() *interfacesawsstepfunctions.ActivityReference {
+	var returns *interfacesawsstepfunctions.ActivityReference
+	_jsii_.Get(
+		j,
+		"activityRef",
 		&returns,
 	)
 	return returns

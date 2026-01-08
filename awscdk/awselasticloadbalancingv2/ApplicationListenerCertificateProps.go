@@ -1,5 +1,8 @@
 package awselasticloadbalancingv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
+)
 
 // Properties for adding a set of certificates to a listener.
 //
@@ -7,12 +10,13 @@ package awselasticloadbalancingv2
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationListener ApplicationListener
 //   var listenerCertificate ListenerCertificate
+//   var listenerRef IListenerRef
 //
 //   applicationListenerCertificateProps := &ApplicationListenerCertificateProps{
-//   	Listener: applicationListener,
+//   	Listener: listenerRef,
 //
 //   	// the properties below are optional
 //   	Certificates: []IListenerCertificate{
@@ -22,7 +26,7 @@ package awselasticloadbalancingv2
 //
 type ApplicationListenerCertificateProps struct {
 	// The listener to attach the rule to.
-	Listener IApplicationListener `field:"required" json:"listener" yaml:"listener"`
+	Listener interfacesawselasticloadbalancingv2.IListenerRef `field:"required" json:"listener" yaml:"listener"`
 	// Certificates to attach.
 	//
 	// Duplicates are not allowed.

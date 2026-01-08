@@ -8,11 +8,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesis"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Kinesis Stream.
 type IStream interface {
 	awscdk.IResource
+	interfacesawskinesis.IStreamRef
 	// Adds a statement to the IAM resource policy associated with this stream.
 	//
 	// If this stream was created in this stack (`new Stream`), a resource policy
@@ -168,6 +172,7 @@ type IStream interface {
 // The jsii proxy for IStream
 type jsiiProxy_IStream struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawskinesisIStreamRef
 }
 
 func (i *jsiiProxy_IStream) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -575,6 +580,17 @@ func (i *jsiiProxy_IStream) MetricWriteProvisionedThroughputExceeded(props *awsc
 	return returns
 }
 
+func (i *jsiiProxy_IStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IStream) EncryptionKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -600,6 +616,46 @@ func (j *jsiiProxy_IStream) StreamName() *string {
 	_jsii_.Get(
 		j,
 		"streamName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStream) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStream) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStream) StreamRef() *interfacesawskinesis.StreamReference {
+	var returns *interfacesawskinesis.StreamReference
+	_jsii_.Get(
+		j,
+		"streamRef",
 		&returns,
 	)
 	return returns

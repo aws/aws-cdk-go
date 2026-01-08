@@ -14,6 +14,7 @@ package previewawslexmixins
 //   			&SubSlotTypeCompositionProperty{
 //   				Name: jsii.String("name"),
 //   				SlotTypeId: jsii.String("slotTypeId"),
+//   				SlotTypeName: jsii.String("slotTypeName"),
 //   			},
 //   		},
 //   	},

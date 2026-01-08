@@ -1936,6 +1936,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "secretArn", GoGetter: "SecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretFullArn", GoGetter: "SecretFullArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretName", GoGetter: "SecretName"},
+			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
 			_jsii_.MemberProperty{JsiiProperty: "secretValue", GoGetter: "SecretValue"},
 			_jsii_.MemberMethod{JsiiMethod: "secretValueFromJson", GoMethod: "SecretValueFromJson"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

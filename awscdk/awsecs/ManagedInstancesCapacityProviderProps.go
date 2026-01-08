@@ -10,35 +10,18 @@ import (
 //
 // Example:
 //   var vpc Vpc
-//   var infrastructureRole Role
-//   var instanceProfile InstanceProfile
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   // Create a Managed Instances Capacity Provider
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-//   	InfrastructureRole: InfrastructureRole,
-//   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
-//   	SecurityGroups: []ISecurityGroup{
-//   		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
-//   			Vpc: *Vpc,
-//   		}),
-//   	},
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-//   		CpuManufacturers: []CpuManufacturer{
-//   			ec2.CpuManufacturer_INTEL,
-//   		},
-//   		AcceleratorManufacturers: []AcceleratorManufacturer{
-//   			ec2.AcceleratorManufacturer_NVIDIA,
-//   		},
 //   	},
-//   	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 //   })
 //
 //   // Optionally configure security group rules using IConnectable interface
@@ -72,12 +55,6 @@ import (
 //   })
 //
 type ManagedInstancesCapacityProviderProps struct {
-	// The EC2 instance profile that will be attached to instances launched by this capacity provider.
-	//
-	// This instance profile must contain the necessary IAM permissions for ECS container instances
-	// to register with the cluster and run tasks. At minimum, it should include permissions for
-	// ECS agent communication, ECR image pulling, and CloudWatch logging.
-	Ec2InstanceProfile awsiam.IInstanceProfile `field:"required" json:"ec2InstanceProfile" yaml:"ec2InstanceProfile"`
 	// The VPC subnets where EC2 instances will be launched.
 	//
 	// This array must be non-empty and should contain subnets from the VPC where you want
@@ -92,6 +69,21 @@ type ManagedInstancesCapacityProviderProps struct {
 	// Default: CloudFormation-generated name.
 	//
 	CapacityProviderName *string `field:"optional" json:"capacityProviderName" yaml:"capacityProviderName"`
+	// The EC2 instance profile that will be attached to instances launched by this capacity provider.
+	//
+	// This instance profile must contain the necessary IAM permissions for ECS container instances
+	// to register with the cluster and run tasks. At minimum, it should include permissions for
+	// ECS agent communication, ECR image pulling, and CloudWatch logging.
+	//
+	// If you are using Amazon ECS Managed Instances with the AWS-managed Infrastructure policy (`AmazonECSInfrastructureRolePolicyForManagedInstances`),
+	// the instance profile must be prefixed with `ecsInstanceRole` for the built in PassRole policy to apply.
+	//
+	// If you are using a custom policy for the Infrastructure role, the instance profile can have an alternative name.
+	// See: https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonECSInfrastructureRolePolicyForManagedInstances.html
+	//
+	// Default: - A new instance profile prefixed with 'ecsInstanceRole' will be created.
+	//
+	Ec2InstanceProfile awsiam.IInstanceProfile `field:"optional" json:"ec2InstanceProfile" yaml:"ec2InstanceProfile"`
 	// The IAM role that ECS uses to manage the infrastructure for the capacity provider.
 	//
 	// This role is used by ECS to perform actions such as launching and terminating instances,

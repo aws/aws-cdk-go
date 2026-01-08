@@ -1,8 +1,8 @@
 package awscodepipelineactions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 // Construction properties of the `PipelineInvokeAction`.
@@ -68,7 +68,7 @@ type PipelineInvokeActionProps struct {
 	// The pipeline that will, upon running, start the current target pipeline.
 	//
 	// You must have already created the invoking pipeline.
-	TargetPipeline awscodepipeline.IPipeline `field:"required" json:"targetPipeline" yaml:"targetPipeline"`
+	TargetPipeline interfacesawscodepipeline.IPipelineRef `field:"required" json:"targetPipeline" yaml:"targetPipeline"`
 	// The source revisions that you want the target pipeline to use when it is started by the invoking pipeline.
 	// Default: - no specific revisions.
 	//

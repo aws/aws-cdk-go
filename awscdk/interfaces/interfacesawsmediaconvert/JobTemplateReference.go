@@ -10,13 +10,13 @@ package interfacesawsmediaconvert
 //
 //   jobTemplateReference := &JobTemplateReference{
 //   	JobTemplateArn: jsii.String("jobTemplateArn"),
-//   	JobTemplateId: jsii.String("jobTemplateId"),
+//   	JobTemplateName: jsii.String("jobTemplateName"),
 //   }
 //
 type JobTemplateReference struct {
 	// The ARN of the JobTemplate resource.
 	JobTemplateArn *string `field:"required" json:"jobTemplateArn" yaml:"jobTemplateArn"`
-	// The Id of the JobTemplate resource.
-	JobTemplateId *string `field:"required" json:"jobTemplateId" yaml:"jobTemplateId"`
+	// The Name of the JobTemplate resource.
+	JobTemplateName *string `field:"required" json:"jobTemplateName" yaml:"jobTemplateName"`
 }
 

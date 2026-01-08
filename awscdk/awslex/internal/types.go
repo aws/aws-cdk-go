@@ -6,6 +6,7 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawslexIBotRef = interfacesawslex.IBotRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawslexIBotAliasRef = interfacesawslex.IBotAliasRef
 type Type__interfacesawslexIBotVersionRef = interfacesawslex.IBotVersionRef
 type Type__interfacesawslexIResourcePolicyRef = interfacesawslex.IResourcePolicyRef

@@ -9,14 +9,11 @@ package interfacesawsappsync
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   graphQLApiReference := &GraphQLApiReference{
-//   	ApiId: jsii.String("apiId"),
 //   	GraphQlApiArn: jsii.String("graphQlApiArn"),
 //   }
 //
 type GraphQLApiReference struct {
-	// The ApiId of the GraphQLApi resource.
-	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
-	// The ARN of the GraphQLApi resource.
+	// The Arn of the GraphQLApi resource.
 	GraphQlApiArn *string `field:"required" json:"graphQlApiArn" yaml:"graphQlApiArn"`
 }
 

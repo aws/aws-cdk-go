@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 )
 
 // EFS Replication Configuration.
@@ -109,7 +110,7 @@ func NewReplicationConfiguration_Override(r ReplicationConfiguration, options *R
 }
 
 // Specify the existing destination file system for the replication.
-func ReplicationConfiguration_ExistingFileSystem(destinationFileSystem IFileSystem) ReplicationConfiguration {
+func ReplicationConfiguration_ExistingFileSystem(destinationFileSystem interfacesawsefs.IFileSystemRef) ReplicationConfiguration {
 	_init_.Initialize()
 
 	if err := validateReplicationConfiguration_ExistingFileSystemParameters(destinationFileSystem); err != nil {

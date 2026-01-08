@@ -3,6 +3,7 @@ package awsappsync
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // Properties for an AppSync Lambda datasource.
@@ -13,13 +14,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ Function
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //   var role Role
 //
 //   lambdaDataSourceProps := &LambdaDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //   	LambdaFunction: function_,
 //
 //   	// the properties below are optional
@@ -30,7 +32,7 @@ import (
 //
 type LambdaDataSourceProps struct {
 	// The API to attach this data source to.
-	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IGraphQLApiRef `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Default: - None.
 	//

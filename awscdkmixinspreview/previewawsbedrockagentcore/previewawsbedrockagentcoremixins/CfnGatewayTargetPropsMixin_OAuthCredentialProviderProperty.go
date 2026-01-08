@@ -12,6 +12,8 @@ package previewawsbedrockagentcoremixins
 //   	CustomParameters: map[string]*string{
 //   		"customParametersKey": jsii.String("customParameters"),
 //   	},
+//   	DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   	GrantType: jsii.String("grantType"),
 //   	ProviderArn: jsii.String("providerArn"),
 //   	Scopes: []*string{
 //   		jsii.String("scopes"),
@@ -25,6 +27,13 @@ type CfnGatewayTargetPropsMixin_OAuthCredentialProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcredentialprovider.html#cfn-bedrockagentcore-gatewaytarget-oauthcredentialprovider-customparameters
 	//
 	CustomParameters interface{} `field:"optional" json:"customParameters" yaml:"customParameters"`
+	// Return URL for OAuth callback.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcredentialprovider.html#cfn-bedrockagentcore-gatewaytarget-oauthcredentialprovider-defaultreturnurl
+	//
+	DefaultReturnUrl *string `field:"optional" json:"defaultReturnUrl" yaml:"defaultReturnUrl"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcredentialprovider.html#cfn-bedrockagentcore-gatewaytarget-oauthcredentialprovider-granttype
+	//
+	GrantType *string `field:"optional" json:"grantType" yaml:"grantType"`
 	// The provider ARN for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcredentialprovider.html#cfn-bedrockagentcore-gatewaytarget-oauthcredentialprovider-providerarn
 	//

@@ -108,6 +108,15 @@ package previewawsautoscalingmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html
 //
 type CfnAutoScalingGroupPropsMixin_LaunchTemplateOverridesProperty struct {
+	// The ID of the Amazon Machine Image (AMI) to use for instances launched with this override.
+	//
+	// When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
+	//
+	// For `ReplaceRootVolume` operations:
+	//
+	// - All overrides in the `MixedInstancesPolicy` must specify an ImageId
+	// - The AMI must contain only a single root volume
+	// - Root volume replacement doesn't support multi-volume AMIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-imageid
 	//
 	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`

@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
 func (c *jsiiProxy_CodeBuildStartBuild) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
@@ -36,7 +36,7 @@ func (c *jsiiProxy_CodeBuildStartBuild) validateBindBaseTargetConfigParameters(_
 	return nil
 }
 
-func validateNewCodeBuildStartBuildParameters(project awscodebuild.IProject, props *ScheduleTargetBaseProps) error {
+func validateNewCodeBuildStartBuildParameters(project interfacesawscodebuild.IProjectRef, props *ScheduleTargetBaseProps) error {
 	if project == nil {
 		return fmt.Errorf("parameter project is required, but nil was provided")
 	}

@@ -72,6 +72,10 @@ func validateCfnRule_ArnForRuleParameters(resource interfacesawsevents.IRuleRef)
 	return nil
 }
 
+func validateCfnRule_FromRuleArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnRule_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

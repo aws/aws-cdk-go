@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,6 +35,8 @@ import (
 type ApiKey interface {
 	awscdk.Resource
 	IApiKey
+	// A reference to a ApiKey resource.
+	ApiKeyRef() *interfacesawsapigateway.ApiKeyReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -98,6 +101,16 @@ type ApiKey interface {
 type jsiiProxy_ApiKey struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IApiKey
+}
+
+func (j *jsiiProxy_ApiKey) ApiKeyRef() *interfacesawsapigateway.ApiKeyReference {
+	var returns *interfacesawsapigateway.ApiKeyReference
+	_jsii_.Get(
+		j,
+		"apiKeyRef",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ApiKey) Env() *interfaces.ResourceEnvironment {

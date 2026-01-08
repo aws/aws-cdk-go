@@ -92,7 +92,7 @@ deploymentGroup := codedeploy.NewServerDeploymentGroup(this, jsii.String("CodeDe
 		},
 	}),
 	// CloudWatch alarms
-	Alarms: []IAlarm{
+	Alarms: []IAlarmRef{
 		alarm,
 	},
 	// whether to ignore failure to fetch the status of alarms from CloudWatch
@@ -321,7 +321,7 @@ alarm := cloudwatch.NewAlarm(this, jsii.String("Errors"), &AlarmProps{
 deploymentGroup := codedeploy.NewLambdaDeploymentGroup(this, jsii.String("BlueGreenDeployment"), &LambdaDeploymentGroupProps{
 	Alias: Alias,
 	DeploymentConfig: codedeploy.LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_1MINUTE(),
-	Alarms: []IAlarm{
+	Alarms: []IAlarmRef{
 		alarm,
 	},
 })
@@ -556,7 +556,7 @@ greenApiFailure := cloudwatch.NewAlarm(this, jsii.String("Green5xx"), &AlarmProp
 
 codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymentGroupProps{
 	// CodeDeploy will monitor these alarms during a deployment and automatically roll back
-	Alarms: []IAlarm{
+	Alarms: []IAlarmRef{
 		blueUnhealthyHosts,
 		greenUnhealthyHosts,
 		blueApiFailure,
@@ -681,7 +681,7 @@ codedeploy.NewEcsDeploymentGroup(this, jsii.String("BlueGreenDG"), &EcsDeploymen
 	},
 	// CodeDeploy will continue to monitor these alarms during the 30-minute bake time and will automatically
 	// roll back if they go into a failed state at any point during the deployment.
-	Alarms: []IAlarm{
+	Alarms: []IAlarmRef{
 		blueUnhealthyHosts,
 		greenUnhealthyHosts,
 		blueApiFailure,

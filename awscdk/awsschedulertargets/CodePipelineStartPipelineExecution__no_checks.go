@@ -16,7 +16,7 @@ func (c *jsiiProxy_CodePipelineStartPipelineExecution) validateBindBaseTargetCon
 	return nil
 }
 
-func validateNewCodePipelineStartPipelineExecutionParameters(pipeline awscodepipeline.IPipeline, props *ScheduleTargetBaseProps) error {
+func validateNewCodePipelineStartPipelineExecutionParameters(pipeline interfacesawscodepipeline.IPipelineRef, props *ScheduleTargetBaseProps) error {
 	return nil
 }
 

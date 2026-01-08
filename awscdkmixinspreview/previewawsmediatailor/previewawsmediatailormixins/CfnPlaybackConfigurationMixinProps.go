@@ -17,6 +17,16 @@ import (
 //   	AdConditioningConfiguration: &AdConditioningConfigurationProperty{
 //   		StreamingMediaFileConditioning: jsii.String("streamingMediaFileConditioning"),
 //   	},
+//   	AdDecisionServerConfiguration: &AdDecisionServerConfigurationProperty{
+//   		HttpRequest: &HttpRequestProperty{
+//   			Body: jsii.String("body"),
+//   			CompressRequest: jsii.String("compressRequest"),
+//   			Headers: map[string]*string{
+//   				"headersKey": jsii.String("headers"),
+//   			},
+//   			HttpMethod: jsii.String("httpMethod"),
+//   		},
+//   	},
 //   	AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
@@ -91,6 +101,10 @@ type CfnPlaybackConfigurationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-adconditioningconfiguration
 	//
 	AdConditioningConfiguration interface{} `field:"optional" json:"adConditioningConfiguration" yaml:"adConditioningConfiguration"`
+	// The configuration for the request to the specified Ad Decision Server URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverconfiguration
+	//
+	AdDecisionServerConfiguration interface{} `field:"optional" json:"adDecisionServerConfiguration" yaml:"adDecisionServerConfiguration"`
 	// The URL for the ad decision server (ADS).
 	//
 	// This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.

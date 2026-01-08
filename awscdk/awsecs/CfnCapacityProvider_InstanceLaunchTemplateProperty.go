@@ -24,6 +24,7 @@ package awsecs
 //   	},
 //
 //   	// the properties below are optional
+//   	CapacityOptionType: jsii.String("capacityOptionType"),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		MemoryMiB: &MemoryMiBRequestProperty{
 //   			Min: jsii.Number(123),
@@ -122,6 +123,21 @@ type CfnCapacityProvider_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"required" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// The capacity option type.
+	//
+	// This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
+	//
+	// Valid values are:
+	//
+	// - `ON_DEMAND` - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.
+	// - `SPOT` - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.
+	//
+	// The default is On-Demand
+	//
+	// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-capacityoptiontype
+	//
+	CapacityOptionType *string `field:"optional" json:"capacityOptionType" yaml:"capacityOptionType"`
 	// The instance requirements. You can specify:.
 	//
 	// - The instance types

@@ -10,13 +10,10 @@ package interfacesawsappmesh
 //
 //   routeReference := &RouteReference{
 //   	RouteArn: jsii.String("routeArn"),
-//   	RouteId: jsii.String("routeId"),
 //   }
 //
 type RouteReference struct {
-	// The ARN of the Route resource.
+	// The Arn of the Route resource.
 	RouteArn *string `field:"required" json:"routeArn" yaml:"routeArn"`
-	// The Id of the Route resource.
-	RouteId *string `field:"required" json:"routeId" yaml:"routeId"`
 }
 

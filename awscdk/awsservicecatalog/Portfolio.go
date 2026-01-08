@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,6 +48,8 @@ type Portfolio interface {
 	PortfolioArn() *string
 	// The ID of the portfolio.
 	PortfolioId() *string
+	// A reference to a Portfolio resource.
+	PortfolioRef() *interfacesawsservicecatalog.PortfolioReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Gives access to Asset Buckets to Shared Accounts.
@@ -172,6 +175,16 @@ func (j *jsiiProxy_Portfolio) PortfolioId() *string {
 	_jsii_.Get(
 		j,
 		"portfolioId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Portfolio) PortfolioRef() *interfacesawsservicecatalog.PortfolioReference {
+	var returns *interfacesawsservicecatalog.PortfolioReference
+	_jsii_.Get(
+		j,
+		"portfolioRef",
 		&returns,
 	)
 	return returns

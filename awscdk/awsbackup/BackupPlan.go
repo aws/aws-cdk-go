@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbackup/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,6 +24,8 @@ type BackupPlan interface {
 	BackupPlanArn() *string
 	// The identifier of the backup plan.
 	BackupPlanId() *string
+	// A reference to a BackupPlan resource.
+	BackupPlanRef() *interfacesawsbackup.BackupPlanReference
 	// The backup vault where backups are stored if not defined at the rule level.
 	BackupVault() IBackupVault
 	// The environment this resource belongs to.
@@ -102,6 +105,16 @@ func (j *jsiiProxy_BackupPlan) BackupPlanId() *string {
 	_jsii_.Get(
 		j,
 		"backupPlanId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BackupPlan) BackupPlanRef() *interfacesawsbackup.BackupPlanReference {
+	var returns *interfacesawsbackup.BackupPlanReference
+	_jsii_.Get(
+		j,
+		"backupPlanRef",
 		&returns,
 	)
 	return returns
@@ -196,7 +209,7 @@ func NewBackupPlan_Override(b BackupPlan, scope constructs.Construct, id *string
 }
 
 // Daily with 35 day retention.
-func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
+func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, backupVault interfacesawsbackup.IBackupVaultRef) BackupPlan {
 	_init_.Initialize()
 
 	if err := validateBackupPlan_Daily35DayRetentionParameters(scope, id); err != nil {
@@ -215,7 +228,7 @@ func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, back
 }
 
 // Daily and monthly with 1 year retention.
-func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
+func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *string, backupVault interfacesawsbackup.IBackupVaultRef) BackupPlan {
 	_init_.Initialize()
 
 	if err := validateBackupPlan_DailyMonthly1YearRetentionParameters(scope, id); err != nil {
@@ -234,7 +247,7 @@ func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *strin
 }
 
 // Daily, weekly and monthly with 5 year retention.
-func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
+func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id *string, backupVault interfacesawsbackup.IBackupVaultRef) BackupPlan {
 	_init_.Initialize()
 
 	if err := validateBackupPlan_DailyWeeklyMonthly5YearRetentionParameters(scope, id); err != nil {
@@ -253,7 +266,7 @@ func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id 
 }
 
 // Daily, weekly and monthly with 7 year retention.
-func BackupPlan_DailyWeeklyMonthly7YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
+func BackupPlan_DailyWeeklyMonthly7YearRetention(scope constructs.Construct, id *string, backupVault interfacesawsbackup.IBackupVaultRef) BackupPlan {
 	_init_.Initialize()
 
 	if err := validateBackupPlan_DailyWeeklyMonthly7YearRetentionParameters(scope, id); err != nil {

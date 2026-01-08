@@ -584,6 +584,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "registryUri", GoGetter: "RegistryUri"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryArn", GoGetter: "RepositoryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryUri", GoGetter: "RepositoryUri"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForDigest", GoMethod: "RepositoryUriForDigest"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTag", GoMethod: "RepositoryUriForTag"},
@@ -592,6 +593,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IRepository{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsecrIRepositoryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -649,6 +651,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "registryUri", GoGetter: "RegistryUri"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryArn", GoGetter: "RepositoryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryUri", GoGetter: "RepositoryUri"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForDigest", GoMethod: "RepositoryUriForDigest"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTag", GoMethod: "RepositoryUriForTag"},
@@ -690,6 +693,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "registryUri", GoGetter: "RegistryUri"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryArn", GoGetter: "RepositoryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryName", GoGetter: "RepositoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "repositoryRef", GoGetter: "RepositoryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "repositoryUri", GoGetter: "RepositoryUri"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForDigest", GoMethod: "RepositoryUriForDigest"},
 			_jsii_.MemberMethod{JsiiMethod: "repositoryUriForTag", GoMethod: "RepositoryUriForTag"},

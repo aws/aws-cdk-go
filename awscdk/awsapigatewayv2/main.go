@@ -23,6 +23,7 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2.ApiKey",
 		reflect.TypeOf((*ApiKey)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -58,8 +59,10 @@ func init() {
 		reflect.TypeOf((*ApiMapping)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiMappingId", GoGetter: "ApiMappingId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiMappingRef", GoGetter: "ApiMappingRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "domainUrl", GoGetter: "DomainUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1054,6 +1057,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEndpoint", GoMethod: "AddEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1106,6 +1110,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVpcLink", GoMethod: "AddVpcLink"},
 			_jsii_.MemberProperty{JsiiProperty: "apiEndpoint", GoGetter: "ApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApi", GoMethod: "ArnForExecuteApi"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultAuthorizationScopes", GoGetter: "DefaultAuthorizationScopes"},
@@ -1118,6 +1123,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "httpApiId", GoGetter: "HttpApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "httpApiName", GoGetter: "HttpApiName"},
+			_jsii_.MemberProperty{JsiiProperty: "isHttpApi", GoGetter: "IsHttpApi"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClientError", GoMethod: "MetricClientError"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCount", GoMethod: "MetricCount"},
@@ -1143,6 +1149,16 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2.HttpApiAttributes",
 		reflect.TypeOf((*HttpApiAttributes)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigatewayv2.HttpApiHelper",
+		reflect.TypeOf((*HttpApiHelper)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApi", GoMethod: "ArnForExecuteApi"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HttpApiHelper{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigatewayv2.HttpApiProps",
 		reflect.TypeOf((*HttpApiProps)(nil)).Elem(),
@@ -1153,6 +1169,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1205,6 +1222,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "httpApi", GoGetter: "HttpApi"},
 			_jsii_.MemberProperty{JsiiProperty: "integrationId", GoGetter: "IntegrationId"},
+			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1288,6 +1306,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "routeArn", GoGetter: "RouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeId", GoGetter: "RouteId"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -1355,6 +1374,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "isHttpStage", GoGetter: "IsHttpStage"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClientError", GoMethod: "MetricClientError"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCount", GoMethod: "MetricCount"},
@@ -1366,6 +1386,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 		},
@@ -1416,6 +1437,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiEndpoint", GoGetter: "ApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1424,6 +1446,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApi{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1432,6 +1455,7 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2.IApiKey",
 		reflect.TypeOf((*IApiKey)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
@@ -1441,6 +1465,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApiKey{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIApiKeyRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1450,6 +1475,7 @@ func init() {
 		reflect.TypeOf((*IApiMapping)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiMappingId", GoGetter: "ApiMappingId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiMappingRef", GoGetter: "ApiMappingRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1457,6 +1483,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApiMapping{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IApiMappingRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1467,12 +1494,14 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IAuthorizerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1482,6 +1511,7 @@ func init() {
 		reflect.TypeOf((*IDomainName)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "domainNameRef", GoGetter: "DomainNameRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1491,6 +1521,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDomainName{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IDomainNameRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1502,12 +1533,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVpcLink", GoMethod: "AddVpcLink"},
 			_jsii_.MemberProperty{JsiiProperty: "apiEndpoint", GoGetter: "ApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApi", GoMethod: "ArnForExecuteApi"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultAuthorizationScopes", GoGetter: "DefaultAuthorizationScopes"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultAuthorizer", GoGetter: "DefaultAuthorizer"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultStage", GoGetter: "DefaultStage"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isHttpApi", GoGetter: "IsHttpApi"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClientError", GoMethod: "MetricClientError"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCount", GoMethod: "MetricCount"},
@@ -1521,6 +1554,22 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IHttpApi{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApi)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IHttpApiRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_apigatewayv2.IHttpApiRef",
+		reflect.TypeOf((*IHttpApiRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isHttpApi", GoGetter: "IsHttpApi"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHttpApiRef{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IApiRef)
 			return &j
 		},
 	)
@@ -1530,6 +1579,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1548,6 +1598,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "httpApi", GoGetter: "HttpApi"},
 			_jsii_.MemberProperty{JsiiProperty: "integrationId", GoGetter: "IntegrationId"},
+			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
@@ -1569,6 +1620,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "routeArn", GoGetter: "RouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeId", GoGetter: "RouteId"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -1596,6 +1648,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainUrl", GoGetter: "DomainUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isHttpStage", GoGetter: "IsHttpStage"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClientError", GoMethod: "MetricClientError"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCount", GoMethod: "MetricCount"},
@@ -1606,11 +1659,28 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IHttpStage{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IHttpStageRef)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IStage)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_apigatewayv2.IHttpStageRef",
+		reflect.TypeOf((*IHttpStageRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isHttpStage", GoGetter: "IsHttpStage"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHttpStageRef{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IStageRef)
 			return &j
 		},
 	)
@@ -1621,11 +1691,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "integrationId", GoGetter: "IntegrationId"},
+			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IIntegrationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1648,11 +1720,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "routeId", GoGetter: "RouteId"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoute{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IRouteRef)
 			return &j
 		},
 	)
@@ -1667,11 +1741,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStage{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IStageRef)
 			return &j
 		},
 	)
@@ -1685,10 +1761,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "usagePlanId", GoGetter: "UsagePlanId"},
+			_jsii_.MemberProperty{JsiiProperty: "usagePlanRef", GoGetter: "UsagePlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IUsagePlan{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayIUsagePlanRef)
 			return &j
 		},
 	)
@@ -1702,10 +1780,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcLinkId", GoGetter: "VpcLinkId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcLinkRef", GoGetter: "VpcLinkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcLink{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IVpcLinkRef)
 			return &j
 		},
 	)
@@ -1715,8 +1795,10 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiEndpoint", GoGetter: "ApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isWebsocketApi", GoGetter: "IsWebsocketApi"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1724,6 +1806,22 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IWebSocketApi{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApi)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebSocketApiRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_apigatewayv2.IWebSocketApiRef",
+		reflect.TypeOf((*IWebSocketApiRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isWebsocketApi", GoGetter: "IsWebsocketApi"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWebSocketApiRef{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapigatewayv2IApiRef)
 			return &j
 		},
 	)
@@ -1733,6 +1831,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1750,6 +1849,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "integrationId", GoGetter: "IntegrationId"},
+			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "webSocketApi", GoGetter: "WebSocketApi"},
@@ -1769,6 +1869,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "routeId", GoGetter: "RouteId"},
 			_jsii_.MemberProperty{JsiiProperty: "routeKey", GoGetter: "RouteKey"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "webSocketApi", GoGetter: "WebSocketApi"},
 		},
@@ -1801,6 +1902,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 		},
 		func() interface{} {
@@ -1909,6 +2011,7 @@ func init() {
 		"aws-cdk-lib.aws_apigatewayv2.RateLimitedApiKey",
 		reflect.TypeOf((*RateLimitedApiKey)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyRef", GoGetter: "ApiKeyRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1971,6 +2074,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usagePlanId", GoGetter: "UsagePlanId"},
+			_jsii_.MemberProperty{JsiiProperty: "usagePlanRef", GoGetter: "UsagePlanRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UsagePlan{}
@@ -2004,6 +2108,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcLinkId", GoGetter: "VpcLinkId"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcLinkRef", GoGetter: "VpcLinkRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VpcLink{}
@@ -2027,6 +2132,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
 			_jsii_.MemberProperty{JsiiProperty: "apiEndpoint", GoGetter: "ApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApi", GoMethod: "ArnForExecuteApi"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApiV2", GoMethod: "ArnForExecuteApiV2"},
@@ -2035,6 +2141,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantManageConnections", GoMethod: "GrantManageConnections"},
+			_jsii_.MemberProperty{JsiiProperty: "isWebsocketApi", GoGetter: "IsWebsocketApi"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
@@ -2074,6 +2181,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerRef", GoGetter: "AuthorizerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -2116,6 +2224,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "integrationId", GoGetter: "IntegrationId"},
+			_jsii_.MemberProperty{JsiiProperty: "integrationRef", GoGetter: "IntegrationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -2168,6 +2277,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "routeId", GoGetter: "RouteId"},
 			_jsii_.MemberProperty{JsiiProperty: "routeKey", GoGetter: "RouteKey"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "webSocketApi", GoGetter: "WebSocketApi"},
@@ -2233,6 +2343,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
+			_jsii_.MemberProperty{JsiiProperty: "stageRef", GoGetter: "StageRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
 		},

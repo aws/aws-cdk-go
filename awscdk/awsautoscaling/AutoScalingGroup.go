@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,6 +53,8 @@ type AutoScalingGroup interface {
 	AutoScalingGroupArn() *string
 	// Name of the AutoScalingGroup.
 	AutoScalingGroupName() *string
+	// A reference to a AutoScalingGroup resource.
+	AutoScalingGroupRef() *interfacesawsautoscaling.AutoScalingGroupReference
 	// The network connections associated with this resource.
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
@@ -207,6 +210,16 @@ func (j *jsiiProxy_AutoScalingGroup) AutoScalingGroupName() *string {
 	_jsii_.Get(
 		j,
 		"autoScalingGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AutoScalingGroup) AutoScalingGroupRef() *interfacesawsautoscaling.AutoScalingGroupReference {
+	var returns *interfacesawsautoscaling.AutoScalingGroupReference
+	_jsii_.Get(
+		j,
+		"autoScalingGroupRef",
 		&returns,
 	)
 	return returns

@@ -10,10 +10,17 @@ package awsapigatewayv2
 //
 //   apiMappingAttributes := &ApiMappingAttributes{
 //   	ApiMappingId: jsii.String("apiMappingId"),
+//
+//   	// the properties below are optional
+//   	DomainName: jsii.String("domainName"),
 //   }
 //
 type ApiMappingAttributes struct {
 	// The API mapping ID.
 	ApiMappingId *string `field:"required" json:"apiMappingId" yaml:"apiMappingId"`
+	// Domain name.
+	// Default: - Certain operations on the referenced object may fail if not supplied.
+	//
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 }
 

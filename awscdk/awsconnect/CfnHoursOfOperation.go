@@ -37,6 +37,14 @@ import (
 //   	TimeZone: jsii.String("timeZone"),
 //
 //   	// the properties below are optional
+//   	ChildHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	HoursOfOperationOverrides: []interface{}{
 //   		&HoursOfOperationOverrideProperty{
@@ -60,6 +68,30 @@ import (
 //   			// the properties below are optional
 //   			HoursOfOperationOverrideId: jsii.String("hoursOfOperationOverrideId"),
 //   			OverrideDescription: jsii.String("overrideDescription"),
+//   			OverrideType: jsii.String("overrideType"),
+//   			RecurrenceConfig: &RecurrenceConfigProperty{
+//   				RecurrencePattern: &RecurrencePatternProperty{
+//   					ByMonth: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByMonthDay: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByWeekdayOccurrence: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					Frequency: jsii.String("frequency"),
+//   					Interval: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	ParentHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
 //   		},
 //   	},
 //   	Tags: []CfnTag{
@@ -84,6 +116,9 @@ type CfnHoursOfOperation interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// List of child hours of operations.
+	ChildHoursOfOperations() interface{}
+	SetChildHoursOfOperations(val interface{})
 	// Configuration information for the hours of operation.
 	Config() interface{}
 	SetConfig(val interface{})
@@ -118,6 +153,9 @@ type CfnHoursOfOperation interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// List of parent hours of operations.
+	ParentHoursOfOperations() interface{}
+	SetParentHoursOfOperations(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -323,6 +361,16 @@ func (j *jsiiProxy_CfnHoursOfOperation) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHoursOfOperation) ChildHoursOfOperations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"childHoursOfOperations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHoursOfOperation) Config() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -418,6 +466,16 @@ func (j *jsiiProxy_CfnHoursOfOperation) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHoursOfOperation) ParentHoursOfOperations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"parentHoursOfOperations",
 		&returns,
 	)
 	return returns
@@ -523,6 +581,17 @@ func NewCfnHoursOfOperation_Override(c CfnHoursOfOperation, scope constructs.Con
 	)
 }
 
+func (j *jsiiProxy_CfnHoursOfOperation)SetChildHoursOfOperations(val interface{}) {
+	if err := j.validateSetChildHoursOfOperationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"childHoursOfOperations",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnHoursOfOperation)SetConfig(val interface{}) {
 	if err := j.validateSetConfigParameters(val); err != nil {
 		panic(err)
@@ -571,6 +640,17 @@ func (j *jsiiProxy_CfnHoursOfOperation)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHoursOfOperation)SetParentHoursOfOperations(val interface{}) {
+	if err := j.validateSetParentHoursOfOperationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"parentHoursOfOperations",
 		val,
 	)
 }

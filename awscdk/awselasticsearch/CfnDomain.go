@@ -884,6 +884,44 @@ func CfnDomain_ArnForDomain(resource interfacesawselasticsearch.IDomainRef) *str
 	return returns
 }
 
+// Creates a new IDomainRef from an ARN.
+func CfnDomain_FromDomainArn(scope constructs.Construct, id *string, arn *string) interfacesawselasticsearch.IDomainRef {
+	_init_.Initialize()
+
+	if err := validateCfnDomain_FromDomainArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawselasticsearch.IDomainRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
+		"fromDomainArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDomainRef from a domainName.
+func CfnDomain_FromDomainName(scope constructs.Construct, id *string, domainName *string) interfacesawselasticsearch.IDomainRef {
+	_init_.Initialize()
+
+	if err := validateCfnDomain_FromDomainNameParameters(scope, id, domainName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawselasticsearch.IDomainRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
+		"fromDomainName",
+		[]interface{}{scope, id, domainName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnDomain.
 func CfnDomain_IsCfnDomain(x interface{}) *bool {
 	_init_.Initialize()

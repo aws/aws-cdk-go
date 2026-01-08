@@ -884,7 +884,7 @@ var errorAlarm Alarm
 
 dashboard.AddWidgets(
 cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-	Alarms: []IAlarm{
+	Alarms: []IAlarmRef{
 		errorAlarm,
 	},
 }))
@@ -899,7 +899,7 @@ var errorAlarm Alarm
 
 dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
 	Title: jsii.String("Errors"),
-	Alarms: []IAlarm{
+	Alarms: []IAlarmRef{
 		errorAlarm,
 	},
 	SortBy: cloudwatch.AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,

@@ -12,6 +12,7 @@ func init() {
 		reflect.TypeOf((*Accelerator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "acceleratorArn", GoGetter: "AcceleratorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "acceleratorRef", GoGetter: "AcceleratorRef"},
 			_jsii_.MemberMethod{JsiiMethod: "addListener", GoMethod: "AddListener"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsName", GoGetter: "DnsName"},
@@ -314,6 +315,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "connectionsPeer", GoMethod: "ConnectionsPeer"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointGroupArn", GoGetter: "EndpointGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointGroupName", GoGetter: "EndpointGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointGroupRef", GoGetter: "EndpointGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "endpoints", GoGetter: "Endpoints"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -353,6 +355,7 @@ func init() {
 		reflect.TypeOf((*IAccelerator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "acceleratorArn", GoGetter: "AcceleratorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "acceleratorRef", GoGetter: "AcceleratorRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsName", GoGetter: "DnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "dualStackDnsName", GoGetter: "DualStackDnsName"},
@@ -364,6 +367,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAccelerator{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorIAcceleratorRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -385,12 +389,14 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointGroupArn", GoGetter: "EndpointGroupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointGroupRef", GoGetter: "EndpointGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IEndpointGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorIEndpointGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -402,11 +408,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IListener{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglobalacceleratorIListenerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -431,6 +439,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerName", GoGetter: "ListenerName"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

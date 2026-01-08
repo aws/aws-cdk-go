@@ -2,8 +2,8 @@ package awscodepipelineactions
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 )
 
 // Construction properties of the `InspectorEcrImageScanAction`.
@@ -77,7 +77,7 @@ type InspectorEcrImageScanActionProps struct {
 	//
 	MediumThreshold *float64 `field:"optional" json:"mediumThreshold" yaml:"mediumThreshold"`
 	// The Amazon ECR repository where the image is pushed.
-	Repository awsecr.IRepository `field:"required" json:"repository" yaml:"repository"`
+	Repository interfacesawsecr.IRepositoryRef `field:"required" json:"repository" yaml:"repository"`
 	// The tag used for the image.
 	// Default: 'latest'.
 	//

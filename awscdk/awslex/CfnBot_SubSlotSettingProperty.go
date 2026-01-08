@@ -12,7 +12,6 @@ package awslex
 //   	Expression: jsii.String("expression"),
 //   	SlotSpecifications: map[string]interface{}{
 //   		"slotSpecificationsKey": &SpecificationsProperty{
-//   			"slotTypeId": jsii.String("slotTypeId"),
 //   			"valueElicitationSetting": &SubSlotValueElicitationSettingProperty{
 //   				"defaultValueSpecification": &SlotDefaultValueSpecificationProperty{
 //   					"defaultValueList": []interface{}{
@@ -309,6 +308,10 @@ package awslex
 //   					},
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			"slotTypeId": jsii.String("slotTypeId"),
+//   			"slotTypeName": jsii.String("slotTypeName"),
 //   		},
 //   	},
 //   }

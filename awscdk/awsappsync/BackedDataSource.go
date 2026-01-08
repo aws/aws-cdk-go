@@ -15,6 +15,7 @@ import (
 type BackedDataSource interface {
 	BaseDataSource
 	awsiam.IGrantable
+	// The API this data source is attached to Set the API this data source is attached to.
 	Api() IGraphqlApi
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.

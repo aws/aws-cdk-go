@@ -412,11 +412,16 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.IScalableTableAttribute",
 		reflect.TypeOf((*IScalableTableAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnSchedule", GoMethod: "ScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnUtilization", GoMethod: "ScaleOnUtilization"},
 		},
 		func() interface{} {
-			return &jsiiProxy_IScalableTableAttribute{}
+			j := jsiiProxy_IScalableTableAttribute{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapplicationautoscalingIScalableTargetRef)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -447,11 +452,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITable{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdynamodbITableRef)
 			return &j
 		},
 	)
@@ -484,6 +491,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 		},
 		func() interface{} {
@@ -779,6 +787,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
@@ -896,6 +905,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

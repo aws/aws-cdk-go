@@ -8,12 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an Amazon EFS file system.
 type IFileSystem interface {
 	awsec2.IConnectable
+	interfacesawsefs.IFileSystemRef
 	awsiam.IResourceWithPolicy
 	// Grant the actions defined in actions to the given grantee on this File System resource.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
@@ -34,6 +36,7 @@ type IFileSystem interface {
 // The jsii proxy for IFileSystem
 type jsiiProxy_IFileSystem struct {
 	internal.Type__awsec2IConnectable
+	internal.Type__interfacesawsefsIFileSystemRef
 	internal.Type__awsiamIResourceWithPolicy
 }
 
@@ -178,6 +181,16 @@ func (j *jsiiProxy_IFileSystem) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFileSystem) FileSystemRef() *interfacesawsefs.FileSystemReference {
+	var returns *interfacesawsefs.FileSystemReference
+	_jsii_.Get(
+		j,
+		"fileSystemRef",
 		&returns,
 	)
 	return returns

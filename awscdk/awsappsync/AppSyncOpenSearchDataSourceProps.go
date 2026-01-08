@@ -3,6 +3,7 @@ package awsappsync
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // Properties for the OpenSearch Data Source.
@@ -13,13 +14,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api IApi
+//   var apiRef IApiRef
 //   var domain Domain
 //   var role Role
 //
 //   appSyncOpenSearchDataSourceProps := &AppSyncOpenSearchDataSourceProps{
-//   	Api: api,
+//   	Api: apiRef,
 //   	Domain: domain,
 //
 //   	// the properties below are optional
@@ -30,7 +32,7 @@ import (
 //
 type AppSyncOpenSearchDataSourceProps struct {
 	// The API to attach this data source to.
-	Api IApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IApiRef `field:"required" json:"api" yaml:"api"`
 	// The description of the data source.
 	// Default: - None.
 	//

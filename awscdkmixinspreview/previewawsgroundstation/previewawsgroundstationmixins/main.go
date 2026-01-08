@@ -144,6 +144,86 @@ func init() {
 		reflect.TypeOf((*CfnDataflowEndpointGroupPropsMixin_SocketAddressProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2MixinProps",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2MixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDataflowEndpointGroupV2PropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.ConnectionDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_ConnectionDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.CreateEndpointDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_CreateEndpointDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.DownlinkAwsGroundStationAgentEndpointDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_DownlinkAwsGroundStationAgentEndpointDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.DownlinkAwsGroundStationAgentEndpointProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_DownlinkAwsGroundStationAgentEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.DownlinkConnectionDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_DownlinkConnectionDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.DownlinkDataflowDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_DownlinkDataflowDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.EndpointDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_EndpointDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.IntegerRangeProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_IntegerRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.RangedConnectionDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_RangedConnectionDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.RangedSocketAddressProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_RangedSocketAddressProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.SocketAddressProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_SocketAddressProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.UplinkAwsGroundStationAgentEndpointDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_UplinkAwsGroundStationAgentEndpointDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.UplinkAwsGroundStationAgentEndpointProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_UplinkAwsGroundStationAgentEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.UplinkConnectionDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_UplinkConnectionDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnDataflowEndpointGroupV2PropsMixin.UplinkDataflowDetailsProperty",
+		reflect.TypeOf((*CfnDataflowEndpointGroupV2PropsMixin_UplinkDataflowDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnMissionProfileMixinProps",
 		reflect.TypeOf((*CfnMissionProfileMixinProps)(nil)).Elem(),
 	)

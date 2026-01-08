@@ -6,10 +6,10 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,7 +64,7 @@ type ServerDeploymentGroup interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Associates an additional alarm with this Deployment Group.
-	AddAlarm(alarm awscloudwatch.IAlarm)
+	AddAlarm(alarm interfacesawscloudwatch.IAlarmRef)
 	// Adds an additional auto-scaling group to this Deployment Group.
 	AddAutoScalingGroup(asg awsautoscaling.AutoScalingGroup)
 	// Apply the given removal policy to this resource.
@@ -334,7 +334,7 @@ func ServerDeploymentGroup_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (s *jsiiProxy_ServerDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
+func (s *jsiiProxy_ServerDeploymentGroup) AddAlarm(alarm interfacesawscloudwatch.IAlarmRef) {
 	if err := s.validateAddAlarmParameters(alarm); err != nil {
 		panic(err)
 	}

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,6 +29,8 @@ type AccessPoint interface {
 	AccessPointArn() *string
 	// The ID of the Access Point.
 	AccessPointId() *string
+	// A reference to a AccessPoint resource.
+	AccessPointRef() *interfacesawsefs.AccessPointReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -101,6 +104,16 @@ func (j *jsiiProxy_AccessPoint) AccessPointId() *string {
 	_jsii_.Get(
 		j,
 		"accessPointId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessPoint) AccessPointRef() *interfacesawsefs.AccessPointReference {
+	var returns *interfacesawsefs.AccessPointReference
+	_jsii_.Get(
+		j,
+		"accessPointRef",
 		&returns,
 	)
 	return returns

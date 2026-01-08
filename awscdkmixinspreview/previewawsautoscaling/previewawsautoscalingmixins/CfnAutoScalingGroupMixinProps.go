@@ -330,6 +330,7 @@ type CfnAutoScalingGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// The instance lifecycle policy for the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instancelifecyclepolicy
 	//
 	InstanceLifecyclePolicy interface{} `field:"optional" json:"instanceLifecyclePolicy" yaml:"instanceLifecyclePolicy"`

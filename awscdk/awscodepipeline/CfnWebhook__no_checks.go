@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnWebhook) validateValidatePropertiesParameters(_properties 
 	return nil
 }
 
+func validateCfnWebhook_ArnForWebhookParameters(resource interfacesawscodepipeline.IWebhookRef) error {
+	return nil
+}
+
+func validateCfnWebhook_FromWebhookNameParameters(scope constructs.Construct, id *string, webhookName *string) error {
+	return nil
+}
+
 func validateCfnWebhook_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

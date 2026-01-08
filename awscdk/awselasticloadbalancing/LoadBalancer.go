@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancing"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,6 +41,7 @@ import (
 type LoadBalancer interface {
 	awscdk.Resource
 	awsec2.IConnectable
+	ILoadBalancer
 	// Control all connections from and to this load balancer.
 	Connections() awsec2.Connections
 	// The environment this resource belongs to.
@@ -58,6 +60,8 @@ type LoadBalancer interface {
 	LoadBalancerCanonicalHostedZoneNameId() *string
 	LoadBalancerDnsName() *string
 	LoadBalancerName() *string
+	// A reference to this LoadBalancer resource.
+	LoadBalancerRef() *interfacesawselasticloadbalancing.LoadBalancerReference
 	LoadBalancerSourceSecurityGroupGroupName() *string
 	LoadBalancerSourceSecurityGroupOwnerAlias() *string
 	// The tree node.
@@ -109,6 +113,7 @@ type LoadBalancer interface {
 type jsiiProxy_LoadBalancer struct {
 	internal.Type__awscdkResource
 	internal.Type__awsec2IConnectable
+	jsiiProxy_ILoadBalancer
 }
 
 func (j *jsiiProxy_LoadBalancer) Connections() awsec2.Connections {
@@ -176,6 +181,16 @@ func (j *jsiiProxy_LoadBalancer) LoadBalancerName() *string {
 	_jsii_.Get(
 		j,
 		"loadBalancerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LoadBalancer) LoadBalancerRef() *interfacesawselasticloadbalancing.LoadBalancerReference {
+	var returns *interfacesawselasticloadbalancing.LoadBalancerReference
+	_jsii_.Get(
+		j,
+		"loadBalancerRef",
 		&returns,
 	)
 	return returns

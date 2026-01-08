@@ -4,11 +4,21 @@ package awsbatch
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (i *jsiiProxy_IJobDefinition) validateAddRetryStrategyParameters(strategy RetryStrategy) error {
 	if strategy == nil {
 		return fmt.Errorf("parameter strategy is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IJobDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil

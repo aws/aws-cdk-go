@@ -4,11 +4,11 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 // Defines the integrated configuration sources.
@@ -139,7 +139,7 @@ func ConfigurationSource_FromParameter(parameter awsssm.IParameter, key awskms.I
 }
 
 // Defines configuration content from AWS CodePipeline.
-func ConfigurationSource_FromPipeline(pipeline awscodepipeline.IPipeline) ConfigurationSource {
+func ConfigurationSource_FromPipeline(pipeline interfacesawscodepipeline.IPipelineRef) ConfigurationSource {
 	_init_.Initialize()
 
 	if err := validateConfigurationSource_FromPipelineParameters(pipeline); err != nil {

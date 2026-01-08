@@ -8,11 +8,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An AutoScalingGroup.
 type IAutoScalingGroup interface {
+	interfacesawsautoscaling.IAutoScalingGroupRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// Send a message to either an SQS queue or SNS topic when instances launch or terminate.
@@ -48,6 +50,7 @@ type IAutoScalingGroup interface {
 
 // The jsii proxy for IAutoScalingGroup
 type jsiiProxy_IAutoScalingGroup struct {
+	internal.Type__interfacesawsautoscalingIAutoScalingGroupRef
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
 }
@@ -229,6 +232,16 @@ func (j *jsiiProxy_IAutoScalingGroup) OsType() awsec2.OperatingSystemType {
 	_jsii_.Get(
 		j,
 		"osType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAutoScalingGroup) AutoScalingGroupRef() *interfacesawsautoscaling.AutoScalingGroupReference {
+	var returns *interfacesawsautoscaling.AutoScalingGroupReference
+	_jsii_.Get(
+		j,
+		"autoScalingGroupRef",
 		&returns,
 	)
 	return returns

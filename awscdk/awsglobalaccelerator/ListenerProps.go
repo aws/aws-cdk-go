@@ -1,5 +1,8 @@
 package awsglobalaccelerator
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
+)
 
 // Construct properties for Listener.
 //
@@ -7,11 +10,12 @@ package awsglobalaccelerator
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var accelerator Accelerator
+//   var acceleratorRef IAcceleratorRef
 //
 //   listenerProps := &ListenerProps{
-//   	Accelerator: accelerator,
+//   	Accelerator: acceleratorRef,
 //   	PortRanges: []PortRange{
 //   		&PortRange{
 //   			FromPort: jsii.Number(123),
@@ -50,6 +54,6 @@ type ListenerProps struct {
 	//
 	Protocol ConnectionProtocol `field:"optional" json:"protocol" yaml:"protocol"`
 	// The accelerator for this listener.
-	Accelerator IAccelerator `field:"required" json:"accelerator" yaml:"accelerator"`
+	Accelerator interfacesawsglobalaccelerator.IAcceleratorRef `field:"required" json:"accelerator" yaml:"accelerator"`
 }
 

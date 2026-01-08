@@ -104,3 +104,7 @@ func (i *jsiiProxy_IStream) validateMetricWriteProvisionedThroughputExceededPara
 	return nil
 }
 
+func (i *jsiiProxy_IStream) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

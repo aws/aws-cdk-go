@@ -16,35 +16,18 @@ import (
 //
 // Example:
 //   var vpc Vpc
-//   var infrastructureRole Role
-//   var instanceProfile InstanceProfile
 //
 //
 //   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   // Create a Managed Instances Capacity Provider
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-//   	InfrastructureRole: InfrastructureRole,
-//   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
-//   	SecurityGroups: []ISecurityGroup{
-//   		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
-//   			Vpc: *Vpc,
-//   		}),
-//   	},
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
-//   		CpuManufacturers: []CpuManufacturer{
-//   			ec2.CpuManufacturer_INTEL,
-//   		},
-//   		AcceleratorManufacturers: []AcceleratorManufacturer{
-//   			ec2.AcceleratorManufacturer_NVIDIA,
-//   		},
 //   	},
-//   	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
 //   })
 //
 //   // Optionally configure security group rules using IConnectable interface

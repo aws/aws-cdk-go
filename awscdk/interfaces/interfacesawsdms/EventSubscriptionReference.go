@@ -9,11 +9,11 @@ package interfacesawsdms
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   eventSubscriptionReference := &EventSubscriptionReference{
-//   	EventSubscriptionId: jsii.String("eventSubscriptionId"),
+//   	SubscriptionName: jsii.String("subscriptionName"),
 //   }
 //
 type EventSubscriptionReference struct {
-	// The Id of the EventSubscription resource.
-	EventSubscriptionId *string `field:"required" json:"eventSubscriptionId" yaml:"eventSubscriptionId"`
+	// The SubscriptionName of the EventSubscription resource.
+	SubscriptionName *string `field:"required" json:"subscriptionName" yaml:"subscriptionName"`
 }
 

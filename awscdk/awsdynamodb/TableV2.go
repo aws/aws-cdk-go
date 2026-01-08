@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,6 +77,8 @@ type TableV2 interface {
 	TableId() *string
 	// The name of the table.
 	TableName() *string
+	// A reference to this table.
+	TableRef() *interfacesawsdynamodb.TableReference
 	// The stream ARN of the table.
 	TableStreamArn() *string
 	Tags() awscdk.TagManager
@@ -342,6 +345,16 @@ func (j *jsiiProxy_TableV2) TableName() *string {
 	_jsii_.Get(
 		j,
 		"tableName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableV2) TableRef() *interfacesawsdynamodb.TableReference {
+	var returns *interfacesawsdynamodb.TableReference
+	_jsii_.Get(
+		j,
+		"tableRef",
 		&returns,
 	)
 	return returns

@@ -21,11 +21,12 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var scalableTarget ScalableTarget
+//   var scalableTargetRef IScalableTargetRef
 //
 //   stepScalingAction := awscdk.Aws_applicationautoscaling.NewStepScalingAction(this, jsii.String("MyStepScalingAction"), &StepScalingActionProps{
-//   	ScalingTarget: scalableTarget,
+//   	ScalingTarget: scalableTargetRef,
 //
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.*Aws_applicationautoscaling.AdjustmentType_CHANGE_IN_CAPACITY,

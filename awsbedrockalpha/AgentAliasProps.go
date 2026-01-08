@@ -41,7 +41,7 @@ type AgentAliasProps struct {
 	// The name for the agent alias.
 	//
 	// This will be used as the physical name of the agent alias.
-	// Default: - "latest".
+	// Default: "latest".
 	//
 	// Experimental.
 	AgentAliasName *string `field:"optional" json:"agentAliasName" yaml:"agentAliasName"`

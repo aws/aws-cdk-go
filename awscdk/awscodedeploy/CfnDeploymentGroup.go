@@ -199,7 +199,7 @@ type CfnDeploymentGroup interface {
 	// Information about the automatic rollback configuration that is associated with the deployment group.
 	AutoRollbackConfiguration() interface{}
 	SetAutoRollbackConfiguration(val interface{})
-	// A list of associated Amazon EC2 Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created.
+	// A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created.
 	AutoScalingGroups() *[]*string
 	SetAutoScalingGroups(val *[]*string)
 	// Information about blue/green deployment options for a deployment group.
@@ -279,7 +279,7 @@ type CfnDeploymentGroup interface {
 	// The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Amazon EC2 Auto Scaling group.
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
 	TerminationHookEnabled() interface{}
 	SetTerminationHookEnabled(val interface{})
 	// Information about triggers associated with the deployment group.

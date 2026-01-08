@@ -8,3 +8,7 @@ func (i *jsiiProxy_IBackupVault) validateGrantParameters(grantee awsiam.IGrantab
 	return nil
 }
 
+func (i *jsiiProxy_IBackupVault) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

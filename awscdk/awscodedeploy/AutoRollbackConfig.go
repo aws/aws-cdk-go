@@ -47,7 +47,7 @@ package awscodedeploy
 //   		},
 //   	}),
 //   	// CloudWatch alarms
-//   	Alarms: []IAlarm{
+//   	Alarms: []IAlarmRef{
 //   		alarm,
 //   	},
 //   	// whether to ignore failure to fetch the status of alarms from CloudWatch

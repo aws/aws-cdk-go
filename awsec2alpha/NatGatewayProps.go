@@ -52,7 +52,7 @@ type NatGatewayProps struct {
 	// Experimental.
 	ConnectivityType NatConnectivityType `field:"optional" json:"connectivityType" yaml:"connectivityType"`
 	// The maximum amount of time to wait before forcibly releasing the IP addresses if connections are still in progress.
-	// Default: 350seconds.
+	// Default: Duration.seconds(350)
 	//
 	// Experimental.
 	MaxDrainDuration awscdk.Duration `field:"optional" json:"maxDrainDuration" yaml:"maxDrainDuration"`

@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,7 +37,7 @@ type LambdaAction interface {
 	// Returns an alarm action configuration to use a Lambda action as an alarm action.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html
 	//
-	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for LambdaAction
@@ -71,7 +72,7 @@ func NewLambdaAction_Override(l LambdaAction, lambdaFunction interface{}, props 
 	)
 }
 
-func (l *jsiiProxy_LambdaAction) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (l *jsiiProxy_LambdaAction) Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig {
 	if err := l.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}

@@ -4,14 +4,49 @@ package awsecs
 // The networking mode to use for the containers in the task.
 //
 // Example:
-//   ec2TaskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"), &Ec2TaskDefinitionProps{
-//   	NetworkMode: ecs.NetworkMode_BRIDGE,
+//   var vpc Vpc
+//
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   	Vpc: Vpc,
 //   })
 //
-//   container := ec2TaskDefinition.AddContainer(jsii.String("WebContainer"), &ContainerDefinitionOptions{
-//   	// Use an image from DockerHub
+//   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
+//   	Subnets: vpc.PrivateSubnets,
+//   	InstanceRequirements: &InstanceRequirementsConfig{
+//   		VCpuCountMin: jsii.Number(1),
+//   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
+//   	},
+//   })
+//
+//   // Optionally configure security group rules using IConnectable interface
+//   miCapacityProvider.Connections.AllowFrom(ec2.Peer_Ipv4(vpc.VpcCidrBlock), ec2.Port_Tcp(jsii.Number(80)))
+//
+//   // Add the capacity provider to the cluster
+//   cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
+//
+//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
+//   	MemoryMiB: jsii.String("512"),
+//   	Cpu: jsii.String("256"),
+//   	NetworkMode: ecs.NetworkMode_AWS_VPC,
+//   	Compatibility: ecs.Compatibility_MANAGED_INSTANCES,
+//   })
+//
+//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
 //   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	MemoryLimitMiB: jsii.Number(1024),
+//   	MemoryReservationMiB: jsii.Number(256),
+//   })
+//
+//   ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	MinHealthyPercent: jsii.Number(100),
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
+//   			CapacityProvider: miCapacityProvider.CapacityProviderName,
+//   			Weight: jsii.Number(1),
+//   		},
+//   	},
 //   })
 //
 type NetworkMode string

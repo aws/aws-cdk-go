@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,6 +56,8 @@ type EcsJobDefinition interface {
 	JobDefinitionArn() *string
 	// The name of this job definition.
 	JobDefinitionName() *string
+	// A reference to a JobDefinition resource.
+	JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference
 	// The tree node.
 	Node() constructs.Node
 	// The default parameters passed to the container These parameters can be referenced in the `command` that you give to the container.
@@ -115,7 +118,7 @@ type EcsJobDefinition interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants the `batch:submitJob` permission to the identity on both this job definition and the `queue`.
-	GrantSubmitJob(identity awsiam.IGrantable, queue IJobQueue)
+	GrantSubmitJob(identity awsiam.IGrantable, queue interfacesawsbatch.IJobQueueRef)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -161,6 +164,16 @@ func (j *jsiiProxy_EcsJobDefinition) JobDefinitionName() *string {
 	_jsii_.Get(
 		j,
 		"jobDefinitionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsJobDefinition) JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference {
+	var returns *interfacesawsbatch.JobDefinitionReference
+	_jsii_.Get(
+		j,
+		"jobDefinitionRef",
 		&returns,
 	)
 	return returns
@@ -454,7 +467,7 @@ func (e *jsiiProxy_EcsJobDefinition) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-func (e *jsiiProxy_EcsJobDefinition) GrantSubmitJob(identity awsiam.IGrantable, queue IJobQueue) {
+func (e *jsiiProxy_EcsJobDefinition) GrantSubmitJob(identity awsiam.IGrantable, queue interfacesawsbatch.IJobQueueRef) {
 	if err := e.validateGrantSubmitJobParameters(identity, queue); err != nil {
 		panic(err)
 	}

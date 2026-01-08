@@ -6,11 +6,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesis"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Kinesis Stream Consumer.
 type IStreamConsumer interface {
 	awscdk.IResource
+	interfacesawskinesis.IStreamConsumerRef
 	// Adds a statement to the IAM resource policy associated with this stream consumer.
 	//
 	// If this stream consumer was created in this stack (`new StreamConsumer`), a resource policy
@@ -32,6 +36,7 @@ type IStreamConsumer interface {
 // The jsii proxy for IStreamConsumer
 type jsiiProxy_IStreamConsumer struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawskinesisIStreamConsumerRef
 }
 
 func (i *jsiiProxy_IStreamConsumer) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -87,6 +92,17 @@ func (i *jsiiProxy_IStreamConsumer) GrantRead(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+func (i *jsiiProxy_IStreamConsumer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IStreamConsumer) Stream() IStream {
 	var returns IStream
 	_jsii_.Get(
@@ -112,6 +128,46 @@ func (j *jsiiProxy_IStreamConsumer) StreamConsumerName() *string {
 	_jsii_.Get(
 		j,
 		"streamConsumerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStreamConsumer) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStreamConsumer) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStreamConsumer) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStreamConsumer) StreamConsumerRef() *interfacesawskinesis.StreamConsumerReference {
+	var returns *interfacesawskinesis.StreamConsumerReference
+	_jsii_.Get(
+		j,
+		"streamConsumerRef",
 		&returns,
 	)
 	return returns

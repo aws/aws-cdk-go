@@ -24,6 +24,16 @@ import (
 //   	AdConditioningConfiguration: &AdConditioningConfigurationProperty{
 //   		StreamingMediaFileConditioning: jsii.String("streamingMediaFileConditioning"),
 //   	},
+//   	AdDecisionServerConfiguration: &AdDecisionServerConfigurationProperty{
+//   		HttpRequest: &HttpRequestProperty{
+//   			Body: jsii.String("body"),
+//   			CompressRequest: jsii.String("compressRequest"),
+//   			Headers: map[string]*string{
+//   				"headersKey": jsii.String("headers"),
+//   			},
+//   			HttpMethod: jsii.String("httpMethod"),
+//   		},
+//   	},
 //   	AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),

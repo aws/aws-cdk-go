@@ -63,7 +63,7 @@ type AgentProps struct {
 	// Experimental.
 	AgentName *string `field:"optional" json:"agentName" yaml:"agentName"`
 	// Select whether the agent can generate, run, and troubleshoot code when trying to complete a task.
-	// Default: - false.
+	// Default: false.
 	//
 	// Experimental.
 	CodeInterpreterEnabled *bool `field:"optional" json:"codeInterpreterEnabled" yaml:"codeInterpreterEnabled"`
@@ -89,7 +89,7 @@ type AgentProps struct {
 	// Experimental.
 	ExistingRole awsiam.IRole `field:"optional" json:"existingRole" yaml:"existingRole"`
 	// Whether to delete the resource even if it's in use.
-	// Default: - false.
+	// Default: false.
 	//
 	// Experimental.
 	ForceDelete *bool `field:"optional" json:"forceDelete" yaml:"forceDelete"`
@@ -131,12 +131,12 @@ type AgentProps struct {
 	//
 	// The `DRAFT` version can be continually iterated
 	// upon during internal development.
-	// Default: - false.
+	// Default: false.
 	//
 	// Experimental.
 	ShouldPrepareAgent *bool `field:"optional" json:"shouldPrepareAgent" yaml:"shouldPrepareAgent"`
 	// Select whether the agent can prompt additional information from the user when it does not have enough information to respond to an utterance.
-	// Default: - false.
+	// Default: false.
 	//
 	// Experimental.
 	UserInputEnabled *bool `field:"optional" json:"userInputEnabled" yaml:"userInputEnabled"`

@@ -31,6 +31,8 @@ package awsbedrockagentcore
 //   			CustomParameters: map[string]*string{
 //   				"customParametersKey": jsii.String("customParameters"),
 //   			},
+//   			DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   			GrantType: jsii.String("grantType"),
 //   		},
 //   	},
 //   }

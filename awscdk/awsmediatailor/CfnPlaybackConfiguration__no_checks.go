@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdConditioningConfigurat
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdDecisionServerConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdDecisionServerUrlParameters(val *string) error {
 	return nil
 }

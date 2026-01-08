@@ -7,8 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 )
 
 // Factory for CodePipeline source steps.
@@ -254,7 +254,7 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 //   	ImageTag: jsii.String("latest"),
 //   })
 //
-func CodePipelineSource_Ecr(repository awsecr.IRepository, props *ECRSourceOptions) CodePipelineSource {
+func CodePipelineSource_Ecr(repository interfacesawsecr.IRepositoryRef, props *ECRSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
 	if err := validateCodePipelineSource_EcrParameters(repository, props); err != nil {

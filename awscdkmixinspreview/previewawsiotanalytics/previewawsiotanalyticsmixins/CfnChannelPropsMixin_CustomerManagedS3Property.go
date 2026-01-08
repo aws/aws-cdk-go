@@ -27,7 +27,7 @@ type CfnChannelPropsMixin_CustomerManagedS3Property struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-keyprefix
 	//
 	KeyPrefix *string `field:"optional" json:"keyPrefix" yaml:"keyPrefix"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html#cfn-iotanalytics-channel-customermanageds3-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,7 +30,7 @@ func validateBackupResource_FromConstructParameters(construct constructs.Constru
 	return nil
 }
 
-func validateBackupResource_FromDynamoDbTableParameters(table awsdynamodb.ITable) error {
+func validateBackupResource_FromDynamoDbTableParameters(table interfacesawsdynamodb.ITableRef) error {
 	if table == nil {
 		return fmt.Errorf("parameter table is required, but nil was provided")
 	}
@@ -46,7 +46,7 @@ func validateBackupResource_FromEc2InstanceParameters(instance interfacesawsec2.
 	return nil
 }
 
-func validateBackupResource_FromEfsFileSystemParameters(fileSystem awsefs.IFileSystem) error {
+func validateBackupResource_FromEfsFileSystemParameters(fileSystem interfacesawsefs.IFileSystemRef) error {
 	if fileSystem == nil {
 		return fmt.Errorf("parameter fileSystem is required, but nil was provided")
 	}

@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
+)
 
 // Properties for an Alarm Status Widget.
 //
@@ -10,14 +13,14 @@ package awscloudwatch
 //
 //   dashboard.AddWidgets(
 //   cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-//   	Alarms: []IAlarm{
+//   	Alarms: []IAlarmRef{
 //   		errorAlarm,
 //   	},
 //   }))
 //
 type AlarmStatusWidgetProps struct {
 	// CloudWatch Alarms to show in widget.
-	Alarms *[]IAlarm `field:"required" json:"alarms" yaml:"alarms"`
+	Alarms *[]interfacesawscloudwatch.IAlarmRef `field:"required" json:"alarms" yaml:"alarms"`
 	// Height of the widget.
 	// Default: 3.
 	//

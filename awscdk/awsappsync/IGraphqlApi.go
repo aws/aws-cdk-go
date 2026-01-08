@@ -13,10 +13,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for GraphQL.
 type IGraphqlApi interface {
+	interfacesawsappsync.IGraphQLApiRef
 	awscdk.IResource
 	// add a new DynamoDB data source to this API.
 	AddDynamoDbDataSource(id *string, table awsdynamodb.ITable, options *DataSourceOptions) DynamoDbDataSource
@@ -66,6 +70,7 @@ type IGraphqlApi interface {
 
 // The jsii proxy for IGraphqlApi
 type jsiiProxy_IGraphqlApi struct {
+	internal.Type__interfacesawsappsyncIGraphQLApiRef
 	internal.Type__awscdkIResource
 }
 
@@ -329,6 +334,17 @@ func (i *jsiiProxy_IGraphqlApi) GrantSubscription(grantee awsiam.IGrantable, fie
 	return returns
 }
 
+func (i *jsiiProxy_IGraphqlApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IGraphqlApi) ApiId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -374,6 +390,46 @@ func (j *jsiiProxy_IGraphqlApi) Visibility() Visibility {
 	_jsii_.Get(
 		j,
 		"visibility",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) GraphQlApiRef() *interfacesawsappsync.GraphQLApiReference {
+	var returns *interfacesawsappsync.GraphQLApiReference
+	_jsii_.Get(
+		j,
+		"graphQlApiRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGraphqlApi) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

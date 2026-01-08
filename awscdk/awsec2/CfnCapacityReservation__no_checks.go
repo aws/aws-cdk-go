@@ -116,7 +116,7 @@ func (j *jsiiProxy_CfnCapacityReservation) validateSetInstanceTypeParameters(val
 	return nil
 }
 
-func (j *jsiiProxy_CfnCapacityReservation) validateSetTagSpecificationsParameters(val *[]*CfnCapacityReservation_TagSpecificationProperty) error {
+func (j *jsiiProxy_CfnCapacityReservation) validateSetTagSpecificationsParameters(val interface{}) error {
 	return nil
 }
 

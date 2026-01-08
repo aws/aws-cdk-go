@@ -1,8 +1,8 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 )
 
 // Properties for AlternateTarget configuration.
@@ -52,7 +52,7 @@ type AlternateTargetProps struct {
 	//
 	TestListener ListenerRuleConfiguration `field:"optional" json:"testListener" yaml:"testListener"`
 	// The alternate target group.
-	AlternateTargetGroup awselasticloadbalancingv2.ITargetGroup `field:"required" json:"alternateTargetGroup" yaml:"alternateTargetGroup"`
+	AlternateTargetGroup interfacesawselasticloadbalancingv2.ITargetGroupRef `field:"required" json:"alternateTargetGroup" yaml:"alternateTargetGroup"`
 	// The production listener rule ARN (ALB) or listener ARN (NLB).
 	ProductionListener ListenerRuleConfiguration `field:"required" json:"productionListener" yaml:"productionListener"`
 }

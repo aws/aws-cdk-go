@@ -1,7 +1,7 @@
 package awsbatch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 )
 
 // Options for configuring an EfsVolume.
@@ -39,7 +39,7 @@ type EfsVolumeOptions struct {
 	//
 	Readonly *bool `field:"optional" json:"readonly" yaml:"readonly"`
 	// The EFS File System that supports this volume.
-	FileSystem awsefs.IFileSystem `field:"required" json:"fileSystem" yaml:"fileSystem"`
+	FileSystem interfacesawsefs.IFileSystemRef `field:"required" json:"fileSystem" yaml:"fileSystem"`
 	// The Amazon EFS access point ID to use.
 	//
 	// If an access point is specified, `rootDirectory` must either be omitted or set to `/`

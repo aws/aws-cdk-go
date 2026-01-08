@@ -291,10 +291,7 @@ func App_IsStage(x interface{}) *bool {
 	return returns
 }
 
-// Return the stage this construct is contained with, if available.
-//
-// If called
-// on a nested stage, returns its parent.
+// Return the app that is the root of the construct tree, if available.
 func App_Of(construct constructs.IConstruct) Stage {
 	_init_.Initialize()
 

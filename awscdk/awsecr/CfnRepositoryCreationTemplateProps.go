@@ -45,7 +45,7 @@ package awsecr
 type CfnRepositoryCreationTemplateProps struct {
 	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards.
 	//
-	// The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION.
+	// The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html#cfn-ecr-repositorycreationtemplate-appliedfor
 	//
 	AppliedFor *[]*string `field:"required" json:"appliedFor" yaml:"appliedFor"`

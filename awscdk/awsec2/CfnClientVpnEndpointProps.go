@@ -59,6 +59,7 @@ package awsec2
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
 //   	},
+//   	EndpointIpAddressType: jsii.String("endpointIpAddressType"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -76,6 +77,7 @@ package awsec2
 //   			},
 //   		},
 //   	},
+//   	TrafficIpAddressType: jsii.String("trafficIpAddressType"),
 //   	TransportProtocol: jsii.String("transportProtocol"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpnPort: jsii.Number(123),
@@ -143,6 +145,12 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-dnsservers
 	//
 	DnsServers *[]*string `field:"optional" json:"dnsServers" yaml:"dnsServers"`
+	// The IP address type of the Client VPN endpoint.
+	//
+	// Possible values are `ipv4` for IPv4 addressing only, `ipv6` for IPv6 addressing only, or `dual-stack` for both IPv4 and IPv6 addressing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-endpointipaddresstype
+	//
+	EndpointIpAddressType *string `field:"optional" json:"endpointIpAddressType" yaml:"endpointIpAddressType"`
 	// The IDs of one or more security groups to apply to the target network.
 	//
 	// You must also specify the ID of the VPC that contains the security groups.
@@ -175,6 +183,12 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-tagspecifications
 	//
 	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
+	// The IP address type of the Client VPN endpoint.
+	//
+	// Possible values are either `ipv4` for IPv4 addressing only, `ipv6` for IPv6 addressing only, or `dual-stack` for both IPv4 and IPv6 addressing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-trafficipaddresstype
+	//
+	TrafficIpAddressType *string `field:"optional" json:"trafficIpAddressType" yaml:"trafficIpAddressType"`
 	// The transport protocol to be used by the VPN session.
 	//
 	// Default value: `udp`.

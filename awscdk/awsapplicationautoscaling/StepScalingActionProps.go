@@ -2,6 +2,7 @@ package awsapplicationautoscaling
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 )
 
 // Properties for a scaling policy.
@@ -11,11 +12,12 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var scalableTarget ScalableTarget
+//   var scalableTargetRef IScalableTargetRef
 //
 //   stepScalingActionProps := &StepScalingActionProps{
-//   	ScalingTarget: scalableTarget,
+//   	ScalingTarget: scalableTargetRef,
 //
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.Aws_applicationautoscaling.AdjustmentType_CHANGE_IN_CAPACITY,
@@ -27,7 +29,7 @@ import (
 //
 type StepScalingActionProps struct {
 	// The scalable target.
-	ScalingTarget IScalableTarget `field:"required" json:"scalingTarget" yaml:"scalingTarget"`
+	ScalingTarget interfacesawsapplicationautoscaling.IScalableTargetRef `field:"required" json:"scalingTarget" yaml:"scalingTarget"`
 	// How the adjustment numbers are interpreted.
 	// Default: ChangeInCapacity.
 	//

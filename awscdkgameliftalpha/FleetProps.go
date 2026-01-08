@@ -94,7 +94,7 @@ type FleetProps struct {
 	// Experimental.
 	RuntimeConfiguration *RuntimeConfiguration `field:"required" json:"runtimeConfiguration" yaml:"runtimeConfiguration"`
 	// A human-readable description of the fleet.
-	// Default: no description is provided.
+	// Default: - no description is provided.
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
@@ -102,7 +102,7 @@ type FleetProps struct {
 	//
 	// When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance.
 	// Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-	// Default: Default capacity is 0.
+	// Default: - Default capacity is 0.
 	//
 	// Experimental.
 	DesiredCapacity *float64 `field:"optional" json:"desiredCapacity" yaml:"desiredCapacity"`
@@ -111,12 +111,12 @@ type FleetProps struct {
 	// This parameter can only be used when creating fleets in AWS Regions that support multiple locations.
 	// You can add any GameLift-supported AWS Region as a remote location, in the form of an AWS Region code such as `us-west-2`.
 	// To create a fleet with instances in the home region only, omit this parameter.
-	// Default: Create a fleet with instances in the home region only.
+	// Default: - Create a fleet with instances in the home region only.
 	//
 	// Experimental.
 	Locations *[]*Location `field:"optional" json:"locations" yaml:"locations"`
 	// The maximum number of instances that are allowed in the specified fleet location.
-	// Default: the default is 1.
+	// Default: 1.
 	//
 	// Experimental.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
@@ -125,12 +125,12 @@ type FleetProps struct {
 	// A metric group is used to aggregate the metrics for multiple fleets.
 	// You can specify an existing metric group name or set a new name to create a new metric group.
 	// A fleet can be included in only one metric group at a time.
-	// Default: Fleet metrics are aggregated with other fleets in the default metric group.
+	// Default: - Fleet metrics are aggregated with other fleets in the default metric group.
 	//
 	// Experimental.
 	MetricGroup *string `field:"optional" json:"metricGroup" yaml:"metricGroup"`
 	// The minimum number of instances that are allowed in the specified fleet location.
-	// Default: the default is 0.
+	// Default: 0.
 	//
 	// Experimental.
 	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
@@ -144,7 +144,7 @@ type FleetProps struct {
 	// Be sure to create a VPC Peering authorization through Gamelift Service API.
 	// See: https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html
 	//
-	// Default: no vpc peering.
+	// Default: - no vpc peering.
 	//
 	// Experimental.
 	PeerVpc awsec2.IVpc `field:"optional" json:"peerVpc" yaml:"peerVpc"`
@@ -156,7 +156,7 @@ type FleetProps struct {
 	// Experimental.
 	ProtectNewGameSession *bool `field:"optional" json:"protectNewGameSession" yaml:"protectNewGameSession"`
 	// A policy that limits the number of game sessions that an individual player can create on instances in this fleet within a specified span of time.
-	// Default: No resource creation limit policy.
+	// Default: - No resource creation limit policy.
 	//
 	// Experimental.
 	ResourceCreationLimitPolicy *ResourceCreationLimitPolicy `field:"optional" json:"resourceCreationLimitPolicy" yaml:"resourceCreationLimitPolicy"`
@@ -183,7 +183,7 @@ type FleetProps struct {
 	// AWS Certificate Manager (ACM) certificates expire after 13 months.
 	// Certificate expiration can cause fleets to fail, preventing players from connecting to instances in the fleet.
 	// We recommend you replace fleets before 13 months, consider using fleet aliases for a smooth transition.
-	// Default: TLS/SSL certificate are generated for the fleet.
+	// Default: - TLS/SSL certificate are generated for the fleet.
 	//
 	// Experimental.
 	UseCertificate *bool `field:"optional" json:"useCertificate" yaml:"useCertificate"`
@@ -192,7 +192,7 @@ type FleetProps struct {
 	// This property cannot be changed after the fleet is created.
 	// See: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot
 	//
-	// Default: Gamelift fleet use on demand capacity.
+	// Default: - Gamelift fleet use on demand capacity.
 	//
 	// Experimental.
 	UseSpot *bool `field:"optional" json:"useSpot" yaml:"useSpot"`

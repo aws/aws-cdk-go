@@ -40,7 +40,7 @@ func validateCodePipelineSource_ConnectionParameters(repoString *string, branch 
 	return nil
 }
 
-func validateCodePipelineSource_EcrParameters(repository awsecr.IRepository, props *ECRSourceOptions) error {
+func validateCodePipelineSource_EcrParameters(repository interfacesawsecr.IRepositoryRef, props *ECRSourceOptions) error {
 	return nil
 }
 

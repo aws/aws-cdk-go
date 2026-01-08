@@ -30,6 +30,14 @@ import (
 //   	TimeZone: jsii.String("timeZone"),
 //
 //   	// the properties below are optional
+//   	ChildHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	HoursOfOperationOverrides: []interface{}{
 //   		&HoursOfOperationOverrideProperty{
@@ -53,6 +61,30 @@ import (
 //   			// the properties below are optional
 //   			HoursOfOperationOverrideId: jsii.String("hoursOfOperationOverrideId"),
 //   			OverrideDescription: jsii.String("overrideDescription"),
+//   			OverrideType: jsii.String("overrideType"),
+//   			RecurrenceConfig: &RecurrenceConfigProperty{
+//   				RecurrencePattern: &RecurrencePatternProperty{
+//   					ByMonth: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByMonthDay: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByWeekdayOccurrence: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					Frequency: jsii.String("frequency"),
+//   					Interval: jsii.Number(123),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	ParentHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
 //   		},
 //   	},
 //   	Tags: []CfnTag{
@@ -82,6 +114,10 @@ type CfnHoursOfOperationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-timezone
 	//
 	TimeZone *string `field:"required" json:"timeZone" yaml:"timeZone"`
+	// List of child hours of operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-childhoursofoperations
+	//
+	ChildHoursOfOperations interface{} `field:"optional" json:"childHoursOfOperations" yaml:"childHoursOfOperations"`
 	// The description for the hours of operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-description
 	//
@@ -90,6 +126,10 @@ type CfnHoursOfOperationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-hoursofoperationoverrides
 	//
 	HoursOfOperationOverrides interface{} `field:"optional" json:"hoursOfOperationOverrides" yaml:"hoursOfOperationOverrides"`
+	// List of parent hours of operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-parenthoursofoperations
+	//
+	ParentHoursOfOperations interface{} `field:"optional" json:"parentHoursOfOperations" yaml:"parentHoursOfOperations"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "Tags": {"key1":"value1", "key2":"value2"} }.

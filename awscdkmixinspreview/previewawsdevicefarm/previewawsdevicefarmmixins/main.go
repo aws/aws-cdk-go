@@ -92,6 +92,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_devicefarm.mixins.CfnProjectPropsMixin.EnvironmentVariableProperty",
+		reflect.TypeOf((*CfnProjectPropsMixin_EnvironmentVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_devicefarm.mixins.CfnProjectPropsMixin.VpcConfigProperty",
 		reflect.TypeOf((*CfnProjectPropsMixin_VpcConfigProperty)(nil)).Elem(),
 	)

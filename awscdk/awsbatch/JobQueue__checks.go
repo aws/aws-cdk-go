@@ -8,10 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvironment IComputeEnvironment, order *float64) error {
+func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvironment interfacesawsbatch.IComputeEnvironmentRef, order *float64) error {
 	if computeEnvironment == nil {
 		return fmt.Errorf("parameter computeEnvironment is required, but nil was provided")
 	}

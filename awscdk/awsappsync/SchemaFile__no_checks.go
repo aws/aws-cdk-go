@@ -4,7 +4,7 @@ package awsappsync
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_SchemaFile) validateBindParameters(api IGraphqlApi, options *SchemaBindOptions) error {
+func (s *jsiiProxy_SchemaFile) validateBindParameters(api interfacesawsappsync.IGraphQLApiRef, options *SchemaBindOptions) error {
 	return nil
 }
 

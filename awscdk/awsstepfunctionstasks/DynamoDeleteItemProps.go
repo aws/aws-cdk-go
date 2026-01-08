@@ -2,8 +2,8 @@ package awsstepfunctionstasks
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 )
 
 // Properties for DynamoDeleteItem Task.
@@ -138,7 +138,7 @@ type DynamoDeleteItemProps struct {
 	//
 	Key *map[string]DynamoAttributeValue `field:"required" json:"key" yaml:"key"`
 	// The name of the table containing the requested item.
-	Table awsdynamodb.ITable `field:"required" json:"table" yaml:"table"`
+	Table interfacesawsdynamodb.ITableRef `field:"required" json:"table" yaml:"table"`
 	// A condition that must be satisfied in order for a conditional DeleteItem to succeed.
 	// See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html#DDB-DeleteItem-request-ConditionExpression
 	//

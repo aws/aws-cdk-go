@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func (i *jsiiProxy_INetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListener) error {
+func (i *jsiiProxy_INetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListenerRef) error {
 	if listener == nil {
 		return fmt.Errorf("parameter listener is required, but nil was provided")
 	}

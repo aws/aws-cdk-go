@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -81,6 +82,8 @@ type Stack interface {
 	BundlingRequired() *bool
 	// Return the stacks this stack depends on.
 	Dependencies() *[]Stack
+	// The environment this Stack deploys to.
+	Env() *interfaces.ResourceEnvironment
 	// The environment coordinates in which this stack is deployed.
 	//
 	// In the form
@@ -417,6 +420,16 @@ func (j *jsiiProxy_Stack) Dependencies() *[]Stack {
 	_jsii_.Get(
 		j,
 		"dependencies",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Stack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

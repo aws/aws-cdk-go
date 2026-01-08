@@ -20,7 +20,7 @@ func (n *jsiiProxy_NetworkTargetGroup) validateMetricUnHealthyHostCountParameter
 	return nil
 }
 
-func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListener) error {
+func (n *jsiiProxy_NetworkTargetGroup) validateRegisterListenerParameters(listener INetworkListenerRef) error {
 	return nil
 }
 

@@ -31,6 +31,7 @@ import (
 //   		},
 //   		InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
 //   		InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
+//   			CapacityOptionType: jsii.String("capacityOptionType"),
 //   			Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				AcceleratorCount: &AcceleratorCountRequestProperty{

@@ -8,3 +8,7 @@ func (i *jsiiProxy_INotificationRule) validateAddTargetParameters(target INotifi
 	return nil
 }
 
+func (i *jsiiProxy_INotificationRule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

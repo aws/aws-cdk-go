@@ -26,7 +26,12 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	CollectionGroupName: jsii.String("collectionGroupName"),
 //   	Description: jsii.String("description"),
+//   	EncryptionConfig: &EncryptionConfigProperty{
+//   		AwsOwnedKey: jsii.Boolean(false),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -67,6 +72,9 @@ type CfnCollection interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The name of the collection group.
+	CollectionGroupName() *string
+	SetCollectionGroupName(val *string)
 	// A reference to a Collection resource.
 	CollectionRef() *interfacesawsopensearchserverless.CollectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -76,6 +84,9 @@ type CfnCollection interface {
 	// A description of the collection.
 	Description() *string
 	SetDescription(val *string)
+	// The configuration to encrypt the collection.
+	EncryptionConfig() interface{}
+	SetEncryptionConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -340,6 +351,16 @@ func (j *jsiiProxy_CfnCollection) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollection) CollectionGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"collectionGroupName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollection) CollectionRef() *interfacesawsopensearchserverless.CollectionReference {
 	var returns *interfacesawsopensearchserverless.CollectionReference
 	_jsii_.Get(
@@ -365,6 +386,16 @@ func (j *jsiiProxy_CfnCollection) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCollection) EncryptionConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionConfig",
 		&returns,
 	)
 	return returns
@@ -520,10 +551,29 @@ func NewCfnCollection_Override(c CfnCollection, scope constructs.Construct, id *
 	)
 }
 
+func (j *jsiiProxy_CfnCollection)SetCollectionGroupName(val *string) {
+	_jsii_.Set(
+		j,
+		"collectionGroupName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCollection)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollection)SetEncryptionConfig(val interface{}) {
+	if err := j.validateSetEncryptionConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionConfig",
 		val,
 	)
 }

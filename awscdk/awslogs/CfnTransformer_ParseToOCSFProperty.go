@@ -30,6 +30,7 @@ type CfnTransformer_ParseToOCSFProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-ocsfversion
 	//
 	OcsfVersion *string `field:"required" json:"ocsfVersion" yaml:"ocsfVersion"`
+	// The version of the OCSF mapping to use for parsing log data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-mappingversion
 	//
 	MappingVersion *string `field:"optional" json:"mappingVersion" yaml:"mappingVersion"`

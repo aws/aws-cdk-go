@@ -24,6 +24,9 @@ type CfnBotPropsMixin_IntentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-dialogcodehook
 	//
 	DialogCodeHook interface{} `field:"optional" json:"dialogCodeHook" yaml:"dialogCodeHook"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-displayname
+	//
+	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment.
 	//
 	// You can invoke this function to complete the bot's transaction with the user.

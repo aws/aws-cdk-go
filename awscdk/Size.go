@@ -13,26 +13,26 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   var bucket Bucket
-//   // Provide a Lambda function that will transform records before delivery, with custom
-//   // buffering and retry configuration
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("Processor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("process-records"))),
-//   })
-//   lambdaProcessor := firehose.NewLambdaFunctionProcessor(lambdaFunction, &DataProcessorProps{
-//   	BufferInterval: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	BufferSize: awscdk.Size_Mebibytes(jsii.Number(5)),
-//   	Retries: jsii.Number(5),
-//   })
-//   s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
-//   	Processors: []IDataProcessor{
-//   		lambdaProcessor,
-//   	},
-//   })
-//   firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destination: s3Destination,
+//   var myFileSystem IFileSystem
+//   var myJobRole Role
+//
+//   myFileSystem.GrantRead(myJobRole)
+//
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
+//   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
+//   		Cpu: jsii.Number(256),
+//   		Volumes: []EcsVolume{
+//   			batch.EcsVolume_Efs(&EfsVolumeOptions{
+//   				Name: jsii.String("myVolume"),
+//   				FileSystem: myFileSystem,
+//   				ContainerPath: jsii.String("/Volumes/myVolume"),
+//   				UseJobRole: jsii.Boolean(true),
+//   			}),
+//   		},
+//   		JobRole: myJobRole,
+//   	}),
 //   })
 //
 type Size interface {

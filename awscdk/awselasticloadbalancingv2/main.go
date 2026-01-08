@@ -56,7 +56,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "isApplicationListener", GoGetter: "IsApplicationListener"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancer", GoGetter: "LoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
@@ -138,12 +140,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
+			_jsii_.MemberProperty{JsiiProperty: "isApplicationLoadBalancer", GoGetter: "IsApplicationLoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "listeners", GoGetter: "Listeners"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerFullName", GoGetter: "LoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerName", GoGetter: "LoadBalancerName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSecurityGroups", GoGetter: "LoadBalancerSecurityGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "logAccessLogs", GoMethod: "LogAccessLogs"},
 			_jsii_.MemberMethod{JsiiMethod: "logConnectionLogs", GoMethod: "LogConnectionLogs"},
@@ -230,6 +234,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "configureHealthCheck", GoMethod: "ConfigureHealthCheck"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultPort", GoGetter: "DefaultPort"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCookieStickiness", GoMethod: "EnableCookieStickiness"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firstLoadBalancerFullName", GoGetter: "FirstLoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheck", GoGetter: "HealthCheck"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArns", GoGetter: "LoadBalancerArns"},
@@ -254,6 +259,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupFullName", GoGetter: "TargetGroupFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupLoadBalancerArns", GoGetter: "TargetGroupLoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "validateHealthCheck", GoMethod: "ValidateHealthCheck"},
@@ -292,6 +298,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "removeAttribute", GoMethod: "RemoveAttribute"},
@@ -325,6 +332,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerFullName", GoGetter: "LoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerName", GoGetter: "LoadBalancerName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSecurityGroups", GoGetter: "LoadBalancerSecurityGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "logAccessLogs", GoMethod: "LogAccessLogs"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1020,14 +1028,35 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isApplicationListener", GoGetter: "IsApplicationListener"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "registerConnectable", GoMethod: "RegisterConnectable"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IApplicationListener{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationListenerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationListenerRef",
+		reflect.TypeOf((*IApplicationListenerRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isApplicationListener", GoGetter: "IsApplicationListener"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApplicationListenerRef{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
 			return &j
 		},
@@ -1041,10 +1070,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
+			_jsii_.MemberProperty{JsiiProperty: "isApplicationLoadBalancer", GoGetter: "IsApplicationLoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "listeners", GoGetter: "Listeners"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1052,6 +1083,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApplicationLoadBalancer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationLoadBalancerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoadBalancerV2)
 			return &j
@@ -1090,6 +1122,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerRef",
+		reflect.TypeOf((*IApplicationLoadBalancerRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isApplicationLoadBalancer", GoGetter: "IsApplicationLoadBalancer"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApplicationLoadBalancerRef{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingv2ILoadBalancerRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationLoadBalancerTarget",
 		reflect.TypeOf((*IApplicationLoadBalancerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1104,6 +1151,7 @@ func init() {
 		reflect.TypeOf((*IApplicationTargetGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addTarget", GoMethod: "AddTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArns", GoGetter: "LoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerAttached", GoGetter: "LoadBalancerAttached"},
 			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
@@ -1112,6 +1160,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "registerListener", GoMethod: "RegisterListener"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupArn", GoGetter: "TargetGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IApplicationTargetGroup{}
@@ -1145,11 +1194,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IListener{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingv2IListenerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1183,11 +1234,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ILoadBalancerV2{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingv2ILoadBalancerRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1198,12 +1251,33 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isNetworkListener", GoGetter: "IsNetworkListener"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INetworkListener{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_INetworkListenerRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.INetworkListenerRef",
+		reflect.TypeOf((*INetworkListenerRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isNetworkListener", GoGetter: "IsNetworkListener"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_INetworkListenerRef{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListener)
 			return &j
 		},
@@ -1221,6 +1295,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "securityGroups", GoGetter: "SecurityGroups"},
@@ -1267,6 +1342,8 @@ func init() {
 		reflect.TypeOf((*INetworkTargetGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addTarget", GoMethod: "AddTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isNetworkTargetGroup", GoGetter: "IsNetworkTargetGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArns", GoGetter: "LoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerAttached", GoGetter: "LoadBalancerAttached"},
 			_jsii_.MemberProperty{JsiiProperty: "metrics", GoGetter: "Metrics"},
@@ -1274,9 +1351,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "registerListener", GoMethod: "RegisterListener"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupArn", GoGetter: "TargetGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INetworkTargetGroup{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_INetworkTargetGroupRef)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITargetGroup)
 			return &j
 		},
@@ -1294,18 +1373,36 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.INetworkTargetGroupRef",
+		reflect.TypeOf((*INetworkTargetGroupRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "isNetworkTargetGroup", GoGetter: "IsNetworkTargetGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_INetworkTargetGroupRef{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingv2ITargetGroupRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.ITargetGroup",
 		reflect.TypeOf((*ITargetGroup)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArns", GoGetter: "LoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerAttached", GoGetter: "LoadBalancerAttached"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupArn", GoGetter: "TargetGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITargetGroup{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingv2ITargetGroupRef)
 			return &j
 		},
 	)
@@ -1319,10 +1416,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "trustStoreArn", GoGetter: "TrustStoreArn"},
 			_jsii_.MemberProperty{JsiiProperty: "trustStoreName", GoGetter: "TrustStoreName"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreRef", GoGetter: "TrustStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrustStore{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticloadbalancingv2ITrustStoreRef)
 			return &j
 		},
 	)
@@ -1408,7 +1507,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "isNetworkListener", GoGetter: "IsNetworkListener"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "listenerRef", GoGetter: "ListenerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancer", GoGetter: "LoadBalancer"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
@@ -1468,6 +1569,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerFullName", GoGetter: "LoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerName", GoGetter: "LoadBalancerName"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancerRef", GoGetter: "LoadBalancerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSecurityGroups", GoGetter: "LoadBalancerSecurityGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "logAccessLogs", GoMethod: "LogAccessLogs"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
@@ -1517,8 +1619,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addTarget", GoMethod: "AddTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "configureHealthCheck", GoMethod: "ConfigureHealthCheck"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultPort", GoGetter: "DefaultPort"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firstLoadBalancerFullName", GoGetter: "FirstLoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheck", GoGetter: "HealthCheck"},
+			_jsii_.MemberProperty{JsiiProperty: "isNetworkTargetGroup", GoGetter: "IsNetworkTargetGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArns", GoGetter: "LoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerAttached", GoGetter: "LoadBalancerAttached"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerAttachedDependencies", GoGetter: "LoadBalancerAttachedDependencies"},
@@ -1532,6 +1636,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupFullName", GoGetter: "TargetGroupFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupLoadBalancerArns", GoGetter: "TargetGroupLoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "validateHealthCheck", GoMethod: "ValidateHealthCheck"},
@@ -1639,6 +1744,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addLoadBalancerTarget", GoMethod: "AddLoadBalancerTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "configureHealthCheck", GoMethod: "ConfigureHealthCheck"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultPort", GoGetter: "DefaultPort"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firstLoadBalancerFullName", GoGetter: "FirstLoadBalancerFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheck", GoGetter: "HealthCheck"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArns", GoGetter: "LoadBalancerArns"},
@@ -1650,6 +1756,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupFullName", GoGetter: "TargetGroupFullName"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupLoadBalancerArns", GoGetter: "TargetGroupLoadBalancerArns"},
 			_jsii_.MemberProperty{JsiiProperty: "targetGroupName", GoGetter: "TargetGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "targetGroupRef", GoGetter: "TargetGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "validateHealthCheck", GoMethod: "ValidateHealthCheck"},
@@ -1710,6 +1817,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trustStoreArn", GoGetter: "TrustStoreArn"},
 			_jsii_.MemberProperty{JsiiProperty: "trustStoreName", GoGetter: "TrustStoreName"},
+			_jsii_.MemberProperty{JsiiProperty: "trustStoreRef", GoGetter: "TrustStoreRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TrustStore{}

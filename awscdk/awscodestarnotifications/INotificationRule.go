@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodestarnotifications"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a notification rule.
 type INotificationRule interface {
+	interfacesawscodestarnotifications.INotificationRuleRef
 	awscdk.IResource
 	// Adds target to notification rule.
 	//
@@ -20,6 +24,7 @@ type INotificationRule interface {
 
 // The jsii proxy for INotificationRule
 type jsiiProxy_INotificationRule struct {
+	internal.Type__interfacesawscodestarnotificationsINotificationRuleRef
 	internal.Type__awscdkIResource
 }
 
@@ -39,11 +44,62 @@ func (i *jsiiProxy_INotificationRule) AddTarget(target INotificationRuleTarget) 
 	return returns
 }
 
+func (i *jsiiProxy_INotificationRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_INotificationRule) NotificationRuleArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"notificationRuleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INotificationRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INotificationRule) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INotificationRule) NotificationRuleRef() *interfacesawscodestarnotifications.NotificationRuleReference {
+	var returns *interfacesawscodestarnotifications.NotificationRuleReference
+	_jsii_.Get(
+		j,
+		"notificationRuleRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_INotificationRule) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -33,6 +33,7 @@ import (
 //   			Overrides: []interface{}{
 //   				&FleetLaunchTemplateOverridesRequestProperty{
 //   					AvailabilityZone: jsii.String("availabilityZone"),
+//   					AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   					BlockDeviceMappings: []interface{}{
 //   						&BlockDeviceMappingProperty{
 //   							DeviceName: jsii.String("deviceName"),

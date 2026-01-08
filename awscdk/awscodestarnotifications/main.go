@@ -90,10 +90,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationRuleArn", GoGetter: "NotificationRuleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "notificationRuleRef", GoGetter: "NotificationRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INotificationRule{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscodestarnotificationsINotificationRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -130,6 +132,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationRuleArn", GoGetter: "NotificationRuleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "notificationRuleRef", GoGetter: "NotificationRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

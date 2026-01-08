@@ -22,6 +22,16 @@ import (
 //   	AdConditioningConfiguration: &AdConditioningConfigurationProperty{
 //   		StreamingMediaFileConditioning: jsii.String("streamingMediaFileConditioning"),
 //   	},
+//   	AdDecisionServerConfiguration: &AdDecisionServerConfigurationProperty{
+//   		HttpRequest: &HttpRequestProperty{
+//   			Body: jsii.String("body"),
+//   			CompressRequest: jsii.String("compressRequest"),
+//   			Headers: map[string]*string{
+//   				"headersKey": jsii.String("headers"),
+//   			},
+//   			HttpMethod: jsii.String("httpMethod"),
+//   		},
+//   	},
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
@@ -111,6 +121,10 @@ type CfnPlaybackConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-adconditioningconfiguration
 	//
 	AdConditioningConfiguration interface{} `field:"optional" json:"adConditioningConfiguration" yaml:"adConditioningConfiguration"`
+	// The configuration for the request to the specified Ad Decision Server URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverconfiguration
+	//
+	AdDecisionServerConfiguration interface{} `field:"optional" json:"adDecisionServerConfiguration" yaml:"adDecisionServerConfiguration"`
 	// The configuration for avail suppression, also known as ad suppression.
 	//
 	// For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .

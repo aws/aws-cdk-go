@@ -16,13 +16,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ Function
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //   var role Role
 //
 //   lambdaDataSource := awscdk.Aws_appsync.NewLambdaDataSource(this, jsii.String("MyLambdaDataSource"), &LambdaDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //   	LambdaFunction: function_,
 //
 //   	// the properties below are optional
@@ -33,6 +34,7 @@ import (
 //
 type LambdaDataSource interface {
 	BackedDataSource
+	// The API this data source is attached to Set the API this data source is attached to.
 	Api() IGraphqlApi
 	SetApi(val IGraphqlApi)
 	// the underlying CFN data source resource.

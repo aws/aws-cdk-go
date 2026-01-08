@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
 // Properties for CodeBuildStartBuild using JSONPath.
@@ -15,16 +16,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var project Project
+//   var projectRef IProjectRef
 //   var resultSelector interface{}
 //   var taskRole TaskRole
 //   var timeout Timeout
 //   var value interface{}
 //
 //   codeBuildStartBuildJsonPathProps := &CodeBuildStartBuildJsonPathProps{
-//   	Project: project,
+//   	Project: projectRef,
 //
 //   	// the properties below are optional
 //   	Assign: map[string]interface{}{
@@ -156,7 +158,7 @@ type CodeBuildStartBuildJsonPathProps struct {
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// CodeBuild project to start.
-	Project awscodebuild.IProject `field:"required" json:"project" yaml:"project"`
+	Project interfacesawscodebuild.IProjectRef `field:"required" json:"project" yaml:"project"`
 	// A set of environment variables to be used for this build only.
 	// Default: - the latest environment variables already defined in the build project.
 	//

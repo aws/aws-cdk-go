@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
@@ -114,7 +114,7 @@ func Monitor_FromCfnMonitorsProperty(monitorsProperty *CfnEnvironment_MonitorsPr
 //
 // If the alarm role is not specified, a role will
 // be generated.
-func Monitor_FromCloudWatchAlarm(alarm awscloudwatch.IAlarm, alarmRole interfacesawsiam.IRoleRef) Monitor {
+func Monitor_FromCloudWatchAlarm(alarm interfacesawscloudwatch.IAlarmRef, alarmRole interfacesawsiam.IRoleRef) Monitor {
 	_init_.Initialize()
 
 	if err := validateMonitor_FromCloudWatchAlarmParameters(alarm); err != nil {

@@ -1904,6 +1904,10 @@ func init() {
 		reflect.TypeOf((*CfnTopicRule_AssetPropertyVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnTopicRule.BatchConfigProperty",
+		reflect.TypeOf((*CfnTopicRule_BatchConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnTopicRule.CloudwatchAlarmActionProperty",
 		reflect.TypeOf((*CfnTopicRule_CloudwatchAlarmActionProperty)(nil)).Elem(),
 	)

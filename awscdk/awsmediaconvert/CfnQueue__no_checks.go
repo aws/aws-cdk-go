@@ -72,6 +72,14 @@ func validateCfnQueue_ArnForQueueParameters(resource interfacesawsmediaconvert.I
 	return nil
 }
 
+func validateCfnQueue_FromQueueArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnQueue_FromQueueNameParameters(scope constructs.Construct, id *string, queueName *string) error {
+	return nil
+}
+
 func validateCfnQueue_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

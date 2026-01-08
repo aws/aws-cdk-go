@@ -72,6 +72,14 @@ func validateCfnProject_ArnForProjectParameters(resource interfacesawscodebuild.
 	return nil
 }
 
+func validateCfnProject_FromProjectArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnProject_FromProjectNameParameters(scope constructs.Construct, id *string, projectName *string) error {
+	return nil
+}
+
 func validateCfnProject_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

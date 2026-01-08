@@ -40,7 +40,7 @@ import (
 //   		},
 //   	},
 //   	BotAliasName: jsii.String("botAliasName"),
-//   	BotAliasTags: []interface{}{
+//   	BotAliasTags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),

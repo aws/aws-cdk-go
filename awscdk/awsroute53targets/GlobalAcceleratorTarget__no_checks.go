@@ -8,7 +8,7 @@ func (g *jsiiProxy_GlobalAcceleratorTarget) validateBindParameters(record awsrou
 	return nil
 }
 
-func validateNewGlobalAcceleratorTargetParameters(accelerator awsglobalaccelerator.IAccelerator) error {
+func validateNewGlobalAcceleratorTargetParameters(accelerator interfacesawsglobalaccelerator.IAcceleratorRef) error {
 	return nil
 }
 

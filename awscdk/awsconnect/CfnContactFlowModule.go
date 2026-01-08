@@ -25,6 +25,10 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ExternalInvocationConfiguration: &ExternalInvocationConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
+//   	Settings: jsii.String("settings"),
 //   	State: jsii.String("state"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -63,6 +67,9 @@ type CfnContactFlowModule interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The external invocation configuration for the flow module.
+	ExternalInvocationConfiguration() interface{}
+	SetExternalInvocationConfiguration(val interface{})
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
@@ -86,6 +93,9 @@ type CfnContactFlowModule interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The configuration settings for the flow module.
+	Settings() *string
+	SetSettings(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -346,6 +356,16 @@ func (j *jsiiProxy_CfnContactFlowModule) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnContactFlowModule) ExternalInvocationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"externalInvocationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContactFlowModule) InstanceArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -391,6 +411,16 @@ func (j *jsiiProxy_CfnContactFlowModule) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnContactFlowModule) Settings() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"settings",
 		&returns,
 	)
 	return returns
@@ -505,6 +535,17 @@ func (j *jsiiProxy_CfnContactFlowModule)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnContactFlowModule)SetExternalInvocationConfiguration(val interface{}) {
+	if err := j.validateSetExternalInvocationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"externalInvocationConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnContactFlowModule)SetInstanceArn(val *string) {
 	if err := j.validateSetInstanceArnParameters(val); err != nil {
 		panic(err)
@@ -523,6 +564,14 @@ func (j *jsiiProxy_CfnContactFlowModule)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContactFlowModule)SetSettings(val *string) {
+	_jsii_.Set(
+		j,
+		"settings",
 		val,
 	)
 }

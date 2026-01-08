@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::SES::Tenant.
+// Create a tenant.
+//
+// *Tenants* are logical containers that group related SES resources together. Each tenant can have its own set of resources like email identities, configuration sets, and templates, along with reputation metrics and sending status. This helps isolate and manage email sending for different customers or business units within your Amazon SES API v2 account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -42,7 +44,7 @@ type CfnTenant interface {
 	awscdk.IInspectable
 	interfacesawsses.ITenantRef
 	awscdk.ITaggableV2
-	// Amazon Resource Name (ARN) of the tenant.
+	// Returns the ARN of the tenant.
 	AttrArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -80,10 +82,10 @@ type CfnTenant interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// The tags (keys and values) associated with the tenant.
+	// An array of objects that define the tags (keys and values) associated with the tenant.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
-	// The name of the tenant.
+	// The name of a tenant.
 	TenantName() *string
 	SetTenantName(val *string)
 	// A reference to a Tenant resource.

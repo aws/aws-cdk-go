@@ -13,6 +13,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsopensearchservice"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,6 +61,8 @@ type EventApi interface {
 	// Default: - no api key.
 	//
 	ApiKeys() *map[string]CfnApiKey
+	// A reference to a Api resource.
+	ApiRef() *interfacesawsappsync.ApiReference
 	// The AppSyncDomainName of the associated custom domain.
 	AppSyncDomainName() *string
 	// The Authorization Types for this Event Api.
@@ -190,6 +193,16 @@ func (j *jsiiProxy_EventApi) ApiKeys() *map[string]CfnApiKey {
 	_jsii_.Get(
 		j,
 		"apiKeys",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EventApi) ApiRef() *interfacesawsappsync.ApiReference {
+	var returns *interfacesawsappsync.ApiReference
+	_jsii_.Get(
+		j,
+		"apiRef",
 		&returns,
 	)
 	return returns

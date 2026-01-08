@@ -4,10 +4,10 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsschedulertargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
 // Use an AWS CodeBuild as a target for AWS EventBridge Scheduler.
@@ -52,7 +52,7 @@ func (j *jsiiProxy_CodeBuildStartBuild) TargetArn() *string {
 }
 
 
-func NewCodeBuildStartBuild(project awscodebuild.IProject, props *ScheduleTargetBaseProps) CodeBuildStartBuild {
+func NewCodeBuildStartBuild(project interfacesawscodebuild.IProjectRef, props *ScheduleTargetBaseProps) CodeBuildStartBuild {
 	_init_.Initialize()
 
 	if err := validateNewCodeBuildStartBuildParameters(project, props); err != nil {
@@ -69,7 +69,7 @@ func NewCodeBuildStartBuild(project awscodebuild.IProject, props *ScheduleTarget
 	return &j
 }
 
-func NewCodeBuildStartBuild_Override(c CodeBuildStartBuild, project awscodebuild.IProject, props *ScheduleTargetBaseProps) {
+func NewCodeBuildStartBuild_Override(c CodeBuildStartBuild, project interfacesawscodebuild.IProjectRef, props *ScheduleTargetBaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

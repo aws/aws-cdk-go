@@ -12,6 +12,7 @@ package previewawsmediapackagev2mixins
 //   	ScteFilter: []*string{
 //   		jsii.String("scteFilter"),
 //   	},
+//   	ScteInSegments: jsii.String("scteInSegments"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html
@@ -21,5 +22,8 @@ type CfnOriginEndpointPropsMixin_ScteProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html#cfn-mediapackagev2-originendpoint-scte-sctefilter
 	//
 	ScteFilter *[]*string `field:"optional" json:"scteFilter" yaml:"scteFilter"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html#cfn-mediapackagev2-originendpoint-scte-scteinsegments
+	//
+	ScteInSegments *string `field:"optional" json:"scteInSegments" yaml:"scteInSegments"`
 }
 

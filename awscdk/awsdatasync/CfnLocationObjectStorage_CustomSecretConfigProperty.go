@@ -1,7 +1,7 @@
 package awsdatasync
 
 
-// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text.
+// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab).
 //
 // This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 //

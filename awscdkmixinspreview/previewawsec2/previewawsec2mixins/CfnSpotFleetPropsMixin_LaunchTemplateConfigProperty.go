@@ -17,6 +17,7 @@ package previewawsec2mixins
 //   	Overrides: []interface{}{
 //   		&LaunchTemplateOverridesProperty{
 //   			AvailabilityZone: jsii.String("availabilityZone"),
+//   			AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				AcceleratorCount: &AcceleratorCountRequestProperty{
 //   					Max: jsii.Number(123),

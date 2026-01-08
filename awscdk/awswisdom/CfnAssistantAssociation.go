@@ -23,6 +23,10 @@ import (
 //   cfnAssistantAssociation := awscdk.Aws_wisdom.NewCfnAssistantAssociation(this, jsii.String("MyCfnAssistantAssociation"), &CfnAssistantAssociationProps{
 //   	AssistantId: jsii.String("assistantId"),
 //   	Association: &AssociationDataProperty{
+//   		ExternalBedrockKnowledgeBaseConfig: &ExternalBedrockKnowledgeBaseConfigProperty{
+//   			AccessRoleArn: jsii.String("accessRoleArn"),
+//   			BedrockKnowledgeBaseArn: jsii.String("bedrockKnowledgeBaseArn"),
+//   		},
 //   		KnowledgeBaseId: jsii.String("knowledgeBaseId"),
 //   	},
 //   	AssociationType: jsii.String("associationType"),

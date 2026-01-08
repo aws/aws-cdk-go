@@ -15,6 +15,9 @@ package previewawscloudfrontmixins
 //   	HttpsPort: jsii.Number(123),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	OriginKeepaliveTimeout: jsii.Number(123),
+//   	OriginMtlsConfig: &OriginMtlsConfigProperty{
+//   		ClientCertificateArn: jsii.String("clientCertificateArn"),
+//   	},
 //   	OriginProtocolPolicy: jsii.String("originProtocolPolicy"),
 //   	OriginReadTimeout: jsii.Number(123),
 //   	OriginSslProtocols: []*string{
@@ -57,6 +60,9 @@ type CfnDistributionPropsMixin_CustomOriginConfigProperty struct {
 	// Default: - 5.
 	//
 	OriginKeepaliveTimeout *float64 `field:"optional" json:"originKeepaliveTimeout" yaml:"originKeepaliveTimeout"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originmtlsconfig
+	//
+	OriginMtlsConfig interface{} `field:"optional" json:"originMtlsConfig" yaml:"originMtlsConfig"`
 	// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:.
 	//
 	// - `http-only` – CloudFront always uses HTTP to connect to the origin.

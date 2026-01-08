@@ -681,6 +681,10 @@ func init() {
 		reflect.TypeOf((*CfnDistribution_OriginGroupsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginMtlsConfigProperty",
+		reflect.TypeOf((*CfnDistribution_OriginMtlsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnDistribution.OriginProperty",
 		reflect.TypeOf((*CfnDistribution_OriginProperty)(nil)).Elem(),
 	)
@@ -1869,6 +1873,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "originAccessControlId", GoGetter: "OriginAccessControlId"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessControlRef", GoGetter: "OriginAccessControlRef"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -2039,10 +2044,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "originAccessControlId", GoGetter: "OriginAccessControlId"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessControlRef", GoGetter: "OriginAccessControlRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOriginAccessControl{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudfrontIOriginAccessControlRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -2581,6 +2588,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "originAccessControlId", GoGetter: "OriginAccessControlId"},
+			_jsii_.MemberProperty{JsiiProperty: "originAccessControlRef", GoGetter: "OriginAccessControlRef"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

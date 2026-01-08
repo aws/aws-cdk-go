@@ -96,6 +96,10 @@ func validateCfnCollection_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollection) validateSetEncryptionConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCollection) validateSetNameParameters(val *string) error {
 	return nil
 }

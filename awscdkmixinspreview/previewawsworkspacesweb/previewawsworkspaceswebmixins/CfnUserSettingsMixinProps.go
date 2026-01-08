@@ -88,6 +88,7 @@ import (
 //   		VisualMode: jsii.String("visualMode"),
 //   	},
 //   	UploadAllowed: jsii.String("uploadAllowed"),
+//   	WebAuthnAllowed: jsii.String("webAuthnAllowed"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html
@@ -97,6 +98,9 @@ type CfnUserSettingsMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-additionalencryptioncontext
 	//
 	AdditionalEncryptionContext interface{} `field:"optional" json:"additionalEncryptionContext" yaml:"additionalEncryptionContext"`
+	// The branding configuration that customizes the appearance of the web portal for end users.
+	//
+	// This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-brandingconfiguration
 	//
 	BrandingConfiguration interface{} `field:"optional" json:"brandingConfiguration" yaml:"brandingConfiguration"`
@@ -152,5 +156,9 @@ type CfnUserSettingsMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-uploadallowed
 	//
 	UploadAllowed *string `field:"optional" json:"uploadAllowed" yaml:"uploadAllowed"`
+	// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-webauthnallowed
+	//
+	WebAuthnAllowed *string `field:"optional" json:"webAuthnAllowed" yaml:"webAuthnAllowed"`
 }
 

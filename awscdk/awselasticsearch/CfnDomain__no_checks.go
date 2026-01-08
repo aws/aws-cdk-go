@@ -72,6 +72,14 @@ func validateCfnDomain_ArnForDomainParameters(resource interfacesawselasticsearc
 	return nil
 }
 
+func validateCfnDomain_FromDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnDomain_FromDomainNameParameters(scope constructs.Construct, id *string, domainName *string) error {
+	return nil
+}
+
 func validateCfnDomain_IsCfnDomainParameters(x interface{}) error {
 	return nil
 }

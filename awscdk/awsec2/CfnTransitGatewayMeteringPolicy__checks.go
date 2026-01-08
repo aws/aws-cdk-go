@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,30 @@ func (c *jsiiProxy_CfnTransitGatewayMeteringPolicy) validateReplaceDependencyPar
 func (c *jsiiProxy_CfnTransitGatewayMeteringPolicy) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitGatewayMeteringPolicy_ArnForTransitGatewayMeteringPolicyParameters(resource interfacesawsec2.ITransitGatewayMeteringPolicyRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitGatewayMeteringPolicy_FromTransitGatewayMeteringPolicyIdParameters(scope constructs.Construct, id *string, transitGatewayMeteringPolicyId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if transitGatewayMeteringPolicyId == nil {
+		return fmt.Errorf("parameter transitGatewayMeteringPolicyId is required, but nil was provided")
 	}
 
 	return nil

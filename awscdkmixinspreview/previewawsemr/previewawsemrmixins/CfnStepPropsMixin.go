@@ -22,6 +22,7 @@ import (
 //
 //   cfnStepPropsMixin := awscdkmixinspreview.Mixins.NewCfnStepPropsMixin(&CfnStepMixinProps{
 //   	ActionOnFailure: jsii.String("actionOnFailure"),
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   	HadoopJarStep: &HadoopJarStepConfigProperty{
 //   		Args: []*string{
 //   			jsii.String("args"),
@@ -36,6 +37,7 @@ import (
 //   		},
 //   	},
 //   	JobFlowId: jsii.String("jobFlowId"),
+//   	LogUri: jsii.String("logUri"),
 //   	Name: jsii.String("name"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,

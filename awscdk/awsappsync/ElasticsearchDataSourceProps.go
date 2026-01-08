@@ -3,6 +3,7 @@ package awsappsync
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // Properties for the Elasticsearch Data Source.
@@ -13,13 +14,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var domain Domain
-//   var graphqlApi GraphqlApi
+//   var graphQLApiRef IGraphQLApiRef
 //   var role Role
 //
 //   elasticsearchDataSourceProps := &ElasticsearchDataSourceProps{
-//   	Api: graphqlApi,
+//   	Api: graphQLApiRef,
 //   	Domain: domain,
 //
 //   	// the properties below are optional
@@ -32,7 +34,7 @@ import (
 type ElasticsearchDataSourceProps struct {
 	// The API to attach this data source to.
 	// Deprecated: - use `OpenSearchDataSourceProps` with `OpenSearchDataSource`.
-	Api IGraphqlApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IGraphQLApiRef `field:"required" json:"api" yaml:"api"`
 	// the description of the data source.
 	// Default: - None.
 	//

@@ -27,7 +27,7 @@ type Location struct {
 	// Current resource capacity settings in a specified fleet or location.
 	//
 	// The location value might refer to a fleet's remote location or its home Region.
-	// Default: no capacity settings on the specified location.
+	// Default: - no capacity settings on the specified location.
 	//
 	// Experimental.
 	Capacity *LocationCapacity `field:"optional" json:"capacity" yaml:"capacity"`

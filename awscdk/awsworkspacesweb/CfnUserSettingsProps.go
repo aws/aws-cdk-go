@@ -98,6 +98,7 @@ import (
 //   		ToolbarType: jsii.String("toolbarType"),
 //   		VisualMode: jsii.String("visualMode"),
 //   	},
+//   	WebAuthnAllowed: jsii.String("webAuthnAllowed"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html
@@ -127,6 +128,9 @@ type CfnUserSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-additionalencryptioncontext
 	//
 	AdditionalEncryptionContext interface{} `field:"optional" json:"additionalEncryptionContext" yaml:"additionalEncryptionContext"`
+	// The branding configuration that customizes the appearance of the web portal for end users.
+	//
+	// This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-brandingconfiguration
 	//
 	BrandingConfiguration interface{} `field:"optional" json:"brandingConfiguration" yaml:"brandingConfiguration"`
@@ -162,5 +166,9 @@ type CfnUserSettingsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-toolbarconfiguration
 	//
 	ToolbarConfiguration interface{} `field:"optional" json:"toolbarConfiguration" yaml:"toolbarConfiguration"`
+	// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html#cfn-workspacesweb-usersettings-webauthnallowed
+	//
+	WebAuthnAllowed *string `field:"optional" json:"webAuthnAllowed" yaml:"webAuthnAllowed"`
 }
 

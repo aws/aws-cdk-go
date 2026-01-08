@@ -104,7 +104,7 @@ type FargateCluster interface {
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
-	// Default: - IpFamily.IP_V4
+	// Default: IpFamily.IP_V4
 	//
 	// Experimental.
 	IpFamily() IpFamily

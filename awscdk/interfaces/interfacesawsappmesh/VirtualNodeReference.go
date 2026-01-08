@@ -10,13 +10,10 @@ package interfacesawsappmesh
 //
 //   virtualNodeReference := &VirtualNodeReference{
 //   	VirtualNodeArn: jsii.String("virtualNodeArn"),
-//   	VirtualNodeId: jsii.String("virtualNodeId"),
 //   }
 //
 type VirtualNodeReference struct {
-	// The ARN of the VirtualNode resource.
+	// The Arn of the VirtualNode resource.
 	VirtualNodeArn *string `field:"required" json:"virtualNodeArn" yaml:"virtualNodeArn"`
-	// The Id of the VirtualNode resource.
-	VirtualNodeId *string `field:"required" json:"virtualNodeId" yaml:"virtualNodeId"`
 }
 

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancing"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,30 @@ func (c *jsiiProxy_CfnLoadBalancer) validateReplaceDependencyParameters(target a
 func (c *jsiiProxy_CfnLoadBalancer) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnLoadBalancer_ArnForLoadBalancerParameters(resource interfacesawselasticloadbalancing.ILoadBalancerRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnLoadBalancer_FromLoadBalancerNameParameters(scope constructs.Construct, id *string, loadBalancerName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if loadBalancerName == nil {
+		return fmt.Errorf("parameter loadBalancerName is required, but nil was provided")
 	}
 
 	return nil

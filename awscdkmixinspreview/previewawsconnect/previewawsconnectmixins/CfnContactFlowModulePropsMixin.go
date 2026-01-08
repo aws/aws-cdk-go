@@ -21,8 +21,12 @@ import (
 //   cfnContactFlowModulePropsMixin := awscdkmixinspreview.Mixins.NewCfnContactFlowModulePropsMixin(&CfnContactFlowModuleMixinProps{
 //   	Content: jsii.String("content"),
 //   	Description: jsii.String("description"),
+//   	ExternalInvocationConfiguration: &ExternalInvocationConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
+//   	Settings: jsii.String("settings"),
 //   	State: jsii.String("state"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

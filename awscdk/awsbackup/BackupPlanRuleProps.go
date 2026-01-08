@@ -3,6 +3,7 @@ package awsbackup
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 )
 
 // Properties for a BackupPlanRule.
@@ -26,7 +27,7 @@ type BackupPlanRuleProps struct {
 	// Default: - use the vault defined at the plan level. If not defined a new
 	// common vault for the plan will be created.
 	//
-	BackupVault IBackupVault `field:"optional" json:"backupVault" yaml:"backupVault"`
+	BackupVault interfacesawsbackup.IBackupVaultRef `field:"optional" json:"backupVault" yaml:"backupVault"`
 	// The duration after a backup job is successfully started before it must be completed or it is canceled by AWS Backup.
 	// Default: - 7 days.
 	//

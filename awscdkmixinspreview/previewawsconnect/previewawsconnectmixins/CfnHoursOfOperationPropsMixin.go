@@ -19,6 +19,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnHoursOfOperationPropsMixin := awscdkmixinspreview.Mixins.NewCfnHoursOfOperationPropsMixin(&CfnHoursOfOperationMixinProps{
+//   	ChildHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Config: []interface{}{
 //   		&HoursOfOperationConfigProperty{
 //   			Day: jsii.String("day"),
@@ -53,10 +59,32 @@ import (
 //   			},
 //   			OverrideDescription: jsii.String("overrideDescription"),
 //   			OverrideName: jsii.String("overrideName"),
+//   			OverrideType: jsii.String("overrideType"),
+//   			RecurrenceConfig: &RecurrenceConfigProperty{
+//   				RecurrencePattern: &RecurrencePatternProperty{
+//   					ByMonth: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByMonthDay: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByWeekdayOccurrence: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					Frequency: jsii.String("frequency"),
+//   					Interval: jsii.Number(123),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
+//   	ParentHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

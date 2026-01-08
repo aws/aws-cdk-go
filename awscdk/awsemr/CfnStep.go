@@ -39,6 +39,10 @@ import (
 //   	},
 //   	JobFlowId: jsii.String("jobFlowId"),
 //   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	LogUri: jsii.String("logUri"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
@@ -61,6 +65,9 @@ type CfnStep interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+	EncryptionKeyArn() *string
+	SetEncryptionKeyArn(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The `HadoopJarStepConfig` property type specifies a job flow step consisting of a JAR file whose main function will be executed.
 	HadoopJarStep() interface{}
@@ -78,6 +85,9 @@ type CfnStep interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The Amazon S3 destination URI for log publishing.
+	LogUri() *string
+	SetLogUri(val *string)
 	// The name of the cluster step.
 	Name() *string
 	SetName(val *string)
@@ -301,6 +311,16 @@ func (j *jsiiProxy_CfnStep) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStep) EncryptionKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"encryptionKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStep) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -336,6 +356,16 @@ func (j *jsiiProxy_CfnStep) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStep) LogUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logUri",
 		&returns,
 	)
 	return returns
@@ -452,6 +482,14 @@ func (j *jsiiProxy_CfnStep)SetActionOnFailure(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnStep)SetEncryptionKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"encryptionKeyArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnStep)SetHadoopJarStep(val interface{}) {
 	if err := j.validateSetHadoopJarStepParameters(val); err != nil {
 		panic(err)
@@ -470,6 +508,14 @@ func (j *jsiiProxy_CfnStep)SetJobFlowId(val *string) {
 	_jsii_.Set(
 		j,
 		"jobFlowId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStep)SetLogUri(val *string) {
+	_jsii_.Set(
+		j,
+		"logUri",
 		val,
 	)
 }

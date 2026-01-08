@@ -39,6 +39,8 @@ type CfnTelemetryPipelines_TelemetryPipelineProperty struct {
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
 	// The configuration that defines how the telemetry pipeline processes data.
+	//
+	// For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetrypipelines-telemetrypipeline.html#cfn-observabilityadmin-telemetrypipelines-telemetrypipeline-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`

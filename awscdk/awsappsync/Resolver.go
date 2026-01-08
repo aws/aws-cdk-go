@@ -21,7 +21,7 @@ import (
 //   	TypeName: jsii.String("typeName"),
 //   	FieldName: jsii.String("fieldName"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
-//   	PipelineConfig: []IAppsyncFunction{
+//   	PipelineConfig: []IFunctionConfigurationRef{
 //   		appsyncFunction,
 //   	},
 //   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),

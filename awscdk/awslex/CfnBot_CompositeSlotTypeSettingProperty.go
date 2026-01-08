@@ -12,7 +12,10 @@ package awslex
 //   	SubSlots: []interface{}{
 //   		&SubSlotTypeCompositionProperty{
 //   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
 //   			SlotTypeId: jsii.String("slotTypeId"),
+//   			SlotTypeName: jsii.String("slotTypeName"),
 //   		},
 //   	},
 //   }

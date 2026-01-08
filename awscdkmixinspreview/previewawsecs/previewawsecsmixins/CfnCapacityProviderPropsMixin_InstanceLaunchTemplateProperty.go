@@ -11,6 +11,7 @@ package previewawsecsmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   instanceLaunchTemplateProperty := &InstanceLaunchTemplateProperty{
+//   	CapacityOptionType: jsii.String("capacityOptionType"),
 //   	Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
@@ -98,6 +99,21 @@ package previewawsecsmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html
 //
 type CfnCapacityProviderPropsMixin_InstanceLaunchTemplateProperty struct {
+	// The capacity option type.
+	//
+	// This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
+	//
+	// Valid values are:
+	//
+	// - `ON_DEMAND` - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.
+	// - `SPOT` - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.
+	//
+	// The default is On-Demand
+	//
+	// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-capacityoptiontype
+	//
+	CapacityOptionType *string `field:"optional" json:"capacityOptionType" yaml:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances.
 	//
 	// This instance profile must include the necessary permissions for your tasks to access AWS services and resources.

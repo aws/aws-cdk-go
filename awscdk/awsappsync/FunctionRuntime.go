@@ -36,7 +36,7 @@ import (
 //   	    }
 //   	  `)),
 //   	Runtime: appsync.FunctionRuntime_JS_1_0_0(),
-//   	PipelineConfig: []IAppsyncFunction{
+//   	PipelineConfig: []IFunctionConfigurationRef{
 //   		myJsFunction,
 //   	},
 //   })

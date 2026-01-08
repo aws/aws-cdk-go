@@ -1,9 +1,9 @@
 package awscodedeploy
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
 // Construction properties for `LambdaDeploymentGroup`.
@@ -40,7 +40,7 @@ type LambdaDeploymentGroupProps struct {
 	//
 	// Default: [].
 	//
-	Alarms *[]awscloudwatch.IAlarm `field:"optional" json:"alarms" yaml:"alarms"`
+	Alarms *[]interfacesawscloudwatch.IAlarmRef `field:"optional" json:"alarms" yaml:"alarms"`
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
 	// Default: - One will be created for you.
 	//

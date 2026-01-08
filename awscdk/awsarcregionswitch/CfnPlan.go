@@ -69,6 +69,21 @@ import (
 //   								Behavior: jsii.String("behavior"),
 //   							},
 //   						},
+//   						DocumentDbConfig: &DocumentDbConfigurationProperty{
+//   							Behavior: jsii.String("behavior"),
+//   							DatabaseClusterArns: []*string{
+//   								jsii.String("databaseClusterArns"),
+//   							},
+//   							GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//
+//   							// the properties below are optional
+//   							CrossAccountRole: jsii.String("crossAccountRole"),
+//   							ExternalId: jsii.String("externalId"),
+//   							TimeoutMinutes: jsii.Number(123),
+//   							Ungraceful: &DocumentDbUngracefulProperty{
+//   								Ungraceful: jsii.String("ungraceful"),
+//   							},
+//   						},
 //   						Ec2AsgCapacityIncreaseConfig: &Ec2AsgCapacityIncreaseConfigurationProperty{
 //   							Asgs: []interface{}{
 //   								&AsgProperty{
@@ -215,6 +230,16 @@ import (
 //   	Description: jsii.String("description"),
 //   	PrimaryRegion: jsii.String("primaryRegion"),
 //   	RecoveryTimeObjectiveMinutes: jsii.Number(123),
+//   	ReportConfiguration: &ReportConfigurationProperty{
+//   		ReportOutput: []interface{}{
+//   			&ReportOutputConfigurationProperty{
+//   				S3Configuration: &S3ReportOutputConfigurationProperty{
+//   					BucketOwner: jsii.String("bucketOwner"),
+//   					BucketPath: jsii.String("bucketPath"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -307,6 +332,9 @@ type CfnPlan interface {
 	// The AWS Regions for a plan.
 	Regions() *[]*string
 	SetRegions(val *[]*string)
+	// The report configuration for a plan.
+	ReportConfiguration() interface{}
+	SetReportConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -707,6 +735,16 @@ func (j *jsiiProxy_CfnPlan) Regions() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlan) ReportConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"reportConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlan) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -872,6 +910,17 @@ func (j *jsiiProxy_CfnPlan)SetRegions(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"regions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlan)SetReportConfiguration(val interface{}) {
+	if err := j.validateSetReportConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"reportConfiguration",
 		val,
 	)
 }

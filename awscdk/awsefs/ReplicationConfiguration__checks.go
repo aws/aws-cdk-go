@@ -6,9 +6,11 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 )
 
-func validateReplicationConfiguration_ExistingFileSystemParameters(destinationFileSystem IFileSystem) error {
+func validateReplicationConfiguration_ExistingFileSystemParameters(destinationFileSystem interfacesawsefs.IFileSystemRef) error {
 	if destinationFileSystem == nil {
 		return fmt.Errorf("parameter destinationFileSystem is required, but nil was provided")
 	}

@@ -16,7 +16,7 @@ func (i *jsiiProxy_InspectorStartAssessmentRun) validateBindBaseTargetConfigPara
 	return nil
 }
 
-func validateNewInspectorStartAssessmentRunParameters(template awsinspector.IAssessmentTemplate, props *ScheduleTargetBaseProps) error {
+func validateNewInspectorStartAssessmentRunParameters(template interfacesawsinspector.IAssessmentTemplateRef, props *ScheduleTargetBaseProps) error {
 	return nil
 }
 

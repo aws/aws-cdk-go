@@ -44,14 +44,14 @@ type RuntimeConfiguration struct {
 	// During this time, the game session is in status `ACTIVATING`.
 	//
 	// If the game session does not become active before the timeout, it is ended and the game session status is changed to `TERMINATED`.
-	// Default: by default game session activation timeout is 300 seconds.
+	// Default: Duration.seconds(300)
 	//
 	// Experimental.
 	GameSessionActivationTimeout awscdk.Duration `field:"optional" json:"gameSessionActivationTimeout" yaml:"gameSessionActivationTimeout"`
 	// The number of game sessions in status `ACTIVATING` to allow on an instance.
 	//
 	// This setting limits the instance resources that can be used for new game activations at any one time.
-	// Default: no limit.
+	// Default: - no limit.
 	//
 	// Experimental.
 	MaxConcurrentGameSessionActivations *float64 `field:"optional" json:"maxConcurrentGameSessionActivations" yaml:"maxConcurrentGameSessionActivations"`

@@ -16,3 +16,7 @@ func (i *jsiiProxy_IStreamConsumer) validateGrantReadParameters(grantee awsiam.I
 	return nil
 }
 
+func (i *jsiiProxy_IStreamConsumer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

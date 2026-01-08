@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -74,6 +75,8 @@ type CnameRecord interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// A reference to a RecordSet resource.
+	RecordSetRef() *interfacesawsroute53.RecordSetReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -144,6 +147,16 @@ func (j *jsiiProxy_CnameRecord) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CnameRecord) RecordSetRef() *interfacesawsroute53.RecordSetReference {
+	var returns *interfacesawsroute53.RecordSetReference
+	_jsii_.Get(
+		j,
+		"recordSetRef",
 		&returns,
 	)
 	return returns

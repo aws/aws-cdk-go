@@ -48,6 +48,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_opensearchserverless.mixins.CfnCollectionPropsMixin.EncryptionConfigProperty",
+		reflect.TypeOf((*CfnCollectionPropsMixin_EncryptionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_opensearchserverless.mixins.CfnIndexMixinProps",
 		reflect.TypeOf((*CfnIndexMixinProps)(nil)).Elem(),
 	)

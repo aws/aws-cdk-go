@@ -40,6 +40,16 @@ import (
 //   	Regions: []*string{
 //   		jsii.String("regions"),
 //   	},
+//   	ReportConfiguration: &ReportConfigurationProperty{
+//   		ReportOutput: []interface{}{
+//   			&ReportOutputConfigurationProperty{
+//   				S3Configuration: &S3ReportOutputConfigurationProperty{
+//   					BucketOwner: jsii.String("bucketOwner"),
+//   					BucketPath: jsii.String("bucketPath"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -89,6 +99,19 @@ import (
 //   							TimeoutMinutes: jsii.Number(123),
 //   							Ungraceful: &LambdaUngracefulProperty{
 //   								Behavior: jsii.String("behavior"),
+//   							},
+//   						},
+//   						DocumentDbConfig: &DocumentDbConfigurationProperty{
+//   							Behavior: jsii.String("behavior"),
+//   							CrossAccountRole: jsii.String("crossAccountRole"),
+//   							DatabaseClusterArns: []*string{
+//   								jsii.String("databaseClusterArns"),
+//   							},
+//   							ExternalId: jsii.String("externalId"),
+//   							GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   							TimeoutMinutes: jsii.Number(123),
+//   							Ungraceful: &DocumentDbUngracefulProperty{
+//   								Ungraceful: jsii.String("ungraceful"),
 //   							},
 //   						},
 //   						Ec2AsgCapacityIncreaseConfig: &Ec2AsgCapacityIncreaseConfigurationProperty{

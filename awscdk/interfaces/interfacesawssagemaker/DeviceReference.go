@@ -9,11 +9,11 @@ package interfacesawssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   deviceReference := &DeviceReference{
-//   	DeviceName: jsii.String("deviceName"),
+//   	DeviceFleetName: jsii.String("deviceFleetName"),
 //   }
 //
 type DeviceReference struct {
-	// The Device/DeviceName of the Device resource.
-	DeviceName *string `field:"required" json:"deviceName" yaml:"deviceName"`
+	// The DeviceFleetName of the Device resource.
+	DeviceFleetName *string `field:"required" json:"deviceFleetName" yaml:"deviceFleetName"`
 }
 

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodestarnotifications"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,6 +65,8 @@ type NotificationRule interface {
 	Node() constructs.Node
 	// The ARN of the notification rule (i.e. arn:aws:codestar-notifications:::notificationrule/01234abcde).
 	NotificationRuleArn() *string
+	// A reference to a NotificationRule resource.
+	NotificationRuleRef() *interfacesawscodestarnotifications.NotificationRuleReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -135,6 +138,16 @@ func (j *jsiiProxy_NotificationRule) NotificationRuleArn() *string {
 	_jsii_.Get(
 		j,
 		"notificationRuleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NotificationRule) NotificationRuleRef() *interfacesawscodestarnotifications.NotificationRuleReference {
+	var returns *interfacesawscodestarnotifications.NotificationRuleReference
+	_jsii_.Get(
+		j,
+		"notificationRuleRef",
 		&returns,
 	)
 	return returns

@@ -55,7 +55,9 @@ type CfnOdbPeeringConnection interface {
 	AttrOdbPeeringConnectionId() *string
 	// The Amazon Resource Name (ARN) of the peer network.
 	AttrPeerNetworkArn() *string
-	// The CIDR blocks for the ODB peering connection.
+	// The CIDR blocks associated with the peering connection.
+	//
+	// These CIDR blocks define the IP address ranges that can communicate through the peering connection.
 	AttrPeerNetworkCidrs() *[]*string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager

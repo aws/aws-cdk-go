@@ -71,6 +71,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModulePropsMixin.ExternalInvocationConfigurationProperty",
+		reflect.TypeOf((*CfnContactFlowModulePropsMixin_ExternalInvocationConfigurationProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowPropsMixin",
 		reflect.TypeOf((*CfnContactFlowPropsMixin)(nil)).Elem(),
@@ -404,8 +408,20 @@ func init() {
 		reflect.TypeOf((*CfnHoursOfOperationPropsMixin_HoursOfOperationTimeSliceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnHoursOfOperationPropsMixin.HoursOfOperationsIdentifierProperty",
+		reflect.TypeOf((*CfnHoursOfOperationPropsMixin_HoursOfOperationsIdentifierProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnHoursOfOperationPropsMixin.OverrideTimeSliceProperty",
 		reflect.TypeOf((*CfnHoursOfOperationPropsMixin_OverrideTimeSliceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnHoursOfOperationPropsMixin.RecurrenceConfigProperty",
+		reflect.TypeOf((*CfnHoursOfOperationPropsMixin_RecurrenceConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnHoursOfOperationPropsMixin.RecurrencePatternProperty",
+		reflect.TypeOf((*CfnHoursOfOperationPropsMixin_RecurrencePatternProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogs",

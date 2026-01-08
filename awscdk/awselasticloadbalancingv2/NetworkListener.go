@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,8 +50,15 @@ type NetworkListener interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Indicates that this is an NLB listener.
+	//
+	// Will always return true, but is necessary to prevent accidental structural
+	// equality in TypeScript.
+	IsNetworkListener() *bool
 	// ARN of the listener.
 	ListenerArn() *string
+	// A reference to this listener.
+	ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference
 	// The load balancer this listener is attached to.
 	LoadBalancer() INetworkLoadBalancer
 	// The tree node.
@@ -147,11 +155,31 @@ func (j *jsiiProxy_NetworkListener) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_NetworkListener) IsNetworkListener() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isNetworkListener",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_NetworkListener) ListenerArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"listenerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkListener) ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference {
+	var returns *interfacesawselasticloadbalancingv2.ListenerReference
+	_jsii_.Get(
+		j,
+		"listenerRef",
 		&returns,
 	)
 	return returns

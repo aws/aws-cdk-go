@@ -2,6 +2,7 @@ package awsbackup
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
 )
 
 // Properties for a BackupPlanCopyAction.
@@ -11,11 +12,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var backupVault BackupVault
+//   var backupVaultRef IBackupVaultRef
 //
 //   backupPlanCopyActionProps := &BackupPlanCopyActionProps{
-//   	DestinationBackupVault: backupVault,
+//   	DestinationBackupVault: backupVaultRef,
 //
 //   	// the properties below are optional
 //   	DeleteAfter: cdk.Duration_Minutes(jsii.Number(30)),
@@ -24,7 +26,7 @@ import (
 //
 type BackupPlanCopyActionProps struct {
 	// Destination Vault for recovery points to be copied into.
-	DestinationBackupVault IBackupVault `field:"required" json:"destinationBackupVault" yaml:"destinationBackupVault"`
+	DestinationBackupVault interfacesawsbackup.IBackupVaultRef `field:"required" json:"destinationBackupVault" yaml:"destinationBackupVault"`
 	// Specifies the duration after creation that a copied recovery point is deleted from the destination vault.
 	//
 	// Must be at least 90 days greater than `moveToColdStorageAfter`, if specified.

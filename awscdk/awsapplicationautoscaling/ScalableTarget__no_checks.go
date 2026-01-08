@@ -32,6 +32,10 @@ func (s *jsiiProxy_ScalableTarget) validateScaleToTrackMetricParameters(id *stri
 	return nil
 }
 
+func validateScalableTarget_FromScalableTargetAttributesParameters(scope constructs.Construct, id *string, attrs *ScalableTargetAttributes) error {
+	return nil
+}
+
 func validateScalableTarget_FromScalableTargetIdParameters(scope constructs.Construct, id *string, scalableTargetId *string) error {
 	return nil
 }

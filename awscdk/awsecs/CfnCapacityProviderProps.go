@@ -43,6 +43,7 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			CapacityOptionType: jsii.String("capacityOptionType"),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				MemoryMiB: &MemoryMiBRequestProperty{
 //   					Min: jsii.Number(123),

@@ -8,11 +8,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An interface that represents a DynamoDB Table - either created with the CDK, or an existing one.
 type ITable interface {
 	awscdk.IResource
+	interfacesawsdynamodb.ITableRef
 	// Adds an IAM policy statement associated with this table to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
@@ -85,6 +89,7 @@ type ITable interface {
 // The jsii proxy for ITable
 type jsiiProxy_ITable struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsdynamodbITableRef
 }
 
 func (i *jsiiProxy_ITable) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
@@ -369,6 +374,17 @@ func (i *jsiiProxy_ITable) MetricUserErrors(props *awscloudwatch.MetricOptions) 
 	return returns
 }
 
+func (i *jsiiProxy_ITable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_ITable) EncryptionKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -404,6 +420,46 @@ func (j *jsiiProxy_ITable) TableStreamArn() *string {
 	_jsii_.Get(
 		j,
 		"tableStreamArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) TableRef() *interfacesawsdynamodb.TableReference {
+	var returns *interfacesawsdynamodb.TableReference
+	_jsii_.Get(
+		j,
+		"tableRef",
 		&returns,
 	)
 	return returns

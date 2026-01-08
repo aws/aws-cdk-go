@@ -13,6 +13,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -312,6 +313,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dataSource", GoGetter: "DataSource"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "functionConfigurationRef", GoGetter: "FunctionConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "functionId", GoGetter: "FunctionId"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1370,6 +1372,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceArn", GoGetter: "ChannelNamespaceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceRef", GoGetter: "ChannelNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -1492,6 +1495,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
 			_jsii_.MemberProperty{JsiiProperty: "apiKeys", GoGetter: "ApiKeys"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "appSyncDomainName", GoGetter: "AppSyncDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "authProviderTypes", GoGetter: "AuthProviderTypes"},
@@ -1544,6 +1548,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addRdsDataSource", GoMethod: "AddRdsDataSource"},
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authProviderTypes", GoGetter: "AuthProviderTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1664,6 +1669,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantMutation", GoMethod: "GrantMutation"},
 			_jsii_.MemberMethod{JsiiMethod: "grantQuery", GoMethod: "GrantQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscription", GoMethod: "GrantSubscription"},
+			_jsii_.MemberProperty{JsiiProperty: "graphQlApiRef", GoGetter: "GraphQlApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "graphQLEndpointArn", GoGetter: "GraphQLEndpointArn"},
 			_jsii_.MemberProperty{JsiiProperty: "graphqlUrl", GoGetter: "GraphqlUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
@@ -1712,6 +1718,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantMutation", GoMethod: "GrantMutation"},
 			_jsii_.MemberMethod{JsiiMethod: "grantQuery", GoMethod: "GrantQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscription", GoMethod: "GrantSubscription"},
+			_jsii_.MemberProperty{JsiiProperty: "graphQlApiRef", GoGetter: "GraphQlApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "graphQLEndpointArn", GoGetter: "GraphQLEndpointArn"},
 			_jsii_.MemberProperty{JsiiProperty: "modes", GoGetter: "Modes"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1777,6 +1784,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1784,6 +1792,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IApi{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1807,12 +1816,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "functionConfigurationRef", GoGetter: "FunctionConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "functionId", GoGetter: "FunctionId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IAppsyncFunction{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIFunctionConfigurationRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1823,12 +1834,14 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceArn", GoGetter: "ChannelNamespaceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "channelNamespaceRef", GoGetter: "ChannelNamespaceRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IChannelNamespace{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIChannelNamespaceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1846,6 +1859,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addRdsDataSource", GoMethod: "AddRdsDataSource"},
 			_jsii_.MemberProperty{JsiiProperty: "apiArn", GoGetter: "ApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "apiRef", GoGetter: "ApiRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authProviderTypes", GoGetter: "AuthProviderTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1888,6 +1902,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantMutation", GoMethod: "GrantMutation"},
 			_jsii_.MemberMethod{JsiiMethod: "grantQuery", GoMethod: "GrantQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSubscription", GoMethod: "GrantSubscription"},
+			_jsii_.MemberProperty{JsiiProperty: "graphQlApiRef", GoGetter: "GraphQlApiRef"},
 			_jsii_.MemberProperty{JsiiProperty: "graphQLEndpointArn", GoGetter: "GraphQLEndpointArn"},
 			_jsii_.MemberProperty{JsiiProperty: "modes", GoGetter: "Modes"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1896,6 +1911,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IGraphqlApi{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncIGraphQLApiRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1932,11 +1948,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "mergedApi", GoGetter: "MergedApi"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceApi", GoGetter: "SourceApi"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceApiAssociationRef", GoGetter: "SourceApiAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISourceApiAssociation{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappsyncISourceApiAssociationRef)
 			return &j
 		},
 	)
@@ -2233,6 +2251,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceApi", GoGetter: "SourceApi"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceApiAssociationRef", GoGetter: "SourceApiAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

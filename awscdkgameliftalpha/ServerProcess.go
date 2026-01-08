@@ -33,7 +33,7 @@ type ServerProcess struct {
 	// Experimental.
 	ConcurrentExecutions *float64 `field:"optional" json:"concurrentExecutions" yaml:"concurrentExecutions"`
 	// An optional list of parameters to pass to the server executable or Realtime script on launch.
-	// Default: no parameters.
+	// Default: - no parameters.
 	//
 	// Experimental.
 	Parameters *string `field:"optional" json:"parameters" yaml:"parameters"`

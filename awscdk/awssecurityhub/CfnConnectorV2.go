@@ -21,21 +21,12 @@ import (
 //   cfnConnectorV2 := awscdk.Aws_securityhub.NewCfnConnectorV2(this, jsii.String("MyCfnConnectorV2"), &CfnConnectorV2Props{
 //   	Name: jsii.String("name"),
 //   	Provider: &ProviderProperty{
-//   		JiraCloud: &JiraCloudProperty{
+//   		JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   			ProjectKey: jsii.String("projectKey"),
-//
-//   			// the properties below are optional
-//   			AuthStatus: jsii.String("authStatus"),
-//   			AuthUrl: jsii.String("authUrl"),
-//   			CloudId: jsii.String("cloudId"),
-//   			Domain: jsii.String("domain"),
 //   		},
-//   		ServiceNow: &ServiceNowProperty{
+//   		ServiceNow: &ServiceNowProviderConfigurationProperty{
 //   			InstanceName: jsii.String("instanceName"),
 //   			SecretArn: jsii.String("secretArn"),
-//
-//   			// the properties below are optional
-//   			AuthStatus: jsii.String("authStatus"),
 //   		},
 //   	},
 //
@@ -68,16 +59,6 @@ type CfnConnectorV2 interface {
 	AttrLastUpdatedAt() *string
 	// The message of the V2 connector when connector status is FAILED_TO_CONNECT.
 	AttrMessage() *string
-	// The status of the authorization between Jira Cloud and the service.
-	AttrProviderJiraCloudAuthStatus() *string
-	// The URL to provide to customers for OAuth auth code flow.
-	AttrProviderJiraCloudAuthUrl() *string
-	// The cloud id of the Jira Cloud.
-	AttrProviderJiraCloudCloudId() *string
-	// The URL domain of your Jira Cloud instance.
-	AttrProviderJiraCloudDomain() *string
-	// The status of the authorization between ServiceNow and the service.
-	AttrProviderServiceNowAuthStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -341,56 +322,6 @@ func (j *jsiiProxy_CfnConnectorV2) AttrMessage() *string {
 	_jsii_.Get(
 		j,
 		"attrMessage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConnectorV2) AttrProviderJiraCloudAuthStatus() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrProviderJiraCloudAuthStatus",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConnectorV2) AttrProviderJiraCloudAuthUrl() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrProviderJiraCloudAuthUrl",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConnectorV2) AttrProviderJiraCloudCloudId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrProviderJiraCloudCloudId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConnectorV2) AttrProviderJiraCloudDomain() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrProviderJiraCloudDomain",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnConnectorV2) AttrProviderServiceNowAuthStatus() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrProviderServiceNowAuthStatus",
 		&returns,
 	)
 	return returns

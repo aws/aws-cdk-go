@@ -910,6 +910,43 @@ func (j *jsiiProxy_CfnLoadBalancer)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnLoadBalancer_ArnForLoadBalancer(resource interfacesawselasticloadbalancing.ILoadBalancerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnLoadBalancer_ArnForLoadBalancerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"arnForLoadBalancer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ILoadBalancerRef from a loadBalancerName.
+func CfnLoadBalancer_FromLoadBalancerName(scope constructs.Construct, id *string, loadBalancerName *string) interfacesawselasticloadbalancing.ILoadBalancerRef {
+	_init_.Initialize()
+
+	if err := validateCfnLoadBalancer_FromLoadBalancerNameParameters(scope, id, loadBalancerName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawselasticloadbalancing.ILoadBalancerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
+		"fromLoadBalancerName",
+		[]interface{}{scope, id, loadBalancerName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

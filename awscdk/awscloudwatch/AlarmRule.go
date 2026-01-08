@@ -3,6 +3,8 @@ package awscloudwatch
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
 // Class with static functions to build AlarmRule for Composite Alarms.
@@ -95,7 +97,7 @@ func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 }
 
 // function to build Rule Expression for given IAlarm and AlarmState.
-func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
+func AlarmRule_FromAlarm(alarm interfacesawscloudwatch.IAlarmRef, alarmState AlarmState) IAlarmRule {
 	_init_.Initialize()
 
 	if err := validateAlarmRule_FromAlarmParameters(alarm, alarmState); err != nil {

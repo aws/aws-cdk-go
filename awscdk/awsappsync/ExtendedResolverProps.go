@@ -1,5 +1,8 @@
 package awsappsync
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
+)
 
 // Additional property for an AppSync resolver for data source reference.
 //
@@ -8,10 +11,11 @@ package awsappsync
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var appsyncFunction AppsyncFunction
 //   var baseDataSource BaseDataSource
 //   var code Code
+//   var functionConfigurationRef IFunctionConfigurationRef
 //   var functionRuntime FunctionRuntime
 //   var mappingTemplate MappingTemplate
 //
@@ -31,8 +35,8 @@ package awsappsync
 //   	Code: code,
 //   	DataSource: baseDataSource,
 //   	MaxBatchSize: jsii.Number(123),
-//   	PipelineConfig: []IAppsyncFunction{
-//   		appsyncFunction,
+//   	PipelineConfig: []IFunctionConfigurationRef{
+//   		functionConfigurationRef,
 //   	},
 //   	RequestMappingTemplate: mappingTemplate,
 //   	ResponseMappingTemplate: mappingTemplate,
@@ -60,7 +64,7 @@ type ExtendedResolverProps struct {
 	// Default: - no pipeline resolver configuration
 	// An empty array | undefined sets resolver to be of kind, unit.
 	//
-	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig *[]interfacesawsappsync.IFunctionConfigurationRef `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Default: - No mapping template.
 	//

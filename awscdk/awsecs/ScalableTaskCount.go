@@ -6,6 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,9 +42,21 @@ import (
 //
 type ScalableTaskCount interface {
 	awsapplicationautoscaling.BaseScalableAttribute
+	// The environment this resource belongs to.
+	//
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	Node() constructs.Node
 	Props() *awsapplicationautoscaling.BaseScalableAttributeProps
+	// A reference to a ScalableTarget resource.
+	ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference
 	// Scale out or in based on a metric value.
 	DoScaleOnMetric(id *string, props *awsapplicationautoscaling.BasicStepScalingPolicyProps)
 	// Scale out or in based on time.
@@ -70,6 +84,16 @@ type jsiiProxy_ScalableTaskCount struct {
 	internal.Type__awsapplicationautoscalingBaseScalableAttribute
 }
 
+func (j *jsiiProxy_ScalableTaskCount) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ScalableTaskCount) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -85,6 +109,16 @@ func (j *jsiiProxy_ScalableTaskCount) Props() *awsapplicationautoscaling.BaseSca
 	_jsii_.Get(
 		j,
 		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScalableTaskCount) ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference {
+	var returns *interfacesawsapplicationautoscaling.ScalableTargetReference
+	_jsii_.Get(
+		j,
+		"scalableTargetRef",
 		&returns,
 	)
 	return returns

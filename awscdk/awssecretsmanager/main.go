@@ -308,6 +308,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "secretArn", GoGetter: "SecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretFullArn", GoGetter: "SecretFullArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretName", GoGetter: "SecretName"},
+			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
 			_jsii_.MemberProperty{JsiiProperty: "secretValue", GoGetter: "SecretValue"},
 			_jsii_.MemberMethod{JsiiMethod: "secretValueFromJson", GoMethod: "SecretValueFromJson"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -315,6 +316,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ISecret{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerISecretRef)
 			return &j
 		},
 	)
@@ -346,6 +348,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "secretArn", GoGetter: "SecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretFullArn", GoGetter: "SecretFullArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretName", GoGetter: "SecretName"},
+			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
+			_jsii_.MemberProperty{JsiiProperty: "secretTargetAttachmentRef", GoGetter: "SecretTargetAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "secretTargetAttachmentSecretArn", GoGetter: "SecretTargetAttachmentSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretValue", GoGetter: "SecretValue"},
 			_jsii_.MemberMethod{JsiiMethod: "secretValueFromJson", GoMethod: "SecretValueFromJson"},
@@ -354,6 +358,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_ISecretTargetAttachment{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ISecret)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssecretsmanagerISecretTargetAttachmentRef)
 			return &j
 		},
 	)
@@ -444,6 +449,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "secretArn", GoGetter: "SecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretFullArn", GoGetter: "SecretFullArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretName", GoGetter: "SecretName"},
+			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
 			_jsii_.MemberProperty{JsiiProperty: "secretValue", GoGetter: "SecretValue"},
 			_jsii_.MemberMethod{JsiiMethod: "secretValueFromJson", GoMethod: "SecretValueFromJson"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -539,6 +545,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "secretArn", GoGetter: "SecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretFullArn", GoGetter: "SecretFullArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretName", GoGetter: "SecretName"},
+			_jsii_.MemberProperty{JsiiProperty: "secretRef", GoGetter: "SecretRef"},
+			_jsii_.MemberProperty{JsiiProperty: "secretTargetAttachmentRef", GoGetter: "SecretTargetAttachmentRef"},
 			_jsii_.MemberProperty{JsiiProperty: "secretTargetAttachmentSecretArn", GoGetter: "SecretTargetAttachmentSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "secretValue", GoGetter: "SecretValue"},
 			_jsii_.MemberMethod{JsiiMethod: "secretValueFromJson", GoMethod: "SecretValueFromJson"},

@@ -2,7 +2,8 @@ package awscloudfrontorigins
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // Properties for configuring a S3 origin with OAI.
@@ -77,6 +78,6 @@ type S3BucketOriginWithOAIProps struct {
 	// An optional Origin Access Identity.
 	// Default: - an Origin Access Identity will be created.
 	//
-	OriginAccessIdentity awscloudfront.IOriginAccessIdentity `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
+	OriginAccessIdentity interface{ interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef;awsiam.IGrantable } `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

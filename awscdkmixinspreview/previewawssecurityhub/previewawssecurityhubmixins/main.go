@@ -248,16 +248,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.JiraCloudProperty",
-		reflect.TypeOf((*CfnConnectorV2PropsMixin_JiraCloudProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.JiraCloudProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_JiraCloudProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.ProviderProperty",
 		reflect.TypeOf((*CfnConnectorV2PropsMixin_ProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.ServiceNowProperty",
-		reflect.TypeOf((*CfnConnectorV2PropsMixin_ServiceNowProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnConnectorV2PropsMixin.ServiceNowProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_ServiceNowProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_securityhub.mixins.CfnDelegatedAdminMixinProps",

@@ -2,6 +2,7 @@ package awscloudwatch
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
 // Properties for creating a Composite Alarm.
@@ -29,7 +30,7 @@ type CompositeAlarmProps struct {
 	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
 	// Default: - alarm will not be suppressed.
 	//
-	ActionsSuppressor IAlarm `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
+	ActionsSuppressor interfacesawscloudwatch.IAlarmRef `field:"optional" json:"actionsSuppressor" yaml:"actionsSuppressor"`
 	// The maximum duration that the composite alarm waits after suppressor alarm goes out of the ALARM state.
 	//
 	// After this time, the composite alarm performs its actions.

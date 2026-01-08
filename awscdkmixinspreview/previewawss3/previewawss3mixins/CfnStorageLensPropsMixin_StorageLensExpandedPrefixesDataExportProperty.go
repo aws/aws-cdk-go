@@ -1,7 +1,7 @@
 package previewawss3mixins
 
 
-// Expanded Prefixes Data Export.
+// This resource specifies the properties of your S3 Storage Lens Expanded Prefixes metrics export.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -38,11 +38,13 @@ package previewawss3mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensexpandedprefixesdataexport.html
 //
 type CfnStorageLensPropsMixin_StorageLensExpandedPrefixesDataExportProperty struct {
-	// S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
+	// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located.
+	//
+	// At least one export destination must be specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensexpandedprefixesdataexport.html#cfn-s3-storagelens-storagelensexpandedprefixesdataexport-s3bucketdestination
 	//
 	S3BucketDestination interface{} `field:"optional" json:"s3BucketDestination" yaml:"s3BucketDestination"`
-	// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+	// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensexpandedprefixesdataexport.html#cfn-s3-storagelens-storagelensexpandedprefixesdataexport-storagelenstabledestination
 	//
 	StorageLensTableDestination interface{} `field:"optional" json:"storageLensTableDestination" yaml:"storageLensTableDestination"`

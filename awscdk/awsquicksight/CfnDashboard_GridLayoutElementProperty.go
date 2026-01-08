@@ -15,8 +15,27 @@ package awsquicksight
 //   	RowSpan: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	BackgroundStyle: &GridLayoutElementBackgroundStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
+//   	BorderRadius: jsii.String("borderRadius"),
+//   	BorderStyle: &GridLayoutElementBorderStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
+//   	},
 //   	ColumnIndex: jsii.Number(123),
+//   	LoadingAnimation: &LoadingAnimationProperty{
+//   		Visibility: jsii.String("visibility"),
+//   	},
+//   	Padding: jsii.String("padding"),
 //   	RowIndex: jsii.Number(123),
+//   	SelectedBorderStyle: &GridLayoutElementBorderStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html
@@ -38,13 +57,38 @@ type CfnDashboard_GridLayoutElementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-rowspan
 	//
 	RowSpan *float64 `field:"required" json:"rowSpan" yaml:"rowSpan"`
+	// The background style configuration of a grid layout element.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-backgroundstyle
+	//
+	BackgroundStyle interface{} `field:"optional" json:"backgroundStyle" yaml:"backgroundStyle"`
+	// The border radius of a grid layout element.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-borderradius
+	//
+	BorderRadius *string `field:"optional" json:"borderRadius" yaml:"borderRadius"`
+	// The border style configuration of a grid layout element.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-borderstyle
+	//
+	BorderStyle interface{} `field:"optional" json:"borderStyle" yaml:"borderStyle"`
 	// The column index for the upper left corner of an element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-columnindex
 	//
 	ColumnIndex *float64 `field:"optional" json:"columnIndex" yaml:"columnIndex"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-loadinganimation
+	//
+	LoadingAnimation interface{} `field:"optional" json:"loadingAnimation" yaml:"loadingAnimation"`
+	// The padding of a grid layout element.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-padding
+	//
+	Padding *string `field:"optional" json:"padding" yaml:"padding"`
 	// The row index for the upper left corner of an element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-rowindex
 	//
 	RowIndex *float64 `field:"optional" json:"rowIndex" yaml:"rowIndex"`
+	// The border style configuration of a grid layout element.
+	//
+	// This border style is used when the element is selected.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-selectedborderstyle
+	//
+	SelectedBorderStyle interface{} `field:"optional" json:"selectedBorderStyle" yaml:"selectedBorderStyle"`
 }
 

@@ -13,6 +13,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "activityArn", GoGetter: "ActivityArn"},
 			_jsii_.MemberProperty{JsiiProperty: "activityName", GoGetter: "ActivityName"},
+			_jsii_.MemberProperty{JsiiProperty: "activityRef", GoGetter: "ActivityRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -773,6 +774,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "activityArn", GoGetter: "ActivityArn"},
 			_jsii_.MemberProperty{JsiiProperty: "activityName", GoGetter: "ActivityName"},
+			_jsii_.MemberProperty{JsiiProperty: "activityRef", GoGetter: "ActivityRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -781,6 +783,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IActivity{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsstepfunctionsIActivityRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,6 +51,8 @@ type EksJobDefinition interface {
 	JobDefinitionArn() *string
 	// The name of this job definition.
 	JobDefinitionName() *string
+	// A reference to a JobDefinition resource.
+	JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference
 	// The tree node.
 	Node() constructs.Node
 	// The default parameters passed to the container These parameters can be referenced in the `command` that you give to the container.
@@ -173,6 +176,16 @@ func (j *jsiiProxy_EksJobDefinition) JobDefinitionName() *string {
 	_jsii_.Get(
 		j,
 		"jobDefinitionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EksJobDefinition) JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference {
+	var returns *interfacesawsbatch.JobDefinitionReference
+	_jsii_.Get(
+		j,
+		"jobDefinitionRef",
 		&returns,
 	)
 	return returns

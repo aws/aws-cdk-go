@@ -16,6 +16,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupPlanArn", GoGetter: "BackupPlanArn"},
 			_jsii_.MemberProperty{JsiiProperty: "backupPlanId", GoGetter: "BackupPlanId"},
+			_jsii_.MemberProperty{JsiiProperty: "backupPlanRef", GoGetter: "BackupPlanRef"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVault", GoGetter: "BackupVault"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -108,6 +109,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultArn", GoGetter: "BackupVaultArn"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultName", GoGetter: "BackupVaultName"},
+			_jsii_.MemberProperty{JsiiProperty: "backupVaultRef", GoGetter: "BackupVaultRef"},
 			_jsii_.MemberMethod{JsiiMethod: "blockRecoveryPointDeletion", GoMethod: "BlockRecoveryPointDeletion"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -705,12 +707,14 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupPlanId", GoGetter: "BackupPlanId"},
+			_jsii_.MemberProperty{JsiiProperty: "backupPlanRef", GoGetter: "BackupPlanRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IBackupPlan{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIBackupPlanRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -722,6 +726,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultArn", GoGetter: "BackupVaultArn"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultName", GoGetter: "BackupVaultName"},
+			_jsii_.MemberProperty{JsiiProperty: "backupVaultRef", GoGetter: "BackupVaultRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -729,6 +734,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IBackupVault{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIBackupVaultRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

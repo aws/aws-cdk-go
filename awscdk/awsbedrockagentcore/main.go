@@ -232,6 +232,18 @@ func init() {
 		reflect.TypeOf((*CfnGateway_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.AuthorizingClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnGateway_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.ClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnGateway_ClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.CustomClaimValidationTypeProperty",
+		reflect.TypeOf((*CfnGateway_CustomClaimValidationTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.CustomJWTAuthorizerConfigurationProperty",
 		reflect.TypeOf((*CfnGateway_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
@@ -299,6 +311,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metadataConfiguration", GoGetter: "MetadataConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -351,6 +364,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.McpTargetConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTarget_McpTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.MetadataConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_MetadataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.OAuthCredentialProviderProperty",
@@ -449,6 +466,30 @@ func init() {
 		reflect.TypeOf((*CfnMemory_CustomMemoryStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.EpisodicMemoryStrategyProperty",
+		reflect.TypeOf((*CfnMemory_EpisodicMemoryStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.EpisodicOverrideConsolidationConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemory_EpisodicOverrideConsolidationConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.EpisodicOverrideExtractionConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemory_EpisodicOverrideExtractionConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.EpisodicOverrideProperty",
+		reflect.TypeOf((*CfnMemory_EpisodicOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.EpisodicOverrideReflectionConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemory_EpisodicOverrideReflectionConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.EpisodicReflectionConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemory_EpisodicReflectionConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.InvocationConfigurationInputProperty",
 		reflect.TypeOf((*CfnMemory_InvocationConfigurationInputProperty)(nil)).Elem(),
 	)
@@ -542,6 +583,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAgentRuntimeId", GoGetter: "AttrAgentRuntimeId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAgentRuntimeVersion", GoGetter: "AttrAgentRuntimeVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFailureReason", GoGetter: "AttrFailureReason"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedAt", GoGetter: "AttrLastUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkloadIdentityDetails", GoGetter: "AttrWorkloadIdentityDetails"},

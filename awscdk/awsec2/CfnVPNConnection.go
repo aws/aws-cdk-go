@@ -190,6 +190,7 @@ type CfnVPNConnection interface {
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	TransportTransitGatewayAttachmentId() *string
 	SetTransportTransitGatewayAttachmentId(val *string)
+	// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity.
 	TunnelBandwidth() *string
 	SetTunnelBandwidth(val *string)
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
@@ -211,6 +212,7 @@ type CfnVPNConnection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId() *string
 	SetVpnConcentratorId(val *string)
 	// A reference to a VPNConnection resource.

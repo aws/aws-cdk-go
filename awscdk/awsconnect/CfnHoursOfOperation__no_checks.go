@@ -88,6 +88,10 @@ func validateCfnHoursOfOperation_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnHoursOfOperation) validateSetChildHoursOfOperationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnHoursOfOperation) validateSetConfigParameters(val interface{}) error {
 	return nil
 }
@@ -101,6 +105,10 @@ func (j *jsiiProxy_CfnHoursOfOperation) validateSetInstanceArnParameters(val *st
 }
 
 func (j *jsiiProxy_CfnHoursOfOperation) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnHoursOfOperation) validateSetParentHoursOfOperationsParameters(val interface{}) error {
 	return nil
 }
 

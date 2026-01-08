@@ -32,3 +32,7 @@ func (i *jsiiProxy_ISecret) validateSecretValueFromJsonParameters(key *string) e
 	return nil
 }
 
+func (i *jsiiProxy_ISecret) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

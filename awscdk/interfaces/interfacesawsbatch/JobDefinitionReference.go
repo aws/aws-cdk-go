@@ -10,13 +10,10 @@ package interfacesawsbatch
 //
 //   jobDefinitionReference := &JobDefinitionReference{
 //   	JobDefinitionArn: jsii.String("jobDefinitionArn"),
-//   	JobDefinitionName: jsii.String("jobDefinitionName"),
 //   }
 //
 type JobDefinitionReference struct {
-	// The ARN of the JobDefinition resource.
+	// The JobDefinitionArn of the JobDefinition resource.
 	JobDefinitionArn *string `field:"required" json:"jobDefinitionArn" yaml:"jobDefinitionArn"`
-	// The JobDefinitionName of the JobDefinition resource.
-	JobDefinitionName *string `field:"required" json:"jobDefinitionName" yaml:"jobDefinitionName"`
 }
 

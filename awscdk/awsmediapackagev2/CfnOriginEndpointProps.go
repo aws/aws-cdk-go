@@ -197,6 +197,7 @@ import (
 //   			ScteFilter: []*string{
 //   				jsii.String("scteFilter"),
 //   			},
+//   			ScteInSegments: jsii.String("scteInSegments"),
 //   		},
 //   		SegmentDurationSeconds: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),

@@ -76,7 +76,7 @@ package awsautoscaling
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   	},
-//   	LoadBalancerNames: []interface{}{
+//   	LoadBalancerNames: []*string{
 //   		jsii.String("loadBalancerNames"),
 //   	},
 //   	MaxInstanceLifetime: jsii.Number(123),
@@ -364,6 +364,7 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instanceid
 	//
 	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	// The instance lifecycle policy for the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-instancelifecyclepolicy
 	//
 	InstanceLifecyclePolicy interface{} `field:"optional" json:"instanceLifecyclePolicy" yaml:"instanceLifecyclePolicy"`
@@ -396,7 +397,7 @@ type CfnAutoScalingGroupProps struct {
 	// For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the `TargetGroupARNs` property instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-loadbalancernames
 	//
-	LoadBalancerNames *[]interface{} `field:"optional" json:"loadBalancerNames" yaml:"loadBalancerNames"`
+	LoadBalancerNames *[]*string `field:"optional" json:"loadBalancerNames" yaml:"loadBalancerNames"`
 	// The maximum amount of time, in seconds, that an instance can be in service.
 	//
 	// The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see [Replace Auto Scaling instances based on maximum instance lifetime](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html) in the *Amazon EC2 Auto Scaling User Guide* .

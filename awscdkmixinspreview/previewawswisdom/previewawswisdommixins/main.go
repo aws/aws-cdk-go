@@ -259,6 +259,10 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAssistantAssociationPropsMixin.AssociationDataProperty",
 		reflect.TypeOf((*CfnAssistantAssociationPropsMixin_AssociationDataProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAssistantAssociationPropsMixin.ExternalBedrockKnowledgeBaseConfigProperty",
+		reflect.TypeOf((*CfnAssistantAssociationPropsMixin_ExternalBedrockKnowledgeBaseConfigProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAssistantEventLogs",
 		reflect.TypeOf((*CfnAssistantEventLogs)(nil)).Elem(),

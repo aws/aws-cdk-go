@@ -495,6 +495,44 @@ func CfnPolicy_ArnForPolicy(resource interfacesawsiot.IPolicyRef) *string {
 	return returns
 }
 
+// Creates a new IPolicyRef from an ARN.
+func CfnPolicy_FromPolicyArn(scope constructs.Construct, id *string, arn *string) interfacesawsiot.IPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnPolicy_FromPolicyArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsiot.IPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnPolicy",
+		"fromPolicyArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPolicyRef from a policyName.
+func CfnPolicy_FromPolicyName(scope constructs.Construct, id *string, policyName *string) interfacesawsiot.IPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnPolicy_FromPolicyNameParameters(scope, id, policyName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsiot.IPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iot.CfnPolicy",
+		"fromPolicyName",
+		[]interface{}{scope, id, policyName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

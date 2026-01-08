@@ -18,6 +18,9 @@ package awscloudfront
 //   	HttpsPort: jsii.Number(123),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	OriginKeepaliveTimeout: jsii.Number(123),
+//   	OriginMtlsConfig: &OriginMtlsConfigProperty{
+//   		ClientCertificateArn: jsii.String("clientCertificateArn"),
+//   	},
 //   	OriginReadTimeout: jsii.Number(123),
 //   	OriginSslProtocols: []*string{
 //   		jsii.String("originSslProtocols"),
@@ -67,6 +70,9 @@ type CfnDistribution_CustomOriginConfigProperty struct {
 	// Default: - 5.
 	//
 	OriginKeepaliveTimeout *float64 `field:"optional" json:"originKeepaliveTimeout" yaml:"originKeepaliveTimeout"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originmtlsconfig
+	//
+	OriginMtlsConfig interface{} `field:"optional" json:"originMtlsConfig" yaml:"originMtlsConfig"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin.
 	//
 	// This is also known as the *origin response timeout* . The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.

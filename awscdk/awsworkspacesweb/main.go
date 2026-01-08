@@ -635,6 +635,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "uploadAllowed", GoGetter: "UploadAllowed"},
 			_jsii_.MemberProperty{JsiiProperty: "userSettingsRef", GoGetter: "UserSettingsRef"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "webAuthnAllowed", GoGetter: "WebAuthnAllowed"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnUserSettings{}

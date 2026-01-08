@@ -4,9 +4,9 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 // Allows the pipeline to be used as an EventBridge rule target.
@@ -38,7 +38,7 @@ type jsiiProxy_CodePipeline struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) CodePipeline {
+func NewCodePipeline(pipeline interfacesawscodepipeline.IPipelineRef, options *CodePipelineTargetOptions) CodePipeline {
 	_init_.Initialize()
 
 	if err := validateNewCodePipelineParameters(pipeline, options); err != nil {
@@ -55,7 +55,7 @@ func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTa
 	return &j
 }
 
-func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) {
+func NewCodePipeline_Override(c CodePipeline, pipeline interfacesawscodepipeline.IPipelineRef, options *CodePipelineTargetOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(

@@ -5,11 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for AppSync Source Api Association.
 type ISourceApiAssociation interface {
 	awscdk.IResource
+	interfacesawsappsync.ISourceApiAssociationRef
 	// The association arn.
 	AssociationArn() *string
 	// The association id.
@@ -23,6 +27,18 @@ type ISourceApiAssociation interface {
 // The jsii proxy for ISourceApiAssociation
 type jsiiProxy_ISourceApiAssociation struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsappsyncISourceApiAssociationRef
+}
+
+func (i *jsiiProxy_ISourceApiAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_ISourceApiAssociation) AssociationArn() *string {
@@ -60,6 +76,46 @@ func (j *jsiiProxy_ISourceApiAssociation) SourceApi() IGraphqlApi {
 	_jsii_.Get(
 		j,
 		"sourceApi",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISourceApiAssociation) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISourceApiAssociation) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISourceApiAssociation) SourceApiAssociationRef() *interfacesawsappsync.SourceApiAssociationReference {
+	var returns *interfacesawsappsync.SourceApiAssociationReference
+	_jsii_.Get(
+		j,
+		"sourceApiAssociationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISourceApiAssociation) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -2,6 +2,8 @@ package awsautoscaling
 
 import (
 	"time"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 )
 
 // Properties for a scheduled action on an AutoScalingGroup.
@@ -10,12 +12,13 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var schedule Schedule
 //
 //   scheduledActionProps := &ScheduledActionProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	Schedule: schedule,
 //
 //   	// the properties below are optional
@@ -77,6 +80,6 @@ type ScheduledActionProps struct {
 	//
 	TimeZone *string `field:"optional" json:"timeZone" yaml:"timeZone"`
 	// The AutoScalingGroup to apply the scheduled actions to.
-	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
+	AutoScalingGroup interfacesawsautoscaling.IAutoScalingGroupRef `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 

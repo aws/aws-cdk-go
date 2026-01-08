@@ -352,6 +352,10 @@ func init() {
 		reflect.TypeOf((*CfnDistributionPropsMixin_OriginGroupsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnDistributionPropsMixin.OriginMtlsConfigProperty",
+		reflect.TypeOf((*CfnDistributionPropsMixin_OriginMtlsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cloudfront.mixins.CfnDistributionPropsMixin.OriginProperty",
 		reflect.TypeOf((*CfnDistributionPropsMixin_OriginProperty)(nil)).Elem(),
 	)

@@ -32,6 +32,7 @@ import (
 //
 //   cfnLogGroupPropsMixin := awscdkmixinspreview.Mixins.NewCfnLogGroupPropsMixin(&CfnLogGroupMixinProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
+//   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	FieldIndexPolicies: []interface{}{
 //   		fieldIndexPolicies,
 //   	},

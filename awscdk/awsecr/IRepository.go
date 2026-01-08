@@ -7,10 +7,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an ECR repository.
 type IRepository interface {
+	interfacesawsecr.IRepositoryRef
 	awscdk.IResource
 	// Add a policy statement to the repository's resource policy.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
@@ -72,6 +76,7 @@ type IRepository interface {
 
 // The jsii proxy for IRepository
 type jsiiProxy_IRepository struct {
+	internal.Type__interfacesawsecrIRepositoryRef
 	internal.Type__awscdkIResource
 }
 
@@ -279,6 +284,17 @@ func (i *jsiiProxy_IRepository) RepositoryUriForTagOrDigest(tagOrDigest *string)
 	return returns
 }
 
+func (i *jsiiProxy_IRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IRepository) RegistryUri() *string {
 	var returns *string
 	_jsii_.Get(
@@ -314,6 +330,46 @@ func (j *jsiiProxy_IRepository) RepositoryUri() *string {
 	_jsii_.Get(
 		j,
 		"repositoryUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepository) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepository) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepository) RepositoryRef() *interfacesawsecr.RepositoryReference {
+	var returns *interfacesawsecr.RepositoryReference
+	_jsii_.Get(
+		j,
+		"repositoryRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRepository) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

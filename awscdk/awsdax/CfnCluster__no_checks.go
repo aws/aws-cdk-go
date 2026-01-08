@@ -72,6 +72,14 @@ func validateCfnCluster_ArnForClusterParameters(resource interfacesawsdax.IClust
 	return nil
 }
 
+func validateCfnCluster_FromClusterArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnCluster_FromClusterNameParameters(scope constructs.Construct, id *string, clusterName *string) error {
+	return nil
+}
+
 func validateCfnCluster_IsCfnClusterParameters(x interface{}) error {
 	return nil
 }

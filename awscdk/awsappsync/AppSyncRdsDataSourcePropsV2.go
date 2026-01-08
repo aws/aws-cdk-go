@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // Properties for an AppSync RDS datasource Aurora Serverless V2.
@@ -15,14 +16,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api IApi
+//   var apiRef IApiRef
 //   var databaseCluster DatabaseCluster
 //   var role Role
 //   var secret Secret
 //
 //   appSyncRdsDataSourcePropsV2 := &AppSyncRdsDataSourcePropsV2{
-//   	Api: api,
+//   	Api: apiRef,
 //   	SecretStore: secret,
 //   	ServerlessCluster: databaseCluster,
 //
@@ -35,7 +37,7 @@ import (
 //
 type AppSyncRdsDataSourcePropsV2 struct {
 	// The API to attach this data source to.
-	Api IApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsappsync.IApiRef `field:"required" json:"api" yaml:"api"`
 	// The description of the data source.
 	// Default: - None.
 	//

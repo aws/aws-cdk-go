@@ -8,7 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 )
 
 func (h *jsiiProxy_HttpServiceDiscoveryIntegration) validateBindParameters(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) error {
@@ -65,7 +65,7 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) validateSetPayloadFormatVers
 	return nil
 }
 
-func validateNewHttpServiceDiscoveryIntegrationParameters(id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) error {
+func validateNewHttpServiceDiscoveryIntegrationParameters(id *string, service interfacesawsservicediscovery.IServiceRef, props *HttpServiceDiscoveryIntegrationProps) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}

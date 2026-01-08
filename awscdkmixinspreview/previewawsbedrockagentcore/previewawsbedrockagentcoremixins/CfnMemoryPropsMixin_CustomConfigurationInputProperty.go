@@ -9,6 +9,23 @@ package previewawsbedrockagentcoremixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   customConfigurationInputProperty := &CustomConfigurationInputProperty{
+//   	EpisodicOverride: &EpisodicOverrideProperty{
+//   		Consolidation: &EpisodicOverrideConsolidationConfigurationInputProperty{
+//   			AppendToPrompt: jsii.String("appendToPrompt"),
+//   			ModelId: jsii.String("modelId"),
+//   		},
+//   		Extraction: &EpisodicOverrideExtractionConfigurationInputProperty{
+//   			AppendToPrompt: jsii.String("appendToPrompt"),
+//   			ModelId: jsii.String("modelId"),
+//   		},
+//   		Reflection: &EpisodicOverrideReflectionConfigurationInputProperty{
+//   			AppendToPrompt: jsii.String("appendToPrompt"),
+//   			ModelId: jsii.String("modelId"),
+//   			Namespaces: []*string{
+//   				jsii.String("namespaces"),
+//   			},
+//   		},
+//   	},
 //   	SelfManagedConfiguration: &SelfManagedConfigurationProperty{
 //   		HistoricalContextWindowSize: jsii.Number(123),
 //   		InvocationConfiguration: &InvocationConfigurationInputProperty{
@@ -60,6 +77,9 @@ package previewawsbedrockagentcoremixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-customconfigurationinput.html
 //
 type CfnMemoryPropsMixin_CustomConfigurationInputProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-customconfigurationinput.html#cfn-bedrockagentcore-memory-customconfigurationinput-episodicoverride
+	//
+	EpisodicOverride interface{} `field:"optional" json:"episodicOverride" yaml:"episodicOverride"`
 	// The custom configuration input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-customconfigurationinput.html#cfn-bedrockagentcore-memory-customconfigurationinput-selfmanagedconfiguration
 	//

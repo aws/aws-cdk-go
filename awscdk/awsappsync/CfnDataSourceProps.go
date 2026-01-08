@@ -80,7 +80,7 @@ type CfnDataSourceProps struct {
 	// Unique AWS AppSync GraphQL API identifier where this data source will be created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-apiid
 	//
-	ApiId interface{} `field:"required" json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// Friendly name for you to identify your AppSync data source after creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name
 	//

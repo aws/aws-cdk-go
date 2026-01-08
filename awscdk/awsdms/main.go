@@ -230,6 +230,10 @@ func init() {
 		reflect.TypeOf((*CfnDataProvider_SettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dms.CfnDataProvider.SybaseAseSettingsProperty",
+		reflect.TypeOf((*CfnDataProvider_SybaseAseSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dms.CfnDataProviderProps",
 		reflect.TypeOf((*CfnDataProviderProps)(nil)).Elem(),
 	)

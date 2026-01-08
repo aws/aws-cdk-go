@@ -3,6 +3,7 @@ package awsstepfunctionstasks
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsstepfunctions"
 )
 
 // Properties for StartExecution using JSONPath.
@@ -13,16 +14,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
 //   var resultSelector interface{}
-//   var stateMachine StateMachine
+//   var stateMachineRef IStateMachineRef
 //   var taskInput TaskInput
 //   var taskRole TaskRole
 //   var timeout Timeout
 //
 //   stepFunctionsStartExecutionJsonPathProps := &StepFunctionsStartExecutionJsonPathProps{
-//   	StateMachine: stateMachine,
+//   	StateMachine: stateMachineRef,
 //
 //   	// the properties below are optional
 //   	Assign: map[string]interface{}{
@@ -149,7 +151,7 @@ type StepFunctionsStartExecutionJsonPathProps struct {
 	//
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// The Step Functions state machine to start the execution on.
-	StateMachine awsstepfunctions.IStateMachine `field:"required" json:"stateMachine" yaml:"stateMachine"`
+	StateMachine interfacesawsstepfunctions.IStateMachineRef `field:"required" json:"stateMachine" yaml:"stateMachine"`
 	// Pass the execution ID from the context object to the execution input.
 	//
 	// This allows the Step Functions UI to link child executions from parent executions, making it easier to trace execution flow across state machines.

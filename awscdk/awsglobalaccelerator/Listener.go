@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,6 +69,8 @@ type Listener interface {
 	ListenerArn() *string
 	// The name of the listener.
 	ListenerName() *string
+	// A reference to a Listener resource.
+	ListenerRef() *interfacesawsglobalaccelerator.ListenerReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -141,6 +144,16 @@ func (j *jsiiProxy_Listener) ListenerName() *string {
 	_jsii_.Get(
 		j,
 		"listenerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Listener) ListenerRef() *interfacesawsglobalaccelerator.ListenerReference {
+	var returns *interfacesawsglobalaccelerator.ListenerReference
+	_jsii_.Get(
+		j,
+		"listenerRef",
 		&returns,
 	)
 	return returns

@@ -3,6 +3,8 @@ package awsappsync
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
 // The Schema for a GraphQL Api.
@@ -55,7 +57,7 @@ type SchemaFile interface {
 	Definition() *string
 	SetDefinition(val *string)
 	// Called when the GraphQL Api is initialized to allow this object to bind to the stack.
-	Bind(api IGraphqlApi, options *SchemaBindOptions) ISchemaConfig
+	Bind(api interfacesawsappsync.IGraphQLApiRef, options *SchemaBindOptions) ISchemaConfig
 }
 
 // The jsii proxy struct for SchemaFile
@@ -133,7 +135,7 @@ func SchemaFile_FromAsset(filePath *string) SchemaFile {
 	return returns
 }
 
-func (s *jsiiProxy_SchemaFile) Bind(api IGraphqlApi, options *SchemaBindOptions) ISchemaConfig {
+func (s *jsiiProxy_SchemaFile) Bind(api interfacesawsappsync.IGraphQLApiRef, options *SchemaBindOptions) ISchemaConfig {
 	if err := s.validateBindParameters(api, options); err != nil {
 		panic(err)
 	}

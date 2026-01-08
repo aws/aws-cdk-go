@@ -1215,6 +1215,44 @@ func CfnProject_ArnForProject(resource interfacesawscodebuild.IProjectRef) *stri
 	return returns
 }
 
+// Creates a new IProjectRef from an ARN.
+func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) interfacesawscodebuild.IProjectRef {
+	_init_.Initialize()
+
+	if err := validateCfnProject_FromProjectArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawscodebuild.IProjectRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.CfnProject",
+		"fromProjectArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IProjectRef from a projectName.
+func CfnProject_FromProjectName(scope constructs.Construct, id *string, projectName *string) interfacesawscodebuild.IProjectRef {
+	_init_.Initialize()
+
+	if err := validateCfnProject_FromProjectNameParameters(scope, id, projectName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawscodebuild.IProjectRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.CfnProject",
+		"fromProjectName",
+		[]interface{}{scope, id, projectName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

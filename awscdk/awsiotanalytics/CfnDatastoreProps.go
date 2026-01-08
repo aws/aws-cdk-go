@@ -89,7 +89,7 @@ type CfnDatastoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorestorage
 	//
 	DatastoreStorage interface{} `field:"optional" json:"datastoreStorage" yaml:"datastoreStorage"`
-	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	// Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	//
 	// The default file format is JSON. You can specify only one format.
 	//

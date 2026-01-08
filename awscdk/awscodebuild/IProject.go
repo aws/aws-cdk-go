@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -18,6 +19,7 @@ type IProject interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscodestarnotifications.INotificationRuleSource
+	interfacesawscodebuild.IProjectRef
 	awscdk.IResource
 	AddToRolePolicy(policyStatement awsiam.PolicyStatement)
 	// Enable batch builds.
@@ -124,6 +126,7 @@ type jsiiProxy_IProject struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awsiamIGrantable
 	internal.Type__awscodestarnotificationsINotificationRuleSource
+	internal.Type__interfacesawscodebuildIProjectRef
 	internal.Type__awscdkIResource
 }
 
@@ -467,6 +470,16 @@ func (j *jsiiProxy_IProject) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IProject) ProjectRef() *interfacesawscodebuild.ProjectReference {
+	var returns *interfacesawscodebuild.ProjectReference
+	_jsii_.Get(
+		j,
+		"projectRef",
 		&returns,
 	)
 	return returns

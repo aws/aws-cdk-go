@@ -29,13 +29,19 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetrypipelines.html
 //
 type CfnTelemetryPipelinesProps struct {
+	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations.
+	//
+	// For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetrypipelines.html#cfn-observabilityadmin-telemetrypipelines-configuration
 	//
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
+	// The name of the telemetry pipeline to create.
+	//
+	// The name must be unique within your account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetrypipelines.html#cfn-observabilityadmin-telemetrypipelines-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// An array of key-value pairs to apply to this resource.
+	// The key-value pairs to associate with the telemetry pipeline resource for categorization and management purposes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetrypipelines.html#cfn-observabilityadmin-telemetrypipelines-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

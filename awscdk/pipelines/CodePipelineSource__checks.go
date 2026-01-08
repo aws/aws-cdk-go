@@ -9,8 +9,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 )
 
 func (c *jsiiProxy_CodePipelineSource) validateAddDependencyFileSetParameters(fs FileSet) error {
@@ -119,7 +119,7 @@ func validateCodePipelineSource_ConnectionParameters(repoString *string, branch 
 	return nil
 }
 
-func validateCodePipelineSource_EcrParameters(repository awsecr.IRepository, props *ECRSourceOptions) error {
+func validateCodePipelineSource_EcrParameters(repository interfacesawsecr.IRepositoryRef, props *ECRSourceOptions) error {
 	if repository == nil {
 		return fmt.Errorf("parameter repository is required, but nil was provided")
 	}

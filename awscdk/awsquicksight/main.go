@@ -3496,6 +3496,14 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_GridLayoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.GridLayoutElementBackgroundStyleProperty",
+		reflect.TypeOf((*CfnDashboard_GridLayoutElementBackgroundStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.GridLayoutElementBorderStyleProperty",
+		reflect.TypeOf((*CfnDashboard_GridLayoutElementBorderStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.GridLayoutElementProperty",
 		reflect.TypeOf((*CfnDashboard_GridLayoutElementProperty)(nil)).Elem(),
 	)

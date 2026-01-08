@@ -227,10 +227,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "streamArn", GoGetter: "StreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "streamName", GoGetter: "StreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStream{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisIStreamRef)
 			return &j
 		},
 	)
@@ -248,10 +250,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stream", GoGetter: "Stream"},
 			_jsii_.MemberProperty{JsiiProperty: "streamConsumerArn", GoGetter: "StreamConsumerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "streamConsumerName", GoGetter: "StreamConsumerName"},
+			_jsii_.MemberProperty{JsiiProperty: "streamConsumerRef", GoGetter: "StreamConsumerRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IStreamConsumer{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawskinesisIStreamConsumerRef)
 			return &j
 		},
 	)
@@ -335,6 +339,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "streamArn", GoGetter: "StreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "streamName", GoGetter: "StreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "streamRef", GoGetter: "StreamRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
@@ -367,6 +372,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stream", GoGetter: "Stream"},
 			_jsii_.MemberProperty{JsiiProperty: "streamConsumerArn", GoGetter: "StreamConsumerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "streamConsumerName", GoGetter: "StreamConsumerName"},
+			_jsii_.MemberProperty{JsiiProperty: "streamConsumerRef", GoGetter: "StreamConsumerRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {

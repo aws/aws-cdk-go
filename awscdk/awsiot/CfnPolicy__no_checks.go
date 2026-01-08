@@ -72,6 +72,14 @@ func validateCfnPolicy_ArnForPolicyParameters(resource interfacesawsiot.IPolicyR
 	return nil
 }
 
+func validateCfnPolicy_FromPolicyArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnPolicy_FromPolicyNameParameters(scope constructs.Construct, id *string, policyName *string) error {
+	return nil
+}
+
 func validateCfnPolicy_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

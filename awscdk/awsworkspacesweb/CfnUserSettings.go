@@ -107,6 +107,7 @@ import (
 //   		ToolbarType: jsii.String("toolbarType"),
 //   		VisualMode: jsii.String("visualMode"),
 //   	},
+//   	WebAuthnAllowed: jsii.String("webAuthnAllowed"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html
@@ -121,11 +122,21 @@ type CfnUserSettings interface {
 	SetAdditionalEncryptionContext(val interface{})
 	// A list of web portal ARNs that this user settings resource is associated with.
 	AttrAssociatedPortalArns() *[]*string
+	// Read-only.
+	//
+	// Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
 	AttrBrandingConfigurationFaviconMetadata() awscdk.IResolvable
+	// Read-only.
+	//
+	// Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
 	AttrBrandingConfigurationLogoMetadata() awscdk.IResolvable
+	// Read-only.
+	//
+	// Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
 	AttrBrandingConfigurationWallpaperMetadata() awscdk.IResolvable
 	// The ARN of the user settings.
 	AttrUserSettingsArn() *string
+	// The branding configuration that customizes the appearance of the web portal for end users.
 	BrandingConfiguration() interface{}
 	SetBrandingConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -212,6 +223,9 @@ type CfnUserSettings interface {
 	SetUploadAllowed(val *string)
 	// A reference to a UserSettings resource.
 	UserSettingsRef() *interfacesawsworkspacesweb.UserSettingsReference
+	// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+	WebAuthnAllowed() *string
+	SetWebAuthnAllowed(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -667,6 +681,16 @@ func (j *jsiiProxy_CfnUserSettings) UserSettingsRef() *interfacesawsworkspaceswe
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserSettings) WebAuthnAllowed() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"webAuthnAllowed",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::WorkSpacesWeb::UserSettings`.
 func NewCfnUserSettings(scope constructs.Construct, id *string, props *CfnUserSettingsProps) CfnUserSettings {
@@ -835,6 +859,14 @@ func (j *jsiiProxy_CfnUserSettings)SetUploadAllowed(val *string) {
 	_jsii_.Set(
 		j,
 		"uploadAllowed",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserSettings)SetWebAuthnAllowed(val *string) {
+	_jsii_.Set(
+		j,
+		"webAuthnAllowed",
 		val,
 	)
 }

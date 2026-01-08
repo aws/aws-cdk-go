@@ -9,21 +9,12 @@ package awssecurityhub
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   providerProperty := &ProviderProperty{
-//   	JiraCloud: &JiraCloudProperty{
+//   	JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   		ProjectKey: jsii.String("projectKey"),
-//
-//   		// the properties below are optional
-//   		AuthStatus: jsii.String("authStatus"),
-//   		AuthUrl: jsii.String("authUrl"),
-//   		CloudId: jsii.String("cloudId"),
-//   		Domain: jsii.String("domain"),
 //   	},
-//   	ServiceNow: &ServiceNowProperty{
+//   	ServiceNow: &ServiceNowProviderConfigurationProperty{
 //   		InstanceName: jsii.String("instanceName"),
 //   		SecretArn: jsii.String("secretArn"),
-//
-//   		// the properties below are optional
-//   		AuthStatus: jsii.String("authStatus"),
 //   	},
 //   }
 //

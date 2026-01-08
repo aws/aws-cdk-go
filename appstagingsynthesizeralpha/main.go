@@ -86,6 +86,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "bundlingRequired", GoGetter: "BundlingRequired"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencyStack", GoGetter: "DependencyStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberMethod{JsiiMethod: "exportStringListValue", GoMethod: "ExportStringListValue"},
 			_jsii_.MemberMethod{JsiiMethod: "exportValue", GoMethod: "ExportValue"},

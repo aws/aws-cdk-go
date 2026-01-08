@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,6 +69,8 @@ type SourceApiAssociation interface {
 	PhysicalName() *string
 	// The source api in the association.
 	SourceApi() IGraphqlApi
+	// A reference to a SourceApiAssociation resource.
+	SourceApiAssociationRef() *interfacesawsappsync.SourceApiAssociationReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -189,6 +192,16 @@ func (j *jsiiProxy_SourceApiAssociation) SourceApi() IGraphqlApi {
 	_jsii_.Get(
 		j,
 		"sourceApi",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SourceApiAssociation) SourceApiAssociationRef() *interfacesawsappsync.SourceApiAssociationReference {
+	var returns *interfacesawsappsync.SourceApiAssociationReference
+	_jsii_.Get(
+		j,
+		"sourceApiAssociationRef",
 		&returns,
 	)
 	return returns

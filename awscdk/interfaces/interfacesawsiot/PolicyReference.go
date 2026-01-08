@@ -10,13 +10,13 @@ package interfacesawsiot
 //
 //   policyReference := &PolicyReference{
 //   	PolicyArn: jsii.String("policyArn"),
-//   	PolicyId: jsii.String("policyId"),
+//   	PolicyName: jsii.String("policyName"),
 //   }
 //
 type PolicyReference struct {
 	// The ARN of the Policy resource.
 	PolicyArn *string `field:"required" json:"policyArn" yaml:"policyArn"`
-	// The Id of the Policy resource.
-	PolicyId *string `field:"required" json:"policyId" yaml:"policyId"`
+	// The PolicyName of the Policy resource.
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
 }
 

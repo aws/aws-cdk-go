@@ -71,7 +71,7 @@ type DomainProps struct {
 	// Experimental.
 	App IApp `field:"required" json:"app" yaml:"app"`
 	// The IAM role with access to Route53 when using enableAutoSubdomain.
-	// Default: the IAM role from App.grantPrincipal
+	// Default: - the IAM role from App.grantPrincipal
 	//
 	// Experimental.
 	AutoSubDomainIamRole awsiam.IRole `field:"optional" json:"autoSubDomainIamRole" yaml:"autoSubDomainIamRole"`

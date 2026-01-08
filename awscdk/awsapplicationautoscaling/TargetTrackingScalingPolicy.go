@@ -14,12 +14,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var metric Metric
-//   var scalableTarget ScalableTarget
+//   var scalableTargetRef IScalableTargetRef
 //
 //   targetTrackingScalingPolicy := awscdk.Aws_applicationautoscaling.NewTargetTrackingScalingPolicy(this, jsii.String("MyTargetTrackingScalingPolicy"), &TargetTrackingScalingPolicyProps{
-//   	ScalingTarget: scalableTarget,
+//   	ScalingTarget: scalableTargetRef,
 //   	TargetValue: jsii.Number(123),
 //
 //   	// the properties below are optional

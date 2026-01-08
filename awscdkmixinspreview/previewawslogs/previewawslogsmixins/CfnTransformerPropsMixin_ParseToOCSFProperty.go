@@ -24,6 +24,7 @@ type CfnTransformerPropsMixin_ParseToOCSFProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-eventsource
 	//
 	EventSource *string `field:"optional" json:"eventSource" yaml:"eventSource"`
+	// The version of the OCSF mapping to use for parsing log data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html#cfn-logs-transformer-parsetoocsf-mappingversion
 	//
 	MappingVersion *string `field:"optional" json:"mappingVersion" yaml:"mappingVersion"`

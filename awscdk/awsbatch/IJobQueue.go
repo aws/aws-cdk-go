@@ -5,15 +5,19 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a JobQueue.
 type IJobQueue interface {
+	interfacesawsbatch.IJobQueueRef
 	awscdk.IResource
 	// Add a `ComputeEnvironment` to this Queue.
 	//
 	// The Queue will prefer lower-order `ComputeEnvironment`s.
-	AddComputeEnvironment(computeEnvironment IComputeEnvironment, order *float64)
+	AddComputeEnvironment(computeEnvironment interfacesawsbatch.IComputeEnvironmentRef, order *float64)
 	// The set of compute environments mapped to a job queue and their order relative to each other.
 	//
 	// The job scheduler uses this parameter to determine which compute environment runs a specific job.
@@ -54,10 +58,11 @@ type IJobQueue interface {
 
 // The jsii proxy for IJobQueue
 type jsiiProxy_IJobQueue struct {
+	internal.Type__interfacesawsbatchIJobQueueRef
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_IJobQueue) AddComputeEnvironment(computeEnvironment IComputeEnvironment, order *float64) {
+func (i *jsiiProxy_IJobQueue) AddComputeEnvironment(computeEnvironment interfacesawsbatch.IComputeEnvironmentRef, order *float64) {
 	if err := i.validateAddComputeEnvironmentParameters(computeEnvironment, order); err != nil {
 		panic(err)
 	}
@@ -65,6 +70,17 @@ func (i *jsiiProxy_IJobQueue) AddComputeEnvironment(computeEnvironment IComputeE
 		i,
 		"addComputeEnvironment",
 		[]interface{}{computeEnvironment, order},
+	)
+}
+
+func (i *jsiiProxy_IJobQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
 	)
 }
 
@@ -123,6 +139,46 @@ func (j *jsiiProxy_IJobQueue) SchedulingPolicy() ISchedulingPolicy {
 	_jsii_.Get(
 		j,
 		"schedulingPolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobQueue) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobQueue) JobQueueRef() *interfacesawsbatch.JobQueueReference {
+	var returns *interfacesawsbatch.JobQueueReference
+	_jsii_.Get(
+		j,
+		"jobQueueRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobQueue) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobQueue) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

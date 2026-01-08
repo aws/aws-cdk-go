@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,6 +60,11 @@ type ApplicationLoadBalancer interface {
 	// by enabling the feature flag in your cdk.json file. Note that enabling this feature flag
 	// will modify existing security group rules.
 	IpAddressType() IpAddressType
+	// Indicates that this is an Application Load Balancer.
+	//
+	// Will always return true, but is necessary to prevent accidental structural
+	// equality in TypeScript.
+	IsApplicationLoadBalancer() *bool
 	// A list of listeners that have been added to the load balancer.
 	//
 	// This list is only valid for owned constructs.
@@ -83,6 +89,8 @@ type ApplicationLoadBalancer interface {
 	//
 	// Example value: `my-load-balancer`.
 	LoadBalancerName() *string
+	// A reference to this load balancer.
+	LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference
 	LoadBalancerSecurityGroups() *[]*string
 	// All metrics available for this load balancer.
 	Metrics() IApplicationLoadBalancerMetrics
@@ -327,6 +335,16 @@ func (j *jsiiProxy_ApplicationLoadBalancer) IpAddressType() IpAddressType {
 	return returns
 }
 
+func (j *jsiiProxy_ApplicationLoadBalancer) IsApplicationLoadBalancer() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isApplicationLoadBalancer",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApplicationLoadBalancer) Listeners() *[]ApplicationListener {
 	var returns *[]ApplicationListener
 	_jsii_.Get(
@@ -382,6 +400,16 @@ func (j *jsiiProxy_ApplicationLoadBalancer) LoadBalancerName() *string {
 	_jsii_.Get(
 		j,
 		"loadBalancerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationLoadBalancer) LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference {
+	var returns *interfacesawselasticloadbalancingv2.LoadBalancerReference
+	_jsii_.Get(
+		j,
+		"loadBalancerRef",
 		&returns,
 	)
 	return returns

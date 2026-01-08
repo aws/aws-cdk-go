@@ -14,6 +14,25 @@ package awsbedrockagentcore
 //
 //   		// the properties below are optional
 //   		Configuration: &CustomConfigurationInputProperty{
+//   			EpisodicOverride: &EpisodicOverrideProperty{
+//   				Consolidation: &EpisodicOverrideConsolidationConfigurationInputProperty{
+//   					AppendToPrompt: jsii.String("appendToPrompt"),
+//   					ModelId: jsii.String("modelId"),
+//   				},
+//   				Extraction: &EpisodicOverrideExtractionConfigurationInputProperty{
+//   					AppendToPrompt: jsii.String("appendToPrompt"),
+//   					ModelId: jsii.String("modelId"),
+//   				},
+//   				Reflection: &EpisodicOverrideReflectionConfigurationInputProperty{
+//   					AppendToPrompt: jsii.String("appendToPrompt"),
+//   					ModelId: jsii.String("modelId"),
+//
+//   					// the properties below are optional
+//   					Namespaces: []*string{
+//   						jsii.String("namespaces"),
+//   					},
+//   				},
+//   			},
 //   			SelfManagedConfiguration: &SelfManagedConfigurationProperty{
 //   				HistoricalContextWindowSize: jsii.Number(123),
 //   				InvocationConfiguration: &InvocationConfigurationInputProperty{
@@ -71,6 +90,25 @@ package awsbedrockagentcore
 //   		Type: jsii.String("type"),
 //   		UpdatedAt: jsii.String("updatedAt"),
 //   	},
+//   	EpisodicMemoryStrategy: &EpisodicMemoryStrategyProperty{
+//   		Name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		CreatedAt: jsii.String("createdAt"),
+//   		Description: jsii.String("description"),
+//   		Namespaces: []*string{
+//   			jsii.String("namespaces"),
+//   		},
+//   		ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
+//   			Namespaces: []*string{
+//   				jsii.String("namespaces"),
+//   			},
+//   		},
+//   		Status: jsii.String("status"),
+//   		StrategyId: jsii.String("strategyId"),
+//   		Type: jsii.String("type"),
+//   		UpdatedAt: jsii.String("updatedAt"),
+//   	},
 //   	SemanticMemoryStrategy: &SemanticMemoryStrategyProperty{
 //   		Name: jsii.String("name"),
 //
@@ -122,6 +160,9 @@ type CfnMemory_MemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memorystrategy.html#cfn-bedrockagentcore-memory-memorystrategy-custommemorystrategy
 	//
 	CustomMemoryStrategy interface{} `field:"optional" json:"customMemoryStrategy" yaml:"customMemoryStrategy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memorystrategy.html#cfn-bedrockagentcore-memory-memorystrategy-episodicmemorystrategy
+	//
+	EpisodicMemoryStrategy interface{} `field:"optional" json:"episodicMemoryStrategy" yaml:"episodicMemoryStrategy"`
 	// The memory strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memorystrategy.html#cfn-bedrockagentcore-memory-memorystrategy-semanticmemorystrategy
 	//

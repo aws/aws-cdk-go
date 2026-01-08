@@ -58,6 +58,7 @@ This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aw
 
       * [EC2](#ec2)
       * [Fargate](#fargate)
+      * [Capacity Provider Options](#capacity-provider-options)
       * [Override CPU and Memory Parameter](#override-cpu-and-memory-parameter)
       * [ECS enable Exec](#ecs-enable-exec)
   * [EMR](#emr)
@@ -892,6 +893,61 @@ runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps
 	},
 	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
 	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
+})
+```
+
+#### Capacity Provider Options
+
+The `capacityProviderOptions` property allows you to configure the capacity provider
+strategy for both EC2 and Fargate launch targets.
+
+* When `CapacityProviderOptions.custom()` is used, you can specify a custom capacity provider strategy.
+* When `CapacityProviderOptions.default()` is used, the task uses the cluster's default capacity provider strategy.
+* If `capacityProviderOptions` is not specified, the task uses the launch type (EC2 or FARGATE) without a capacity provider strategy.
+
+```go
+vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
+	IsDefault: jsii.Boolean(true),
+})
+
+cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
+	MemoryMiB: jsii.String("512"),
+	Cpu: jsii.String("256"),
+	Compatibility: ecs.Compatibility_FARGATE,
+})
+
+// Use custom() option - specify custom capacity provider strategy
+runTaskWithCustom := tasks.NewEcsRunTask(this, jsii.String("RunTaskWithCustom"), &EcsRunTaskProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	LaunchTarget: tasks.NewEcsFargateLaunchTarget(&EcsFargateLaunchTargetOptions{
+		PlatformVersion: ecs.FargatePlatformVersion_VERSION1_4,
+		CapacityProviderOptions: tasks.CapacityProviderOptions_Custom([]CapacityProviderStrategy{
+			&CapacityProviderStrategy{
+				CapacityProvider: jsii.String("FARGATE_SPOT"),
+				Weight: jsii.Number(2),
+				Base: jsii.Number(1),
+			},
+			&CapacityProviderStrategy{
+				CapacityProvider: jsii.String("FARGATE"),
+				Weight: jsii.Number(1),
+			},
+		}),
+	}),
+})
+
+// Use default() option - uses cluster's default capacity provider strategy
+runTaskWithDefault := tasks.NewEcsRunTask(this, jsii.String("RunTaskWithDefault"), &EcsRunTaskProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	LaunchTarget: tasks.NewEcsFargateLaunchTarget(&EcsFargateLaunchTargetOptions{
+		PlatformVersion: ecs.FargatePlatformVersion_VERSION1_4,
+		CapacityProviderOptions: tasks.CapacityProviderOptions_Default(),
+	}),
 })
 ```
 

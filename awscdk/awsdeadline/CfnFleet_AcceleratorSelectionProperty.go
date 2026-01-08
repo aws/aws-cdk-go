@@ -20,18 +20,18 @@ package awsdeadline
 type CfnFleet_AcceleratorSelectionProperty struct {
 	// The name of the chip used by the GPU accelerator.
 	//
-	// If you specify `l4` as the name of the accelerator, you must specify `latest` or `grid:r570` as the runtime.
-	//
 	// The available GPU accelerators are:
 	//
-	// - `t4` - NVIDIA T4 Tensor Core GPU
-	// - `a10g` - NVIDIA A10G Tensor Core GPU
-	// - `l4` - NVIDIA L4 Tensor Core GPU
-	// - `l40s` - NVIDIA L40S Tensor Core GPU.
+	// - `t4` - NVIDIA T4 Tensor Core GPU (16 GiB memory)
+	// - `a10g` - NVIDIA A10G Tensor Core GPU (24 GiB memory)
+	// - `l4` - NVIDIA L4 Tensor Core GPU (24 GiB memory)
+	// - `l40s` - NVIDIA L40S Tensor Core GPU (48 GiB memory).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html#cfn-deadline-fleet-acceleratorselection-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs.
+	// Specifies the runtime driver to use for the GPU accelerator.
+	//
+	// You must use the same runtime for all GPUs in a fleet.
 	//
 	// You can choose from the following runtimes:
 	//
@@ -40,6 +40,13 @@ type CfnFleet_AcceleratorSelectionProperty struct {
 	// - `grid:r535` - [NVIDIA vGPU software 16](https://docs.aws.amazon.com/https://docs.nvidia.com/vgpu/16.0/index.html)
 	//
 	// If you don't specify a runtime, AWS Deadline Cloud uses `latest` as the default. However, if you have multiple accelerators and specify `latest` for some and leave others blank, AWS Deadline Cloud raises an exception.
+	//
+	// > Not all runtimes are compatible with all accelerator types:
+	// >
+	// > - `t4` and `a10g` : Support all runtimes ( `grid:r570` , `grid:r535` )
+	// > - `l4` and `l40s` : Only support `grid:r570` and newer
+	// >
+	// > All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet. > When you specify `latest` , it resolves to `grid:r570` for all currently supported accelerators.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html#cfn-deadline-fleet-acceleratorselection-runtime
 	//
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`

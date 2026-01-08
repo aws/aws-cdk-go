@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapplicationautoscaling"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,6 +57,8 @@ type ScalableTarget interface {
 	//
 	// Example value: `service/ecsStack-MyECSCluster-AB12CDE3F4GH/ecsStack-MyECSService-AB12CDE3F4GH|ecs:service:DesiredCount|ecs`.
 	ScalableTargetId() *string
+	// A reference to a ScalableTarget resource.
+	ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Add a policy statement to the role's policy.
@@ -150,6 +153,16 @@ func (j *jsiiProxy_ScalableTarget) ScalableTargetId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_ScalableTarget) ScalableTargetRef() *interfacesawsapplicationautoscaling.ScalableTargetReference {
+	var returns *interfacesawsapplicationautoscaling.ScalableTargetReference
+	_jsii_.Get(
+		j,
+		"scalableTargetRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ScalableTarget) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -188,6 +201,26 @@ func NewScalableTarget_Override(s ScalableTarget, scope constructs.Construct, id
 	)
 }
 
+// Create a referenceable `IScalableTarget` object based on properties of a resource that already exists in your account.
+func ScalableTarget_FromScalableTargetAttributes(scope constructs.Construct, id *string, attrs *ScalableTargetAttributes) IScalableTarget {
+	_init_.Initialize()
+
+	if err := validateScalableTarget_FromScalableTargetAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns IScalableTarget
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+		"fromScalableTargetAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a referenceable `IScalableTarget` object based on properties of a resource that already exists in your account.
 func ScalableTarget_FromScalableTargetId(scope constructs.Construct, id *string, scalableTargetId *string) IScalableTarget {
 	_init_.Initialize()
 

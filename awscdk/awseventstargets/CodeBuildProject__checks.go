@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
 func (c *jsiiProxy_CodeBuildProject) validateBindParameters(rule awsevents.IRule) error {
@@ -19,7 +19,7 @@ func (c *jsiiProxy_CodeBuildProject) validateBindParameters(rule awsevents.IRule
 	return nil
 }
 
-func validateNewCodeBuildProjectParameters(project awscodebuild.IProject, props *CodeBuildProjectProps) error {
+func validateNewCodeBuildProjectParameters(project interfacesawscodebuild.IProjectRef, props *CodeBuildProjectProps) error {
 	if project == nil {
 		return fmt.Errorf("parameter project is required, but nil was provided")
 	}

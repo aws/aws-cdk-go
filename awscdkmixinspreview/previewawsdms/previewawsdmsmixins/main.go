@@ -120,6 +120,10 @@ func init() {
 		reflect.TypeOf((*CfnDataProviderPropsMixin_SettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_dms.mixins.CfnDataProviderPropsMixin.SybaseAseSettingsProperty",
+		reflect.TypeOf((*CfnDataProviderPropsMixin_SybaseAseSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_dms.mixins.CfnEndpointMixinProps",
 		reflect.TypeOf((*CfnEndpointMixinProps)(nil)).Elem(),
 	)

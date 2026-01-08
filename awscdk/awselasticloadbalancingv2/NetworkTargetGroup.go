@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,11 +48,18 @@ type NetworkTargetGroup interface {
 	INetworkTargetGroup
 	// Default port configured for members of this target group.
 	DefaultPort() *float64
+	// The environment this resource belongs to.
+	Env() *interfaces.ResourceEnvironment
 	// Full name of first load balancer.
 	FirstLoadBalancerFullName() *string
 	// Health check for the members of this target group.
 	HealthCheck() *HealthCheck
 	SetHealthCheck(val *HealthCheck)
+	// Indicates that this is a Network Target Group.
+	//
+	// Will always return true, but is necessary to prevent accidental structural
+	// equality in TypeScript.
+	IsNetworkTargetGroup() *bool
 	// A token representing a list of ARNs of the load balancers that route traffic to this target group.
 	LoadBalancerArns() *string
 	// List of constructs that need to be depended on to ensure the TargetGroup is associated to a load balancer.
@@ -69,6 +78,8 @@ type NetworkTargetGroup interface {
 	TargetGroupLoadBalancerArns() *[]*string
 	// The name of the target group.
 	TargetGroupName() *string
+	// A reference to this target group.
+	TargetGroupRef() *interfacesawselasticloadbalancingv2.TargetGroupReference
 	// The types of the directly registered members of this target group.
 	TargetType() TargetType
 	SetTargetType(val TargetType)
@@ -91,7 +102,7 @@ type NetworkTargetGroup interface {
 	// Register a listener that is load balancing to this target group.
 	//
 	// Don't call this directly. It will be called by listeners.
-	RegisterListener(listener INetworkListener)
+	RegisterListener(listener INetworkListenerRef)
 	// Set a non-standard attribute on the target group.
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes
 	//
@@ -118,6 +129,16 @@ func (j *jsiiProxy_NetworkTargetGroup) DefaultPort() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_NetworkTargetGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_NetworkTargetGroup) FirstLoadBalancerFullName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -133,6 +154,16 @@ func (j *jsiiProxy_NetworkTargetGroup) HealthCheck() *HealthCheck {
 	_jsii_.Get(
 		j,
 		"healthCheck",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkTargetGroup) IsNetworkTargetGroup() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isNetworkTargetGroup",
 		&returns,
 	)
 	return returns
@@ -223,6 +254,16 @@ func (j *jsiiProxy_NetworkTargetGroup) TargetGroupName() *string {
 	_jsii_.Get(
 		j,
 		"targetGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkTargetGroup) TargetGroupRef() *interfacesawselasticloadbalancingv2.TargetGroupReference {
+	var returns *interfacesawselasticloadbalancingv2.TargetGroupReference
+	_jsii_.Get(
+		j,
+		"targetGroupRef",
 		&returns,
 	)
 	return returns
@@ -417,7 +458,7 @@ func (n *jsiiProxy_NetworkTargetGroup) MetricUnHealthyHostCount(props *awscloudw
 	return returns
 }
 
-func (n *jsiiProxy_NetworkTargetGroup) RegisterListener(listener INetworkListener) {
+func (n *jsiiProxy_NetworkTargetGroup) RegisterListener(listener INetworkListenerRef) {
 	if err := n.validateRegisterListenerParameters(listener); err != nil {
 		panic(err)
 	}

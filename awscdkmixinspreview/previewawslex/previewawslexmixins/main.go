@@ -308,6 +308,10 @@ func init() {
 		reflect.TypeOf((*CfnBotPropsMixin_IntentConfirmationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.IntentDisambiguationSettingsProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_IntentDisambiguationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.IntentOverrideProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_IntentOverrideProperty)(nil)).Elem(),
 	)
@@ -488,6 +492,10 @@ func init() {
 		reflect.TypeOf((*CfnBotPropsMixin_SpecificationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.SpeechFoundationModelProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_SpeechFoundationModelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.StillWaitingResponseSpecificationProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_StillWaitingResponseSpecificationProperty)(nil)).Elem(),
 	)
@@ -518,6 +526,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.TextLogSettingProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_TextLogSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.UnifiedSpeechSettingsProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_UnifiedSpeechSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.VoiceSettingsProperty",

@@ -3352,6 +3352,14 @@ func init() {
 		reflect.TypeOf((*CfnDashboardPropsMixin_GridLayoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnDashboardPropsMixin.GridLayoutElementBackgroundStyleProperty",
+		reflect.TypeOf((*CfnDashboardPropsMixin_GridLayoutElementBackgroundStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnDashboardPropsMixin.GridLayoutElementBorderStyleProperty",
+		reflect.TypeOf((*CfnDashboardPropsMixin_GridLayoutElementBorderStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnDashboardPropsMixin.GridLayoutElementProperty",
 		reflect.TypeOf((*CfnDashboardPropsMixin_GridLayoutElementProperty)(nil)).Elem(),
 	)

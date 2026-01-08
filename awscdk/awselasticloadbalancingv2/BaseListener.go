@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -26,6 +27,8 @@ type BaseListener interface {
 	Env() *interfaces.ResourceEnvironment
 	// ARN of the listener.
 	ListenerArn() *string
+	// A reference to this listener.
+	ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -95,6 +98,16 @@ func (j *jsiiProxy_BaseListener) ListenerArn() *string {
 	_jsii_.Get(
 		j,
 		"listenerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BaseListener) ListenerRef() *interfacesawselasticloadbalancingv2.ListenerReference {
+	var returns *interfacesawselasticloadbalancingv2.ListenerReference
+	_jsii_.Get(
+		j,
+		"listenerRef",
 		&returns,
 	)
 	return returns

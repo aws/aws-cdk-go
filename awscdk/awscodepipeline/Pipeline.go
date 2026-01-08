@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,6 +69,8 @@ type Pipeline interface {
 	PipelineArn() *string
 	// The name of the pipeline.
 	PipelineName() *string
+	// A reference to a Pipeline resource.
+	PipelineRef() *interfacesawscodepipeline.PipelineReference
 	// The version of the pipeline.
 	PipelineVersion() *string
 	// The IAM role AWS CodePipeline will use to perform actions or assume roles for actions with a more specific IAM role.
@@ -218,6 +221,16 @@ func (j *jsiiProxy_Pipeline) PipelineName() *string {
 	_jsii_.Get(
 		j,
 		"pipelineName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Pipeline) PipelineRef() *interfacesawscodepipeline.PipelineReference {
+	var returns *interfacesawscodepipeline.PipelineReference
+	_jsii_.Get(
+		j,
+		"pipelineRef",
 		&returns,
 	)
 	return returns

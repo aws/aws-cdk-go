@@ -35,6 +35,8 @@ package awsbedrockagentcore
 //   					CustomParameters: map[string]*string{
 //   						"customParametersKey": jsii.String("customParameters"),
 //   					},
+//   					DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   					GrantType: jsii.String("grantType"),
 //   				},
 //   			},
 //   		},
@@ -108,6 +110,17 @@ package awsbedrockagentcore
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	GatewayIdentifier: jsii.String("gatewayIdentifier"),
+//   	MetadataConfiguration: &MetadataConfigurationProperty{
+//   		AllowedQueryParameters: []*string{
+//   			jsii.String("allowedQueryParameters"),
+//   		},
+//   		AllowedRequestHeaders: []*string{
+//   			jsii.String("allowedRequestHeaders"),
+//   		},
+//   		AllowedResponseHeaders: []*string{
+//   			jsii.String("allowedResponseHeaders"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html
@@ -133,5 +146,8 @@ type CfnGatewayTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-gatewayidentifier
 	//
 	GatewayIdentifier *string `field:"optional" json:"gatewayIdentifier" yaml:"gatewayIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-metadataconfiguration
+	//
+	MetadataConfiguration interface{} `field:"optional" json:"metadataConfiguration" yaml:"metadataConfiguration"`
 }
 

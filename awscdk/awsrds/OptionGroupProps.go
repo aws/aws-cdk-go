@@ -104,5 +104,9 @@ type OptionGroupProps struct {
 	// Default: a CDK generated description.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the option group.
+	// Default: - a CDK generated name.
+	//
+	OptionGroupName *string `field:"optional" json:"optionGroupName" yaml:"optionGroupName"`
 }
 

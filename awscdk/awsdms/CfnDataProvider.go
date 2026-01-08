@@ -119,6 +119,16 @@ import (
 //   			Port: jsii.Number(123),
 //   			ServerName: jsii.String("serverName"),
 //   		},
+//   		SybaseAseSettings: &SybaseAseSettingsProperty{
+//   			Port: jsii.Number(123),
+//   			ServerName: jsii.String("serverName"),
+//   			SslMode: jsii.String("sslMode"),
+//
+//   			// the properties below are optional
+//   			CertificateArn: jsii.String("certificateArn"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			EncryptPassword: jsii.Boolean(false),
+//   		},
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

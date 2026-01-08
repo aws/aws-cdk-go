@@ -560,6 +560,44 @@ func CfnQueue_ArnForQueue(resource interfacesawsmediaconvert.IQueueRef) *string 
 	return returns
 }
 
+// Creates a new IQueueRef from an ARN.
+func CfnQueue_FromQueueArn(scope constructs.Construct, id *string, arn *string) interfacesawsmediaconvert.IQueueRef {
+	_init_.Initialize()
+
+	if err := validateCfnQueue_FromQueueArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmediaconvert.IQueueRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"fromQueueArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IQueueRef from a queueName.
+func CfnQueue_FromQueueName(scope constructs.Construct, id *string, queueName *string) interfacesawsmediaconvert.IQueueRef {
+	_init_.Initialize()
+
+	if err := validateCfnQueue_FromQueueNameParameters(scope, id, queueName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsmediaconvert.IQueueRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_mediaconvert.CfnQueue",
+		"fromQueueName",
+		[]interface{}{scope, id, queueName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

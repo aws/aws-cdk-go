@@ -75,7 +75,7 @@ type Ipam interface {
 	// Experimental.
 	IpamId() *string
 	// IPAM name to be used for tagging.
-	// Default: no tag specified.
+	// Default: - no tag specified.
 	//
 	// Experimental.
 	IpamName() *string

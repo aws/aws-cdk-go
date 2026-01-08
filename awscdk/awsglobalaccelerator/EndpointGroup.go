@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,6 +43,8 @@ type EndpointGroup interface {
 	EndpointGroupArn() *string
 	// The name of the endpoint group.
 	EndpointGroupName() *string
+	// A reference to a EndpointGroup resource.
+	EndpointGroupRef() *interfacesawsglobalaccelerator.EndpointGroupReference
 	// The array of the endpoints in this endpoint group.
 	Endpoints() *[]IEndpoint
 	// The environment this resource belongs to.
@@ -129,6 +132,16 @@ func (j *jsiiProxy_EndpointGroup) EndpointGroupName() *string {
 	_jsii_.Get(
 		j,
 		"endpointGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EndpointGroup) EndpointGroupRef() *interfacesawsglobalaccelerator.EndpointGroupReference {
+	var returns *interfacesawsglobalaccelerator.EndpointGroupReference
+	_jsii_.Get(
+		j,
+		"endpointGroupRef",
 		&returns,
 	)
 	return returns

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnGatewayTarget) validateSetCredentialProviderConfigurations
 	return nil
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) validateSetMetadataConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) validateSetNameParameters(val *string) error {
 	return nil
 }

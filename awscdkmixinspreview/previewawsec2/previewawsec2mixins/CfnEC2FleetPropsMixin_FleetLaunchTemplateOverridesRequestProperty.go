@@ -12,6 +12,7 @@ package previewawsec2mixins
 //
 //   fleetLaunchTemplateOverridesRequestProperty := &FleetLaunchTemplateOverridesRequestProperty{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	BlockDeviceMappings: []interface{}{
 //   		&BlockDeviceMappingProperty{
 //   			DeviceName: jsii.String("deviceName"),
@@ -127,10 +128,15 @@ package previewawsec2mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html
 //
 type CfnEC2FleetPropsMixin_FleetLaunchTemplateOverridesRequestProperty struct {
-	// The Availability Zone in which to launch the instances.
+	// The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzoneid
+	//
+	AvailabilityZoneId *string `field:"optional" json:"availabilityZoneId" yaml:"availabilityZoneId"`
 	// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
 	//
 	// Supported only for fleets of type `instant` .

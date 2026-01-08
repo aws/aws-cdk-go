@@ -9,11 +9,11 @@ package interfacesawsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   receiptRuleSetReference := &ReceiptRuleSetReference{
-//   	ReceiptRuleSetId: jsii.String("receiptRuleSetId"),
+//   	RuleSetName: jsii.String("ruleSetName"),
 //   }
 //
 type ReceiptRuleSetReference struct {
-	// The Id of the ReceiptRuleSet resource.
-	ReceiptRuleSetId *string `field:"required" json:"receiptRuleSetId" yaml:"receiptRuleSetId"`
+	// The RuleSetName of the ReceiptRuleSet resource.
+	RuleSetName *string `field:"required" json:"ruleSetName" yaml:"ruleSetName"`
 }
 

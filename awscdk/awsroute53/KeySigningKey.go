@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -42,6 +43,8 @@ type KeySigningKey interface {
 	KeySigningKeyId() *string
 	// The name of the key signing key.
 	KeySigningKeyName() *string
+	// A reference to a KeySigningKey resource.
+	KeySigningKeyRef() *interfacesawsroute53.KeySigningKeyReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -123,6 +126,16 @@ func (j *jsiiProxy_KeySigningKey) KeySigningKeyName() *string {
 	_jsii_.Get(
 		j,
 		"keySigningKeyName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_KeySigningKey) KeySigningKeyRef() *interfacesawsroute53.KeySigningKeyReference {
+	var returns *interfacesawsroute53.KeySigningKeyReference
+	_jsii_.Get(
+		j,
+		"keySigningKeyRef",
 		&returns,
 	)
 	return returns

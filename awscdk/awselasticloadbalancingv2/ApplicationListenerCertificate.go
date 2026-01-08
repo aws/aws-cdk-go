@@ -14,12 +14,13 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationListener ApplicationListener
 //   var listenerCertificate ListenerCertificate
+//   var listenerRef IListenerRef
 //
 //   applicationListenerCertificate := awscdk.Aws_elasticloadbalancingv2.NewApplicationListenerCertificate(this, jsii.String("MyApplicationListenerCertificate"), &ApplicationListenerCertificateProps{
-//   	Listener: applicationListener,
+//   	Listener: listenerRef,
 //
 //   	// the properties below are optional
 //   	Certificates: []IListenerCertificate{

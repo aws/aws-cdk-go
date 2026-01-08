@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,6 +64,8 @@ type HttpNamespace interface {
 	HttpNamespaceArn() *string
 	HttpNamespaceId() *string
 	HttpNamespaceName() *string
+	// A reference to a HttpNamespace resource.
+	HttpNamespaceRef() *interfacesawsservicediscovery.HttpNamespaceReference
 	// Namespace Arn for the namespace.
 	NamespaceArn() *string
 	// Namespace Id for the namespace.
@@ -154,6 +157,16 @@ func (j *jsiiProxy_HttpNamespace) HttpNamespaceName() *string {
 	_jsii_.Get(
 		j,
 		"httpNamespaceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpNamespace) HttpNamespaceRef() *interfacesawsservicediscovery.HttpNamespaceReference {
+	var returns *interfacesawsservicediscovery.HttpNamespaceReference
+	_jsii_.Get(
+		j,
+		"httpNamespaceRef",
 		&returns,
 	)
 	return returns

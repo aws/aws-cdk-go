@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,6 +60,8 @@ type Repository interface {
 	RepositoryArn() *string
 	// The name of the repository.
 	RepositoryName() *string
+	// A reference to this repository.
+	RepositoryRef() *interfacesawsecr.RepositoryReference
 	// The URI of this repository (represents the latest image):.
 	//
 	// ACCOUNT.dkr.ecr.REGION.amazonaws.com/REPOSITORY
@@ -204,6 +207,16 @@ func (j *jsiiProxy_Repository) RepositoryName() *string {
 	_jsii_.Get(
 		j,
 		"repositoryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Repository) RepositoryRef() *interfacesawsecr.RepositoryReference {
+	var returns *interfacesawsecr.RepositoryReference
+	_jsii_.Get(
+		j,
+		"repositoryRef",
 		&returns,
 	)
 	return returns

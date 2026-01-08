@@ -9,7 +9,6 @@ package awslex
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   specificationsProperty := &SpecificationsProperty{
-//   	SlotTypeId: jsii.String("slotTypeId"),
 //   	ValueElicitationSetting: &SubSlotValueElicitationSettingProperty{
 //   		DefaultValueSpecification: &SlotDefaultValueSpecificationProperty{
 //   			DefaultValueList: []interface{}{
@@ -306,18 +305,25 @@ package awslex
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	SlotTypeId: jsii.String("slotTypeId"),
+//   	SlotTypeName: jsii.String("slotTypeName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html
 //
 type CfnBot_SpecificationsProperty struct {
-	// The unique identifier assigned to the slot type.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html#cfn-lex-bot-specifications-slottypeid
-	//
-	SlotTypeId *string `field:"required" json:"slotTypeId" yaml:"slotTypeId"`
 	// Specifies the elicitation setting details for constituent sub slots of a composite slot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html#cfn-lex-bot-specifications-valueelicitationsetting
 	//
 	ValueElicitationSetting interface{} `field:"required" json:"valueElicitationSetting" yaml:"valueElicitationSetting"`
+	// The unique identifier assigned to the slot type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html#cfn-lex-bot-specifications-slottypeid
+	//
+	SlotTypeId *string `field:"optional" json:"slotTypeId" yaml:"slotTypeId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html#cfn-lex-bot-specifications-slottypename
+	//
+	SlotTypeName *string `field:"optional" json:"slotTypeName" yaml:"slotTypeName"`
 }
 

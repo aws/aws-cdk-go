@@ -2,6 +2,7 @@ package awsefs
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 )
 
 // Properties for the ReplicationConfiguration.
@@ -11,13 +12,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fileSystem FileSystem
+//   var fileSystemRef IFileSystemRef
 //   var key Key
 //
 //   replicationConfigurationProps := &ReplicationConfigurationProps{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
-//   	DestinationFileSystem: fileSystem,
+//   	DestinationFileSystem: fileSystemRef,
 //   	KmsKey: key,
 //   	Region: jsii.String("region"),
 //   }
@@ -32,7 +34,7 @@ type ReplicationConfigurationProps struct {
 	// The existing destination file system for the replication.
 	// Default: - None.
 	//
-	DestinationFileSystem IFileSystem `field:"optional" json:"destinationFileSystem" yaml:"destinationFileSystem"`
+	DestinationFileSystem interfacesawsefs.IFileSystemRef `field:"optional" json:"destinationFileSystem" yaml:"destinationFileSystem"`
 	// AWS KMS key used to protect the encrypted file system.
 	// Default: - use service-managed KMS key for Amazon EFS.
 	//

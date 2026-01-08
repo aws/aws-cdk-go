@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -76,6 +77,8 @@ type FairshareSchedulingPolicy interface {
 	SchedulingPolicyArn() *string
 	// The name of this scheduling policy.
 	SchedulingPolicyName() *string
+	// A reference to a SchedulingPolicy resource.
+	SchedulingPolicyRef() *interfacesawsbatch.SchedulingPolicyReference
 	// The amount of time to use to measure the usage of each job.
 	//
 	// The usage is used to calculate a fair share percentage for each fair share identifier currently in the Queue.
@@ -183,6 +186,16 @@ func (j *jsiiProxy_FairshareSchedulingPolicy) SchedulingPolicyName() *string {
 	_jsii_.Get(
 		j,
 		"schedulingPolicyName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FairshareSchedulingPolicy) SchedulingPolicyRef() *interfacesawsbatch.SchedulingPolicyReference {
+	var returns *interfacesawsbatch.SchedulingPolicyReference
+	_jsii_.Get(
+		j,
+		"schedulingPolicyRef",
 		&returns,
 	)
 	return returns

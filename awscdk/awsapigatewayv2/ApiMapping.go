@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,14 +17,15 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api IApi
-//   var domainName DomainName
+//   var apiRef IApiRef
+//   var domainNameRef IDomainNameRef
 //   var stage IStage
 //
 //   apiMapping := awscdk.Aws_apigatewayv2.NewApiMapping(this, jsii.String("MyApiMapping"), &ApiMappingProps{
-//   	Api: api,
-//   	DomainName: domainName,
+//   	Api: apiRef,
+//   	DomainName: domainNameRef,
 //
 //   	// the properties below are optional
 //   	ApiMappingKey: jsii.String("apiMappingKey"),
@@ -35,8 +37,12 @@ type ApiMapping interface {
 	IApiMapping
 	// ID of the API Mapping.
 	ApiMappingId() *string
+	// A reference to a ApiMapping resource.
+	ApiMappingRef() *interfacesawsapigatewayv2.ApiMappingReference
 	// API domain name.
 	DomainName() IDomainName
+	// Return the domain for this API Mapping.
+	DomainUrl() *string
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -105,11 +111,31 @@ func (j *jsiiProxy_ApiMapping) ApiMappingId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_ApiMapping) ApiMappingRef() *interfacesawsapigatewayv2.ApiMappingReference {
+	var returns *interfacesawsapigatewayv2.ApiMappingReference
+	_jsii_.Get(
+		j,
+		"apiMappingRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApiMapping) DomainName() IDomainName {
 	var returns IDomainName
 	_jsii_.Get(
 		j,
 		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApiMapping) DomainUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainUrl",
 		&returns,
 	)
 	return returns

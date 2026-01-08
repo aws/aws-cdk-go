@@ -848,6 +848,10 @@ func init() {
 		reflect.TypeOf((*CfnTopicRulePropsMixin_AssetPropertyVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnTopicRulePropsMixin.BatchConfigProperty",
+		reflect.TypeOf((*CfnTopicRulePropsMixin_BatchConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnTopicRulePropsMixin.CloudwatchAlarmActionProperty",
 		reflect.TypeOf((*CfnTopicRulePropsMixin_CloudwatchAlarmActionProperty)(nil)).Elem(),
 	)

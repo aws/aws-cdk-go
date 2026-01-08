@@ -204,6 +204,30 @@ func (j *jsiiProxy_CfnContactFlowModule) validateSetContentParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnContactFlowModule) validateSetExternalInvocationConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnContactFlowModule_ExternalInvocationConfigurationProperty:
+		val := val.(*CfnContactFlowModule_ExternalInvocationConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnContactFlowModule_ExternalInvocationConfigurationProperty:
+		val_ := val.(CfnContactFlowModule_ExternalInvocationConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnContactFlowModule_ExternalInvocationConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnContactFlowModule) validateSetInstanceArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

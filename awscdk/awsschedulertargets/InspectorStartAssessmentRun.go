@@ -5,9 +5,9 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsinspector"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsschedulertargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsinspector"
 )
 
 // Use an Amazon Inspector as a target for AWS EventBridge Scheduler.
@@ -54,7 +54,7 @@ func (j *jsiiProxy_InspectorStartAssessmentRun) TargetArn() *string {
 }
 
 
-func NewInspectorStartAssessmentRun(template awsinspector.IAssessmentTemplate, props *ScheduleTargetBaseProps) InspectorStartAssessmentRun {
+func NewInspectorStartAssessmentRun(template interfacesawsinspector.IAssessmentTemplateRef, props *ScheduleTargetBaseProps) InspectorStartAssessmentRun {
 	_init_.Initialize()
 
 	if err := validateNewInspectorStartAssessmentRunParameters(template, props); err != nil {
@@ -71,7 +71,7 @@ func NewInspectorStartAssessmentRun(template awsinspector.IAssessmentTemplate, p
 	return &j
 }
 
-func NewInspectorStartAssessmentRun_Override(i InspectorStartAssessmentRun, template awsinspector.IAssessmentTemplate, props *ScheduleTargetBaseProps) {
+func NewInspectorStartAssessmentRun_Override(i InspectorStartAssessmentRun, template interfacesawsinspector.IAssessmentTemplateRef, props *ScheduleTargetBaseProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(

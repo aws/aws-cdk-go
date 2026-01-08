@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,6 +62,8 @@ type HealthCheck interface {
 	Env() *interfaces.ResourceEnvironment
 	// The ID of the health check.
 	HealthCheckId() *string
+	// A reference to a HealthCheck resource.
+	HealthCheckRef() *interfacesawsroute53.HealthCheckReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -122,6 +125,16 @@ func (j *jsiiProxy_HealthCheck) HealthCheckId() *string {
 	_jsii_.Get(
 		j,
 		"healthCheckId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HealthCheck) HealthCheckRef() *interfacesawsroute53.HealthCheckReference {
+	var returns *interfacesawsroute53.HealthCheckReference
+	_jsii_.Get(
+		j,
+		"healthCheckRef",
 		&returns,
 	)
 	return returns

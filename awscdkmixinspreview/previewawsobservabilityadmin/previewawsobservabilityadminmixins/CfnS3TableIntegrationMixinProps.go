@@ -39,15 +39,15 @@ type CfnS3TableIntegrationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html#cfn-observabilityadmin-s3tableintegration-encryption
 	//
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// The CloudWatch Logs data sources to associate with the S3 Table Integration.
+	// A data source with an S3 Table integration for query access in the `logs` namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html#cfn-observabilityadmin-s3tableintegration-logsources
 	//
 	LogSources interface{} `field:"optional" json:"logSources" yaml:"logSources"`
-	// The ARN of the role used to access the S3 Table Integration.
+	// The Amazon Resource Name (ARN) of the IAM role that grants permissions for the S3 Table integration to access necessary resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html#cfn-observabilityadmin-s3tableintegration-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
-	// An array of key-value pairs to apply to this resource.
+	// The key-value pairs to associate with the S3 Table integration resource for categorization and management purposes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html#cfn-observabilityadmin-s3tableintegration-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

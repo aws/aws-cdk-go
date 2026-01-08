@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -69,6 +70,8 @@ type NetworkLoadBalancer interface {
 	//
 	// Example value: `my-load-balancer`.
 	LoadBalancerName() *string
+	// A reference to this load balancer.
+	LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference
 	LoadBalancerSecurityGroups() *[]*string
 	// All metrics available for this load balancer.
 	Metrics() INetworkLoadBalancerMetrics
@@ -276,6 +279,16 @@ func (j *jsiiProxy_NetworkLoadBalancer) LoadBalancerName() *string {
 	_jsii_.Get(
 		j,
 		"loadBalancerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NetworkLoadBalancer) LoadBalancerRef() *interfacesawselasticloadbalancingv2.LoadBalancerReference {
+	var returns *interfacesawselasticloadbalancingv2.LoadBalancerReference
+	_jsii_.Get(
+		j,
+		"loadBalancerRef",
 		&returns,
 	)
 	return returns

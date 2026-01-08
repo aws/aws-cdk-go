@@ -74,3 +74,11 @@ func (i *jsiiProxy_ISecret) validateSecretValueFromJsonParameters(key *string) e
 	return nil
 }
 
+func (i *jsiiProxy_ISecret) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
+	}
+
+	return nil
+}
+

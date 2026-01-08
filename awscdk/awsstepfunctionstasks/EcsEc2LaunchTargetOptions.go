@@ -48,6 +48,19 @@ import (
 //   })
 //
 type EcsEc2LaunchTargetOptions struct {
+	// The capacity provider options to use for the task.
+	//
+	// This property allows you to set the capacity provider strategy for the task.
+	//
+	// If you want to set the capacity provider strategy for the task, specify
+	// `CapacityProviderOptions.custom()`.
+	//
+	// If you want to use the cluster's default capacity provider strategy, specify
+	// `CapacityProviderOptions.default()`.
+	// Default: - 'EC2' LaunchType running tasks on Amazon EC2 instances registered to
+	// your cluster is used without the capacity provider strategy.
+	//
+	CapacityProviderOptions CapacityProviderOptions `field:"optional" json:"capacityProviderOptions" yaml:"capacityProviderOptions"`
 	// Placement constraints.
 	// Default: - None.
 	//

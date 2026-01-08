@@ -6,11 +6,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a CloudWatch Alarm.
 type IAlarm interface {
+	interfacesawscloudwatch.IAlarmRef
 	IAlarmRule
 	awscdk.IResource
 	// Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
@@ -21,6 +23,7 @@ type IAlarm interface {
 
 // The jsii proxy for IAlarm
 type jsiiProxy_IAlarm struct {
+	internal.Type__interfacesawscloudwatchIAlarmRef
 	jsiiProxy_IAlarmRule
 	internal.Type__awscdkIResource
 }
@@ -64,6 +67,16 @@ func (j *jsiiProxy_IAlarm) AlarmName() *string {
 	_jsii_.Get(
 		j,
 		"alarmName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAlarm) AlarmRef() *interfacesawscloudwatch.AlarmReference {
+	var returns *interfacesawscloudwatch.AlarmReference
+	_jsii_.Get(
+		j,
+		"alarmRef",
 		&returns,
 	)
 	return returns

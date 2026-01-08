@@ -4,10 +4,10 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -162,7 +162,7 @@ func BackupResource_FromConstruct(construct constructs.Construct) BackupResource
 }
 
 // A DynamoDB table.
-func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
+func BackupResource_FromDynamoDbTable(table interfacesawsdynamodb.ITableRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromDynamoDbTableParameters(table); err != nil {
@@ -200,7 +200,7 @@ func BackupResource_FromEc2Instance(instance interfacesawsec2.IInstanceRef) Back
 }
 
 // An EFS file system.
-func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResource {
+func BackupResource_FromEfsFileSystem(fileSystem interfacesawsefs.IFileSystemRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromEfsFileSystemParameters(fileSystem); err != nil {

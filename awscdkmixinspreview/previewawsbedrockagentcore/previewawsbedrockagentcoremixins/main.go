@@ -196,6 +196,18 @@ func init() {
 		reflect.TypeOf((*CfnGatewayPropsMixin_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayPropsMixin.AuthorizingClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayPropsMixin.ClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_ClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayPropsMixin.CustomClaimValidationTypeProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_CustomClaimValidationTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayPropsMixin.CustomJWTAuthorizerConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayPropsMixin_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
@@ -274,6 +286,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.McpTargetConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_McpTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.MetadataConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_MetadataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.OAuthCredentialProviderProperty",
@@ -364,6 +380,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.CustomMemoryStrategyProperty",
 		reflect.TypeOf((*CfnMemoryPropsMixin_CustomMemoryStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.EpisodicMemoryStrategyProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_EpisodicMemoryStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.EpisodicOverrideConsolidationConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_EpisodicOverrideConsolidationConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.EpisodicOverrideExtractionConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_EpisodicOverrideExtractionConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.EpisodicOverrideProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_EpisodicOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.EpisodicOverrideReflectionConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_EpisodicOverrideReflectionConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.EpisodicReflectionConfigurationInputProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_EpisodicReflectionConfigurationInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryPropsMixin.InvocationConfigurationInputProperty",

@@ -164,6 +164,38 @@ func validateCfnDomain_ArnForDomainParameters(resource interfacesawselasticsearc
 	return nil
 }
 
+func validateCfnDomain_FromDomainArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnDomain_FromDomainNameParameters(scope constructs.Construct, id *string, domainName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if domainName == nil {
+		return fmt.Errorf("parameter domainName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnDomain_IsCfnDomainParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

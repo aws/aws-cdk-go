@@ -23,7 +23,7 @@ package awsec2
 //   	InstanceMatchCriteria: jsii.String("instanceMatchCriteria"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []TagSpecificationProperty{
+//   	TagSpecifications: []interface{}{
 //   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []CfnTag{
@@ -126,7 +126,7 @@ type CfnCapacityReservationProps struct {
 	// The tags to apply to the Capacity Reservation during launch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html#cfn-ec2-capacityreservation-tagspecifications
 	//
-	TagSpecifications *[]*CfnCapacityReservation_TagSpecificationProperty `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:.
 	//
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .

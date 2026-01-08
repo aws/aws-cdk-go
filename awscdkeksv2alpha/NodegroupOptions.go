@@ -33,7 +33,7 @@ type NodegroupOptions struct {
 	// Experimental.
 	AmiType NodegroupAmiType `field:"optional" json:"amiType" yaml:"amiType"`
 	// The capacity type of the nodegroup.
-	// Default: - ON_DEMAND.
+	// Default: CapacityType.ON_DEMAND
 	//
 	// Experimental.
 	CapacityType CapacityType `field:"optional" json:"capacityType" yaml:"capacityType"`
@@ -55,7 +55,7 @@ type NodegroupOptions struct {
 	// Node auto repair is disabled by default.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/node-health.html#node-auto-repair
 	//
-	// Default: - disabled.
+	// Default: false.
 	//
 	// Experimental.
 	EnableNodeAutoRepair *bool `field:"optional" json:"enableNodeAutoRepair" yaml:"enableNodeAutoRepair"`
@@ -99,7 +99,7 @@ type NodegroupOptions struct {
 	// The maximum number of worker nodes that the managed node group can scale out to.
 	//
 	// Managed node groups can support up to 100 nodes by default.
-	// Default: - desiredSize.
+	// Default: - same as desiredSize property.
 	//
 	// Experimental.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
@@ -176,7 +176,7 @@ type NodegroupOptions struct {
 	// Each tag consists of
 	// a key and an optional value, both of which you define. Node group tags do not propagate to any other resources
 	// associated with the node group, such as the Amazon EC2 instances or subnets.
-	// Default: - None.
+	// Default: None.
 	//
 	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

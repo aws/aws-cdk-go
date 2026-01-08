@@ -13,7 +13,7 @@ import (
 
 // AWS::IoTAnalytics::Datastore resource is a repository for messages.
 //
-// For more information, see [How to Use AWS IoT Analytics](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *AWS IoT Analytics User Guide* .
+// For more information, see [How to Use](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -114,7 +114,7 @@ type CfnDatastore interface {
 	Env() *interfaces.ResourceEnvironment
 	// Contains the configuration information of file formats.
 	//
-	// AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	// ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	FileFormatConfiguration() interface{}
 	SetFileFormatConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.

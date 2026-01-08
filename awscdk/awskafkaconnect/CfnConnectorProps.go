@@ -90,6 +90,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	NetworkType: jsii.String("networkType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -157,6 +158,12 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
 	//
 	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
+	// The network type of the connector.
+	//
+	// It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// A collection of tags associated with a resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-tags
 	//

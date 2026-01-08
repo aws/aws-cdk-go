@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -109,6 +110,8 @@ type PipelineProject interface {
 	ProjectArn() *string
 	// The name of the project.
 	ProjectName() *string
+	// A reference to a Project resource.
+	ProjectRef() *interfacesawscodebuild.ProjectReference
 	// The IAM role for this project.
 	Role() awsiam.IRole
 	// The stack in which this resource is defined.
@@ -323,6 +326,16 @@ func (j *jsiiProxy_PipelineProject) ProjectName() *string {
 	_jsii_.Get(
 		j,
 		"projectName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PipelineProject) ProjectRef() *interfacesawscodebuild.ProjectReference {
+	var returns *interfacesawscodebuild.ProjectReference
+	_jsii_.Get(
+		j,
+		"projectRef",
 		&returns,
 	)
 	return returns

@@ -48,6 +48,14 @@ func init() {
 		reflect.TypeOf((*CfnPlanPropsMixin_CustomActionLambdaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.DocumentDbConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_DocumentDbConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.DocumentDbUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_DocumentDbUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Ec2AsgCapacityIncreaseConfigurationProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_Ec2AsgCapacityIncreaseConfigurationProperty)(nil)).Elem(),
 	)
@@ -120,6 +128,14 @@ func init() {
 		reflect.TypeOf((*CfnPlanPropsMixin_RegionSwitchPlanConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ReportConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ReportConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ReportOutputConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_ReportOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Route53HealthCheckConfigurationProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_Route53HealthCheckConfigurationProperty)(nil)).Elem(),
 	)
@@ -130,6 +146,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.Route53ResourceRecordSetProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_Route53ResourceRecordSetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.S3ReportOutputConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_S3ReportOutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.ServiceProperty",

@@ -41,6 +41,19 @@ package previewawsarcregionswitchmixins
 //   			Behavior: jsii.String("behavior"),
 //   		},
 //   	},
+//   	DocumentDbConfig: &DocumentDbConfigurationProperty{
+//   		Behavior: jsii.String("behavior"),
+//   		CrossAccountRole: jsii.String("crossAccountRole"),
+//   		DatabaseClusterArns: []*string{
+//   			jsii.String("databaseClusterArns"),
+//   		},
+//   		ExternalId: jsii.String("externalId"),
+//   		GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   		TimeoutMinutes: jsii.Number(123),
+//   		Ungraceful: &DocumentDbUngracefulProperty{
+//   			Ungraceful: jsii.String("ungraceful"),
+//   		},
+//   	},
 //   	Ec2AsgCapacityIncreaseConfig: &Ec2AsgCapacityIncreaseConfigurationProperty{
 //   		Asgs: []interface{}{
 //   			&AsgProperty{
@@ -160,6 +173,9 @@ type CfnPlanPropsMixin_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-customactionlambdaconfig
 	//
 	CustomActionLambdaConfig interface{} `field:"optional" json:"customActionLambdaConfig" yaml:"customActionLambdaConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-documentdbconfig
+	//
+	DocumentDbConfig interface{} `field:"optional" json:"documentDbConfig" yaml:"documentDbConfig"`
 	// An EC2 Auto Scaling group execution block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-ec2asgcapacityincreaseconfig
 	//

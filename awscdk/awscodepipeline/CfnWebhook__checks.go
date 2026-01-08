@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,30 @@ func (c *jsiiProxy_CfnWebhook) validateReplaceDependencyParameters(target awscdk
 func (c *jsiiProxy_CfnWebhook) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnWebhook_ArnForWebhookParameters(resource interfacesawscodepipeline.IWebhookRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnWebhook_FromWebhookNameParameters(scope constructs.Construct, id *string, webhookName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if webhookName == nil {
+		return fmt.Errorf("parameter webhookName is required, but nil was provided")
 	}
 
 	return nil

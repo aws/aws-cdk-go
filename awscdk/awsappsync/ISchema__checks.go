@@ -6,9 +6,11 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 )
 
-func (i *jsiiProxy_ISchema) validateBindParameters(api IGraphqlApi, options *SchemaBindOptions) error {
+func (i *jsiiProxy_ISchema) validateBindParameters(api interfacesawsappsync.IGraphQLApiRef, options *SchemaBindOptions) error {
 	if api == nil {
 		return fmt.Errorf("parameter api is required, but nil was provided")
 	}

@@ -10,13 +10,13 @@ package interfacesawselasticache
 //
 //   userReference := &UserReference{
 //   	UserArn: jsii.String("userArn"),
-//   	UserId: jsii.String("userId"),
+//   	UserName: jsii.String("userName"),
 //   }
 //
 type UserReference struct {
 	// The ARN of the User resource.
 	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`
-	// The UserId of the User resource.
-	UserId *string `field:"required" json:"userId" yaml:"userId"`
+	// The UserName of the User resource.
+	UserName *string `field:"required" json:"userName" yaml:"userName"`
 }
 

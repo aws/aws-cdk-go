@@ -8,12 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a Fleet for a reserved capacity CodeBuild project.
 type IFleet interface {
 	awsec2.IConnectable
+	interfacesawscodebuild.IFleetRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// The compute type of the fleet.
@@ -31,6 +33,7 @@ type IFleet interface {
 // The jsii proxy for IFleet
 type jsiiProxy_IFleet struct {
 	internal.Type__awsec2IConnectable
+	internal.Type__interfacesawscodebuildIFleetRef
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
 }
@@ -101,6 +104,16 @@ func (j *jsiiProxy_IFleet) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IFleet) FleetRef() *interfacesawscodebuild.FleetReference {
+	var returns *interfacesawscodebuild.FleetReference
+	_jsii_.Get(
+		j,
+		"fleetRef",
 		&returns,
 	)
 	return returns

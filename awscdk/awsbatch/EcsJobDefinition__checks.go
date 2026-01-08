@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,7 +52,7 @@ func (e *jsiiProxy_EcsJobDefinition) validateGetResourceNameAttributeParameters(
 	return nil
 }
 
-func (e *jsiiProxy_EcsJobDefinition) validateGrantSubmitJobParameters(identity awsiam.IGrantable, queue IJobQueue) error {
+func (e *jsiiProxy_EcsJobDefinition) validateGrantSubmitJobParameters(identity awsiam.IGrantable, queue interfacesawsbatch.IJobQueueRef) error {
 	if identity == nil {
 		return fmt.Errorf("parameter identity is required, but nil was provided")
 	}

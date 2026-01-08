@@ -1,5 +1,8 @@
 package awsbackup
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbackup"
+)
 
 // Properties for a BackupPlan.
 //
@@ -24,7 +27,7 @@ type BackupPlanProps struct {
 	// Default: - use the vault defined at the rule level. If not defined a new
 	// common vault for the plan will be created.
 	//
-	BackupVault IBackupVault `field:"optional" json:"backupVault" yaml:"backupVault"`
+	BackupVault interfacesawsbackup.IBackupVaultRef `field:"optional" json:"backupVault" yaml:"backupVault"`
 	// Enable Windows VSS backup.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html
 	//

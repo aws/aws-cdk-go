@@ -1659,7 +1659,7 @@ cloudfront.NewCloudFrontWebDistribution(this, jsii.String("AnAmazingWebsiteProba
 			Behaviors: []Behavior{
 				&Behavior{
 					IsDefaultBehavior: jsii.Boolean(true),
-					TrustedKeyGroups: []IKeyGroup{
+					TrustedKeyGroups: []IKeyGroupRef{
 						keyGroup,
 					},
 				},

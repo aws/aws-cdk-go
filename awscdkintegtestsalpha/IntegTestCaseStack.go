@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdkintegtestsalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -80,6 +81,9 @@ type IntegTestCaseStack interface {
 	// Return the stacks this stack depends on.
 	// Experimental.
 	Dependencies() *[]awscdk.Stack
+	// The environment this Stack deploys to.
+	// Experimental.
+	Env() *interfaces.ResourceEnvironment
 	// The environment coordinates in which this stack is deployed.
 	//
 	// In the form
@@ -459,6 +463,16 @@ func (j *jsiiProxy_IntegTestCaseStack) Dependencies() *[]awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"dependencies",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IntegTestCaseStack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

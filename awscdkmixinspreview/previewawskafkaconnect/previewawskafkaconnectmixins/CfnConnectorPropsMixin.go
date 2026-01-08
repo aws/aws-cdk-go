@@ -78,6 +78,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	NetworkType: jsii.String("networkType"),
 //   	Plugins: []interface{}{
 //   		&PluginProperty{
 //   			CustomPlugin: &CustomPluginProperty{

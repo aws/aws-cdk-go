@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,6 +73,9 @@ type DefaultStagingStack interface {
 	// The stack to add dependencies to.
 	// Experimental.
 	DependencyStack() awscdk.Stack
+	// The environment this Stack deploys to.
+	// Experimental.
+	Env() *interfaces.ResourceEnvironment
 	// The environment coordinates in which this stack is deployed.
 	//
 	// In the form
@@ -464,6 +468,16 @@ func (j *jsiiProxy_DefaultStagingStack) DependencyStack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"dependencyStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DefaultStagingStack) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
 		&returns,
 	)
 	return returns

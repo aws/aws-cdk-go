@@ -16,11 +16,12 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //
 //   warmPool := awscdk.Aws_autoscaling.NewWarmPool(this, jsii.String("MyWarmPool"), &WarmPoolProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //
 //   	// the properties below are optional
 //   	MaxGroupPreparedCapacity: jsii.Number(123),

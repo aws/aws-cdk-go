@@ -32,3 +32,11 @@ func (i *jsiiProxy_IHttpApi) validateMetricServerErrorParameters(props *awscloud
 	return nil
 }
 
+func (i *jsiiProxy_IHttpApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+
+func (i *jsiiProxy_IHttpApi) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+

@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,7 +23,7 @@ import (
 type Ec2Action interface {
 	awscloudwatch.IAlarmAction
 	// Returns an alarm action configuration to use an EC2 action as an alarm action.
-	Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for Ec2Action
@@ -57,7 +58,7 @@ func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 	)
 }
 
-func (e *jsiiProxy_Ec2Action) Bind(scope constructs.Construct, alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (e *jsiiProxy_Ec2Action) Bind(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) *awscloudwatch.AlarmActionConfig {
 	if err := e.validateBindParameters(scope, alarm); err != nil {
 		panic(err)
 	}

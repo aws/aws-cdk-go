@@ -17,6 +17,7 @@ import (
 //
 //   cfnLogGroupProps := &CfnLogGroupProps{
 //   	DataProtectionPolicy: dataProtectionPolicy,
+//   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	FieldIndexPolicies: []interface{}{
 //   		fieldIndexPolicies,
 //   	},
@@ -42,6 +43,14 @@ type CfnLogGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-dataprotectionpolicy
 	//
 	DataProtectionPolicy interface{} `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
+	// Indicates whether deletion protection is enabled for this log group.
+	//
+	// When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-deletionprotectionenabled
+	//
+	// Default: - false.
+	//
+	DeletionProtectionEnabled interface{} `field:"optional" json:"deletionProtectionEnabled" yaml:"deletionProtectionEnabled"`
 	// Creates or updates a *field index policy* for the specified log group.
 	//
 	// Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html) .

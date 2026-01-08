@@ -21,11 +21,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //
 //   stepScalingAction := awscdk.Aws_autoscaling.NewStepScalingAction(this, jsii.String("MyStepScalingAction"), &StepScalingActionProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //
 //   	// the properties below are optional
 //   	AdjustmentType: awscdk.*Aws_autoscaling.AdjustmentType_CHANGE_IN_CAPACITY,

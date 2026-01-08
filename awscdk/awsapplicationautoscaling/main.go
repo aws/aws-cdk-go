@@ -27,13 +27,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "doScaleOnMetric", GoMethod: "DoScaleOnMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "doScaleOnSchedule", GoMethod: "DoScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "doScaleToTrackMetric", GoMethod: "DoScaleToTrackMetric"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BaseScalableAttribute{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapplicationautoscalingIScalableTargetRef)
 			return &j
 		},
 	)
@@ -286,11 +289,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "scalableTargetId", GoGetter: "ScalableTargetId"},
+			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScalableTarget{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsapplicationautoscalingIScalableTargetRef)
 			return &j
 		},
 	)
@@ -351,6 +356,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "scalableTargetId", GoGetter: "ScalableTargetId"},
+			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnMetric", GoMethod: "ScaleOnMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnSchedule", GoMethod: "ScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleToTrackMetric", GoMethod: "ScaleToTrackMetric"},
@@ -363,6 +369,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IScalableTarget)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationautoscaling.ScalableTargetAttributes",
+		reflect.TypeOf((*ScalableTargetAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationautoscaling.ScalableTargetProps",

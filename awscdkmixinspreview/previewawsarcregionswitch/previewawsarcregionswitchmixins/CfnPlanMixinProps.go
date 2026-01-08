@@ -28,6 +28,16 @@ package previewawsarcregionswitchmixins
 //   	Regions: []*string{
 //   		jsii.String("regions"),
 //   	},
+//   	ReportConfiguration: &ReportConfigurationProperty{
+//   		ReportOutput: []interface{}{
+//   			&ReportOutputConfigurationProperty{
+//   				S3Configuration: &S3ReportOutputConfigurationProperty{
+//   					BucketOwner: jsii.String("bucketOwner"),
+//   					BucketPath: jsii.String("bucketPath"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -77,6 +87,19 @@ package previewawsarcregionswitchmixins
 //   							TimeoutMinutes: jsii.Number(123),
 //   							Ungraceful: &LambdaUngracefulProperty{
 //   								Behavior: jsii.String("behavior"),
+//   							},
+//   						},
+//   						DocumentDbConfig: &DocumentDbConfigurationProperty{
+//   							Behavior: jsii.String("behavior"),
+//   							CrossAccountRole: jsii.String("crossAccountRole"),
+//   							DatabaseClusterArns: []*string{
+//   								jsii.String("databaseClusterArns"),
+//   							},
+//   							ExternalId: jsii.String("externalId"),
+//   							GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   							TimeoutMinutes: jsii.Number(123),
+//   							Ungraceful: &DocumentDbUngracefulProperty{
+//   								Ungraceful: jsii.String("ungraceful"),
 //   							},
 //   						},
 //   						Ec2AsgCapacityIncreaseConfig: &Ec2AsgCapacityIncreaseConfigurationProperty{
@@ -227,6 +250,10 @@ type CfnPlanMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html#cfn-arcregionswitch-plan-regions
 	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
+	// The report configuration for a plan.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html#cfn-arcregionswitch-plan-reportconfiguration
+	//
+	ReportConfiguration interface{} `field:"optional" json:"reportConfiguration" yaml:"reportConfiguration"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html#cfn-arcregionswitch-plan-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

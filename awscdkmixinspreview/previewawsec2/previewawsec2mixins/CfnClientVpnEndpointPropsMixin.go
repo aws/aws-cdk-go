@@ -58,6 +58,7 @@ import (
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
 //   	},
+//   	EndpointIpAddressType: jsii.String("endpointIpAddressType"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -76,6 +77,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	TrafficIpAddressType: jsii.String("trafficIpAddressType"),
 //   	TransportProtocol: jsii.String("transportProtocol"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpnPort: jsii.Number(123),

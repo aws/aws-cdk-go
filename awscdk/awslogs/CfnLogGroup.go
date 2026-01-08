@@ -50,6 +50,9 @@ type CfnLogGroup interface {
 	// Creates a data protection policy and assigns it to the log group.
 	DataProtectionPolicy() interface{}
 	SetDataProtectionPolicy(val interface{})
+	// Indicates whether deletion protection is enabled for this log group.
+	DeletionProtectionEnabled() interface{}
+	SetDeletionProtectionEnabled(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// Creates or updates a *field index policy* for the specified log group.
 	FieldIndexPolicies() interface{}
@@ -307,6 +310,16 @@ func (j *jsiiProxy_CfnLogGroup) DataProtectionPolicy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogGroup) DeletionProtectionEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deletionProtectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLogGroup) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -501,6 +514,17 @@ func (j *jsiiProxy_CfnLogGroup)SetDataProtectionPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogGroup)SetDeletionProtectionEnabled(val interface{}) {
+	if err := j.validateSetDeletionProtectionEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deletionProtectionEnabled",
 		val,
 	)
 }

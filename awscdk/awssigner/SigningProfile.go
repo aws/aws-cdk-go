@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssigner"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,6 +61,8 @@ type SigningProfile interface {
 	SigningProfileArn() *string
 	// The name of signing profile.
 	SigningProfileName() *string
+	// A reference to a SigningProfile resource.
+	SigningProfileRef() *interfacesawssigner.SigningProfileReference
 	// The version of signing profile.
 	SigningProfileVersion() *string
 	// The ARN of signing profile version.
@@ -145,6 +148,16 @@ func (j *jsiiProxy_SigningProfile) SigningProfileName() *string {
 	_jsii_.Get(
 		j,
 		"signingProfileName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SigningProfile) SigningProfileRef() *interfacesawssigner.SigningProfileReference {
+	var returns *interfacesawssigner.SigningProfileReference
+	_jsii_.Get(
+		j,
+		"signingProfileRef",
 		&returns,
 	)
 	return returns

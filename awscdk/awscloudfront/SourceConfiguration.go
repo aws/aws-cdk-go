@@ -20,11 +20,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket Bucket
+//   var cloudFrontOriginAccessIdentityRef interface { ICloudFrontOriginAccessIdentityRef; IGrantable }
 //   var functionRef IFunctionRef
-//   var keyGroup KeyGroup
-//   var originAccessIdentity OriginAccessIdentity
+//   var keyGroupRef IKeyGroupRef
 //   var version Version
 //
 //   sourceConfiguration := &SourceConfiguration{
@@ -72,8 +73,8 @@ import (
 //   			MaxTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   			MinTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   			PathPattern: jsii.String("pathPattern"),
-//   			TrustedKeyGroups: []IKeyGroup{
-//   				keyGroup,
+//   			TrustedKeyGroups: []IKeyGroupRef{
+//   				keyGroupRef,
 //   			},
 //   			TrustedSigners: []*string{
 //   				jsii.String("trustedSigners"),
@@ -128,7 +129,7 @@ import (
 //   		S3BucketSource: bucket,
 //
 //   		// the properties below are optional
-//   		OriginAccessIdentity: originAccessIdentity,
+//   		OriginAccessIdentity: cloudFrontOriginAccessIdentityRef,
 //   		OriginHeaders: map[string]*string{
 //   			"originHeadersKey": jsii.String("originHeaders"),
 //   		},
@@ -140,7 +141,7 @@ import (
 //   		S3BucketSource: bucket,
 //
 //   		// the properties below are optional
-//   		OriginAccessIdentity: originAccessIdentity,
+//   		OriginAccessIdentity: cloudFrontOriginAccessIdentityRef,
 //   		OriginHeaders: map[string]*string{
 //   			"originHeadersKey": jsii.String("originHeaders"),
 //   		},

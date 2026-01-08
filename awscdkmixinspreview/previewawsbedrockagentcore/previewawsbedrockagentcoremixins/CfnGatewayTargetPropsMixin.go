@@ -38,6 +38,8 @@ import (
 //   					CustomParameters: map[string]*string{
 //   						"customParametersKey": jsii.String("customParameters"),
 //   					},
+//   					DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   					GrantType: jsii.String("grantType"),
 //   					ProviderArn: jsii.String("providerArn"),
 //   					Scopes: []*string{
 //   						jsii.String("scopes"),
@@ -49,6 +51,17 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	GatewayIdentifier: jsii.String("gatewayIdentifier"),
+//   	MetadataConfiguration: &MetadataConfigurationProperty{
+//   		AllowedQueryParameters: []*string{
+//   			jsii.String("allowedQueryParameters"),
+//   		},
+//   		AllowedRequestHeaders: []*string{
+//   			jsii.String("allowedRequestHeaders"),
+//   		},
+//   		AllowedResponseHeaders: []*string{
+//   			jsii.String("allowedResponseHeaders"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	TargetConfiguration: &TargetConfigurationProperty{
 //   		Mcp: &McpTargetConfigurationProperty{

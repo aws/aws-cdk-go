@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,6 +46,8 @@ type S3OriginAccessControl interface {
 	Node() constructs.Node
 	// The unique identifier of this Origin Access Control.
 	OriginAccessControlId() *string
+	// A reference to a OriginAccessControl resource.
+	OriginAccessControlRef() *interfacesawscloudfront.OriginAccessControlReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -114,6 +117,16 @@ func (j *jsiiProxy_S3OriginAccessControl) OriginAccessControlId() *string {
 	_jsii_.Get(
 		j,
 		"originAccessControlId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3OriginAccessControl) OriginAccessControlRef() *interfacesawscloudfront.OriginAccessControlReference {
+	var returns *interfacesawscloudfront.OriginAccessControlReference
+	_jsii_.Get(
+		j,
+		"originAccessControlRef",
 		&returns,
 	)
 	return returns

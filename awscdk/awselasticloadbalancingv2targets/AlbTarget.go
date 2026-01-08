@@ -15,9 +15,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var applicationLoadBalancer ApplicationLoadBalancer
+//   var applicationLoadBalancerRef IApplicationLoadBalancerRef
 //
-//   albTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewAlbTarget(applicationLoadBalancer, jsii.Number(123))
+//   albTarget := awscdk.Aws_elasticloadbalancingv2_targets.NewAlbTarget(applicationLoadBalancerRef, jsii.Number(123))
 //
 // Deprecated: Use `AlbListenerTarget` instead or
 // `AlbArnTarget` for an imported load balancer. This target does not automatically
@@ -48,7 +48,7 @@ type jsiiProxy_AlbTarget struct {
 // add a dependency between the ALB listener and resulting NLB target group,
 // without which may cause stack deployments to fail if the NLB target group is provisioned
 // before the listener has been fully created.
-func NewAlbTarget(alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) AlbTarget {
+func NewAlbTarget(alb awselasticloadbalancingv2.IApplicationLoadBalancerRef, port *float64) AlbTarget {
 	_init_.Initialize()
 
 	if err := validateNewAlbTargetParameters(alb, port); err != nil {
@@ -70,7 +70,7 @@ func NewAlbTarget(alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *
 // add a dependency between the ALB listener and resulting NLB target group,
 // without which may cause stack deployments to fail if the NLB target group is provisioned
 // before the listener has been fully created.
-func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.IApplicationLoadBalancer, port *float64) {
+func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.IApplicationLoadBalancerRef, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(

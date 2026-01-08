@@ -3,6 +3,7 @@ package awsautoscaling
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 )
 
 // Properties for a Lifecycle hook.
@@ -13,13 +14,14 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var lifecycleHookTarget ILifecycleHookTarget
 //   var role Role
 //
 //   lifecycleHookProps := &LifecycleHookProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	LifecycleTransition: awscdk.Aws_autoscaling.LifecycleTransition_INSTANCE_LAUNCHING,
 //
 //   	// the properties below are optional
@@ -61,6 +63,6 @@ type LifecycleHookProps struct {
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// The AutoScalingGroup to add the lifecycle hook to.
-	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
+	AutoScalingGroup interfacesawsautoscaling.IAutoScalingGroupRef `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 

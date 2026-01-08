@@ -28,7 +28,7 @@ type CfnClusterPropsMixin_AccountingProperty struct {
 	// Default: - -1.
 	//
 	DefaultPurgeTimeInDays *float64 `field:"optional" json:"defaultPurgeTimeInDays" yaml:"defaultPurgeTimeInDays"`
-	// The default value for `mode` is `STANDARD` .
+	// The default value for `mode` is `NONE` .
 	//
 	// A value of `STANDARD` means Slurm accounting is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-accounting.html#cfn-pcs-cluster-accounting-mode

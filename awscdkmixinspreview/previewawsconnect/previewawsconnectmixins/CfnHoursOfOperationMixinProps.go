@@ -12,6 +12,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnHoursOfOperationMixinProps := &CfnHoursOfOperationMixinProps{
+//   	ChildHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Config: []interface{}{
 //   		&HoursOfOperationConfigProperty{
 //   			Day: jsii.String("day"),
@@ -46,10 +52,32 @@ import (
 //   			},
 //   			OverrideDescription: jsii.String("overrideDescription"),
 //   			OverrideName: jsii.String("overrideName"),
+//   			OverrideType: jsii.String("overrideType"),
+//   			RecurrenceConfig: &RecurrenceConfigProperty{
+//   				RecurrencePattern: &RecurrencePatternProperty{
+//   					ByMonth: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByMonthDay: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					ByWeekdayOccurrence: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					Frequency: jsii.String("frequency"),
+//   					Interval: jsii.Number(123),
+//   				},
+//   			},
 //   		},
 //   	},
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
+//   	ParentHoursOfOperations: []interface{}{
+//   		&HoursOfOperationsIdentifierProperty{
+//   			Id: jsii.String("id"),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -62,6 +90,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html
 //
 type CfnHoursOfOperationMixinProps struct {
+	// List of child hours of operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-childhoursofoperations
+	//
+	ChildHoursOfOperations interface{} `field:"optional" json:"childHoursOfOperations" yaml:"childHoursOfOperations"`
 	// Configuration information for the hours of operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-config
 	//
@@ -82,6 +114,10 @@ type CfnHoursOfOperationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// List of parent hours of operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-parenthoursofoperations
+	//
+	ParentHoursOfOperations interface{} `field:"optional" json:"parentHoursOfOperations" yaml:"parentHoursOfOperations"`
 	// The tags used to organize, track, or control access for this resource.
 	//
 	// For example, { "Tags": {"key1":"value1", "key2":"value2"} }.

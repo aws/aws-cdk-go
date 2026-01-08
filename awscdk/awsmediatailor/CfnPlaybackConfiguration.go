@@ -29,6 +29,16 @@ import (
 //   	AdConditioningConfiguration: &AdConditioningConfigurationProperty{
 //   		StreamingMediaFileConditioning: jsii.String("streamingMediaFileConditioning"),
 //   	},
+//   	AdDecisionServerConfiguration: &AdDecisionServerConfigurationProperty{
+//   		HttpRequest: &HttpRequestProperty{
+//   			Body: jsii.String("body"),
+//   			CompressRequest: jsii.String("compressRequest"),
+//   			Headers: map[string]*string{
+//   				"headersKey": jsii.String("headers"),
+//   			},
+//   			HttpMethod: jsii.String("httpMethod"),
+//   		},
+//   	},
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
@@ -105,6 +115,9 @@ type CfnPlaybackConfiguration interface {
 	// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
 	AdConditioningConfiguration() interface{}
 	SetAdConditioningConfiguration(val interface{})
+	// The configuration for the request to the specified Ad Decision Server URL.
+	AdDecisionServerConfiguration() interface{}
+	SetAdDecisionServerConfiguration(val interface{})
 	// The URL for the ad decision server (ADS).
 	AdDecisionServerUrl() *string
 	SetAdDecisionServerUrl(val *string)
@@ -360,6 +373,16 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) AdConditioningConfiguration() inter
 	_jsii_.Get(
 		j,
 		"adConditioningConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) AdDecisionServerConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"adDecisionServerConfiguration",
 		&returns,
 	)
 	return returns
@@ -752,6 +775,17 @@ func (j *jsiiProxy_CfnPlaybackConfiguration)SetAdConditioningConfiguration(val i
 	_jsii_.Set(
 		j,
 		"adConditioningConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetAdDecisionServerConfiguration(val interface{}) {
+	if err := j.validateSetAdDecisionServerConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"adDecisionServerConfiguration",
 		val,
 	)
 }

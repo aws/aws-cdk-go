@@ -8,64 +8,62 @@ package awsec2
 //
 // Example:
 //   var vpc Vpc
-//   var infrastructureRole Role
-//   var instanceProfile InstanceProfile
 //
 //
-//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-//   	Vpc: Vpc,
-//   })
-//
-//   // Create a Managed Instances Capacity Provider
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
-//   	InfrastructureRole: InfrastructureRole,
-//   	Ec2InstanceProfile: instanceProfile,
 //   	Subnets: vpc.PrivateSubnets,
-//   	SecurityGroups: []ISecurityGroup{
-//   		ec2.NewSecurityGroup(this, jsii.String("MISecurityGroup"), &SecurityGroupProps{
-//   			Vpc: *Vpc,
-//   		}),
-//   	},
 //   	InstanceRequirements: &InstanceRequirementsConfig{
-//   		VCpuCountMin: jsii.Number(1),
-//   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
+//   		// Required: CPU and memory constraints
+//   		VCpuCountMin: jsii.Number(2),
+//   		VCpuCountMax: jsii.Number(8),
+//   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(4)),
+//   		MemoryMax: awscdk.Size_*Gibibytes(jsii.Number(32)),
+//
+//   		// CPU preferences
 //   		CpuManufacturers: []CpuManufacturer{
 //   			ec2.CpuManufacturer_INTEL,
+//   			ec2.CpuManufacturer_AMD,
+//   		},
+//   		InstanceGenerations: []InstanceGeneration{
+//   			ec2.InstanceGeneration_CURRENT,
+//   		},
+//
+//   		// Instance type filtering
+//   		AllowedInstanceTypes: []*string{
+//   			jsii.String("m5.*"),
+//   			jsii.String("c5.*"),
+//   		},
+//
+//   		// Performance characteristics
+//   		BurstablePerformance: ec2.BurstablePerformance_EXCLUDED,
+//   		BareMetal: ec2.BareMetal_EXCLUDED,
+//
+//   		// Accelerator requirements (for ML/AI workloads)
+//   		AcceleratorTypes: []AcceleratorType{
+//   			ec2.AcceleratorType_GPU,
 //   		},
 //   		AcceleratorManufacturers: []AcceleratorManufacturer{
 //   			ec2.AcceleratorManufacturer_NVIDIA,
 //   		},
-//   	},
-//   	PropagateTags: ecs.PropagateManagedInstancesTags_CAPACITY_PROVIDER,
-//   })
-//
-//   // Optionally configure security group rules using IConnectable interface
-//   miCapacityProvider.Connections.AllowFrom(ec2.Peer_Ipv4(vpc.VpcCidrBlock), ec2.Port_Tcp(jsii.Number(80)))
-//
-//   // Add the capacity provider to the cluster
-//   cluster.AddManagedInstancesCapacityProvider(miCapacityProvider)
-//
-//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TaskDef"), &TaskDefinitionProps{
-//   	MemoryMiB: jsii.String("512"),
-//   	Cpu: jsii.String("256"),
-//   	NetworkMode: ecs.NetworkMode_AWS_VPC,
-//   	Compatibility: ecs.Compatibility_MANAGED_INSTANCES,
-//   })
-//
-//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
-//   	MemoryReservationMiB: jsii.Number(256),
-//   })
-//
-//   ecs.NewFargateService(this, jsii.String("FargateService"), &FargateServiceProps{
-//   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
-//   	MinHealthyPercent: jsii.Number(100),
-//   	CapacityProviderStrategies: []CapacityProviderStrategy{
-//   		&CapacityProviderStrategy{
-//   			CapacityProvider: miCapacityProvider.CapacityProviderName,
-//   			Weight: jsii.Number(1),
+//   		AcceleratorNames: []AcceleratorName{
+//   			ec2.AcceleratorName_T4,
+//   			ec2.AcceleratorName_V100,
 //   		},
+//   		AcceleratorCountMin: jsii.Number(1),
+//
+//   		// Storage requirements
+//   		LocalStorage: ec2.LocalStorage_REQUIRED,
+//   		LocalStorageTypes: []LocalStorageType{
+//   			ec2.LocalStorageType_SSD,
+//   		},
+//   		TotalLocalStorageGBMin: jsii.Number(100),
+//
+//   		// Network requirements
+//   		NetworkInterfaceCountMin: jsii.Number(2),
+//   		NetworkBandwidthGbpsMin: jsii.Number(10),
+//
+//   		// Cost optimization
+//   		OnDemandMaxPricePercentageOverLowestPrice: jsii.Number(10),
 //   	},
 //   })
 //

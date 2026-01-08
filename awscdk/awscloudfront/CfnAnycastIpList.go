@@ -59,6 +59,7 @@ type CfnAnycastIpList interface {
 	AttrETag() *string
 	// The ID of the Anycast static IP list.
 	AttrId() *string
+	// The results for the IPAM CIDRs that defines a specific IP address range, IPAM pool, and associated Anycast IP address.
 	AttrIpamCidrConfigResults() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -75,6 +76,7 @@ type CfnAnycastIpList interface {
 	// The IP address type for the Anycast static IP list.
 	IpAddressType() *string
 	SetIpAddressType(val *string)
+	// A list of IPAM CIDR configurations that define the IP address ranges, IPAM pools, and associated Anycast IP addresses.
 	IpamCidrConfigs() interface{}
 	SetIpamCidrConfigs(val interface{})
 	// The number of IP addresses in the Anycast static IP list.

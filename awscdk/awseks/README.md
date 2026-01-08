@@ -322,7 +322,7 @@ cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions
 })
 ```
 
-> **NOTE:** If you add instances with the inferentia class (`inf1` or `inf2`) or trainium class (`trn1` or `trn1n`)
+> **NOTE:** If you add instances with the inferentia class (`inf1` or `inf2`) or trainium class (`trn1`, `trn1n`, or `trn2`)
 > the [neuron plugin](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/dlc-then-eks-devflow.html)
 > will be automatically installed in the kubernetes cluster.
 

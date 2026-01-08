@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,6 +62,8 @@ type MultiNodeJobDefinition interface {
 	JobDefinitionArn() *string
 	// The name of this job definition.
 	JobDefinitionName() *string
+	// A reference to a JobDefinition resource.
+	JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference
 	// The index of the main node in this job.
 	//
 	// The main node is responsible for orchestration.
@@ -181,6 +184,16 @@ func (j *jsiiProxy_MultiNodeJobDefinition) JobDefinitionName() *string {
 	_jsii_.Get(
 		j,
 		"jobDefinitionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MultiNodeJobDefinition) JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference {
+	var returns *interfacesawsbatch.JobDefinitionReference
+	_jsii_.Get(
+		j,
+		"jobDefinitionRef",
 		&returns,
 	)
 	return returns

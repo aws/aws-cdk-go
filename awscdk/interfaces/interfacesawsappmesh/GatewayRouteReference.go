@@ -10,13 +10,10 @@ package interfacesawsappmesh
 //
 //   gatewayRouteReference := &GatewayRouteReference{
 //   	GatewayRouteArn: jsii.String("gatewayRouteArn"),
-//   	GatewayRouteId: jsii.String("gatewayRouteId"),
 //   }
 //
 type GatewayRouteReference struct {
-	// The ARN of the GatewayRoute resource.
+	// The Arn of the GatewayRoute resource.
 	GatewayRouteArn *string `field:"required" json:"gatewayRouteArn" yaml:"gatewayRouteArn"`
-	// The Id of the GatewayRoute resource.
-	GatewayRouteId *string `field:"required" json:"gatewayRouteId" yaml:"gatewayRouteId"`
 }
 

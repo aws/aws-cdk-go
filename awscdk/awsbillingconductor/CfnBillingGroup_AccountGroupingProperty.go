@@ -31,6 +31,9 @@ type CfnBillingGroup_AccountGroupingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-linkedaccountids
 	//
 	LinkedAccountIds *[]*string `field:"optional" json:"linkedAccountIds" yaml:"linkedAccountIds"`
+	// The Amazon Resource Name (ARN) that identifies the transfer relationship owned by the Bill Transfer account (caller account).
+	//
+	// When specified, the PrimaryAccountId is no longer required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-responsibilitytransferarn
 	//
 	ResponsibilityTransferArn *string `field:"optional" json:"responsibilityTransferArn" yaml:"responsibilityTransferArn"`

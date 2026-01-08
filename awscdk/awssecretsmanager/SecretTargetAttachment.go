@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecretsmanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -77,6 +78,10 @@ type SecretTargetAttachment interface {
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
 	SecretName() *string
+	// A reference to a Secret resource.
+	SecretRef() *interfacesawssecretsmanager.SecretReference
+	// A reference to a SecretTargetAttachment resource.
+	SecretTargetAttachmentRef() *interfacesawssecretsmanager.SecretTargetAttachmentReference
 	// Same as `secretArn`.
 	SecretTargetAttachmentSecretArn() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
@@ -227,6 +232,26 @@ func (j *jsiiProxy_SecretTargetAttachment) SecretName() *string {
 	_jsii_.Get(
 		j,
 		"secretName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SecretTargetAttachment) SecretRef() *interfacesawssecretsmanager.SecretReference {
+	var returns *interfacesawssecretsmanager.SecretReference
+	_jsii_.Get(
+		j,
+		"secretRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SecretTargetAttachment) SecretTargetAttachmentRef() *interfacesawssecretsmanager.SecretTargetAttachmentReference {
+	var returns *interfacesawssecretsmanager.SecretTargetAttachmentReference
+	_jsii_.Get(
+		j,
+		"secretTargetAttachmentRef",
 		&returns,
 	)
 	return returns

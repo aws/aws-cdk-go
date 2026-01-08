@@ -1,5 +1,8 @@
 package previewawslexmixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnBotAliasPropsMixin.
 //
@@ -26,7 +29,7 @@ package previewawslexmixins
 //   		},
 //   	},
 //   	BotAliasName: jsii.String("botAliasName"),
-//   	BotAliasTags: []interface{}{
+//   	BotAliasTags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
@@ -83,7 +86,7 @@ type CfnBotAliasMixinProps struct {
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botaliastags
 	//
-	BotAliasTags interface{} `field:"optional" json:"botAliasTags" yaml:"botAliasTags"`
+	BotAliasTags *[]*awscdk.CfnTag `field:"optional" json:"botAliasTags" yaml:"botAliasTags"`
 	// The unique identifier of the bot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html#cfn-lex-botalias-botid
 	//

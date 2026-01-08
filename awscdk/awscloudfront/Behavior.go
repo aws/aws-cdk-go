@@ -2,6 +2,7 @@ package awscloudfront
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // A CloudFront behavior wrapper.
@@ -15,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var functionRef IFunctionRef
-//   var keyGroup KeyGroup
+//   var keyGroupRef IKeyGroupRef
 //   var version Version
 //
 //   behavior := &Behavior{
@@ -61,8 +62,8 @@ import (
 //   	MaxTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	MinTtl: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	PathPattern: jsii.String("pathPattern"),
-//   	TrustedKeyGroups: []IKeyGroup{
-//   		keyGroup,
+//   	TrustedKeyGroups: []IKeyGroupRef{
+//   		keyGroupRef,
 //   	},
 //   	TrustedSigners: []*string{
 //   		jsii.String("trustedSigners"),
@@ -122,7 +123,7 @@ type Behavior struct {
 	//
 	// Default: - no KeyGroups are associated with cache behavior.
 	//
-	TrustedKeyGroups *[]IKeyGroup `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
+	TrustedKeyGroups *[]interfacesawscloudfront.IKeyGroupRef `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// Trusted signers is how CloudFront allows you to serve private content.
 	//
 	// The signers are the account IDs that are allowed to sign cookies/presigned URLs for this distribution.

@@ -17,11 +17,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fileSystem FileSystem
+//   var fileSystemRef IFileSystemRef
 //
 //   efsVolume := awscdk.Aws_batch.NewEfsVolume(&EfsVolumeOptions{
 //   	ContainerPath: jsii.String("containerPath"),
-//   	FileSystem: fileSystem,
+//   	FileSystem: fileSystemRef,
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional

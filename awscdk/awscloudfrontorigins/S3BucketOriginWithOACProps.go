@@ -3,6 +3,7 @@ package awscloudfrontorigins
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // Properties for configuring a S3 origin with OAC.
@@ -77,7 +78,7 @@ type S3BucketOriginWithOACProps struct {
 	// An optional Origin Access Control.
 	// Default: - an Origin Access Control will be created.
 	//
-	OriginAccessControl awscloudfront.IOriginAccessControl `field:"optional" json:"originAccessControl" yaml:"originAccessControl"`
+	OriginAccessControl interfacesawscloudfront.IOriginAccessControlRef `field:"optional" json:"originAccessControl" yaml:"originAccessControl"`
 	// The level of permissions granted in the bucket policy and key policy (if applicable) to the CloudFront distribution.
 	// Default: [AccessLevel.READ]
 	//

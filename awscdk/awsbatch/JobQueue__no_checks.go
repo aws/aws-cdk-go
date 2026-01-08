@@ -4,7 +4,7 @@ package awsbatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvironment IComputeEnvironment, order *float64) error {
+func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvironment interfacesawsbatch.IComputeEnvironmentRef, order *float64) error {
 	return nil
 }
 

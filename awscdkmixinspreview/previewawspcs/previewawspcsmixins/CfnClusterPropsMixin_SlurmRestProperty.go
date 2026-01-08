@@ -17,7 +17,7 @@ package previewawspcsmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmrest.html
 //
 type CfnClusterPropsMixin_SlurmRestProperty struct {
-	// The default value for `mode` is `STANDARD` .
+	// The default value for `mode` is `NONE` .
 	//
 	// A value of `STANDARD` means the Slurm REST API is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmrest.html#cfn-pcs-cluster-slurmrest-mode

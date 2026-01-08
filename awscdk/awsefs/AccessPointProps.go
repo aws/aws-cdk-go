@@ -1,5 +1,8 @@
 package awsefs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
+)
 
 // Properties for the AccessPoint.
 //
@@ -7,11 +10,12 @@ package awsefs
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var fileSystem FileSystem
+//   var fileSystemRef IFileSystemRef
 //
 //   accessPointProps := &AccessPointProps{
-//   	FileSystem: fileSystem,
+//   	FileSystem: fileSystemRef,
 //
 //   	// the properties below are optional
 //   	ClientToken: jsii.String("clientToken"),
@@ -60,6 +64,6 @@ type AccessPointProps struct {
 	//
 	PosixUser *PosixUser `field:"optional" json:"posixUser" yaml:"posixUser"`
 	// The efs filesystem.
-	FileSystem IFileSystem `field:"required" json:"fileSystem" yaml:"fileSystem"`
+	FileSystem interfacesawsefs.IFileSystemRef `field:"required" json:"fileSystem" yaml:"fileSystem"`
 }
 

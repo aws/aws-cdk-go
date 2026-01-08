@@ -14,7 +14,7 @@ import (
 //   cfnUserGroupProps := &CfnUserGroupProps{
 //   	Engine: jsii.String("engine"),
 //   	UserGroupId: jsii.String("userGroupId"),
-//   	UserIds: []interface{}{
+//   	UserIds: []*string{
 //   		jsii.String("userIds"),
 //   	},
 //
@@ -43,7 +43,7 @@ type CfnUserGroupProps struct {
 	// A user named `default` must be included.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
 	//
-	UserIds *[]interface{} `field:"required" json:"userIds" yaml:"userIds"`
+	UserIds *[]*string `field:"required" json:"userIds" yaml:"userIds"`
 	// The list of tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-tags
 	//

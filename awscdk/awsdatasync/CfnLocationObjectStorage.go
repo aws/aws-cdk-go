@@ -88,7 +88,7 @@ type CfnLocationObjectStorage interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text.
+	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager.
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment

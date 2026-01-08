@@ -7,10 +7,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicecatalog/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicecatalog"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A Service Catalog portfolio.
 type IPortfolio interface {
+	interfacesawsservicecatalog.IPortfolioRef
 	awscdk.IResource
 	// Associate portfolio with the given product.
 	AddProduct(product IProduct)
@@ -60,6 +64,7 @@ type IPortfolio interface {
 
 // The jsii proxy for IPortfolio
 type jsiiProxy_IPortfolio struct {
+	internal.Type__interfacesawsservicecatalogIPortfolioRef
 	internal.Type__awscdkIResource
 }
 
@@ -211,6 +216,17 @@ func (i *jsiiProxy_IPortfolio) ShareWithAccount(accountId *string, options *Port
 	)
 }
 
+func (i *jsiiProxy_IPortfolio) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IPortfolio) PortfolioArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -226,6 +242,46 @@ func (j *jsiiProxy_IPortfolio) PortfolioId() *string {
 	_jsii_.Get(
 		j,
 		"portfolioId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPortfolio) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPortfolio) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPortfolio) PortfolioRef() *interfacesawsservicecatalog.PortfolioReference {
+	var returns *interfacesawsservicecatalog.PortfolioReference
+	_jsii_.Get(
+		j,
+		"portfolioRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IPortfolio) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

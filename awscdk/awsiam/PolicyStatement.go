@@ -8,27 +8,39 @@ import (
 // Represents a statement in an IAM policy document.
 //
 // Example:
-//   accessLogsBucket := s3.NewBucket(this, jsii.String("AccessLogsBucket"), &BucketProps{
-//   	ObjectOwnership: s3.ObjectOwnership_BUCKET_OWNER_ENFORCED,
+//   // Add gateway endpoints when creating the VPC
+//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
+//   	GatewayEndpoints: map[string]GatewayVpcEndpointOptions{
+//   		"S3": &GatewayVpcEndpointOptions{
+//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
+//   		},
+//   	},
 //   })
 //
-//   accessLogsBucket.AddToResourcePolicy(
+//   // Alternatively gateway endpoints can be added on the VPC
+//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &GatewayVpcEndpointOptions{
+//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
+//   })
+//
+//   // This allows to customize the endpoint policy
+//   dynamoDbEndpoint.AddToPolicy(
 //   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	Actions: []*string{
-//   		jsii.String("s3:*"),
-//   	},
-//   	Resources: []*string{
-//   		accessLogsBucket.BucketArn,
-//   		accessLogsBucket.ArnForObjects(jsii.String("*")),
-//   	},
+//   	 // Restrict to listing and describing tables
 //   	Principals: []IPrincipal{
 //   		iam.NewAnyPrincipal(),
 //   	},
+//   	Actions: []*string{
+//   		jsii.String("dynamodb:DescribeTable"),
+//   		jsii.String("dynamodb:ListTables"),
+//   	},
+//   	Resources: []*string{
+//   		jsii.String("*"),
+//   	},
 //   }))
 //
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
-//   	ServerAccessLogsBucket: accessLogsBucket,
-//   	ServerAccessLogsPrefix: jsii.String("logs"),
+//   // Add an interface endpoint
+//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
+//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
 type PolicyStatement interface {

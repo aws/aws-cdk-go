@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsbatch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbatch"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a JobDefinition.
 type IJobDefinition interface {
+	interfacesawsbatch.IJobDefinitionRef
 	awscdk.IResource
 	// Add a RetryStrategy to this JobDefinition.
 	AddRetryStrategy(strategy RetryStrategy)
@@ -51,6 +55,7 @@ type IJobDefinition interface {
 
 // The jsii proxy for IJobDefinition
 type jsiiProxy_IJobDefinition struct {
+	internal.Type__interfacesawsbatchIJobDefinitionRef
 	internal.Type__awscdkIResource
 }
 
@@ -62,6 +67,17 @@ func (i *jsiiProxy_IJobDefinition) AddRetryStrategy(strategy RetryStrategy) {
 		i,
 		"addRetryStrategy",
 		[]interface{}{strategy},
+	)
+}
+
+func (i *jsiiProxy_IJobDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
 	)
 }
 
@@ -130,6 +146,46 @@ func (j *jsiiProxy_IJobDefinition) Timeout() awscdk.Duration {
 	_jsii_.Get(
 		j,
 		"timeout",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobDefinition) JobDefinitionRef() *interfacesawsbatch.JobDefinitionReference {
+	var returns *interfacesawsbatch.JobDefinitionReference
+	_jsii_.Get(
+		j,
+		"jobDefinitionRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobDefinition) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJobDefinition) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

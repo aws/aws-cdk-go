@@ -2,6 +2,7 @@ package awsglobalaccelerator
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglobalaccelerator"
 )
 
 // Property of the EndpointGroup.
@@ -11,12 +12,13 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var endpoint IEndpoint
-//   var listener Listener
+//   var listenerRef IListenerRef
 //
 //   endpointGroupProps := &EndpointGroupProps{
-//   	Listener: listener,
+//   	Listener: listenerRef,
 //
 //   	// the properties below are optional
 //   	EndpointGroupName: jsii.String("endpointGroupName"),
@@ -89,6 +91,6 @@ type EndpointGroupProps struct {
 	//
 	TrafficDialPercentage *float64 `field:"optional" json:"trafficDialPercentage" yaml:"trafficDialPercentage"`
 	// The Amazon Resource Name (ARN) of the listener.
-	Listener IListener `field:"required" json:"listener" yaml:"listener"`
+	Listener interfacesawsglobalaccelerator.IListenerRef `field:"required" json:"listener" yaml:"listener"`
 }
 

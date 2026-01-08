@@ -8,7 +8,7 @@ func (c *jsiiProxy_CodeBuildProject) validateBindParameters(rule awsevents.IRule
 	return nil
 }
 
-func validateNewCodeBuildProjectParameters(project awscodebuild.IProject, props *CodeBuildProjectProps) error {
+func validateNewCodeBuildProjectParameters(project interfacesawscodebuild.IProjectRef, props *CodeBuildProjectProps) error {
 	return nil
 }
 

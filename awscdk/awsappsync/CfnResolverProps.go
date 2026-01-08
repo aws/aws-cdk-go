@@ -58,7 +58,7 @@ type CfnResolverProps struct {
 	// The AWS AppSync GraphQL API to which you want to attach this resolver.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-apiid
 	//
-	ApiId interface{} `field:"required" json:"apiId" yaml:"apiId"`
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The GraphQL field on a type that invokes the resolver.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-fieldname
 	//

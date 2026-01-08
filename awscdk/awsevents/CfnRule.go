@@ -653,6 +653,25 @@ func CfnRule_ArnForRule(resource interfacesawsevents.IRuleRef) *string {
 	return returns
 }
 
+// Creates a new IRuleRef from an ARN.
+func CfnRule_FromRuleArn(scope constructs.Construct, id *string, arn *string) interfacesawsevents.IRuleRef {
+	_init_.Initialize()
+
+	if err := validateCfnRule_FromRuleArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsevents.IRuleRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events.CfnRule",
+		"fromRuleArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

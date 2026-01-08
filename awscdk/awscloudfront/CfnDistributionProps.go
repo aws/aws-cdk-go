@@ -232,6 +232,9 @@ import (
 //   					HttpsPort: jsii.Number(123),
 //   					IpAddressType: jsii.String("ipAddressType"),
 //   					OriginKeepaliveTimeout: jsii.Number(123),
+//   					OriginMtlsConfig: &OriginMtlsConfigProperty{
+//   						ClientCertificateArn: jsii.String("clientCertificateArn"),
+//   					},
 //   					OriginReadTimeout: jsii.Number(123),
 //   					OriginSslProtocols: []*string{
 //   						jsii.String("originSslProtocols"),

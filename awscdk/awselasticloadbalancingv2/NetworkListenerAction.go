@@ -37,7 +37,7 @@ type NetworkListenerAction interface {
 	IListenerAction
 	Next() NetworkListenerAction
 	// Called when the action is being used in a listener.
-	Bind(scope constructs.Construct, listener INetworkListener)
+	Bind(scope constructs.Construct, listener INetworkListenerRef)
 	// Render the listener default actions in this chain.
 	RenderActions() *[]*CfnListener_ActionProperty
 	// Render the listener rule actions in this chain.
@@ -143,7 +143,7 @@ func NetworkListenerAction_WeightedForward(targetGroups *[]*NetworkWeightedTarge
 	return returns
 }
 
-func (n *jsiiProxy_NetworkListenerAction) Bind(scope constructs.Construct, listener INetworkListener) {
+func (n *jsiiProxy_NetworkListenerAction) Bind(scope constructs.Construct, listener INetworkListenerRef) {
 	if err := n.validateBindParameters(scope, listener); err != nil {
 		panic(err)
 	}

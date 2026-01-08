@@ -250,6 +250,30 @@ func (j *jsiiProxy_CfnGatewayTarget) validateSetCredentialProviderConfigurations
 	return nil
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) validateSetMetadataConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGatewayTarget_MetadataConfigurationProperty:
+		val := val.(*CfnGatewayTarget_MetadataConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGatewayTarget_MetadataConfigurationProperty:
+		val_ := val.(CfnGatewayTarget_MetadataConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGatewayTarget_MetadataConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

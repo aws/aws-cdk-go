@@ -72,14 +72,6 @@ func validateCfnUser_ArnForUserParameters(resource interfacesawselasticache.IUse
 	return nil
 }
 
-func validateCfnUser_FromUserArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnUser_FromUserIdParameters(scope constructs.Construct, id *string, userId *string) error {
-	return nil
-}
-
 func validateCfnUser_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

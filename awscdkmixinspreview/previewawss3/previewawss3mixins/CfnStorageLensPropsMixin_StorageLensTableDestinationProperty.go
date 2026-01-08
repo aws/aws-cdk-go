@@ -1,7 +1,9 @@
 package previewawss3mixins
 
 
-// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+// This resource configures your S3 Storage Lens reports to export to read-only S3 table buckets.
+//
+// With this resource, you can store your Storage Lens metrics in S3 Tables that are created in a read-only S3 table bucket called aws-s3.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -23,11 +25,13 @@ package previewawss3mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelenstabledestination.html
 //
 type CfnStorageLensPropsMixin_StorageLensTableDestinationProperty struct {
-	// Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
+	// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelenstabledestination.html#cfn-s3-storagelens-storagelenstabledestination-encryption
 	//
 	Encryption interface{} `field:"optional" json:"encryption" yaml:"encryption"`
-	// Specifies whether the export to S3 Tables is enabled or disabled.
+	// This property indicates whether the export to read-only S3 table buckets is enabled for your S3 Storage Lens configuration.
+	//
+	// When set to true, Storage Lens reports are automatically exported to tables in addition to other configured destinations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelenstabledestination.html#cfn-s3-storagelens-storagelenstabledestination-isenabled
 	//
 	IsEnabled interface{} `field:"optional" json:"isEnabled" yaml:"isEnabled"`

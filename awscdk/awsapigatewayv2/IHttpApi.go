@@ -3,12 +3,17 @@ package awsapigatewayv2
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an HTTP API.
 type IHttpApi interface {
 	IApi
+	IHttpApiRef
 	// Add a new VpcLink.
 	AddVpcLink(options *VpcLinkProps) VpcLink
 	// Get the "execute-api" ARN.
@@ -66,6 +71,7 @@ type IHttpApi interface {
 // The jsii proxy for IHttpApi
 type jsiiProxy_IHttpApi struct {
 	jsiiProxy_IApi
+	jsiiProxy_IHttpApiRef
 }
 
 func (i *jsiiProxy_IHttpApi) AddVpcLink(options *VpcLinkProps) VpcLink {
@@ -193,6 +199,33 @@ func (i *jsiiProxy_IHttpApi) MetricServerError(props *awscloudwatch.MetricOption
 	return returns
 }
 
+func (i *jsiiProxy_IHttpApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (i *jsiiProxy_IHttpApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	if err := i.validateMetricParameters(metricName, props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IHttpApi) DefaultAuthorizationScopes() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -218,6 +251,76 @@ func (j *jsiiProxy_IHttpApi) DefaultStage() IHttpStage {
 	_jsii_.Get(
 		j,
 		"defaultStage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) ApiEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) ApiId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) ApiRef() *interfacesawsapigatewayv2.ApiReference {
+	var returns *interfacesawsapigatewayv2.ApiReference
+	_jsii_.Get(
+		j,
+		"apiRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) IsHttpApi() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isHttpApi",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IHttpApi) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

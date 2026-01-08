@@ -7,12 +7,13 @@ package awselasticloadbalancingv2
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var applicationLoadBalancer ApplicationLoadBalancer
 //   var applicationTargetGroup ApplicationTargetGroup
 //   var listenerAction ListenerAction
 //   var listenerCertificate ListenerCertificate
-//   var trustStore TrustStore
+//   var trustStoreRef ITrustStoreRef
 //
 //   applicationListenerProps := &ApplicationListenerProps{
 //   	LoadBalancer: applicationLoadBalancer,
@@ -29,7 +30,7 @@ package awselasticloadbalancingv2
 //   		AdvertiseTrustStoreCaNames: jsii.Boolean(false),
 //   		IgnoreClientCertificateExpiry: jsii.Boolean(false),
 //   		MutualAuthenticationMode: awscdk.Aws_elasticloadbalancingv2.MutualAuthenticationMode_OFF,
-//   		TrustStore: trustStore,
+//   		TrustStore: trustStoreRef,
 //   	},
 //   	Open: jsii.Boolean(false),
 //   	Port: jsii.Number(123),

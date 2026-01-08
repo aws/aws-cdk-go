@@ -13,6 +13,7 @@ package previewawslexmixins
 //   	SlotSpecifications: map[string]interface{}{
 //   		"slotSpecificationsKey": &SpecificationsProperty{
 //   			"slotTypeId": jsii.String("slotTypeId"),
+//   			"slotTypeName": jsii.String("slotTypeName"),
 //   			"valueElicitationSetting": &SubSlotValueElicitationSettingProperty{
 //   				"defaultValueSpecification": &SlotDefaultValueSpecificationProperty{
 //   					"defaultValueList": []interface{}{

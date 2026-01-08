@@ -44,3 +44,7 @@ func (i *jsiiProxy_IRepository) validateOnImageScanCompletedParameters(id *strin
 	return nil
 }
 
+func (i *jsiiProxy_IRepository) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

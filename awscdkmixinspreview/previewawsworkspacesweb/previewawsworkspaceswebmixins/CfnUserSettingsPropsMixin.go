@@ -97,6 +97,7 @@ import (
 //   		VisualMode: jsii.String("visualMode"),
 //   	},
 //   	UploadAllowed: jsii.String("uploadAllowed"),
+//   	WebAuthnAllowed: jsii.String("webAuthnAllowed"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
 //   })

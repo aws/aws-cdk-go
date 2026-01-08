@@ -5,11 +5,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -64,7 +64,7 @@ type LambdaDeploymentGroup interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Associates an additional alarm with this Deployment Group.
-	AddAlarm(alarm awscloudwatch.IAlarm)
+	AddAlarm(alarm interfacesawscloudwatch.IAlarmRef)
 	// Associate a function to run after deployment completes.
 	AddPostHook(postHook awslambda.IFunction)
 	// Associate a function to run before deployment begins.
@@ -330,7 +330,7 @@ func LambdaDeploymentGroup_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (l *jsiiProxy_LambdaDeploymentGroup) AddAlarm(alarm awscloudwatch.IAlarm) {
+func (l *jsiiProxy_LambdaDeploymentGroup) AddAlarm(alarm interfacesawscloudwatch.IAlarmRef) {
 	if err := l.validateAddAlarmParameters(alarm); err != nil {
 		panic(err)
 	}

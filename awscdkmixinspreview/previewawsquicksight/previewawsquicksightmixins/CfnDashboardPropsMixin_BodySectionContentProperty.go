@@ -17,9 +17,11 @@ package previewawsquicksightmixins
 //   						Color: jsii.String("color"),
 //   						Visibility: jsii.String("visibility"),
 //   					},
+//   					BorderRadius: jsii.String("borderRadius"),
 //   					BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   						Color: jsii.String("color"),
 //   						Visibility: jsii.String("visibility"),
+//   						Width: jsii.String("width"),
 //   					},
 //   					ElementId: jsii.String("elementId"),
 //   					ElementType: jsii.String("elementType"),
@@ -27,6 +29,7 @@ package previewawsquicksightmixins
 //   					LoadingAnimation: &LoadingAnimationProperty{
 //   						Visibility: jsii.String("visibility"),
 //   					},
+//   					Padding: jsii.String("padding"),
 //   					RenderingRules: []interface{}{
 //   						&SheetElementRenderingRuleProperty{
 //   							ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -38,6 +41,7 @@ package previewawsquicksightmixins
 //   					SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   						Color: jsii.String("color"),
 //   						Visibility: jsii.String("visibility"),
+//   						Width: jsii.String("width"),
 //   					},
 //   					Visibility: jsii.String("visibility"),
 //   					Width: jsii.String("width"),

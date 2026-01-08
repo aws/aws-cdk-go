@@ -288,6 +288,30 @@ func (j *jsiiProxy_CfnPlan) validateSetRegionsParameters(val *[]*string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlan) validateSetReportConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPlan_ReportConfigurationProperty:
+		val := val.(*CfnPlan_ReportConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPlan_ReportConfigurationProperty:
+		val_ := val.(CfnPlan_ReportConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlan_ReportConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlan) validateSetTriggersParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

@@ -72,6 +72,14 @@ func validateCfnJobTemplate_ArnForJobTemplateParameters(resource interfacesawsme
 	return nil
 }
 
+func validateCfnJobTemplate_FromJobTemplateArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnJobTemplate_FromJobTemplateNameParameters(scope constructs.Construct, id *string, jobTemplateName *string) error {
+	return nil
+}
+
 func validateCfnJobTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

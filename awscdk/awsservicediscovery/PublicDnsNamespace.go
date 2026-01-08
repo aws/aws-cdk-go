@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsservicediscovery"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -75,6 +76,8 @@ type PublicDnsNamespace interface {
 	PublicDnsNamespaceArn() *string
 	PublicDnsNamespaceId() *string
 	PublicDnsNamespaceName() *string
+	// A reference to a PublicDnsNamespace resource.
+	PublicDnsNamespaceRef() *interfacesawsservicediscovery.PublicDnsNamespaceReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Type of the namespace.
@@ -210,6 +213,16 @@ func (j *jsiiProxy_PublicDnsNamespace) PublicDnsNamespaceName() *string {
 	_jsii_.Get(
 		j,
 		"publicDnsNamespaceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PublicDnsNamespace) PublicDnsNamespaceRef() *interfacesawsservicediscovery.PublicDnsNamespaceReference {
+	var returns *interfacesawsservicediscovery.PublicDnsNamespaceReference
+	_jsii_.Get(
+		j,
+		"publicDnsNamespaceRef",
 		&returns,
 	)
 	return returns

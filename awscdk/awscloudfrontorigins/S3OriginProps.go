@@ -2,7 +2,8 @@ package awscloudfrontorigins
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
 
 // Properties to use to customize an S3 Origin.
@@ -13,8 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var originAccessIdentity OriginAccessIdentity
+//   var cloudFrontOriginAccessIdentityRef interface { ICloudFrontOriginAccessIdentityRef; IGrantable }
 //
 //   s3OriginProps := &S3OriginProps{
 //   	ConnectionAttempts: jsii.Number(123),
@@ -23,7 +25,7 @@ import (
 //   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
 //   	OriginAccessControlId: jsii.String("originAccessControlId"),
-//   	OriginAccessIdentity: originAccessIdentity,
+//   	OriginAccessIdentity: cloudFrontOriginAccessIdentityRef,
 //   	OriginId: jsii.String("originId"),
 //   	OriginPath: jsii.String("originPath"),
 //   	OriginShieldEnabled: jsii.Boolean(false),
@@ -87,6 +89,6 @@ type S3OriginProps struct {
 	// An optional Origin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
 	// Default: - An Origin Access Identity will be created.
 	//
-	OriginAccessIdentity awscloudfront.IOriginAccessIdentity `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
+	OriginAccessIdentity interface{ interfacesawscloudfront.ICloudFrontOriginAccessIdentityRef;awsiam.IGrantable } `field:"optional" json:"originAccessIdentity" yaml:"originAccessIdentity"`
 }
 

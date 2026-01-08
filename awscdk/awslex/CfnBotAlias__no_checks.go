@@ -96,7 +96,7 @@ func (j *jsiiProxy_CfnBotAlias) validateSetBotAliasNameParameters(val *string) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnBotAlias) validateSetBotAliasTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnBotAlias) validateSetBotAliasTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

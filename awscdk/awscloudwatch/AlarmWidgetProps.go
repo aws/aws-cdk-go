@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
+)
 
 // Properties for an AlarmWidget.
 //
@@ -43,7 +46,7 @@ type AlarmWidgetProps struct {
 	//
 	Width *float64 `field:"optional" json:"width" yaml:"width"`
 	// The alarm to show.
-	Alarm IAlarm `field:"required" json:"alarm" yaml:"alarm"`
+	Alarm interfacesawscloudwatch.IAlarmRef `field:"required" json:"alarm" yaml:"alarm"`
 	// Left Y axis.
 	// Default: - No minimum or maximum values for the left Y-axis.
 	//

@@ -83,6 +83,14 @@ package previewawsdmsmixins
 //   		Port: jsii.Number(123),
 //   		ServerName: jsii.String("serverName"),
 //   	},
+//   	SybaseAseSettings: &SybaseAseSettingsProperty{
+//   		CertificateArn: jsii.String("certificateArn"),
+//   		DatabaseName: jsii.String("databaseName"),
+//   		EncryptPassword: jsii.Boolean(false),
+//   		Port: jsii.Number(123),
+//   		ServerName: jsii.String("serverName"),
+//   		SslMode: jsii.String("sslMode"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html
@@ -128,5 +136,9 @@ type CfnDataProviderPropsMixin_SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-redshiftsettings
 	//
 	RedshiftSettings interface{} `field:"optional" json:"redshiftSettings" yaml:"redshiftSettings"`
+	// SybaseAseSettings property identifier.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-sybaseasesettings
+	//
+	SybaseAseSettings interface{} `field:"optional" json:"sybaseAseSettings" yaml:"sybaseAseSettings"`
 }
 

@@ -144,6 +144,7 @@ package previewawsec2mixins
 //   	},
 //   	Placement: &SpotPlacementProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
+//   		AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   		GroupName: jsii.String("groupName"),
 //   		Tenancy: jsii.String("tenancy"),
 //   	},

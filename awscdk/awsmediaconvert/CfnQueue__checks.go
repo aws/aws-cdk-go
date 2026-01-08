@@ -164,6 +164,38 @@ func validateCfnQueue_ArnForQueueParameters(resource interfacesawsmediaconvert.I
 	return nil
 }
 
+func validateCfnQueue_FromQueueArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnQueue_FromQueueNameParameters(scope constructs.Construct, id *string, queueName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if queueName == nil {
+		return fmt.Errorf("parameter queueName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnQueue_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -10,13 +10,10 @@ package interfacesawsappmesh
 //
 //   meshReference := &MeshReference{
 //   	MeshArn: jsii.String("meshArn"),
-//   	MeshId: jsii.String("meshId"),
 //   }
 //
 type MeshReference struct {
-	// The ARN of the Mesh resource.
+	// The Arn of the Mesh resource.
 	MeshArn *string `field:"required" json:"meshArn" yaml:"meshArn"`
-	// The Id of the Mesh resource.
-	MeshId *string `field:"required" json:"meshId" yaml:"meshId"`
 }
 

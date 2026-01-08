@@ -11,6 +11,7 @@ package previewawslexmixins
 //   subSlotTypeCompositionProperty := &SubSlotTypeCompositionProperty{
 //   	Name: jsii.String("name"),
 //   	SlotTypeId: jsii.String("slotTypeId"),
+//   	SlotTypeName: jsii.String("slotTypeName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslottypecomposition.html
@@ -26,5 +27,8 @@ type CfnBotPropsMixin_SubSlotTypeCompositionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslottypecomposition.html#cfn-lex-bot-subslottypecomposition-slottypeid
 	//
 	SlotTypeId *string `field:"optional" json:"slotTypeId" yaml:"slotTypeId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslottypecomposition.html#cfn-lex-bot-subslottypecomposition-slottypename
+	//
+	SlotTypeName *string `field:"optional" json:"slotTypeName" yaml:"slotTypeName"`
 }
 

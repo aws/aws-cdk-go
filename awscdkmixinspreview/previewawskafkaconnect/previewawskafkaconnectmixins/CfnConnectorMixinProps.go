@@ -71,6 +71,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	NetworkType: jsii.String("networkType"),
 //   	Plugins: []interface{}{
 //   		&PluginProperty{
 //   			CustomPlugin: &CustomPluginProperty{
@@ -137,6 +138,12 @@ type CfnConnectorMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-logdelivery
 	//
 	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
+	// The network type of the connector.
+	//
+	// It gives connectors connectivity to either IPv4 (IPV4) or IPv4 and IPv6 (DUAL) destinations. Defaults to IPV4.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Specifies which plugin to use for the connector.
 	//
 	// You must specify a single-element list. Amazon MSK Connect does not currently support specifying multiple plugins.

@@ -10,6 +10,7 @@ package awsecs
 //   	Cluster: Cluster,
 //   	ScheduledFargateTaskImageOptions: &ScheduledFargateTaskImageOptions{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   		ContainerName: jsii.String("customContainerName"),
 //   		MemoryLimitMiB: jsii.Number(512),
 //   	},
 //   	Schedule: appscaling.Schedule_Expression(jsii.String("rate(1 minute)")),

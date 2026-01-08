@@ -211,6 +211,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "adDecisionServerConfiguration", GoGetter: "AdDecisionServerConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "adDecisionServerUrl", GoGetter: "AdDecisionServerUrl"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
@@ -278,6 +279,10 @@ func init() {
 		reflect.TypeOf((*CfnPlaybackConfiguration_AdConditioningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.AdDecisionServerConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_AdDecisionServerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.AdMarkerPassthroughProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_AdMarkerPassthroughProperty)(nil)).Elem(),
 	)
@@ -304,6 +309,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.HlsConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_HlsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.HttpRequestProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_HttpRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.LivePreRollConfigurationProperty",

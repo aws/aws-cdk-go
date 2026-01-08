@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,30 @@ func (c *jsiiProxy_CfnWorkflow) validateReplaceDependencyParameters(target awscd
 func (c *jsiiProxy_CfnWorkflow) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnWorkflow_ArnForWorkflowParameters(resource interfacesawsglue.IWorkflowRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnWorkflow_FromWorkflowNameParameters(scope constructs.Construct, id *string, workflowName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if workflowName == nil {
+		return fmt.Errorf("parameter workflowName is required, but nil was provided")
 	}
 
 	return nil

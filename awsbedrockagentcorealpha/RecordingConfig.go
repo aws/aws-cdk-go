@@ -30,7 +30,7 @@ import (
 // Experimental.
 type RecordingConfig struct {
 	// Whether recording is enabled.
-	// Default: - false.
+	// Default: false.
 	//
 	// Experimental.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`

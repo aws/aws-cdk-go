@@ -16,7 +16,7 @@ func validateConfigurationSource_FromParameterParameters(parameter awsssm.IParam
 	return nil
 }
 
-func validateConfigurationSource_FromPipelineParameters(pipeline awscodepipeline.IPipeline) error {
+func validateConfigurationSource_FromPipelineParameters(pipeline interfacesawscodepipeline.IPipelineRef) error {
 	return nil
 }
 

@@ -3,6 +3,7 @@ package awscodedeploy
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
 )
 
 // Specify how the deployment behaves and how traffic is routed to the ECS service during a blue-green ECS deployment.
@@ -42,7 +43,7 @@ type EcsBlueGreenDeploymentConfig struct {
 	// The target group that will be associated with the 'green' ECS task set during a blue-green deployment.
 	GreenTargetGroup awselasticloadbalancingv2.ITargetGroup `field:"required" json:"greenTargetGroup" yaml:"greenTargetGroup"`
 	// The load balancer listener used to serve production traffic and to shift production traffic from the 'blue' ECS task set to the 'green' ECS task set during a blue-green deployment.
-	Listener awselasticloadbalancingv2.IListener `field:"required" json:"listener" yaml:"listener"`
+	Listener interfacesawselasticloadbalancingv2.IListenerRef `field:"required" json:"listener" yaml:"listener"`
 	// Specify how long CodeDeploy waits for approval to continue a blue-green deployment before it stops the deployment.
 	//
 	// After provisioning the 'green' ECS task set and re-routing test traffic, CodeDeploy can wait for approval before
@@ -81,6 +82,6 @@ type EcsBlueGreenDeploymentConfig struct {
 	// and will skip the AfterAllowTestTraffic hook.
 	// Default: No test listener will be added.
 	//
-	TestListener awselasticloadbalancingv2.IListener `field:"optional" json:"testListener" yaml:"testListener"`
+	TestListener interfacesawselasticloadbalancingv2.IListenerRef `field:"optional" json:"testListener" yaml:"testListener"`
 }
 

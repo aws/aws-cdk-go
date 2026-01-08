@@ -5,10 +5,10 @@ package awsappconfig
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 func validateConfigurationSource_FromBucketParameters(bucket awss3.IBucket, objectKey *string) error {
@@ -39,7 +39,7 @@ func validateConfigurationSource_FromParameterParameters(parameter awsssm.IParam
 	return nil
 }
 
-func validateConfigurationSource_FromPipelineParameters(pipeline awscodepipeline.IPipeline) error {
+func validateConfigurationSource_FromPipelineParameters(pipeline interfacesawscodepipeline.IPipelineRef) error {
 	if pipeline == nil {
 		return fmt.Errorf("parameter pipeline is required, but nil was provided")
 	}

@@ -9,11 +9,11 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (s *jsiiProxy_ServerDeploymentGroup) validateAddAlarmParameters(alarm awscloudwatch.IAlarm) error {
+func (s *jsiiProxy_ServerDeploymentGroup) validateAddAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef) error {
 	if alarm == nil {
 		return fmt.Errorf("parameter alarm is required, but nil was provided")
 	}

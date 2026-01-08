@@ -47,7 +47,7 @@ type GatewayTargetOpenApiProps struct {
 	// Experimental.
 	Gateway IGateway `field:"required" json:"gateway" yaml:"gateway"`
 	// Credential providers for authentication OpenAPI targets support API key and OAuth authentication (not IAM).
-	// Default: : If not provided, defaults to IAM role which will fail at runtime.
+	// Default: - If not provided, defaults to IAM role which will fail at runtime.
 	//
 	// Experimental.
 	CredentialProviderConfigurations *[]ICredentialProviderConfig `field:"optional" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`

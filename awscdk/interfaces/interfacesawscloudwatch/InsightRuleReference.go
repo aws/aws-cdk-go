@@ -10,13 +10,10 @@ package interfacesawscloudwatch
 //
 //   insightRuleReference := &InsightRuleReference{
 //   	InsightRuleArn: jsii.String("insightRuleArn"),
-//   	InsightRuleId: jsii.String("insightRuleId"),
 //   }
 //
 type InsightRuleReference struct {
-	// The ARN of the InsightRule resource.
+	// The Arn of the InsightRule resource.
 	InsightRuleArn *string `field:"required" json:"insightRuleArn" yaml:"insightRuleArn"`
-	// The Id of the InsightRule resource.
-	InsightRuleId *string `field:"required" json:"insightRuleId" yaml:"insightRuleId"`
 }
 

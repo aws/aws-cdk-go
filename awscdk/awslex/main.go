@@ -26,6 +26,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "botLocales", GoGetter: "BotLocales"},
 			_jsii_.MemberProperty{JsiiProperty: "botRef", GoGetter: "BotRef"},
 			_jsii_.MemberProperty{JsiiProperty: "botTags", GoGetter: "BotTags"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -64,6 +65,7 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawslexIBotRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)
@@ -280,6 +282,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_IntentConfirmationSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.IntentDisambiguationSettingsProperty",
+		reflect.TypeOf((*CfnBot_IntentDisambiguationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.IntentOverrideProperty",
 		reflect.TypeOf((*CfnBot_IntentOverrideProperty)(nil)).Elem(),
 	)
@@ -464,6 +470,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_SpecificationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.SpeechFoundationModelProperty",
+		reflect.TypeOf((*CfnBot_SpeechFoundationModelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.StillWaitingResponseSpecificationProperty",
 		reflect.TypeOf((*CfnBot_StillWaitingResponseSpecificationProperty)(nil)).Elem(),
 	)
@@ -496,6 +506,10 @@ func init() {
 		reflect.TypeOf((*CfnBot_TextLogSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.UnifiedSpeechSettingsProperty",
+		reflect.TypeOf((*CfnBot_UnifiedSpeechSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.VoiceSettingsProperty",
 		reflect.TypeOf((*CfnBot_VoiceSettingsProperty)(nil)).Elem(),
 	)
@@ -524,6 +538,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "botAliasTags", GoGetter: "BotAliasTags"},
 			_jsii_.MemberProperty{JsiiProperty: "botId", GoGetter: "BotId"},
 			_jsii_.MemberProperty{JsiiProperty: "botVersion", GoGetter: "BotVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -556,6 +571,7 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawslexIBotAliasRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
 	)

@@ -1,5 +1,8 @@
 package awsappsync
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
+)
 
 // Additional property for an AppSync resolver for GraphQL API reference.
 //
@@ -14,7 +17,7 @@ package awsappsync
 //   	TypeName: jsii.String("typeName"),
 //   	FieldName: jsii.String("fieldName"),
 //   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("beforeRequest.vtl")),
-//   	PipelineConfig: []IAppsyncFunction{
+//   	PipelineConfig: []IFunctionConfigurationRef{
 //   		appsyncFunction,
 //   	},
 //   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("afterResponse.vtl")),
@@ -41,7 +44,7 @@ type ResolverProps struct {
 	// Default: - no pipeline resolver configuration
 	// An empty array | undefined sets resolver to be of kind, unit.
 	//
-	PipelineConfig *[]IAppsyncFunction `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
+	PipelineConfig *[]interfacesawsappsync.IFunctionConfigurationRef `field:"optional" json:"pipelineConfig" yaml:"pipelineConfig"`
 	// The request mapping template for this resolver.
 	// Default: - No mapping template.
 	//

@@ -2,8 +2,8 @@ package awscodedeploy
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
 // Construction properties for `ServerDeploymentGroup`.
@@ -33,7 +33,7 @@ type ServerDeploymentGroupProps struct {
 	//
 	// Default: [].
 	//
-	Alarms *[]awscloudwatch.IAlarm `field:"optional" json:"alarms" yaml:"alarms"`
+	Alarms *[]interfacesawscloudwatch.IAlarmRef `field:"optional" json:"alarms" yaml:"alarms"`
 	// The CodeDeploy EC2/on-premise Application this Deployment Group belongs to.
 	// Default: - A new Application will be created.
 	//

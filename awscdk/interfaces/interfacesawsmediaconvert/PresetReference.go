@@ -10,13 +10,13 @@ package interfacesawsmediaconvert
 //
 //   presetReference := &PresetReference{
 //   	PresetArn: jsii.String("presetArn"),
-//   	PresetId: jsii.String("presetId"),
+//   	PresetName: jsii.String("presetName"),
 //   }
 //
 type PresetReference struct {
 	// The ARN of the Preset resource.
 	PresetArn *string `field:"required" json:"presetArn" yaml:"presetArn"`
-	// The Id of the Preset resource.
-	PresetId *string `field:"required" json:"presetId" yaml:"presetId"`
+	// The Name of the Preset resource.
+	PresetName *string `field:"required" json:"presetName" yaml:"presetName"`
 }
 

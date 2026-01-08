@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdkredshiftalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -93,6 +94,9 @@ type DatabaseSecret interface {
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
 	// Experimental.
 	SecretName() *string
+	// A reference to a Secret resource.
+	// Experimental.
+	SecretRef() *interfacesawssecretsmanager.SecretReference
 	// Retrieve the value of the stored secret as a `SecretValue`.
 	// Experimental.
 	SecretValue() awscdk.SecretValue
@@ -267,6 +271,16 @@ func (j *jsiiProxy_DatabaseSecret) SecretName() *string {
 	_jsii_.Get(
 		j,
 		"secretName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseSecret) SecretRef() *interfacesawssecretsmanager.SecretReference {
+	var returns *interfacesawssecretsmanager.SecretReference
+	_jsii_.Get(
+		j,
+		"secretRef",
 		&returns,
 	)
 	return returns

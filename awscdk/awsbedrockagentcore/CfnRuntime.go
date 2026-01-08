@@ -115,6 +115,8 @@ type CfnRuntime interface {
 	AttrAgentRuntimeVersion() *string
 	// The time at which the runtime was created.
 	AttrCreatedAt() *string
+	// The reason for failure if the agent is in a failed state.
+	AttrFailureReason() *string
 	// The time at which the runtime was last updated.
 	AttrLastUpdatedAt() *string
 	// The status for the agent runtime.
@@ -386,6 +388,16 @@ func (j *jsiiProxy_CfnRuntime) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuntime) AttrFailureReason() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFailureReason",
 		&returns,
 	)
 	return returns

@@ -3,6 +3,7 @@ package awsautoscaling
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsautoscaling"
 )
 
 // Properties for a concrete TargetTrackingPolicy.
@@ -15,12 +16,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var autoScalingGroup AutoScalingGroup
+//   var autoScalingGroupRef IAutoScalingGroupRef
 //   var metric Metric
 //
 //   targetTrackingScalingPolicyProps := &TargetTrackingScalingPolicyProps{
-//   	AutoScalingGroup: autoScalingGroup,
+//   	AutoScalingGroup: autoScalingGroupRef,
 //   	TargetValue: jsii.Number(123),
 //
 //   	// the properties below are optional
@@ -79,6 +81,6 @@ type TargetTrackingScalingPolicyProps struct {
 	// Default: - No resource label.
 	//
 	ResourceLabel *string `field:"optional" json:"resourceLabel" yaml:"resourceLabel"`
-	AutoScalingGroup IAutoScalingGroup `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
+	AutoScalingGroup interfacesawsautoscaling.IAutoScalingGroupRef `field:"required" json:"autoScalingGroup" yaml:"autoScalingGroup"`
 }
 

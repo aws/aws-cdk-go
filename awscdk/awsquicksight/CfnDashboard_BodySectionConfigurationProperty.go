@@ -26,13 +26,16 @@ package awsquicksight
 //   							Color: jsii.String("color"),
 //   							Visibility: jsii.String("visibility"),
 //   						},
+//   						BorderRadius: jsii.String("borderRadius"),
 //   						BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   							Color: jsii.String("color"),
 //   							Visibility: jsii.String("visibility"),
+//   							Width: jsii.String("width"),
 //   						},
 //   						LoadingAnimation: &LoadingAnimationProperty{
 //   							Visibility: jsii.String("visibility"),
 //   						},
+//   						Padding: jsii.String("padding"),
 //   						RenderingRules: []interface{}{
 //   							&SheetElementRenderingRuleProperty{
 //   								ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -44,6 +47,7 @@ package awsquicksight
 //   						SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   							Color: jsii.String("color"),
 //   							Visibility: jsii.String("visibility"),
+//   							Width: jsii.String("width"),
 //   						},
 //   						Visibility: jsii.String("visibility"),
 //   					},

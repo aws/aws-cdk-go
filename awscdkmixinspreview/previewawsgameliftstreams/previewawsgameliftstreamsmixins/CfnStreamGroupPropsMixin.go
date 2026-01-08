@@ -39,7 +39,9 @@ import (
 //   		&LocationConfigurationProperty{
 //   			AlwaysOnCapacity: jsii.Number(123),
 //   			LocationName: jsii.String("locationName"),
+//   			MaximumCapacity: jsii.Number(123),
 //   			OnDemandCapacity: jsii.Number(123),
+//   			TargetIdleCapacity: jsii.Number(123),
 //   		},
 //   	},
 //   	StreamClass: jsii.String("streamClass"),

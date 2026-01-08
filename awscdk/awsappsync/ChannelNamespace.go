@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappsync/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappsync"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,6 +37,8 @@ type ChannelNamespace interface {
 	IChannelNamespace
 	// the ARN of the channel namespace.
 	ChannelNamespaceArn() *string
+	// A reference to a ChannelNamespace resource.
+	ChannelNamespaceRef() *interfacesawsappsync.ChannelNamespaceReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -103,6 +106,16 @@ func (j *jsiiProxy_ChannelNamespace) ChannelNamespaceArn() *string {
 	_jsii_.Get(
 		j,
 		"channelNamespaceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ChannelNamespace) ChannelNamespaceRef() *interfacesawsappsync.ChannelNamespaceReference {
+	var returns *interfacesawsappsync.ChannelNamespaceReference
+	_jsii_.Get(
+		j,
+		"channelNamespaceRef",
 		&returns,
 	)
 	return returns

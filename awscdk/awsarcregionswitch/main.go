@@ -52,6 +52,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "reportConfiguration", GoGetter: "ReportConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -90,6 +91,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.CustomActionLambdaConfigurationProperty",
 		reflect.TypeOf((*CfnPlan_CustomActionLambdaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.DocumentDbConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_DocumentDbConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.DocumentDbUngracefulProperty",
+		reflect.TypeOf((*CfnPlan_DocumentDbUngracefulProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.Ec2AsgCapacityIncreaseConfigurationProperty",
@@ -164,6 +173,14 @@ func init() {
 		reflect.TypeOf((*CfnPlan_RegionSwitchPlanConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.ReportConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_ReportConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.ReportOutputConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_ReportOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.Route53HealthCheckConfigurationProperty",
 		reflect.TypeOf((*CfnPlan_Route53HealthCheckConfigurationProperty)(nil)).Elem(),
 	)
@@ -174,6 +191,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.Route53ResourceRecordSetProperty",
 		reflect.TypeOf((*CfnPlan_Route53ResourceRecordSetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.S3ReportOutputConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_S3ReportOutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.ServiceProperty",

@@ -958,6 +958,43 @@ func (j *jsiiProxy_CfnVPCEncryptionControl)SetVpcPeeringExclusionInput(val *stri
 	)
 }
 
+func CfnVPCEncryptionControl_ArnForVPCEncryptionControl(resource interfacesawsec2.IVPCEncryptionControlRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEncryptionControl_ArnForVPCEncryptionControlParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCEncryptionControl",
+		"arnForVPCEncryptionControl",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IVPCEncryptionControlRef from a vpcEncryptionControlId.
+func CfnVPCEncryptionControl_FromVpcEncryptionControlId(scope constructs.Construct, id *string, vpcEncryptionControlId *string) interfacesawsec2.IVPCEncryptionControlRef {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEncryptionControl_FromVpcEncryptionControlIdParameters(scope, id, vpcEncryptionControlId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.IVPCEncryptionControlRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnVPCEncryptionControl",
+		"fromVpcEncryptionControlId",
+		[]interface{}{scope, id, vpcEncryptionControlId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

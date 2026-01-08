@@ -13,6 +13,13 @@ import (
 //
 //   cfnProjectMixinProps := &CfnProjectMixinProps{
 //   	DefaultJobTimeoutMinutes: jsii.Number(123),
+//   	EnvironmentVariables: []interface{}{
+//   		&EnvironmentVariableProperty{
+//   			Name: jsii.String("name"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -40,6 +47,12 @@ type CfnProjectMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-defaultjobtimeoutminutes
 	//
 	DefaultJobTimeoutMinutes *float64 `field:"optional" json:"defaultJobTimeoutMinutes" yaml:"defaultJobTimeoutMinutes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-environmentvariables
+	//
+	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-executionrolearn
+	//
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The project's name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-project.html#cfn-devicefarm-project-name
 	//

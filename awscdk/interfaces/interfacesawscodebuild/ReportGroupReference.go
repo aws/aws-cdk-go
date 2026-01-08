@@ -10,13 +10,10 @@ package interfacesawscodebuild
 //
 //   reportGroupReference := &ReportGroupReference{
 //   	ReportGroupArn: jsii.String("reportGroupArn"),
-//   	ReportGroupId: jsii.String("reportGroupId"),
 //   }
 //
 type ReportGroupReference struct {
-	// The ARN of the ReportGroup resource.
+	// The Arn of the ReportGroup resource.
 	ReportGroupArn *string `field:"required" json:"reportGroupArn" yaml:"reportGroupArn"`
-	// The Id of the ReportGroup resource.
-	ReportGroupId *string `field:"required" json:"reportGroupId" yaml:"reportGroupId"`
 }
 

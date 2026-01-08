@@ -488,6 +488,43 @@ func (j *jsiiProxy_CfnTransitGatewayMeteringPolicy)SetTransitGatewayId(val *stri
 	)
 }
 
+func CfnTransitGatewayMeteringPolicy_ArnForTransitGatewayMeteringPolicy(resource interfacesawsec2.ITransitGatewayMeteringPolicyRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayMeteringPolicy_ArnForTransitGatewayMeteringPolicyParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMeteringPolicy",
+		"arnForTransitGatewayMeteringPolicy",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ITransitGatewayMeteringPolicyRef from a transitGatewayMeteringPolicyId.
+func CfnTransitGatewayMeteringPolicy_FromTransitGatewayMeteringPolicyId(scope constructs.Construct, id *string, transitGatewayMeteringPolicyId *string) interfacesawsec2.ITransitGatewayMeteringPolicyRef {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayMeteringPolicy_FromTransitGatewayMeteringPolicyIdParameters(scope, id, transitGatewayMeteringPolicyId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.ITransitGatewayMeteringPolicyRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayMeteringPolicy",
+		"fromTransitGatewayMeteringPolicyId",
+		[]interface{}{scope, id, transitGatewayMeteringPolicyId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

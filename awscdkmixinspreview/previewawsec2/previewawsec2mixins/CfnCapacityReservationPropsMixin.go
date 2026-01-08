@@ -33,7 +33,7 @@ import (
 //   	InstanceType: jsii.String("instanceType"),
 //   	OutPostArn: jsii.String("outPostArn"),
 //   	PlacementGroupArn: jsii.String("placementGroupArn"),
-//   	TagSpecifications: []TagSpecificationProperty{
+//   	TagSpecifications: []interface{}{
 //   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []CfnTag{

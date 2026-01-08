@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesis"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,6 +66,8 @@ type StreamConsumer interface {
 	StreamConsumerArn() *string
 	// The name of the stream consumer.
 	StreamConsumerName() *string
+	// A reference to this stream consumer.
+	StreamConsumerRef() *interfacesawskinesis.StreamConsumerReference
 	// Adds a statement to the IAM resource policy associated with this stream consumer.
 	//
 	// If this stream consumer was created in this stack (`new StreamConsumer`), a resource policy
@@ -184,6 +187,16 @@ func (j *jsiiProxy_StreamConsumer) StreamConsumerName() *string {
 	_jsii_.Get(
 		j,
 		"streamConsumerName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StreamConsumer) StreamConsumerRef() *interfacesawskinesis.StreamConsumerReference {
+	var returns *interfacesawskinesis.StreamConsumerReference
+	_jsii_.Get(
+		j,
+		"streamConsumerRef",
 		&returns,
 	)
 	return returns

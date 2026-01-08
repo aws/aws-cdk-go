@@ -1,5 +1,8 @@
 package awselasticloadbalancingv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticloadbalancingv2"
+)
 
 // Properties for the trust store revocation.
 //
@@ -23,6 +26,6 @@ type TrustStoreRevocationProps struct {
 	// The revocation file to add.
 	RevocationContents *[]*RevocationContent `field:"required" json:"revocationContents" yaml:"revocationContents"`
 	// The trust store.
-	TrustStore ITrustStore `field:"required" json:"trustStore" yaml:"trustStore"`
+	TrustStore interfacesawselasticloadbalancingv2.ITrustStoreRef `field:"required" json:"trustStore" yaml:"trustStore"`
 }
 

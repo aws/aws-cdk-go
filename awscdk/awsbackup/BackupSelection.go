@@ -18,13 +18,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var backupPlan BackupPlan
+//   var backupPlanRef IBackupPlanRef
 //   var backupResource BackupResource
 //   var role Role
 //
 //   backupSelection := awscdk.Aws_backup.NewBackupSelection(this, jsii.String("MyBackupSelection"), &BackupSelectionProps{
-//   	BackupPlan: backupPlan,
+//   	BackupPlan: backupPlanRef,
 //   	Resources: []BackupResource{
 //   		backupResource,
 //   	},

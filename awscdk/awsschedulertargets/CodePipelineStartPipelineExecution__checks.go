@@ -7,9 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
 )
 
 func (c *jsiiProxy_CodePipelineStartPipelineExecution) validateAddTargetActionToRoleParameters(role awsiam.IRole) error {
@@ -36,7 +36,7 @@ func (c *jsiiProxy_CodePipelineStartPipelineExecution) validateBindBaseTargetCon
 	return nil
 }
 
-func validateNewCodePipelineStartPipelineExecutionParameters(pipeline awscodepipeline.IPipeline, props *ScheduleTargetBaseProps) error {
+func validateNewCodePipelineStartPipelineExecutionParameters(pipeline interfacesawscodepipeline.IPipelineRef, props *ScheduleTargetBaseProps) error {
 	if pipeline == nil {
 		return fmt.Errorf("parameter pipeline is required, but nil was provided")
 	}

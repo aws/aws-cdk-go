@@ -8,40 +8,44 @@ package awsecs
 //   	IsDefault: jsii.Boolean(true),
 //   })
 //
-//   cluster := ecs.NewCluster(this, jsii.String("Ec2Cluster"), &ClusterProps{
+//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
 //   	Vpc: Vpc,
-//   })
-//   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroup"), &AddCapacityOptions{
-//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PUBLIC,
-//   	},
 //   })
 //
 //   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-//   	Compatibility: ecs.Compatibility_EC2,
+//   	MemoryMiB: jsii.String("512"),
+//   	Cpu: jsii.String("256"),
+//   	Compatibility: ecs.Compatibility_FARGATE,
 //   })
 //
-//   taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
-//   	MemoryLimitMiB: jsii.Number(256),
-//   })
-//
-//   runTask := tasks.NewEcsRunTask(this, jsii.String("Run"), &EcsRunTaskProps{
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   // Use custom() option - specify custom capacity provider strategy
+//   runTaskWithCustom := tasks.NewEcsRunTask(this, jsii.String("RunTaskWithCustom"), &EcsRunTaskProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	LaunchTarget: tasks.NewEcsEc2LaunchTarget(&EcsEc2LaunchTargetOptions{
-//   		PlacementStrategies: []PlacementStrategy{
-//   			ecs.PlacementStrategy_SpreadAcrossInstances(),
-//   			ecs.PlacementStrategy_PackedByCpu(),
-//   			ecs.PlacementStrategy_Randomly(),
-//   		},
-//   		PlacementConstraints: []PlacementConstraint{
-//   			ecs.PlacementConstraint_MemberOf(jsii.String("blieptuut")),
-//   		},
+//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(&EcsFargateLaunchTargetOptions{
+//   		PlatformVersion: ecs.FargatePlatformVersion_VERSION1_4,
+//   		CapacityProviderOptions: tasks.CapacityProviderOptions_Custom([]CapacityProviderStrategy{
+//   			&CapacityProviderStrategy{
+//   				CapacityProvider: jsii.String("FARGATE_SPOT"),
+//   				Weight: jsii.Number(2),
+//   				Base: jsii.Number(1),
+//   			},
+//   			&CapacityProviderStrategy{
+//   				CapacityProvider: jsii.String("FARGATE"),
+//   				Weight: jsii.Number(1),
+//   			},
+//   		}),
 //   	}),
-//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
+//   })
+//
+//   // Use default() option - uses cluster's default capacity provider strategy
+//   runTaskWithDefault := tasks.NewEcsRunTask(this, jsii.String("RunTaskWithDefault"), &EcsRunTaskProps{
+//   	Cluster: Cluster,
+//   	TaskDefinition: TaskDefinition,
+//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(&EcsFargateLaunchTargetOptions{
+//   		PlatformVersion: ecs.FargatePlatformVersion_VERSION1_4,
+//   		CapacityProviderOptions: tasks.CapacityProviderOptions_Default(),
+//   	}),
 //   })
 //
 type Compatibility string

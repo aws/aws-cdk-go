@@ -25,7 +25,7 @@ type CfnDatastore_CustomerManagedS3Property struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-customermanageds3.html#cfn-iotanalytics-datastore-customermanageds3-bucket
 	//
 	Bucket *string `field:"required" json:"bucket" yaml:"bucket"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-datastore-customermanageds3.html#cfn-iotanalytics-datastore-customermanageds3-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`

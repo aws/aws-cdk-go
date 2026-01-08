@@ -13,9 +13,11 @@ package previewawsquicksightmixins
 //   		Color: jsii.String("color"),
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	BorderRadius: jsii.String("borderRadius"),
 //   	BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   		Color: jsii.String("color"),
 //   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
 //   	},
 //   	ElementId: jsii.String("elementId"),
 //   	ElementType: jsii.String("elementType"),
@@ -23,6 +25,7 @@ package previewawsquicksightmixins
 //   	LoadingAnimation: &LoadingAnimationProperty{
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	Padding: jsii.String("padding"),
 //   	RenderingRules: []interface{}{
 //   		&SheetElementRenderingRuleProperty{
 //   			ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -34,6 +37,7 @@ package previewawsquicksightmixins
 //   	SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   		Color: jsii.String("color"),
 //   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
 //   	},
 //   	Visibility: jsii.String("visibility"),
 //   	Width: jsii.String("width"),
@@ -48,6 +52,10 @@ type CfnDashboardPropsMixin_FreeFormLayoutElementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-backgroundstyle
 	//
 	BackgroundStyle interface{} `field:"optional" json:"backgroundStyle" yaml:"backgroundStyle"`
+	// The border radius of a free-form layout element.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-borderradius
+	//
+	BorderRadius *string `field:"optional" json:"borderRadius" yaml:"borderRadius"`
 	// The border style configuration of a free-form layout element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-borderstyle
 	//
@@ -68,6 +76,10 @@ type CfnDashboardPropsMixin_FreeFormLayoutElementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-loadinganimation
 	//
 	LoadingAnimation interface{} `field:"optional" json:"loadingAnimation" yaml:"loadingAnimation"`
+	// The padding of a free-form layout element.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-padding
+	//
+	Padding *string `field:"optional" json:"padding" yaml:"padding"`
 	// The rendering rules that determine when an element should be displayed within a free-form layout.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-renderingrules
 	//
