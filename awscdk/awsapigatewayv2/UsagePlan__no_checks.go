@@ -4,7 +4,7 @@ package awsapigatewayv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (u *jsiiProxy_UsagePlan) validateAddApiKeyParameters(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions) error {
+func (u *jsiiProxy_UsagePlan) validateAddApiKeyParameters(apiKey IApiKey, options *AddApiKeyOptions) error {
 	return nil
 }
 

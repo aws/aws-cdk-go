@@ -12,10 +12,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApiRef IHttpApiRef
+//   var httpApi HttpApi
 //
 //   httpAuthorizerProps := &HttpAuthorizerProps{
-//   	HttpApi: httpApiRef,
+//   	HttpApi: httpApi,
 //   	IdentitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
@@ -35,7 +35,7 @@ import (
 //
 type HttpAuthorizerProps struct {
 	// HTTP Api to attach the authorizer to.
-	HttpApi IHttpApiRef `field:"required" json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 	// The identity source for which authorization is requested.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 	//

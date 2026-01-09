@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,13 +18,13 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApiRef IHttpApiRef
+//   var httpApi HttpApi
 //   var integrationCredentials IntegrationCredentials
 //   var parameterMapping ParameterMapping
 //   var payloadFormatVersion PayloadFormatVersion
 //
 //   httpIntegration := awscdk.Aws_apigatewayv2.NewHttpIntegration(this, jsii.String("MyHttpIntegration"), &HttpIntegrationProps{
-//   	HttpApi: httpApiRef,
+//   	HttpApi: httpApi,
 //   	IntegrationType: awscdk.*Aws_apigatewayv2.HttpIntegrationType_HTTP_PROXY,
 //
 //   	// the properties below are optional
@@ -58,8 +57,6 @@ type HttpIntegration interface {
 	HttpApi() IHttpApi
 	// Id of the integration.
 	IntegrationId() *string
-	// A reference to a Integration resource.
-	IntegrationRef() *interfacesawsapigatewayv2.IntegrationReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -131,16 +128,6 @@ func (j *jsiiProxy_HttpIntegration) IntegrationId() *string {
 	_jsii_.Get(
 		j,
 		"integrationId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_HttpIntegration) IntegrationRef() *interfacesawsapigatewayv2.IntegrationReference {
-	var returns *interfacesawsapigatewayv2.IntegrationReference
-	_jsii_.Get(
-		j,
-		"integrationRef",
 		&returns,
 	)
 	return returns

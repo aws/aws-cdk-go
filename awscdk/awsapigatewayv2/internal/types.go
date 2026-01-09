@@ -2,7 +2,6 @@ package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
@@ -23,5 +22,3 @@ type Type__interfacesawsapigatewayv2IRoutingRuleRef = interfacesawsapigatewayv2.
 type Type__interfacesawsapigatewayv2IStageRef = interfacesawsapigatewayv2.IStageRef
 type Type__interfacesawsapigatewayv2IVpcLinkRef = interfacesawsapigatewayv2.IVpcLinkRef
 type Type__awscdkIResource = awscdk.IResource
-type Type__interfacesawsapigatewayIApiKeyRef = interfacesawsapigateway.IApiKeyRef
-type Type__interfacesawsapigatewayIUsagePlanRef = interfacesawsapigateway.IUsagePlanRef

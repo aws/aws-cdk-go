@@ -57,6 +57,6 @@ type HttpStageProps struct {
 	//
 	StageName *string `field:"optional" json:"stageName" yaml:"stageName"`
 	// The HTTP API to which this stage is associated.
-	HttpApi IHttpApiRef `field:"required" json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 }
 

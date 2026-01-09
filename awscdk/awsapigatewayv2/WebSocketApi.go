@@ -9,7 +9,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -39,8 +38,6 @@ type WebSocketApi interface {
 	ApiEndpoint() *string
 	// The identifier of this API Gateway API.
 	ApiId() *string
-	// A reference to a Api resource.
-	ApiRef() *interfacesawsapigatewayv2.ApiReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -51,11 +48,6 @@ type WebSocketApi interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
-	// Indicates that this is a WebSocket API.
-	//
-	// Will always return true, but is necessary to prevent accidental structural
-	// equality in TypeScript.
-	IsWebsocketApi() *bool
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -143,31 +135,11 @@ func (j *jsiiProxy_WebSocketApi) ApiId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_WebSocketApi) ApiRef() *interfacesawsapigatewayv2.ApiReference {
-	var returns *interfacesawsapigatewayv2.ApiReference
-	_jsii_.Get(
-		j,
-		"apiRef",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_WebSocketApi) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_WebSocketApi) IsWebsocketApi() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isWebsocketApi",
 		&returns,
 	)
 	return returns

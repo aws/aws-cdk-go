@@ -8,7 +8,3 @@ func (i *jsiiProxy_IApi) validateMetricParameters(metricName *string, props *aws
 	return nil
 }
 
-func (i *jsiiProxy_IApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
-	return nil
-}
-

@@ -8,11 +8,10 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (u *jsiiProxy_UsagePlan) validateAddApiKeyParameters(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions) error {
+func (u *jsiiProxy_UsagePlan) validateAddApiKeyParameters(apiKey IApiKey, options *AddApiKeyOptions) error {
 	if apiKey == nil {
 		return fmt.Errorf("parameter apiKey is required, but nil was provided")
 	}

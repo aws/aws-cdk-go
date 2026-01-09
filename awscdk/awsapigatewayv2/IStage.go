@@ -6,15 +6,11 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a Stage.
 type IStage interface {
 	awscdk.IResource
-	interfacesawsapigatewayv2.IStageRef
 	// Adds a stage variable to this stage.
 	AddStageVariable(name *string, value *string)
 	// Return the given named metric for this HTTP Api Gateway Stage.
@@ -32,7 +28,6 @@ type IStage interface {
 // The jsii proxy for IStage
 type jsiiProxy_IStage struct {
 	internal.Type__awscdkIResource
-	internal.Type__interfacesawsapigatewayv2IStageRef
 }
 
 func (i *jsiiProxy_IStage) AddStageVariable(name *string, value *string) {
@@ -62,17 +57,6 @@ func (i *jsiiProxy_IStage) Metric(metricName *string, props *awscloudwatch.Metri
 	return returns
 }
 
-func (i *jsiiProxy_IStage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		i,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
 func (j *jsiiProxy_IStage) StageName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -88,46 +72,6 @@ func (j *jsiiProxy_IStage) Url() *string {
 	_jsii_.Get(
 		j,
 		"url",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IStage) Env() *interfaces.ResourceEnvironment {
-	var returns *interfaces.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IStage) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IStage) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IStage) StageRef() *interfacesawsapigatewayv2.StageReference {
-	var returns *interfacesawsapigatewayv2.StageReference
-	_jsii_.Get(
-		j,
-		"stageRef",
 		&returns,
 	)
 	return returns

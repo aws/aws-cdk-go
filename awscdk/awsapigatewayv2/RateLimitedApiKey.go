@@ -8,7 +8,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,8 +39,6 @@ import (
 type RateLimitedApiKey interface {
 	awscdk.Resource
 	IApiKey
-	// A reference to a ApiKey resource.
-	ApiKeyRef() *interfacesawsapigateway.ApiKeyReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -106,16 +103,6 @@ type RateLimitedApiKey interface {
 type jsiiProxy_RateLimitedApiKey struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IApiKey
-}
-
-func (j *jsiiProxy_RateLimitedApiKey) ApiKeyRef() *interfacesawsapigateway.ApiKeyReference {
-	var returns *interfacesawsapigateway.ApiKeyReference
-	_jsii_.Get(
-		j,
-		"apiKeyRef",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_RateLimitedApiKey) Env() *interfaces.ResourceEnvironment {

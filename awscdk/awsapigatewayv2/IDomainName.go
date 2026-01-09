@@ -5,16 +5,12 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an APIGatewayV2 DomainName.
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html
 //
 type IDomainName interface {
-	interfacesawsapigatewayv2.IDomainNameRef
 	awscdk.IResource
 	// The custom domain name.
 	Name() *string
@@ -26,19 +22,7 @@ type IDomainName interface {
 
 // The jsii proxy for IDomainName
 type jsiiProxy_IDomainName struct {
-	internal.Type__interfacesawsapigatewayv2IDomainNameRef
 	internal.Type__awscdkIResource
-}
-
-func (i *jsiiProxy_IDomainName) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
-		panic(err)
-	}
-	_jsii_.InvokeVoid(
-		i,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
 }
 
 func (j *jsiiProxy_IDomainName) Name() *string {
@@ -66,46 +50,6 @@ func (j *jsiiProxy_IDomainName) RegionalHostedZoneId() *string {
 	_jsii_.Get(
 		j,
 		"regionalHostedZoneId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IDomainName) DomainNameRef() *interfacesawsapigatewayv2.DomainNameReference {
-	var returns *interfacesawsapigatewayv2.DomainNameReference
-	_jsii_.Get(
-		j,
-		"domainNameRef",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IDomainName) Env() *interfaces.ResourceEnvironment {
-	var returns *interfaces.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IDomainName) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IDomainName) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns

@@ -1,8 +1,5 @@
 package awsapigatewayv2
 
-import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
-)
 
 // Options for DomainMapping.
 //
@@ -24,7 +21,7 @@ import (
 //
 type DomainMappingOptions struct {
 	// The domain name for the mapping.
-	DomainName interfacesawsapigatewayv2.IDomainNameRef `field:"required" json:"domainName" yaml:"domainName"`
+	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
 	// The API mapping key.
 	//
 	// Leave it undefined for the root path mapping.

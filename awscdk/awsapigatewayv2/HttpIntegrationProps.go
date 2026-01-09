@@ -12,13 +12,13 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApiRef IHttpApiRef
+//   var httpApi HttpApi
 //   var integrationCredentials IntegrationCredentials
 //   var parameterMapping ParameterMapping
 //   var payloadFormatVersion PayloadFormatVersion
 //
 //   httpIntegrationProps := &HttpIntegrationProps{
-//   	HttpApi: httpApiRef,
+//   	HttpApi: httpApi,
 //   	IntegrationType: awscdk.Aws_apigatewayv2.HttpIntegrationType_HTTP_PROXY,
 //
 //   	// the properties below are optional
@@ -36,7 +36,7 @@ import (
 //
 type HttpIntegrationProps struct {
 	// The HTTP API to which this integration should be bound.
-	HttpApi IHttpApiRef `field:"required" json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 	// Integration type.
 	IntegrationType HttpIntegrationType `field:"required" json:"integrationType" yaml:"integrationType"`
 	// The ID of the VPC link for a private integration.

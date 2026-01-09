@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -62,8 +61,6 @@ type WebSocketRoute interface {
 	RouteId() *string
 	// The key to this route.
 	RouteKey() *string
-	// A reference to a Route resource.
-	RouteRef() *interfacesawsapigatewayv2.RouteReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The WebSocket API associated with this route.
@@ -157,16 +154,6 @@ func (j *jsiiProxy_WebSocketRoute) RouteKey() *string {
 	_jsii_.Get(
 		j,
 		"routeKey",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_WebSocketRoute) RouteRef() *interfacesawsapigatewayv2.RouteReference {
-	var returns *interfacesawsapigatewayv2.RouteReference
-	_jsii_.Get(
-		j,
-		"routeRef",
 		&returns,
 	)
 	return returns

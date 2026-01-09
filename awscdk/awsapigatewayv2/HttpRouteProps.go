@@ -8,13 +8,13 @@ package awsapigatewayv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApiRef IHttpApiRef
+//   var httpApi HttpApi
 //   var httpRouteAuthorizer IHttpRouteAuthorizer
 //   var httpRouteIntegration HttpRouteIntegration
 //   var httpRouteKey HttpRouteKey
 //
 //   httpRouteProps := &HttpRouteProps{
-//   	HttpApi: httpApiRef,
+//   	HttpApi: httpApi,
 //   	Integration: httpRouteIntegration,
 //   	RouteKey: httpRouteKey,
 //
@@ -29,7 +29,7 @@ type HttpRouteProps struct {
 	// The integration to be configured on this route.
 	Integration HttpRouteIntegration `field:"required" json:"integration" yaml:"integration"`
 	// the API the route is associated with.
-	HttpApi IHttpApiRef `field:"required" json:"httpApi" yaml:"httpApi"`
+	HttpApi IHttpApi `field:"required" json:"httpApi" yaml:"httpApi"`
 	// The key to this route.
 	//
 	// This is a combination of an HTTP method and an HTTP path.

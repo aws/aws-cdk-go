@@ -28,15 +28,3 @@ func (i *jsiiProxy_IHttpStage) validateMetricServerErrorParameters(props *awsclo
 	return nil
 }
 
-func (i *jsiiProxy_IHttpStage) validateAddStageVariableParameters(name *string, value *string) error {
-	return nil
-}
-
-func (i *jsiiProxy_IHttpStage) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
-	return nil
-}
-
-func (i *jsiiProxy_IHttpStage) validateMetricParameters(metricName *string, props *awscloudwatch.MetricOptions) error {
-	return nil
-}
-

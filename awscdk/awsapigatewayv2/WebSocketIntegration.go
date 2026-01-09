@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -21,12 +20,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role Role
-//   var webSocketApiRef IWebSocketApiRef
+//   var webSocketApi WebSocketApi
 //
 //   webSocketIntegration := awscdk.Aws_apigatewayv2.NewWebSocketIntegration(this, jsii.String("MyWebSocketIntegration"), &WebSocketIntegrationProps{
 //   	IntegrationType: awscdk.*Aws_apigatewayv2.WebSocketIntegrationType_AWS_PROXY,
 //   	IntegrationUri: jsii.String("integrationUri"),
-//   	WebSocketApi: webSocketApiRef,
+//   	WebSocketApi: webSocketApi,
 //
 //   	// the properties below are optional
 //   	ContentHandling: awscdk.*Aws_apigatewayv2.ContentHandling_CONVERT_TO_BINARY,
@@ -58,8 +57,6 @@ type WebSocketIntegration interface {
 	Env() *interfaces.ResourceEnvironment
 	// Id of the integration.
 	IntegrationId() *string
-	// A reference to a Integration resource.
-	IntegrationRef() *interfacesawsapigatewayv2.IntegrationReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -123,16 +120,6 @@ func (j *jsiiProxy_WebSocketIntegration) IntegrationId() *string {
 	_jsii_.Get(
 		j,
 		"integrationId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_WebSocketIntegration) IntegrationRef() *interfacesawsapigatewayv2.IntegrationReference {
-	var returns *interfacesawsapigatewayv2.IntegrationReference
-	_jsii_.Get(
-		j,
-		"integrationRef",
 		&returns,
 	)
 	return returns

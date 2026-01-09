@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,10 +18,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApiRef IHttpApiRef
+//   var httpApi HttpApi
 //
 //   httpAuthorizer := awscdk.Aws_apigatewayv2.NewHttpAuthorizer(this, jsii.String("MyHttpAuthorizer"), &HttpAuthorizerProps{
-//   	HttpApi: httpApiRef,
+//   	HttpApi: httpApi,
 //   	IdentitySource: []*string{
 //   		jsii.String("identitySource"),
 //   	},
@@ -45,8 +44,6 @@ type HttpAuthorizer interface {
 	IHttpAuthorizer
 	// Id of the Authorizer.
 	AuthorizerId() *string
-	// A reference to a Authorizer resource.
-	AuthorizerRef() *interfacesawsapigatewayv2.AuthorizerReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -108,16 +105,6 @@ func (j *jsiiProxy_HttpAuthorizer) AuthorizerId() *string {
 	_jsii_.Get(
 		j,
 		"authorizerId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_HttpAuthorizer) AuthorizerRef() *interfacesawsapigatewayv2.AuthorizerReference {
-	var returns *interfacesawsapigatewayv2.AuthorizerReference
-	_jsii_.Get(
-		j,
-		"authorizerRef",
 		&returns,
 	)
 	return returns

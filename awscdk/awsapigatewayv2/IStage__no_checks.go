@@ -12,7 +12,3 @@ func (i *jsiiProxy_IStage) validateMetricParameters(metricName *string, props *a
 	return nil
 }
 
-func (i *jsiiProxy_IStage) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
-	return nil
-}
-

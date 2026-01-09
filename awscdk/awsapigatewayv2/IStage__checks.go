@@ -7,7 +7,6 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 )
 
@@ -30,14 +29,6 @@ func (i *jsiiProxy_IStage) validateMetricParameters(metricName *string, props *a
 
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (i *jsiiProxy_IStage) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
-	if policy == "" {
-		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil
