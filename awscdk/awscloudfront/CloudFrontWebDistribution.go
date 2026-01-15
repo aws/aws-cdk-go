@@ -145,9 +145,13 @@ type CloudFrontWebDistribution interface {
 	// Deprecated: Use `Distribution` instead.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Adds an IAM policy statement associated with this distribution to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: Use `Distribution` instead.
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant to create invalidations for this bucket to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: Use `Distribution` instead.
 	GrantCreateInvalidation(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

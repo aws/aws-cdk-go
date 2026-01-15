@@ -144,20 +144,27 @@ type EventApi interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Adds an IAM policy statement associated with this Event API to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, resources AppSyncEventResource, actions ...*string) awsiam.Grant
 	// Adds an IAM policy statement for EventConnect access to this EventApi to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement for EventPublish access to this EventApi to an IAM principal's policy.
 	//
 	// This grants publish permission for all channels within the API.
+	// [disable-awslint:no-grants].
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement to publish and subscribe to this API for an IAM principal's policy.
 	//
 	// This grants publish & subscribe permission for all channels within the API.
+	// [disable-awslint:no-grants].
 	GrantPublishAndSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement for EventSubscribe access to this EventApi to an IAM principal's policy.
 	//
 	// This grants subscribe permission for all channels within the API.
+	// [disable-awslint:no-grants].
 	GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

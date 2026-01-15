@@ -11,6 +11,28 @@ package previewawsbedrockagentcoremixins
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   mcpTargetConfigurationProperty := &McpTargetConfigurationProperty{
+//   	ApiGateway: &ApiGatewayTargetConfigurationProperty{
+//   		ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
+//   			ToolFilters: []interface{}{
+//   				&ApiGatewayToolFilterProperty{
+//   					FilterPath: jsii.String("filterPath"),
+//   					Methods: []*string{
+//   						jsii.String("methods"),
+//   					},
+//   				},
+//   			},
+//   			ToolOverrides: []interface{}{
+//   				&ApiGatewayToolOverrideProperty{
+//   					Description: jsii.String("description"),
+//   					Method: jsii.String("method"),
+//   					Name: jsii.String("name"),
+//   					Path: jsii.String("path"),
+//   				},
+//   			},
+//   		},
+//   		RestApiId: jsii.String("restApiId"),
+//   		Stage: jsii.String("stage"),
+//   	},
 //   	Lambda: &McpLambdaTargetConfigurationProperty{
 //   		LambdaArn: jsii.String("lambdaArn"),
 //   		ToolSchema: &ToolSchemaProperty{
@@ -70,6 +92,9 @@ package previewawsbedrockagentcoremixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html
 //
 type CfnGatewayTargetPropsMixin_McpTargetConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-apigateway
+	//
+	ApiGateway interface{} `field:"optional" json:"apiGateway" yaml:"apiGateway"`
 	// The Lambda MCP configuration for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-lambda
 	//

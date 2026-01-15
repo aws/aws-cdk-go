@@ -2,6 +2,7 @@ package awslogs
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for a LogStream.
@@ -11,11 +12,12 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //
 //   logStreamProps := &LogStreamProps{
-//   	LogGroup: logGroup,
+//   	LogGroup: logGroupRef,
 //
 //   	// the properties below are optional
 //   	LogStreamName: jsii.String("logStreamName"),
@@ -24,7 +26,7 @@ import (
 //
 type LogStreamProps struct {
 	// The log group to create a log stream for.
-	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"required" json:"logGroup" yaml:"logGroup"`
 	// The name of the log stream to create.
 	//
 	// The name must be unique within the log group.

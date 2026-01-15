@@ -13,7 +13,7 @@ import (
 
 // Creates an AWS PCS cluster resource.
 //
-// For more information, see [Creating a cluster in AWS Parallel Computing Service](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_create.html) in the *AWS PCS User Guide* .
+// For more information, see [Creating a cluster in Parallel Computing Service](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_create.html) in the *AWS PCS User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

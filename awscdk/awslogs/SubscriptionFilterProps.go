@@ -1,5 +1,8 @@
 package awslogs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
+)
 
 // Properties for a SubscriptionFilter.
 //
@@ -35,6 +38,6 @@ type SubscriptionFilterProps struct {
 	//
 	FilterName *string `field:"optional" json:"filterName" yaml:"filterName"`
 	// The log group to create the subscription on.
-	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 

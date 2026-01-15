@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,6 +24,8 @@ type DedicatedIpPool interface {
 	IDedicatedIpPool
 	// The name of the dedicated IP pool.
 	DedicatedIpPoolName() *string
+	// A reference to a DedicatedIpPool resource.
+	DedicatedIpPoolRef() *interfacesawsses.DedicatedIpPoolReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -84,6 +87,16 @@ func (j *jsiiProxy_DedicatedIpPool) DedicatedIpPoolName() *string {
 	_jsii_.Get(
 		j,
 		"dedicatedIpPoolName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DedicatedIpPool) DedicatedIpPoolRef() *interfacesawsses.DedicatedIpPoolReference {
+	var returns *interfacesawsses.DedicatedIpPoolReference
+	_jsii_.Get(
+		j,
+		"dedicatedIpPoolRef",
 		&returns,
 	)
 	return returns

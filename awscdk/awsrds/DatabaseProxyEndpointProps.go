@@ -2,6 +2,7 @@ package awsrds
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 )
 
 // Construction properties for a DatabaseProxyEndpoint.
@@ -11,15 +12,16 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var databaseProxy DatabaseProxy
+//   var dBProxyRef IDBProxyRef
 //   var securityGroup SecurityGroup
 //   var subnet Subnet
 //   var subnetFilter SubnetFilter
 //   var vpc Vpc
 //
 //   databaseProxyEndpointProps := &DatabaseProxyEndpointProps{
-//   	DbProxy: databaseProxy,
+//   	DbProxy: dBProxyRef,
 //   	Vpc: vpc,
 //
 //   	// the properties below are optional
@@ -64,6 +66,6 @@ type DatabaseProxyEndpointProps struct {
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 	// The DB proxy associated with the DB proxy endpoint.
-	DbProxy IDatabaseProxy `field:"required" json:"dbProxy" yaml:"dbProxy"`
+	DbProxy interfacesawsrds.IDBProxyRef `field:"required" json:"dbProxy" yaml:"dbProxy"`
 }
 

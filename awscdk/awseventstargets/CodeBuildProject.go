@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Start a CodeBuild build when an Amazon EventBridge rule is triggered.
@@ -36,7 +37,7 @@ import (
 type CodeBuildProject interface {
 	awsevents.IRuleTarget
 	// Allows using build projects as event rule targets.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for CodeBuildProject
@@ -71,7 +72,7 @@ func NewCodeBuildProject_Override(c CodeBuildProject, project interfacesawscodeb
 	)
 }
 
-func (c *jsiiProxy_CodeBuildProject) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (c *jsiiProxy_CodeBuildProject) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := c.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

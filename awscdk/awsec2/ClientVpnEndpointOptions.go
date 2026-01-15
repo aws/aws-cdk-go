@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Options for a client VPN endpoint.
@@ -89,11 +89,11 @@ type ClientVpnEndpointOptions struct {
 	// A CloudWatch Logs log group for connection logging.
 	// Default: - a new group is created.
 	//
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// A CloudWatch Logs log stream for connection logging.
 	// Default: - a new stream is created.
 	//
-	LogStream awslogs.ILogStream `field:"optional" json:"logStream" yaml:"logStream"`
+	LogStream interfacesawslogs.ILogStreamRef `field:"optional" json:"logStream" yaml:"logStream"`
 	// The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
 	// Default: VpnPort.HTTPS
 	//

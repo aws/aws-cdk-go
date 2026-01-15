@@ -2,6 +2,7 @@ package awsses
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Properties for a configuration set.
@@ -28,7 +29,7 @@ type ConfigurationSetProps struct {
 	// The dedicated IP pool to associate with the configuration set.
 	// Default: - do not use a dedicated IP pool.
 	//
-	DedicatedIpPool IDedicatedIpPool `field:"optional" json:"dedicatedIpPool" yaml:"dedicatedIpPool"`
+	DedicatedIpPool interfacesawsses.IDedicatedIpPoolRef `field:"optional" json:"dedicatedIpPool" yaml:"dedicatedIpPool"`
 	// If true, account-level suppression list is disabled;
 	//
 	// email sent with this configuration set

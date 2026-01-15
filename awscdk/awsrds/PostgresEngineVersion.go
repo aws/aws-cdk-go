@@ -10,28 +10,25 @@ import (
 // Example:
 //   var vpc Vpc
 //
-//   engine := rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
-//   	Version: rds.PostgresEngineVersion_VER_16_3(),
-//   })
-//   myKey := kms.NewKey(this, jsii.String("MyKey"))
-//
-//   rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &DatabaseInstanceProps{
-//   	Engine: Engine,
-//   	Vpc: Vpc,
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("postgres"), &CredentialsBaseOptions{
-//   		SecretName: jsii.String("my-cool-name"),
-//   		EncryptionKey: myKey,
-//   		ExcludeCharacters: jsii.String("!&*^#@()"),
-//   		ReplicaRegions: []ReplicaRegion{
-//   			&ReplicaRegion{
-//   				Region: jsii.String("eu-west-1"),
-//   			},
-//   			&ReplicaRegion{
-//   				Region: jsii.String("eu-west-2"),
-//   			},
-//   		},
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+//   		Version: rds.PostgresEngineVersion_VER_17_7(),
 //   	}),
+//   	Vpc: Vpc,
+//   	IamAuthentication: jsii.Boolean(true),
 //   })
+//
+//   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
+//   	ProxyTarget: rds.ProxyTarget_FromInstance(instance),
+//   	Vpc: Vpc,
+//   	DefaultAuthScheme: rds.DefaultAuthScheme_IAM_AUTH,
+//   })
+//
+//   // Grant IAM permissions for database connection
+//   role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
+//   	AssumedBy: iam.NewAccountPrincipal(this.Account),
+//   })
+//   proxy.GrantConnect(role, jsii.String("database-user"))
 //
 type PostgresEngineVersion interface {
 	// The full version string, for example, "13.11".

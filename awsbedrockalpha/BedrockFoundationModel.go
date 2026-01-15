@@ -80,9 +80,13 @@ type BedrockFoundationModel interface {
 	// Experimental.
 	AsIModel() awsbedrock.IModel
 	// Gives the appropriate policies to invoke and use the Foundation Model in the stack region.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Gives the appropriate policies to invoke and use the Foundation Model in all regions.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvokeAllRegions(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of an object.

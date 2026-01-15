@@ -60,7 +60,8 @@ type CrossRegionInferenceProfile interface {
 	//
 	// For cross-region inference profiles, this method grants permissions to:
 	// - Invoke the model in all regions where the inference profile can route requests
-	// - Use the inference profile itself.
+	// - Use the inference profile itself
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
@@ -73,6 +74,7 @@ type CrossRegionInferenceProfile interface {
 	//
 	// Note: This does not grant permissions to use the underlying model directly.
 	// For comprehensive permissions, use grantInvoke() instead.
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.

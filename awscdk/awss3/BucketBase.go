@@ -187,6 +187,8 @@ type BucketBase interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
+	//
+	// [disable-awslint:no-grants].
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
 	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
@@ -210,53 +212,35 @@ type BucketBase interface {
 	// Note that if this `IBucket` refers to an existing bucket, possibly not
 	// managed by CloudFormation, this method will have no effect, since it's
 	// impossible to modify the policy of an existing bucket.
+	//
+	// [disable-awslint:no-grants].
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
 	//
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
-	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
 	//
-	// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-	// calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
-	// in this case, if you need to modify object ACLs, call this method explicitly.
+	// [disable-awslint:no-grants].
+	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
+	// [disable-awslint:no-grants].
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
-	//
-	// If an encryption key is used, permission to use the key for
-	// encrypt/decrypt will also be granted.
-	//
-	// Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
-	// which could be used to grant read/write object access to IAM principals in other accounts.
-	// If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
-	// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
-	// in the `context` key of your cdk.json file.
-	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-	// use the `grantPutAcl` method.
+	// [disable-awslint:no-grants].
 	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant replication permission to a principal. This method allows the principal to perform replication operations on this bucket.
 	//
 	// Note that when calling this function for source or destination buckets that support KMS encryption,
 	// you need to specify the KMS key for encryption and the KMS key for decryption, respectively.
+	//
+	// [disable-awslint:no-grants].
 	GrantReplicationPermission(identity awsiam.IGrantable, props *GrantReplicationPermissionProps) awsiam.Grant
-	// Grant write permissions to this bucket to an IAM principal.
-	//
-	// If encryption is used, permission to use the key to encrypt the contents
-	// of written files will also be granted to the same principal.
-	//
-	// Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
-	// which could be used to grant read/write object access to IAM principals in other accounts.
-	// If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
-	// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
-	// in the `context` key of your cdk.json file.
-	// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-	// use the `grantPutAcl` method.
+	// [disable-awslint:no-grants].
 	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//

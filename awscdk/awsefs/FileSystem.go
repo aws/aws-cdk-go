@@ -103,12 +103,20 @@ type FileSystem interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the actions defined in actions to the given grantee on this File System resource.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this file system to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read and write permissions for this file system to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// As root user, grant read and write permissions for this file system to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantRootAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

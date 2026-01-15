@@ -386,6 +386,26 @@ actions.NewHttpsAction(jsii.String("https://example.com/endpoint"), &HttpsAction
 }))
 ```
 
+You can enable batching to reduce costs and improve efficiency:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var topicRule TopicRule
+
+
+topicRule.AddAction(
+actions.NewHttpsAction(jsii.String("https://example.com/endpoint"), &HttpsActionProps{
+	BatchConfig: &HttpActionBatchConfig{
+		MaxBatchOpenDuration: awscdk.Duration_Millis(jsii.Number(100)),
+		MaxBatchSize: jsii.Number(5),
+		MaxBatchSizeBytes: awscdk.Size_Kibibytes(jsii.Number(1)),
+	},
+}))
+```
+
+For more information about the batching configuration, see the [AWS IoT Core documentation](https://docs.aws.amazon.com/iot/latest/developerguide/http_batching.html).
+
 ## Write Data to Open Search Service
 
 The code snippet below creates an AWS IoT Rule that writes data

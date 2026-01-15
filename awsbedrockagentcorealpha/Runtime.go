@@ -147,16 +147,24 @@ type Runtime interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the runtime specific actions on AWS resources.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: The Grant object for chaining.
 	// Experimental.
 	Grant(actions *[]*string, resources *[]*string) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime both directly and on behalf of users Grants both bedrock-agentcore:InvokeAgentRuntime and bedrock-agentcore:InvokeAgentRuntimeForUser permissions.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime Grants the bedrock-agentcore:InvokeAgentRuntime permission.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvokeRuntime(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime on behalf of a user Grants the bedrock-agentcore:InvokeAgentRuntimeForUser permission Required when using the X-Amzn-Bedrock-AgentCore-Runtime-User-Id header.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvokeRuntimeForUser(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this agent runtime.

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -62,6 +63,8 @@ type VpcLink interface {
 	Vpc() awsec2.IVpc
 	// Physical ID of the VpcLink resource.
 	VpcLinkId() *string
+	// A reference to a VpcLink resource.
+	VpcLinkRef() *interfacesawsapigatewayv2.VpcLinkReference
 	// Adds the provided security groups to the vpc link.
 	AddSecurityGroups(groups ...interfacesawsec2.ISecurityGroupRef)
 	// Adds the provided subnets to the vpc link.
@@ -155,6 +158,16 @@ func (j *jsiiProxy_VpcLink) VpcLinkId() *string {
 	_jsii_.Get(
 		j,
 		"vpcLinkId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcLink) VpcLinkRef() *interfacesawsapigatewayv2.VpcLinkReference {
+	var returns *interfacesawsapigatewayv2.VpcLinkReference
+	_jsii_.Get(
+		j,
+		"vpcLinkRef",
 		&returns,
 	)
 	return returns

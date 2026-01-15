@@ -90,6 +90,11 @@ type Gateway interface {
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
+	// The OAuth2 scope strings for client credentials flow.
+	//
+	// Only available when using the default Cognito authorizer.
+	// Experimental.
+	OauthScopes() *[]*string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -102,6 +107,11 @@ type Gateway interface {
 	// The protocol configuration for the gateway.
 	// Experimental.
 	ProtocolConfiguration() IGatewayProtocolConfig
+	// The Cognito Resource Server created for the gateway (if using default Cognito authorizer).
+	// Experimental.
+	ResourceServer() awscognito.IUserPoolResourceServer
+	// Experimental.
+	SetResourceServer(val awscognito.IUserPoolResourceServer)
 	// The IAM role for the gateway.
 	// Experimental.
 	Role() awsiam.IRole
@@ -117,6 +127,11 @@ type Gateway interface {
 	// Tags applied to the gateway.
 	// Experimental.
 	Tags() *map[string]*string
+	// The OAuth2 token endpoint URL for client credentials flow.
+	//
+	// Only available when using the default Cognito authorizer.
+	// Experimental.
+	TokenEndpointUrl() *string
 	// Timestamp when the gateway was last updated.
 	// Experimental.
 	UpdatedAt() *string
@@ -130,6 +145,11 @@ type Gateway interface {
 	UserPoolClient() awscognito.IUserPoolClient
 	// Experimental.
 	SetUserPoolClient(val awscognito.IUserPoolClient)
+	// The Cognito User Pool Domain created for the gateway (if using default Cognito authorizer).
+	// Experimental.
+	UserPoolDomain() awscognito.IUserPoolDomain
+	// Experimental.
+	SetUserPoolDomain(val awscognito.IUserPoolDomain)
 	// Add a Lambda target to this gateway This is a convenience method that creates a GatewayTarget associated with this gateway.
 	//
 	// Returns: The created GatewayTarget.
@@ -181,15 +201,23 @@ type Gateway interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants IAM actions to the IAM Principal.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants permission to invoke this Gateway.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Create`, `Update`, and `Delete` actions on the Gateway.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Get` and `List` actions on the Gateway.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this gateway.
@@ -351,6 +379,16 @@ func (j *jsiiProxy_Gateway) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_Gateway) OauthScopes() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"oauthScopes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Gateway) PhysicalName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -366,6 +404,16 @@ func (j *jsiiProxy_Gateway) ProtocolConfiguration() IGatewayProtocolConfig {
 	_jsii_.Get(
 		j,
 		"protocolConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Gateway) ResourceServer() awscognito.IUserPoolResourceServer {
+	var returns awscognito.IUserPoolResourceServer
+	_jsii_.Get(
+		j,
+		"resourceServer",
 		&returns,
 	)
 	return returns
@@ -421,6 +469,16 @@ func (j *jsiiProxy_Gateway) Tags() *map[string]*string {
 	return returns
 }
 
+func (j *jsiiProxy_Gateway) TokenEndpointUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tokenEndpointUrl",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Gateway) UpdatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -446,6 +504,16 @@ func (j *jsiiProxy_Gateway) UserPoolClient() awscognito.IUserPoolClient {
 	_jsii_.Get(
 		j,
 		"userPoolClient",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Gateway) UserPoolDomain() awscognito.IUserPoolDomain {
+	var returns awscognito.IUserPoolDomain
+	_jsii_.Get(
+		j,
+		"userPoolDomain",
 		&returns,
 	)
 	return returns
@@ -481,6 +549,14 @@ func NewGateway_Override(g Gateway, scope constructs.Construct, id *string, prop
 	)
 }
 
+func (j *jsiiProxy_Gateway)SetResourceServer(val awscognito.IUserPoolResourceServer) {
+	_jsii_.Set(
+		j,
+		"resourceServer",
+		val,
+	)
+}
+
 func (j *jsiiProxy_Gateway)SetUserPool(val awscognito.IUserPool) {
 	_jsii_.Set(
 		j,
@@ -493,6 +569,14 @@ func (j *jsiiProxy_Gateway)SetUserPoolClient(val awscognito.IUserPoolClient) {
 	_jsii_.Set(
 		j,
 		"userPoolClient",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Gateway)SetUserPoolDomain(val awscognito.IUserPoolDomain) {
+	_jsii_.Set(
+		j,
+		"userPoolDomain",
 		val,
 	)
 }

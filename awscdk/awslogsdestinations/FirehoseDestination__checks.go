@@ -8,11 +8,11 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (f *jsiiProxy_FirehoseDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) error {
+func (f *jsiiProxy_FirehoseDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

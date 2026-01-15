@@ -106,18 +106,28 @@ type StateMachine interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity custom permissions.
+	//
+	// [disable-awslint:no-grants].
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions on all executions of the state machine.
+	// Grant the given identity permissions on all executions of the state machine [disable-awslint:no-grants].
 	GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to read results from state machine.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permission to redrive the execution of the state machine.
+	//
+	// [disable-awslint:no-grants].
 	GrantRedriveExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start an execution of this state machine.
+	//
+	// [disable-awslint:no-grants].
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start a synchronous execution of this state machine.
+	//
+	// [disable-awslint:no-grants].
 	GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity task response permissions on a state machine.
+	// Grant the given identity task response permissions on a state machine [disable-awslint:no-grants].
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this State Machine's executions.
 	// Default: - sum over 5 minutes.

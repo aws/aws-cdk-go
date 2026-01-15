@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,6 +47,8 @@ type ReceiptRule interface {
 	PhysicalName() *string
 	// The name of the receipt rule.
 	ReceiptRuleName() *string
+	// A reference to a ReceiptRule resource.
+	ReceiptRuleRef() *interfacesawsses.ReceiptRuleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds an action to this receipt rule.
@@ -119,6 +122,16 @@ func (j *jsiiProxy_ReceiptRule) ReceiptRuleName() *string {
 	_jsii_.Get(
 		j,
 		"receiptRuleName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ReceiptRule) ReceiptRuleRef() *interfacesawsses.ReceiptRuleReference {
+	var returns *interfacesawsses.ReceiptRuleReference
+	_jsii_.Get(
+		j,
+		"receiptRuleRef",
 		&returns,
 	)
 	return returns

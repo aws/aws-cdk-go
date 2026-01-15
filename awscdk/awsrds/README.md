@@ -236,6 +236,10 @@ v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverle
   capacity of all the instances in the cluster.
 * `ACUUtilization`: Value of the `ServerlessDatabaseCapacity`/ max ACU of the
   cluster.
+* `VolumeReadIOPs`: Cluster-level metric that represents the average number of disk read I/O operations per second.
+* `VolumeWriteIOPs`: Cluster-level metric that represents the average number of disk write I/O operations per second.
+* `ReadIOPS`: Instance-level metric that represents the average read I/O operations per second. This metric is supported by DatabaseCluster and DatabaseClusterFromSnapshot both.
+* `WriteIOPS`: Instance-level metric that represents the average write I/O operations per second. This metric is supported by DatabaseCluster and DatabaseClusterFromSnapshot both.
 
 ```go
 var vpc Vpc
@@ -257,11 +261,47 @@ cluster.metricServerlessDatabaseCapacity(&MetricOptions{
 	Threshold: jsii.Number(1.5),
 	EvaluationPeriods: jsii.Number(3),
 })
+
 cluster.metricACUUtilization(&MetricOptions{
 	Period: awscdk.Duration_*Minutes(jsii.Number(10)),
 }).CreateAlarm(this, jsii.String("alarm"), &CreateAlarmOptions{
 	EvaluationPeriods: jsii.Number(3),
 	Threshold: jsii.Number(90),
+})
+
+cluster.metricVolumeReadIOPs(&MetricOptions{
+	Period: awscdk.Duration_*Minutes(jsii.Number(10)),
+}).CreateAlarm(this, jsii.String("VolumeReadIOPsAlarm"), &CreateAlarmOptions{
+	Threshold: jsii.Number(1000),
+	EvaluationPeriods: jsii.Number(3),
+})
+
+cluster.metricVolumeWriteIOPs(&MetricOptions{
+	Period: awscdk.Duration_*Minutes(jsii.Number(10)),
+}).CreateAlarm(this, jsii.String("VolumeWriteIOPsAlarm"), &CreateAlarmOptions{
+	Threshold: jsii.Number(1000),
+	EvaluationPeriods: jsii.Number(3),
+})
+
+instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+		Version: rds.PostgresEngineVersion_VER_17_6(),
+	}),
+	Vpc: Vpc,
+})
+
+instance.MetricReadIOPS(&MetricOptions{
+	Period: awscdk.Duration_*Minutes(jsii.Number(10)),
+}).CreateAlarm(this, jsii.String("ReadIOPSAlarm"), &CreateAlarmOptions{
+	Threshold: jsii.Number(1000),
+	EvaluationPeriods: jsii.Number(3),
+})
+
+instance.MetricWriteIOPS(&MetricOptions{
+	Period: awscdk.Duration_*Minutes(jsii.Number(10)),
+}).CreateAlarm(this, jsii.String("WriteIOPSAlarm"), &CreateAlarmOptions{
+	Threshold: jsii.Number(1000),
+	EvaluationPeriods: jsii.Number(3),
 })
 ```
 
@@ -1382,6 +1422,36 @@ proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
 	Vpc: Vpc,
 	ClientPasswordAuthType: rds.ClientPasswordAuthType_MYSQL_NATIVE_PASSWORD,
 })
+```
+
+### Default Authentication Scheme
+
+RDS Proxy supports different authentication schemes to connect to your database. You can configure the default authentication scheme using the `defaultAuthScheme` property.
+
+When using `DefaultAuthScheme.IAM_AUTH`, the proxy uses end-to-end IAM authentication to connect to the database, eliminating the need for secrets stored in AWS Secrets Manager:
+
+```go
+var vpc Vpc
+
+instance := rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+		Version: rds.PostgresEngineVersion_VER_17_7(),
+	}),
+	Vpc: Vpc,
+	IamAuthentication: jsii.Boolean(true),
+})
+
+proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
+	ProxyTarget: rds.ProxyTarget_FromInstance(instance),
+	Vpc: Vpc,
+	DefaultAuthScheme: rds.DefaultAuthScheme_IAM_AUTH,
+})
+
+// Grant IAM permissions for database connection
+role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
+	AssumedBy: iam.NewAccountPrincipal(this.Account),
+})
+proxy.GrantConnect(role, jsii.String("database-user"))
 ```
 
 ### Cluster

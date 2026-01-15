@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -60,6 +61,8 @@ type UserPoolClient interface {
 	UserPoolClientId() *string
 	// The client name that was specified via the `userPoolClientName` property during initialization, throws an error otherwise.
 	UserPoolClientName() *string
+	// A reference to a UserPoolClient resource.
+	UserPoolClientRef() *interfacesawscognito.UserPoolClientReference
 	// The generated client secret.
 	//
 	// Only available if the "generateSecret" props is set to true.
@@ -163,6 +166,16 @@ func (j *jsiiProxy_UserPoolClient) UserPoolClientName() *string {
 	_jsii_.Get(
 		j,
 		"userPoolClientName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolClient) UserPoolClientRef() *interfacesawscognito.UserPoolClientReference {
+	var returns *interfacesawscognito.UserPoolClientReference
+	_jsii_.Get(
+		j,
+		"userPoolClientRef",
 		&returns,
 	)
 	return returns

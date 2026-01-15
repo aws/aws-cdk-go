@@ -115,15 +115,23 @@ type GatewayBase interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants IAM actions to the IAM Principal.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants permission to invoke this Gateway.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Create`, `Update`, and `Delete` actions on the Gateway.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Get` and `List` actions on the Gateway.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this gateway.

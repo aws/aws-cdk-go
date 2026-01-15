@@ -1,5 +1,8 @@
 package awsevents
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
+)
 
 // The properties to import an existing Api Destination.
 //
@@ -25,7 +28,7 @@ type ApiDestinationAttributes struct {
 	// The ARN of the Api Destination.
 	ApiDestinationArn *string `field:"required" json:"apiDestinationArn" yaml:"apiDestinationArn"`
 	// The Connection to associate with the Api Destination.
-	Connection IConnection `field:"required" json:"connection" yaml:"connection"`
+	Connection interfacesawsevents.IConnectionRef `field:"required" json:"connection" yaml:"connection"`
 	// The Amazon Resource Name (ARN) of an API destination in resource format.
 	// Default: undefined - Imported API destination does not have ARN in resource format.
 	//

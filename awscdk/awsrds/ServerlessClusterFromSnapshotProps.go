@@ -3,6 +3,7 @@ package awsrds
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 )
 
 // Properties for ``ServerlessClusterFromSnapshot``.
@@ -83,7 +84,7 @@ type ServerlessClusterFromSnapshotProps struct {
 	// Default: - a new subnet group is created if `vpc` was provided.
 	// If the `vpc` property was not provided, no subnet group will be associated with the DB cluster.
 	//
-	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
+	SubnetGroup interfacesawsrds.IDBSubnetGroupRef `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 	// The VPC that this Aurora Serverless v1 Cluster has been created in.
 	// Default: - the default VPC in the account and region will be used.
 	//

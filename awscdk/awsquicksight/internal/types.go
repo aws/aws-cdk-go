@@ -5,10 +5,11 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsquicksightIActionConnectorRef = interfacesawsquicksight.IActionConnectorRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsquicksightIAnalysisRef = interfacesawsquicksight.IAnalysisRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsquicksightICustomPermissionsRef = interfacesawsquicksight.ICustomPermissionsRef
-type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsquicksightIDashboardRef = interfacesawsquicksight.IDashboardRef
 type Type__interfacesawsquicksightIDataSetRef = interfacesawsquicksight.IDataSetRef
 type Type__interfacesawsquicksightIDataSourceRef = interfacesawsquicksight.IDataSourceRef

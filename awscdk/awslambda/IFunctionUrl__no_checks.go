@@ -8,3 +8,7 @@ func (i *jsiiProxy_IFunctionUrl) validateGrantInvokeUrlParameters(identity awsia
 	return nil
 }
 
+func (i *jsiiProxy_IFunctionUrl) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

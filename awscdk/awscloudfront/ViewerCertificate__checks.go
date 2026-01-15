@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
-func validateViewerCertificate_FromAcmCertificateParameters(certificate awscertificatemanager.ICertificate, options *ViewerCertificateOptions) error {
+func validateViewerCertificate_FromAcmCertificateParameters(certificate interfacesawscertificatemanager.ICertificateRef, options *ViewerCertificateOptions) error {
 	if certificate == nil {
 		return fmt.Errorf("parameter certificate is required, but nil was provided")
 	}

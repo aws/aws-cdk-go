@@ -12,33 +12,27 @@ import (
 // Example:
 //   var vpc Vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+//   		Version: rds.PostgresEngineVersion_VER_17_7(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
 //   	Vpc: Vpc,
+//   	IamAuthentication: jsii.Boolean(true),
 //   })
 //
 //   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
-//   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-//   	Secrets: []ISecret{
-//   		cluster.Secret,
-//   	},
+//   	ProxyTarget: rds.ProxyTarget_FromInstance(instance),
 //   	Vpc: Vpc,
+//   	DefaultAuthScheme: rds.DefaultAuthScheme_IAM_AUTH,
 //   })
 //
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &RoleProps{
+//   // Grant IAM permissions for database connection
+//   role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
 //   	AssumedBy: iam.NewAccountPrincipal(this.Account),
 //   })
-//   proxy.GrantConnect(role, jsii.String("admin"))
+//   proxy.GrantConnect(role, jsii.String("database-user"))
 //
 type DatabaseProxyProps struct {
-	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
-	//
-	// These secrets are stored within Amazon Secrets Manager.
-	// One or more secrets are required.
-	Secrets *[]awssecretsmanager.ISecret `field:"required" json:"secrets" yaml:"secrets"`
 	// The VPC to associate with the new proxy.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
@@ -71,6 +65,12 @@ type DatabaseProxyProps struct {
 	// Default: false.
 	//
 	DebugLogging *bool `field:"optional" json:"debugLogging" yaml:"debugLogging"`
+	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	//
+	// When set to `DefaultAuthScheme.IAM_AUTH`, the proxy uses end-to-end IAM authentication to connect to the database.
+	// Default: DefaultAuthScheme.NONE
+	//
+	DefaultAuthScheme DefaultAuthScheme `field:"optional" json:"defaultAuthScheme" yaml:"defaultAuthScheme"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	// Default: false.
 	//
@@ -123,6 +123,13 @@ type DatabaseProxyProps struct {
 	// Default: - A role will automatically be created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+	//
+	// These secrets are stored within Amazon Secrets Manager.
+	// One or more secrets are required when defaultAuthScheme is `DefaultAuthScheme.NONE`.
+	// Default: None.
+	//
+	Secrets *[]awssecretsmanager.ISecret `field:"optional" json:"secrets" yaml:"secrets"`
 	// One or more VPC security groups to associate with the new proxy.
 	// Default: - No security groups.
 	//

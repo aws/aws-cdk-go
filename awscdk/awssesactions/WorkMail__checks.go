@@ -7,10 +7,10 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
-func (w *jsiiProxy_WorkMail) validateBindParameters(receiptRule awsses.IReceiptRule) error {
+func (w *jsiiProxy_WorkMail) validateBindParameters(receiptRule interfacesawsses.IReceiptRuleRef) error {
 	if receiptRule == nil {
 		return fmt.Errorf("parameter receiptRule is required, but nil was provided")
 	}

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogsdestinations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,7 +39,7 @@ type KinesisDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for KinesisDestination
@@ -73,7 +74,7 @@ func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStr
 	)
 }
 
-func (k *jsiiProxy_KinesisDestination) Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+func (k *jsiiProxy_KinesisDestination) Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *awslogs.LogSubscriptionDestinationConfig {
 	if err := k.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}

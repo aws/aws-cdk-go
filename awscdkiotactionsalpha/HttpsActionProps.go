@@ -42,6 +42,15 @@ type HttpsActionProps struct {
 	// Use Sigv4 authorization.
 	// Experimental.
 	Auth *HttpActionSigV4Auth `field:"optional" json:"auth" yaml:"auth"`
+	// Configuration for batching HTTP action messages.
+	//
+	// When provided, batching is automatically enabled.
+	// See: https://docs.aws.amazon.com/iot/latest/developerguide/http_batching.html
+	//
+	// Default: - Batching is disabled.
+	//
+	// Experimental.
+	BatchConfig *HttpActionBatchConfig `field:"optional" json:"batchConfig" yaml:"batchConfig"`
 	// If specified, AWS IoT uses the confirmation URL to create a matching topic rule destination.
 	// Experimental.
 	ConfirmationUrl *string `field:"optional" json:"confirmationUrl" yaml:"confirmationUrl"`

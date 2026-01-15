@@ -9,6 +9,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -28,7 +29,7 @@ func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
-func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup ILogGroup) error {
+func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

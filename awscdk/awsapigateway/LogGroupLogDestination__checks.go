@@ -5,8 +5,8 @@ package awsapigateway
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(stage interfacesawsapigateway.IStageRef) error {
@@ -17,7 +17,7 @@ func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(stage interfac
 	return nil
 }
 
-func validateNewLogGroupLogDestinationParameters(logGroup awslogs.ILogGroup) error {
+func validateNewLogGroupLogDestinationParameters(logGroup interfacesawslogs.ILogGroupRef) error {
 	if logGroup == nil {
 		return fmt.Errorf("parameter logGroup is required, but nil was provided")
 	}

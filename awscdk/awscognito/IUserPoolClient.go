@@ -5,11 +5,15 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a Cognito user pool client.
 type IUserPoolClient interface {
 	awscdk.IResource
+	interfacesawscognito.IUserPoolClientRef
 	// Name of the application client.
 	UserPoolClientId() *string
 	// The generated client secret.
@@ -21,6 +25,18 @@ type IUserPoolClient interface {
 // The jsii proxy for IUserPoolClient
 type jsiiProxy_IUserPoolClient struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawscognitoIUserPoolClientRef
+}
+
+func (i *jsiiProxy_IUserPoolClient) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IUserPoolClient) UserPoolClientId() *string {
@@ -38,6 +54,46 @@ func (j *jsiiProxy_IUserPoolClient) UserPoolClientSecret() awscdk.SecretValue {
 	_jsii_.Get(
 		j,
 		"userPoolClientSecret",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolClient) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolClient) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolClient) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPoolClient) UserPoolClientRef() *interfacesawscognito.UserPoolClientReference {
+	var returns *interfacesawscognito.UserPoolClientReference
+	_jsii_.Get(
+		j,
+		"userPoolClientRef",
 		&returns,
 	)
 	return returns

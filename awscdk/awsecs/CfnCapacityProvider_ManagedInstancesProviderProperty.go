@@ -15,13 +15,11 @@ package awsecs
 //   	InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
 //   		Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   		NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
-//   			Subnets: []*string{
-//   				jsii.String("subnets"),
-//   			},
-//
-//   			// the properties below are optional
 //   			SecurityGroups: []*string{
 //   				jsii.String("securityGroups"),
+//   			},
+//   			Subnets: []*string{
+//   				jsii.String("subnets"),
 //   			},
 //   		},
 //

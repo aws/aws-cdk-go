@@ -1,5 +1,8 @@
 package awscloudfront
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnKeyValueStore`.
 //
@@ -16,6 +19,12 @@ package awscloudfront
 //   	ImportSource: &ImportSourceProperty{
 //   		SourceArn: jsii.String("sourceArn"),
 //   		SourceType: jsii.String("sourceType"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -34,5 +43,8 @@ type CfnKeyValueStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-importsource
 	//
 	ImportSource interface{} `field:"optional" json:"importSource" yaml:"importSource"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html#cfn-cloudfront-keyvaluestore-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

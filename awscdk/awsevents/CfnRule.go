@@ -47,9 +47,7 @@ import (
 //   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
 //   	EventPattern: bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
 //   		Object: &ObjectType{
-//   			Key: []*string{
-//   				jsii.String("uploads/*"),
-//   			},
+//   			Key: events.Match_Wildcard(jsii.String("uploads/*")),
 //   		},
 //   	}),
 //   	Targets: []IRuleTarget{
@@ -65,9 +63,7 @@ import (
 //   	State: jsii.String("ENABLED"),
 //   	EventPattern: cfnBucketEvents.*ObjectCreatedPattern(&ObjectCreatedProps{
 //   		Object: &ObjectType{
-//   			Key: []*string{
-//   				jsii.String("uploads/*"),
-//   			},
+//   			Key: events.Match_*Wildcard(jsii.String("uploads/*")),
 //   		},
 //   	}),
 //   	Targets: []interface{}{

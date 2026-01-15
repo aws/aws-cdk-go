@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for `BucketDeployment`.
@@ -138,7 +139,7 @@ type BucketDeploymentProps struct {
 	// If you are deploying to another type of region, please check regional availability first.
 	// Default: - a default log group created by AWS Lambda.
 	//
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days that the lambda function's log events are kept in CloudWatch Logs.
 	//
 	// This is a legacy API and we strongly recommend you migrate to `logGroup` if you can.

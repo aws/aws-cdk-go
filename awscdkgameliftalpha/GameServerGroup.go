@@ -132,7 +132,7 @@ type GameServerGroup interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the `grantee` identity permissions to perform `actions`.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Return the given named metric for this fleet.

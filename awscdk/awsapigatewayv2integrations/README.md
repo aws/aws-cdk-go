@@ -8,6 +8,7 @@
   * [HTTP Proxy Integration](#http-proxy)
   * [StepFunctions Integration](#stepfunctions-integration)
   * [SQS Integration](#sqs-integration)
+  * [EventBridge Integration](#eventbridge-integration)
   * [Private Integration](#private-integration)
   * [Request Parameters](#request-parameters)
 * [WebSocket APIs](#websocket-apis)
@@ -275,6 +276,59 @@ apigwv2.NewParameterMapping().Custom(jsii.String("QueueUrl"), queue.QueueUrl).Cu
 // SQS_PURGE_QUEUE
 // SQS_PURGE_QUEUE
 apigwv2.NewParameterMapping().Custom(jsii.String("QueueUrl"), queue.QueueUrl)
+```
+
+### EventBridge Integration
+
+EventBridge integrations enable integrating an HTTP API route with Amazon EventBridge using the PutEvents API.
+This allows the HTTP API to forward requests as events to an EventBridge event bus.
+
+The following code configures EventBridge integrations:
+
+```go
+import events "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var bus IEventBus
+var httpApi HttpApi
+
+
+// default integration (PutEvents)
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/default"),
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
+	},
+	Integration: awscdk.NewHttpEventBridgeIntegration(jsii.String("DefaultEventBridgeIntegration"), &HttpEventBridgeIntegrationProps{
+		EventBusRef: bus.EventBusRef,
+	}),
+})
+
+// explicit subtype
+httpApi.AddRoutes(&AddRoutesOptions{
+	Path: jsii.String("/put-events"),
+	Methods: []HttpMethod{
+		apigwv2.HttpMethod_POST,
+	},
+	Integration: awscdk.NewHttpEventBridgeIntegration(jsii.String("ExplicitSubtypeIntegration"), &HttpEventBridgeIntegrationProps{
+		EventBusRef: bus.*EventBusRef,
+		Subtype: apigwv2.HttpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+	}),
+})
+```
+
+#### EventBridge integration parameter mappings
+
+You can configure the custom parameter mappings of the EventBridge integration using the `parameterMapping` property of the `HttpEventBridgeIntegration` object.
+
+By default, the integration expects the request body to contain `Detail`, `DetailType`, and `Source` fields.
+
+```go
+import events "github.com/aws/aws-cdk-go/awscdk"
+var bus IEventBus
+
+
+apigwv2.NewParameterMapping().Custom(jsii.String("Detail"), jsii.String("$request.body.Detail")).Custom(jsii.String("DetailType"), jsii.String("$request.body.DetailType")).Custom(jsii.String("Source"), jsii.String("$request.body.Source"))
 ```
 
 ### Private Integration

@@ -27,6 +27,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_docdb.EventSubscriptionReference",
 		reflect.TypeOf((*EventSubscriptionReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_docdb.GlobalClusterReference",
+		reflect.TypeOf((*GlobalClusterReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_docdb.IDBClusterParameterGroupRef",
 		reflect.TypeOf((*IDBClusterParameterGroupRef)(nil)).Elem(),
@@ -97,6 +101,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IEventSubscriptionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_docdb.IGlobalClusterRef",
+		reflect.TypeOf((*IGlobalClusterRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "globalClusterRef", GoGetter: "GlobalClusterRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IGlobalClusterRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

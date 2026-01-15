@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,6 +50,11 @@ type HttpStage interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Indicates that this is an HTTP Stage.
+	//
+	// Will always return true, but is necessary to prevent accidental structural
+	// equality in TypeScript.
+	IsHttpStage() *bool
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -65,6 +71,8 @@ type HttpStage interface {
 	//
 	// its primary identifier.
 	StageName() *string
+	// A reference to a Stage resource.
+	StageRef() *interfacesawsapigatewayv2.StageReference
 	// The URL to this stage.
 	Url() *string
 	// Adds a stage variable to this stage.
@@ -164,6 +172,16 @@ func (j *jsiiProxy_HttpStage) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_HttpStage) IsHttpStage() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isHttpStage",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_HttpStage) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -199,6 +217,16 @@ func (j *jsiiProxy_HttpStage) StageName() *string {
 	_jsii_.Get(
 		j,
 		"stageName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpStage) StageRef() *interfacesawsapigatewayv2.StageReference {
+	var returns *interfacesawsapigatewayv2.StageReference
+	_jsii_.Get(
+		j,
+		"stageRef",
 		&returns,
 	)
 	return returns

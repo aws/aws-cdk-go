@@ -9,15 +9,19 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface representing a serverless database cluster.
 type IServerlessCluster interface {
 	awsec2.IConnectable
+	interfacesawsrds.IDBClusterRef
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Grant the given identity to access to the Data API.
+	//
+	// [disable-awslint:no-grants].
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the cluster.
 	ClusterArn() *string
@@ -32,6 +36,7 @@ type IServerlessCluster interface {
 // The jsii proxy for IServerlessCluster
 type jsiiProxy_IServerlessCluster struct {
 	internal.Type__awsec2IConnectable
+	internal.Type__interfacesawsrdsIDBClusterRef
 	internal.Type__awscdkIResource
 	internal.Type__awssecretsmanagerISecretAttachmentTarget
 }
@@ -121,6 +126,16 @@ func (j *jsiiProxy_IServerlessCluster) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IServerlessCluster) DbClusterRef() *interfacesawsrds.DBClusterReference {
+	var returns *interfacesawsrds.DBClusterReference
+	_jsii_.Get(
+		j,
+		"dbClusterRef",
 		&returns,
 	)
 	return returns

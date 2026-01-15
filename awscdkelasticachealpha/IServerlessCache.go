@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/aws-cdk-go/awscdkelasticachealpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -18,6 +19,7 @@ import (
 type IServerlessCache interface {
 	awsec2.IConnectable
 	awscdk.IResource
+	interfacesawselasticache.IServerlessCacheRef
 	// Grant the given identity custom permissions.
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
@@ -90,6 +92,7 @@ type IServerlessCache interface {
 type jsiiProxy_IServerlessCache struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawselasticacheIServerlessCacheRef
 }
 
 func (i *jsiiProxy_IServerlessCache) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
@@ -431,6 +434,16 @@ func (j *jsiiProxy_IServerlessCache) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IServerlessCache) ServerlessCacheRef() *interfacesawselasticache.ServerlessCacheReference {
+	var returns *interfacesawselasticache.ServerlessCacheReference
+	_jsii_.Get(
+		j,
+		"serverlessCacheRef",
 		&returns,
 	)
 	return returns

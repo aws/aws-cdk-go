@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,6 +33,8 @@ type DatabaseClusterBase interface {
 	ClusterResourceIdentifier() *string
 	// Access to the network connections.
 	Connections() awsec2.Connections
+	// A reference to this database cluster.
+	DbClusterRef() *interfacesawsrds.DBClusterReference
 	EnableDataApi() *bool
 	SetEnableDataApi(val *bool)
 	// The engine of this Cluster.
@@ -94,9 +97,11 @@ type DatabaseClusterBase interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity connection access to the Cluster.
+	// [disable-awslint:no-grants].
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Grant the given identity to access the Data API.
+	//
+	// [disable-awslint:no-grants].
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBCluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -221,6 +226,16 @@ func (j *jsiiProxy_DatabaseClusterBase) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterBase) DbClusterRef() *interfacesawsrds.DBClusterReference {
+	var returns *interfacesawsrds.DBClusterReference
+	_jsii_.Get(
+		j,
+		"dbClusterRef",
 		&returns,
 	)
 	return returns

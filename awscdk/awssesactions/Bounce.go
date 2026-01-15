@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
@@ -30,7 +31,7 @@ import (
 type Bounce interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Bounce
@@ -65,7 +66,7 @@ func NewBounce_Override(b Bounce, props *BounceProps) {
 	)
 }
 
-func (b *jsiiProxy_Bounce) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (b *jsiiProxy_Bounce) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := b.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

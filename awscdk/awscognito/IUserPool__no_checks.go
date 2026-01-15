@@ -24,7 +24,11 @@ func (i *jsiiProxy_IUserPool) validateGrantParameters(grantee awsiam.IGrantable)
 	return nil
 }
 
-func (i *jsiiProxy_IUserPool) validateRegisterIdentityProviderParameters(provider IUserPoolIdentityProvider) error {
+func (i *jsiiProxy_IUserPool) validateRegisterIdentityProviderParameters(provider interfacesawscognito.IUserPoolIdentityProviderRef) error {
+	return nil
+}
+
+func (i *jsiiProxy_IUserPool) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
 

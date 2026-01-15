@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Customize the Amazon Data Firehose Stream Event Target V2 to support L2 Amazon Data Firehose Delivery Stream instead of L1 Cfn Firehose Delivery Stream.
@@ -28,7 +29,7 @@ type KinesisFirehoseStreamV2 interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
 	// Deprecated: Use FirehoseDeliveryStream.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for KinesisFirehoseStreamV2
@@ -65,7 +66,7 @@ func NewKinesisFirehoseStreamV2_Override(k KinesisFirehoseStreamV2, stream IDeli
 	)
 }
 
-func (k *jsiiProxy_KinesisFirehoseStreamV2) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (k *jsiiProxy_KinesisFirehoseStreamV2) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := k.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -52,8 +53,10 @@ type UsagePlan interface {
 	Stack() awscdk.Stack
 	// Id of the usage plan.
 	UsagePlanId() *string
+	// A reference to a UsagePlan resource.
+	UsagePlanRef() *interfacesawsapigateway.UsagePlanReference
 	// Adds an ApiKey.
-	AddApiKey(apiKey IApiKey, options *AddApiKeyOptions)
+	AddApiKey(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions)
 	// Adds an apiStage.
 	AddApiStage(apiStage *UsagePlanPerApiStage)
 	// Apply the given removal policy to this resource.
@@ -135,6 +138,16 @@ func (j *jsiiProxy_UsagePlan) UsagePlanId() *string {
 	_jsii_.Get(
 		j,
 		"usagePlanId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UsagePlan) UsagePlanRef() *interfacesawsapigateway.UsagePlanReference {
+	var returns *interfacesawsapigateway.UsagePlanReference
+	_jsii_.Get(
+		j,
+		"usagePlanRef",
 		&returns,
 	)
 	return returns
@@ -271,7 +284,7 @@ func UsagePlan_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
+func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey interfacesawsapigateway.IApiKeyRef, options *AddApiKeyOptions) {
 	if err := u.validateAddApiKeyParameters(apiKey, options); err != nil {
 		panic(err)
 	}

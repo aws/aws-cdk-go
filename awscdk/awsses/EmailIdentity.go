@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,6 +46,8 @@ type EmailIdentity interface {
 	EmailIdentityArn() *string
 	// The name of the email identity.
 	EmailIdentityName() *string
+	// A reference to a EmailIdentity resource.
+	EmailIdentityRef() *interfacesawsses.EmailIdentityReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -92,10 +95,14 @@ type EmailIdentity interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Adds an IAM policy statement associated with this email identity to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal the send email action.
 	//
 	// Actions: SendEmail, SendRawEmail.
+	//
+	// [disable-awslint:no-grants].
 	GrantSendEmail(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -192,6 +199,16 @@ func (j *jsiiProxy_EmailIdentity) EmailIdentityName() *string {
 	_jsii_.Get(
 		j,
 		"emailIdentityName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmailIdentity) EmailIdentityRef() *interfacesawsses.EmailIdentityReference {
+	var returns *interfacesawsses.EmailIdentityReference
+	_jsii_.Get(
+		j,
+		"emailIdentityRef",
 		&returns,
 	)
 	return returns

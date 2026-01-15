@@ -12,3 +12,7 @@ func (i *jsiiProxy_IEmailIdentity) validateGrantSendEmailParameters(grantee awsi
 	return nil
 }
 
+func (i *jsiiProxy_IEmailIdentity) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

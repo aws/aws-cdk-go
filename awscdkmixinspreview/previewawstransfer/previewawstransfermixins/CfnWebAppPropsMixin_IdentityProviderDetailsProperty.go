@@ -1,7 +1,7 @@
 package previewawstransfermixins
 
 
-// A structure that describes the values to use for the IAM Identity Center settings when you create or update a web app.
+// A structure that describes the values to use for the SSO settings when you create or update a web app.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,11 +18,12 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //
 //   logStream := awscdk.Aws_logs.NewLogStream(this, jsii.String("MyLogStream"), &LogStreamProps{
-//   	LogGroup: logGroup,
+//   	LogGroup: logGroupRef,
 //
 //   	// the properties below are optional
 //   	LogStreamName: jsii.String("logStreamName"),
@@ -43,6 +45,8 @@ type LogStream interface {
 	Env() *interfaces.ResourceEnvironment
 	// The name of this log stream.
 	LogStreamName() *string
+	// A reference to a LogStream resource.
+	LogStreamRef() *interfacesawslogs.LogStreamReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -109,6 +113,16 @@ func (j *jsiiProxy_LogStream) LogStreamName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_LogStream) LogStreamRef() *interfacesawslogs.LogStreamReference {
+	var returns *interfacesawslogs.LogStreamReference
+	_jsii_.Get(
+		j,
+		"logStreamRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_LogStream) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -167,7 +181,26 @@ func NewLogStream_Override(l LogStream, scope constructs.Construct, id *string, 
 	)
 }
 
-// Import an existing LogGroup.
+// Import an existing LogStream using its attributes.
+func LogStream_FromLogStreamAttributes(scope constructs.Construct, id *string, attrs *LogStreamAttributes) ILogStream {
+	_init_.Initialize()
+
+	if err := validateLogStream_FromLogStreamAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns ILogStream
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_logs.LogStream",
+		"fromLogStreamAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import an existing LogStream.
 func LogStream_FromLogStreamName(scope constructs.Construct, id *string, logStreamName *string) ILogStream {
 	_init_.Initialize()
 

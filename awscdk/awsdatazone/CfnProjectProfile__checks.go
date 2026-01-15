@@ -255,6 +255,23 @@ func (j *jsiiProxy_CfnProjectProfile) validateSetNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnProjectProfile) validateSetUseDefaultConfigurationsParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnProjectProfileParameters(scope constructs.Construct, id *string, props *CfnProjectProfileProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

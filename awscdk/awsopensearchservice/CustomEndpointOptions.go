@@ -1,8 +1,8 @@
 package awsopensearchservice
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Configures a custom domain endpoint for the Amazon OpenSearch Service domain.
@@ -21,7 +21,7 @@ type CustomEndpointOptions struct {
 	// The certificate to use.
 	// Default: - create a new one.
 	//
-	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"optional" json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
 	// Default: - do not create a CNAME.
 	//

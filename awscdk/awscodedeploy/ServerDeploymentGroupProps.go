@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 )
 
 // Construction properties for `ServerDeploymentGroup`.
@@ -37,7 +38,7 @@ type ServerDeploymentGroupProps struct {
 	// The CodeDeploy EC2/on-premise Application this Deployment Group belongs to.
 	// Default: - A new Application will be created.
 	//
-	Application IServerApplication `field:"optional" json:"application" yaml:"application"`
+	Application interfacesawscodedeploy.IApplicationRef `field:"optional" json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
 	// Default: - default AutoRollbackConfig.
 	//
@@ -55,7 +56,7 @@ type ServerDeploymentGroupProps struct {
 	// The EC2/on-premise Deployment Configuration to use for this Deployment Group.
 	// Default: ServerDeploymentConfig#OneAtATime.
 	//
-	DeploymentConfig IServerDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig interfacesawscodedeploy.IDeploymentConfigRef `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
 	// Default: - An auto-generated name will be used.
 	//

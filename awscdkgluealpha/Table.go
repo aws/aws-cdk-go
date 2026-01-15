@@ -154,20 +154,29 @@ type Table interface {
 	// Deprecated: Use {@link S3Table } instead.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity custom permissions.
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: Use {@link S3Table } instead.
 	Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
 	// Grant read permissions to the table and the underlying data stored in S3 to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: Use {@link S3Table } instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read and write permissions to the table and the underlying data stored in S3 to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: Use {@link S3Table } instead.
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity custom permissions to ALL underlying resources of the table.
 	//
 	// Permissions will be granted to the catalog, the database, and the table.
+	// [disable-awslint:no-grants].
 	// Deprecated: Use {@link S3Table } instead.
 	GrantToUnderlyingResources(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
 	// Grant write permissions to the table and the underlying data stored in S3 to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: Use {@link S3Table } instead.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

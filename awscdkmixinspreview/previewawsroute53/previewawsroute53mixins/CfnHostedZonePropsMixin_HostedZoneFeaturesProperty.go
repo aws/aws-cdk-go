@@ -15,7 +15,6 @@ package previewawsroute53mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonefeatures.html
 //
 type CfnHostedZonePropsMixin_HostedZoneFeaturesProperty struct {
-	// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonefeatures.html#cfn-route53-hostedzone-hostedzonefeatures-enableacceleratedrecovery
 	//
 	EnableAcceleratedRecovery interface{} `field:"optional" json:"enableAcceleratedRecovery" yaml:"enableAcceleratedRecovery"`

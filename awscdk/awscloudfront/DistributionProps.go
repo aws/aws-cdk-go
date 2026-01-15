@@ -1,8 +1,8 @@
 package awscloudfront
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Properties for a Distribution.
@@ -38,7 +38,7 @@ type DistributionProps struct {
 	// The certificate must be located in N. Virginia (us-east-1).
 	// Default: - the CloudFront wildcard certificate (*.cloudfront.net) will be used.
 	//
-	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"optional" json:"certificate" yaml:"certificate"`
 	// Any comments you want to include about the distribution.
 	// Default: - no comment.
 	//

@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Non runtime options.
@@ -17,6 +18,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -37,7 +39,7 @@ import (
 //   var keyRef IKeyRef
 //   var lambdaInsightsVersion LambdaInsightsVersion
 //   var layerVersion LayerVersion
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //   var paramsAndSecretsLayerVersion ParamsAndSecretsLayerVersion
 //   var policyStatement PolicyStatement
 //   var profilingGroup ProfilingGroup
@@ -107,7 +109,7 @@ import (
 //   	},
 //   	LogFormat: jsii.String("logFormat"),
 //   	LoggingFormat: awscdk.*Aws_lambda.LoggingFormat_TEXT,
-//   	LogGroup: logGroup,
+//   	LogGroup: logGroupRef,
 //   	LogRemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	LogRetention: awscdk.Aws_logs.RetentionDays_ONE_DAY,
 //   	LogRetentionRetryOptions: &LogRetentionRetryOptions{
@@ -340,7 +342,7 @@ type FunctionOptions struct {
 	// If you are deploying to another type of region, please check regional availability first.
 	// Default: `/aws/lambda/${this.functionName}` - default log group created by Lambda
 	//
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Determine the removal policy of the log group that is auto-created by this construct.
 	//
 	// Normally you want to retain the log group so you can diagnose issues

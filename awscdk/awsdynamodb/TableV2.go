@@ -128,11 +128,15 @@ type TableV2 interface {
 	//
 	// Note: If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal to all DynamoDB operations ('dynamodb:*') on this table.
 	//
 	// Note: Appropriate grants will also be added to the customer-managed KMS keys associated with this
 	// table if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data read operations on this table.
 	//
@@ -140,6 +144,8 @@ type TableV2 interface {
 	//
 	// Note: Appropriate grants will also be added to the customer-managed KMS keys associated with this
 	// table if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to all data read/write operations on this table.
 	//
@@ -148,11 +154,15 @@ type TableV2 interface {
 	//
 	// Note: Appropriate grants will also be added to the customer-managed KMS keys associated with this
 	// table if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement associated with this table to an IAM principal's policy.
 	//
 	// Note: If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	//
+	// [disable-awslint:no-grants].
 	GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Adds an IAM policy statement associated with this table to an IAM principal's policy.
 	//
@@ -160,8 +170,12 @@ type TableV2 interface {
 	//
 	// Note: Appropriate grants will also be added to the customer-managed KMS keys associated with this
 	// table if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to list streams attached to this table.
+	//
+	// [disable-awslint:no-grants].
 	GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data write operations on this table.
 	//
@@ -169,6 +183,8 @@ type TableV2 interface {
 	//
 	// Note: Appropriate grants will also be added to the customer-managed KMS keys associated with this
 	// table if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this table.
 	//

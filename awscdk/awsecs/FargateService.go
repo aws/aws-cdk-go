@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -103,6 +104,8 @@ type FargateService interface {
 	ServiceArn() *string
 	// The name of the service.
 	ServiceName() *string
+	// A reference to this service.
+	ServiceRef() *interfacesawsecs.ServiceReference
 	// The details of the service discovery registries to assign to this service.
 	//
 	// For more information, see Service Discovery.
@@ -360,6 +363,16 @@ func (j *jsiiProxy_FargateService) ServiceName() *string {
 	_jsii_.Get(
 		j,
 		"serviceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateService) ServiceRef() *interfacesawsecs.ServiceReference {
+	var returns *interfacesawsecs.ServiceReference
+	_jsii_.Get(
+		j,
+		"serviceRef",
 		&returns,
 	)
 	return returns

@@ -99,21 +99,29 @@ type Stream interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the indicated permissions on this stream to the given IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to decrypt the
 	// contents of the stream will also be granted.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants read/write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to use the key for
 	// encrypt/decrypt will also be granted.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to ues the key to encrypt the
 	// contents of the stream will also be granted.
+	//
+	// [disable-awslint:no-grants].
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Return stream metric based from its metric name.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

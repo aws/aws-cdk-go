@@ -2,8 +2,8 @@ package awsec2
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Flow Log Destination configuration.
@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket Bucket
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //   var role Role
 //
 //   flowLogDestinationConfig := &FlowLogDestinationConfig{
@@ -32,7 +32,7 @@ import (
 //   	},
 //   	IamRole: role,
 //   	KeyPrefix: jsii.String("keyPrefix"),
-//   	LogGroup: logGroup,
+//   	LogGroup: logGroupRef,
 //   	S3Bucket: bucket,
 //   }
 //
@@ -60,7 +60,7 @@ type FlowLogDestinationConfig struct {
 	// The CloudWatch Logs Log Group to publish the flow logs to.
 	// Default: - default log group is created for you.
 	//
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// S3 bucket to publish the flow logs to.
 	// Default: - undefined.
 	//

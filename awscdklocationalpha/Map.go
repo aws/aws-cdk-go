@@ -95,9 +95,11 @@ type Map interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given principal identity permissions to perform the actions on this map.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions to rendering a map resource.
+	// Grant the given identity permissions to rendering a map resource [disable-awslint:no-grants].
 	// Experimental.
 	GrantRendering(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

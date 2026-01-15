@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateSetEnvironmentB
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateSetGlobalParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateSetProvisioningConfigurationsParameters(val interface{}) error {
 	return nil
 }

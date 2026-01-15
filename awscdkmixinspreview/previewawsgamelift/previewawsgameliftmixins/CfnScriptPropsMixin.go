@@ -22,6 +22,7 @@ import (
 //
 //   cfnScriptPropsMixin := awscdkmixinspreview.Mixins.NewCfnScriptPropsMixin(&CfnScriptMixinProps{
 //   	Name: jsii.String("name"),
+//   	NodeJsVersion: jsii.String("nodeJsVersion"),
 //   	StorageLocation: &S3LocationProperty{
 //   		Bucket: jsii.String("bucket"),
 //   		Key: jsii.String("key"),

@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Publishes the email content within a notification to Amazon SNS.
@@ -52,7 +53,7 @@ import (
 type Sns interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Sns
@@ -87,7 +88,7 @@ func NewSns_Override(s Sns, props *SnsProps) {
 	)
 }
 
-func (s *jsiiProxy_Sns) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (s *jsiiProxy_Sns) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := s.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

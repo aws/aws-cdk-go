@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,6 +50,8 @@ import (
 type SubnetGroup interface {
 	awscdk.Resource
 	ISubnetGroup
+	// A reference to this subnet group.
+	DbSubnetGroupRef() *interfacesawsrds.DBSubnetGroupReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -105,6 +108,16 @@ type SubnetGroup interface {
 type jsiiProxy_SubnetGroup struct {
 	internal.Type__awscdkResource
 	jsiiProxy_ISubnetGroup
+}
+
+func (j *jsiiProxy_SubnetGroup) DbSubnetGroupRef() *interfacesawsrds.DBSubnetGroupReference {
+	var returns *interfacesawsrds.DBSubnetGroupReference
+	_jsii_.Get(
+		j,
+		"dbSubnetGroupRef",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SubnetGroup) Env() *interfaces.ResourceEnvironment {

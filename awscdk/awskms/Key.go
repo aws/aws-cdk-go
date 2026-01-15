@@ -115,27 +115,47 @@ type Key interface {
 	// This modifies both the principal's policy as well as the resource policy,
 	// since the default CloudFormation setup for KMS keys is that the policy
 	// must not be empty and so default grants won't work.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant admins permissions using this key to the given principal.
 	//
 	// Key administrators have permissions to manage the key (e.g., change permissions, revoke), but do not have permissions
 	// to use the key in cryptographic operations (e.g., encrypt, decrypt).
+	//
+	// [disable-awslint:no-grants].
 	GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant decryption permissions using this key to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption permissions using this key to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption and decryption permissions using this key to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant permissions to generating MACs to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantGenerateMac(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant sign permissions using this key to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantSign(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant sign and verify permissions using this key to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantSignVerify(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant verify permissions using this key to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantVerify(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant permissions to verifying MACs to the given principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantVerifyMac(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

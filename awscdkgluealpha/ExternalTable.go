@@ -136,20 +136,23 @@ type ExternalTable interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity custom permissions.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
-	// Grant read permissions to the table.
+	// Grant read permissions to the table [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant read and write permissions to the table.
+	// Grant read and write permissions to the table [disable-awslint:no-grants].
 	// Experimental.
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity custom permissions to ALL underlying resources of the table.
 	//
 	// Permissions will be granted to the catalog, the database, and the table.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantToUnderlyingResources(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
-	// Grant write permissions to the table.
+	// Grant write permissions to the table [disable-awslint:no-grants].
 	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

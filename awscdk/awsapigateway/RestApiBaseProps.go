@@ -20,7 +20,7 @@ import (
 //   var accessLogDestination IAccessLogDestination
 //   var accessLogFormat AccessLogFormat
 //   var bucket Bucket
-//   var certificate Certificate
+//   var certificateRef ICertificateRef
 //   var policyDocument PolicyDocument
 //   var vpcEndpoint VpcEndpoint
 //
@@ -65,7 +65,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	DisableExecuteApiEndpoint: jsii.Boolean(false),
 //   	DomainName: &DomainNameOptions{
-//   		Certificate: certificate,
+//   		Certificate: certificateRef,
 //   		DomainName: jsii.String("domainName"),
 //
 //   		// the properties below are optional

@@ -1,5 +1,8 @@
 package awsses
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
+)
 
 // Options to add a receipt rule to a receipt rule set.
 //
@@ -20,7 +23,7 @@ type ReceiptRuleOptions struct {
 	// An existing rule after which the new rule will be placed.
 	// Default: - The new rule is inserted at the beginning of the rule list.
 	//
-	After IReceiptRule `field:"optional" json:"after" yaml:"after"`
+	After interfacesawsses.IReceiptRuleRef `field:"optional" json:"after" yaml:"after"`
 	// Whether the rule is active.
 	// Default: true.
 	//

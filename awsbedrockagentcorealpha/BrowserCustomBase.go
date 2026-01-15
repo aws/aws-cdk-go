@@ -100,12 +100,16 @@ type BrowserCustomBase interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants IAM actions to the IAM Principal.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions on this browser to an IAM principal.
 	//
 	// This includes both read permissions on the specific browser and list permissions on all browsers.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
@@ -115,6 +119,8 @@ type BrowserCustomBase interface {
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant invoke permissions on this browser to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:

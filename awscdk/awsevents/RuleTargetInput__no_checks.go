@@ -4,7 +4,7 @@ package awsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (r *jsiiProxy_RuleTargetInput) validateBindParameters(rule IRule) error {
+func (r *jsiiProxy_RuleTargetInput) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	return nil
 }
 

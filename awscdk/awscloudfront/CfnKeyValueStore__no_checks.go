@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnKeyValueStore) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnKeyValueStore) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnKeyValueStoreParameters(scope constructs.Construct, id *string, props *CfnKeyValueStoreProps) error {
 	return nil
 }

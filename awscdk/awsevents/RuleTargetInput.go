@@ -3,6 +3,8 @@ package awsevents
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // The input to send to the event target.
@@ -34,7 +36,7 @@ import (
 //
 type RuleTargetInput interface {
 	// Return the input properties for this input object.
-	Bind(rule IRule) *RuleTargetInputProperties
+	Bind(rule interfacesawsevents.IRuleRef) *RuleTargetInputProperties
 }
 
 // The jsii proxy struct for RuleTargetInput
@@ -146,7 +148,7 @@ func RuleTargetInput_FromText(text *string) RuleTargetInput {
 	return returns
 }
 
-func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties {
+func (r *jsiiProxy_RuleTargetInput) Bind(rule interfacesawsevents.IRuleRef) *RuleTargetInputProperties {
 	if err := r.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

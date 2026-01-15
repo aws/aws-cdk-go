@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Customize the Amazon Data Firehose Stream Event Target.
@@ -29,7 +30,7 @@ import (
 type FirehoseDeliveryStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for FirehoseDeliveryStream
@@ -64,7 +65,7 @@ func NewFirehoseDeliveryStream_Override(f FirehoseDeliveryStream, deliveryStream
 	)
 }
 
-func (f *jsiiProxy_FirehoseDeliveryStream) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (f *jsiiProxy_FirehoseDeliveryStream) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := f.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

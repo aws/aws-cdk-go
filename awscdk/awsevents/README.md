@@ -53,9 +53,14 @@ var project Project
 
 onCommitRule := repo.onCommit(jsii.String("OnCommit"), &OnCommitOptions{
 	Target: targets.NewCodeBuildProject(project),
-	Branches: []*string{
-		jsii.String("master"),
+	EventPattern: &EventPattern{
+		Detail: map[string]interface{}{
+			"referenceType": []interface{}{
+				jsii.String("branch"),
+			},
+		},
 	},
+	Branches: events.Match_Prefix(jsii.String("main")),
 })
 ```
 

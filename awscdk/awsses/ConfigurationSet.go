@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -23,6 +24,8 @@ type ConfigurationSet interface {
 	IConfigurationSet
 	// The name of the configuration set.
 	ConfigurationSetName() *string
+	// A reference to a ConfigurationSet resource.
+	ConfigurationSetRef() *interfacesawsses.ConfigurationSetReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -86,6 +89,16 @@ func (j *jsiiProxy_ConfigurationSet) ConfigurationSetName() *string {
 	_jsii_.Get(
 		j,
 		"configurationSetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationSet) ConfigurationSetRef() *interfacesawsses.ConfigurationSetReference {
+	var returns *interfacesawsses.ConfigurationSetReference
+	_jsii_.Get(
+		j,
+		"configurationSetRef",
 		&returns,
 	)
 	return returns

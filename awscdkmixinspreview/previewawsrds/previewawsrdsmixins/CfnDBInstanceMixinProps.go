@@ -12,6 +12,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnDBInstanceMixinProps := &CfnDBInstanceMixinProps{
+//   	AdditionalStorageVolumes: []interface{}{
+//   		&AdditionalStorageVolumeProperty{
+//   			AllocatedStorage: jsii.String("allocatedStorage"),
+//   			Iops: jsii.Number(123),
+//   			MaxAllocatedStorage: jsii.Number(123),
+//   			StorageThroughput: jsii.Number(123),
+//   			StorageType: jsii.String("storageType"),
+//   			VolumeName: jsii.String("volumeName"),
+//   		},
+//   	},
 //   	AllocatedStorage: jsii.String("allocatedStorage"),
 //   	AllowMajorVersionUpgrade: jsii.Boolean(false),
 //   	ApplyImmediately: jsii.Boolean(false),
@@ -125,6 +135,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html
 //
 type CfnDBInstanceMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-additionalstoragevolumes
+	//
+	AdditionalStorageVolumes interface{} `field:"optional" json:"additionalStorageVolumes" yaml:"additionalStorageVolumes"`
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	//
 	// > If any value is set in the `Iops` parameter, `AllocatedStorage` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the `Iops` value (in 1,000 IOPS increments), then you must also increase the `AllocatedStorage` value (in 100-GiB increments).

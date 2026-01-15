@@ -17,7 +17,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ Function
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //
 //   waiterStateMachineProps := &WaiterStateMachineProps{
 //   	BackoffRate: jsii.Number(123),
@@ -29,7 +29,7 @@ import (
 //   	// the properties below are optional
 //   	DisableLogging: jsii.Boolean(false),
 //   	LogOptions: &LogOptions{
-//   		Destination: logGroup,
+//   		Destination: logGroupRef,
 //   		IncludeExecutionData: jsii.Boolean(false),
 //   		Level: awscdk.Aws_stepfunctions.LogLevel_OFF,
 //   	},

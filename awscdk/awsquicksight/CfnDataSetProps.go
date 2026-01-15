@@ -52,7 +52,7 @@ type CfnDataSetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
 	//
 	FieldFolders interface{} `field:"optional" json:"fieldFolders" yaml:"fieldFolders"`
-	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>.
+	// <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-folderarns
 	//
 	FolderArns *[]*string `field:"optional" json:"folderArns" yaml:"folderArns"`
@@ -89,7 +89,7 @@ type CfnDataSetProps struct {
 	// <p>Information about a dataset that contains permissions for row-level security (RLS).
 	//
 	// The permissions dataset maps fields to users or groups. For more information, see
-	//             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+	//             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
 	//                 Guide</i>.</p>
 	//          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
 	//             not supported for new RLS datasets.</p>

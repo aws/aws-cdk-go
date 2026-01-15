@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Start a task on an ECS cluster.
@@ -41,7 +42,7 @@ type EcsTask interface {
 	//
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	// Allows using tasks as target of EventBridge events.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for EcsTask
@@ -87,7 +88,7 @@ func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 	)
 }
 
-func (e *jsiiProxy_EcsTask) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (e *jsiiProxy_EcsTask) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := e.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

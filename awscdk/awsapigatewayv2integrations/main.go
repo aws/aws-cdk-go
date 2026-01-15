@@ -29,6 +29,23 @@ func init() {
 		reflect.TypeOf((*HttpAlbIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpEventBridgeIntegration",
+		reflect.TypeOf((*HttpEventBridgeIntegration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "completeBind", GoMethod: "CompleteBind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HttpEventBridgeIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awsapigatewayv2HttpRouteIntegration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpEventBridgeIntegrationProps",
+		reflect.TypeOf((*HttpEventBridgeIntegrationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpLambdaIntegration",
 		reflect.TypeOf((*HttpLambdaIntegration)(nil)).Elem(),
 		[]_jsii_.Member{

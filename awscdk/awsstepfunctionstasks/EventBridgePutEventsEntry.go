@@ -1,8 +1,8 @@
 package awsstepfunctionstasks
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // An entry to be sent to EventBridge.
@@ -14,7 +14,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var eventBus EventBus
+//   var eventBusRef IEventBusRef
 //   var taskInput TaskInput
 //
 //   eventBridgePutEventsEntry := &EventBridgePutEventsEntry{
@@ -23,7 +23,7 @@ import (
 //   	Source: jsii.String("source"),
 //
 //   	// the properties below are optional
-//   	EventBus: eventBus,
+//   	EventBus: eventBusRef,
 //   }
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html
@@ -56,6 +56,6 @@ type EventBridgePutEventsEntry struct {
 	// The event bus the entry will be sent to.
 	// Default: - event is sent to account's default event bus.
 	//
-	EventBus awsevents.IEventBus `field:"optional" json:"eventBus" yaml:"eventBus"`
+	EventBus interfacesawsevents.IEventBusRef `field:"optional" json:"eventBus" yaml:"eventBus"`
 }
 

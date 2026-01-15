@@ -5,9 +5,13 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 type ILogStream interface {
+	interfacesawslogs.ILogStreamRef
 	awscdk.IResource
 	// The name of this log stream.
 	LogStreamName() *string
@@ -15,7 +19,19 @@ type ILogStream interface {
 
 // The jsii proxy for ILogStream
 type jsiiProxy_ILogStream struct {
+	internal.Type__interfacesawslogsILogStreamRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_ILogStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_ILogStream) LogStreamName() *string {
@@ -23,6 +39,46 @@ func (j *jsiiProxy_ILogStream) LogStreamName() *string {
 	_jsii_.Get(
 		j,
 		"logStreamName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogStream) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogStream) LogStreamRef() *interfacesawslogs.LogStreamReference {
+	var returns *interfacesawslogs.LogStreamReference
+	_jsii_.Get(
+		j,
+		"logStreamRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogStream) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ILogStream) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

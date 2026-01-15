@@ -95,7 +95,7 @@ type EventBus interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants an IAM Principal to send custom events to the eventBus so that they can be matched to rules.
+	// [disable-awslint:no-grants].
 	GrantPutEventsTo(grantee awsiam.IGrantable, sid *string) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

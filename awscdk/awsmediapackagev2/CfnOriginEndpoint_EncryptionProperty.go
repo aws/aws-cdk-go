@@ -25,6 +25,9 @@ package awsmediapackagev2
 //   		ResourceId: jsii.String("resourceId"),
 //   		RoleArn: jsii.String("roleArn"),
 //   		Url: jsii.String("url"),
+//
+//   		// the properties below are optional
+//   		CertificateArn: jsii.String("certificateArn"),
 //   	},
 //
 //   	// the properties below are optional

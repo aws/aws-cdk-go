@@ -22,7 +22,7 @@ import (
 //   var autoScalingGroup AutoScalingGroup
 //   var bucket Bucket
 //   var key Key
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //   var namespace INamespace
 //   var securityGroup SecurityGroup
 //   var vpc Vpc
@@ -39,7 +39,7 @@ import (
 //   		KmsKey: key,
 //   		LogConfiguration: &ExecuteCommandLogConfiguration{
 //   			CloudWatchEncryptionEnabled: jsii.Boolean(false),
-//   			CloudWatchLogGroup: logGroup,
+//   			CloudWatchLogGroup: logGroupRef,
 //   			S3Bucket: bucket,
 //   			S3EncryptionEnabled: jsii.Boolean(false),
 //   			S3KeyPrefix: jsii.String("s3KeyPrefix"),

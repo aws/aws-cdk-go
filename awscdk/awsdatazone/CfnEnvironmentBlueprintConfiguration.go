@@ -27,6 +27,9 @@ import (
 //
 //   	// the properties below are optional
 //   	EnvironmentRolePermissionBoundary: jsii.String("environmentRolePermissionBoundary"),
+//   	GlobalParameters: map[string]*string{
+//   		"globalParametersKey": jsii.String("globalParameters"),
+//   	},
 //   	ManageAccessRoleArn: jsii.String("manageAccessRoleArn"),
 //   	ProvisioningConfigurations: []interface{}{
 //   		&ProvisioningConfigurationProperty{
@@ -89,6 +92,9 @@ type CfnEnvironmentBlueprintConfiguration interface {
 	// The environment role permission boundary.
 	EnvironmentRolePermissionBoundary() *string
 	SetEnvironmentRolePermissionBoundary(val *string)
+	// Region-agnostic environment blueprint parameters.
+	GlobalParameters() interface{}
+	SetGlobalParameters(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -409,6 +415,16 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) EnvironmentRolePermissi
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) GlobalParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"globalParameters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -576,6 +592,17 @@ func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration)SetEnvironmentRolePermis
 	_jsii_.Set(
 		j,
 		"environmentRolePermissionBoundary",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironmentBlueprintConfiguration)SetGlobalParameters(val interface{}) {
+	if err := j.validateSetGlobalParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"globalParameters",
 		val,
 	)
 }

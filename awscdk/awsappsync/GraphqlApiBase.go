@@ -108,12 +108,20 @@ type GraphqlApiBase interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Adds an IAM policy statement associated with this GraphQLApi to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, resources IamResource, actions ...*string) awsiam.Grant
 	// Adds an IAM policy statement for Mutation access to this GraphQLApi to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantMutation(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
 	// Adds an IAM policy statement for Query access to this GraphQLApi to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantQuery(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
 	// Adds an IAM policy statement for Subscription access to this GraphQLApi to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantSubscription(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

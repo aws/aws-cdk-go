@@ -1,7 +1,7 @@
 package awsapigatewayv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // properties for creating a domain name endpoint.
@@ -12,16 +12,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var certificate Certificate
+//   var certificateRef ICertificateRef
 //
 //   endpointOptions := &EndpointOptions{
-//   	Certificate: certificate,
+//   	Certificate: certificateRef,
 //
 //   	// the properties below are optional
 //   	CertificateName: jsii.String("certificateName"),
 //   	EndpointType: awscdk.Aws_apigatewayv2.EndpointType_EDGE,
 //   	IpAddressType: awscdk.*Aws_apigatewayv2.IpAddressType_IPV4,
-//   	OwnershipCertificate: certificate,
+//   	OwnershipCertificate: certificateRef,
 //   	SecurityPolicy: awscdk.*Aws_apigatewayv2.SecurityPolicy_TLS_1_0,
 //   }
 //
@@ -29,7 +29,7 @@ type EndpointOptions struct {
 	// The ACM certificate for this domain name.
 	//
 	// Certificate can be both ACM issued or imported.
-	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"required" json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Default: - No friendly certificate name.
 	//
@@ -51,7 +51,7 @@ type EndpointOptions struct {
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Default: - only required when configuring mTLS.
 	//
-	OwnershipCertificate awscertificatemanager.ICertificate `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
+	OwnershipCertificate interfacesawscertificatemanager.ICertificateRef `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Default: SecurityPolicy.TLS_1_2
 	//

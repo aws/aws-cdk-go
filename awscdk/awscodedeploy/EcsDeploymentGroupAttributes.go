@@ -1,5 +1,8 @@
 package awscodedeploy
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
+)
 
 // Properties of a reference to a CodeDeploy ECS Deployment Group.
 //
@@ -15,12 +18,12 @@ package awscodedeploy
 //
 type EcsDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
-	Application IEcsApplication `field:"required" json:"application" yaml:"application"`
+	Application interfacesawscodedeploy.IApplicationRef `field:"required" json:"application" yaml:"application"`
 	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
 	DeploymentGroupName *string `field:"required" json:"deploymentGroupName" yaml:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
 	// Default: EcsDeploymentConfig.ALL_AT_ONCE
 	//
-	DeploymentConfig IEcsDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig interfacesawscodedeploy.IDeploymentConfigRef `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 }
 

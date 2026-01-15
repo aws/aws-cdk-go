@@ -102,12 +102,18 @@ type Image interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant custom actions to the given grantee for the image.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants the default permissions for building an image to the provided execution role.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantDefaultExecutionRolePermissions(grantee awsiam.IGrantable) *[]awsiam.Grant
 	// Grant read permissions to the given grantee for the image.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Converts the image to a BaseImage, to use as the parent image in an image recipe.

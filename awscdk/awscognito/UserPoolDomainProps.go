@@ -1,5 +1,8 @@
 package awscognito
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
+)
 
 // Props for UserPoolDomain construct.
 //
@@ -91,6 +94,6 @@ type UserPoolDomainProps struct {
 	//
 	ManagedLoginVersion ManagedLoginVersion `field:"optional" json:"managedLoginVersion" yaml:"managedLoginVersion"`
 	// The user pool to which this domain should be associated.
-	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
+	UserPool interfacesawscognito.IUserPoolRef `field:"required" json:"userPool" yaml:"userPool"`
 }
 

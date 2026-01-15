@@ -13,22 +13,25 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
+//   var myRole Role
 //
-//   var fn Function
-//
-//   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
-//   	AuthType: lambda.FunctionUrlAuthType_NONE,
-//   })
-//
-//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewFunctionUrlOrigin(fnUrl, &FunctionUrlOriginProps{
-//   			ReadTimeout: awscdk.Duration_Seconds(jsii.Number(30)),
-//   			ResponseCompletionTimeout: awscdk.Duration_*Seconds(jsii.Number(90)),
-//   			KeepaliveTimeout: awscdk.Duration_*Seconds(jsii.Number(45)),
-//   		}),
-//   	},
+//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
+//   	Role: myRole,
+//   	 // must be assumable by the `lambda.amazonaws.com` service principal
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
+//   	 // defaults to 2 minutes
+//   	MemorySize: jsii.Number(1025),
+//   	 // defaults to 512 if installLatestAwsSdk is true
+//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
+//   		Retention: logs.RetentionDays_ONE_DAY,
+//   	}),
+//   	FunctionName: jsii.String("my-custom-name"),
+//   	 // defaults to a CloudFormation generated name
+//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
+//   	 // defaults to `RemovalPolicy.DESTROY`
+//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
+//   	}),
 //   })
 //
 type Duration interface {

@@ -82,6 +82,8 @@ type Activity interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions on this Activity.
+	//
+	// [disable-awslint:no-grants].
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Return the given named metric for this Activity.
 	// Default: sum over 5 minutes.

@@ -39,11 +39,11 @@ package awssso
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
 //
 type CfnInstanceAccessControlAttributeConfigurationProps struct {
-	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	// The ARN of the  instance under which the operation will be executed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
 	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
-	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+	// Lists the attributes that are configured for ABAC in the specified  instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
 	//
 	AccessControlAttributes interface{} `field:"optional" json:"accessControlAttributes" yaml:"accessControlAttributes"`

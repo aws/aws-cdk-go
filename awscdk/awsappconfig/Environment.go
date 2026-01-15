@@ -14,6 +14,8 @@ import (
 
 // An AWS AppConfig environment.
 //
+// [disable-awslint:no-grants].
+//
 // Example:
 //   app := appconfig.NewApplication(this, jsii.String("MyApp"))
 //   env := appconfig.NewEnvironment(this, jsii.String("MyEnv"), &EnvironmentProps{
@@ -122,11 +124,9 @@ type Environment interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Adds an IAM policy statement associated with this environment to an IAM principal's policy.
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Permits an IAM principal to perform read operations on this environment's configurations.
-	//
-	// Actions: GetLatestConfiguration, StartConfigurationSession.
+	// [disable-awslint:no-grants].
 	GrantReadConfig(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an extension defined by the action point and event destination and also creates an extension association to the environment.
 	On(actionPoint ActionPoint, eventDestination IEventDestination, options *ExtensionOptions)

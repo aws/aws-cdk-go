@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,6 +39,8 @@ type HttpApi interface {
 	ApiEndpoint() *string
 	// The identifier of this API Gateway API.
 	ApiId() *string
+	// A reference to a Api resource.
+	ApiRef() *interfacesawsapigatewayv2.ApiReference
 	// Default OIDC scopes attached to all routes in the gateway, unless explicitly configured on the route.
 	//
 	// The scopes are used with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
@@ -66,6 +69,11 @@ type HttpApi interface {
 	//
 	// Note that this is different from `httpApiId`.
 	HttpApiName() *string
+	// Indicates that this is an HTTP API.
+	//
+	// Will always return true, but is necessary to prevent accidental structural
+	// equality in TypeScript.
+	IsHttpApi() *bool
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -166,6 +174,16 @@ func (j *jsiiProxy_HttpApi) ApiId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_HttpApi) ApiRef() *interfacesawsapigatewayv2.ApiReference {
+	var returns *interfacesawsapigatewayv2.ApiReference
+	_jsii_.Get(
+		j,
+		"apiRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_HttpApi) DefaultAuthorizationScopes() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -231,6 +249,16 @@ func (j *jsiiProxy_HttpApi) HttpApiName() *string {
 	_jsii_.Get(
 		j,
 		"httpApiName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpApi) IsHttpApi() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isHttpApi",
 		&returns,
 	)
 	return returns

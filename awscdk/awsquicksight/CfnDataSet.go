@@ -80,7 +80,7 @@ type CfnDataSet interface {
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders() interface{}
 	SetFieldFolders(val interface{})
-	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>.
+	// <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>.
 	FolderArns() *[]*string
 	SetFolderArns(val *[]*string)
 	// Indicates whether you want to import the data into SPICE.

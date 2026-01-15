@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Allows the pipeline to be used as an EventBridge rule target.
@@ -30,7 +31,7 @@ type CodePipeline interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for CodePipeline
@@ -65,7 +66,7 @@ func NewCodePipeline_Override(c CodePipeline, pipeline interfacesawscodepipeline
 	)
 }
 
-func (c *jsiiProxy_CodePipeline) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (c *jsiiProxy_CodePipeline) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := c.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

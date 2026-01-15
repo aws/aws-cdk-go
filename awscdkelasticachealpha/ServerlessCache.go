@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,6 +52,9 @@ type ServerlessCache interface {
 	// different than the stack they were imported into.
 	// Experimental.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for this cache.
+	// Experimental.
+	Grants() ServerlessCacheGrants
 	// The KMS key used for encryption.
 	// Experimental.
 	KmsKey() awskms.IKey
@@ -87,6 +91,9 @@ type ServerlessCache interface {
 	// The reader endpoint port of the serverless cache.
 	// Experimental.
 	ServerlessCacheReaderEndpointPort() *string
+	// A reference to a ServerlessCache resource.
+	// Experimental.
+	ServerlessCacheRef() *interfacesawselasticache.ServerlessCacheReference
 	// The current status of the serverless cache Can be 'CREATING', 'AVAILABLE', 'DELETING', 'CREATE-FAILED', 'MODIFYING'.
 	// Experimental.
 	ServerlessCacheStatus() *string
@@ -130,10 +137,10 @@ type ServerlessCache interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity custom permissions.
+	// Grant the given identity custom permissions [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant connect permissions to the cache.
+	// Grant connect permissions to the cache [disable-awslint:no-grants].
 	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this cache.
@@ -241,6 +248,16 @@ func (j *jsiiProxy_ServerlessCache) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_ServerlessCache) Grants() ServerlessCacheGrants {
+	var returns ServerlessCacheGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ServerlessCache) KmsKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -336,6 +353,16 @@ func (j *jsiiProxy_ServerlessCache) ServerlessCacheReaderEndpointPort() *string 
 	_jsii_.Get(
 		j,
 		"serverlessCacheReaderEndpointPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ServerlessCache) ServerlessCacheRef() *interfacesawselasticache.ServerlessCacheReference {
+	var returns *interfacesawselasticache.ServerlessCacheReference
+	_jsii_.Get(
+		j,
+		"serverlessCacheRef",
 		&returns,
 	)
 	return returns

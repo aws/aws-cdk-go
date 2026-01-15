@@ -8,7 +8,7 @@ func validateEventDestination_CloudWatchDimensionsParameters(dimensions *[]*Clou
 	return nil
 }
 
-func validateEventDestination_EventBusParameters(eventBus awsevents.IEventBus) error {
+func validateEventDestination_EventBusParameters(eventBus interfacesawsevents.IEventBusRef) error {
 	return nil
 }
 

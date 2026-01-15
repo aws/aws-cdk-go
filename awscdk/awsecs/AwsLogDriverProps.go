@@ -3,6 +3,7 @@ package awsecs
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Specifies the awslogs log driver configuration options.
@@ -51,7 +52,7 @@ type AwsLogDriverProps struct {
 	// The log group to log to.
 	// Default: - A log group is automatically created.
 	//
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
 	// Default: - Logs never expire.
 	//

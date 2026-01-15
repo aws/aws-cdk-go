@@ -5,6 +5,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for an AWS CloudTrail trail.
@@ -25,7 +26,7 @@ type TrailProps struct {
 	// Ignored if sendToCloudWatchLogs is set to false.
 	// Default: - a new log group is created and used.
 	//
-	CloudWatchLogGroup awslogs.ILogGroup `field:"optional" json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
+	CloudWatchLogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// How long to retain logs in CloudWatchLogs.
 	//
 	// Ignored if sendToCloudWatchLogs is false or if cloudWatchLogGroup is set.

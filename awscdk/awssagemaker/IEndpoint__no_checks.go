@@ -8,3 +8,7 @@ func (i *jsiiProxy_IEndpoint) validateGrantInvokeParameters(grantee awsiam.IGran
 	return nil
 }
 
+func (i *jsiiProxy_IEndpoint) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

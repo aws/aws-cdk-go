@@ -68,7 +68,7 @@ type CfnStudio interface {
 	//
 	// For example: `https://es-EXAMPLE12345678XXXXXXXXXXX.emrstudio-prod.us-east-1.amazonaws.com` .
 	AttrUrl() *string
-	// Specifies whether the Studio authenticates users using IAM Identity Center or IAM.
+	// Specifies whether the Studio authenticates users using SSO or IAM.
 	AuthMode() *string
 	SetAuthMode(val *string)
 	// Options for this resource, such as condition, update policy etc.

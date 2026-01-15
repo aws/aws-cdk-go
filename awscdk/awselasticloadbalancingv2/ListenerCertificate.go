@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // A certificate source for an ELBv2 listener.
@@ -85,7 +85,7 @@ func ListenerCertificate_FromArn(certificateArn *string) ListenerCertificate {
 }
 
 // Use an ACM certificate as a listener certificate.
-func ListenerCertificate_FromCertificateManager(acmCertificate awscertificatemanager.ICertificate) ListenerCertificate {
+func ListenerCertificate_FromCertificateManager(acmCertificate interfacesawscertificatemanager.ICertificateRef) ListenerCertificate {
 	_init_.Initialize()
 
 	if err := validateListenerCertificate_FromCertificateManagerParameters(acmCertificate); err != nil {

@@ -4,7 +4,7 @@ package awseventstargets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_FirehoseDeliveryStream) validateBindParameters(rule awsevents.IRule) error {
+func (f *jsiiProxy_FirehoseDeliveryStream) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	return nil
 }
 

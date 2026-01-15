@@ -6,10 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An Aurora Cluster Instance.
 type IAuroraClusterInstance interface {
+	interfacesawsrds.IDBInstanceRef
 	awscdk.IResource
 	// The instance ARN.
 	DbInstanceArn() *string
@@ -35,7 +39,19 @@ type IAuroraClusterInstance interface {
 
 // The jsii proxy for IAuroraClusterInstance
 type jsiiProxy_IAuroraClusterInstance struct {
+	internal.Type__interfacesawsrdsIDBInstanceRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IAuroraClusterInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IAuroraClusterInstance) DbInstanceArn() *string {
@@ -133,6 +149,46 @@ func (j *jsiiProxy_IAuroraClusterInstance) Type() InstanceType {
 	_jsii_.Get(
 		j,
 		"type",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) DbInstanceRef() *interfacesawsrds.DBInstanceReference {
+	var returns *interfacesawsrds.DBInstanceReference
+	_jsii_.Get(
+		j,
+		"dbInstanceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IAuroraClusterInstance) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

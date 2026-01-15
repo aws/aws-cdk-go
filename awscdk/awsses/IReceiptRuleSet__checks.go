@@ -6,6 +6,8 @@ import (
 	"fmt"
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
 
 func (i *jsiiProxy_IReceiptRuleSet) validateAddRuleParameters(id *string, options *ReceiptRuleOptions) error {
@@ -15,6 +17,14 @@ func (i *jsiiProxy_IReceiptRuleSet) validateAddRuleParameters(id *string, option
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IReceiptRuleSet) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil

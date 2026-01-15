@@ -43,7 +43,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html
 //
 type CfnStudioProps struct {
-	// Specifies whether the Studio authenticates users using IAM Identity Center or IAM.
+	// Specifies whether the Studio authenticates users using SSO or IAM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-authmode
 	//
 	AuthMode *string `field:"required" json:"authMode" yaml:"authMode"`

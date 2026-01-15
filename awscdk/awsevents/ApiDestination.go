@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -40,6 +41,8 @@ type ApiDestination interface {
 	ApiDestinationArnForPolicy() *string
 	// The Name of the Api Destination created.
 	ApiDestinationName() *string
+	// A reference to a ApiDestination resource.
+	ApiDestinationRef() *interfacesawsevents.ApiDestinationReference
 	// The Connection to associate with Api Destination.
 	Connection() IConnection
 	// The environment this resource belongs to.
@@ -128,6 +131,16 @@ func (j *jsiiProxy_ApiDestination) ApiDestinationName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_ApiDestination) ApiDestinationRef() *interfacesawsevents.ApiDestinationReference {
+	var returns *interfacesawsevents.ApiDestinationReference
+	_jsii_.Get(
+		j,
+		"apiDestinationRef",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_ApiDestination) Connection() IConnection {
 	var returns IConnection
 	_jsii_.Get(
@@ -207,13 +220,13 @@ func NewApiDestination_Override(a ApiDestination, scope constructs.Construct, id
 }
 
 // Create an Api Destination construct from an existing Api Destination ARN.
-func ApiDestination_FromApiDestinationAttributes(scope constructs.Construct, id *string, attrs *ApiDestinationAttributes) ApiDestination {
+func ApiDestination_FromApiDestinationAttributes(scope constructs.Construct, id *string, attrs *ApiDestinationAttributes) IApiDestination {
 	_init_.Initialize()
 
 	if err := validateApiDestination_FromApiDestinationAttributesParameters(scope, id, attrs); err != nil {
 		panic(err)
 	}
-	var returns ApiDestination
+	var returns IApiDestination
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events.ApiDestination",

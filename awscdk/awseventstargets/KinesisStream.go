@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Use a Kinesis Stream as a target for AWS CloudWatch event rules.
@@ -21,7 +22,7 @@ import (
 type KinesisStream interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Kinesis Stream as a result from a CloudWatch event.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for KinesisStream
@@ -56,7 +57,7 @@ func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props
 	)
 }
 
-func (k *jsiiProxy_KinesisStream) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (k *jsiiProxy_KinesisStream) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := k.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

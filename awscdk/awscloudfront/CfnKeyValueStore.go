@@ -29,6 +29,12 @@ import (
 //   		SourceArn: jsii.String("sourceArn"),
 //   		SourceType: jsii.String("sourceType"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html
@@ -37,6 +43,7 @@ type CfnKeyValueStore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawscloudfront.IKeyValueStoreRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the key value store.
 	AttrArn() *string
 	// The unique Id for the key value store.
@@ -45,6 +52,8 @@ type CfnKeyValueStore interface {
 	//
 	// For more information, see [Key value store statuses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-create.html#key-value-store-status) in the *.*
 	AttrStatus() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -87,6 +96,8 @@ type CfnKeyValueStore interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -232,6 +243,7 @@ type jsiiProxy_CfnKeyValueStore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscloudfrontIKeyValueStoreRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnKeyValueStore) AttrArn() *string {
@@ -259,6 +271,16 @@ func (j *jsiiProxy_CfnKeyValueStore) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnKeyValueStore) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -394,6 +416,16 @@ func (j *jsiiProxy_CfnKeyValueStore) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKeyValueStore) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKeyValueStore) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -470,6 +502,17 @@ func (j *jsiiProxy_CfnKeyValueStore)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKeyValueStore)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

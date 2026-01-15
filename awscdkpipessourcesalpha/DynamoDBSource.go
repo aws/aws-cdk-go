@@ -49,6 +49,8 @@ type DynamoDBSource interface {
 	// Experimental.
 	GetDeadLetterTargetArn(deadLetterTarget interface{}) *string
 	// Grants the pipe role permission to publish to the dead-letter target.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantPush(grantee awsiam.IRole, deadLetterTarget interface{})
 	// Grant the pipe role read access to the source.

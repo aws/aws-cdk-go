@@ -130,13 +130,13 @@ type Repository interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given principal identity permissions to perform the actions on this repository.
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions to pull this repository.
+	// [disable-awslint:no-grants].
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity permissions to pull and push this repository.
+	// [disable-awslint:no-grants].
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity permissions to read this repository.
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
 	NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule

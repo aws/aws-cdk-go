@@ -4,8 +4,8 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // An event destination.
@@ -26,7 +26,7 @@ type EventDestination interface {
 	// Use Event Bus as event destination.
 	// Default: - do not send events to Event bus.
 	//
-	Bus() awsevents.IEventBus
+	Bus() interfacesawsevents.IEventBusRef
 	// A list of CloudWatch dimensions upon which to categorize your emails.
 	// Default: - do not send events to CloudWatch.
 	//
@@ -46,8 +46,8 @@ type jsiiProxy_EventDestination struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_EventDestination) Bus() awsevents.IEventBus {
-	var returns awsevents.IEventBus
+func (j *jsiiProxy_EventDestination) Bus() interfacesawsevents.IEventBusRef {
+	var returns interfacesawsevents.IEventBusRef
 	_jsii_.Get(
 		j,
 		"bus",
@@ -117,7 +117,7 @@ func EventDestination_CloudWatchDimensions(dimensions *[]*CloudWatchDimension) E
 }
 
 // Use Event Bus as event destination.
-func EventDestination_EventBus(eventBus awsevents.IEventBus) EventDestination {
+func EventDestination_EventBus(eventBus interfacesawsevents.IEventBusRef) EventDestination {
 	_init_.Initialize()
 
 	if err := validateEventDestination_EventBusParameters(eventBus); err != nil {

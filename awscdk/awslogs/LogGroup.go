@@ -120,10 +120,16 @@ type LogGroup interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Give the indicated permissions on this log group and all streams.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Give permissions to read and filter events from this log group.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Give permissions to create and write to streams in this log group.
+	//
+	// [disable-awslint:no-grants].
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Public method to get the physical name of this log group.
 	//

@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Schedule an Amazon Redshift Query to be run, using the Redshift Data API.
@@ -38,7 +39,7 @@ type RedshiftQuery interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for RedshiftQuery
@@ -73,7 +74,7 @@ func NewRedshiftQuery_Override(r RedshiftQuery, clusterArn *string, props *Redsh
 	)
 }
 
-func (r *jsiiProxy_RedshiftQuery) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (r *jsiiProxy_RedshiftQuery) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := r.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

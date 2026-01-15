@@ -3,6 +3,7 @@ package awsrds
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 )
 
 // Options for binding the instance to the cluster.
@@ -13,16 +14,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var dBSubnetGroupRef IDBSubnetGroupRef
 //   var roleRef IRoleRef
-//   var subnetGroup SubnetGroup
 //
 //   clusterInstanceBindOptions := &ClusterInstanceBindOptions{
 //   	MonitoringInterval: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MonitoringRole: roleRef,
 //   	PromotionTier: jsii.Number(123),
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-//   	SubnetGroup: subnetGroup,
+//   	SubnetGroup: dBSubnetGroupRef,
 //   }
 //
 type ClusterInstanceBindOptions struct {
@@ -53,6 +55,6 @@ type ClusterInstanceBindOptions struct {
 	// This is only needed when using the isFromLegacyInstanceProps.
 	// Default: - cluster subnet group is used.
 	//
-	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
+	SubnetGroup interfacesawsrds.IDBSubnetGroupRef `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 }
 

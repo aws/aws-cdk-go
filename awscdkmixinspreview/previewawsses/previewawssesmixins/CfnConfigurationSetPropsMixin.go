@@ -50,6 +50,14 @@ import (
 //   		SuppressedReasons: []*string{
 //   			jsii.String("suppressedReasons"),
 //   		},
+//   		ValidationOptions: &ValidationOptionsProperty{
+//   			ConditionThreshold: &ConditionThresholdProperty{
+//   				ConditionThresholdEnabled: jsii.String("conditionThresholdEnabled"),
+//   				OverallConfidenceThreshold: &OverallConfidenceThresholdProperty{
+//   					ConfidenceVerdictThreshold: jsii.String("confidenceVerdictThreshold"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

@@ -1,5 +1,8 @@
 package awsses
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
+)
 
 // Properties for an email identity.
 //
@@ -20,7 +23,7 @@ type EmailIdentityProps struct {
 	// The configuration set to associate with the email identity.
 	// Default: - do not use a specific configuration set.
 	//
-	ConfigurationSet IConfigurationSet `field:"optional" json:"configurationSet" yaml:"configurationSet"`
+	ConfigurationSet interfacesawsses.IConfigurationSetRef `field:"optional" json:"configurationSet" yaml:"configurationSet"`
 	// The type of DKIM identity to use.
 	// Default: - Easy DKIM with a key length of 2048-bit.
 	//

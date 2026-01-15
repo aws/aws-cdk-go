@@ -1,8 +1,8 @@
 package awsecs
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // The log configuration for the results of the execute command actions.
@@ -50,7 +50,7 @@ type ExecuteCommandLogConfiguration struct {
 	// The CloudWatch log group must already be created.
 	// Default: - none.
 	//
-	CloudWatchLogGroup awslogs.ILogGroup `field:"optional" json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
+	CloudWatchLogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"cloudWatchLogGroup" yaml:"cloudWatchLogGroup"`
 	// The name of the S3 bucket to send logs to.
 	//
 	// The S3 bucket must already be created.

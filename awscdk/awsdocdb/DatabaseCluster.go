@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdocdb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -45,6 +46,8 @@ type DatabaseCluster interface {
 	ClusterResourceIdentifier() *string
 	// The connections object to implement IConnectable.
 	Connections() awsec2.Connections
+	// A reference to this cluster.
+	DbClusterRef() *interfacesawsdocdb.DBClusterReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -162,6 +165,16 @@ func (j *jsiiProxy_DatabaseCluster) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseCluster) DbClusterRef() *interfacesawsdocdb.DBClusterReference {
+	var returns *interfacesawsdocdb.DBClusterReference
+	_jsii_.Get(
+		j,
+		"dbClusterRef",
 		&returns,
 	)
 	return returns

@@ -1,5 +1,8 @@
 package awsapigatewayv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
+)
 
 // Properties used to create the ApiMapping resource.
 //
@@ -7,14 +10,15 @@ package awsapigatewayv2
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var api IApi
-//   var domainName DomainName
+//   var apiRef IApiRef
+//   var domainNameRef IDomainNameRef
 //   var stage IStage
 //
 //   apiMappingProps := &ApiMappingProps{
-//   	Api: api,
-//   	DomainName: domainName,
+//   	Api: apiRef,
+//   	DomainName: domainNameRef,
 //
 //   	// the properties below are optional
 //   	ApiMappingKey: jsii.String("apiMappingKey"),
@@ -23,9 +27,9 @@ package awsapigatewayv2
 //
 type ApiMappingProps struct {
 	// The Api to which this mapping is applied.
-	Api IApi `field:"required" json:"api" yaml:"api"`
+	Api interfacesawsapigatewayv2.IApiRef `field:"required" json:"api" yaml:"api"`
 	// custom domain name of the mapping target.
-	DomainName IDomainName `field:"required" json:"domainName" yaml:"domainName"`
+	DomainName interfacesawsapigatewayv2.IDomainNameRef `field:"required" json:"domainName" yaml:"domainName"`
 	// Api mapping key.
 	//
 	// The path where this stage should be mapped to on the domain.

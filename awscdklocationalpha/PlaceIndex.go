@@ -93,9 +93,11 @@ type PlaceIndex interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given principal identity permissions to perform the actions on this place index.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions to search using this index.
+	// Grant the given identity permissions to search using this index [disable-awslint:no-grants].
 	// Experimental.
 	GrantSearch(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

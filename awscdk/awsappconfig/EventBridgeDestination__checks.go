@@ -5,10 +5,10 @@ package awsappconfig
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
-func validateNewEventBridgeDestinationParameters(bus awsevents.IEventBus) error {
+func validateNewEventBridgeDestinationParameters(bus interfacesawsevents.IEventBusRef) error {
 	if bus == nil {
 		return fmt.Errorf("parameter bus is required, but nil was provided")
 	}

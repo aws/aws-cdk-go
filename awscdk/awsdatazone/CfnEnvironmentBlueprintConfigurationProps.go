@@ -17,6 +17,9 @@ package awsdatazone
 //
 //   	// the properties below are optional
 //   	EnvironmentRolePermissionBoundary: jsii.String("environmentRolePermissionBoundary"),
+//   	GlobalParameters: map[string]*string{
+//   		"globalParametersKey": jsii.String("globalParameters"),
+//   	},
 //   	ManageAccessRoleArn: jsii.String("manageAccessRoleArn"),
 //   	ProvisioningConfigurations: []interface{}{
 //   		&ProvisioningConfigurationProperty{
@@ -60,6 +63,10 @@ type CfnEnvironmentBlueprintConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-environmentrolepermissionboundary
 	//
 	EnvironmentRolePermissionBoundary *string `field:"optional" json:"environmentRolePermissionBoundary" yaml:"environmentRolePermissionBoundary"`
+	// Region-agnostic environment blueprint parameters.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-globalparameters
+	//
+	GlobalParameters interface{} `field:"optional" json:"globalParameters" yaml:"globalParameters"`
 	// The ARN of the manage access role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-manageaccessrolearn
 	//

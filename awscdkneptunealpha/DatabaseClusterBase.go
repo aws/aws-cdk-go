@@ -109,10 +109,10 @@ type DatabaseClusterBase interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity the specified actions.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity connection access to the database.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric associated with this DatabaseCluster instance.

@@ -82,10 +82,10 @@ type S3WorkflowData interface {
 	Bucket() awss3.IBucket
 	// Experimental.
 	Key() *string
-	// Grant put permissions to the given grantee for the workflow data in S3.
+	// Grant put permissions to the given grantee for the workflow data in S3 [disable-awslint:no-grants].
 	// Experimental.
 	GrantPut(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant read permissions to the given grantee for the workflow data in S3.
+	// Grant read permissions to the given grantee for the workflow data in S3 [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// The rendered workflow data text, for use in CloudFormation.

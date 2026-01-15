@@ -7,8 +7,8 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 func validateEventDestination_CloudWatchDimensionsParameters(dimensions *[]*CloudWatchDimension) error {
@@ -24,7 +24,7 @@ func validateEventDestination_CloudWatchDimensionsParameters(dimensions *[]*Clou
 	return nil
 }
 
-func validateEventDestination_EventBusParameters(eventBus awsevents.IEventBus) error {
+func validateEventDestination_EventBusParameters(eventBus interfacesawsevents.IEventBusRef) error {
 	if eventBus == nil {
 		return fmt.Errorf("parameter eventBus is required, but nil was provided")
 	}

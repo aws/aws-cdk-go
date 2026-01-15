@@ -10,12 +10,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Create a clustered database with a given number of instances.
 type IDatabaseCluster interface {
 	awsec2.IConnectable
+	interfacesawsrds.IDBClusterRef
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this cluster.
@@ -107,6 +109,7 @@ type IDatabaseCluster interface {
 // The jsii proxy for IDatabaseCluster
 type jsiiProxy_IDatabaseCluster struct {
 	internal.Type__awsec2IConnectable
+	internal.Type__interfacesawsrdsIDBClusterRef
 	internal.Type__awscdkIResource
 	internal.Type__awssecretsmanagerISecretAttachmentTarget
 }
@@ -508,6 +511,16 @@ func (j *jsiiProxy_IDatabaseCluster) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseCluster) DbClusterRef() *interfacesawsrds.DBClusterReference {
+	var returns *interfacesawsrds.DBClusterReference
+	_jsii_.Get(
+		j,
+		"dbClusterRef",
 		&returns,
 	)
 	return returns

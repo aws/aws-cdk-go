@@ -62,6 +62,7 @@ type CfnInboundExternalLink interface {
 	awscdk.ITaggableV2
 	AttrArn() *string
 	AttrCreatedTimestamp() *string
+	AttrDomainName() *string
 	AttrLinkId() *string
 	AttrLinkStatus() *string
 	AttrUpdatedTimestamp() *string
@@ -272,6 +273,16 @@ func (j *jsiiProxy_CfnInboundExternalLink) AttrCreatedTimestamp() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedTimestamp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInboundExternalLink) AttrDomainName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDomainName",
 		&returns,
 	)
 	return returns

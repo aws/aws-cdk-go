@@ -141,12 +141,18 @@ type GatewayTarget interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants IAM actions to the IAM Principal.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants `Create`, `Update`, and `Delete` actions on the Gateway Target.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Get` and `List` actions on the Gateway Target.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants permission to synchronize this gateway's targets.
@@ -154,6 +160,8 @@ type GatewayTarget interface {
 	// This method grants the `SynchronizeGatewayTargets` permission, which is primarily
 	// needed for MCP Server targets when you need to refresh the tool catalog after the
 	// MCP server's tools have changed.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantSync(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

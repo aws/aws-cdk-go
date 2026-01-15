@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -56,6 +57,10 @@ import (
 type ParameterGroup interface {
 	awscdk.Resource
 	IParameterGroup
+	// A reference to this parameter group as a DB cluster parameter group.
+	DbClusterParameterGroupRef() *interfacesawsrds.DBClusterParameterGroupReference
+	// A reference to this parameter group as a DB parameter group.
+	DbParameterGroupRef() *interfacesawsrds.DBParameterGroupReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -116,6 +121,26 @@ type ParameterGroup interface {
 type jsiiProxy_ParameterGroup struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IParameterGroup
+}
+
+func (j *jsiiProxy_ParameterGroup) DbClusterParameterGroupRef() *interfacesawsrds.DBClusterParameterGroupReference {
+	var returns *interfacesawsrds.DBClusterParameterGroupReference
+	_jsii_.Get(
+		j,
+		"dbClusterParameterGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ParameterGroup) DbParameterGroupRef() *interfacesawsrds.DBParameterGroupReference {
+	var returns *interfacesawsrds.DBParameterGroupReference
+	_jsii_.Get(
+		j,
+		"dbParameterGroupRef",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ParameterGroup) Env() *interfaces.ResourceEnvironment {

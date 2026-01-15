@@ -2,10 +2,14 @@ package awscodedeploy
 
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 )
 
 // The base class for ServerDeploymentConfig, EcsDeploymentConfig, and LambdaDeploymentConfig deployment configurations.
 type IBaseDeploymentConfig interface {
+	interfacesawscodedeploy.IDeploymentConfigRef
 	// The ARN of the Deployment Configuration.
 	DeploymentConfigArn() *string
 	// The physical, human-readable name of the Deployment Configuration.
@@ -14,7 +18,7 @@ type IBaseDeploymentConfig interface {
 
 // The jsii proxy for IBaseDeploymentConfig
 type jsiiProxy_IBaseDeploymentConfig struct {
-	_ byte // padding
+	internal.Type__interfacesawscodedeployIDeploymentConfigRef
 }
 
 func (j *jsiiProxy_IBaseDeploymentConfig) DeploymentConfigArn() *string {

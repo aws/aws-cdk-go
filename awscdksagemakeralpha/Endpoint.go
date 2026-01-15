@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 	"github.com/aws/aws-cdk-go/awscdksagemakeralpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -38,6 +39,9 @@ type Endpoint interface {
 	// The name of the endpoint.
 	// Experimental.
 	EndpointName() *string
+	// A reference to a Endpoint resource.
+	// Experimental.
+	EndpointRef() *interfacesawssagemaker.EndpointReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -98,7 +102,7 @@ type Endpoint interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Permits an IAM principal to invoke this endpoint.
+	// Permits an IAM principal to invoke this endpoint [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
@@ -127,6 +131,16 @@ func (j *jsiiProxy_Endpoint) EndpointName() *string {
 	_jsii_.Get(
 		j,
 		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Endpoint) EndpointRef() *interfacesawssagemaker.EndpointReference {
+	var returns *interfacesawssagemaker.EndpointReference
+	_jsii_.Get(
+		j,
+		"endpointRef",
 		&returns,
 	)
 	return returns

@@ -25,6 +25,9 @@ import (
 //   	},
 //   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
 //   	EnvironmentRolePermissionBoundary: jsii.String("environmentRolePermissionBoundary"),
+//   	GlobalParameters: map[string]*string{
+//   		"globalParametersKey": jsii.String("globalParameters"),
+//   	},
 //   	ManageAccessRoleArn: jsii.String("manageAccessRoleArn"),
 //   	ProvisioningConfigurations: []interface{}{
 //   		&ProvisioningConfigurationProperty{

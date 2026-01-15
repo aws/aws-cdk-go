@@ -10,6 +10,7 @@ package previewawsmediapackagev2mixins
 //
 //   filterConfigurationProperty := &FilterConfigurationProperty{
 //   	ClipStartTime: jsii.String("clipStartTime"),
+//   	DrmSettings: jsii.String("drmSettings"),
 //   	End: jsii.String("end"),
 //   	ManifestFilter: jsii.String("manifestFilter"),
 //   	Start: jsii.String("start"),
@@ -25,6 +26,12 @@ type CfnOriginEndpointPropsMixin_FilterConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-clipstarttime
 	//
 	ClipStartTime *string `field:"optional" json:"clipStartTime" yaml:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests.
+	//
+	// When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-drmsettings
+	//
+	DrmSettings *string `field:"optional" json:"drmSettings" yaml:"drmSettings"`
 	// Optionally specify the end time for all of your manifest egress requests.
 	//
 	// When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.

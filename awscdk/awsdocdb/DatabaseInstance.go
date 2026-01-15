@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdocdb/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdocdb"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,13 +20,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var caCertificate CaCertificate
-//   var databaseCluster DatabaseCluster
+//   var dBClusterRef IDBClusterRef
 //   var instanceType InstanceType
 //
 //   databaseInstance := awscdk.Aws_docdb.NewDatabaseInstance(this, jsii.String("MyDatabaseInstance"), &DatabaseInstanceProps{
-//   	Cluster: databaseCluster,
+//   	Cluster: dBClusterRef,
 //   	InstanceType: instanceType,
 //
 //   	// the properties below are optional
@@ -47,6 +49,8 @@ type DatabaseInstance interface {
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
 	DbInstanceEndpointPort() *string
+	// A reference to this instance.
+	DbInstanceRef() *interfacesawsdocdb.DBInstanceReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -134,6 +138,16 @@ func (j *jsiiProxy_DatabaseInstance) DbInstanceEndpointPort() *string {
 	_jsii_.Get(
 		j,
 		"dbInstanceEndpointPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseInstance) DbInstanceRef() *interfacesawsdocdb.DBInstanceReference {
+	var returns *interfacesawsdocdb.DBInstanceReference
+	_jsii_.Get(
+		j,
+		"dbInstanceRef",
 		&returns,
 	)
 	return returns

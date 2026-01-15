@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a permission set within a specified IAM Identity Center instance.
+// Specifies a permission set within a specified  instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

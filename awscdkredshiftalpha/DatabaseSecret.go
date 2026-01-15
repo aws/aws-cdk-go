@@ -157,10 +157,10 @@ type DatabaseSecret interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants reading the secret value to some role.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
-	// Grants writing and updating the secret value to some role.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.

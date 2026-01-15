@@ -4,7 +4,7 @@ package awsappconfig
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateNewEventBridgeDestinationParameters(bus awsevents.IEventBus) error {
+func validateNewEventBridgeDestinationParameters(bus interfacesawsevents.IEventBusRef) error {
 	return nil
 }
 

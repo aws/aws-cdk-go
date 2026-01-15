@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A configuration set event destination.
 type IConfigurationSetEventDestination interface {
+	interfacesawsses.IConfigurationSetEventDestinationRef
 	awscdk.IResource
 	// The ID of the configuration set event destination.
 	ConfigurationSetEventDestinationId() *string
@@ -16,7 +20,19 @@ type IConfigurationSetEventDestination interface {
 
 // The jsii proxy for IConfigurationSetEventDestination
 type jsiiProxy_IConfigurationSetEventDestination struct {
+	internal.Type__interfacesawssesIConfigurationSetEventDestinationRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IConfigurationSetEventDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IConfigurationSetEventDestination) ConfigurationSetEventDestinationId() *string {
@@ -24,6 +40,46 @@ func (j *jsiiProxy_IConfigurationSetEventDestination) ConfigurationSetEventDesti
 	_jsii_.Get(
 		j,
 		"configurationSetEventDestinationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IConfigurationSetEventDestination) ConfigurationSetEventDestinationRef() *interfacesawsses.ConfigurationSetEventDestinationReference {
+	var returns *interfacesawsses.ConfigurationSetEventDestinationReference
+	_jsii_.Get(
+		j,
+		"configurationSetEventDestinationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IConfigurationSetEventDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IConfigurationSetEventDestination) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IConfigurationSetEventDestination) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

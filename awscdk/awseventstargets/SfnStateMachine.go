@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Use a StepFunctions state machine as a target for Amazon EventBridge rules.
@@ -45,7 +46,7 @@ type SfnStateMachine interface {
 	// Returns a properties that are used in an Rule to trigger this State Machine.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sns-permissions
 	//
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for SfnStateMachine
@@ -91,7 +92,7 @@ func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.ISt
 	)
 }
 
-func (s *jsiiProxy_SfnStateMachine) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (s *jsiiProxy_SfnStateMachine) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := s.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Use an API Destination rule target.
@@ -32,7 +33,7 @@ import (
 type ApiDestination interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger API destinations from an EventBridge event.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for ApiDestination
@@ -67,7 +68,7 @@ func NewApiDestination_Override(a ApiDestination, apiDestination awsevents.IApiD
 	)
 }
 
-func (a *jsiiProxy_ApiDestination) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (a *jsiiProxy_ApiDestination) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := a.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

@@ -2,6 +2,7 @@ package awscognito
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 )
 
 // Properties for the UserPoolClient construct.
@@ -140,6 +141,6 @@ type UserPoolClientProps struct {
 	//
 	WriteAttributes ClientAttributes `field:"optional" json:"writeAttributes" yaml:"writeAttributes"`
 	// The UserPool resource this client will have access to.
-	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
+	UserPool interfacesawscognito.IUserPoolRef `field:"required" json:"userPool" yaml:"userPool"`
 }
 

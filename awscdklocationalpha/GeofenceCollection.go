@@ -96,9 +96,11 @@ type GeofenceCollection interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given principal identity permissions to perform the actions on this geofence collection.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions to read this geofence collection.
+	// Grant the given identity permissions to read this geofence collection [disable-awslint:no-grants].
 	// See: https://docs.aws.amazon.com/location/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-read-only-geofences
 	//
 	// Experimental.

@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,6 +44,8 @@ type EcsDeploymentConfig interface {
 	DeploymentConfigArn() *string
 	// The name of the deployment config.
 	DeploymentConfigName() *string
+	// A reference to a DeploymentConfig resource.
+	DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -114,6 +117,16 @@ func (j *jsiiProxy_EcsDeploymentConfig) DeploymentConfigName() *string {
 	_jsii_.Get(
 		j,
 		"deploymentConfigName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsDeploymentConfig) DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference {
+	var returns *interfacesawscodedeploy.DeploymentConfigReference
+	_jsii_.Get(
+		j,
+		"deploymentConfigRef",
 		&returns,
 	)
 	return returns

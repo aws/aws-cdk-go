@@ -11,12 +11,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A database instance.
 type IDatabaseInstance interface {
 	awsec2.IConnectable
+	interfacesawsrds.IDBInstanceRef
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this instance.
@@ -80,6 +82,7 @@ type IDatabaseInstance interface {
 // The jsii proxy for IDatabaseInstance
 type jsiiProxy_IDatabaseInstance struct {
 	internal.Type__awsec2IConnectable
+	internal.Type__interfacesawsrdsIDBInstanceRef
 	internal.Type__awscdkIResource
 	internal.Type__awssecretsmanagerISecretAttachmentTarget
 }
@@ -343,6 +346,16 @@ func (j *jsiiProxy_IDatabaseInstance) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseInstance) DbInstanceRef() *interfacesawsrds.DBInstanceReference {
+	var returns *interfacesawsrds.DBInstanceReference
+	_jsii_.Get(
+		j,
+		"dbInstanceRef",
 		&returns,
 	)
 	return returns

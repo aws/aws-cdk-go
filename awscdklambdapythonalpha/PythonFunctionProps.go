@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for a PythonFunction.
@@ -247,7 +248,7 @@ type PythonFunctionProps struct {
 	// Default: `/aws/lambda/${this.functionName}` - default log group created by Lambda
 	//
 	// Experimental.
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Determine the removal policy of the log group that is auto-created by this construct.
 	//
 	// Normally you want to retain the log group so you can diagnose issues

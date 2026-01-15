@@ -152,6 +152,8 @@ type Agent interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant invoke permissions on this agent to an IAM principal.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock:InvokeAgent']

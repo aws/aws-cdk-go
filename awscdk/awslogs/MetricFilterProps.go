@@ -2,6 +2,7 @@ package awslogs
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for a MetricFilter.
@@ -66,6 +67,6 @@ type MetricFilterProps struct {
 	//
 	Unit awscloudwatch.Unit `field:"optional" json:"unit" yaml:"unit"`
 	// The log group to create the filter on.
-	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"required" json:"logGroup" yaml:"logGroup"`
 }
 

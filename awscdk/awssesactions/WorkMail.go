@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Integrates an Amazon WorkMail action into a receipt rule set, and optionally publishes a notification to Amazon SNS.
@@ -34,7 +35,7 @@ import (
 type WorkMail interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for WorkMail
@@ -69,7 +70,7 @@ func NewWorkMail_Override(w WorkMail, props *WorkMailProps) {
 	)
 }
 
-func (w *jsiiProxy_WorkMail) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (w *jsiiProxy_WorkMail) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := w.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

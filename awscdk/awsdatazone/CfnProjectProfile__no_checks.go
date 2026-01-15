@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnProjectProfile) validateSetNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnProjectProfile) validateSetUseDefaultConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnProjectProfileParameters(scope constructs.Construct, id *string, props *CfnProjectProfileProps) error {
 	return nil
 }

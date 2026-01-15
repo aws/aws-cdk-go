@@ -1,7 +1,7 @@
 package awsapigateway
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Example:
@@ -21,7 +21,7 @@ type DomainNameProps struct {
 	//
 	// For "EDGE" domain names, the certificate
 	// needs to be in the US East (N. Virginia) region.
-	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"required" json:"certificate" yaml:"certificate"`
 	// The custom domain name for your API.
 	//
 	// Uppercase letters are not supported.

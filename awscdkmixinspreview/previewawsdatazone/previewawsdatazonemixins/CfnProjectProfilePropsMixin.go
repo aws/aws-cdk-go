@@ -57,6 +57,7 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	Status: jsii.String("status"),
+//   	UseDefaultConfigurations: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
 //   })

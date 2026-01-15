@@ -298,6 +298,11 @@ import (
 //   			Password: jsii.String("password"),
 //   			Username: jsii.String("username"),
 //   		},
+//   		KeyPairCredentials: &KeyPairCredentialsProperty{
+//   			KeyPairUsername: jsii.String("keyPairUsername"),
+//   			PrivateKey: jsii.String("privateKey"),
+//   			PrivateKeyPassphrase: jsii.String("privateKeyPassphrase"),
+//   		},
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
 //   	DataSourceId: jsii.String("dataSourceId"),

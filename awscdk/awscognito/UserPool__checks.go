@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -121,7 +122,7 @@ func (u *jsiiProxy_UserPool) validateGrantParameters(grantee awsiam.IGrantable) 
 	return nil
 }
 
-func (u *jsiiProxy_UserPool) validateRegisterIdentityProviderParameters(provider IUserPoolIdentityProvider) error {
+func (u *jsiiProxy_UserPool) validateRegisterIdentityProviderParameters(provider interfacesawscognito.IUserPoolIdentityProviderRef) error {
 	if provider == nil {
 		return fmt.Errorf("parameter provider is required, but nil was provided")
 	}

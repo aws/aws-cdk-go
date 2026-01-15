@@ -129,30 +129,48 @@ type Domain interface {
 	// Deprecated: use opensearchservice module instead.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	// Deprecated: use opensearchservice module instead.
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Domain.

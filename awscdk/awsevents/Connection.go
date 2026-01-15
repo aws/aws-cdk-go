@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,6 +39,8 @@ type Connection interface {
 	ConnectionArn() *string
 	// The Name for the connection.
 	ConnectionName() *string
+	// A reference to a Connection resource.
+	ConnectionRef() *interfacesawsevents.ConnectionReference
 	// The ARN for the secret created for the connection.
 	ConnectionSecretArn() *string
 	// The environment this resource belongs to.
@@ -111,6 +114,16 @@ func (j *jsiiProxy_Connection) ConnectionName() *string {
 	_jsii_.Get(
 		j,
 		"connectionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Connection) ConnectionRef() *interfacesawsevents.ConnectionReference {
+	var returns *interfacesawsevents.ConnectionReference
+	_jsii_.Get(
+		j,
+		"connectionRef",
 		&returns,
 	)
 	return returns

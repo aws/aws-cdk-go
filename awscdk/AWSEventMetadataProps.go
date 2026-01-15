@@ -5,6 +5,7 @@ package awscdk
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import events "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket Bucket
 //
@@ -12,10 +13,7 @@ package awscdk
 //
 //   pattern := bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
 //   	EventMetadata: &AWSEventMetadataProps{
-//   		Region: []*string{
-//   			jsii.String("us-east-1"),
-//   			jsii.String("us-west-2"),
-//   		},
+//   		Region: events.Match_Prefix(jsii.String("us-")),
 //   		Version: []*string{
 //   			jsii.String("0"),
 //   		},

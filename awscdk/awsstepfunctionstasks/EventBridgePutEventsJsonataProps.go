@@ -16,7 +16,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assign interface{}
-//   var eventBus EventBus
+//   var eventBusRef IEventBusRef
 //   var outputs interface{}
 //   var taskInput TaskInput
 //   var taskRole TaskRole
@@ -30,7 +30,7 @@ import (
 //   			Source: jsii.String("source"),
 //
 //   			// the properties below are optional
-//   			EventBus: eventBus,
+//   			EventBus: eventBusRef,
 //   		},
 //   	},
 //

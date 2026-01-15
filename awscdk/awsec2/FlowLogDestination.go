@@ -5,8 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -48,7 +48,7 @@ func NewFlowLogDestination_Override(f FlowLogDestination) {
 }
 
 // Use CloudWatch logs as the destination.
-func FlowLogDestination_ToCloudWatchLogs(logGroup awslogs.ILogGroup, iamRole awsiam.IRole) FlowLogDestination {
+func FlowLogDestination_ToCloudWatchLogs(logGroup interfacesawslogs.ILogGroupRef, iamRole awsiam.IRole) FlowLogDestination {
 	_init_.Initialize()
 
 	var returns FlowLogDestination

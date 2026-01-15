@@ -1,6 +1,7 @@
 package awscognito
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
@@ -54,6 +55,6 @@ type UserPoolGroupProps struct {
 	//
 	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 	// The user pool to which this group is associated.
-	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
+	UserPool interfacesawscognito.IUserPoolRef `field:"required" json:"userPool" yaml:"userPool"`
 }
 

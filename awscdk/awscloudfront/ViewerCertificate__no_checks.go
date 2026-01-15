@@ -4,7 +4,7 @@ package awscloudfront
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateViewerCertificate_FromAcmCertificateParameters(certificate awscertificatemanager.ICertificate, options *ViewerCertificateOptions) error {
+func validateViewerCertificate_FromAcmCertificateParameters(certificate interfacesawscertificatemanager.ICertificateRef, options *ViewerCertificateOptions) error {
 	return nil
 }
 

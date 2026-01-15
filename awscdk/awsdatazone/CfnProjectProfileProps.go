@@ -51,6 +51,7 @@ package awsdatazone
 //   		},
 //   	},
 //   	Status: jsii.String("status"),
+//   	UseDefaultConfigurations: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html
@@ -80,5 +81,8 @@ type CfnProjectProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-usedefaultconfigurations
+	//
+	UseDefaultConfigurations interface{} `field:"optional" json:"useDefaultConfigurations" yaml:"useDefaultConfigurations"`
 }
 

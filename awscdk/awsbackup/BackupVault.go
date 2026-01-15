@@ -83,6 +83,8 @@ type BackupVault interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the actions defined in actions to the given grantee on this Backup Vault resource.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

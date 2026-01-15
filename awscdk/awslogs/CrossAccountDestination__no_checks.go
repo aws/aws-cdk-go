@@ -12,7 +12,7 @@ func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
-func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup ILogGroup) error {
+func (c *jsiiProxy_CrossAccountDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) error {
 	return nil
 }
 

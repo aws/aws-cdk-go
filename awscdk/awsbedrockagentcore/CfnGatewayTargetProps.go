@@ -11,39 +11,35 @@ package awsbedrockagentcore
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   cfnGatewayTargetProps := &CfnGatewayTargetProps{
-//   	CredentialProviderConfigurations: []interface{}{
-//   		&CredentialProviderConfigurationProperty{
-//   			CredentialProviderType: jsii.String("credentialProviderType"),
-//
-//   			// the properties below are optional
-//   			CredentialProvider: &CredentialProviderProperty{
-//   				ApiKeyCredentialProvider: &ApiKeyCredentialProviderProperty{
-//   					ProviderArn: jsii.String("providerArn"),
-//
-//   					// the properties below are optional
-//   					CredentialLocation: jsii.String("credentialLocation"),
-//   					CredentialParameterName: jsii.String("credentialParameterName"),
-//   					CredentialPrefix: jsii.String("credentialPrefix"),
-//   				},
-//   				OauthCredentialProvider: &OAuthCredentialProviderProperty{
-//   					ProviderArn: jsii.String("providerArn"),
-//   					Scopes: []*string{
-//   						jsii.String("scopes"),
-//   					},
-//
-//   					// the properties below are optional
-//   					CustomParameters: map[string]*string{
-//   						"customParametersKey": jsii.String("customParameters"),
-//   					},
-//   					DefaultReturnUrl: jsii.String("defaultReturnUrl"),
-//   					GrantType: jsii.String("grantType"),
-//   				},
-//   			},
-//   		},
-//   	},
 //   	Name: jsii.String("name"),
 //   	TargetConfiguration: &TargetConfigurationProperty{
 //   		Mcp: &McpTargetConfigurationProperty{
+//   			ApiGateway: &ApiGatewayTargetConfigurationProperty{
+//   				ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
+//   					ToolFilters: []interface{}{
+//   						&ApiGatewayToolFilterProperty{
+//   							FilterPath: jsii.String("filterPath"),
+//   							Methods: []*string{
+//   								jsii.String("methods"),
+//   							},
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					ToolOverrides: []interface{}{
+//   						&ApiGatewayToolOverrideProperty{
+//   							Method: jsii.String("method"),
+//   							Name: jsii.String("name"),
+//   							Path: jsii.String("path"),
+//
+//   							// the properties below are optional
+//   							Description: jsii.String("description"),
+//   						},
+//   					},
+//   				},
+//   				RestApiId: jsii.String("restApiId"),
+//   				Stage: jsii.String("stage"),
+//   			},
 //   			Lambda: &McpLambdaTargetConfigurationProperty{
 //   				LambdaArn: jsii.String("lambdaArn"),
 //   				ToolSchema: &ToolSchemaProperty{
@@ -108,6 +104,36 @@ package awsbedrockagentcore
 //   	},
 //
 //   	// the properties below are optional
+//   	CredentialProviderConfigurations: []interface{}{
+//   		&CredentialProviderConfigurationProperty{
+//   			CredentialProviderType: jsii.String("credentialProviderType"),
+//
+//   			// the properties below are optional
+//   			CredentialProvider: &CredentialProviderProperty{
+//   				ApiKeyCredentialProvider: &ApiKeyCredentialProviderProperty{
+//   					ProviderArn: jsii.String("providerArn"),
+//
+//   					// the properties below are optional
+//   					CredentialLocation: jsii.String("credentialLocation"),
+//   					CredentialParameterName: jsii.String("credentialParameterName"),
+//   					CredentialPrefix: jsii.String("credentialPrefix"),
+//   				},
+//   				OauthCredentialProvider: &OAuthCredentialProviderProperty{
+//   					ProviderArn: jsii.String("providerArn"),
+//   					Scopes: []*string{
+//   						jsii.String("scopes"),
+//   					},
+//
+//   					// the properties below are optional
+//   					CustomParameters: map[string]*string{
+//   						"customParametersKey": jsii.String("customParameters"),
+//   					},
+//   					DefaultReturnUrl: jsii.String("defaultReturnUrl"),
+//   					GrantType: jsii.String("grantType"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	GatewayIdentifier: jsii.String("gatewayIdentifier"),
 //   	MetadataConfiguration: &MetadataConfigurationProperty{
@@ -126,10 +152,6 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html
 //
 type CfnGatewayTargetProps struct {
-	// The OAuth credential provider configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-credentialproviderconfigurations
-	//
-	CredentialProviderConfigurations interface{} `field:"required" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`
 	// The name for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-name
 	//
@@ -138,6 +160,10 @@ type CfnGatewayTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration
 	//
 	TargetConfiguration interface{} `field:"required" json:"targetConfiguration" yaml:"targetConfiguration"`
+	// The OAuth credential provider configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-credentialproviderconfigurations
+	//
+	CredentialProviderConfigurations interface{} `field:"optional" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`
 	// The description for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-description
 	//

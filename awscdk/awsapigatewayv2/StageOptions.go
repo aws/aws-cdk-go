@@ -9,9 +9,10 @@ package awsapigatewayv2
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessLogSettings IAccessLogSettings
-//   var domainName DomainName
+//   var domainNameRef IDomainNameRef
 //
 //   stageOptions := &StageOptions{
 //   	AccessLogSettings: accessLogSettings,
@@ -19,7 +20,7 @@ package awsapigatewayv2
 //   	Description: jsii.String("description"),
 //   	DetailedMetricsEnabled: jsii.Boolean(false),
 //   	DomainMapping: &DomainMappingOptions{
-//   		DomainName: domainName,
+//   		DomainName: domainNameRef,
 //
 //   		// the properties below are optional
 //   		MappingKey: jsii.String("mappingKey"),

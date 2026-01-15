@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
@@ -25,7 +26,7 @@ import (
 type Stop interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Stop
@@ -60,7 +61,7 @@ func NewStop_Override(s Stop, props *StopProps) {
 	)
 }
 
-func (s *jsiiProxy_Stop) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (s *jsiiProxy_Stop) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := s.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

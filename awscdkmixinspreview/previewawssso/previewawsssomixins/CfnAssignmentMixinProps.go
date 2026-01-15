@@ -20,7 +20,7 @@ package previewawsssomixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
 //
 type CfnAssignmentMixinProps struct {
-	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	// The ARN of the  instance under which the operation will be executed.
 	//
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn

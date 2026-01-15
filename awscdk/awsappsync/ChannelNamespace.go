@@ -86,10 +86,16 @@ type ChannelNamespace interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Adds an IAM policy statement for EventPublish access to this channel namespace to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement for EventPublish and EventSubscribe access to this channel namespace to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantPublishAndSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement for EventSubscribe access to this channel namespace to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	GrantSubscribe(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

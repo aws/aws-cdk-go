@@ -110,22 +110,40 @@ type Domain interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this domain.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

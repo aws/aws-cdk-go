@@ -1,8 +1,8 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Configures a custom domain endpoint for the ES domain.
@@ -24,7 +24,7 @@ type CustomEndpointOptions struct {
 	// Default: - create a new one.
 	//
 	// Deprecated: use opensearchservice module instead.
-	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"optional" json:"certificate" yaml:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
 	// Default: - do not create a CNAME.
 	//

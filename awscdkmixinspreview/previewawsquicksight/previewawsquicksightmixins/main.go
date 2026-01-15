@@ -8,6 +8,78 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorMixinProps",
+		reflect.TypeOf((*CfnActionConnectorMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnActionConnectorPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.APIKeyConnectionMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_APIKeyConnectionMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.AuthConfigProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_AuthConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.AuthenticationMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_AuthenticationMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.AuthorizationCodeGrantCredentialsDetailsProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_AuthorizationCodeGrantCredentialsDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.AuthorizationCodeGrantDetailsProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_AuthorizationCodeGrantDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.AuthorizationCodeGrantMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_AuthorizationCodeGrantMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.BasicAuthConnectionMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_BasicAuthConnectionMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.ClientCredentialsDetailsProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_ClientCredentialsDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.ClientCredentialsGrantDetailsProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_ClientCredentialsGrantDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.ClientCredentialsGrantMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_ClientCredentialsGrantMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.IAMConnectionMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_IAMConnectionMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.NoneConnectionMetadataProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_NoneConnectionMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnActionConnectorPropsMixin.ResourcePermissionProperty",
+		reflect.TypeOf((*CfnActionConnectorPropsMixin_ResourcePermissionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnAnalysisMixinProps",
 		reflect.TypeOf((*CfnAnalysisMixinProps)(nil)).Elem(),
 	)
@@ -5066,6 +5138,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnDataSourcePropsMixin.IdentityCenterConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_IdentityCenterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnDataSourcePropsMixin.KeyPairCredentialsProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_KeyPairCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_quicksight.mixins.CfnDataSourcePropsMixin.ManifestFileLocationProperty",

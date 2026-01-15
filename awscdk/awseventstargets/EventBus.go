@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Notify an existing Event Bus of an event.
@@ -22,7 +23,7 @@ type EventBus interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for EventBus
@@ -57,7 +58,7 @@ func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *Event
 	)
 }
 
-func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (e *jsiiProxy_EventBus) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := e.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

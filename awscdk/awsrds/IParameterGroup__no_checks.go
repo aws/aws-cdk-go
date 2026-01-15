@@ -16,3 +16,7 @@ func (i *jsiiProxy_IParameterGroup) validateBindToInstanceParameters(options *Pa
 	return nil
 }
 
+func (i *jsiiProxy_IParameterGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

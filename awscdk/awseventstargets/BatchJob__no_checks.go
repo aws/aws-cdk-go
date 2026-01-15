@@ -4,7 +4,7 @@ package awseventstargets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (b *jsiiProxy_BatchJob) validateBindParameters(rule awsevents.IRule) error {
+func (b *jsiiProxy_BatchJob) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	return nil
 }
 

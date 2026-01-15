@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Viewer certificate configuration class.
@@ -67,7 +67,7 @@ func (j *jsiiProxy_ViewerCertificate) Props() *CfnDistribution_ViewerCertificate
 
 
 // Generate an AWS Certificate Manager (ACM) viewer certificate configuration.
-func ViewerCertificate_FromAcmCertificate(certificate awscertificatemanager.ICertificate, options *ViewerCertificateOptions) ViewerCertificate {
+func ViewerCertificate_FromAcmCertificate(certificate interfacesawscertificatemanager.ICertificateRef, options *ViewerCertificateOptions) ViewerCertificate {
 	_init_.Initialize()
 
 	if err := validateViewerCertificate_FromAcmCertificateParameters(certificate, options); err != nil {

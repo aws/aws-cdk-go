@@ -4,9 +4,11 @@ package awsevents
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
-func (r *jsiiProxy_RuleTargetInput) validateBindParameters(rule IRule) error {
+func (r *jsiiProxy_RuleTargetInput) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	if rule == nil {
 		return fmt.Errorf("parameter rule is required, but nil was provided")
 	}

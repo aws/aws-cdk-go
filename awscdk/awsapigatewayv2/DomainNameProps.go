@@ -1,7 +1,7 @@
 package awsapigatewayv2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // properties used for creating the DomainName.
@@ -29,7 +29,7 @@ type DomainNameProps struct {
 	// The ACM certificate for this domain name.
 	//
 	// Certificate can be both ACM issued or imported.
-	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"required" json:"certificate" yaml:"certificate"`
 	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
 	// Default: - No friendly certificate name.
 	//
@@ -51,7 +51,7 @@ type DomainNameProps struct {
 	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
 	// Default: - only required when configuring mTLS.
 	//
-	OwnershipCertificate awscertificatemanager.ICertificate `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
+	OwnershipCertificate interfacesawscertificatemanager.ICertificateRef `field:"optional" json:"ownershipCertificate" yaml:"ownershipCertificate"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// Default: SecurityPolicy.TLS_1_2
 	//

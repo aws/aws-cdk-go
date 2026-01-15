@@ -86,13 +86,13 @@ type ScheduleGroup interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the indicated permissions on this schedule group to the given principal.
+	// Grant the indicated permissions on this schedule group to the given principal [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant delete schedule permission for schedules in this group to the given principal.
+	// Grant delete schedule permission for schedules in this group to the given principal [disable-awslint:no-grants].
 	GrantDeleteSchedules(identity awsiam.IGrantable) awsiam.Grant
-	// Grant list and get schedule permissions for schedules in this group to the given principal.
+	// Grant list and get schedule permissions for schedules in this group to the given principal [disable-awslint:no-grants].
 	GrantReadSchedules(identity awsiam.IGrantable) awsiam.Grant
-	// Grant create and update schedule permissions for schedules in this group to the given principal.
+	// Grant create and update schedule permissions for schedules in this group to the given principal [disable-awslint:no-grants].
 	GrantWriteSchedules(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this schedule group.
 	// Default: - sum over 5 minutes.

@@ -92,7 +92,7 @@ type ReportGroup interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants the given entity permissions to write (that is, upload reports to) this report group.
+	// [disable-awslint:no-grants].
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

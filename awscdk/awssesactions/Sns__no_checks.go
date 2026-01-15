@@ -4,7 +4,7 @@ package awssesactions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_Sns) validateBindParameters(receiptRule awsses.IReceiptRule) error {
+func (s *jsiiProxy_Sns) validateBindParameters(receiptRule interfacesawsses.IReceiptRuleRef) error {
 	return nil
 }
 

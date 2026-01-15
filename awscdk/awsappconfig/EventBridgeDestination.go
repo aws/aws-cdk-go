@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Use an Amazon EventBridge event bus as an event destination.
@@ -57,7 +57,7 @@ func (j *jsiiProxy_EventBridgeDestination) Type() SourceType {
 }
 
 
-func NewEventBridgeDestination(bus awsevents.IEventBus) EventBridgeDestination {
+func NewEventBridgeDestination(bus interfacesawsevents.IEventBusRef) EventBridgeDestination {
 	_init_.Initialize()
 
 	if err := validateNewEventBridgeDestinationParameters(bus); err != nil {
@@ -74,7 +74,7 @@ func NewEventBridgeDestination(bus awsevents.IEventBus) EventBridgeDestination {
 	return &j
 }
 
-func NewEventBridgeDestination_Override(e EventBridgeDestination, bus awsevents.IEventBus) {
+func NewEventBridgeDestination_Override(e EventBridgeDestination, bus interfacesawsevents.IEventBusRef) {
 	_init_.Initialize()
 
 	_jsii_.Create(

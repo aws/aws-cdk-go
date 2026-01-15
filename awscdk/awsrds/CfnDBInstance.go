@@ -88,6 +88,8 @@ type CfnDBInstance interface {
 	awscdk.IInspectable
 	interfacesawsrds.IDBInstanceRef
 	awscdk.ITaggable
+	AdditionalStorageVolumes() interface{}
+	SetAdditionalStorageVolumes(val interface{})
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
 	AllocatedStorage() *string
 	SetAllocatedStorage(val *string)
@@ -605,6 +607,16 @@ type jsiiProxy_CfnDBInstance struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsrdsIDBInstanceRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBInstance) AdditionalStorageVolumes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"additionalStorageVolumes",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBInstance) AllocatedStorage() *string {
@@ -1844,6 +1856,17 @@ func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDBInstance)SetAdditionalStorageVolumes(val interface{}) {
+	if err := j.validateSetAdditionalStorageVolumesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"additionalStorageVolumes",
+		val,
 	)
 }
 

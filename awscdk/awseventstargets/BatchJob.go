@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -65,7 +66,7 @@ import (
 type BatchJob interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger queue this batch job as a result from an EventBridge event.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for BatchJob
@@ -100,7 +101,7 @@ func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope constru
 	)
 }
 
-func (b *jsiiProxy_BatchJob) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (b *jsiiProxy_BatchJob) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := b.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

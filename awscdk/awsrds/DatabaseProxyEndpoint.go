@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,15 +18,16 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var databaseProxy DatabaseProxy
+//   var dBProxyRef IDBProxyRef
 //   var securityGroup SecurityGroup
 //   var subnet Subnet
 //   var subnetFilter SubnetFilter
 //   var vpc Vpc
 //
 //   databaseProxyEndpoint := awscdk.Aws_rds.NewDatabaseProxyEndpoint(this, jsii.String("MyDatabaseProxyEndpoint"), &DatabaseProxyEndpointProps{
-//   	DbProxy: databaseProxy,
+//   	DbProxy: dBProxyRef,
 //   	Vpc: vpc,
 //
 //   	// the properties below are optional
@@ -57,6 +59,8 @@ type DatabaseProxyEndpoint interface {
 	DbProxyEndpointArn() *string
 	// DB Proxy Endpoint Name.
 	DbProxyEndpointName() *string
+	// A reference to this database proxy endpoint.
+	DbProxyEndpointRef() *interfacesawsrds.DBProxyEndpointReference
 	// The endpoint that you can use to connect to the DB proxy.
 	Endpoint() *string
 	// The environment this resource belongs to.
@@ -130,6 +134,16 @@ func (j *jsiiProxy_DatabaseProxyEndpoint) DbProxyEndpointName() *string {
 	_jsii_.Get(
 		j,
 		"dbProxyEndpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseProxyEndpoint) DbProxyEndpointRef() *interfacesawsrds.DBProxyEndpointReference {
+	var returns *interfacesawsrds.DBProxyEndpointReference
+	_jsii_.Get(
+		j,
+		"dbProxyEndpointRef",
 		&returns,
 	)
 	return returns

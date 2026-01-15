@@ -126,10 +126,10 @@ type Workflow interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant custom actions to the given grantee for the workflow.
+	// Grant custom actions to the given grantee for the workflow [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant read permissions to the given grantee for the workflow.
+	// Grant read permissions to the given grantee for the workflow [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

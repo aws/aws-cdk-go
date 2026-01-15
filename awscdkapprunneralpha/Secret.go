@@ -54,6 +54,8 @@ type Secret interface {
 	// Experimental.
 	HasField() *bool
 	// Grants reading the secret to a principal.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }

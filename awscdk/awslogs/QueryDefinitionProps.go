@@ -1,5 +1,8 @@
 package awslogs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
+)
 
 // Properties for a QueryDefinition.
 //
@@ -36,6 +39,6 @@ type QueryDefinitionProps struct {
 	// Specify certain log groups for the query definition.
 	// Default: - no specified log groups.
 	//
-	LogGroups *[]ILogGroup `field:"optional" json:"logGroups" yaml:"logGroups"`
+	LogGroups *[]interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroups" yaml:"logGroups"`
 }
 

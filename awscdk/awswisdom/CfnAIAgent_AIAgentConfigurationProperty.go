@@ -8,6 +8,10 @@ package awswisdom
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var annotations interface{}
+//   var inputSchema interface{}
+//   var outputSchema interface{}
+//
 //   aIAgentConfigurationProperty := &AIAgentConfigurationProperty{
 //   	AnswerRecommendationAiAgentConfiguration: &AnswerRecommendationAIAgentConfigurationProperty{
 //   		AnswerGenerationAiGuardrailId: jsii.String("answerGenerationAiGuardrailId"),
@@ -61,6 +65,11 @@ package awswisdom
 //   		IntentLabelingGenerationAiPromptId: jsii.String("intentLabelingGenerationAiPromptId"),
 //   		Locale: jsii.String("locale"),
 //   		QueryReformulationAiPromptId: jsii.String("queryReformulationAiPromptId"),
+//   	},
+//   	CaseSummarizationAiAgentConfiguration: &CaseSummarizationAIAgentConfigurationProperty{
+//   		CaseSummarizationAiGuardrailId: jsii.String("caseSummarizationAiGuardrailId"),
+//   		CaseSummarizationAiPromptId: jsii.String("caseSummarizationAiPromptId"),
+//   		Locale: jsii.String("locale"),
 //   	},
 //   	EmailGenerativeAnswerAiAgentConfiguration: &EmailGenerativeAnswerAIAgentConfigurationProperty{
 //   		AssociationConfigurations: []interface{}{
@@ -219,6 +228,64 @@ package awswisdom
 //   		},
 //   		Locale: jsii.String("locale"),
 //   	},
+//   	NoteTakingAiAgentConfiguration: &NoteTakingAIAgentConfigurationProperty{
+//   		Locale: jsii.String("locale"),
+//   		NoteTakingAiGuardrailId: jsii.String("noteTakingAiGuardrailId"),
+//   		NoteTakingAiPromptId: jsii.String("noteTakingAiPromptId"),
+//   	},
+//   	OrchestrationAiAgentConfiguration: &OrchestrationAIAgentConfigurationProperty{
+//   		OrchestrationAiPromptId: jsii.String("orchestrationAiPromptId"),
+//
+//   		// the properties below are optional
+//   		ConnectInstanceArn: jsii.String("connectInstanceArn"),
+//   		Locale: jsii.String("locale"),
+//   		OrchestrationAiGuardrailId: jsii.String("orchestrationAiGuardrailId"),
+//   		ToolConfigurations: []interface{}{
+//   			&ToolConfigurationProperty{
+//   				ToolName: jsii.String("toolName"),
+//   				ToolType: jsii.String("toolType"),
+//
+//   				// the properties below are optional
+//   				Annotations: annotations,
+//   				Description: jsii.String("description"),
+//   				InputSchema: inputSchema,
+//   				Instruction: &ToolInstructionProperty{
+//   					Examples: []*string{
+//   						jsii.String("examples"),
+//   					},
+//   					Instruction: jsii.String("instruction"),
+//   				},
+//   				OutputFilters: []interface{}{
+//   					&ToolOutputFilterProperty{
+//   						JsonPath: jsii.String("jsonPath"),
+//
+//   						// the properties below are optional
+//   						OutputConfiguration: &ToolOutputConfigurationProperty{
+//   							OutputVariableNameOverride: jsii.String("outputVariableNameOverride"),
+//   							SessionDataNamespace: jsii.String("sessionDataNamespace"),
+//   						},
+//   					},
+//   				},
+//   				OutputSchema: outputSchema,
+//   				OverrideInputValues: []interface{}{
+//   					&ToolOverrideInputValueProperty{
+//   						JsonPath: jsii.String("jsonPath"),
+//   						Value: &ToolOverrideInputValueConfigurationProperty{
+//   							Constant: &ToolOverrideConstantInputValueProperty{
+//   								Type: jsii.String("type"),
+//   								Value: jsii.String("value"),
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Title: jsii.String("title"),
+//   				ToolId: jsii.String("toolId"),
+//   				UserInteractionConfiguration: &UserInteractionConfigurationProperty{
+//   					IsUserConfirmationRequired: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	SelfServiceAiAgentConfiguration: &SelfServiceAIAgentConfigurationProperty{
 //   		AssociationConfigurations: []interface{}{
 //   			&AssociationConfigurationProperty{
@@ -279,6 +346,9 @@ type CfnAIAgent_AIAgentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-answerrecommendationaiagentconfiguration
 	//
 	AnswerRecommendationAiAgentConfiguration interface{} `field:"optional" json:"answerRecommendationAiAgentConfiguration" yaml:"answerRecommendationAiAgentConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-casesummarizationaiagentconfiguration
+	//
+	CaseSummarizationAiAgentConfiguration interface{} `field:"optional" json:"caseSummarizationAiAgentConfiguration" yaml:"caseSummarizationAiAgentConfiguration"`
 	// Configuration for the EMAIL_GENERATIVE_ANSWER AI agent that provides comprehensive knowledge-based answers for customer queries.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailgenerativeansweraiagentconfiguration
 	//
@@ -295,6 +365,12 @@ type CfnAIAgent_AIAgentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-manualsearchaiagentconfiguration
 	//
 	ManualSearchAiAgentConfiguration interface{} `field:"optional" json:"manualSearchAiAgentConfiguration" yaml:"manualSearchAiAgentConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-notetakingaiagentconfiguration
+	//
+	NoteTakingAiAgentConfiguration interface{} `field:"optional" json:"noteTakingAiAgentConfiguration" yaml:"noteTakingAiAgentConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-orchestrationaiagentconfiguration
+	//
+	OrchestrationAiAgentConfiguration interface{} `field:"optional" json:"orchestrationAiAgentConfiguration" yaml:"orchestrationAiAgentConfiguration"`
 	// The self-service AI agent configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-selfserviceaiagentconfiguration
 	//

@@ -108,6 +108,8 @@ type Method interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants an IAM principal permission to invoke this method.
+	//
+	// [disable-awslint:no-grants].
 	GrantExecute(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns the given named metric for this API method.
 	Metric(metricName *string, stage interfacesawsapigateway.IStageRef, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

@@ -24,11 +24,6 @@ import (
 //   })
 //
 type DatabaseProxyOptions struct {
-	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
-	//
-	// These secrets are stored within Amazon Secrets Manager.
-	// One or more secrets are required.
-	Secrets *[]awssecretsmanager.ISecret `field:"required" json:"secrets" yaml:"secrets"`
 	// The VPC to associate with the new proxy.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
@@ -61,6 +56,12 @@ type DatabaseProxyOptions struct {
 	// Default: false.
 	//
 	DebugLogging *bool `field:"optional" json:"debugLogging" yaml:"debugLogging"`
+	// The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+	//
+	// When set to `DefaultAuthScheme.IAM_AUTH`, the proxy uses end-to-end IAM authentication to connect to the database.
+	// Default: DefaultAuthScheme.NONE
+	//
+	DefaultAuthScheme DefaultAuthScheme `field:"optional" json:"defaultAuthScheme" yaml:"defaultAuthScheme"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	// Default: false.
 	//
@@ -113,6 +114,13 @@ type DatabaseProxyOptions struct {
 	// Default: - A role will automatically be created.
 	//
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
+	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+	//
+	// These secrets are stored within Amazon Secrets Manager.
+	// One or more secrets are required when defaultAuthScheme is `DefaultAuthScheme.NONE`.
+	// Default: None.
+	//
+	Secrets *[]awssecretsmanager.ISecret `field:"optional" json:"secrets" yaml:"secrets"`
 	// One or more VPC security groups to associate with the new proxy.
 	// Default: - No security groups.
 	//

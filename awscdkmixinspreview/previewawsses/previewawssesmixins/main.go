@@ -72,6 +72,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.ConditionThresholdProperty",
+		reflect.TypeOf((*CfnConfigurationSetPropsMixin_ConditionThresholdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.DashboardOptionsProperty",
 		reflect.TypeOf((*CfnConfigurationSetPropsMixin_DashboardOptionsProperty)(nil)).Elem(),
 	)
@@ -82,6 +86,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.GuardianOptionsProperty",
 		reflect.TypeOf((*CfnConfigurationSetPropsMixin_GuardianOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.OverallConfidenceThresholdProperty",
+		reflect.TypeOf((*CfnConfigurationSetPropsMixin_OverallConfidenceThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.ReputationOptionsProperty",
@@ -98,6 +106,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.TrackingOptionsProperty",
 		reflect.TypeOf((*CfnConfigurationSetPropsMixin_TrackingOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.ValidationOptionsProperty",
+		reflect.TypeOf((*CfnConfigurationSetPropsMixin_ValidationOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.VdmOptionsProperty",

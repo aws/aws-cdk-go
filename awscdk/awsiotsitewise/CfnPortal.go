@@ -66,7 +66,7 @@ type CfnPortal interface {
 	//
 	// `arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}`.
 	AttrPortalArn() *string
-	// The IAM Identity Center application generated client ID (used with IAM Identity Center APIs).
+	// The SSO application generated client ID (used with SSO APIs).
 	AttrPortalClientId() *string
 	// The ID of the created portal.
 	AttrPortalId() *string

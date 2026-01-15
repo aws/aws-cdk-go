@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Adds a header to the received email.
@@ -52,7 +53,7 @@ import (
 type AddHeader interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for AddHeader
@@ -87,7 +88,7 @@ func NewAddHeader_Override(a AddHeader, props *AddHeaderProps) {
 	)
 }
 
-func (a *jsiiProxy_AddHeader) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (a *jsiiProxy_AddHeader) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := a.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

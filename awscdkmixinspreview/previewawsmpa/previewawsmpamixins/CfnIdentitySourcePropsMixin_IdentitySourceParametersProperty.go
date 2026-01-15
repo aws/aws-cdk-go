@@ -21,7 +21,7 @@ package previewawsmpamixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa-identitysource-identitysourceparameters.html
 //
 type CfnIdentitySourcePropsMixin_IdentitySourceParametersProperty struct {
-	// AWS IAM Identity Center credentials.
+	// SSOlong credentials.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mpa-identitysource-identitysourceparameters.html#cfn-mpa-identitysource-identitysourceparameters-iamidentitycenter
 	//
 	IamIdentityCenter interface{} `field:"optional" json:"iamIdentityCenter" yaml:"iamIdentityCenter"`

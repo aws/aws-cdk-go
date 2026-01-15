@@ -136,7 +136,7 @@ type CfnWorkspace interface {
 	//
 	// Type: String.
 	AttrStatus() *string
-	// Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
+	// Specifies whether this workspace uses SAML 2.0, SSOlong , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
 	AuthenticationProviders() *[]*string
 	SetAuthenticationProviders(val *[]*string)
 	// Options for this resource, such as condition, update policy etc.

@@ -5,10 +5,11 @@ package awslogs
 import (
 	"fmt"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_ILogSubscriptionDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup ILogGroup) error {
+func (i *jsiiProxy_ILogSubscriptionDestination) validateBindParameters(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

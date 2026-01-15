@@ -65,6 +65,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "securityGroups", GoGetter: "SecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheArn", GoGetter: "ServerlessCacheArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheName", GoGetter: "ServerlessCacheName"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheRef", GoGetter: "ServerlessCacheRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
 			_jsii_.MemberProperty{JsiiProperty: "userGroup", GoGetter: "UserGroup"},
@@ -74,6 +75,7 @@ func init() {
 			j := jsiiProxy_IServerlessCache{}
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticacheIServerlessCacheRef)
 			return &j
 		},
 	)
@@ -222,6 +224,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricActiveConnections", GoMethod: "MetricActiveConnections"},
@@ -243,6 +246,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheName", GoGetter: "ServerlessCacheName"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheReaderEndpointAddress", GoGetter: "ServerlessCacheReaderEndpointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheReaderEndpointPort", GoGetter: "ServerlessCacheReaderEndpointPort"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheRef", GoGetter: "ServerlessCacheRef"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheStatus", GoGetter: "ServerlessCacheStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
@@ -274,6 +278,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantConnect", GoMethod: "GrantConnect"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricActiveConnections", GoMethod: "MetricActiveConnections"},
@@ -291,6 +296,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "securityGroups", GoGetter: "SecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheArn", GoGetter: "ServerlessCacheArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheName", GoGetter: "ServerlessCacheName"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheRef", GoGetter: "ServerlessCacheRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -302,6 +308,17 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IServerlessCache)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-elasticache-alpha.ServerlessCacheGrants",
+		reflect.TypeOf((*ServerlessCacheGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "connect", GoMethod: "Connect"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ServerlessCacheGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

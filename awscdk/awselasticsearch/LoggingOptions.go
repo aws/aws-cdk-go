@@ -1,7 +1,7 @@
 package awselasticsearch
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Configures log settings for the domain.
@@ -39,7 +39,7 @@ type LoggingOptions struct {
 	// Default: - a new log group is created if app logging is enabled.
 	//
 	// Deprecated: use opensearchservice module instead.
-	AppLogGroup awslogs.ILogGroup `field:"optional" json:"appLogGroup" yaml:"appLogGroup"`
+	AppLogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"appLogGroup" yaml:"appLogGroup"`
 	// Specify if Elasticsearch audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later and fine grained access control to be enabled.
@@ -51,7 +51,7 @@ type LoggingOptions struct {
 	// Default: - a new log group is created if audit logging is enabled.
 	//
 	// Deprecated: use opensearchservice module instead.
-	AuditLogGroup awslogs.ILogGroup `field:"optional" json:"auditLogGroup" yaml:"auditLogGroup"`
+	AuditLogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"auditLogGroup" yaml:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
@@ -63,7 +63,7 @@ type LoggingOptions struct {
 	// Default: - a new log group is created if slow index logging is enabled.
 	//
 	// Deprecated: use opensearchservice module instead.
-	SlowIndexLogGroup awslogs.ILogGroup `field:"optional" json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
+	SlowIndexLogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"slowIndexLogGroup" yaml:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later.
@@ -75,6 +75,6 @@ type LoggingOptions struct {
 	// Default: - a new log group is created if slow search logging is enabled.
 	//
 	// Deprecated: use opensearchservice module instead.
-	SlowSearchLogGroup awslogs.ILogGroup `field:"optional" json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
+	SlowSearchLogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"slowSearchLogGroup" yaml:"slowSearchLogGroup"`
 }
 

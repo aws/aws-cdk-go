@@ -32,6 +32,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Name: jsii.String("name"),
+//   	NodeJsVersion: jsii.String("nodeJsVersion"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -85,6 +86,9 @@ type CfnScript interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The Node.js version used for execution of the Realtime script.
+	NodeJsVersion() *string
+	SetNodeJsVersion(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -375,6 +379,16 @@ func (j *jsiiProxy_CfnScript) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScript) NodeJsVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"nodeJsVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScript) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -499,6 +513,14 @@ func (j *jsiiProxy_CfnScript)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScript)SetNodeJsVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"nodeJsVersion",
 		val,
 	)
 }

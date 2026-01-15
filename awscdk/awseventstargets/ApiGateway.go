@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Use an API Gateway REST APIs as a target for Amazon EventBridge rules.
@@ -58,7 +59,7 @@ type ApiGateway interface {
 	// Returns a RuleTarget that can be used to trigger this API Gateway REST APIs as a result from an EventBridge event.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 	//
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for ApiGateway
@@ -114,7 +115,7 @@ func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.IRestApi, props 
 	)
 }
 
-func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (a *jsiiProxy_ApiGateway) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := a.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

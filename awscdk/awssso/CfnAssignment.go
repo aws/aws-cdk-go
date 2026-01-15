@@ -13,7 +13,7 @@ import (
 
 // Assigns access to a Principal for a specified AWS account using a specified permission set.
 //
-// > The term *principal* here refers to a user or group that is defined in IAM Identity Center .
+// > The term *principal* here refers to a user or group that is defined in  .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -47,7 +47,7 @@ type CfnAssignment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
-	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	// The ARN of the  instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

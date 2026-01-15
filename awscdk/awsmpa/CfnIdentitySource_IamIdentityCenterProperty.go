@@ -1,9 +1,9 @@
 package awsmpa
 
 
-// AWS IAM Identity Center credentials.
+// SSOlong credentials.
 //
-// For more information see, [AWS IAM Identity Center](https://docs.aws.amazon.com/identity-center/) .
+// For more information see, [SSOlong](https://docs.aws.amazon.com/identity-center/) .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -141,14 +141,24 @@ type QualifiedFunctionBase interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to invoke this Lambda.
+	//
+	// [disable-awslint:no-grants].
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
 	// Grant multiple principals the ability to invoke this Lambda via CompositePrincipal.
+	//
+	// [disable-awslint:no-grants].
 	GrantInvokeCompositePrincipal(compositePrincipal awsiam.CompositePrincipal) *[]awsiam.Grant
 	// Grant the given identity permissions to invoke the $LATEST version or unqualified version of this Lambda.
+	//
+	// [disable-awslint:no-grants].
 	GrantInvokeLatestVersion(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke this Lambda Function URL.
+	//
+	// [disable-awslint:no-grants].
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke the given version of this Lambda.
+	//
+	// [disable-awslint:no-grants].
 	GrantInvokeVersion(identity awsiam.IGrantable, version IVersion) awsiam.Grant
 	// Return the given named metric for this Function.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

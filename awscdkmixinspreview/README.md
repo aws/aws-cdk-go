@@ -242,9 +242,7 @@ bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(bucket)
 events.NewRule(scope, jsii.String("Rule"), &RuleProps{
 	EventPattern: bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
 		Object: &ObjectType{
-			Key: []*string{
-				jsii.String("uploads/*"),
-			},
+			Key: events.Match_Wildcard(jsii.String("uploads/*")),
 		},
 	}),
 	Targets: []IRuleTarget{
@@ -260,9 +258,7 @@ events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
 	State: jsii.String("ENABLED"),
 	EventPattern: cfnBucketEvents.*ObjectCreatedPattern(&ObjectCreatedProps{
 		Object: &ObjectType{
-			Key: []*string{
-				jsii.String("uploads/*"),
-			},
+			Key: events.Match_*Wildcard(jsii.String("uploads/*")),
 		},
 	}),
 	Targets: []interface{}{
@@ -293,6 +289,7 @@ pattern := bucketEvents.ObjectCreatedPattern()
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+import events "github.com/aws/aws-cdk-go/awscdk"
 
 var bucket Bucket
 
@@ -300,10 +297,7 @@ bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(bucket)
 
 pattern := bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
 	EventMetadata: &AWSEventMetadataProps{
-		Region: []*string{
-			jsii.String("us-east-1"),
-			jsii.String("us-west-2"),
-		},
+		Region: events.Match_Prefix(jsii.String("us-")),
 		Version: []*string{
 			jsii.String("0"),
 		},

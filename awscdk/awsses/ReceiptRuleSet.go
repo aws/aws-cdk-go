@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,6 +47,8 @@ type ReceiptRuleSet interface {
 	PhysicalName() *string
 	// The receipt rule set name.
 	ReceiptRuleSetName() *string
+	// A reference to a ReceiptRuleSet resource.
+	ReceiptRuleSetRef() *interfacesawsses.ReceiptRuleSetReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a drop spam rule.
@@ -124,6 +127,16 @@ func (j *jsiiProxy_ReceiptRuleSet) ReceiptRuleSetName() *string {
 	_jsii_.Get(
 		j,
 		"receiptRuleSetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ReceiptRuleSet) ReceiptRuleSetRef() *interfacesawsses.ReceiptRuleSetReference {
+	var returns *interfacesawsses.ReceiptRuleSetReference
+	_jsii_.Get(
+		j,
+		"receiptRuleSetRef",
 		&returns,
 	)
 	return returns

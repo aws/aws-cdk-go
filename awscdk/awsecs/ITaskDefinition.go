@@ -6,11 +6,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // The interface for all task definitions.
 type ITaskDefinition interface {
 	awscdk.IResource
+	interfacesawsecs.ITaskDefinitionRef
 	// What launch types this task definition should be compatible with.
 	Compatibility() Compatibility
 	// Execution role for this task definition.
@@ -34,6 +38,18 @@ type ITaskDefinition interface {
 // The jsii proxy for ITaskDefinition
 type jsiiProxy_ITaskDefinition struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsecsITaskDefinitionRef
+}
+
+func (i *jsiiProxy_ITaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_ITaskDefinition) Compatibility() Compatibility {
@@ -121,6 +137,46 @@ func (j *jsiiProxy_ITaskDefinition) TaskRole() awsiam.IRole {
 	_jsii_.Get(
 		j,
 		"taskRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskDefinition) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskDefinition) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskDefinition) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITaskDefinition) TaskDefinitionRef() *interfacesawsecs.TaskDefinitionReference {
+	var returns *interfacesawsecs.TaskDefinitionReference
+	_jsii_.Get(
+		j,
+		"taskDefinitionRef",
 		&returns,
 	)
 	return returns

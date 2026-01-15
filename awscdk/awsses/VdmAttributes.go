@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -44,6 +45,8 @@ type VdmAttributes interface {
 	Stack() awscdk.Stack
 	// The name of the resource behind the Virtual Deliverability Manager attributes.
 	VdmAttributesName() *string
+	// A reference to a VdmAttributes resource.
+	VdmAttributesRef() *interfacesawsses.VdmAttributesReference
 	// Resource ID for the Virtual Deliverability Manager attributes.
 	VdmAttributesResourceId() *string
 	// Apply the given removal policy to this resource.
@@ -125,6 +128,16 @@ func (j *jsiiProxy_VdmAttributes) VdmAttributesName() *string {
 	_jsii_.Get(
 		j,
 		"vdmAttributesName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VdmAttributes) VdmAttributesRef() *interfacesawsses.VdmAttributesReference {
+	var returns *interfacesawsses.VdmAttributesReference
+	_jsii_.Get(
+		j,
+		"vdmAttributesRef",
 		&returns,
 	)
 	return returns

@@ -833,6 +833,19 @@ map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
 })
 ```
 
+When using `JSONata`, you can also specify the `maxConcurrency` dynamically using a JSONata expression with the `jsonataMaxConcurrency` property. This allows you to determine the concurrency limit based on state input or other runtime values:
+
+```go
+map := sfn.NewMap(this, jsii.String("Map State"), &MapProps{
+	JsonataMaxConcurrency: jsii.String("{% $states.input.maxConcurrency %}"),
+	ItemSelector: map[string]interface{}{
+		"item": jsii.String("{% $states.context.Map.Item.Value %}"),
+	},
+})
+```
+
+Note that `jsonataMaxConcurrency` is mutually exclusive with `maxConcurrency` and `maxConcurrencyPath`.
+
 To define a distributed `Map` state set `itemProcessors` mode to `ProcessorMode.DISTRIBUTED`.
 An `executionType` must be specified for the distributed `Map` workflow.
 

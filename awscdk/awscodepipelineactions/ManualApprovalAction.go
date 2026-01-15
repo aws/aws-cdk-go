@@ -47,6 +47,8 @@ type ManualApprovalAction interface {
 	//
 	// For more info see:
 	// https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals-iam-permissions.html
+	//
+	// [disable-awslint:no-grants].
 	GrantManualApproval(grantable awsiam.IGrantable)
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule

@@ -103,15 +103,17 @@ type Repository interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given principal identity permissions to perform the actions on this repository.
+	// Grant the given principal identity permissions to perform the actions on this repository [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions to use the images in this repository.
+	// Grant the given identity permissions to use the images in this repository [disable-awslint:no-grants].
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to pull and push images to this repository.
+	//
+	// [disable-awslint:no-grants].
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity permissions to use the images in this repository.
+	// Grant the given identity permissions to use the images in this repository [disable-awslint:no-grants].
 	GrantPush(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity permissions to read the images in this repository.
+	// Grant the given identity permissions to read the images in this repository [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//

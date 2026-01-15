@@ -42,6 +42,7 @@ import (
 //   			},
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -91,6 +92,7 @@ import (
 //   			ChildManifestName: jsii.String("childManifestName"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -115,6 +117,7 @@ import (
 //   			ChildManifestName: jsii.String("childManifestName"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -138,6 +141,7 @@ import (
 //   		&MssManifestConfigurationProperty{
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -160,6 +164,7 @@ import (
 //   			},
 //   			KeyRotationIntervalSeconds: jsii.Number(123),
 //   			SpekeKeyProvider: &SpekeKeyProviderProperty{
+//   				CertificateArn: jsii.String("certificateArn"),
 //   				DrmSystems: []*string{
 //   					jsii.String("drmSystems"),
 //   				},

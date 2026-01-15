@@ -19,6 +19,7 @@ package previewawsmediapackagev2mixins
 //   		},
 //   		KeyRotationIntervalSeconds: jsii.Number(123),
 //   		SpekeKeyProvider: &SpekeKeyProviderProperty{
+//   			CertificateArn: jsii.String("certificateArn"),
 //   			DrmSystems: []*string{
 //   				jsii.String("drmSystems"),
 //   			},

@@ -112,6 +112,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_rds.mixins.CfnDBInstancePropsMixin.AdditionalStorageVolumeProperty",
+		reflect.TypeOf((*CfnDBInstancePropsMixin_AdditionalStorageVolumeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_rds.mixins.CfnDBInstancePropsMixin.CertificateDetailsProperty",
 		reflect.TypeOf((*CfnDBInstancePropsMixin_CertificateDetailsProperty)(nil)).Elem(),
 	)

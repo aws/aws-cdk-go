@@ -73,6 +73,8 @@ type SelfManagedMemoryStrategy interface {
 	TriggerConditions() *TriggerConditions
 	// Grants the necessary permissions to the role.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: The Grant object for chaining.
 	// Experimental.
 	Grant(grantee awsiam.IGrantable) awsiam.Grant

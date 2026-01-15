@@ -65,6 +65,28 @@ import (
 //   	Name: jsii.String("name"),
 //   	TargetConfiguration: &TargetConfigurationProperty{
 //   		Mcp: &McpTargetConfigurationProperty{
+//   			ApiGateway: &ApiGatewayTargetConfigurationProperty{
+//   				ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
+//   					ToolFilters: []interface{}{
+//   						&ApiGatewayToolFilterProperty{
+//   							FilterPath: jsii.String("filterPath"),
+//   							Methods: []*string{
+//   								jsii.String("methods"),
+//   							},
+//   						},
+//   					},
+//   					ToolOverrides: []interface{}{
+//   						&ApiGatewayToolOverrideProperty{
+//   							Description: jsii.String("description"),
+//   							Method: jsii.String("method"),
+//   							Name: jsii.String("name"),
+//   							Path: jsii.String("path"),
+//   						},
+//   					},
+//   				},
+//   				RestApiId: jsii.String("restApiId"),
+//   				Stage: jsii.String("stage"),
+//   			},
 //   			Lambda: &McpLambdaTargetConfigurationProperty{
 //   				LambdaArn: jsii.String("lambdaArn"),
 //   				ToolSchema: &ToolSchemaProperty{

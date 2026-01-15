@@ -40,7 +40,7 @@ func (u *jsiiProxy_UserPool) validateGrantParameters(grantee awsiam.IGrantable) 
 	return nil
 }
 
-func (u *jsiiProxy_UserPool) validateRegisterIdentityProviderParameters(provider IUserPoolIdentityProvider) error {
+func (u *jsiiProxy_UserPool) validateRegisterIdentityProviderParameters(provider interfacesawscognito.IUserPoolIdentityProviderRef) error {
 	return nil
 }
 

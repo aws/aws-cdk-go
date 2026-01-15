@@ -93,6 +93,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-iot-actions-alpha.HttpActionBatchConfig",
+		reflect.TypeOf((*HttpActionBatchConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-iot-actions-alpha.HttpActionHeader",
 		reflect.TypeOf((*HttpActionHeader)(nil)).Elem(),
 	)

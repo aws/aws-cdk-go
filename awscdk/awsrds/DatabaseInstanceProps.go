@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 )
 
 // Construction properties for a DatabaseInstance.
@@ -305,7 +306,7 @@ type DatabaseInstanceProps struct {
 	// Existing subnet group for the instance.
 	// Default: - a new subnet group will be created.
 	//
-	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
+	SubnetGroup interfacesawsrds.IDBSubnetGroupRef `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
 	// Default: - private subnets.
 	//

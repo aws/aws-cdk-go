@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -72,6 +73,8 @@ type WebSocketStage interface {
 	//
 	// its primary identifier.
 	StageName() *string
+	// A reference to a Stage resource.
+	StageRef() *interfacesawsapigatewayv2.StageReference
 	// The websocket URL to this stage.
 	Url() *string
 	// Adds a stage variable to this stage.
@@ -105,6 +108,8 @@ type WebSocketStage interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant access to the API Gateway management API for this WebSocket API Stage to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantManagementApiAccess(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this HTTP Api Gateway Stage.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -194,6 +199,16 @@ func (j *jsiiProxy_WebSocketStage) StageName() *string {
 	_jsii_.Get(
 		j,
 		"stageName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_WebSocketStage) StageRef() *interfacesawsapigatewayv2.StageReference {
+	var returns *interfacesawsapigatewayv2.StageReference
+	_jsii_.Get(
+		j,
+		"stageRef",
 		&returns,
 	)
 	return returns

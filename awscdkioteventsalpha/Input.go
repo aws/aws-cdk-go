@@ -103,10 +103,10 @@ type Input interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the indicated permissions on this input to the given IAM principal (Role/Group/User).
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant write permissions on this input and its contents to an IAM principal (Role/Group/User).
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

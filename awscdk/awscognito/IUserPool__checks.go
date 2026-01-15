@@ -7,7 +7,9 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 )
 
 func (i *jsiiProxy_IUserPool) validateAddClientParameters(id *string, options *UserPoolClientOptions) error {
@@ -75,9 +77,17 @@ func (i *jsiiProxy_IUserPool) validateGrantParameters(grantee awsiam.IGrantable)
 	return nil
 }
 
-func (i *jsiiProxy_IUserPool) validateRegisterIdentityProviderParameters(provider IUserPoolIdentityProvider) error {
+func (i *jsiiProxy_IUserPool) validateRegisterIdentityProviderParameters(provider interfacesawscognito.IUserPoolIdentityProviderRef) error {
 	if provider == nil {
 		return fmt.Errorf("parameter provider is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (i *jsiiProxy_IUserPool) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	if policy == "" {
+		return fmt.Errorf("parameter policy is required, but nil was provided")
 	}
 
 	return nil

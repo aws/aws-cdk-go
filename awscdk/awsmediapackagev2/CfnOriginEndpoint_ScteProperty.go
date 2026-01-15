@@ -22,6 +22,12 @@ type CfnOriginEndpoint_ScteProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html#cfn-mediapackagev2-originendpoint-scte-sctefilter
 	//
 	ScteFilter *[]*string `field:"optional" json:"scteFilter" yaml:"scteFilter"`
+	// Controls whether SCTE-35 messages are included in segment files.
+	//
+	// - None – SCTE-35 messages are not included in segments (default)
+	// - All – SCTE-35 messages are embedded in segment data
+	//
+	// For DASH manifests, when set to `All` , an `InbandEventStream` tag signals that SCTE messages are present in segments. This setting works independently of manifest ad markers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scte.html#cfn-mediapackagev2-originendpoint-scte-scteinsegments
 	//
 	ScteInSegments *string `field:"optional" json:"scteInSegments" yaml:"scteInSegments"`

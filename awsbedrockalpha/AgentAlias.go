@@ -118,18 +118,21 @@ type AgentAlias interface {
 	//
 	// Note: This grant will only work when the grantee is in the same AWS account
 	// where the agent alias is defined. Cross-account grant is not supported.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to get the agent alias.
 	//
 	// Note: This grant will only work when the grantee is in the same AWS account
 	// where the agent alias is defined. Cross-account agent read is not supported.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantGet(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to invoke the agent alias.
 	//
 	// Note: This grant will only work when the grantee is in the same AWS account
 	// where the agent alias is defined. Cross-account invocation is not supported.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Define an EventBridge rule that triggers when something happens to this agent alias.

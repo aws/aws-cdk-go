@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigatewayv2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -18,13 +19,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var httpApi HttpApi
+//   var httpApiRef IHttpApiRef
 //   var httpRouteAuthorizer IHttpRouteAuthorizer
 //   var httpRouteIntegration HttpRouteIntegration
 //   var httpRouteKey HttpRouteKey
 //
 //   httpRoute := awscdk.Aws_apigatewayv2.NewHttpRoute(this, jsii.String("MyHttpRoute"), &HttpRouteProps{
-//   	HttpApi: httpApi,
+//   	HttpApi: httpApiRef,
 //   	Integration: httpRouteIntegration,
 //   	RouteKey: httpRouteKey,
 //
@@ -66,6 +67,8 @@ type HttpRoute interface {
 	RouteArn() *string
 	// Id of the Route.
 	RouteId() *string
+	// A reference to a Route resource.
+	RouteRef() *interfacesawsapigatewayv2.RouteReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -92,10 +95,7 @@ type HttpRoute interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant access to invoke the route.
-	//
-	// This method requires that the authorizer of the route is undefined or is
-	// an `HttpIamAuthorizer`.
+	// [disable-awslint:no-grants].
 	GrantInvoke(grantee awsiam.IGrantable, options *GrantInvokeOptions) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -172,6 +172,16 @@ func (j *jsiiProxy_HttpRoute) RouteId() *string {
 	_jsii_.Get(
 		j,
 		"routeId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_HttpRoute) RouteRef() *interfacesawsapigatewayv2.RouteReference {
+	var returns *interfacesawsapigatewayv2.RouteReference
+	_jsii_.Get(
+		j,
+		"routeRef",
 		&returns,
 	)
 	return returns

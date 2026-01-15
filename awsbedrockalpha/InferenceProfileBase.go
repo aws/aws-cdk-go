@@ -90,6 +90,8 @@ type InferenceProfileBase interface {
 	// Note: This does not grant permissions to use the underlying model in the profile.
 	// For comprehensive model invocation permissions, use the grantInvoke method instead.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
 	GrantProfileUsage(grantee awsiam.IGrantable) awsiam.Grant

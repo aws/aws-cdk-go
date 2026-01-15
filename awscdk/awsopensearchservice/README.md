@@ -149,7 +149,37 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 
 This sets up the domain with node to node encryption and encryption at
 rest. You can also choose to supply your own KMS key to use for encryption at
-rest.
+rest:
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+
+encryptionKey := kms.NewKey(this, jsii.String("EncryptionKey"))
+
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		KmsKey: encryptionKey,
+	},
+})
+```
+
+The construct also supports using cross-account KMS keys for encryption at rest:
+
+```go
+import kms "github.com/aws/aws-cdk-go/awscdk"
+
+
+crossAccountKey := kms.Key_FromKeyArn(this, jsii.String("CrossAccountKey"), jsii.String("arn:aws:kms:us-east-1:111111111111:key/12345678-1234-1234-1234-123456789012"))
+
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_1_0(),
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		KmsKey: crossAccountKey,
+	},
+})
+```
 
 ## VPC Support
 

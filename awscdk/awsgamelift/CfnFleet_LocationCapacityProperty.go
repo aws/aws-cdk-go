@@ -14,10 +14,10 @@ package awsgamelift
 //
 //   locationCapacityProperty := &LocationCapacityProperty{
 //   	MaxSize: jsii.Number(123),
-//   	MinSize: jsii.Number(123),
 //
 //   	// the properties below are optional
 //   	DesiredEc2Instances: jsii.Number(123),
+//   	MinSize: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
@@ -29,17 +29,17 @@ type CfnFleet_LocationCapacityProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
 	//
 	MaxSize *float64 `field:"required" json:"maxSize" yaml:"maxSize"`
-	// The minimum number of instances that are allowed in the specified fleet location.
-	//
-	// If this parameter is not set, the default is 0.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
-	//
-	MinSize *float64 `field:"required" json:"minSize" yaml:"minSize"`
 	// The number of Amazon EC2 instances you want to maintain in the specified fleet location.
 	//
 	// This value must fall between the minimum and maximum size limits. Changes in desired instance value can take up to 1 minute to be reflected when viewing the fleet's capacity settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
 	//
 	DesiredEc2Instances *float64 `field:"optional" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
+	// The minimum number of instances that are allowed in the specified fleet location.
+	//
+	// If this parameter is not set, the default is 0.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+	//
+	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
 }
 

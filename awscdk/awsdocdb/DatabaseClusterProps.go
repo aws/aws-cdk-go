@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdocdb"
 )
 
 // Properties for a new database cluster.
@@ -135,7 +136,7 @@ type DatabaseClusterProps struct {
 	// The DB parameter group to associate with the instance.
 	// Default: no parameter group.
 	//
-	ParameterGroup IClusterParameterGroup `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
+	ParameterGroup interfacesawsdocdb.IDBClusterParameterGroupRef `field:"optional" json:"parameterGroup" yaml:"parameterGroup"`
 	// The port the DocumentDB cluster will listen on.
 	// Default: DatabaseCluster.DEFAULT_PORT
 	//

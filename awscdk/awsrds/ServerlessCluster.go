@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -90,6 +91,8 @@ type ServerlessCluster interface {
 	ClusterReadEndpoint() Endpoint
 	// Access to the network connections.
 	Connections() awsec2.Connections
+	// A reference to this serverless cluster.
+	DbClusterRef() *interfacesawsrds.DBClusterReference
 	EnableDataApi() *bool
 	SetEnableDataApi(val *bool)
 	// The environment this resource belongs to.
@@ -149,6 +152,8 @@ type ServerlessCluster interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity to access to the Data API, including read access to the secret attached to the cluster if present.
+	//
+	// [disable-awslint:no-grants].
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -205,6 +210,16 @@ func (j *jsiiProxy_ServerlessCluster) Connections() awsec2.Connections {
 	_jsii_.Get(
 		j,
 		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ServerlessCluster) DbClusterRef() *interfacesawsrds.DBClusterReference {
+	var returns *interfacesawsrds.DBClusterReference
+	_jsii_.Get(
+		j,
+		"dbClusterRef",
 		&returns,
 	)
 	return returns

@@ -22,8 +22,16 @@ import (
 //   	Vpc: Vpc,
 //   })
 //
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
+//   	Description: jsii.String("Security group for managed instances"),
+//   })
+//
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
 //   	Subnets: vpc.PrivateSubnets,
+//   	SecurityGroups: []ISecurityGroup{
+//   		securityGroup,
+//   	},
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),

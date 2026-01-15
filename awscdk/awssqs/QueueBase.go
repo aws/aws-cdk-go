@@ -94,6 +94,8 @@ type QueueBase interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, queueActions ...*string) awsiam.Grant
 	// Grant permissions to consume messages from a queue.
 	//
@@ -109,7 +111,9 @@ type QueueBase interface {
 	//
 	// This will grant the following KMS permissions:
 	//
-	// - kms:Decrypt.
+	//   - kms:Decrypt
+	//
+	// [disable-awslint:no-grants].
 	GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
 	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
@@ -119,7 +123,9 @@ type QueueBase interface {
 	//
 	//  - sqs:PurgeQueue
 	//  - sqs:GetQueueAttributes
-	// - sqs:GetQueueUrl.
+	//  - sqs:GetQueueUrl
+	//
+	// [disable-awslint:no-grants].
 	GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to send messages to a queue to the given identity.
 	//
@@ -136,7 +142,9 @@ type QueueBase interface {
 	//  - kms:Decrypt
 	//  - kms:Encrypt
 	//  - kms:ReEncrypt*
-	// - kms:GenerateDataKey*.
+	//  - kms:GenerateDataKey*
+	//
+	// [disable-awslint:no-grants].
 	GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Queue.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

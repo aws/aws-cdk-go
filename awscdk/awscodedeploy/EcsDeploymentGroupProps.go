@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 )
 
 // Construction properties for `EcsDeploymentGroup`.
@@ -54,7 +55,7 @@ type EcsDeploymentGroupProps struct {
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
 	// Default: One will be created for you.
 	//
-	Application IEcsApplication `field:"optional" json:"application" yaml:"application"`
+	Application interfacesawscodedeploy.IApplicationRef `field:"optional" json:"application" yaml:"application"`
 	// The auto-rollback configuration for this Deployment Group.
 	// Default: - default AutoRollbackConfig.
 	//
@@ -62,7 +63,7 @@ type EcsDeploymentGroupProps struct {
 	// The Deployment Configuration this Deployment Group uses.
 	// Default: EcsDeploymentConfig.ALL_AT_ONCE
 	//
-	DeploymentConfig IEcsDeploymentConfig `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
+	DeploymentConfig interfacesawscodedeploy.IDeploymentConfigRef `field:"optional" json:"deploymentConfig" yaml:"deploymentConfig"`
 	// The physical, human-readable name of the CodeDeploy Deployment Group.
 	// Default: An auto-generated name will be used.
 	//

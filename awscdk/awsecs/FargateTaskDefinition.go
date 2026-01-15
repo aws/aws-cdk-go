@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -117,6 +118,8 @@ type FargateTaskDefinition interface {
 	Stack() awscdk.Stack
 	// The full Amazon Resource Name (ARN) of the task definition.
 	TaskDefinitionArn() *string
+	// A reference to this task definition.
+	TaskDefinitionRef() *interfacesawsecs.TaskDefinitionReference
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	TaskRole() awsiam.IRole
 	// Adds a new container to the task definition.
@@ -174,7 +177,9 @@ type FargateTaskDefinition interface {
 	// This will grant the following permissions:
 	//
 	//   - ecs:RunTask
-	// - iam:PassRole.
+	//   - iam:PassRole
+	//
+	// [disable-awslint:no-grants].
 	GrantRun(grantee awsiam.IGrantable) awsiam.Grant
 	// Creates the task execution IAM role if it doesn't already exist.
 	ObtainExecutionRole() awsiam.IRole
@@ -393,6 +398,16 @@ func (j *jsiiProxy_FargateTaskDefinition) TaskDefinitionArn() *string {
 	_jsii_.Get(
 		j,
 		"taskDefinitionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateTaskDefinition) TaskDefinitionRef() *interfacesawsecs.TaskDefinitionReference {
+	var returns *interfacesawsecs.TaskDefinitionReference
+	_jsii_.Get(
+		j,
+		"taskDefinitionRef",
 		&returns,
 	)
 	return returns

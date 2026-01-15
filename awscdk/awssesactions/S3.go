@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
@@ -52,7 +53,7 @@ import (
 type S3 interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for S3
@@ -87,7 +88,7 @@ func NewS3_Override(s S3, props *S3Props) {
 	)
 }
 
-func (s *jsiiProxy_S3) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (s *jsiiProxy_S3) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := s.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

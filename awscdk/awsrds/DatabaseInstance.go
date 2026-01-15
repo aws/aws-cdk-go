@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -53,6 +54,8 @@ type DatabaseInstance interface {
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
 	DbInstanceEndpointPort() *string
+	// A reference to this database instance.
+	DbInstanceRef() *interfacesawsrds.DBInstanceReference
 	EnableIamAuthentication() *bool
 	SetEnableIamAuthentication(val *bool)
 	// The engine of this database Instance.
@@ -133,6 +136,8 @@ type DatabaseInstance interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity connection access to the database.
+	//
+	// [disable-awslint:no-grants].
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Return the given named metric for this DBInstance.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -152,13 +157,17 @@ type DatabaseInstance interface {
 	//
 	// Average over 5 minutes.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The average number of disk write I/O operations per second.
+	// The average number of disk read I/O operations per second. The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Default: - average over 5 minutes.
+	//
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The average number of disk read I/O operations per second.
+	// The average number of disk write I/O operations per second. The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes.
+	// Default: - average over 5 minutes.
+	//
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
@@ -211,6 +220,16 @@ func (j *jsiiProxy_DatabaseInstance) DbInstanceEndpointPort() *string {
 	_jsii_.Get(
 		j,
 		"dbInstanceEndpointPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseInstance) DbInstanceRef() *interfacesawsrds.DBInstanceReference {
+	var returns *interfacesawsrds.DBInstanceReference
+	_jsii_.Get(
+		j,
+		"dbInstanceRef",
 		&returns,
 	)
 	return returns

@@ -27,7 +27,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var function_ Function
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //
 //   waiterStateMachine := awscdk.Custom_resources.NewWaiterStateMachine(this, jsii.String("MyWaiterStateMachine"), &WaiterStateMachineProps{
 //   	BackoffRate: jsii.Number(123),
@@ -39,7 +39,7 @@ import (
 //   	// the properties below are optional
 //   	DisableLogging: jsii.Boolean(false),
 //   	LogOptions: &LogOptions{
-//   		Destination: logGroup,
+//   		Destination: logGroupRef,
 //   		IncludeExecutionData: jsii.Boolean(false),
 //   		Level: awscdk.Aws_stepfunctions.LogLevel_OFF,
 //   	},
@@ -52,6 +52,8 @@ type WaiterStateMachine interface {
 	// The ARN of the state machine.
 	StateMachineArn() *string
 	// Grant the given identity permissions on StartExecution of the state machine.
+	//
+	// [disable-awslint:no-grants].
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

@@ -8,3 +8,7 @@ func (i *jsiiProxy_IPipeline) validateGrantStartPipelineExecutionParameters(gran
 	return nil
 }
 
+func (i *jsiiProxy_IPipeline) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

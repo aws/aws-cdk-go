@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -86,6 +87,8 @@ type UserPoolIdentityProviderApple interface {
 	ProviderName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// A reference to a UserPoolIdentityProvider resource.
+	UserPoolIdentityProviderRef() *interfacesawscognito.UserPoolIdentityProviderReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -166,6 +169,16 @@ func (j *jsiiProxy_UserPoolIdentityProviderApple) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolIdentityProviderApple) UserPoolIdentityProviderRef() *interfacesawscognito.UserPoolIdentityProviderReference {
+	var returns *interfacesawscognito.UserPoolIdentityProviderReference
+	_jsii_.Get(
+		j,
+		"userPoolIdentityProviderRef",
 		&returns,
 	)
 	return returns

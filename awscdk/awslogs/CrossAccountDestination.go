@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,10 +17,11 @@ import (
 // CrossAccountDestinations are used to subscribe a Kinesis stream in a
 // different account to a CloudWatch Subscription.
 //
-// Consumers will hardly ever need to use this class. Instead, directly
-// subscribe a Kinesis stream using the integration class in the
-// `aws-cdk-lib/aws-logs-destinations` package; if necessary, a
-// `CrossAccountDestination` will be created automatically.
+// For cross-account scenarios, you need to manually create a
+// `CrossAccountDestination` in the destination account. The integration
+// classes in the `aws-cdk-lib/aws-logs-destinations` package (such as
+// `KinesisDestination`) only handle same-account scenarios and do not
+// automatically create `CrossAccountDestination` for cross-account usage.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -87,7 +89,7 @@ type CrossAccountDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *LogSubscriptionDestinationConfig
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -316,7 +318,7 @@ func (c *jsiiProxy_CrossAccountDestination) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-func (c *jsiiProxy_CrossAccountDestination) Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+func (c *jsiiProxy_CrossAccountDestination) Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *LogSubscriptionDestinationConfig {
 	if err := c.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}

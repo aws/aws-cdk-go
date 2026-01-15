@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 )
 
 // Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
@@ -31,7 +32,7 @@ import (
 type Lambda interface {
 	awsses.IReceiptRuleAction
 	// Returns the receipt rule action specification.
-	Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig
+	Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig
 }
 
 // The jsii proxy struct for Lambda
@@ -66,7 +67,7 @@ func NewLambda_Override(l Lambda, props *LambdaProps) {
 	)
 }
 
-func (l *jsiiProxy_Lambda) Bind(receiptRule awsses.IReceiptRule) *awsses.ReceiptRuleActionConfig {
+func (l *jsiiProxy_Lambda) Bind(receiptRule interfacesawsses.IReceiptRuleRef) *awsses.ReceiptRuleActionConfig {
 	if err := l.validateBindParameters(receiptRule); err != nil {
 		panic(err)
 	}

@@ -1429,6 +1429,7 @@ Currently Supported Log Drivers:
 * syslog
 * awsfirelens
 * Generic
+* none
 
 ### awslogs Log Driver
 
@@ -1608,6 +1609,20 @@ taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOpt
 			"tag": jsii.String("example-tag"),
 		},
 	}),
+})
+```
+
+### none Log Driver
+
+The none log driver disables logging for the container (Docker `none` driver).
+
+```go
+// Create a Task Definition for the container to start
+taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
+	Image: ecs.ContainerImage_FromRegistry(jsii.String("example-image")),
+	MemoryLimitMiB: jsii.Number(256),
+	Logging: ecs.LogDrivers_None(),
 })
 ```
 
@@ -1826,8 +1841,16 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	Vpc: Vpc,
 })
 
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+	Description: jsii.String("Security group for managed instances"),
+})
+
 miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
 	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
 	InstanceRequirements: &InstanceRequirementsConfig{
 		VCpuCountMin: jsii.Number(1),
 		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
@@ -1907,10 +1930,18 @@ customInfrastructureRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProp
 	},
 }))
 
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+	Description: jsii.String("Security group for managed instances"),
+})
+
 miCapacityProviderCustom := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProviderCustomRoles"), &ManagedInstancesCapacityProviderProps{
 	InfrastructureRole: customInfrastructureRole,
 	Ec2InstanceProfile: customInstanceProfile,
 	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
 })
 
 // Add the capacity provider to the cluster
@@ -1948,8 +1979,16 @@ You can specify detailed instance requirements to control which types of instanc
 var vpc Vpc
 
 
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+	Description: jsii.String("Security group for managed instances"),
+})
+
 miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
 	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
 	InstanceRequirements: &InstanceRequirementsConfig{
 		// Required: CPU and memory constraints
 		VCpuCountMin: jsii.Number(2),

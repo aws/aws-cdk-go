@@ -90,9 +90,13 @@ type GuardrailBase interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given principal identity permissions to perform actions on this guardrail.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to apply the guardrail.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantApply(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this guardrail.

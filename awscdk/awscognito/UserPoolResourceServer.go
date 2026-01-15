@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,6 +80,8 @@ type UserPoolResourceServer interface {
 	Stack() awscdk.Stack
 	// Resource server id.
 	UserPoolResourceServerId() *string
+	// A reference to a UserPoolResourceServer resource.
+	UserPoolResourceServerRef() *interfacesawscognito.UserPoolResourceServerReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -158,6 +161,16 @@ func (j *jsiiProxy_UserPoolResourceServer) UserPoolResourceServerId() *string {
 	_jsii_.Get(
 		j,
 		"userPoolResourceServerId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPoolResourceServer) UserPoolResourceServerRef() *interfacesawscognito.UserPoolResourceServerReference {
+	var returns *interfacesawscognito.UserPoolResourceServerReference
+	_jsii_.Get(
+		j,
+		"userPoolResourceServerRef",
 		&returns,
 	)
 	return returns

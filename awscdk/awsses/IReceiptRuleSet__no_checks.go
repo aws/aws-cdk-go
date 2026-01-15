@@ -8,3 +8,7 @@ func (i *jsiiProxy_IReceiptRuleSet) validateAddRuleParameters(id *string, option
 	return nil
 }
 
+func (i *jsiiProxy_IReceiptRuleSet) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

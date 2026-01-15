@@ -80,33 +80,13 @@ type Volume interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants permission to attach this Volume to an instance.
-	//
-	// CAUTION: Granting an instance permission to attach to itself using this method will lead to
-	// an unresolvable circular reference between the instance role and the instance.
-	// Use `IVolume.grantAttachVolumeToSelf` to grant an instance permission to attach this
-	// volume to itself.
+	// [disable-awslint:no-grants].
 	GrantAttachVolume(grantee awsiam.IGrantable, instances *[]interfacesawsec2.IInstanceRef) awsiam.Grant
-	// Grants permission to attach the Volume by a ResourceTag condition.
-	//
-	// If you are looking to
-	// grant an Instance, AutoScalingGroup, EC2-Fleet, SpotFleet, ECS host, etc the ability to attach
-	// this volume to **itself** then this is the method you want to use.
-	//
-	// This is implemented by adding a Tag with key `VolumeGrantAttach-<suffix>` to the given
-	// constructs and this Volume, and then conditioning the Grant such that the grantee is only
-	// given the ability to AttachVolume if both the Volume and the destination Instance have that
-	// tag applied to them.
+	// [disable-awslint:no-grants].
 	GrantAttachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant
-	// Grants permission to detach this Volume from an instance CAUTION: Granting an instance permission to detach from itself using this method will lead to an unresolvable circular reference between the instance role and the instance.
-	//
-	// Use `IVolume.grantDetachVolumeFromSelf` to grant an instance permission to detach this
-	// volume from itself.
+	// [disable-awslint:no-grants].
 	GrantDetachVolume(grantee awsiam.IGrantable, instances *[]interfacesawsec2.IInstanceRef) awsiam.Grant
-	// Grants permission to detach the Volume by a ResourceTag condition.
-	//
-	// This is implemented via the same mechanism as `IVolume.grantAttachVolumeByResourceTag`,
-	// and is subject to the same conditions.
+	// [disable-awslint:no-grants].
 	GrantDetachVolumeByResourceTag(grantee awsiam.IGrantable, constructs *[]constructs.Construct, tagKeySuffix *string) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

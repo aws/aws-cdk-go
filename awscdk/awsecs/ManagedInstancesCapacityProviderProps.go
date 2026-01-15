@@ -16,8 +16,16 @@ import (
 //   	Vpc: Vpc,
 //   })
 //
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
+//   	Description: jsii.String("Security group for managed instances"),
+//   })
+//
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
 //   	Subnets: vpc.PrivateSubnets,
+//   	SecurityGroups: []ISecurityGroup{
+//   		securityGroup,
+//   	},
 //   	InstanceRequirements: &InstanceRequirementsConfig{
 //   		VCpuCountMin: jsii.Number(1),
 //   		MemoryMin: awscdk.Size_Gibibytes(jsii.Number(2)),
@@ -55,6 +63,10 @@ import (
 //   })
 //
 type ManagedInstancesCapacityProviderProps struct {
+	// The security groups to associate with the launched EC2 instances.
+	//
+	// These security groups control the network traffic allowed to and from the instances.
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The VPC subnets where EC2 instances will be launched.
 	//
 	// This array must be non-empty and should contain subnets from the VPC where you want
@@ -115,13 +127,6 @@ type ManagedInstancesCapacityProviderProps struct {
 	// Default: PropagateManagedInstancesTags.NONE - no tag propagation
 	//
 	PropagateTags PropagateManagedInstancesTags `field:"optional" json:"propagateTags" yaml:"propagateTags"`
-	// The security groups to associate with the launched EC2 instances.
-	//
-	// These security groups control the network traffic allowed to and from the instances.
-	// If not specified, the default security group of the VPC containing the subnets will be used.
-	// Default: - default security group of the VPC.
-	//
-	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The size of the task volume storage attached to each instance.
 	//
 	// This storage is used for container images, container logs, and temporary files.

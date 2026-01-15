@@ -4,10 +4,10 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -219,7 +219,7 @@ func BackupResource_FromEfsFileSystem(fileSystem interfacesawsefs.IFileSystemRef
 }
 
 // A RDS database cluter.
-func BackupResource_FromRdsDatabaseCluster(cluster awsrds.IDatabaseCluster) BackupResource {
+func BackupResource_FromRdsDatabaseCluster(cluster interfacesawsrds.IDBClusterRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromRdsDatabaseClusterParameters(cluster); err != nil {
@@ -238,7 +238,7 @@ func BackupResource_FromRdsDatabaseCluster(cluster awsrds.IDatabaseCluster) Back
 }
 
 // A RDS database instance.
-func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) BackupResource {
+func BackupResource_FromRdsDatabaseInstance(instance interfacesawsrds.IDBInstanceRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromRdsDatabaseInstanceParameters(instance); err != nil {
@@ -257,7 +257,7 @@ func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) B
 }
 
 // An Aurora database instance.
-func BackupResource_FromRdsServerlessCluster(cluster awsrds.IServerlessCluster) BackupResource {
+func BackupResource_FromRdsServerlessCluster(cluster interfacesawsrds.IDBClusterRef) BackupResource {
 	_init_.Initialize()
 
 	if err := validateBackupResource_FromRdsServerlessClusterParameters(cluster); err != nil {

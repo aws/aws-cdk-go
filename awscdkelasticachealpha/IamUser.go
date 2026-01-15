@@ -107,9 +107,13 @@ type IamUser interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity custom permissions.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant connect permissions to the given IAM identity.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.

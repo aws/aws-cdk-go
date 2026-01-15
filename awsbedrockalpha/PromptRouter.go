@@ -60,7 +60,8 @@ type PromptRouter interface {
 	// This method grants permissions to:
 	// - Get prompt router details (bedrock:GetPromptRouter)
 	// - Invoke models through the router (bedrock:InvokeModel)
-	// - Use all underlying models and cross-region profiles.
+	// - Use all underlying models and cross-region profiles
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.

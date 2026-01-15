@@ -118,6 +118,8 @@ type VirtualGateway interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
+	//
+	// [disable-awslint:no-grants].
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

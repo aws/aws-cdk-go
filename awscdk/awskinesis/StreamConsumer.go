@@ -99,8 +99,12 @@ type StreamConsumer interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the indicated permissions on this stream consumer to the given IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions for this stream consumer and its associated stream to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

@@ -1,5 +1,8 @@
 package awscognito
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
+)
 
 // Properties for the UserPoolResourceServer construct.
 //
@@ -7,13 +10,14 @@ package awscognito
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var resourceServerScope ResourceServerScope
-//   var userPool UserPool
+//   var userPoolRef IUserPoolRef
 //
 //   userPoolResourceServerProps := &UserPoolResourceServerProps{
 //   	Identifier: jsii.String("identifier"),
-//   	UserPool: userPool,
+//   	UserPool: userPoolRef,
 //
 //   	// the properties below are optional
 //   	Scopes: []ResourceServerScope{
@@ -34,6 +38,6 @@ type UserPoolResourceServerProps struct {
 	//
 	UserPoolResourceServerName *string `field:"optional" json:"userPoolResourceServerName" yaml:"userPoolResourceServerName"`
 	// The user pool to add this resource server to.
-	UserPool IUserPool `field:"required" json:"userPool" yaml:"userPool"`
+	UserPool interfacesawscognito.IUserPoolRef `field:"required" json:"userPool" yaml:"userPool"`
 }
 

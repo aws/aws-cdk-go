@@ -81,11 +81,11 @@ type ApiKey interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Permits the IAM principal all read operations through this key.
+	// Permits the IAM principal all read operations through this key [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Permits the IAM principal all read and write operations through this key.
+	// Permits the IAM principal all read and write operations through this key [disable-awslint:no-grants].
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
-	// Permits the IAM principal all write operations through this key.
+	// Permits the IAM principal all write operations through this key [disable-awslint:no-grants].
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

@@ -1,5 +1,8 @@
 package awslogs
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
+)
 
 // The Resource properties for AWS::Logs::Transformer resource.
 //
@@ -41,7 +44,7 @@ package awslogs
 //
 type TransformerProps struct {
 	// Existing log group that you want to associate with this transformer.
-	LogGroup ILogGroup `field:"required" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"required" json:"logGroup" yaml:"logGroup"`
 	// List of processors in a transformer.
 	TransformerConfig *[]IProcessor `field:"required" json:"transformerConfig" yaml:"transformerConfig"`
 	// Name of the transformer.

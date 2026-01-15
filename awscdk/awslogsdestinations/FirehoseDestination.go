@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogsdestinations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -36,7 +37,7 @@ type FirehoseDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for FirehoseDestination
@@ -71,7 +72,7 @@ func NewFirehoseDestination_Override(f FirehoseDestination, stream awskinesisfir
 	)
 }
 
-func (f *jsiiProxy_FirehoseDestination) Bind(scope constructs.Construct, sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+func (f *jsiiProxy_FirehoseDestination) Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *awslogs.LogSubscriptionDestinationConfig {
 	if err := f.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}

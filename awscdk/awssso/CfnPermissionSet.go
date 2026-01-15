@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a permission set within a specified IAM Identity Center instance.
+// Specifies a permission set within a specified  instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -85,7 +85,7 @@ type CfnPermissionSet interface {
 	// The inline policy that is attached to the permission set.
 	InlinePolicy() interface{}
 	SetInlinePolicy(val interface{})
-	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	// The ARN of the  instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

@@ -110,7 +110,7 @@ type HostedZone interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant permissions to add delegation records to this zone.
+	// [disable-awslint:no-grants].
 	GrantDelegation(grantee awsiam.IGrantable, options *GrantDelegationOptions) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

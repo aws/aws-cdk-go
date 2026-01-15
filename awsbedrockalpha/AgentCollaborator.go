@@ -57,7 +57,7 @@ type AgentCollaborator interface {
 	//
 	// Experimental.
 	RelayConversationHistory() *bool
-	// Grants the given identity permissions to collaborate with the agent.
+	// Grants the given identity permissions to collaborate with the agent [disable-awslint:no-grants].
 	//
 	// Returns: The Grant object.
 	// Experimental.

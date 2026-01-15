@@ -260,6 +260,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.ApiGatewayTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ApiGatewayTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.ApiGatewayToolConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ApiGatewayToolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.ApiGatewayToolFilterProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ApiGatewayToolFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.ApiGatewayToolOverrideProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ApiGatewayToolOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTargetPropsMixin.ApiKeyCredentialProviderProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ApiKeyCredentialProviderProperty)(nil)).Elem(),
 	)

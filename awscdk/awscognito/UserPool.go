@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -68,6 +69,8 @@ type UserPool interface {
 	UserPoolProviderName() *string
 	// User pool provider URL.
 	UserPoolProviderUrl() *string
+	// A reference to a UserPool resource.
+	UserPoolRef() *interfacesawscognito.UserPoolReference
 	// Add a new app client to this user pool.
 	AddClient(id *string, options *UserPoolClientOptions) UserPoolClient
 	// Associate a domain to this user pool.
@@ -104,10 +107,10 @@ type UserPool interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Adds an IAM policy statement associated with this user pool to an IAM principal's policy.
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Register an identity provider with this user pool.
-	RegisterIdentityProvider(provider IUserPoolIdentityProvider)
+	RegisterIdentityProvider(provider interfacesawscognito.IUserPoolIdentityProviderRef)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -203,6 +206,16 @@ func (j *jsiiProxy_UserPool) UserPoolProviderUrl() *string {
 	_jsii_.Get(
 		j,
 		"userPoolProviderUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UserPool) UserPoolRef() *interfacesawscognito.UserPoolReference {
+	var returns *interfacesawscognito.UserPoolReference
+	_jsii_.Get(
+		j,
+		"userPoolRef",
 		&returns,
 	)
 	return returns
@@ -510,7 +523,7 @@ func (u *jsiiProxy_UserPool) Grant(grantee awsiam.IGrantable, actions ...*string
 	return returns
 }
 
-func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider IUserPoolIdentityProvider) {
+func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider interfacesawscognito.IUserPoolIdentityProviderRef) {
 	if err := u.validateRegisterIdentityProviderParameters(provider); err != nil {
 		panic(err)
 	}

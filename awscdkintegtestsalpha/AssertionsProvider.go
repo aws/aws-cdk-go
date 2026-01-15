@@ -70,7 +70,7 @@ type AssertionsProvider interface {
 	// so we can then decode them correctly in the provider function.
 	// Experimental.
 	Encode(obj interface{}) interface{}
-	// Grant a principal access to invoke the assertion provider lambda function.
+	// Grant a principal access to invoke the assertion provider lambda function [disable-awslint:no-grants].
 	// Experimental.
 	GrantInvoke(principalArn *string)
 	// Returns a string representation of this construct.

@@ -1,7 +1,7 @@
 package awsstepfunctions
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Defines what execution history events are logged and where they are logged.
@@ -26,7 +26,7 @@ type LogOptions struct {
 	// The log group where the execution history events will be logged.
 	// Default: No log group. Required if your log level is not set to OFF.
 	//
-	Destination awslogs.ILogGroup `field:"optional" json:"destination" yaml:"destination"`
+	Destination interfacesawslogs.ILogGroupRef `field:"optional" json:"destination" yaml:"destination"`
 	// Determines whether execution data is included in your log.
 	// Default: false.
 	//

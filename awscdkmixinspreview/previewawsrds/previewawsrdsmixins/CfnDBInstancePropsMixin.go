@@ -53,6 +53,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnDBInstancePropsMixin := awscdkmixinspreview.Mixins.NewCfnDBInstancePropsMixin(&CfnDBInstanceMixinProps{
+//   	AdditionalStorageVolumes: []interface{}{
+//   		&AdditionalStorageVolumeProperty{
+//   			AllocatedStorage: jsii.String("allocatedStorage"),
+//   			Iops: jsii.Number(123),
+//   			MaxAllocatedStorage: jsii.Number(123),
+//   			StorageThroughput: jsii.Number(123),
+//   			StorageType: jsii.String("storageType"),
+//   			VolumeName: jsii.String("volumeName"),
+//   		},
+//   	},
 //   	AllocatedStorage: jsii.String("allocatedStorage"),
 //   	AllowMajorVersionUpgrade: jsii.Boolean(false),
 //   	ApplyImmediately: jsii.Boolean(false),

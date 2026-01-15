@@ -83,7 +83,7 @@ type CfnApplication interface {
 	AttrApplicationId() *string
 	// The Unix timestamp when the Amazon Q Business application was created.
 	AttrCreatedAt() *string
-	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
+	// The Amazon Resource Name (ARN) of the AWS SSO instance attached to your Amazon Q Business application.
 	AttrIdentityCenterApplicationArn() *string
 	// The status of the Amazon Q Business application.
 	//

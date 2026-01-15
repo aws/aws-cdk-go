@@ -96,11 +96,14 @@ type TableBase interface {
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits all DynamoDB operations ("dynamodb:*") to an IAM principal.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
 	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
@@ -108,6 +111,8 @@ type TableBase interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to all data read/write operations to this table.
 	//
@@ -116,23 +121,33 @@ type TableBase interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	//
+	// [disable-awslint:no-grants].
 	GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal all stream data read operations for this table's stream: DescribeStream, GetRecords, GetShardIterator, ListStreams.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM Principal to list streams attached to current dynamodb table.
+	//
+	// [disable-awslint:no-grants].
 	GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data write operations to this table: BatchWriteItem, PutItem, UpdateItem, DeleteItem, DescribeTable.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	// [disable-awslint:no-grants].
 	GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Table.
 	//

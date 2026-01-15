@@ -1,8 +1,8 @@
 package customresources
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Log Options for the state machine.
@@ -14,10 +14,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var logGroup LogGroup
+//   var logGroupRef ILogGroupRef
 //
 //   logOptions := &LogOptions{
-//   	Destination: logGroup,
+//   	Destination: logGroupRef,
 //   	IncludeExecutionData: jsii.Boolean(false),
 //   	Level: awscdk.Aws_stepfunctions.LogLevel_OFF,
 //   }
@@ -26,7 +26,7 @@ type LogOptions struct {
 	// The log group where the execution history events will be logged.
 	// Default: - a new log group will be created.
 	//
-	Destination awslogs.ILogGroup `field:"optional" json:"destination" yaml:"destination"`
+	Destination interfacesawslogs.ILogGroupRef `field:"optional" json:"destination" yaml:"destination"`
 	// Determines whether execution data is included in your log.
 	// Default: - false.
 	//

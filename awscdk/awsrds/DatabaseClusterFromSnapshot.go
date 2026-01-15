@@ -12,6 +12,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,6 +52,8 @@ type DatabaseClusterFromSnapshot interface {
 	Connections() awsec2.Connections
 	// The database insights mode.
 	DatabaseInsightsMode() DatabaseInsightsMode
+	// A reference to this database cluster.
+	DbClusterRef() *interfacesawsrds.DBClusterReference
 	EnableDataApi() *bool
 	SetEnableDataApi(val *bool)
 	// The engine for this Cluster.
@@ -105,6 +108,7 @@ type DatabaseClusterFromSnapshot interface {
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	SubnetGroup() ISubnetGroup
+	SubnetGroupRef() interfacesawsrds.IDBSubnetGroupRef
 	// The VPC network to place the cluster in.
 	Vpc() awsec2.IVpc
 	// The cluster's subnets.
@@ -145,9 +149,11 @@ type DatabaseClusterFromSnapshot interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity connection access to the Cluster.
+	// [disable-awslint:no-grants].
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Grant the given identity to access the Data API.
+	//
+	// [disable-awslint:no-grants].
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBCluster.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -209,13 +215,21 @@ type DatabaseClusterFromSnapshot interface {
 	//
 	// Average over 5 minutes.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
+	// The average number of disk read I/O operations per second.
 	//
-	// Average over 5 minutes.
+	// This metric is only available for Aurora database clusters.
+	// For non-Aurora RDS clusters, this metric will not return any data
+	// in CloudWatch.
+	// Default: - average over 5 minutes.
+	//
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
+	// The average number of disk write I/O operations per second.
 	//
-	// Average over 5 minutes.
+	// This metric is only available for Aurora database clusters.
+	// For non-Aurora RDS clusters, this metric will not return any data
+	// in CloudWatch.
+	// Default: - average over 5 minutes.
+	//
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -301,6 +315,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) DatabaseInsightsMode() DatabaseI
 	_jsii_.Get(
 		j,
 		"databaseInsightsMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) DbClusterRef() *interfacesawsrds.DBClusterReference {
+	var returns *interfacesawsrds.DBClusterReference
+	_jsii_.Get(
+		j,
+		"dbClusterRef",
 		&returns,
 	)
 	return returns
@@ -521,6 +545,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) SubnetGroup() ISubnetGroup {
 	_jsii_.Get(
 		j,
 		"subnetGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) SubnetGroupRef() interfacesawsrds.IDBSubnetGroupRef {
+	var returns interfacesawsrds.IDBSubnetGroupRef
+	_jsii_.Get(
+		j,
+		"subnetGroupRef",
 		&returns,
 	)
 	return returns

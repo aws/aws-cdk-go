@@ -18,6 +18,8 @@ type IVirtualGateway interface {
 	// Utility method to add a new GatewayRoute to the VirtualGateway.
 	AddGatewayRoute(id *string, route *GatewayRouteBaseProps) GatewayRoute
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
+	//
+	// [disable-awslint:no-grants].
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// The Mesh which the VirtualGateway belongs to.
 	Mesh() IMesh

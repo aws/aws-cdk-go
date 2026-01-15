@@ -1,5 +1,8 @@
 package awsses
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
+)
 
 // Properties for a configuration set event destination.
 //
@@ -7,12 +10,13 @@ package awsses
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationSet ConfigurationSet
+//   var configurationSetRef IConfigurationSetRef
 //   var eventDestination EventDestination
 //
 //   configurationSetEventDestinationProps := &ConfigurationSetEventDestinationProps{
-//   	ConfigurationSet: configurationSet,
+//   	ConfigurationSet: configurationSetRef,
 //   	Destination: eventDestination,
 //
 //   	// the properties below are optional
@@ -39,6 +43,6 @@ type ConfigurationSetEventDestinationProps struct {
 	//
 	Events *[]EmailSendingEvent `field:"optional" json:"events" yaml:"events"`
 	// The configuration set that contains the event destination.
-	ConfigurationSet IConfigurationSet `field:"required" json:"configurationSet" yaml:"configurationSet"`
+	ConfigurationSet interfacesawsses.IConfigurationSetRef `field:"required" json:"configurationSet" yaml:"configurationSet"`
 }
 

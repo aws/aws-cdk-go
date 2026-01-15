@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -67,6 +68,8 @@ type Rule interface {
 	RuleArn() *string
 	// The name event rule.
 	RuleName() *string
+	// A reference to a Rule resource.
+	RuleRef() *interfacesawsevents.RuleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds an event pattern filter to this rule.
@@ -186,6 +189,16 @@ func (j *jsiiProxy_Rule) RuleName() *string {
 	_jsii_.Get(
 		j,
 		"ruleName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Rule) RuleRef() *interfacesawsevents.RuleReference {
+	var returns *interfacesawsevents.RuleReference
+	_jsii_.Get(
+		j,
+		"ruleRef",
 		&returns,
 	)
 	return returns

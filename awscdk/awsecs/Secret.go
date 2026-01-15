@@ -37,6 +37,8 @@ type Secret interface {
 	// Whether this secret uses a specific JSON field.
 	HasField() *bool
 	// Grants reading the secret to a principal.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 }
 

@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A receipt rule set.
 type IReceiptRuleSet interface {
+	interfacesawsses.IReceiptRuleSetRef
 	awscdk.IResource
 	// Adds a new receipt rule in this rule set.
 	//
@@ -21,6 +25,7 @@ type IReceiptRuleSet interface {
 
 // The jsii proxy for IReceiptRuleSet
 type jsiiProxy_IReceiptRuleSet struct {
+	internal.Type__interfacesawssesIReceiptRuleSetRef
 	internal.Type__awscdkIResource
 }
 
@@ -40,11 +45,62 @@ func (i *jsiiProxy_IReceiptRuleSet) AddRule(id *string, options *ReceiptRuleOpti
 	return returns
 }
 
+func (i *jsiiProxy_IReceiptRuleSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"receiptRuleSetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IReceiptRuleSet) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IReceiptRuleSet) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetRef() *interfacesawsses.ReceiptRuleSetReference {
+	var returns *interfacesawsses.ReceiptRuleSetReference
+	_jsii_.Get(
+		j,
+		"receiptRuleSetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IReceiptRuleSet) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

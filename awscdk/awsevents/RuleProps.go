@@ -1,6 +1,7 @@
 package awsevents
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -60,7 +61,7 @@ type RuleProps struct {
 	// The event bus to associate with this rule.
 	// Default: - The default event bus.
 	//
-	EventBus IEventBus `field:"optional" json:"eventBus" yaml:"eventBus"`
+	EventBus interfacesawsevents.IEventBusRef `field:"optional" json:"eventBus" yaml:"eventBus"`
 	// The role that is used for target invocation.
 	//
 	// Must be assumable by principal `events.amazonaws.com`.

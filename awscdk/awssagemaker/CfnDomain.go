@@ -405,7 +405,7 @@ type CfnDomain interface {
 	//
 	// This value is only returned for domains created after October 1, 2023.
 	AttrSingleSignOnApplicationArn() *string
-	// The IAM Identity Center managed application instance ID.
+	// The SSO managed application instance ID.
 	AttrSingleSignOnManagedApplicationInstanceId() *string
 	// The URL for the Domain.
 	AttrUrl() *string

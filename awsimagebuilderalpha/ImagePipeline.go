@@ -102,16 +102,18 @@ type ImagePipeline interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant custom actions to the given grantee for the image pipeline.
+	// Grant custom actions to the given grantee for the image pipeline [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants the default permissions for building an image to the provided execution role.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantDefaultExecutionRolePermissions(grantee awsiam.IGrantable) *[]awsiam.Grant
-	// Grant read permissions to the given grantee for the image pipeline.
+	// Grant read permissions to the given grantee for the image pipeline [disable-awslint:no-grants].
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant permissions to the given grantee to start an execution of the image pipeline.
+	// Grant permissions to the given grantee to start an execution of the image pipeline [disable-awslint:no-grants].
 	// Experimental.
 	GrantStartExecution(grantee awsiam.IGrantable) awsiam.Grant
 	// Creates an EventBridge rule for Image Builder CVE detected events.

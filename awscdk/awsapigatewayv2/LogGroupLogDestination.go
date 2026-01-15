@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Use CloudWatch Logs as a custom access log destination for API Gateway.
@@ -36,7 +36,7 @@ type jsiiProxy_LogGroupLogDestination struct {
 	jsiiProxy_IAccessLogDestination
 }
 
-func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestination {
+func NewLogGroupLogDestination(logGroup interfacesawslogs.ILogGroupRef) LogGroupLogDestination {
 	_init_.Initialize()
 
 	if err := validateNewLogGroupLogDestinationParameters(logGroup); err != nil {
@@ -53,7 +53,7 @@ func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestinatio
 	return &j
 }
 
-func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslogs.ILogGroup) {
+func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup interfacesawslogs.ILogGroupRef) {
 	_init_.Initialize()
 
 	_jsii_.Create(

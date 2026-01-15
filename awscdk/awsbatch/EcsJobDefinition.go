@@ -118,6 +118,8 @@ type EcsJobDefinition interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants the `batch:submitJob` permission to the identity on both this job definition and the `queue`.
+	//
+	// [disable-awslint:no-grants].
 	GrantSubmitJob(identity awsiam.IGrantable, queue interfacesawsbatch.IJobQueueRef)
 	// Returns a string representation of this construct.
 	ToString() *string

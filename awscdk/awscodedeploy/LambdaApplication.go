@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -22,6 +23,8 @@ type LambdaApplication interface {
 	ILambdaApplication
 	ApplicationArn() *string
 	ApplicationName() *string
+	// A reference to a Application resource.
+	ApplicationRef() *interfacesawscodedeploy.ApplicationReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -93,6 +96,16 @@ func (j *jsiiProxy_LambdaApplication) ApplicationName() *string {
 	_jsii_.Get(
 		j,
 		"applicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaApplication) ApplicationRef() *interfacesawscodedeploy.ApplicationReference {
+	var returns *interfacesawscodedeploy.ApplicationReference
+	_jsii_.Get(
+		j,
+		"applicationRef",
 		&returns,
 	)
 	return returns

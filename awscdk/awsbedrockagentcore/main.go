@@ -338,6 +338,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ApiGatewayTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ApiGatewayTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ApiGatewayToolConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ApiGatewayToolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ApiGatewayToolFilterProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ApiGatewayToolFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ApiGatewayToolOverrideProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ApiGatewayToolOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ApiKeyCredentialProviderProperty",
 		reflect.TypeOf((*CfnGatewayTarget_ApiKeyCredentialProviderProperty)(nil)).Elem(),
 	)

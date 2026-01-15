@@ -23,6 +23,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Name: jsii.String("name"),
+//   	NodeJsVersion: jsii.String("nodeJsVersion"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -47,6 +48,10 @@ type CfnScriptProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The Node.js version used for execution of the Realtime script.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html#cfn-gamelift-script-nodejsversion
+	//
+	NodeJsVersion *string `field:"optional" json:"nodeJsVersion" yaml:"nodeJsVersion"`
 	// A list of labels to assign to the new script resource.
 	//
 	// Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference* . Once the resource is created, you can use TagResource, UntagResource, and ListTagsForResource to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.

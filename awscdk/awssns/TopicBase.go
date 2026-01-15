@@ -114,9 +114,9 @@ type TopicBase interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
 	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
-	// Grant topic publishing permissions to the given identity.
+	// Grant topic publishing permissions to the given identity [disable-awslint:no-grants].
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
-	// Grant topic subscribing permissions to the given identity.
+	// Grant topic subscribing permissions to the given identity [disable-awslint:no-grants].
 	GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

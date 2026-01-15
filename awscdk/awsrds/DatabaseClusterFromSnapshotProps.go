@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 )
 
 // Properties for ``DatabaseClusterFromSnapshot``.
@@ -351,7 +352,7 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Existing subnet group for the cluster.
 	// Default: - a new subnet group will be created.
 	//
-	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
+	SubnetGroup interfacesawsrds.IDBSubnetGroupRef `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 	// What subnets to run the RDS instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.

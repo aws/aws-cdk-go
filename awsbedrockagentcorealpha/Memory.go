@@ -144,10 +144,14 @@ type Memory interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants IAM actions to the IAM Principal.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given principal identity permissions to manage the control plane of this memory.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
@@ -162,6 +166,8 @@ type Memory interface {
 	//
 	// Both Short-Term Memory (STM) and Long-Term Memory (LTM).
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:DeleteEvent',
@@ -171,6 +177,8 @@ type Memory interface {
 	GrantDelete(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete Long-Term Memory (LTM) content on this memory.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:DeleteMemoryRecord'] on this.memoryArn
@@ -179,6 +187,8 @@ type Memory interface {
 	GrantDeleteLongTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete Short-Term Memory (STM) content on this memory.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:DeleteEvent'] on this.memoryArn
@@ -186,6 +196,8 @@ type Memory interface {
 	// Experimental.
 	GrantDeleteShortTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to do every action on this memory.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
@@ -208,6 +220,8 @@ type Memory interface {
 	//
 	// Both Short-Term Memory (STM) and Long-Term Memory (LTM).
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:GetMemoryRecord',
@@ -219,6 +233,8 @@ type Memory interface {
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the Long-Term Memory (LTM) contents of this memory.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
@@ -232,6 +248,8 @@ type Memory interface {
 	GrantReadLongTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the Short-Term Memory (STM) contents of this memory.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:GetEvent',
@@ -242,6 +260,8 @@ type Memory interface {
 	// Experimental.
 	GrantReadShortTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to write content to short-term memory.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:

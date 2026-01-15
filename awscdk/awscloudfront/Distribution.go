@@ -102,8 +102,12 @@ type Distribution interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Adds an IAM policy statement associated with this distribution to an IAM principal's policy.
+	//
+	// [disable-awslint:no-grants].
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant to create invalidations for this bucket to an IAM principal (Role/Group/User).
+	//
+	// [disable-awslint:no-grants].
 	GrantCreateInvalidation(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Distribution.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

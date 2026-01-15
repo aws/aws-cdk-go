@@ -1,7 +1,7 @@
 package awsappsync
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Domain name configuration for AppSync.
@@ -57,7 +57,7 @@ import (
 //
 type AppSyncDomainOptions struct {
 	// The certificate to use with the domain name.
-	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"required" json:"certificate" yaml:"certificate"`
 	// The actual domain name.
 	//
 	// For example, `api.example.com`.

@@ -1,8 +1,8 @@
 package awsroute53patterns
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Properties to configure an HTTPS Redirect.
@@ -41,7 +41,7 @@ type HttpsRedirectProps struct {
 	// stored in us-east-1 (N. Virginia)
 	// Default: - A new certificate is created in us-east-1 (N. Virginia)
 	//
-	Certificate awscertificatemanager.ICertificate `field:"optional" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"optional" json:"certificate" yaml:"certificate"`
 	// The domain names that will redirect to `targetDomain`.
 	// Default: - the domain name of the hosted zone.
 	//

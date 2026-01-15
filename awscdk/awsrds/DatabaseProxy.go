@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -46,6 +47,8 @@ type DatabaseProxy interface {
 	DbProxyArn() *string
 	// DB Proxy Name.
 	DbProxyName() *string
+	// A reference to this database proxy.
+	DbProxyRef() *interfacesawsrds.DBProxyReference
 	// Endpoint.
 	Endpoint() *string
 	// The environment this resource belongs to.
@@ -98,7 +101,7 @@ type DatabaseProxy interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity connection access to the proxy.
+	// [disable-awslint:no-grants].
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -137,6 +140,16 @@ func (j *jsiiProxy_DatabaseProxy) DbProxyName() *string {
 	_jsii_.Get(
 		j,
 		"dbProxyName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DatabaseProxy) DbProxyRef() *interfacesawsrds.DBProxyReference {
+	var returns *interfacesawsrds.DBProxyReference
+	_jsii_.Get(
+		j,
+		"dbProxyRef",
 		&returns,
 	)
 	return returns

@@ -24,15 +24,15 @@ func validateBackupResource_FromEfsFileSystemParameters(fileSystem interfacesaws
 	return nil
 }
 
-func validateBackupResource_FromRdsDatabaseClusterParameters(cluster awsrds.IDatabaseCluster) error {
+func validateBackupResource_FromRdsDatabaseClusterParameters(cluster interfacesawsrds.IDBClusterRef) error {
 	return nil
 }
 
-func validateBackupResource_FromRdsDatabaseInstanceParameters(instance awsrds.IDatabaseInstance) error {
+func validateBackupResource_FromRdsDatabaseInstanceParameters(instance interfacesawsrds.IDBInstanceRef) error {
 	return nil
 }
 
-func validateBackupResource_FromRdsServerlessClusterParameters(cluster awsrds.IServerlessCluster) error {
+func validateBackupResource_FromRdsServerlessClusterParameters(cluster interfacesawsrds.IDBClusterRef) error {
 	return nil
 }
 

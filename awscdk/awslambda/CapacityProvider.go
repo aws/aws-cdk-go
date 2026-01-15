@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,6 +39,8 @@ type CapacityProvider interface {
 	CapacityProviderArn() *string
 	// The name of the capacity provider.
 	CapacityProviderName() *string
+	// A reference to a CapacityProvider resource.
+	CapacityProviderRef() *interfacesawslambda.CapacityProviderReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -111,6 +114,16 @@ func (j *jsiiProxy_CapacityProvider) CapacityProviderName() *string {
 	_jsii_.Get(
 		j,
 		"capacityProviderName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CapacityProvider) CapacityProviderRef() *interfacesawslambda.CapacityProviderReference {
+	var returns *interfacesawslambda.CapacityProviderReference
+	_jsii_.Get(
+		j,
+		"capacityProviderRef",
 		&returns,
 	)
 	return returns

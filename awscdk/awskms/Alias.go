@@ -108,23 +108,23 @@ type Alias interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the indicated permissions on this key to the given principal.
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant decryption permissions using this key to the given principal.
+	// [disable-awslint:no-grants].
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant encryption permissions using this key to the given principal.
+	// [disable-awslint:no-grants].
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant encryption and decryption permissions using this key to the given principal.
+	// [disable-awslint:no-grants].
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant permissions to generating MACs to the given principal.
+	// [disable-awslint:no-grants].
 	GrantGenerateMac(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant sign permissions using this key to the given principal.
+	// [disable-awslint:no-grants].
 	GrantSign(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant sign and verify permissions using this key to the given principal.
+	// [disable-awslint:no-grants].
 	GrantSignVerify(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant verify permissions using this key to the given principal.
+	// [disable-awslint:no-grants].
 	GrantVerify(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant permissions to verifying MACs to the given principal.
+	// [disable-awslint:no-grants].
 	GrantVerifyMac(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

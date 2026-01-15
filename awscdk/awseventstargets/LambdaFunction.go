@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // Use an AWS Lambda function as an event rule target.
@@ -42,7 +43,7 @@ import (
 type LambdaFunction interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to trigger this Lambda as a result from an EventBridge event.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for LambdaFunction
@@ -77,7 +78,7 @@ func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, p
 	)
 }
 
-func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (l *jsiiProxy_LambdaFunction) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := l.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

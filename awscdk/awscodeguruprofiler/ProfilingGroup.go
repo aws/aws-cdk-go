@@ -85,14 +85,18 @@ type ProfilingGroup interface {
 	// This will grant the following permissions:
 	//
 	//  - codeguru-profiler:ConfigureAgent
-	// - codeguru-profiler:PostAgentProfile.
+	//  - codeguru-profiler:PostAgentProfile
+	//
+	// [disable-awslint:no-grants].
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
 	// This will grant the following permissions:
 	//
 	//  - codeguru-profiler:GetProfile
-	// - codeguru-profiler:DescribeProfilingGroup.
+	//  - codeguru-profiler:DescribeProfilingGroup
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

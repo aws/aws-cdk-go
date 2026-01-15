@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 )
 
 // Construction properties for a DatabaseInstanceNew.
@@ -23,9 +24,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucket Bucket
 //   var caCertificate CaCertificate
+//   var dBSubnetGroupRef IDBSubnetGroupRef
 //   var keyRef IKeyRef
 //   var optionGroup OptionGroup
 //   var parameterGroup ParameterGroup
@@ -34,7 +37,6 @@ import (
 //   var securityGroup SecurityGroup
 //   var subnet Subnet
 //   var subnetFilter SubnetFilter
-//   var subnetGroup SubnetGroup
 //   var vpc Vpc
 //
 //   databaseInstanceNewProps := &DatabaseInstanceNewProps{
@@ -93,7 +95,7 @@ import (
 //   	},
 //   	StorageThroughput: jsii.Number(123),
 //   	StorageType: awscdk.*Aws_rds.StorageType_STANDARD,
-//   	SubnetGroup: subnetGroup,
+//   	SubnetGroup: dBSubnetGroupRef,
 //   	VpcSubnets: &SubnetSelection{
 //   		AvailabilityZones: []*string{
 //   			jsii.String("availabilityZones"),
@@ -380,7 +382,7 @@ type DatabaseInstanceNewProps struct {
 	// Existing subnet group for the instance.
 	// Default: - a new subnet group will be created.
 	//
-	SubnetGroup ISubnetGroup `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
+	SubnetGroup interfacesawsrds.IDBSubnetGroupRef `field:"optional" json:"subnetGroup" yaml:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
 	// Default: - private subnets.
 	//

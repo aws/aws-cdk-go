@@ -15,12 +15,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var role Role
-//   var webSocketApi WebSocketApi
+//   var webSocketApiRef IWebSocketApiRef
 //
 //   webSocketIntegrationProps := &WebSocketIntegrationProps{
 //   	IntegrationType: awscdk.Aws_apigatewayv2.WebSocketIntegrationType_AWS_PROXY,
 //   	IntegrationUri: jsii.String("integrationUri"),
-//   	WebSocketApi: webSocketApi,
+//   	WebSocketApi: webSocketApiRef,
 //
 //   	// the properties below are optional
 //   	ContentHandling: awscdk.*Aws_apigatewayv2.ContentHandling_CONVERT_TO_BINARY,
@@ -43,7 +43,7 @@ type WebSocketIntegrationProps struct {
 	// Integration URI.
 	IntegrationUri *string `field:"required" json:"integrationUri" yaml:"integrationUri"`
 	// The WebSocket API to which this integration should be bound.
-	WebSocketApi IWebSocketApi `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
+	WebSocketApi IWebSocketApiRef `field:"required" json:"webSocketApi" yaml:"webSocketApi"`
 	// Specifies how to handle response payload content type conversions.
 	// Default: - The response payload will be passed through from the integration response to
 	// the route response or method response without modification.

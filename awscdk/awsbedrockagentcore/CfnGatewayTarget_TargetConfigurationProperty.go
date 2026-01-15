@@ -12,6 +12,32 @@ package awsbedrockagentcore
 //
 //   targetConfigurationProperty := &TargetConfigurationProperty{
 //   	Mcp: &McpTargetConfigurationProperty{
+//   		ApiGateway: &ApiGatewayTargetConfigurationProperty{
+//   			ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
+//   				ToolFilters: []interface{}{
+//   					&ApiGatewayToolFilterProperty{
+//   						FilterPath: jsii.String("filterPath"),
+//   						Methods: []*string{
+//   							jsii.String("methods"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				ToolOverrides: []interface{}{
+//   					&ApiGatewayToolOverrideProperty{
+//   						Method: jsii.String("method"),
+//   						Name: jsii.String("name"),
+//   						Path: jsii.String("path"),
+//
+//   						// the properties below are optional
+//   						Description: jsii.String("description"),
+//   					},
+//   				},
+//   			},
+//   			RestApiId: jsii.String("restApiId"),
+//   			Stage: jsii.String("stage"),
+//   		},
 //   		Lambda: &McpLambdaTargetConfigurationProperty{
 //   			LambdaArn: jsii.String("lambdaArn"),
 //   			ToolSchema: &ToolSchemaProperty{

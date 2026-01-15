@@ -29,6 +29,7 @@ package awsstepfunctions
 //   		"itemSelectorKey": itemSelector,
 //   	},
 //   	JsonataItemSelector: jsii.String("jsonataItemSelector"),
+//   	JsonataMaxConcurrency: jsii.String("jsonataMaxConcurrency"),
 //   	Label: jsii.String("label"),
 //   	MapExecutionType: awscdk.Aws_stepfunctions.StateMachineType_EXPRESS,
 //   	MaxConcurrency: jsii.Number(123),
@@ -77,6 +78,18 @@ type DistributedMapJsonataProps struct {
 	// Default: $.
 	//
 	JsonataItemSelector *string `field:"optional" json:"jsonataItemSelector" yaml:"jsonataItemSelector"`
+	// JSONata expression for MaxConcurrency.
+	//
+	// A JSONata expression that evaluates to an integer, specifying the maximum
+	// concurrency dynamically. Mutually exclusive with `maxConcurrency` and
+	// `maxConcurrencyPath`.
+	//
+	// Example value: `{% $states.input.maxConcurrency %}`
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-inline.html#map-state-inline-additional-fields
+	//
+	// Default: - full concurrency.
+	//
+	JsonataMaxConcurrency *string `field:"optional" json:"jsonataMaxConcurrency" yaml:"jsonataMaxConcurrency"`
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.

@@ -4,11 +4,11 @@ package awseventstargets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CloudWatchLogGroup) validateBindParameters(rule awsevents.IRule) error {
+func (c *jsiiProxy_CloudWatchLogGroup) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	return nil
 }
 
-func validateNewCloudWatchLogGroupParameters(logGroup awslogs.ILogGroup, props *LogGroupProps) error {
+func validateNewCloudWatchLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *LogGroupProps) error {
 	return nil
 }
 

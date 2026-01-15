@@ -17,7 +17,7 @@ package previewawsssomixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
 //
 type CfnInstanceAccessControlAttributeConfigurationPropsMixin_AccessControlAttributeValueProperty struct {
-	// The identity source to use when mapping a specified attribute to IAM Identity Center .
+	// The identity source to use when mapping a specified attribute to  .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
 	//
 	Source *[]*string `field:"optional" json:"source" yaml:"source"`

@@ -4,7 +4,7 @@ package awseventstargets
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_SnsTopic) validateBindParameters(rule awsevents.IRule) error {
+func (s *jsiiProxy_SnsTopic) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	return nil
 }
 

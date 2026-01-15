@@ -59,6 +59,7 @@ import (
 //   			},
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -110,6 +111,7 @@ import (
 //   			ChildManifestName: jsii.String("childManifestName"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -138,6 +140,7 @@ import (
 //   			ChildManifestName: jsii.String("childManifestName"),
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -165,6 +168,7 @@ import (
 //   			// the properties below are optional
 //   			FilterConfiguration: &FilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
+//   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
 //   				Start: jsii.String("start"),
@@ -192,6 +196,9 @@ import (
 //   				ResourceId: jsii.String("resourceId"),
 //   				RoleArn: jsii.String("roleArn"),
 //   				Url: jsii.String("url"),
+//
+//   				// the properties below are optional
+//   				CertificateArn: jsii.String("certificateArn"),
 //   			},
 //
 //   			// the properties below are optional

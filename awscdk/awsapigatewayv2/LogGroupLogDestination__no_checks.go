@@ -8,7 +8,7 @@ func (l *jsiiProxy_LogGroupLogDestination) validateBindParameters(stage IStage) 
 	return nil
 }
 
-func validateNewLogGroupLogDestinationParameters(logGroup awslogs.ILogGroup) error {
+func validateNewLogGroupLogDestinationParameters(logGroup interfacesawslogs.ILogGroupRef) error {
 	return nil
 }
 

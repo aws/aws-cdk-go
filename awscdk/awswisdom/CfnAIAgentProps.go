@@ -8,6 +8,10 @@ package awswisdom
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var annotations interface{}
+//   var inputSchema interface{}
+//   var outputSchema interface{}
+//
 //   cfnAIAgentProps := &CfnAIAgentProps{
 //   	AssistantId: jsii.String("assistantId"),
 //   	Configuration: &AIAgentConfigurationProperty{
@@ -63,6 +67,11 @@ package awswisdom
 //   			IntentLabelingGenerationAiPromptId: jsii.String("intentLabelingGenerationAiPromptId"),
 //   			Locale: jsii.String("locale"),
 //   			QueryReformulationAiPromptId: jsii.String("queryReformulationAiPromptId"),
+//   		},
+//   		CaseSummarizationAiAgentConfiguration: &CaseSummarizationAIAgentConfigurationProperty{
+//   			CaseSummarizationAiGuardrailId: jsii.String("caseSummarizationAiGuardrailId"),
+//   			CaseSummarizationAiPromptId: jsii.String("caseSummarizationAiPromptId"),
+//   			Locale: jsii.String("locale"),
 //   		},
 //   		EmailGenerativeAnswerAiAgentConfiguration: &EmailGenerativeAnswerAIAgentConfigurationProperty{
 //   			AssociationConfigurations: []interface{}{
@@ -220,6 +229,64 @@ package awswisdom
 //   				},
 //   			},
 //   			Locale: jsii.String("locale"),
+//   		},
+//   		NoteTakingAiAgentConfiguration: &NoteTakingAIAgentConfigurationProperty{
+//   			Locale: jsii.String("locale"),
+//   			NoteTakingAiGuardrailId: jsii.String("noteTakingAiGuardrailId"),
+//   			NoteTakingAiPromptId: jsii.String("noteTakingAiPromptId"),
+//   		},
+//   		OrchestrationAiAgentConfiguration: &OrchestrationAIAgentConfigurationProperty{
+//   			OrchestrationAiPromptId: jsii.String("orchestrationAiPromptId"),
+//
+//   			// the properties below are optional
+//   			ConnectInstanceArn: jsii.String("connectInstanceArn"),
+//   			Locale: jsii.String("locale"),
+//   			OrchestrationAiGuardrailId: jsii.String("orchestrationAiGuardrailId"),
+//   			ToolConfigurations: []interface{}{
+//   				&ToolConfigurationProperty{
+//   					ToolName: jsii.String("toolName"),
+//   					ToolType: jsii.String("toolType"),
+//
+//   					// the properties below are optional
+//   					Annotations: annotations,
+//   					Description: jsii.String("description"),
+//   					InputSchema: inputSchema,
+//   					Instruction: &ToolInstructionProperty{
+//   						Examples: []*string{
+//   							jsii.String("examples"),
+//   						},
+//   						Instruction: jsii.String("instruction"),
+//   					},
+//   					OutputFilters: []interface{}{
+//   						&ToolOutputFilterProperty{
+//   							JsonPath: jsii.String("jsonPath"),
+//
+//   							// the properties below are optional
+//   							OutputConfiguration: &ToolOutputConfigurationProperty{
+//   								OutputVariableNameOverride: jsii.String("outputVariableNameOverride"),
+//   								SessionDataNamespace: jsii.String("sessionDataNamespace"),
+//   							},
+//   						},
+//   					},
+//   					OutputSchema: outputSchema,
+//   					OverrideInputValues: []interface{}{
+//   						&ToolOverrideInputValueProperty{
+//   							JsonPath: jsii.String("jsonPath"),
+//   							Value: &ToolOverrideInputValueConfigurationProperty{
+//   								Constant: &ToolOverrideConstantInputValueProperty{
+//   									Type: jsii.String("type"),
+//   									Value: jsii.String("value"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   					Title: jsii.String("title"),
+//   					ToolId: jsii.String("toolId"),
+//   					UserInteractionConfiguration: &UserInteractionConfigurationProperty{
+//   						IsUserConfirmationRequired: jsii.Boolean(false),
+//   					},
+//   				},
+//   			},
 //   		},
 //   		SelfServiceAiAgentConfiguration: &SelfServiceAIAgentConfigurationProperty{
 //   			AssociationConfigurations: []interface{}{

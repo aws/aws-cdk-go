@@ -96,9 +96,9 @@ type DeliveryStream interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the `grantee` identity permissions to perform `actions`.
+	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the `grantee` identity permissions to perform `firehose:PutRecord` and `firehose:PutRecordBatch` actions on this delivery stream.
+	// [disable-awslint:no-grants].
 	GrantPutRecords(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this delivery stream.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

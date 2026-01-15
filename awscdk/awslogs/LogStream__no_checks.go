@@ -16,6 +16,10 @@ func (l *jsiiProxy_LogStream) validateGetResourceNameAttributeParameters(nameAtt
 	return nil
 }
 
+func validateLogStream_FromLogStreamAttributesParameters(scope constructs.Construct, id *string, attrs *LogStreamAttributes) error {
+	return nil
+}
+
 func validateLogStream_FromLogStreamNameParameters(scope constructs.Construct, id *string, logStreamName *string) error {
 	return nil
 }

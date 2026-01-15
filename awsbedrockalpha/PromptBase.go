@@ -87,6 +87,8 @@ type PromptBase interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity permissions to get the prompt.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock:GetPrompt']

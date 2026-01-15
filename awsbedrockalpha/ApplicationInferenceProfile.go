@@ -130,6 +130,7 @@ type ApplicationInferenceProfile interface {
 	//
 	// This method ensures the appropriate permissions are given to use either the inference profile
 	// or the underlying foundation model/cross-region profile.
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
@@ -142,6 +143,7 @@ type ApplicationInferenceProfile interface {
 	//
 	// Note: This does not grant permissions to use the underlying model/cross-region profile in the AIP.
 	// For comprehensive permissions, use grantInvoke() instead.
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
@@ -319,6 +321,8 @@ func NewApplicationInferenceProfile_Override(a ApplicationInferenceProfile, scop
 
 // Import an Application Inference Profile given its attributes.
 //
+// [disable-awslint:no-grants].
+//
 // Returns: An IInferenceProfile reference to the existing application inference profile.
 // Experimental.
 func ApplicationInferenceProfile_FromApplicationInferenceProfileAttributes(scope constructs.Construct, id *string, attrs *ApplicationInferenceProfileAttributes) IInferenceProfile {
@@ -340,6 +344,8 @@ func ApplicationInferenceProfile_FromApplicationInferenceProfileAttributes(scope
 }
 
 // Import a low-level L1 Cfn Application Inference Profile.
+//
+// [disable-awslint:no-grants].
 //
 // Returns: An IInferenceProfile reference to the imported application inference profile.
 // Experimental.

@@ -44,6 +44,10 @@ func init() {
 		reflect.TypeOf((*CfnAIAgentPropsMixin_AssociationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.CaseSummarizationAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_CaseSummarizationAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.EmailGenerativeAnswerAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_EmailGenerativeAnswerAIAgentConfigurationProperty)(nil)).Elem(),
 	)
@@ -64,8 +68,16 @@ func init() {
 		reflect.TypeOf((*CfnAIAgentPropsMixin_ManualSearchAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.NoteTakingAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_NoteTakingAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.OrConditionProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_OrConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.OrchestrationAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_OrchestrationAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.SelfServiceAIAgentConfigurationProperty",
@@ -78,6 +90,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.TagFilterProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_TagFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolInstructionProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolInstructionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolOutputConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolOutputFilterProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolOutputFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolOverrideConstantInputValueProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolOverrideConstantInputValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolOverrideInputValueConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolOverrideInputValueConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.ToolOverrideInputValueProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_ToolOverrideInputValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentPropsMixin.UserInteractionConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_UserInteractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAIAgentVersionMixinProps",

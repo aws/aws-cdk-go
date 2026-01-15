@@ -8,6 +8,10 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateApplyRemovalPolicyParam
 	return nil
 }
 
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateBindEnvironmentParameters(deploymentGroup interfacesawscodedeploy.IDeploymentGroupRef) error {
+	return nil
+}
+
 func (c *jsiiProxy_CustomLambdaDeploymentConfig) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
 	return nil
 }

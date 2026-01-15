@@ -11,30 +11,28 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   managedInstancesNetworkConfigurationProperty := &ManagedInstancesNetworkConfigurationProperty{
-//   	Subnets: []*string{
-//   		jsii.String("subnets"),
-//   	},
-//
-//   	// the properties below are optional
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
+//   	},
+//   	Subnets: []*string{
+//   		jsii.String("subnets"),
 //   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesnetworkconfiguration.html
 //
 type CfnCapacityProvider_ManagedInstancesNetworkConfigurationProperty struct {
+	// The list of security group IDs to apply to Amazon ECS Managed Instances.
+	//
+	// These security groups control the network traffic allowed to and from the instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesnetworkconfiguration.html#cfn-ecs-capacityprovider-managedinstancesnetworkconfiguration-securitygroups
+	//
+	SecurityGroups *[]*string `field:"required" json:"securityGroups" yaml:"securityGroups"`
 	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances.
 	//
 	// Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesnetworkconfiguration.html#cfn-ecs-capacityprovider-managedinstancesnetworkconfiguration-subnets
 	//
 	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
-	// The list of security group IDs to apply to Amazon ECS Managed Instances.
-	//
-	// These security groups control the network traffic allowed to and from the instances.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesnetworkconfiguration.html#cfn-ecs-capacityprovider-managedinstancesnetworkconfiguration-securitygroups
-	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

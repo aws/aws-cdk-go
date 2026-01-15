@@ -228,6 +228,16 @@ func (j *jsiiProxy_CfnKeyValueStore) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnKeyValueStore) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnKeyValueStoreParameters(scope constructs.Construct, id *string, props *CfnKeyValueStoreProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

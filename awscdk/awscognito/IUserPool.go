@@ -6,11 +6,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents a Cognito UserPool.
 type IUserPool interface {
 	awscdk.IResource
+	interfacesawscognito.IUserPoolRef
 	// Add a new app client to this user pool.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html
 	//
@@ -30,7 +34,7 @@ type IUserPool interface {
 	// Adds an IAM policy statement associated with this user pool to an IAM principal's policy.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Register an identity provider with this user pool.
-	RegisterIdentityProvider(provider IUserPoolIdentityProvider)
+	RegisterIdentityProvider(provider interfacesawscognito.IUserPoolIdentityProviderRef)
 	// Get all identity providers registered with this user pool.
 	IdentityProviders() *[]IUserPoolIdentityProvider
 	// The ARN of this user pool resource.
@@ -44,6 +48,7 @@ type IUserPool interface {
 // The jsii proxy for IUserPool
 type jsiiProxy_IUserPool struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawscognitoIUserPoolRef
 }
 
 func (i *jsiiProxy_IUserPool) AddClient(id *string, options *UserPoolClientOptions) UserPoolClient {
@@ -131,7 +136,7 @@ func (i *jsiiProxy_IUserPool) Grant(grantee awsiam.IGrantable, actions ...*strin
 	return returns
 }
 
-func (i *jsiiProxy_IUserPool) RegisterIdentityProvider(provider IUserPoolIdentityProvider) {
+func (i *jsiiProxy_IUserPool) RegisterIdentityProvider(provider interfacesawscognito.IUserPoolIdentityProviderRef) {
 	if err := i.validateRegisterIdentityProviderParameters(provider); err != nil {
 		panic(err)
 	}
@@ -139,6 +144,17 @@ func (i *jsiiProxy_IUserPool) RegisterIdentityProvider(provider IUserPoolIdentit
 		i,
 		"registerIdentityProvider",
 		[]interface{}{provider},
+	)
+}
+
+func (i *jsiiProxy_IUserPool) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
 	)
 }
 
@@ -177,6 +193,46 @@ func (j *jsiiProxy_IUserPool) UserPoolProviderName() *string {
 	_jsii_.Get(
 		j,
 		"userPoolProviderName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPool) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPool) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPool) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUserPool) UserPoolRef() *interfacesawscognito.UserPoolReference {
+	var returns *interfacesawscognito.UserPoolReference
+	_jsii_.Get(
+		j,
+		"userPoolRef",
 		&returns,
 	)
 	return returns

@@ -1,7 +1,7 @@
 package awsec2
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for a client VPN endpoint.
@@ -14,8 +14,8 @@ import (
 //
 //   var clientVpnConnectionHandler IClientVpnConnectionHandler
 //   var clientVpnUserBasedAuthentication ClientVpnUserBasedAuthentication
-//   var logGroup LogGroup
-//   var logStream LogStream
+//   var logGroupRef ILogGroupRef
+//   var logStreamRef ILogStreamRef
 //   var securityGroup SecurityGroup
 //   var subnet Subnet
 //   var subnetFilter SubnetFilter
@@ -40,8 +40,8 @@ import (
 //   		jsii.String("dnsServers"),
 //   	},
 //   	Logging: jsii.Boolean(false),
-//   	LogGroup: logGroup,
-//   	LogStream: logStream,
+//   	LogGroup: logGroupRef,
+//   	LogStream: logStreamRef,
 //   	Port: awscdk.Aws_ec2.VpnPort_HTTPS,
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
@@ -140,11 +140,11 @@ type ClientVpnEndpointProps struct {
 	// A CloudWatch Logs log group for connection logging.
 	// Default: - a new group is created.
 	//
-	LogGroup awslogs.ILogGroup `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// A CloudWatch Logs log stream for connection logging.
 	// Default: - a new stream is created.
 	//
-	LogStream awslogs.ILogStream `field:"optional" json:"logStream" yaml:"logStream"`
+	LogStream interfacesawslogs.ILogStreamRef `field:"optional" json:"logStream" yaml:"logStream"`
 	// The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
 	// Default: VpnPort.HTTPS
 	//

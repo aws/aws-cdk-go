@@ -81,6 +81,10 @@ func init() {
 		reflect.TypeOf((*CfnAIAgent_AssociationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.CaseSummarizationAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_CaseSummarizationAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.EmailGenerativeAnswerAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgent_EmailGenerativeAnswerAIAgentConfigurationProperty)(nil)).Elem(),
 	)
@@ -101,8 +105,16 @@ func init() {
 		reflect.TypeOf((*CfnAIAgent_ManualSearchAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.NoteTakingAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_NoteTakingAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.OrConditionProperty",
 		reflect.TypeOf((*CfnAIAgent_OrConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.OrchestrationAIAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_OrchestrationAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.SelfServiceAIAgentConfigurationProperty",
@@ -115,6 +127,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.TagFilterProperty",
 		reflect.TypeOf((*CfnAIAgent_TagFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolInstructionProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolInstructionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolOutputConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolOutputFilterProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolOutputFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolOverrideConstantInputValueProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolOverrideConstantInputValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolOverrideInputValueConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolOverrideInputValueConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ToolOverrideInputValueProperty",
+		reflect.TypeOf((*CfnAIAgent_ToolOverrideInputValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.UserInteractionConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_UserInteractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgentProps",

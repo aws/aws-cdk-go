@@ -3,6 +3,7 @@ package awslogs
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,7 +17,7 @@ type ILogSubscriptionDestination interface {
 	//
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
-	Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
+	Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy for ILogSubscriptionDestination
@@ -24,7 +25,7 @@ type jsiiProxy_ILogSubscriptionDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope constructs.Construct, sourceLogGroup interfacesawslogs.ILogGroupRef) *LogSubscriptionDestinationConfig {
 	if err := i.validateBindParameters(scope, sourceLogGroup); err != nil {
 		panic(err)
 	}

@@ -2,6 +2,7 @@ package awscognitoidentitypool
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 )
 
 // Props for the User Pool Authentication Provider.
@@ -27,6 +28,6 @@ type UserPoolAuthenticationProviderProps struct {
 	// The User Pool Client for the provided User Pool.
 	// Default: - A default user pool client will be added to User Pool.
 	//
-	UserPoolClient awscognito.IUserPoolClient `field:"optional" json:"userPoolClient" yaml:"userPoolClient"`
+	UserPoolClient interfacesawscognito.IUserPoolClientRef `field:"optional" json:"userPoolClient" yaml:"userPoolClient"`
 }
 

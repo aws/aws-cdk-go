@@ -4,6 +4,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdocdb"
 )
 
 // Construction properties for a DatabaseInstanceNew.
@@ -15,13 +16,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var caCertificate CaCertificate
-//   var databaseCluster DatabaseCluster
+//   var dBClusterRef IDBClusterRef
 //   var instanceType InstanceType
 //
 //   databaseInstanceProps := &DatabaseInstanceProps{
-//   	Cluster: databaseCluster,
+//   	Cluster: dBClusterRef,
 //   	InstanceType: instanceType,
 //
 //   	// the properties below are optional
@@ -36,7 +38,7 @@ import (
 //
 type DatabaseInstanceProps struct {
 	// The DocumentDB database cluster the instance should launch into.
-	Cluster IDatabaseCluster `field:"required" json:"cluster" yaml:"cluster"`
+	Cluster interfacesawsdocdb.IDBClusterRef `field:"required" json:"cluster" yaml:"cluster"`
 	// The name of the compute and memory capacity classes.
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.

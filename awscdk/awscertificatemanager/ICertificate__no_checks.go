@@ -8,3 +8,7 @@ func (i *jsiiProxy_ICertificate) validateMetricDaysToExpiryParameters(props *aws
 	return nil
 }
 
+func (i *jsiiProxy_ICertificate) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

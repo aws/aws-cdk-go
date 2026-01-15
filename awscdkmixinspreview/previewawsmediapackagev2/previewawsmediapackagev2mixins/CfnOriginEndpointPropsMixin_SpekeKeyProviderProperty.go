@@ -9,6 +9,7 @@ package previewawsmediapackagev2mixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   spekeKeyProviderProperty := &SpekeKeyProviderProperty{
+//   	CertificateArn: jsii.String("certificateArn"),
 //   	DrmSystems: []*string{
 //   		jsii.String("drmSystems"),
 //   	},
@@ -24,6 +25,12 @@ package previewawsmediapackagev2mixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html
 //
 type CfnOriginEndpointPropsMixin_SpekeKeyProviderProperty struct {
+	// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint.
+	//
+	// For this feature to work, your DRM key provider must support content key encryption.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-certificatearn
+	//
+	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 	// The DRM solution provider you're using to protect your content during distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-drmsystems
 	//

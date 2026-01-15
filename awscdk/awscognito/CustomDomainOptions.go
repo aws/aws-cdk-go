@@ -1,7 +1,7 @@
 package awscognito
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 )
 
 // Options while specifying custom domain.
@@ -29,7 +29,7 @@ import (
 //
 type CustomDomainOptions struct {
 	// The certificate to associate with this domain.
-	Certificate awscertificatemanager.ICertificate `field:"required" json:"certificate" yaml:"certificate"`
+	Certificate interfacesawscertificatemanager.ICertificateRef `field:"required" json:"certificate" yaml:"certificate"`
 	// The custom domain name that you would like to associate with this User Pool.
 	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
 }

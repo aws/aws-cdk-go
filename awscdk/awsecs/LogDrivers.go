@@ -171,6 +171,22 @@ func LogDrivers_JsonFile(props *JsonFileLogDriverProps) LogDriver {
 	return returns
 }
 
+// Creates a log driver configuration that disables logging (Docker `none` driver).
+func LogDrivers_None() LogDriver {
+	_init_.Initialize()
+
+	var returns LogDriver
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ecs.LogDrivers",
+		"none",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a log driver configuration that sends log information to splunk Logs.
 func LogDrivers_Splunk(props *SplunkLogDriverProps) LogDriver {
 	_init_.Initialize()

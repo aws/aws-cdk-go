@@ -12,6 +12,14 @@ package previewawssesmixins
 //   	SuppressedReasons: []*string{
 //   		jsii.String("suppressedReasons"),
 //   	},
+//   	ValidationOptions: &ValidationOptionsProperty{
+//   		ConditionThreshold: &ConditionThresholdProperty{
+//   			ConditionThresholdEnabled: jsii.String("conditionThresholdEnabled"),
+//   			OverallConfidenceThreshold: &OverallConfidenceThresholdProperty{
+//   				ConfidenceVerdictThreshold: jsii.String("confidenceVerdictThreshold"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html
@@ -26,5 +34,9 @@ type CfnConfigurationSetPropsMixin_SuppressionOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html#cfn-ses-configurationset-suppressionoptions-suppressedreasons
 	//
 	SuppressedReasons *[]*string `field:"optional" json:"suppressedReasons" yaml:"suppressedReasons"`
+	// An object that contains information about the validation options for your account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html#cfn-ses-configurationset-suppressionoptions-validationoptions
+	//
+	ValidationOptions interface{} `field:"optional" json:"validationOptions" yaml:"validationOptions"`
 }
 

@@ -120,6 +120,8 @@ type TableBase interface {
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the given identity custom permissions.
+	//
+	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
 	// Experimental.
@@ -129,6 +131,7 @@ type TableBase interface {
 	// Grant the given identity custom permissions to ALL underlying resources of the table.
 	//
 	// Permissions will be granted to the catalog, the database, and the table.
+	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantToUnderlyingResources(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
 	// Experimental.

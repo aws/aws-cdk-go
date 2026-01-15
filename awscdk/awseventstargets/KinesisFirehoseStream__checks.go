@@ -7,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
-func (k *jsiiProxy_KinesisFirehoseStream) validateBindParameters(rule awsevents.IRule) error {
+func (k *jsiiProxy_KinesisFirehoseStream) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	if rule == nil {
 		return fmt.Errorf("parameter rule is required, but nil was provided")
 	}

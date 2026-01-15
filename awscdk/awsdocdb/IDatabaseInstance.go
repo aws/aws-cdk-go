@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsdocdb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdocdb"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A database instance.
 type IDatabaseInstance interface {
+	interfacesawsdocdb.IDBInstanceRef
 	awscdk.IResource
 	// The instance endpoint address.
 	DbInstanceEndpointAddress() *string
@@ -24,7 +28,19 @@ type IDatabaseInstance interface {
 
 // The jsii proxy for IDatabaseInstance
 type jsiiProxy_IDatabaseInstance struct {
+	internal.Type__interfacesawsdocdbIDBInstanceRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IDatabaseInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IDatabaseInstance) DbInstanceEndpointAddress() *string {
@@ -72,6 +88,46 @@ func (j *jsiiProxy_IDatabaseInstance) InstanceIdentifier() *string {
 	_jsii_.Get(
 		j,
 		"instanceIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseInstance) DbInstanceRef() *interfacesawsdocdb.DBInstanceReference {
+	var returns *interfacesawsdocdb.DBInstanceReference
+	_jsii_.Get(
+		j,
+		"dbInstanceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseInstance) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseInstance) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseInstance) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

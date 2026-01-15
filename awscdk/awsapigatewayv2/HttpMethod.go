@@ -4,34 +4,34 @@ package awsapigatewayv2
 // Supported HTTP methods.
 //
 // Example:
+//   import events "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var booksDefaultFn Function
+//   var bus IEventBus
+//   var httpApi HttpApi
 //
 //
-//   httpApi := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
-//
-//   getBooksIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("GetBooksIntegration"), booksDefaultFn, &HttpLambdaIntegrationProps{
-//   	ScopePermissionToRoute: jsii.Boolean(false),
-//   })
-//   createBookIntegration := awscdk.NewHttpLambdaIntegration(jsii.String("CreateBookIntegration"), booksDefaultFn, &HttpLambdaIntegrationProps{
-//   	ScopePermissionToRoute: jsii.Boolean(false),
-//   })
-//
+//   // default integration (PutEvents)
 //   httpApi.AddRoutes(&AddRoutesOptions{
-//   	Path: jsii.String("/books"),
-//   	Methods: []HttpMethod{
-//   		apigwv2.HttpMethod_GET,
-//   	},
-//   	Integration: getBooksIntegration,
-//   })
-//
-//   httpApi.AddRoutes(&AddRoutesOptions{
-//   	Path: jsii.String("/books"),
+//   	Path: jsii.String("/default"),
 //   	Methods: []HttpMethod{
 //   		apigwv2.HttpMethod_POST,
 //   	},
-//   	Integration: createBookIntegration,
+//   	Integration: awscdk.NewHttpEventBridgeIntegration(jsii.String("DefaultEventBridgeIntegration"), &HttpEventBridgeIntegrationProps{
+//   		EventBusRef: bus.EventBusRef,
+//   	}),
+//   })
+//
+//   // explicit subtype
+//   httpApi.AddRoutes(&AddRoutesOptions{
+//   	Path: jsii.String("/put-events"),
+//   	Methods: []HttpMethod{
+//   		apigwv2.HttpMethod_POST,
+//   	},
+//   	Integration: awscdk.NewHttpEventBridgeIntegration(jsii.String("ExplicitSubtypeIntegration"), &HttpEventBridgeIntegrationProps{
+//   		EventBusRef: bus.*EventBusRef,
+//   		Subtype: apigwv2.HttpIntegrationSubtype_EVENTBRIDGE_PUT_EVENTS,
+//   	}),
 //   })
 //
 type HttpMethod string

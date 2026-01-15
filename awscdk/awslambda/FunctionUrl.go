@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,6 +60,8 @@ type FunctionUrl interface {
 	Stack() awscdk.Stack
 	// The url of the Lambda function.
 	Url() *string
+	// A reference to a Url resource.
+	UrlRef() *interfacesawslambda.UrlReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -83,7 +86,7 @@ type FunctionUrl interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity permissions to invoke this Lambda Function URL.
+	// [disable-awslint:no-grants].
 	GrantInvokeUrl(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
@@ -160,6 +163,16 @@ func (j *jsiiProxy_FunctionUrl) Url() *string {
 	_jsii_.Get(
 		j,
 		"url",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FunctionUrl) UrlRef() *interfacesawslambda.UrlReference {
+	var returns *interfacesawslambda.UrlReference
+	_jsii_.Get(
+		j,
+		"urlRef",
 		&returns,
 	)
 	return returns

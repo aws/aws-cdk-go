@@ -132,10 +132,14 @@ type CodeInterpreterCustom interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants IAM actions to the IAM Principal.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant invoke permissions on this code interpreter to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
@@ -148,6 +152,8 @@ type CodeInterpreterCustom interface {
 	//
 	// This includes both read permissions on the specific code interpreter and list permissions on all code interpreters.
 	//
+	// [disable-awslint:no-grants].
+	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:GetCodeInterpreter', 'bedrock-agentcore:GetCodeInterpreterSession'] on this.codeInterpreterArn
@@ -156,6 +162,8 @@ type CodeInterpreterCustom interface {
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant invoke permissions on this code interpreter to an IAM principal.
+	//
+	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:

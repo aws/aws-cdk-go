@@ -1,5 +1,8 @@
 package awsevents
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
+)
 
 // The event API Destination properties.
 //
@@ -24,7 +27,7 @@ package awsevents
 //
 type ApiDestinationProps struct {
 	// The ARN of the connection to use for the API destination.
-	Connection IConnection `field:"required" json:"connection" yaml:"connection"`
+	Connection interfacesawsevents.IConnectionRef `field:"required" json:"connection" yaml:"connection"`
 	// The URL to the HTTP invocation endpoint for the API destination..
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
 	// The name for the API destination.

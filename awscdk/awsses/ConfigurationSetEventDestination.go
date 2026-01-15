@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsses/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,12 +17,13 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var configurationSet ConfigurationSet
+//   var configurationSetRef IConfigurationSetRef
 //   var eventDestination EventDestination
 //
 //   configurationSetEventDestination := awscdk.Aws_ses.NewConfigurationSetEventDestination(this, jsii.String("MyConfigurationSetEventDestination"), &ConfigurationSetEventDestinationProps{
-//   	ConfigurationSet: configurationSet,
+//   	ConfigurationSet: configurationSetRef,
 //   	Destination: eventDestination,
 //
 //   	// the properties below are optional
@@ -37,6 +39,8 @@ type ConfigurationSetEventDestination interface {
 	IConfigurationSetEventDestination
 	// The ID of the configuration set event destination.
 	ConfigurationSetEventDestinationId() *string
+	// A reference to a ConfigurationSetEventDestination resource.
+	ConfigurationSetEventDestinationRef() *interfacesawsses.ConfigurationSetEventDestinationReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -98,6 +102,16 @@ func (j *jsiiProxy_ConfigurationSetEventDestination) ConfigurationSetEventDestin
 	_jsii_.Get(
 		j,
 		"configurationSetEventDestinationId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConfigurationSetEventDestination) ConfigurationSetEventDestinationRef() *interfacesawsses.ConfigurationSetEventDestinationReference {
+	var returns *interfacesawsses.ConfigurationSetEventDestinationReference
+	_jsii_.Get(
+		j,
+		"configurationSetEventDestinationRef",
 		&returns,
 	)
 	return returns

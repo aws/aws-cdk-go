@@ -11,9 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Enables the attribute-based access control (ABAC) feature for the specified IAM Identity Center instance.
+// Enables the attribute-based access control (ABAC) feature for the specified  instance.
 //
-// You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com//singlesignon/latest/userguide/abac.html) in the *IAM Identity Center User Guide* .
+// You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see [Attribute-Based Access Control](https://docs.aws.amazon.com//singlesignon/latest/userguide/abac.html) in the *User Guide* .
 //
 // > The `InstanceAccessControlAttributeConfiguration` property has been deprecated but is still supported for backwards compatibility purposes. We recommend that you use the `AccessControlAttributes` property instead.
 //
@@ -56,7 +56,7 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawssso.IInstanceAccessControlAttributeConfigurationRef
-	// Lists the attributes that are configured for ABAC in the specified IAM Identity Center instance.
+	// Lists the attributes that are configured for ABAC in the specified  instance.
 	AccessControlAttributes() interface{}
 	SetAccessControlAttributes(val interface{})
 	// Options for this resource, such as condition, update policy etc.
@@ -76,7 +76,7 @@ type CfnInstanceAccessControlAttributeConfiguration interface {
 	SetInstanceAccessControlAttributeConfiguration(val interface{})
 	// A reference to a InstanceAccessControlAttributeConfiguration resource.
 	InstanceAccessControlAttributeConfigurationRef() *interfacesawssso.InstanceAccessControlAttributeConfigurationReference
-	// The ARN of the IAM Identity Center instance under which the operation will be executed.
+	// The ARN of the  instance under which the operation will be executed.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

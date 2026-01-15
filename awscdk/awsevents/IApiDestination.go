@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for API Destinations.
 type IApiDestination interface {
+	interfacesawsevents.IApiDestinationRef
 	awscdk.IResource
 	// The ARN of the Api Destination created.
 	ApiDestinationArn() *string
@@ -22,7 +26,19 @@ type IApiDestination interface {
 
 // The jsii proxy for IApiDestination
 type jsiiProxy_IApiDestination struct {
+	internal.Type__interfacesawseventsIApiDestinationRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IApiDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IApiDestination) ApiDestinationArn() *string {
@@ -50,6 +66,46 @@ func (j *jsiiProxy_IApiDestination) ApiDestinationName() *string {
 	_jsii_.Get(
 		j,
 		"apiDestinationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApiDestination) ApiDestinationRef() *interfacesawsevents.ApiDestinationReference {
+	var returns *interfacesawsevents.ApiDestinationReference
+	_jsii_.Get(
+		j,
+		"apiDestinationRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApiDestination) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApiDestination) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IApiDestination) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -7,11 +7,11 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
-func (c *jsiiProxy_CloudWatchLogGroup) validateBindParameters(rule awsevents.IRule) error {
+func (c *jsiiProxy_CloudWatchLogGroup) validateBindParameters(rule interfacesawsevents.IRuleRef) error {
 	if rule == nil {
 		return fmt.Errorf("parameter rule is required, but nil was provided")
 	}
@@ -19,7 +19,7 @@ func (c *jsiiProxy_CloudWatchLogGroup) validateBindParameters(rule awsevents.IRu
 	return nil
 }
 
-func validateNewCloudWatchLogGroupParameters(logGroup awslogs.ILogGroup, props *LogGroupProps) error {
+func validateNewCloudWatchLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *LogGroupProps) error {
 	if logGroup == nil {
 		return fmt.Errorf("parameter logGroup is required, but nil was provided")
 	}

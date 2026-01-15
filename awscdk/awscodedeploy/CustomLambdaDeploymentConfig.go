@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,6 +31,7 @@ import (
 // Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
 type CustomLambdaDeploymentConfig interface {
 	awscdk.Resource
+	IBindableDeploymentConfig
 	ILambdaDeploymentConfig
 	// The arn of the deployment config.
 	// Deprecated: Use `LambdaDeploymentConfig`.
@@ -37,6 +39,9 @@ type CustomLambdaDeploymentConfig interface {
 	// The name of the deployment config.
 	// Deprecated: Use `LambdaDeploymentConfig`.
 	DeploymentConfigName() *string
+	// A reference to a DeploymentConfig resource.
+	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
+	DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -74,6 +79,9 @@ type CustomLambdaDeploymentConfig interface {
 	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	// Bind the predefined deployment config to the environment of the given resource.
+	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
+	BindEnvironment(deploymentGroup interfacesawscodedeploy.IDeploymentGroupRef) interfacesawscodedeploy.IDeploymentConfigRef
 	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
@@ -99,6 +107,7 @@ type CustomLambdaDeploymentConfig interface {
 // The jsii proxy struct for CustomLambdaDeploymentConfig
 type jsiiProxy_CustomLambdaDeploymentConfig struct {
 	internal.Type__awscdkResource
+	jsiiProxy_IBindableDeploymentConfig
 	jsiiProxy_ILambdaDeploymentConfig
 }
 
@@ -117,6 +126,16 @@ func (j *jsiiProxy_CustomLambdaDeploymentConfig) DeploymentConfigName() *string 
 	_jsii_.Get(
 		j,
 		"deploymentConfigName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CustomLambdaDeploymentConfig) DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference {
+	var returns *interfacesawscodedeploy.DeploymentConfigReference
+	_jsii_.Get(
+		j,
+		"deploymentConfigRef",
 		&returns,
 	)
 	return returns
@@ -288,6 +307,22 @@ func (c *jsiiProxy_CustomLambdaDeploymentConfig) ApplyRemovalPolicy(policy awscd
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (c *jsiiProxy_CustomLambdaDeploymentConfig) BindEnvironment(deploymentGroup interfacesawscodedeploy.IDeploymentGroupRef) interfacesawscodedeploy.IDeploymentConfigRef {
+	if err := c.validateBindEnvironmentParameters(deploymentGroup); err != nil {
+		panic(err)
+	}
+	var returns interfacesawscodedeploy.IDeploymentConfigRef
+
+	_jsii_.Invoke(
+		c,
+		"bindEnvironment",
+		[]interface{}{deploymentGroup},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CustomLambdaDeploymentConfig) GeneratePhysicalName() *string {

@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscertificatemanager"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -33,6 +34,8 @@ type PrivateCertificate interface {
 	ICertificate
 	// The certificate's ARN.
 	CertificateArn() *string
+	// A reference to a Certificate resource.
+	CertificateRef() *interfacesawscertificatemanager.CertificateReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -102,6 +105,16 @@ func (j *jsiiProxy_PrivateCertificate) CertificateArn() *string {
 	_jsii_.Get(
 		j,
 		"certificateArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PrivateCertificate) CertificateRef() *interfacesawscertificatemanager.CertificateReference {
+	var returns *interfacesawscertificatemanager.CertificateReference
+	_jsii_.Get(
+		j,
+		"certificateRef",
 		&returns,
 	)
 	return returns

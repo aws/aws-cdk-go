@@ -88,6 +88,10 @@ func validateCfnDBInstance_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBInstance) validateSetAdditionalStorageVolumesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBInstance) validateSetAllowMajorVersionUpgradeParameters(val interface{}) error {
 	return nil
 }

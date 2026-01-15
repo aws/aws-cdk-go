@@ -14,19 +14,20 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var receiptRule ReceiptRule
 //   var receiptRuleAction IReceiptRuleAction
-//   var receiptRuleSet ReceiptRuleSet
+//   var receiptRuleRef IReceiptRuleRef
+//   var receiptRuleSetRef IReceiptRuleSetRef
 //
 //   dropSpamReceiptRule := awscdk.Aws_ses.NewDropSpamReceiptRule(this, jsii.String("MyDropSpamReceiptRule"), &DropSpamReceiptRuleProps{
-//   	RuleSet: receiptRuleSet,
+//   	RuleSet: receiptRuleSetRef,
 //
 //   	// the properties below are optional
 //   	Actions: []IReceiptRuleAction{
 //   		receiptRuleAction,
 //   	},
-//   	After: receiptRule,
+//   	After: receiptRuleRef,
 //   	Enabled: jsii.Boolean(false),
 //   	ReceiptRuleName: jsii.String("receiptRuleName"),
 //   	Recipients: []*string{

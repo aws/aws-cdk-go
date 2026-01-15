@@ -1,6 +1,7 @@
 package awslogs
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
@@ -63,7 +64,7 @@ type DataProtectionPolicyProps struct {
 	// The log group must already exist prior to creating the data protection policy.
 	// Default: - no CloudWatch Logs audit destination.
 	//
-	LogGroupAuditDestination ILogGroup `field:"optional" json:"logGroupAuditDestination" yaml:"logGroupAuditDestination"`
+	LogGroupAuditDestination interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroupAuditDestination" yaml:"logGroupAuditDestination"`
 	// Name of the data protection policy.
 	// Default: - 'data-protection-policy-cdk'.
 	//

@@ -152,6 +152,11 @@ package previewawsquicksightmixins
 //   		Password: jsii.String("password"),
 //   		Username: jsii.String("username"),
 //   	},
+//   	KeyPairCredentials: &KeyPairCredentialsProperty{
+//   		KeyPairUsername: jsii.String("keyPairUsername"),
+//   		PrivateKey: jsii.String("privateKey"),
+//   		PrivateKeyPassphrase: jsii.String("privateKeyPassphrase"),
+//   	},
 //   	SecretArn: jsii.String("secretArn"),
 //   }
 //
@@ -170,6 +175,10 @@ type CfnDataSourcePropsMixin_DataSourceCredentialsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
 	//
 	CredentialPair interface{} `field:"optional" json:"credentialPair" yaml:"credentialPair"`
+	// The credentials for connecting using key-pair.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-keypaircredentials
+	//
+	KeyPairCredentials interface{} `field:"optional" json:"keyPairCredentials" yaml:"keyPairCredentials"`
 	// The Amazon Resource Name (ARN) of the secret associated with the data source in AWS Secrets Manager .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-secretarn
 	//

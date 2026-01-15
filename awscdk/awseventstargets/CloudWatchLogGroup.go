@@ -6,7 +6,8 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Use an AWS CloudWatch LogGroup as an event rule target.
@@ -28,7 +29,7 @@ import (
 type CloudWatchLogGroup interface {
 	awsevents.IRuleTarget
 	// Returns a RuleTarget that can be used to log an event into a CloudWatch LogGroup.
-	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
+	Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig
 }
 
 // The jsii proxy struct for CloudWatchLogGroup
@@ -36,7 +37,7 @@ type jsiiProxy_CloudWatchLogGroup struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) CloudWatchLogGroup {
+func NewCloudWatchLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *LogGroupProps) CloudWatchLogGroup {
 	_init_.Initialize()
 
 	if err := validateNewCloudWatchLogGroupParameters(logGroup, props); err != nil {
@@ -53,7 +54,7 @@ func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) Clo
 	return &j
 }
 
-func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogGroup, props *LogGroupProps) {
+func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup interfacesawslogs.ILogGroupRef, props *LogGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
@@ -63,7 +64,7 @@ func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogG
 	)
 }
 
-func (c *jsiiProxy_CloudWatchLogGroup) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
+func (c *jsiiProxy_CloudWatchLogGroup) Bind(rule interfacesawsevents.IRuleRef, id *string) *awsevents.RuleTargetConfig {
 	if err := c.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

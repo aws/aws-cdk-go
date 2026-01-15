@@ -17,6 +17,7 @@ import (
 // Any inbound traffic that your virtual node expects should be specified as a
 // listener. Any outbound traffic that your virtual node expects to reach
 // should be specified as a backend.
+// [disable-awslint:no-grants].
 //
 // Example:
 //   var mesh Mesh
@@ -113,7 +114,7 @@ type VirtualNode interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants the given entity `appmesh:StreamAggregatedResources`.
+	// [disable-awslint:no-grants].
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string

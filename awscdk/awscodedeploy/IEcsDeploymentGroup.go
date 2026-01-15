@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodedeploy"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for an ECS deployment group.
 type IEcsDeploymentGroup interface {
+	interfacesawscodedeploy.IDeploymentGroupRef
 	awscdk.IResource
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
 	Application() IEcsApplication
@@ -22,7 +26,19 @@ type IEcsDeploymentGroup interface {
 
 // The jsii proxy for IEcsDeploymentGroup
 type jsiiProxy_IEcsDeploymentGroup struct {
+	internal.Type__interfacesawscodedeployIDeploymentGroupRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IEcsDeploymentGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IEcsDeploymentGroup) Application() IEcsApplication {
@@ -60,6 +76,46 @@ func (j *jsiiProxy_IEcsDeploymentGroup) DeploymentGroupName() *string {
 	_jsii_.Get(
 		j,
 		"deploymentGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsDeploymentGroup) DeploymentGroupRef() *interfacesawscodedeploy.DeploymentGroupReference {
+	var returns *interfacesawscodedeploy.DeploymentGroupReference
+	_jsii_.Get(
+		j,
+		"deploymentGroupRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsDeploymentGroup) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsDeploymentGroup) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IEcsDeploymentGroup) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

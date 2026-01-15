@@ -13,26 +13,25 @@ import (
 // Example:
 //   var vpc Vpc
 //
-//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+//   		Version: rds.PostgresEngineVersion_VER_17_7(),
 //   	}),
-//   	Writer: rds.ClusterInstance_Provisioned(jsii.String("writer")),
 //   	Vpc: Vpc,
+//   	IamAuthentication: jsii.Boolean(true),
 //   })
 //
 //   proxy := rds.NewDatabaseProxy(this, jsii.String("Proxy"), &DatabaseProxyProps{
-//   	ProxyTarget: rds.ProxyTarget_FromCluster(cluster),
-//   	Secrets: []ISecret{
-//   		cluster.Secret,
-//   	},
+//   	ProxyTarget: rds.ProxyTarget_FromInstance(instance),
 //   	Vpc: Vpc,
+//   	DefaultAuthScheme: rds.DefaultAuthScheme_IAM_AUTH,
 //   })
 //
-//   role := iam.NewRole(this, jsii.String("DBProxyRole"), &RoleProps{
+//   // Grant IAM permissions for database connection
+//   role := iam.NewRole(this, jsii.String("DBRole"), &RoleProps{
 //   	AssumedBy: iam.NewAccountPrincipal(this.Account),
 //   })
-//   proxy.GrantConnect(role, jsii.String("admin"))
+//   proxy.GrantConnect(role, jsii.String("database-user"))
 //
 type ProxyTarget interface {
 	// Bind this target to the specified database proxy.

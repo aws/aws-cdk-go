@@ -179,9 +179,9 @@ type DatabaseSecret interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grants reading the secret value to some role.
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
-	// Grants writing and updating the secret value to some role.
+	// [disable-awslint:no-grants].
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
 	SecretValueFromJson(key *string) awscdk.SecretValue
