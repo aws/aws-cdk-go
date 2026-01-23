@@ -64,7 +64,7 @@ package awsemr
 //
 //   tasks.NewEmrAddStep(this, jsii.String("Task"), &EmrAddStepProps{
 //   	ClusterId: jsii.String("ClusterId"),
-//   	ExecutionRoleArn: executionRole.RoleArn,
+//   	ExecutionRoleArn: executionRole.roleArn,
 //   	Name: jsii.String("StepName"),
 //   	Jar: jsii.String("Jar"),
 //   	ActionOnFailure: tasks.ActionOnFailure_CONTINUE,

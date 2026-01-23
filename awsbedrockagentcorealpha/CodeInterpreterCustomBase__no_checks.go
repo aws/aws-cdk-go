@@ -80,7 +80,7 @@ func validateCodeInterpreterCustomBase_IsResourceParameters(construct constructs
 	return nil
 }
 
-func validateNewCodeInterpreterCustomBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewCodeInterpreterCustomBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

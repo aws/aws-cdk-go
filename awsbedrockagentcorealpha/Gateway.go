@@ -150,6 +150,15 @@ type Gateway interface {
 	UserPoolDomain() awscognito.IUserPoolDomain
 	// Experimental.
 	SetUserPoolDomain(val awscognito.IUserPoolDomain)
+	// Add an interceptor to this gateway.
+	//
+	// Interceptors allow you to run custom code at specific points in the gateway request/response flow:
+	// - REQUEST interceptors execute before the gateway calls the target
+	// - RESPONSE interceptors execute after the target responds
+	//
+	// A gateway can have at most one REQUEST interceptor and one RESPONSE interceptor.
+	// Experimental.
+	AddInterceptor(interceptor IInterceptor)
 	// Add a Lambda target to this gateway This is a convenience method that creates a GatewayTarget associated with this gateway.
 	//
 	// Returns: The created GatewayTarget.
@@ -688,6 +697,17 @@ func Gateway_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (g *jsiiProxy_Gateway) AddInterceptor(interceptor IInterceptor) {
+	if err := g.validateAddInterceptorParameters(interceptor); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"addInterceptor",
+		[]interface{}{interceptor},
+	)
 }
 
 func (g *jsiiProxy_Gateway) AddLambdaTarget(id *string, props *AddLambdaTargetOptions) GatewayTarget {

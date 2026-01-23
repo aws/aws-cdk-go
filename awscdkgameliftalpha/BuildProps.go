@@ -14,10 +14,10 @@ import (
 //   })
 //
 //   awscdk.NewCfnOutput(this, jsii.String("BuildArn"), &CfnOutputProps{
-//   	Value: build.BuildArn,
+//   	Value: build.buildArn,
 //   })
 //   awscdk.NewCfnOutput(this, jsii.String("BuildId"), &CfnOutputProps{
-//   	Value: build.BuildId,
+//   	Value: build.buildId,
 //   })
 //
 // Experimental.

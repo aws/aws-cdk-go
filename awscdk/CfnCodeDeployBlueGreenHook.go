@@ -17,7 +17,7 @@ import (
 //
 //   hook := cfnTemplate.GetHook(jsii.String("MyOutput"))
 //   codeDeployHook := hook.(CfnCodeDeployBlueGreenHook)
-//   codeDeployHook.serviceRole = myRole.RoleArn
+//   codeDeployHook.serviceRole = myRole.roleArn
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html#blue-green-template-reference
 //

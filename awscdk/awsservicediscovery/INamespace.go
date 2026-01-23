@@ -7,6 +7,11 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery/internal"
 )
 
+// A type of namespace.
+//
+// One of private, public or HTTP namespace.
+//
+// [awslint:interface-extends-ref].
 type INamespace interface {
 	awscdk.IResource
 	// Namespace ARN for the Namespace.

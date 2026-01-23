@@ -28,7 +28,7 @@ func validateRuntimeEndpointBase_IsResourceParameters(construct constructs.ICons
 	return nil
 }
 
-func validateNewRuntimeEndpointBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewRuntimeEndpointBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

@@ -8,3 +8,7 @@ func (i *jsiiProxy_IVirtualRouter) validateAddRouteParameters(id *string, props 
 	return nil
 }
 
+func (i *jsiiProxy_IVirtualRouter) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

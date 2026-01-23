@@ -20,6 +20,19 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketPolicyStatementsMixin",
+		reflect.TypeOf((*BucketPolicyStatementsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BucketPolicyStatementsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnAccessGrantMixinProps",
 		reflect.TypeOf((*CfnAccessGrantMixinProps)(nil)).Elem(),

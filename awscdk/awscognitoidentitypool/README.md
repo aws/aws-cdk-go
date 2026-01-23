@@ -80,7 +80,7 @@ identityPool.AuthenticatedRole.AddToPrincipalPolicy(iam.NewPolicyStatement(&Poli
 		jsii.String("dynamodb:UpdateItem"),
 	},
 	Resources: []*string{
-		table.TableArn,
+		table.tableArn,
 	},
 }))
 ```

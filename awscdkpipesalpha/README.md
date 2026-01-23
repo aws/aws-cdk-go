@@ -289,7 +289,7 @@ func newLambdaEnrichment(lambda Function, props map[string]interface{}) *lambdaE
 		}
 	}
 	this := &lambdaEnrichment{}
-	this.enrichmentArn = lambda.FunctionArn
+	this.enrichmentArn = lambda.functionArn
 	this.inputTransformation = props.inputTransformation
 	return this
 }

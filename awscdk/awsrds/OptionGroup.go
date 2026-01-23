@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsrds"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -124,6 +125,8 @@ type OptionGroup interface {
 	OptionConnections() *map[string]awsec2.Connections
 	// The name of the option group.
 	OptionGroupName() *string
+	// A reference to a OptionGroup resource.
+	OptionGroupRef() *interfacesawsrds.OptionGroupReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -207,6 +210,16 @@ func (j *jsiiProxy_OptionGroup) OptionGroupName() *string {
 	_jsii_.Get(
 		j,
 		"optionGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OptionGroup) OptionGroupRef() *interfacesawsrds.OptionGroupReference {
+	var returns *interfacesawsrds.OptionGroupReference
+	_jsii_.Get(
+		j,
+		"optionGroupRef",
 		&returns,
 	)
 	return returns

@@ -23,8 +23,10 @@ import (
 // Experimental.
 type CodeInterpreterCustomProps struct {
 	// The name of the code interpreter Valid characters are a-z, A-Z, 0-9, _ (underscore) The name must start with a letter and can be up to 48 characters long Pattern: [a-zA-Z][a-zA-Z0-9_]{0,47}.
+	// Default: - auto generate.
+	//
 	// Experimental.
-	CodeInterpreterCustomName *string `field:"required" json:"codeInterpreterCustomName" yaml:"codeInterpreterCustomName"`
+	CodeInterpreterCustomName *string `field:"optional" json:"codeInterpreterCustomName" yaml:"codeInterpreterCustomName"`
 	// Optional description for the code interpreter Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen) and spaces The description can have up to 200 characters.
 	// Default: - No description.
 	//

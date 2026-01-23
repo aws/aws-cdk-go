@@ -13,7 +13,7 @@ package awsbedrockagentcorealpha
 //   // the bucket above needs to contain the agent code
 //
 //   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
-//   	BucketName: codeBucket.BucketName,
+//   	BucketName: codeBucket.bucketName,
 //   	ObjectKey: jsii.String("deployment_package.zip"),
 //   }, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
 //   	jsii.String("opentelemetry-instrument"),

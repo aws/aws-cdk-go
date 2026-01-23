@@ -4,12 +4,23 @@ package awsbatch
 // Batch default instances types.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"))
 //
-//   batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
+//   // Use ARM64 instances (e.g., m6g, c6g, r6g, c7g families)
+//   // Use ARM64 instances (e.g., m6g, c6g, r6g, c7g families)
+//   batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("Arm64Ec2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 //   	Vpc: Vpc,
 //   	DefaultInstanceClasses: []DefaultInstanceClass{
 //   		batch.DefaultInstanceClass_ARM64,
+//   	},
+//   })
+//
+//   // Use x86_64 instances (e.g., m6i, c6i, r6i, c7i families)
+//   // Use x86_64 instances (e.g., m6i, c6i, r6i, c7i families)
+//   batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("X86_64Ec2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
+//   	Vpc: Vpc,
+//   	DefaultInstanceClasses: []DefaultInstanceClass{
+//   		batch.DefaultInstanceClass_X86_64,
 //   	},
 //   })
 //

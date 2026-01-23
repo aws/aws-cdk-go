@@ -15,6 +15,9 @@ const (
 	// User preferences strategy - extracts user behavior patterns from raw conversations.
 	// Experimental.
 	MemoryStrategyType_USER_PREFERENCE MemoryStrategyType = "USER_PREFERENCE"
+	// Episodic memory strategy - captures meaningful slices of user and system interactions.
+	// Experimental.
+	MemoryStrategyType_EPISODIC MemoryStrategyType = "EPISODIC"
 	// Customize memory processing through custom foundation model and prompt templates.
 	// Experimental.
 	MemoryStrategyType_CUSTOM MemoryStrategyType = "CUSTOM"

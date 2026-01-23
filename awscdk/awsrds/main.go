@@ -2227,10 +2227,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "optionGroupName", GoGetter: "OptionGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "optionGroupRef", GoGetter: "OptionGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IOptionGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsrdsIOptionGroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -2378,6 +2380,7 @@ func init() {
 		map[string]interface{}{
 			"IPV4": NetworkType_IPV4,
 			"DUAL": NetworkType_DUAL,
+			"IPV6": NetworkType_IPV6,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2397,6 +2400,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "optionConnections", GoGetter: "OptionConnections"},
 			_jsii_.MemberProperty{JsiiProperty: "optionGroupName", GoGetter: "OptionGroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "optionGroupRef", GoGetter: "OptionGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

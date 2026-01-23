@@ -88,7 +88,7 @@ func validateRuntimeBase_IsResourceParameters(construct constructs.IConstruct) e
 	return nil
 }
 
-func validateNewRuntimeBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewRuntimeBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

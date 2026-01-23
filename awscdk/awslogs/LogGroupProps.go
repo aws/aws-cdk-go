@@ -8,39 +8,25 @@ import (
 // Properties for a LogGroup.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var myRole Role
 //
-//
-//   logGroupDestination := logs.NewLogGroup(this, jsii.String("LogGroupLambdaAudit"), &LogGroupProps{
-//   	LogGroupName: jsii.String("auditDestinationForCDK"),
-//   })
-//
-//   bucket := s3.NewBucket(this, jsii.String("audit-bucket"))
-//   s3Destination := firehose.NewS3Bucket(bucket)
-//
-//   deliveryStream := firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStreamProps{
-//   	Destination: s3Destination,
-//   })
-//
-//   dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
-//   	Name: jsii.String("data protection policy"),
-//   	Description: jsii.String("policy description"),
-//   	Identifiers: []DataIdentifier{
-//   		logs.DataIdentifier_DRIVERSLICENSE_US(),
-//   		 // managed data identifier
-//   		logs.NewDataIdentifier(jsii.String("EmailAddress")),
-//   		 // forward compatibility for new managed data identifiers
-//   		logs.NewCustomDataIdentifier(jsii.String("EmployeeId"), jsii.String("EmployeeId-\\d{9}")),
-//   	},
-//   	 // custom data identifier
-//   	LogGroupAuditDestination: logGroupDestination,
-//   	S3BucketAuditDestination: bucket,
-//   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
-//   })
-//
-//   logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{
-//   	LogGroupName: jsii.String("cdkIntegLogGroup"),
-//   	DataProtectionPolicy: dataProtectionPolicy,
+//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
+//   	Role: myRole,
+//   	 // must be assumable by the `lambda.amazonaws.com` service principal
+//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
+//   	 // defaults to 2 minutes
+//   	MemorySize: jsii.Number(1025),
+//   	 // defaults to 512 if installLatestAwsSdk is true
+//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
+//   		Retention: logs.RetentionDays_ONE_DAY,
+//   	}),
+//   	FunctionName: jsii.String("my-custom-name"),
+//   	 // defaults to a CloudFormation generated name
+//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
+//   	 // defaults to `RemovalPolicy.DESTROY`
+//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
+//   	}),
 //   })
 //
 type LogGroupProps struct {
@@ -48,6 +34,13 @@ type LogGroupProps struct {
 	// Default: - no data protection policy.
 	//
 	DataProtectionPolicy DataProtectionPolicy `field:"optional" json:"dataProtectionPolicy" yaml:"dataProtectionPolicy"`
+	// Indicates whether deletion protection is enabled for this log group.
+	//
+	// When enabled,
+	// deletion protection blocks all deletion operations until it is explicitly disabled.
+	// Default: false.
+	//
+	DeletionProtectionEnabled *bool `field:"optional" json:"deletionProtectionEnabled" yaml:"deletionProtectionEnabled"`
 	// The KMS customer managed key to encrypt the log group with.
 	// Default: Server-side encryption managed by the CloudWatch Logs service.
 	//

@@ -77,5 +77,9 @@ const (
 	//
 	// Valid usage: SIGN_VERIFY.
 	KeySpec_ML_DSA_87 KeySpec = "ML_DSA_87"
+	// NIST-standard Edwards25519 (ed25519) elliptic curve key pair.
+	//
+	// Valid usage: SIGN_VERIFY.
+	KeySpec_ECC_NIST_EDWARDS25519 KeySpec = "ECC_NIST_EDWARDS25519"
 )
 

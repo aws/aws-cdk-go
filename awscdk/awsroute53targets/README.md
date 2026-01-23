@@ -28,7 +28,7 @@ var domainName DomainName
 
 route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 	Zone: Zone,
-	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.RegionalDomainName, domainName.RegionalHostedZoneId)),
+	Target: route53.RecordTarget_FromAlias(targets.NewApiGatewayv2DomainProperties(domainName.regionalDomainName, domainName.regionalHostedZoneId)),
 })
 ```
 

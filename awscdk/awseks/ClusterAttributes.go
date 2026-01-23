@@ -14,7 +14,7 @@ import (
 //   var asg AutoScalingGroup
 //
 //   importedCluster := eks.Cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
-//   	ClusterName: cluster.ClusterName,
+//   	ClusterName: cluster.clusterName,
 //   	ClusterSecurityGroupId: cluster.ClusterSecurityGroupId,
 //   })
 //

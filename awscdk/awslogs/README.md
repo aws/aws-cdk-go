@@ -72,7 +72,7 @@ logGroup.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		iam.NewServicePrincipal(jsii.String("es.amazonaws.com")),
 	},
 	Resources: []*string{
-		logGroup.LogGroupArn,
+		logGroup.logGroupArn,
 	},
 }))
 ```
@@ -487,12 +487,24 @@ dataProtectionPolicy := logs.NewDataProtectionPolicy(&DataProtectionPolicyProps{
 	 // custom data identifier
 	LogGroupAuditDestination: logGroupDestination,
 	S3BucketAuditDestination: bucket,
-	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
+	DeliveryStreamNameAuditDestination: deliveryStream.deliveryStreamName,
 })
 
 logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{
 	LogGroupName: jsii.String("cdkIntegLogGroup"),
 	DataProtectionPolicy: dataProtectionPolicy,
+})
+```
+
+## Configure Deletion Protection
+
+Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+
+For more information, see [Protecting log groups from deletion](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protecting-log-groups-from-deletion.html).
+
+```go
+logs.NewLogGroup(this, jsii.String("LogGroup"), &LogGroupProps{
+	DeletionProtectionEnabled: jsii.Boolean(true),
 })
 ```
 

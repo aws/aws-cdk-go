@@ -334,6 +334,14 @@ func init() {
 			"WAKE_ALARM": Capability_WAKE_ALARM,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.CapacityOptionType",
+		reflect.TypeOf((*CapacityOptionType)(nil)).Elem(),
+		map[string]interface{}{
+			"ON_DEMAND": CapacityOptionType_ON_DEMAND,
+			"SPOT": CapacityOptionType_SPOT,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CapacityProviderStrategy",
 		reflect.TypeOf((*CapacityProviderStrategy)(nil)).Elem(),
@@ -1574,6 +1582,8 @@ func init() {
 		map[string]interface{}{
 			"ROLLING": DeploymentStrategy_ROLLING,
 			"BLUE_GREEN": DeploymentStrategy_BLUE_GREEN,
+			"LINEAR": DeploymentStrategy_LINEAR,
+			"CANARY": DeploymentStrategy_CANARY,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -3124,6 +3134,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.TrackCustomMetricProps",
 		reflect.TypeOf((*TrackCustomMetricProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.TrafficShiftConfig",
+		reflect.TypeOf((*TrafficShiftConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.Ulimit",

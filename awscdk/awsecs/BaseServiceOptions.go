@@ -30,6 +30,10 @@ import (
 //
 //   	// the properties below are optional
 //   	BakeTime: cdk.Duration_Minutes(jsii.Number(30)),
+//   	CanaryConfiguration: &TrafficShiftConfig{
+//   		StepBakeTime: cdk.Duration_*Minutes(jsii.Number(30)),
+//   		StepPercent: jsii.Number(123),
+//   	},
 //   	CapacityProviderStrategies: []CapacityProviderStrategy{
 //   		&CapacityProviderStrategy{
 //   			CapacityProvider: jsii.String("capacityProvider"),
@@ -71,6 +75,10 @@ import (
 //   	LifecycleHooks: []IDeploymentLifecycleHookTarget{
 //   		deploymentLifecycleHookTarget,
 //   	},
+//   	LinearConfiguration: &TrafficShiftConfig{
+//   		StepBakeTime: cdk.Duration_*Minutes(jsii.Number(30)),
+//   		StepPercent: jsii.Number(123),
+//   	},
 //   	MaxHealthyPercent: jsii.Number(123),
 //   	MinHealthyPercent: jsii.Number(123),
 //   	PropagateTags: awscdk.*Aws_ecs.PropagatedTagSource_SERVICE,
@@ -110,6 +118,12 @@ type BaseServiceOptions struct {
 	// Default: - none.
 	//
 	BakeTime awscdk.Duration `field:"optional" json:"bakeTime" yaml:"bakeTime"`
+	// Configuration for canary deployment strategy.
+	//
+	// Only valid when deploymentStrategy is set to CANARY.
+	// Default: - no canary configuration.
+	//
+	CanaryConfiguration *TrafficShiftConfig `field:"optional" json:"canaryConfiguration" yaml:"canaryConfiguration"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Default: - undefined.
 	//
@@ -164,6 +178,12 @@ type BaseServiceOptions struct {
 	// Default: - none;.
 	//
 	LifecycleHooks *[]IDeploymentLifecycleHookTarget `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
+	// Configuration for linear deployment strategy.
+	//
+	// Only valid when deploymentStrategy is set to LINEAR.
+	// Default: - no linear configuration.
+	//
+	LinearConfiguration *TrafficShiftConfig `field:"optional" json:"linearConfiguration" yaml:"linearConfiguration"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
 	// Default: - 100 if daemon, otherwise 200.
 	//

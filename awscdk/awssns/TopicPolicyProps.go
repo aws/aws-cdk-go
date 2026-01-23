@@ -19,7 +19,7 @@ import (
 //   				iam.NewAnyPrincipal(),
 //   			},
 //   			Resources: []*string{
-//   				topic.TopicArn,
+//   				topic.topicArn,
 //   			},
 //   		}),
 //   	},

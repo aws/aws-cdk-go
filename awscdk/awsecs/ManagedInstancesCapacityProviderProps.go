@@ -22,6 +22,7 @@ import (
 //   })
 //
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
+//   	CapacityOptionType: ecs.CapacityOptionType_SPOT,
 //   	Subnets: vpc.PrivateSubnets,
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
@@ -72,6 +73,12 @@ type ManagedInstancesCapacityProviderProps struct {
 	// This array must be non-empty and should contain subnets from the VPC where you want
 	// the managed instances to be deployed.
 	Subnets *[]awsec2.ISubnet `field:"required" json:"subnets" yaml:"subnets"`
+	// Specifies the capacity option type for instances launched by this capacity provider.
+	//
+	// This determines whether instances are launched as On-Demand or Spot instances.
+	// Default: - `ON_DEMAND`.
+	//
+	CapacityOptionType CapacityOptionType `field:"optional" json:"capacityOptionType" yaml:"capacityOptionType"`
 	// The name of the capacity provider.
 	//
 	// If a name is specified, it cannot start with `aws`, `ecs`, or `fargate`.

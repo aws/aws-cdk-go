@@ -52,5 +52,5 @@ you can get it from the lower-level `CfnCertificateAuthority` using the same `fr
 var cfnCertificateAuthority CfnCertificateAuthority
 
 
-certificateAuthority := acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), cfnCertificateAuthority.AttrArn)
+certificateAuthority := acmpca.CertificateAuthority_FromCertificateAuthorityArn(this, jsii.String("CertificateAuthority"), cfnCertificateAuthority.attrArn)
 ```

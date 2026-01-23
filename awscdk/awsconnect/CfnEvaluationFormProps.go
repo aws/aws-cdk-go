@@ -186,6 +186,19 @@ import (
 //   	LanguageConfiguration: &EvaluationFormLanguageConfigurationProperty{
 //   		FormLanguage: jsii.String("formLanguage"),
 //   	},
+//   	ReviewConfiguration: &EvaluationReviewConfigurationProperty{
+//   		ReviewNotificationRecipients: []interface{}{
+//   			&EvaluationReviewNotificationRecipientProperty{
+//   				Type: jsii.String("type"),
+//   				Value: &EvaluationReviewNotificationRecipientValueProperty{
+//   					UserId: jsii.String("userId"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		EligibilityDays: jsii.Number(123),
+//   	},
 //   	ScoringStrategy: &ScoringStrategyProperty{
 //   		Mode: jsii.String("mode"),
 //   		Status: jsii.String("status"),
@@ -244,6 +257,9 @@ type CfnEvaluationFormProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-languageconfiguration
 	//
 	LanguageConfiguration interface{} `field:"optional" json:"languageConfiguration" yaml:"languageConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-reviewconfiguration
+	//
+	ReviewConfiguration interface{} `field:"optional" json:"reviewConfiguration" yaml:"reviewConfiguration"`
 	// A scoring strategy of the evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-scoringstrategy
 	//

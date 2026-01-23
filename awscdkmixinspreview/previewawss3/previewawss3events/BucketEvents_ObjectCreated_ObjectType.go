@@ -38,7 +38,7 @@ package previewawss3events
 //   	}),
 //   	Targets: []interface{}{
 //   		&TargetProperty{
-//   			Arn: fn.FunctionArn,
+//   			Arn: fn.functionArn,
 //   			Id: jsii.String("L1"),
 //   		},
 //   	},

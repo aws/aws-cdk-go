@@ -17,6 +17,7 @@ package awsecs
 //   })
 //
 //   miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
+//   	CapacityOptionType: ecs.CapacityOptionType_SPOT,
 //   	Subnets: vpc.PrivateSubnets,
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,

@@ -93,5 +93,7 @@ const (
 	//
 	// Purpose-built for efficient machine learning inference.
 	AcceleratorType_INFERENCE AcceleratorType = "INFERENCE"
+	// Media accelerators for video transcoding and processing workloads.
+	AcceleratorType_MEDIA AcceleratorType = "MEDIA"
 )
 

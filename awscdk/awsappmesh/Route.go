@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -59,6 +60,8 @@ type Route interface {
 	RouteArn() *string
 	// The name of the Route.
 	RouteName() *string
+	// A reference to a Route resource.
+	RouteRef() *interfacesawsappmesh.RouteReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The VirtualRouter the Route belongs to.
@@ -142,6 +145,16 @@ func (j *jsiiProxy_Route) RouteName() *string {
 	_jsii_.Get(
 		j,
 		"routeName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Route) RouteRef() *interfacesawsappmesh.RouteReference {
+	var returns *interfacesawsappmesh.RouteReference
+	_jsii_.Get(
+		j,
+		"routeRef",
 		&returns,
 	)
 	return returns

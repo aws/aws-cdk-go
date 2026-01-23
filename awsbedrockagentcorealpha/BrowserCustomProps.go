@@ -19,8 +19,10 @@ import (
 // Experimental.
 type BrowserCustomProps struct {
 	// The name of the browser Valid characters are a-z, A-Z, 0-9, _ (underscore) The name must start with a letter and can be up to 48 characters long Pattern: [a-zA-Z][a-zA-Z0-9_]{0,47}.
+	// Default: - auto generate.
+	//
 	// Experimental.
-	BrowserCustomName *string `field:"required" json:"browserCustomName" yaml:"browserCustomName"`
+	BrowserCustomName *string `field:"optional" json:"browserCustomName" yaml:"browserCustomName"`
 	// Specifies whether browser signing is enabled.
 	//
 	// When enabled, the browser will cryptographically sign

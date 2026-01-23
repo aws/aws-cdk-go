@@ -16,6 +16,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configRuleComplianceType", GoGetter: "ConfigRuleComplianceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleId", GoGetter: "ConfigRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -715,6 +716,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configRuleComplianceType", GoGetter: "ConfigRuleComplianceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleId", GoGetter: "ConfigRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -749,6 +751,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configRuleComplianceType", GoGetter: "ConfigRuleComplianceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleId", GoGetter: "ConfigRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -783,6 +786,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configRuleComplianceType", GoGetter: "ConfigRuleComplianceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleId", GoGetter: "ConfigRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -818,6 +822,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configRuleComplianceType", GoGetter: "ConfigRuleComplianceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleId", GoGetter: "ConfigRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -860,6 +865,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "onComplianceChange", GoMethod: "OnComplianceChange"},
@@ -869,6 +875,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IRule{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsconfigIConfigRuleRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -882,6 +889,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configRuleComplianceType", GoGetter: "ConfigRuleComplianceType"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleId", GoGetter: "ConfigRuleId"},
 			_jsii_.MemberProperty{JsiiProperty: "configRuleName", GoGetter: "ConfigRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "configRuleRef", GoGetter: "ConfigRuleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},

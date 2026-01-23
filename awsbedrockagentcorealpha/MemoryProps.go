@@ -27,9 +27,6 @@ import (
 //
 // Experimental.
 type MemoryProps struct {
-	// The name of the memory Valid characters are a-z, A-Z, 0-9, _ (underscore) The name must start with a letter and can be up to 48 characters long Pattern: [a-zA-Z][a-zA-Z0-9_]{0,47}.
-	// Experimental.
-	MemoryName *string `field:"required" json:"memoryName" yaml:"memoryName"`
 	// Optional description for the memory Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen) and spaces The description can have up to 200 characters.
 	// Default: - No description.
 	//
@@ -53,6 +50,11 @@ type MemoryProps struct {
 	//
 	// Experimental.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	// The name of the memory Valid characters are a-z, A-Z, 0-9, _ (underscore) The name must start with a letter and can be up to 48 characters long Pattern: [a-zA-Z][a-zA-Z0-9_]{0,47}.
+	// Default: - auto generate.
+	//
+	// Experimental.
+	MemoryName *string `field:"optional" json:"memoryName" yaml:"memoryName"`
 	// If you need long-term memory for context recall across sessions, you can setup memory extraction strategies to extract the relevant memory from the raw events.
 	// Default: - No extraction strategies (short term memory only).
 	//

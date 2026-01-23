@@ -8,24 +8,31 @@ package awsecs
 // Example:
 //   var cluster Cluster
 //   var taskDefinition TaskDefinition
-//   var vpc Vpc
+//   var blueTargetGroup ApplicationTargetGroup
+//   var greenTargetGroup ApplicationTargetGroup
+//   var prodListenerRule ApplicationListenerRule
 //
-//   service := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
+//
+//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	MinHealthyPercent: jsii.Number(100),
+//   	DeploymentStrategy: ecs.DeploymentStrategy_LINEAR,
+//   	LinearConfiguration: &TrafficShiftConfig{
+//   		StepPercent: jsii.Number(10),
+//   		StepBakeTime: awscdk.Duration_Minutes(jsii.Number(5)),
+//   	},
 //   })
 //
-//   lb := elb.NewLoadBalancer(this, jsii.String("LB"), &LoadBalancerProps{
-//   	Vpc: Vpc,
-//   })
-//   lb.AddListener(&LoadBalancerListener{
-//   	ExternalPort: jsii.Number(80),
-//   })
-//   lb.AddTarget(service.LoadBalancerTarget(&LoadBalancerTargetOptions{
-//   	ContainerName: jsii.String("MyContainer"),
+//   target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+//   	ContainerName: jsii.String("web"),
 //   	ContainerPort: jsii.Number(80),
-//   }))
+//   	AlternateTarget: ecs.NewAlternateTarget(jsii.String("AlternateTarget"), &AlternateTargetProps{
+//   		AlternateTargetGroup: greenTargetGroup,
+//   		ProductionListener: ecs.ListenerRuleConfiguration_ApplicationListenerRule(prodListenerRule),
+//   	}),
+//   })
+//
+//   target.AttachToApplicationTargetGroup(blueTargetGroup)
 //
 type LoadBalancerTargetOptions struct {
 	// The name of the container.

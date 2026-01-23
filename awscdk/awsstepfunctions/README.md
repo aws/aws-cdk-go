@@ -1366,7 +1366,7 @@ activity := sfn.NewActivity(this, jsii.String("Activity"))
 // Read this CloudFormation Output from your application and use it to poll for work on
 // the activity.
 awscdk.NewCfnOutput(this, jsii.String("ActivityArn"), &CfnOutputProps{
-	Value: activity.ActivityArn,
+	Value: activity.activityArn,
 })
 ```
 

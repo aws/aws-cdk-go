@@ -76,6 +76,28 @@ func NewMemoryStrategy_Override(m MemoryStrategy) {
 
 // Default strategies for organizing and extracting memory data, each optimized for specific use cases.
 //
+// Captures meaningful slices of user and system interactions, preserve them into compact records after summarizing.
+// Extracted memory example: User first asked about pricing on Monday, then requested feature comparison on Tuesday, finally made purchase decision on Wednesday.
+//
+// Returns: A ManagedMemoryStrategy.
+// Experimental.
+func MemoryStrategy_UsingBuiltInEpisodic() ManagedMemoryStrategy {
+	_init_.Initialize()
+
+	var returns ManagedMemoryStrategy
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.MemoryStrategy",
+		"usingBuiltInEpisodic",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Default strategies for organizing and extracting memory data, each optimized for specific use cases.
+//
 // Distills general facts, concepts, and underlying meanings from raw conversational data, presenting the information in a context-independent format.
 // Extracted memory example: In-context learning = task-solving via examples, no training needed.
 //
@@ -134,6 +156,31 @@ func MemoryStrategy_UsingBuiltInUserPreference() ManagedMemoryStrategy {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.MemoryStrategy",
 		"usingBuiltInUserPreference",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates an episodic memory strategy with custom configuration.
+//
+// Captures meaningful slices of user and system interactions, preserve them into compact records after summarizing.
+// Extracted memory example: User first asked about pricing on Monday, then requested feature comparison on Tuesday, finally made purchase decision on Wednesday.
+//
+// Returns: A ManagedMemoryStrategy.
+// Experimental.
+func MemoryStrategy_UsingEpisodic(config *ManagedStrategyProps) ManagedMemoryStrategy {
+	_init_.Initialize()
+
+	if err := validateMemoryStrategy_UsingEpisodicParameters(config); err != nil {
+		panic(err)
+	}
+	var returns ManagedMemoryStrategy
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.MemoryStrategy",
+		"usingEpisodic",
+		[]interface{}{config},
 		&returns,
 	)
 

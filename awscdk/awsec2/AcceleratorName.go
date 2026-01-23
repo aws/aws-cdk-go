@@ -102,5 +102,19 @@ const (
 	AcceleratorName_K520 AcceleratorName = "K520"
 	// NVIDIA T4G GPUs.
 	AcceleratorName_T4G AcceleratorName = "T4G"
+	// NVIDIA L40S GPU for AI inference and graphics workloads.
+	AcceleratorName_L40S AcceleratorName = "L40S"
+	// NVIDIA L4 GPU for AI inference and graphics workloads.
+	AcceleratorName_L4 AcceleratorName = "L4"
+	// Habana Gaudi HL-205 accelerator for deep learning training.
+	AcceleratorName_GAUDI_HL_205 AcceleratorName = "GAUDI_HL_205"
+	// AWS Inferentia2 chips for high-performance ML inference.
+	AcceleratorName_INFERENTIA2 AcceleratorName = "INFERENTIA2"
+	// AWS Trainium chips for high-performance ML training.
+	AcceleratorName_TRAINIUM AcceleratorName = "TRAINIUM"
+	// AWS Trainium2 chips for high-performance ML training.
+	AcceleratorName_TRAINIUM2 AcceleratorName = "TRAINIUM2"
+	// Xilinx U30 media transcoding accelerator for video processing.
+	AcceleratorName_U30 AcceleratorName = "U30"
 )
 

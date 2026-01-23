@@ -16,15 +16,13 @@ import (
 // A ManagedComputeEnvironment that uses ECS orchestration on EC2 instances.
 //
 // Example:
-//   var computeEnv IManagedEc2EcsComputeEnvironment
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"))
-//   computeEnv.AddInstanceClass(ec2.InstanceClass_M5AD)
-//   // Or, specify it on the constructor:
-//   // Or, specify it on the constructor:
-//   batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
+//   var vpc IVpc
+//
+//
+//   computeEnv := batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("Ec2ComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
 //   	Vpc: Vpc,
-//   	InstanceClasses: []InstanceClass{
-//   		ec2.InstanceClass_R4,
+//   	InstanceTypes: []InstanceType{
+//   		ec2.InstanceType_Of(ec2.InstanceClass_M5AD, ec2.InstanceSize_LARGE),
 //   	},
 //   })
 //

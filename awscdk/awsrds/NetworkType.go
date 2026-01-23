@@ -24,5 +24,7 @@ const (
 	NetworkType_IPV4 NetworkType = "IPV4"
 	// Dual-stack network type.
 	NetworkType_DUAL NetworkType = "DUAL"
+	// IPv6 only network type.
+	NetworkType_IPV6 NetworkType = "IPV6"
 )
 

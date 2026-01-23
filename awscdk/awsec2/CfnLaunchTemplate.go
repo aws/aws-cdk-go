@@ -47,7 +47,7 @@ import (
 //   cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
 //   	LaunchTemplateSpec: &LaunchTemplateSpec{
 //   		Id: lt.ref,
-//   		Version: lt.AttrLatestVersionNumber,
+//   		Version: lt.attrLatestVersionNumber,
 //   	},
 //   })
 //

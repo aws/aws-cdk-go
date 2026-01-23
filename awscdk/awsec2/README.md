@@ -237,7 +237,7 @@ userData := ec2.UserData_ForLinux()
 userData.AddCommands(
 (SpreadElement ...ec2.NatInstanceProviderV2.DEFAULT_USER_DATA_COMMANDS
 		ec2.NatInstanceProviderV2_DEFAULT_USER_DATA_COMMANDS()), jsii.String("echo \"hello world!\" > hello.txt"),
-fmt.Sprintf("aws s3 cp hello.txt s3://%v", bucket.BucketName))
+fmt.Sprintf("aws s3 cp hello.txt s3://%v", bucket.bucketName))
 
 provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
 	InstanceType: ec2.NewInstanceType(jsii.String("t3.small")),
@@ -2686,7 +2686,7 @@ var deliveryStream CfnDeliveryStream
 
 
 vpc.addFlowLog(jsii.String("FlowLogsKinesisDataFirehose"), &FlowLogOptions{
-	Destination: ec2.FlowLogDestination_ToKinesisDataFirehoseDestination(deliveryStream.AttrArn),
+	Destination: ec2.FlowLogDestination_ToKinesisDataFirehoseDestination(deliveryStream.attrArn),
 })
 ```
 

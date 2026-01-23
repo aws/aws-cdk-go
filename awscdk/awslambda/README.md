@@ -1266,8 +1266,8 @@ table := dynamodb.NewTable(this, jsii.String("Table"), &TableProps{
 fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
 	StartingPosition: lambda.StartingPosition_LATEST,
 	MetricsConfig: &MetricsConfig{
-		Metrics: []eVENT_COUNT{
-			lambda.MetricType_*eVENT_COUNT,
+		Metrics: []MetricType{
+			lambda.MetricType_EVENT_COUNT,
 		},
 	},
 }))
@@ -1414,7 +1414,7 @@ If you want to retrieve the ARN of the ADOT Lambda layer without enabling ADOT i
 ```go
 var fn Function
 
-layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.Stack, fn.Architecture)
+layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.stack, fn.Architecture)
 ```
 
 When using the `AdotLambdaLayerPythonSdkVersion` the `AdotLambdaExecWrapper` needs to be `AdotLambdaExecWrapper.INSTRUMENT_HANDLER` as per [AWS Distro for OpenTelemetry Lambda Support For Python](https://aws-otel.github.io/docs/getting-started/lambda/lambda-python)
@@ -1583,7 +1583,7 @@ func newTestStack(scope App, id *string) *testStack {
 	})
 
 	cdk.NewCfnOutput(this, jsii.String("FunctionName"), &CfnOutputProps{
-		Value: fn.FunctionName,
+		Value: fn.functionName,
 	})
 	return this
 }

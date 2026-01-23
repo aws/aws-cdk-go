@@ -34,7 +34,7 @@ import (
 //   		jsii.String("eks:List*"),
 //   	},
 //   	Resources: []*string{
-//   		cluster.ClusterArn,
+//   		cluster.clusterArn,
 //   	},
 //   }))
 //

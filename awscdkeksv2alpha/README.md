@@ -782,14 +782,14 @@ cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 })
 
 // Cluster Admin role for this cluster
-cluster.GrantAccess(jsii.String("clusterAdminAccess"), clusterAdminRole.RoleArn, []IAccessPolicy{
+cluster.GrantAccess(jsii.String("clusterAdminAccess"), clusterAdminRole.roleArn, []IAccessPolicy{
 	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSClusterAdminPolicy"), &AccessPolicyNameOptions{
 		AccessScopeType: eks.AccessScopeType_CLUSTER,
 	}),
 })
 
 // EKS Admin role for specified namespaces of this cluster
-cluster.GrantAccess(jsii.String("eksAdminRoleAccess"), eksAdminRole.RoleArn, []IAccessPolicy{
+cluster.GrantAccess(jsii.String("eksAdminRoleAccess"), eksAdminRole.roleArn, []IAccessPolicy{
 	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &AccessPolicyNameOptions{
 		AccessScopeType: eks.AccessScopeType_NAMESPACE,
 		Namespaces: []*string{

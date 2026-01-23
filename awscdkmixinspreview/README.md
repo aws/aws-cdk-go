@@ -131,6 +131,31 @@ bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
 awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewEnableVersioning())
 ```
 
+**BucketPolicyStatementsMixin**: Adds IAM policy statements to a bucket policy
+
+```go
+var bucket IBucketRef
+
+
+bucketPolicy := s3.NewCfnBucketPolicy(scope, jsii.String("BucketPolicy"), &CfnBucketPolicyProps{
+	Bucket: bucket,
+	PolicyDocument: iam.NewPolicyDocument(),
+})
+awscdkmixinspreview.Mixins_Of(bucketPolicy).Apply(awscdkmixinspreview.NewBucketPolicyStatementsMixin([]PolicyStatement{
+	iam.NewPolicyStatement(&PolicyStatementProps{
+		Actions: []*string{
+			jsii.String("s3:GetObject"),
+		},
+		Resources: []*string{
+			jsii.String("*"),
+		},
+		Principals: []IPrincipal{
+			iam.NewAnyPrincipal(),
+		},
+	}),
+}))
+```
+
 ### Logs Delivery
 
 Configures vended logs delivery for supported resources to various destinations:
@@ -263,7 +288,7 @@ events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
 	}),
 	Targets: []interface{}{
 		&TargetProperty{
-			Arn: fn.FunctionArn,
+			Arn: fn.functionArn,
 			Id: jsii.String("L1"),
 		},
 	},

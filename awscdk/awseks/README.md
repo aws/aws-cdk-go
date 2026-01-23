@@ -433,7 +433,7 @@ lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTe
 cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
 	LaunchTemplateSpec: &LaunchTemplateSpec{
 		Id: lt.ref,
-		Version: lt.AttrLatestVersionNumber,
+		Version: lt.attrLatestVersionNumber,
 	},
 })
 ```
@@ -446,7 +446,7 @@ var cluster Cluster
 
 userData := ec2.UserData_ForLinux()
 userData.AddCommands(jsii.String("set -o xtrace"),
-fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.ClusterName))
+fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.clusterName))
 lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
 	LaunchTemplateData: &LaunchTemplateDataProperty{
 		ImageId: jsii.String("some-ami-id"),
@@ -458,7 +458,7 @@ lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTe
 cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
 	LaunchTemplateSpec: &LaunchTemplateSpec{
 		Id: lt.ref,
-		Version: lt.AttrLatestVersionNumber,
+		Version: lt.attrLatestVersionNumber,
 	},
 })
 ```
@@ -608,7 +608,7 @@ var cluster Cluster
 var asg AutoScalingGroup
 
 importedCluster := eks.Cluster_FromClusterAttributes(this, jsii.String("ImportedCluster"), &ClusterAttributes{
-	ClusterName: cluster.ClusterName,
+	ClusterName: cluster.clusterName,
 	ClusterSecurityGroupId: cluster.ClusterSecurityGroupId,
 })
 
@@ -1303,7 +1303,7 @@ your_current_role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("eks:List*"),
 	},
 	Resources: []*string{
-		cluster.ClusterArn,
+		cluster.clusterArn,
 	},
 }))
 ```
@@ -1332,7 +1332,7 @@ mastersRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("eks:List*"),
 	},
 	Resources: []*string{
-		cluster.ClusterArn,
+		cluster.clusterArn,
 	},
 }))
 ```
@@ -1352,7 +1352,7 @@ consoleReadOnlyRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("eks:List*"),
 	},
 	Resources: []*string{
-		cluster.ClusterArn,
+		cluster.clusterArn,
 	},
 }))
 
@@ -1450,14 +1450,14 @@ cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 })
 
 // Cluster Admin role for this cluster
-cluster.GrantAccess(jsii.String("clusterAdminAccess"), clusterAdminRole.RoleArn, []IAccessPolicy{
+cluster.GrantAccess(jsii.String("clusterAdminAccess"), clusterAdminRole.roleArn, []IAccessPolicy{
 	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSClusterAdminPolicy"), &AccessPolicyNameOptions{
 		AccessScopeType: eks.AccessScopeType_CLUSTER,
 	}),
 })
 
 // EKS Admin role for specified namespaces of this cluster
-cluster.GrantAccess(jsii.String("eksAdminRoleAccess"), eksAdminRole.RoleArn, []IAccessPolicy{
+cluster.GrantAccess(jsii.String("eksAdminRoleAccess"), eksAdminRole.roleArn, []IAccessPolicy{
 	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &AccessPolicyNameOptions{
 		AccessScopeType: eks.AccessScopeType_NAMESPACE,
 		Namespaces: []*string{
@@ -1468,7 +1468,7 @@ cluster.GrantAccess(jsii.String("eksAdminRoleAccess"), eksAdminRole.RoleArn, []I
 })
 
 // EKS Admin Viewer role for specified namespaces of this cluster
-cluster.GrantAccess(jsii.String("eksAdminViewRoleAccess"), eksAdminViewRole.RoleArn, []IAccessPolicy{
+cluster.GrantAccess(jsii.String("eksAdminViewRoleAccess"), eksAdminViewRole.roleArn, []IAccessPolicy{
 	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminViewPolicy"), &AccessPolicyNameOptions{
 		AccessScopeType: eks.AccessScopeType_NAMESPACE,
 		Namespaces: []*string{

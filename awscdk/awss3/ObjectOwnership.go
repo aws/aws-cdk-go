@@ -14,7 +14,7 @@ package awss3
 //   		jsii.String("s3:*"),
 //   	},
 //   	Resources: []*string{
-//   		accessLogsBucket.BucketArn,
+//   		accessLogsBucket.bucketArn,
 //   		accessLogsBucket.ArnForObjects(jsii.String("*")),
 //   	},
 //   	Principals: []IPrincipal{

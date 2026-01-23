@@ -12,7 +12,7 @@ import (
 // Example:
 //   var fn Function
 //
-//   layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.Stack, fn.Architecture)
+//   layerArn := lambda.AdotLambdaLayerJavaSdkVersion_V1_19_0().layerArn(fn.stack, fn.Architecture)
 //
 type AdotLambdaLayerJavaSdkVersion interface {
 	LayerVersion() *string

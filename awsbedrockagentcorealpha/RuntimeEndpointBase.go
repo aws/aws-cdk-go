@@ -226,12 +226,12 @@ func (j *jsiiProxy_RuntimeEndpointBase) TargetVersion() *string {
 
 
 // Experimental.
-func NewRuntimeEndpointBase_Override(r RuntimeEndpointBase, scope constructs.Construct, id *string) {
+func NewRuntimeEndpointBase_Override(r RuntimeEndpointBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeEndpointBase",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		r,
 	)
 }

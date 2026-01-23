@@ -28,7 +28,7 @@ import (
 //   	MinHealthyPercent: jsii.Number(100),
 //   	DeploymentAlarms: &DeploymentAlarmConfig{
 //   		AlarmNames: []*string{
-//   			elbAlarm.AlarmName,
+//   			elbAlarm.alarmName,
 //   		},
 //   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
 //   	},

@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface which all Mesh based classes MUST implement.
 type IMesh interface {
+	interfacesawsappmesh.IMeshRef
 	awscdk.IResource
 	// Creates a new VirtualGateway in this Mesh.
 	//
@@ -33,6 +37,7 @@ type IMesh interface {
 
 // The jsii proxy for IMesh
 type jsiiProxy_IMesh struct {
+	internal.Type__interfacesawsappmeshIMeshRef
 	internal.Type__awscdkIResource
 }
 
@@ -84,6 +89,17 @@ func (i *jsiiProxy_IMesh) AddVirtualRouter(id *string, props *VirtualRouterBaseP
 	return returns
 }
 
+func (i *jsiiProxy_IMesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IMesh) MeshArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -99,6 +115,46 @@ func (j *jsiiProxy_IMesh) MeshName() *string {
 	_jsii_.Get(
 		j,
 		"meshName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMesh) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMesh) MeshRef() *interfacesawsappmesh.MeshReference {
+	var returns *interfacesawsappmesh.MeshReference
+	_jsii_.Get(
+		j,
+		"meshRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMesh) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMesh) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

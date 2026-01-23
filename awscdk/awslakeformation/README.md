@@ -96,13 +96,13 @@ tagAssociation := awscdk.NewCfnTagAssociation(this, jsii.String("TagAssociation"
 	},
 	Resource: &ResourceProperty{
 		TableWithColumns: &TableWithColumnsResourceProperty{
-			DatabaseName: database.DatabaseName,
+			DatabaseName: database.databaseName,
 			ColumnNames: []*string{
 				jsii.String("col1"),
 				jsii.String("col2"),
 			},
 			CatalogId: accountId,
-			Name: table.TableName,
+			Name: table.tableName,
 		},
 	},
 })

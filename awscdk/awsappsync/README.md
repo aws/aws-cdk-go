@@ -413,7 +413,7 @@ domain := opensearch.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
 	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 	FineGrainedAccessControl: &AdvancedSecurityOptions{
-		MasterUserArn: user.UserArn,
+		MasterUserArn: user.userArn,
 	},
 	EncryptionAtRest: &EncryptionAtRestOptions{
 		Enabled: jsii.Boolean(true),
@@ -1356,7 +1356,7 @@ var webAcl CfnWebACL
 // Associate waf with Event API
 wafv2.NewCfnWebACLAssociation(this, jsii.String("WafAssociation"), &CfnWebACLAssociationProps{
 	ResourceArn: api.ApiArn,
-	WebAclArn: webAcl.AttrArn,
+	WebAclArn: webAcl.attrArn,
 })
 ```
 

@@ -16,7 +16,7 @@ package awsiam
 //   				iam.NewServicePrincipal(jsii.String("s3.amazonaws.com")),
 //   			},
 //   			Resources: []*string{
-//   				topic.TopicArn,
+//   				topic.topicArn,
 //   			},
 //   		}),
 //   	},

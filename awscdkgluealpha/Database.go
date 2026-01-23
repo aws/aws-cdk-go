@@ -80,13 +80,13 @@ import (
 //   	},
 //   	Resource: &ResourceProperty{
 //   		TableWithColumns: &TableWithColumnsResourceProperty{
-//   			DatabaseName: database.DatabaseName,
+//   			DatabaseName: database.databaseName,
 //   			ColumnNames: []*string{
 //   				jsii.String("col1"),
 //   				jsii.String("col2"),
 //   			},
 //   			CatalogId: accountId,
-//   			Name: table.TableName,
+//   			Name: table.tableName,
 //   		},
 //   	},
 //   })
@@ -104,10 +104,10 @@ type Database interface {
 	// The catalog id of the database (usually, the AWS account id).
 	// Experimental.
 	CatalogId() *string
-	// ARN of this database.
+	// The ARN of the database.
 	// Experimental.
 	DatabaseArn() *string
-	// Name of this database.
+	// The name of the database.
 	// Experimental.
 	DatabaseName() *string
 	// The environment this resource belongs to.
@@ -124,6 +124,8 @@ type Database interface {
 	// Location URI of this database.
 	// Experimental.
 	LocationUri() *string
+	// Experimental.
+	SetLocationUri(val *string)
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -295,6 +297,14 @@ func NewDatabase_Override(d Database, scope constructs.Construct, id *string, pr
 		"@aws-cdk/aws-glue-alpha.Database",
 		[]interface{}{scope, id, props},
 		d,
+	)
+}
+
+func (j *jsiiProxy_Database)SetLocationUri(val *string) {
+	_jsii_.Set(
+		j,
+		"locationUri",
+		val,
 	)
 }
 

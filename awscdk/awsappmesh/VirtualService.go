@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -63,6 +64,8 @@ type VirtualService interface {
 	VirtualServiceArn() *string
 	// The name of the VirtualService, it is recommended this follows the fully-qualified domain name format.
 	VirtualServiceName() *string
+	// A reference to a VirtualService resource.
+	VirtualServiceRef() *interfacesawsappmesh.VirtualServiceReference
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -162,6 +165,16 @@ func (j *jsiiProxy_VirtualService) VirtualServiceName() *string {
 	_jsii_.Get(
 		j,
 		"virtualServiceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VirtualService) VirtualServiceRef() *interfacesawsappmesh.VirtualServiceReference {
+	var returns *interfacesawsappmesh.VirtualServiceReference
+	_jsii_.Get(
+		j,
+		"virtualServiceRef",
 		&returns,
 	)
 	return returns

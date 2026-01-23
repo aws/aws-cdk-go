@@ -40,7 +40,7 @@ import (
 //   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 //
 //   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
-//   	TargetOriginId: myBucket.BucketArn,
+//   	TargetOriginId: myBucket.bucketArn,
 //   	ViewerProtocolPolicy: jsii.String("allow-all"),
 //   	Compress: jsii.Boolean(false),
 //   	AllowedMethods: []*string{
@@ -57,7 +57,7 @@ import (
 //   	ConnectionMode: jsii.String("tenant-only"),
 //   	Origins: []interface{}{
 //   		&OriginProperty{
-//   			Id: myBucket.*BucketArn,
+//   			Id: myBucket.bucketArn,
 //   			DomainName: myBucket.BucketDomainName,
 //   			S3OriginConfig: &S3OriginConfigProperty{
 //   			},
@@ -100,7 +100,7 @@ import (
 //   })
 //
 //   record := route53.NewCnameRecord(this, jsii.String("cname-record"), &CnameRecordProps{
-//   	DomainName: connectionGroup.AttrRoutingEndpoint,
+//   	DomainName: connectionGroup.attrRoutingEndpoint,
 //   	Zone: hostedZone,
 //   	RecordName: jsii.String("cf-hosted-tenant.my.domain.com"),
 //   })
@@ -112,7 +112,7 @@ import (
 //   	Domains: []*string{
 //   		jsii.String("cf-hosted-tenant.my.domain.com"),
 //   	},
-//   	ConnectionGroupId: connectionGroup.AttrId,
+//   	ConnectionGroupId: connectionGroup.attrId,
 //   	Enabled: jsii.Boolean(true),
 //   	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
 //   		ValidationTokenHost: jsii.String("cloudfront"),

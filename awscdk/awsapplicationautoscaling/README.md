@@ -243,7 +243,7 @@ target := appscaling.NewScalableTarget(this, jsii.String("ScalableTarget"), &Sca
 	ServiceNamespace: appscaling.ServiceNamespace_LAMBDA,
 	MaxCapacity: jsii.Number(100),
 	MinCapacity: jsii.Number(10),
-	ResourceId: fmt.Sprintf("function:%v:%v", handler.FunctionName, fnVer.Version),
+	ResourceId: fmt.Sprintf("function:%v:%v", handler.functionName, fnVer.Version),
 	ScalableDimension: jsii.String("lambda:function:ProvisionedConcurrency"),
 })
 

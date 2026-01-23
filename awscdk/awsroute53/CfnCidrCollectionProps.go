@@ -24,7 +24,7 @@ package awsroute53
 //   	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
 //   	SetIdentifier: jsii.String("test"),
 //   	CidrRoutingConfig: route53.CidrRoutingConfig_Create(&CidrRoutingConfigProps{
-//   		CollectionId: cidrCollection.AttrId,
+//   		CollectionId: cidrCollection.attrId,
 //   		LocationName: jsii.String("test_location"),
 //   	}),
 //   })

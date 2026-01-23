@@ -88,7 +88,7 @@ func validateBrowserCustomBase_IsResourceParameters(construct constructs.IConstr
 	return nil
 }
 
-func validateNewBrowserCustomBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewBrowserCustomBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

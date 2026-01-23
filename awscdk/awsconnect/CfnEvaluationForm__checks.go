@@ -315,6 +315,30 @@ func (j *jsiiProxy_CfnEvaluationForm) validateSetLanguageConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) validateSetReviewConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEvaluationForm_EvaluationReviewConfigurationProperty:
+		val := val.(*CfnEvaluationForm_EvaluationReviewConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEvaluationForm_EvaluationReviewConfigurationProperty:
+		val_ := val.(CfnEvaluationForm_EvaluationReviewConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEvaluationForm_EvaluationReviewConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) validateSetScoringStrategyParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

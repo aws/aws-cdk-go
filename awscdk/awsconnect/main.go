@@ -596,6 +596,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "reviewConfiguration", GoGetter: "ReviewConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "scoringStrategy", GoGetter: "ScoringStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -733,6 +734,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationFormTextQuestionPropertiesProperty",
 		reflect.TypeOf((*CfnEvaluationForm_EvaluationFormTextQuestionPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationReviewConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationReviewConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationReviewNotificationRecipientProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationReviewNotificationRecipientProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnEvaluationForm.EvaluationReviewNotificationRecipientValueProperty",
+		reflect.TypeOf((*CfnEvaluationForm_EvaluationReviewNotificationRecipientValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm.MultiSelectQuestionRuleCategoryAutomationProperty",

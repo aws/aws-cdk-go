@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognitoidentitypool/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscognito"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -51,6 +52,8 @@ type IdentityPool interface {
 	IdentityPoolId() *string
 	// The name of the Identity Pool.
 	IdentityPoolName() *string
+	// A reference to a IdentityPool resource.
+	IdentityPoolRef() *interfacesawscognito.IdentityPoolReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -148,6 +151,16 @@ func (j *jsiiProxy_IdentityPool) IdentityPoolName() *string {
 	_jsii_.Get(
 		j,
 		"identityPoolName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IdentityPool) IdentityPoolRef() *interfacesawscognito.IdentityPoolReference {
+	var returns *interfacesawscognito.IdentityPoolReference
+	_jsii_.Get(
+		j,
+		"identityPoolRef",
 		&returns,
 	)
 	return returns

@@ -35,14 +35,16 @@ import (
 //
 // Experimental.
 type GatewayTargetLambdaProps struct {
-	// The name of the gateway target The name must be unique within the gateway Pattern: ^([0-9a-zA-Z][-]?){1,100}$.
-	// Experimental.
-	GatewayTargetName *string `field:"required" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// Optional description for the gateway target The description can have up to 200 characters.
 	// Default: - No description.
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the gateway target The name must be unique within the gateway Pattern: ^([0-9a-zA-Z][-]?){1,100}$.
+	// Default: - auto generate.
+	//
+	// Experimental.
+	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// The gateway this target belongs to.
 	// Experimental.
 	Gateway IGateway `field:"required" json:"gateway" yaml:"gateway"`

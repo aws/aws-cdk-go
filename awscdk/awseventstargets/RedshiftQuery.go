@@ -25,7 +25,7 @@ import (
 //
 //   dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 //
-//   rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &RedshiftQueryProps{
+//   rule.AddTarget(targets.NewRedshiftQuery(workgroup.attrWorkgroupWorkgroupArn, &RedshiftQueryProps{
 //   	Database: jsii.String("dev"),
 //   	DeadLetterQueue: dlq,
 //   	Sql: []*string{

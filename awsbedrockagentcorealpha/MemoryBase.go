@@ -388,12 +388,12 @@ func (j *jsiiProxy_MemoryBase) UpdatedAt() *string {
 
 
 // Experimental.
-func NewMemoryBase_Override(m MemoryBase, scope constructs.Construct, id *string) {
+func NewMemoryBase_Override(m MemoryBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.MemoryBase",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		m,
 	)
 }

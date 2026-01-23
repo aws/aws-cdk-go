@@ -59,6 +59,9 @@ type ManagedMemoryStrategy interface {
 	// The namespaces for the strategy.
 	// Experimental.
 	Namespaces() *[]*string
+	// The configuration for episodic reflection.
+	// Experimental.
+	ReflectionConfiguration() *EpisodicReflectionConfiguration
 	// The type of memory strategy.
 	// Experimental.
 	StrategyType() MemoryStrategyType
@@ -126,6 +129,16 @@ func (j *jsiiProxy_ManagedMemoryStrategy) Namespaces() *[]*string {
 	_jsii_.Get(
 		j,
 		"namespaces",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ManagedMemoryStrategy) ReflectionConfiguration() *EpisodicReflectionConfiguration {
+	var returns *EpisodicReflectionConfiguration
+	_jsii_.Get(
+		j,
+		"reflectionConfiguration",
 		&returns,
 	)
 	return returns

@@ -10,11 +10,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An EKS cluster.
 type ICluster interface {
+	interfacesawseks.IClusterRef
 	awsec2.IConnectable
 	awscdk.IResource
 	// Defines a CDK8s chart in this cluster.
@@ -146,6 +148,7 @@ type ICluster interface {
 
 // The jsii proxy for ICluster
 type jsiiProxy_ICluster struct {
+	internal.Type__interfacesawseksIClusterRef
 	internal.Type__awsec2IConnectable
 	internal.Type__awscdkIResource
 }
@@ -476,6 +479,16 @@ func (j *jsiiProxy_ICluster) Vpc() awsec2.IVpc {
 	_jsii_.Get(
 		j,
 		"vpc",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICluster) ClusterRef() *interfacesawseks.ClusterReference {
+	var returns *interfacesawseks.ClusterReference
+	_jsii_.Get(
+		j,
+		"clusterRef",
 		&returns,
 	)
 	return returns

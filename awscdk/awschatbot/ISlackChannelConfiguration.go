@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawschatbot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,6 +18,7 @@ type ISlackChannelConfiguration interface {
 	awsiam.IGrantable
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
+	interfacesawschatbot.ISlackChannelConfigurationRef
 	// Adds a statement to the IAM role.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Return the given named metric for this SlackChannelConfiguration.
@@ -36,6 +38,7 @@ type jsiiProxy_ISlackChannelConfiguration struct {
 	internal.Type__awsiamIGrantable
 	internal.Type__awscodestarnotificationsINotificationRuleTarget
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawschatbotISlackChannelConfigurationRef
 }
 
 func (i *jsiiProxy_ISlackChannelConfiguration) AddToRolePolicy(statement awsiam.PolicyStatement) {
@@ -147,6 +150,16 @@ func (j *jsiiProxy_ISlackChannelConfiguration) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISlackChannelConfiguration) SlackChannelConfigurationRef() *interfacesawschatbot.SlackChannelConfigurationReference {
+	var returns *interfacesawschatbot.SlackChannelConfigurationReference
+	_jsii_.Get(
+		j,
+		"slackChannelConfigurationRef",
 		&returns,
 	)
 	return returns

@@ -80,7 +80,7 @@ func validateGatewayBase_IsResourceParameters(construct constructs.IConstruct) e
 	return nil
 }
 
-func validateNewGatewayBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewGatewayBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

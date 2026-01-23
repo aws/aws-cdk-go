@@ -1,6 +1,10 @@
 package previewawsrdsmixins
 
 
+// Contains details about an additional storage volume for a DB instance.
+//
+// RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

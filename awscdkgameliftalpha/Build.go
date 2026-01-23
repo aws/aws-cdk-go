@@ -25,10 +25,10 @@ import (
 //   })
 //
 //   awscdk.NewCfnOutput(this, jsii.String("BuildArn"), &CfnOutputProps{
-//   	Value: build.BuildArn,
+//   	Value: build.buildArn,
 //   })
 //   awscdk.NewCfnOutput(this, jsii.String("BuildId"), &CfnOutputProps{
-//   	Value: build.BuildId,
+//   	Value: build.buildId,
 //   })
 //
 // See: https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html

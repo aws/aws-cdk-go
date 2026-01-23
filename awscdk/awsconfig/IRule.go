@@ -6,10 +6,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface representing an AWS Config rule.
 type IRule interface {
+	interfacesawsconfig.IConfigRuleRef
 	awscdk.IResource
 	// Defines a EventBridge event rule which triggers for rule compliance events.
 	OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
@@ -26,6 +30,7 @@ type IRule interface {
 
 // The jsii proxy for IRule
 type jsiiProxy_IRule struct {
+	internal.Type__interfacesawsconfigIConfigRuleRef
 	internal.Type__awscdkIResource
 }
 
@@ -77,11 +82,62 @@ func (i *jsiiProxy_IRule) OnReEvaluationStatus(id *string, options *awsevents.On
 	return returns
 }
 
+func (i *jsiiProxy_IRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IRule) ConfigRuleName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"configRuleName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRule) ConfigRuleRef() *interfacesawsconfig.ConfigRuleReference {
+	var returns *interfacesawsconfig.ConfigRuleReference
+	_jsii_.Get(
+		j,
+		"configRuleRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRule) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRule) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRule) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

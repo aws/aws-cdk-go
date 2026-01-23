@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,6 +51,8 @@ type VirtualRouter interface {
 	VirtualRouterArn() *string
 	// The name of the VirtualRouter.
 	VirtualRouterName() *string
+	// A reference to a VirtualRouter resource.
+	VirtualRouterRef() *interfacesawsappmesh.VirtualRouterReference
 	// Add a single route to the router.
 	AddRoute(id *string, props *RouteBaseProps) Route
 	// Apply the given removal policy to this resource.
@@ -151,6 +154,16 @@ func (j *jsiiProxy_VirtualRouter) VirtualRouterName() *string {
 	_jsii_.Get(
 		j,
 		"virtualRouterName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VirtualRouter) VirtualRouterRef() *interfacesawsappmesh.VirtualRouterReference {
+	var returns *interfacesawsappmesh.VirtualRouterReference
+	_jsii_.Get(
+		j,
+		"virtualRouterRef",
 		&returns,
 	)
 	return returns

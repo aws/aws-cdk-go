@@ -356,6 +356,18 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormTextQuestionPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationReviewConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationReviewConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationReviewNotificationRecipientProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationReviewNotificationRecipientProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.EvaluationReviewNotificationRecipientValueProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationReviewNotificationRecipientValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnEvaluationFormPropsMixin.MultiSelectQuestionRuleCategoryAutomationProperty",
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_MultiSelectQuestionRuleCategoryAutomationProperty)(nil)).Elem(),
 	)

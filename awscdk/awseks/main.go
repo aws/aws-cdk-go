@@ -13,6 +13,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessEntryArn", GoGetter: "AccessEntryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "accessEntryName", GoGetter: "AccessEntryName"},
+			_jsii_.MemberProperty{JsiiProperty: "accessEntryRef", GoGetter: "AccessEntryRef"},
 			_jsii_.MemberMethod{JsiiMethod: "addAccessPolicies", GoMethod: "AddAccessPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -99,6 +100,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "addonArn", GoGetter: "AddonArn"},
 			_jsii_.MemberProperty{JsiiProperty: "addonName", GoGetter: "AddonName"},
+			_jsii_.MemberProperty{JsiiProperty: "addonRef", GoGetter: "AddonRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -927,6 +929,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterOpenIdConnectIssuer", GoGetter: "ClusterOpenIdConnectIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterOpenIdConnectIssuerUrl", GoGetter: "ClusterOpenIdConnectIssuerUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroup", GoGetter: "ClusterSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroupId", GoGetter: "ClusterSecurityGroupId"},
 			_jsii_.MemberMethod{JsiiMethod: "connectAutoScalingGroupCapacity", GoMethod: "ConnectAutoScalingGroupCapacity"},
@@ -1068,6 +1071,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterOpenIdConnectIssuer", GoGetter: "ClusterOpenIdConnectIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterOpenIdConnectIssuerUrl", GoGetter: "ClusterOpenIdConnectIssuerUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroup", GoGetter: "ClusterSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroupId", GoGetter: "ClusterSecurityGroupId"},
 			_jsii_.MemberMethod{JsiiMethod: "connectAutoScalingGroupCapacity", GoMethod: "ConnectAutoScalingGroupCapacity"},
@@ -1169,6 +1173,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessEntryArn", GoGetter: "AccessEntryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "accessEntryName", GoGetter: "AccessEntryName"},
+			_jsii_.MemberProperty{JsiiProperty: "accessEntryRef", GoGetter: "AccessEntryRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1176,6 +1181,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAccessEntry{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIAccessEntryRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1197,6 +1203,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "addonArn", GoGetter: "AddonArn"},
 			_jsii_.MemberProperty{JsiiProperty: "addonName", GoGetter: "AddonName"},
+			_jsii_.MemberProperty{JsiiProperty: "addonRef", GoGetter: "AddonRef"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1204,6 +1211,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAddon{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIAddonRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1225,6 +1233,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clusterEndpoint", GoGetter: "ClusterEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterHandlerSecurityGroup", GoGetter: "ClusterHandlerSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterRef", GoGetter: "ClusterRef"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroup", GoGetter: "ClusterSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterSecurityGroupId", GoGetter: "ClusterSecurityGroupId"},
 			_jsii_.MemberMethod{JsiiMethod: "connectAutoScalingGroupCapacity", GoMethod: "ConnectAutoScalingGroupCapacity"},
@@ -1249,6 +1258,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICluster{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksIClusterRef)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
@@ -1277,10 +1287,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodegroupName", GoGetter: "NodegroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "nodegroupRef", GoGetter: "NodegroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_INodegroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawseksINodegroupRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1470,6 +1482,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodegroupArn", GoGetter: "NodegroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "nodegroupName", GoGetter: "NodegroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "nodegroupRef", GoGetter: "NodegroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

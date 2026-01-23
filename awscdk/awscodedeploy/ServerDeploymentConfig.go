@@ -23,9 +23,9 @@ import (
 type ServerDeploymentConfig interface {
 	BaseDeploymentConfig
 	IServerDeploymentConfig
-	// The arn of the deployment config.
+	// The ARN of the Deployment Configuration.
 	DeploymentConfigArn() *string
-	// The name of the deployment config.
+	// The physical, human-readable name of the Deployment Configuration.
 	DeploymentConfigName() *string
 	// A reference to a DeploymentConfig resource.
 	DeploymentConfigRef() *interfacesawscodedeploy.DeploymentConfigReference

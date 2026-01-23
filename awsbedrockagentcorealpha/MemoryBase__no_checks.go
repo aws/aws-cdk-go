@@ -96,7 +96,7 @@ func validateMemoryBase_IsResourceParameters(construct constructs.IConstruct) er
 	return nil
 }
 
-func validateNewMemoryBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewMemoryBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	return nil
 }
 

@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnChannel) validateSetInputSpecificationParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetLinkedChannelSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetMaintenanceParameters(val interface{}) error {
 	return nil
 }

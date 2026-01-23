@@ -54,7 +54,7 @@ import (
 //   	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule.AddTarget(targets.NewBatchJob(jobQueue.JobQueueArn, jobQueue, jobDefinition.JobDefinitionArn, jobDefinition, &BatchJobProps{
+//   rule.AddTarget(targets.NewBatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
 //   	DeadLetterQueue: queue,
 //   	Event: events.RuleTargetInput_FromObject(map[string]*string{
 //   		"SomeParam": jsii.String("SomeValue"),

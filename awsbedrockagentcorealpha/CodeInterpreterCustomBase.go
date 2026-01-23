@@ -352,12 +352,12 @@ func (j *jsiiProxy_CodeInterpreterCustomBase) Status() *string {
 
 
 // Experimental.
-func NewCodeInterpreterCustomBase_Override(c CodeInterpreterCustomBase, scope constructs.Construct, id *string) {
+func NewCodeInterpreterCustomBase_Override(c CodeInterpreterCustomBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CodeInterpreterCustomBase",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		c,
 	)
 }

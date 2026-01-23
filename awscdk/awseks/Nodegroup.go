@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -109,8 +110,10 @@ type Nodegroup interface {
 	Node() constructs.Node
 	// ARN of the nodegroup.
 	NodegroupArn() *string
-	// Nodegroup name.
+	// Name of the nodegroup.
 	NodegroupName() *string
+	// A reference to a Nodegroup resource.
+	NodegroupRef() *interfacesawseks.NodegroupReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -202,6 +205,16 @@ func (j *jsiiProxy_Nodegroup) NodegroupName() *string {
 	_jsii_.Get(
 		j,
 		"nodegroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Nodegroup) NodegroupRef() *interfacesawseks.NodegroupReference {
+	var returns *interfacesawseks.NodegroupReference
+	_jsii_.Get(
+		j,
+		"nodegroupRef",
 		&returns,
 	)
 	return returns

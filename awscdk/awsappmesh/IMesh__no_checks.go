@@ -16,3 +16,7 @@ func (i *jsiiProxy_IMesh) validateAddVirtualRouterParameters(id *string, props *
 	return nil
 }
 
+func (i *jsiiProxy_IMesh) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

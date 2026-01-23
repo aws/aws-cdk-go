@@ -40,7 +40,7 @@ import (
 //   				jsii.String("kinesis:GetRecords"),
 //   			},
 //   			Resources: []*string{
-//   				stream.StreamArn,
+//   				stream.streamArn,
 //   			},
 //   			Principals: []IPrincipal{
 //   				iam.NewAnyPrincipal(),

@@ -38,5 +38,8 @@ const (
 	// Memcached engine, latest major version available, minor version is selected automatically For more information about the features related to this version check: https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html.
 	// Experimental.
 	CacheEngine_MEMCACHED_LATEST CacheEngine = "MEMCACHED_LATEST"
+	// Memcached engine, minor version 1.6, patch version is selected automatically For more information about the features related to this version check: https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/engine-versions.html.
+	// Experimental.
+	CacheEngine_MEMCACHED_1_6 CacheEngine = "MEMCACHED_1_6"
 )
 

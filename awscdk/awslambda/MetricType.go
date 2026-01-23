@@ -18,8 +18,8 @@ package awslambda
 //   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_LATEST,
 //   	MetricsConfig: &MetricsConfig{
-//   		Metrics: []eVENT_COUNT{
-//   			lambda.MetricType_*eVENT_COUNT,
+//   		Metrics: []MetricType{
+//   			lambda.MetricType_EVENT_COUNT,
 //   		},
 //   	},
 //   }))
@@ -31,5 +31,9 @@ const (
 	//
 	// These metrics help you monitor the flow and status of events through your event source mapping.
 	MetricType_EVENT_COUNT MetricType = "EVENT_COUNT"
+	// Error Count metrics provide insights into invocation failures for your event source mapping.
+	MetricType_ERRORCOUNT MetricType = "ERRORCOUNT"
+	// Kafka-specific metrics for monitoring Apache Kafka and Amazon MSK event sources.
+	MetricType_KAFKAMETRICS MetricType = "KAFKAMETRICS"
 )
 

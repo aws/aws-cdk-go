@@ -232,13 +232,17 @@ func validateMemoryBase_IsResourceParameters(construct constructs.IConstruct) er
 	return nil
 }
 
-func validateNewMemoryBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewMemoryBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

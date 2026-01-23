@@ -165,6 +165,17 @@ import (
 //   	LanguageConfiguration: &EvaluationFormLanguageConfigurationProperty{
 //   		FormLanguage: jsii.String("formLanguage"),
 //   	},
+//   	ReviewConfiguration: &EvaluationReviewConfigurationProperty{
+//   		EligibilityDays: jsii.Number(123),
+//   		ReviewNotificationRecipients: []interface{}{
+//   			&EvaluationReviewNotificationRecipientProperty{
+//   				Type: jsii.String("type"),
+//   				Value: &EvaluationReviewNotificationRecipientValueProperty{
+//   					UserId: jsii.String("userId"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	ScoringStrategy: &ScoringStrategyProperty{
 //   		Mode: jsii.String("mode"),
 //   		Status: jsii.String("status"),

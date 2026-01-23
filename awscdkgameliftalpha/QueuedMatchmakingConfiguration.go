@@ -48,7 +48,7 @@ type QueuedMatchmakingConfiguration interface {
 	// The ARN of the matchmaking configuration.
 	// Experimental.
 	MatchmakingConfigurationArn() *string
-	// The name of the matchmaking configuration.
+	// The Identifier of the matchmaking configuration.
 	// Experimental.
 	MatchmakingConfigurationName() *string
 	// The tree node.

@@ -54,7 +54,7 @@ import (
 //   })
 //
 //   service.EnableDeploymentAlarms([]*string{
-//   	myAlarm.AlarmName,
+//   	myAlarm.alarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })

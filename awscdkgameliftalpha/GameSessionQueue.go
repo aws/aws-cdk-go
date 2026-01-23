@@ -47,7 +47,7 @@ type GameSessionQueue interface {
 	// The ARN of the gameSessionQueue.
 	// Experimental.
 	GameSessionQueueArn() *string
-	// The Identifier of the gameSessionQueue.
+	// The name of the gameSessionQueue.
 	// Experimental.
 	GameSessionQueueName() *string
 	// The tree node.

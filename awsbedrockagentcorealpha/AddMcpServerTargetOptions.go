@@ -64,13 +64,15 @@ type AddMcpServerTargetOptions struct {
 	// - Point to an MCP server that implements tool capabilities.
 	// Experimental.
 	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
-	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
-	// Experimental.
-	GatewayTargetName *string `field:"required" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// Optional description for the gateway target.
 	// Default: - No description.
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
+	// Default: - auto generate.
+	//
+	// Experimental.
+	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 }
 

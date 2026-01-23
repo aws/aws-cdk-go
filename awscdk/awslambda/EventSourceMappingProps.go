@@ -44,8 +44,8 @@ import (
 //   	MaxConcurrency: jsii.Number(123),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	MetricsConfig: &MetricsConfig{
-//   		Metrics: []eVENT_COUNT{
-//   			awscdk.Aws_lambda.MetricType_*eVENT_COUNT,
+//   		Metrics: []MetricType{
+//   			awscdk.Aws_lambda.MetricType_EVENT_COUNT,
 //   		},
 //   	},
 //   	OnFailure: eventSourceDlq,

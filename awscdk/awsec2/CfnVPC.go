@@ -31,7 +31,7 @@ import (
 //
 //   // using from*Arn()
 //   cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(CfnKey)
-//   key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.AttrArn)
+//   key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.attrArn)
 //   cfnVpc := cfnTemplate.GetResource(jsii.String("Vpc")).(CfnVPC)
 //   vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("L2Vpc"), &VpcAttributes{
 //   	VpcId: cfnVpc.ref,

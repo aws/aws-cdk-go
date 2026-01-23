@@ -8,3 +8,7 @@ func (i *jsiiProxy_IOptionGroup) validateAddConfigurationParameters(configuratio
 	return nil
 }
 
+func (i *jsiiProxy_IOptionGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

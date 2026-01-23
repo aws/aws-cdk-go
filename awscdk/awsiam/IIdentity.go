@@ -10,6 +10,8 @@ import (
 )
 
 // A construct that represents an IAM principal, such as a user, group or role.
+//
+// [awslint:interface-extends-ref].
 type IIdentity interface {
 	IPrincipal
 	awscdk.IResource

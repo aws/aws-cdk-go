@@ -42,6 +42,7 @@ import (
 //   		InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
 //   			CapacityOptionType: jsii.String("capacityOptionType"),
 //   			Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   			FipsEnabled: jsii.Boolean(false),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				AcceleratorCount: &AcceleratorCountRequestProperty{
 //   					Max: jsii.Number(123),

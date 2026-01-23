@@ -16,11 +16,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolArn", GoGetter: "IdentityPoolArn"},
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolId", GoGetter: "IdentityPoolId"},
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolName", GoGetter: "IdentityPoolName"},
+			_jsii_.MemberProperty{JsiiProperty: "identityPoolRef", GoGetter: "IdentityPoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IIdentityPool{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscognitoIIdentityPoolRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -49,6 +51,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolArn", GoGetter: "IdentityPoolArn"},
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolId", GoGetter: "IdentityPoolId"},
 			_jsii_.MemberProperty{JsiiProperty: "identityPoolName", GoGetter: "IdentityPoolName"},
+			_jsii_.MemberProperty{JsiiProperty: "identityPoolRef", GoGetter: "IdentityPoolRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "roleAttachment", GoGetter: "RoleAttachment"},

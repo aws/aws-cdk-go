@@ -48,7 +48,7 @@ The endpoints to access your database cluster will be available as the `.cluster
 attributes:
 
 ```go
-writeAddress := cluster.ClusterEndpoint.SocketAddress
+writeAddress := cluster.ClusterEndpoint.socketAddress
 ```
 
 ## IAM Authentication

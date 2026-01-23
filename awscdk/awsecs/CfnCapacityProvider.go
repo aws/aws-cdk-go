@@ -51,6 +51,7 @@ import (
 //
 //   			// the properties below are optional
 //   			CapacityOptionType: jsii.String("capacityOptionType"),
+//   			FipsEnabled: jsii.Boolean(false),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				MemoryMiB: &MemoryMiBRequestProperty{
 //   					Min: jsii.Number(123),

@@ -368,12 +368,12 @@ func (j *jsiiProxy_BrowserCustomBase) Status() *string {
 
 
 // Experimental.
-func NewBrowserCustomBase_Override(b BrowserCustomBase, scope constructs.Construct, id *string) {
+func NewBrowserCustomBase_Override(b BrowserCustomBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.BrowserCustomBase",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		b,
 	)
 }

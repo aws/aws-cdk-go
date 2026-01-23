@@ -184,13 +184,17 @@ func validateGatewayBase_IsResourceParameters(construct constructs.IConstruct) e
 	return nil
 }
 
-func validateNewGatewayBaseParameters(scope constructs.Construct, id *string) error {
+func validateNewGatewayBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

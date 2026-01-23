@@ -981,7 +981,7 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	MinHealthyPercent: jsii.Number(100),
 	DeploymentAlarms: &DeploymentAlarmConfig{
 		AlarmNames: []*string{
-			elbAlarm.AlarmName,
+			elbAlarm.alarmName,
 		},
 		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
 	},
@@ -1096,7 +1096,7 @@ myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
 })
 
 service.EnableDeploymentAlarms([]*string{
-	myAlarm.AlarmName,
+	myAlarm.alarmName,
 }, &DeploymentAlarmOptions{
 	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 })
@@ -1825,6 +1825,8 @@ ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 
 Managed Instances Capacity Providers allow you to use AWS-managed EC2 instances for your ECS tasks while providing more control over instance selection than standard Fargate. AWS handles the instance lifecycle, patching, and maintenance while you can specify detailed instance requirements. You can  define detailed instance requirements to control which types of instances are used for your workloads.
 
+Capacity Option Type provides the purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+
 See [ECS documentation for Managed Instances Capacity Provider](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-capacity-providers-concept.html) for more documentation.
 
 #### IAM Roles Setup
@@ -1847,6 +1849,7 @@ securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &Secur
 })
 
 miCapacityProvider := ecs.NewManagedInstancesCapacityProvider(this, jsii.String("MICapacityProvider"), &ManagedInstancesCapacityProviderProps{
+	CapacityOptionType: ecs.CapacityOptionType_SPOT,
 	Subnets: vpc.PrivateSubnets,
 	SecurityGroups: []ISecurityGroup{
 		securityGroup,
@@ -1921,7 +1924,7 @@ customInfrastructureRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProp
 		jsii.String("iam:PassRole"),
 	},
 	Resources: []*string{
-		customInstanceRole.RoleArn,
+		customInstanceRole.roleArn,
 	},
 	Conditions: map[string]interface{}{
 		"StringEquals": map[string]*string{
@@ -2569,6 +2572,88 @@ target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
 
 target.AttachToApplicationTargetGroup(blueTargetGroup)
 ```
+
+## Buil-in Linear and Canary Deployments
+
+Amazon ECS supports progressive deployment strategies that allow you to validate new service revisions before shifting all production traffic. Both strategies require an Application Load Balancer (ALB) with target groups for traffic routing.
+
+### Linear Deployment
+
+Linear deployment strategy shifts production traffic in equal percentage increments with configurable wait times between each step:
+
+```go
+var cluster Cluster
+var taskDefinition TaskDefinition
+var blueTargetGroup ApplicationTargetGroup
+var greenTargetGroup ApplicationTargetGroup
+var prodListenerRule ApplicationListenerRule
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DeploymentStrategy: ecs.DeploymentStrategy_LINEAR,
+	LinearConfiguration: &TrafficShiftConfig{
+		StepPercent: jsii.Number(10),
+		StepBakeTime: awscdk.Duration_Minutes(jsii.Number(5)),
+	},
+})
+
+target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+	ContainerName: jsii.String("web"),
+	ContainerPort: jsii.Number(80),
+	AlternateTarget: ecs.NewAlternateTarget(jsii.String("AlternateTarget"), &AlternateTargetProps{
+		AlternateTargetGroup: greenTargetGroup,
+		ProductionListener: ecs.ListenerRuleConfiguration_ApplicationListenerRule(prodListenerRule),
+	}),
+})
+
+target.AttachToApplicationTargetGroup(blueTargetGroup)
+```
+
+Valid values:
+
+* `stepPercent`: 3.0 to 100.0 (multiples of 0.1). Default: 10.0
+* `stepBakeTime`: 0 to 1440 minutes (24 hours). Default: 6 minutes
+
+### Canary Deployment
+
+Canary deployment strategy shifts a fixed percentage of traffic to the new service revision for testing, then shifts the remaining traffic after a bake period:
+
+```go
+var cluster Cluster
+var taskDefinition TaskDefinition
+var blueTargetGroup ApplicationTargetGroup
+var greenTargetGroup ApplicationTargetGroup
+var prodListenerRule ApplicationListenerRule
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	DeploymentStrategy: ecs.DeploymentStrategy_CANARY,
+	CanaryConfiguration: &TrafficShiftConfig{
+		StepPercent: jsii.Number(5),
+		StepBakeTime: awscdk.Duration_Minutes(jsii.Number(10)),
+	},
+})
+
+target := service.LoadBalancerTarget(&LoadBalancerTargetOptions{
+	ContainerName: jsii.String("web"),
+	ContainerPort: jsii.Number(80),
+	AlternateTarget: ecs.NewAlternateTarget(jsii.String("AlternateTarget"), &AlternateTargetProps{
+		AlternateTargetGroup: greenTargetGroup,
+		ProductionListener: ecs.ListenerRuleConfiguration_ApplicationListenerRule(prodListenerRule),
+	}),
+})
+
+target.AttachToApplicationTargetGroup(blueTargetGroup)
+```
+
+Valid values:
+
+* `stepPercent`: 0.1 to 100.0 (multiples of 0.1). Default: 5.0
+* `stepBakeTime`: 0 to 1440 minutes (24 hours). Default: 10 minutes
 
 ## Daemon Scheduling Strategy
 

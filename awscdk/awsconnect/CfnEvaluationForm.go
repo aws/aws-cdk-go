@@ -193,6 +193,19 @@ import (
 //   	LanguageConfiguration: &EvaluationFormLanguageConfigurationProperty{
 //   		FormLanguage: jsii.String("formLanguage"),
 //   	},
+//   	ReviewConfiguration: &EvaluationReviewConfigurationProperty{
+//   		ReviewNotificationRecipients: []interface{}{
+//   			&EvaluationReviewNotificationRecipientProperty{
+//   				Type: jsii.String("type"),
+//   				Value: &EvaluationReviewNotificationRecipientValueProperty{
+//   					UserId: jsii.String("userId"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		EligibilityDays: jsii.Number(123),
+//   	},
 //   	ScoringStrategy: &ScoringStrategyProperty{
 //   		Mode: jsii.String("mode"),
 //   		Status: jsii.String("status"),
@@ -261,6 +274,8 @@ type CfnEvaluationForm interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ReviewConfiguration() interface{}
+	SetReviewConfiguration(val interface{})
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy() interface{}
 	SetScoringStrategy(val interface{})
@@ -580,6 +595,16 @@ func (j *jsiiProxy_CfnEvaluationForm) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) ReviewConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"reviewConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) ScoringStrategy() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -748,6 +773,17 @@ func (j *jsiiProxy_CfnEvaluationForm)SetLanguageConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"languageConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEvaluationForm)SetReviewConfiguration(val interface{}) {
+	if err := j.validateSetReviewConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"reviewConfiguration",
 		val,
 	)
 }

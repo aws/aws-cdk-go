@@ -20,9 +20,9 @@ import (
 //
 //
 //   task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{
-//   	JobDefinitionArn: batchJobDefinition.JobDefinitionArn,
+//   	JobDefinitionArn: batchJobDefinition.jobDefinitionArn,
 //   	JobName: jsii.String("MyJob"),
-//   	JobQueueArn: batchQueue.JobQueueArn,
+//   	JobQueueArn: batchQueue.jobQueueArn,
 //   })
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-batch.html

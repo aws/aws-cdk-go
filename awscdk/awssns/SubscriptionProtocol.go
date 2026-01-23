@@ -12,7 +12,7 @@ package awssns
 //
 //   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
 //   	Topic: Topic,
-//   	Endpoint: stream.DeliveryStreamArn,
+//   	Endpoint: stream.deliveryStreamArn,
 //   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
 //   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 //   })

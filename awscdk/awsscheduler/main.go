@@ -210,11 +210,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "scheduleArn", GoGetter: "ScheduleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleGroup", GoGetter: "ScheduleGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleName", GoGetter: "ScheduleName"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduleRef", GoGetter: "ScheduleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ISchedule{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsschedulerIScheduleRef)
 			return &j
 		},
 	)
@@ -275,6 +277,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "scheduleArn", GoGetter: "ScheduleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleGroup", GoGetter: "ScheduleGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "scheduleName", GoGetter: "ScheduleName"},
+			_jsii_.MemberProperty{JsiiProperty: "scheduleRef", GoGetter: "ScheduleRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

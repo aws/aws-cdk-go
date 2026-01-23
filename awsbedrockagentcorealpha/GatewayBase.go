@@ -366,12 +366,12 @@ func (j *jsiiProxy_GatewayBase) UpdatedAt() *string {
 
 
 // Experimental.
-func NewGatewayBase_Override(g GatewayBase, scope constructs.Construct, id *string) {
+func NewGatewayBase_Override(g GatewayBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayBase",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		g,
 	)
 }

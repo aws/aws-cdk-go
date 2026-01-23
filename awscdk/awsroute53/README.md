@@ -311,7 +311,7 @@ route53.NewARecord(this, jsii.String("CidrRoutingConfig"), &ARecordProps{
 	Target: route53.RecordTarget_FromIpAddresses(jsii.String("1.2.3.4")),
 	SetIdentifier: jsii.String("test"),
 	CidrRoutingConfig: route53.CidrRoutingConfig_Create(&CidrRoutingConfigProps{
-		CollectionId: cidrCollection.AttrId,
+		CollectionId: cidrCollection.attrId,
 		LocationName: jsii.String("test_location"),
 	}),
 })
@@ -339,7 +339,7 @@ route53.NewARecord(this, jsii.String("DefaultCidrRoutingConfig"), &ARecordProps{
 	Zone: myZone,
 	Target: route53.RecordTarget_FromIpAddresses(jsii.String("5.6.7.8")),
 	SetIdentifier: jsii.String("default"),
-	CidrRoutingConfig: route53.CidrRoutingConfig_WithDefaultLocationName(cidrCollection.AttrId),
+	CidrRoutingConfig: route53.CidrRoutingConfig_WithDefaultLocationName(cidrCollection.attrId),
 })
 ```
 

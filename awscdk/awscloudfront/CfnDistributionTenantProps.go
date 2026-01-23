@@ -28,7 +28,7 @@ import (
 //   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 //
 //   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
-//   	TargetOriginId: myBucket.BucketArn,
+//   	TargetOriginId: myBucket.bucketArn,
 //   	ViewerProtocolPolicy: jsii.String("allow-all"),
 //   	Compress: jsii.Boolean(false),
 //   	AllowedMethods: []*string{
@@ -45,7 +45,7 @@ import (
 //   	ConnectionMode: jsii.String("tenant-only"),
 //   	Origins: []interface{}{
 //   		&OriginProperty{
-//   			Id: myBucket.*BucketArn,
+//   			Id: myBucket.bucketArn,
 //   			DomainName: myBucket.BucketDomainName,
 //   			S3OriginConfig: &S3OriginConfigProperty{
 //   			},
@@ -82,14 +82,14 @@ import (
 //   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
 //   // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
 //   awscdk.NewCfnOutput(this, jsii.String("RoutingEndpoint"), &CfnOutputProps{
-//   	Value: connectionGroup.AttrRoutingEndpoint,
+//   	Value: connectionGroup.attrRoutingEndpoint,
 //   	Description: jsii.String("CloudFront Routing Endpoint to be added to my hosted zone CNAME records"),
 //   })
 //
 //   // Create a distribution tenant with a self-hosted domain.
 //   selfHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("self-hosted-tenant"), &CfnDistributionTenantProps{
 //   	DistributionId: myMultiTenantDistribution.DistributionId,
-//   	ConnectionGroupId: connectionGroup.AttrId,
+//   	ConnectionGroupId: connectionGroup.attrId,
 //   	Name: jsii.String("self-hosted-tenant"),
 //   	Domains: []*string{
 //   		jsii.String("self-hosted-tenant.my.domain.com"),

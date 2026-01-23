@@ -328,6 +328,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_Fmp4HlsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.FollowerChannelSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_FollowerChannelSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.FrameCaptureCdnSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_FrameCaptureCdnSettingsProperty)(nil)).Elem(),
 	)
@@ -458,6 +462,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.KeyProviderSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_KeyProviderSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.LinkedChannelSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_LinkedChannelSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.M2tsSettingsProperty",
@@ -598,6 +606,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.PassThroughSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_PassThroughSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.PrimaryChannelSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_PrimaryChannelSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.RawSettingsProperty",

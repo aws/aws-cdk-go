@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -47,6 +48,8 @@ type GatewayRoute interface {
 	GatewayRouteArn() *string
 	// The name of the GatewayRoute.
 	GatewayRouteName() *string
+	// A reference to a GatewayRoute resource.
+	GatewayRouteRef() *interfacesawsappmesh.GatewayRouteReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -120,6 +123,16 @@ func (j *jsiiProxy_GatewayRoute) GatewayRouteName() *string {
 	_jsii_.Get(
 		j,
 		"gatewayRouteName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GatewayRoute) GatewayRouteRef() *interfacesawsappmesh.GatewayRouteReference {
+	var returns *interfacesawsappmesh.GatewayRouteReference
+	_jsii_.Get(
+		j,
+		"gatewayRouteRef",
 		&returns,
 	)
 	return returns

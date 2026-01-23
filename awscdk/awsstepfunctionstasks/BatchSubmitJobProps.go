@@ -14,9 +14,9 @@ import (
 //
 //
 //   task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{
-//   	JobDefinitionArn: batchJobDefinition.JobDefinitionArn,
+//   	JobDefinitionArn: batchJobDefinition.jobDefinitionArn,
 //   	JobName: jsii.String("MyJob"),
-//   	JobQueueArn: batchQueue.JobQueueArn,
+//   	JobQueueArn: batchQueue.jobQueueArn,
 //   })
 //
 type BatchSubmitJobProps struct {

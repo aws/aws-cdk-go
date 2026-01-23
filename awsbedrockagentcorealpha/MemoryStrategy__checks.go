@@ -8,6 +8,17 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+func validateMemoryStrategy_UsingEpisodicParameters(config *ManagedStrategyProps) error {
+	if config == nil {
+		return fmt.Errorf("parameter config is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(config, func() string { return "parameter config" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateMemoryStrategy_UsingSelfManagedParameters(config *SelfManagedStrategyProps) error {
 	if config == nil {
 		return fmt.Errorf("parameter config is required, but nil was provided")

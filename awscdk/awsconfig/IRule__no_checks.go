@@ -16,3 +16,7 @@ func (i *jsiiProxy_IRule) validateOnReEvaluationStatusParameters(id *string, opt
 	return nil
 }
 
+func (i *jsiiProxy_IRule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

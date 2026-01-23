@@ -216,6 +216,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationArn", GoGetter: "SlackChannelConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationName", GoGetter: "SlackChannelConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationRef", GoGetter: "SlackChannelConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -223,6 +224,7 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscodestarnotificationsINotificationRuleTarget)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawschatbotISlackChannelConfigurationRef)
 			return &j
 		},
 	)
@@ -254,6 +256,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationArn", GoGetter: "SlackChannelConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationName", GoGetter: "SlackChannelConfigurationName"},
+			_jsii_.MemberProperty{JsiiProperty: "slackChannelConfigurationRef", GoGetter: "SlackChannelConfigurationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

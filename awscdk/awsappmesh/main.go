@@ -1033,6 +1033,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteArn", GoGetter: "GatewayRouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteName", GoGetter: "GatewayRouteName"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteRef", GoGetter: "GatewayRouteRef"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
@@ -1293,12 +1294,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteArn", GoGetter: "GatewayRouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteName", GoGetter: "GatewayRouteName"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteRef", GoGetter: "GatewayRouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualGateway", GoGetter: "VirtualGateway"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGatewayRoute{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIGatewayRouteRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1314,11 +1317,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "meshArn", GoGetter: "MeshArn"},
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
+			_jsii_.MemberProperty{JsiiProperty: "meshRef", GoGetter: "MeshRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IMesh{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIMeshRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1332,12 +1337,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "routeArn", GoGetter: "RouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeName", GoGetter: "RouteName"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouter", GoGetter: "VirtualRouter"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRoute{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIRouteRef)
 			return &j
 		},
 	)
@@ -1396,10 +1403,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterArn", GoGetter: "VirtualRouterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterName", GoGetter: "VirtualRouterName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualRouterRef", GoGetter: "VirtualRouterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualRouter{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualRouterRef)
 			return &j
 		},
 	)
@@ -1414,10 +1423,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceArn", GoGetter: "VirtualServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceName", GoGetter: "VirtualServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualServiceRef", GoGetter: "VirtualServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVirtualService{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsappmeshIVirtualServiceRef)
 			return &j
 		},
 	)
@@ -1463,6 +1474,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "meshArn", GoGetter: "MeshArn"},
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
+			_jsii_.MemberProperty{JsiiProperty: "meshRef", GoGetter: "MeshRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1552,6 +1564,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "routeArn", GoGetter: "RouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeName", GoGetter: "RouteName"},
+			_jsii_.MemberProperty{JsiiProperty: "routeRef", GoGetter: "RouteRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouter", GoGetter: "VirtualRouter"},
@@ -1842,6 +1855,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterArn", GoGetter: "VirtualRouterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualRouterName", GoGetter: "VirtualRouterName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualRouterRef", GoGetter: "VirtualRouterRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VirtualRouter{}
@@ -1892,6 +1906,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceArn", GoGetter: "VirtualServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "virtualServiceName", GoGetter: "VirtualServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "virtualServiceRef", GoGetter: "VirtualServiceRef"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VirtualService{}

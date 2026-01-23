@@ -2085,6 +2085,8 @@ func init() {
 		reflect.TypeOf((*MetricType)(nil)).Elem(),
 		map[string]interface{}{
 			"EVENT_COUNT": MetricType_EVENT_COUNT,
+			"ERRORCOUNT": MetricType_ERRORCOUNT,
+			"KAFKAMETRICS": MetricType_KAFKAMETRICS,
 		},
 	)
 	_jsii_.RegisterStruct(

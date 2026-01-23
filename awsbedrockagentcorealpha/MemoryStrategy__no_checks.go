@@ -4,6 +4,10 @@ package awsbedrockagentcorealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateMemoryStrategy_UsingEpisodicParameters(config *ManagedStrategyProps) error {
+	return nil
+}
+
 func validateMemoryStrategy_UsingSelfManagedParameters(config *SelfManagedStrategyProps) error {
 	return nil
 }

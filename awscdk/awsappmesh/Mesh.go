@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -43,6 +44,8 @@ type Mesh interface {
 	MeshArn() *string
 	// The name of the AppMesh mesh.
 	MeshName() *string
+	// A reference to a Mesh resource.
+	MeshRef() *interfacesawsappmesh.MeshReference
 	// The tree node.
 	Node() constructs.Node
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
@@ -120,6 +123,16 @@ func (j *jsiiProxy_Mesh) MeshName() *string {
 	_jsii_.Get(
 		j,
 		"meshName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Mesh) MeshRef() *interfacesawsappmesh.MeshReference {
+	var returns *interfacesawsappmesh.MeshReference
+	_jsii_.Get(
+		j,
+		"meshRef",
 		&returns,
 	)
 	return returns

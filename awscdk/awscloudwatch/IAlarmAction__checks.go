@@ -5,11 +5,10 @@ package awscloudwatch
 import (
 	"fmt"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (i *jsiiProxy_IAlarmAction) validateBindParameters(scope constructs.Construct, alarm interfacesawscloudwatch.IAlarmRef) error {
+func (i *jsiiProxy_IAlarmAction) validateBindParameters(scope constructs.Construct, alarm IAlarm) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}

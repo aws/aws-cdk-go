@@ -383,10 +383,15 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CustomJwtConfiguration",
 		reflect.TypeOf((*CustomJwtConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EpisodicReflectionConfiguration",
+		reflect.TypeOf((*EpisodicReflectionConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.Gateway",
 		reflect.TypeOf((*Gateway)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addInterceptor", GoMethod: "AddInterceptor"},
 			_jsii_.MemberMethod{JsiiMethod: "addLambdaTarget", GoMethod: "AddLambdaTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "addMcpServerTarget", GoMethod: "AddMcpServerTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "addOpenApiTarget", GoMethod: "AddOpenApiTarget"},
@@ -865,6 +870,17 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IInterceptor",
+		reflect.TypeOf((*IInterceptor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "interceptionPoint", GoGetter: "InterceptionPoint"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IInterceptor{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.IMcpGatewayTarget",
 		reflect.TypeOf((*IMcpGatewayTarget)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1026,9 +1042,38 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.InterceptionPoint",
+		reflect.TypeOf((*InterceptionPoint)(nil)).Elem(),
+		map[string]interface{}{
+			"REQUEST": InterceptionPoint_REQUEST,
+			"RESPONSE": InterceptionPoint_RESPONSE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.InterceptorBindConfig",
+		reflect.TypeOf((*InterceptorBindConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.InterceptorOptions",
+		reflect.TypeOf((*InterceptorOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.InvocationConfiguration",
 		reflect.TypeOf((*InvocationConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LambdaInterceptor",
+		reflect.TypeOf((*LambdaInterceptor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "interceptionPoint", GoGetter: "InterceptionPoint"},
+		},
+		func() interface{} {
+			j := jsiiProxy_LambdaInterceptor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IInterceptor)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.LambdaTargetConfiguration",
@@ -1068,6 +1113,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaces", GoGetter: "Namespaces"},
+			_jsii_.MemberProperty{JsiiProperty: "reflectionConfiguration", GoGetter: "ReflectionConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "render", GoMethod: "Render"},
 			_jsii_.MemberProperty{JsiiProperty: "strategyType", GoGetter: "StrategyType"},
 		},
@@ -1271,6 +1317,7 @@ func init() {
 			"SUMMARIZATION": MemoryStrategyType_SUMMARIZATION,
 			"SEMANTIC": MemoryStrategyType_SEMANTIC,
 			"USER_PREFERENCE": MemoryStrategyType_USER_PREFERENCE,
+			"EPISODIC": MemoryStrategyType_EPISODIC,
 			"CUSTOM": MemoryStrategyType_CUSTOM,
 		},
 	)

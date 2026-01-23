@@ -13,6 +13,7 @@ package previewawsecsmixins
 //   instanceLaunchTemplateProperty := &InstanceLaunchTemplateProperty{
 //   	CapacityOptionType: jsii.String("capacityOptionType"),
 //   	Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   	FipsEnabled: jsii.Boolean(false),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
@@ -122,6 +123,9 @@ type CfnCapacityProviderPropsMixin_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-ec2instanceprofilearn
 	//
 	Ec2InstanceProfileArn *string `field:"optional" json:"ec2InstanceProfileArn" yaml:"ec2InstanceProfileArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-fipsenabled
+	//
+	FipsEnabled interface{} `field:"optional" json:"fipsEnabled" yaml:"fipsEnabled"`
 	// The instance requirements. You can specify:.
 	//
 	// - The instance types

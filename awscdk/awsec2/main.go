@@ -34,6 +34,13 @@ func init() {
 			"INFERENTIA": AcceleratorName_INFERENTIA,
 			"K520": AcceleratorName_K520,
 			"T4G": AcceleratorName_T4G,
+			"L40S": AcceleratorName_L40S,
+			"L4": AcceleratorName_L4,
+			"GAUDI_HL_205": AcceleratorName_GAUDI_HL_205,
+			"INFERENTIA2": AcceleratorName_INFERENTIA2,
+			"TRAINIUM": AcceleratorName_TRAINIUM,
+			"TRAINIUM2": AcceleratorName_TRAINIUM2,
+			"U30": AcceleratorName_U30,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -43,6 +50,7 @@ func init() {
 			"GPU": AcceleratorType_GPU,
 			"FPGA": AcceleratorType_FPGA,
 			"INFERENCE": AcceleratorType_INFERENCE,
+			"MEDIA": AcceleratorType_MEDIA,
 		},
 	)
 	_jsii_.RegisterClass(

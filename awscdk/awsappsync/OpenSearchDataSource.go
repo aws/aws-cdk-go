@@ -21,7 +21,7 @@ import (
 //   	Version: opensearch.EngineVersion_OPENSEARCH_2_3(),
 //   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 //   	FineGrainedAccessControl: &AdvancedSecurityOptions{
-//   		MasterUserArn: user.UserArn,
+//   		MasterUserArn: user.userArn,
 //   	},
 //   	EncryptionAtRest: &EncryptionAtRestOptions{
 //   		Enabled: jsii.Boolean(true),

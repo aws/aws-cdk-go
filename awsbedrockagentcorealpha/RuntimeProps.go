@@ -23,9 +23,6 @@ type RuntimeProps struct {
 	// The artifact configuration for the agent runtime Contains the container configuration with ECR URI.
 	// Experimental.
 	AgentRuntimeArtifact AgentRuntimeArtifact `field:"required" json:"agentRuntimeArtifact" yaml:"agentRuntimeArtifact"`
-	// The name of the agent runtime Valid characters are a-z, A-Z, 0-9, _ (underscore) Must start with a letter and can be up to 48 characters long Pattern: ^[a-zA-Z][a-zA-Z0-9_]{0,47}$.
-	// Experimental.
-	RuntimeName *string `field:"required" json:"runtimeName" yaml:"runtimeName"`
 	// Authorizer configuration for the agent runtime Use RuntimeAuthorizerConfiguration static methods to create the configuration.
 	// Default: - RuntimeAuthorizerConfiguration.iam() (IAM authentication)
 	//
@@ -67,6 +64,11 @@ type RuntimeProps struct {
 	//
 	// Experimental.
 	RequestHeaderConfiguration *RequestHeaderConfiguration `field:"optional" json:"requestHeaderConfiguration" yaml:"requestHeaderConfiguration"`
+	// The name of the agent runtime Valid characters are a-z, A-Z, 0-9, _ (underscore) Must start with a letter and can be up to 48 characters long Pattern: ^[a-zA-Z][a-zA-Z0-9_]{0,47}$.
+	// Default: - auto generate.
+	//
+	// Experimental.
+	RuntimeName *string `field:"optional" json:"runtimeName" yaml:"runtimeName"`
 	// Tags for the agent runtime A list of key:value pairs of tags to apply to this Runtime resource.
 	// Default: {} - no tags.
 	//

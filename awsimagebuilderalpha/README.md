@@ -1118,7 +1118,7 @@ infrastructureConfiguration := imagebuilder.NewInfrastructureConfiguration(this,
 	},
 	// Optional - host placement settings
 	Ec2InstanceAvailabilityZone: awscdk.*stack_*Of(this).availabilityZones[jsii.Number(0)],
-	Ec2InstanceHostId: dedicatedHost.AttrHostId,
+	Ec2InstanceHostId: dedicatedHost.attrHostId,
 	Ec2InstanceTenancy: imagebuilder.Tenancy_HOST,
 	ResourceTags: map[string]*string{
 		"Environment": jsii.String("production"),

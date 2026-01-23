@@ -1209,7 +1209,7 @@ attributes:
 ```go
 var cluster DatabaseCluster
 
-writeAddress := cluster.ClusterEndpoint.SocketAddress
+writeAddress := cluster.ClusterEndpoint.socketAddress
 ```
 
 For an instance database:
@@ -1217,7 +1217,7 @@ For an instance database:
 ```go
 var instance DatabaseInstance
 
-address := instance.InstanceEndpoint.SocketAddress
+address := instance.InstanceEndpoint.socketAddress
 ```
 
 ## Rotating credentials

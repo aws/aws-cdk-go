@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -41,6 +42,8 @@ type AccessEntry interface {
 	AccessEntryArn() *string
 	// The name of the access entry.
 	AccessEntryName() *string
+	// A reference to a AccessEntry resource.
+	AccessEntryRef() *interfacesawseks.AccessEntryReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -114,6 +117,16 @@ func (j *jsiiProxy_AccessEntry) AccessEntryName() *string {
 	_jsii_.Get(
 		j,
 		"accessEntryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AccessEntry) AccessEntryRef() *interfacesawseks.AccessEntryReference {
+	var returns *interfacesawseks.AccessEntryReference
+	_jsii_.Get(
+		j,
+		"accessEntryRef",
 		&returns,
 	)
 	return returns

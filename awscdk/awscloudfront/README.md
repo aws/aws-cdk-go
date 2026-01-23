@@ -106,7 +106,7 @@ myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("distr
 cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 
 defaultCacheBehavior := &DefaultCacheBehaviorProperty{
-	TargetOriginId: myBucket.BucketArn,
+	TargetOriginId: myBucket.bucketArn,
 	ViewerProtocolPolicy: jsii.String("allow-all"),
 	Compress: jsii.Boolean(false),
 	AllowedMethods: []*string{
@@ -123,7 +123,7 @@ distributionConfig := &DistributionConfigProperty{
 	ConnectionMode: jsii.String("tenant-only"),
 	Origins: []interface{}{
 		&OriginProperty{
-			Id: myBucket.*BucketArn,
+			Id: myBucket.bucketArn,
 			DomainName: myBucket.BucketDomainName,
 			S3OriginConfig: &S3OriginConfigProperty{
 			},
@@ -203,7 +203,7 @@ myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-ho
 cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 
 defaultCacheBehavior := &DefaultCacheBehaviorProperty{
-	TargetOriginId: myBucket.BucketArn,
+	TargetOriginId: myBucket.bucketArn,
 	ViewerProtocolPolicy: jsii.String("allow-all"),
 	Compress: jsii.Boolean(false),
 	AllowedMethods: []*string{
@@ -220,7 +220,7 @@ distributionConfig := &DistributionConfigProperty{
 	ConnectionMode: jsii.String("tenant-only"),
 	Origins: []interface{}{
 		&OriginProperty{
-			Id: myBucket.*BucketArn,
+			Id: myBucket.bucketArn,
 			DomainName: myBucket.BucketDomainName,
 			S3OriginConfig: &S3OriginConfigProperty{
 			},
@@ -263,7 +263,7 @@ hostedZone := route53.HostedZone_FromHostedZoneAttributes(this, jsii.String("hos
 })
 
 record := route53.NewCnameRecord(this, jsii.String("cname-record"), &CnameRecordProps{
-	DomainName: connectionGroup.AttrRoutingEndpoint,
+	DomainName: connectionGroup.attrRoutingEndpoint,
 	Zone: hostedZone,
 	RecordName: jsii.String("cf-hosted-tenant.my.domain.com"),
 })
@@ -275,7 +275,7 @@ cloudfrontHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String(
 	Domains: []*string{
 		jsii.String("cf-hosted-tenant.my.domain.com"),
 	},
-	ConnectionGroupId: connectionGroup.AttrId,
+	ConnectionGroupId: connectionGroup.attrId,
 	Enabled: jsii.Boolean(true),
 	ManagedCertificateRequest: &ManagedCertificateRequestProperty{
 		ValidationTokenHost: jsii.String("cloudfront"),
@@ -315,7 +315,7 @@ myMultiTenantDistribution := cloudfront.NewDistribution(this, jsii.String("cf-ho
 cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 
 defaultCacheBehavior := &DefaultCacheBehaviorProperty{
-	TargetOriginId: myBucket.BucketArn,
+	TargetOriginId: myBucket.bucketArn,
 	ViewerProtocolPolicy: jsii.String("allow-all"),
 	Compress: jsii.Boolean(false),
 	AllowedMethods: []*string{
@@ -332,7 +332,7 @@ distributionConfig := &DistributionConfigProperty{
 	ConnectionMode: jsii.String("tenant-only"),
 	Origins: []interface{}{
 		&OriginProperty{
-			Id: myBucket.*BucketArn,
+			Id: myBucket.bucketArn,
 			DomainName: myBucket.BucketDomainName,
 			S3OriginConfig: &S3OriginConfigProperty{
 			},
@@ -369,14 +369,14 @@ connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-host
 // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
 // Export the RoutingEndpoint, skip this step if you'd prefer to fetch it from the CloudFront console or via Cloudfront.ListConnectionGroups API
 awscdk.NewCfnOutput(this, jsii.String("RoutingEndpoint"), &CfnOutputProps{
-	Value: connectionGroup.AttrRoutingEndpoint,
+	Value: connectionGroup.attrRoutingEndpoint,
 	Description: jsii.String("CloudFront Routing Endpoint to be added to my hosted zone CNAME records"),
 })
 
 // Create a distribution tenant with a self-hosted domain.
 selfHostedTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("self-hosted-tenant"), &CfnDistributionTenantProps{
 	DistributionId: myMultiTenantDistribution.DistributionId,
-	ConnectionGroupId: connectionGroup.AttrId,
+	ConnectionGroupId: connectionGroup.attrId,
 	Name: jsii.String("self-hosted-tenant"),
 	Domains: []*string{
 		jsii.String("self-hosted-tenant.my.domain.com"),
@@ -595,7 +595,7 @@ distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &D
 	DefaultBehavior: &BehaviorOptions{
 		Origin: bucketOrigin,
 	},
-	WebAclId: webAcl.AttrArn,
+	WebAclId: webAcl.attrArn,
 })
 ```
 
@@ -611,7 +611,7 @@ distribution := cloudfront.NewDistribution(this, jsii.String("Distribution"), &D
 	},
 })
 
-distribution.AttachWebAclId(webAcl.AttrArn)
+distribution.AttachWebAclId(webAcl.attrArn)
 ```
 
 ### Customizing Cache Keys and TTLs with Cache Policies

@@ -39,9 +39,6 @@ type AddOpenApiTargetOptions struct {
 	// The OpenAPI schema defining the API.
 	// Experimental.
 	ApiSchema ApiSchema `field:"required" json:"apiSchema" yaml:"apiSchema"`
-	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
-	// Experimental.
-	GatewayTargetName *string `field:"required" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// Credential providers for authentication.
 	// Default: - [GatewayCredentialProvider.iamRole()]
 	//
@@ -52,6 +49,11 @@ type AddOpenApiTargetOptions struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
+	// Default: - auto generate.
+	//
+	// Experimental.
+	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// Whether to validate the OpenAPI schema or not Note: Validation is only performed for inline and asset-based schema and  during CDK synthesis.
 	//
 	// S3 schemas cannot be validated at synthesis time.

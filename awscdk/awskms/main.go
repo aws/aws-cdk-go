@@ -358,6 +358,7 @@ func init() {
 			"ML_DSA_44": KeySpec_ML_DSA_44,
 			"ML_DSA_65": KeySpec_ML_DSA_65,
 			"ML_DSA_87": KeySpec_ML_DSA_87,
+			"ECC_NIST_EDWARDS25519": KeySpec_ECC_NIST_EDWARDS25519,
 		},
 	)
 	_jsii_.RegisterEnum(

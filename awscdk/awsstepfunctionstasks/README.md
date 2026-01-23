@@ -441,9 +441,9 @@ var batchQueue JobQueue
 
 
 task := tasks.NewBatchSubmitJob(this, jsii.String("Submit Job"), &BatchSubmitJobProps{
-	JobDefinitionArn: batchJobDefinition.JobDefinitionArn,
+	JobDefinitionArn: batchJobDefinition.jobDefinitionArn,
 	JobName: jsii.String("MyJob"),
-	JobQueueArn: batchQueue.JobQueueArn,
+	JobQueueArn: batchQueue.jobQueueArn,
 })
 ```
 
@@ -1288,7 +1288,7 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 
 tasks.NewEmrAddStep(this, jsii.String("Task"), &EmrAddStepProps{
 	ClusterId: jsii.String("ClusterId"),
-	ExecutionRoleArn: executionRole.RoleArn,
+	ExecutionRoleArn: executionRole.roleArn,
 	Name: jsii.String("StepName"),
 	Jar: jsii.String("Jar"),
 	ActionOnFailure: tasks.ActionOnFailure_CONTINUE,
@@ -1605,7 +1605,7 @@ schedulerRole.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("sqs:SendMessage"),
 	},
 	Resources: []*string{
-		targetQueue.QueueArn,
+		targetQueue.queueArn,
 	},
 }))
 
@@ -1623,7 +1623,7 @@ createScheduleTask1 := tasks.NewEventBridgeSchedulerCreateScheduleTask(this, jsi
 	Timezone: jsii.String("UTC"),
 	Enabled: jsii.Boolean(true),
 	Target: tasks.NewEventBridgeSchedulerTarget(&EventBridgeSchedulerTargetProps{
-		Arn: targetQueue.*QueueArn,
+		Arn: targetQueue.queueArn,
 		Role: schedulerRole,
 		RetryPolicy: &RetryPolicy{
 			MaximumRetryAttempts: jsii.Number(2),

@@ -35,7 +35,7 @@ import (
 //   cfnDistribution := myMultiTenantDistribution.Node.defaultChild.(CfnDistribution)
 //
 //   defaultCacheBehavior := &DefaultCacheBehaviorProperty{
-//   	TargetOriginId: myBucket.BucketArn,
+//   	TargetOriginId: myBucket.bucketArn,
 //   	ViewerProtocolPolicy: jsii.String("allow-all"),
 //   	Compress: jsii.Boolean(false),
 //   	AllowedMethods: []*string{
@@ -52,7 +52,7 @@ import (
 //   	ConnectionMode: jsii.String("tenant-only"),
 //   	Origins: []interface{}{
 //   		&OriginProperty{
-//   			Id: myBucket.*BucketArn,
+//   			Id: myBucket.bucketArn,
 //   			DomainName: myBucket.BucketDomainName,
 //   			S3OriginConfig: &S3OriginConfigProperty{
 //   			},

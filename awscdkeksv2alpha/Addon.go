@@ -31,7 +31,7 @@ import (
 type Addon interface {
 	awscdk.Resource
 	IAddon
-	// Arn of the addon.
+	// ARN of the Add-On.
 	// Experimental.
 	AddonArn() *string
 	// Name of the addon.

@@ -318,12 +318,12 @@ func (j *jsiiProxy_RuntimeBase) Stack() awscdk.Stack {
 
 
 // Experimental.
-func NewRuntimeBase_Override(r RuntimeBase, scope constructs.Construct, id *string) {
+func NewRuntimeBase_Override(r RuntimeBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeBase",
-		[]interface{}{scope, id},
+		[]interface{}{scope, id, props},
 		r,
 	)
 }

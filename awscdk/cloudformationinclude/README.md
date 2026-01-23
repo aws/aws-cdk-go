@@ -105,7 +105,7 @@ role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("s3:*"),
 	},
 	Resources: []*string{
-		cfnBucket.AttrArn,
+		cfnBucket.attrArn,
 	},
 }))
 ```
@@ -241,7 +241,7 @@ bucket := s3.Bucket_FromBucketName(this, jsii.String("L2Bucket"), cfnBucket.ref)
 
 // using from*Arn()
 cfnKey := cfnTemplate.GetResource(jsii.String("Key")).(CfnKey)
-key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.AttrArn)
+key := kms.Key_FromKeyArn(this, jsii.String("L2Key"), cfnKey.attrArn)
 cfnVpc := cfnTemplate.GetResource(jsii.String("Vpc")).(CfnVPC)
 vpc := ec2.Vpc_FromVpcAttributes(this, jsii.String("L2Vpc"), &VpcAttributes{
 	VpcId: cfnVpc.ref,
@@ -317,7 +317,7 @@ you can also retrieve and mutate all other template elements:
   var cfnBucket CfnBucket
 
   output := cfnTemplate.GetOutput(jsii.String("MyOutput"))
-  output.value = cfnBucket.AttrArn
+  output.value = cfnBucket.attrArn
   ```
 * [Hooks for blue-green deployments](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html):
 
@@ -329,7 +329,7 @@ you can also retrieve and mutate all other template elements:
 
   hook := cfnTemplate.GetHook(jsii.String("MyOutput"))
   codeDeployHook := hook.(CfnCodeDeployBlueGreenHook)
-  codeDeployHook.serviceRole = myRole.RoleArn
+  codeDeployHook.serviceRole = myRole.roleArn
   ```
 
 ## Parameter replacement
@@ -435,7 +435,7 @@ role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("s3:List*"),
 	},
 	Resources: []*string{
-		cfnBucket.AttrArn,
+		cfnBucket.attrArn,
 	},
 }))
 ```

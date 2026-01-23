@@ -36,9 +36,6 @@ import (
 //
 // Experimental.
 type GatewayProps struct {
-	// The name of the gateway Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen) The name must be unique within your account.
-	// Experimental.
-	GatewayName *string `field:"required" json:"gatewayName" yaml:"gatewayName"`
 	// The authorizer configuration for the gateway.
 	// Default: - A default authorizer will be created using Cognito.
 	//
@@ -54,6 +51,24 @@ type GatewayProps struct {
 	//
 	// Experimental.
 	ExceptionLevel GatewayExceptionLevel `field:"optional" json:"exceptionLevel" yaml:"exceptionLevel"`
+	// The name of the gateway Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen) The name must be unique within your account.
+	// Default: - auto generate.
+	//
+	// Experimental.
+	GatewayName *string `field:"optional" json:"gatewayName" yaml:"gatewayName"`
+	// Interceptor configurations for the gateway.
+	//
+	// Interceptors allow you to run custom code during each gateway invocation:
+	// - REQUEST interceptors execute before the gateway calls the target
+	// - RESPONSE interceptors execute after the target responds
+	//
+	// A gateway can have at most one REQUEST interceptor and one RESPONSE interceptor.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-interceptors.html
+	//
+	// Default: - No interceptors.
+	//
+	// Experimental.
+	InterceptorConfigurations *[]IInterceptor `field:"optional" json:"interceptorConfigurations" yaml:"interceptorConfigurations"`
 	// The AWS KMS key used to encrypt data associated with the gateway.
 	// Default: - No encryption.
 	//

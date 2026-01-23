@@ -736,7 +736,7 @@ Set `serviceToken` to `topic.topicArn`  in order to use this provider:
 topic := sns.NewTopic(this, jsii.String("MyProvider"))
 
 awscdk.NewCustomResource(this, jsii.String("MyResource"), &CustomResourceProps{
-	ServiceToken: topic.TopicArn,
+	ServiceToken: topic.topicArn,
 })
 ```
 
@@ -911,7 +911,7 @@ provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String(
 	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
 })
 
-roleArn := provider.RoleArn
+roleArn := provider.roleArn
 ```
 
 This role ARN can then be used in resource-based IAM policies.

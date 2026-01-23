@@ -164,7 +164,7 @@ topic := sns.NewTopic(this, jsii.String("Topic"))
 
 sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
 	Topic: Topic,
-	Endpoint: stream.DeliveryStreamArn,
+	Endpoint: stream.deliveryStreamArn,
 	Protocol: sns.SubscriptionProtocol_FIREHOSE,
 	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
 })
@@ -236,7 +236,7 @@ topicPolicy.Document.AddStatements(iam.NewPolicyStatement(&PolicyStatementProps{
 		iam.NewAnyPrincipal(),
 	},
 	Resources: []*string{
-		topic.TopicArn,
+		topic.topicArn,
 	},
 }))
 ```
@@ -256,7 +256,7 @@ policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 				iam.NewAnyPrincipal(),
 			},
 			Resources: []*string{
-				topic.TopicArn,
+				topic.topicArn,
 			},
 		}),
 	},
@@ -287,7 +287,7 @@ policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 				iam.NewServicePrincipal(jsii.String("s3.amazonaws.com")),
 			},
 			Resources: []*string{
-				topic.TopicArn,
+				topic.topicArn,
 			},
 		}),
 	},
@@ -317,7 +317,7 @@ topic.AddToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 		jsii.String("sns:Publish"),
 	},
 	Resources: []*string{
-		topic.TopicArn,
+		topic.topicArn,
 	},
 }))
 ```

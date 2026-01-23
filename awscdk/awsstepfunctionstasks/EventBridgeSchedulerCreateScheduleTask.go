@@ -33,7 +33,7 @@ import (
 //   		jsii.String("sqs:SendMessage"),
 //   	},
 //   	Resources: []*string{
-//   		targetQueue.QueueArn,
+//   		targetQueue.queueArn,
 //   	},
 //   }))
 //
@@ -51,7 +51,7 @@ import (
 //   	Timezone: jsii.String("UTC"),
 //   	Enabled: jsii.Boolean(true),
 //   	Target: tasks.NewEventBridgeSchedulerTarget(&EventBridgeSchedulerTargetProps{
-//   		Arn: targetQueue.*QueueArn,
+//   		Arn: targetQueue.queueArn,
 //   		Role: schedulerRole,
 //   		RetryPolicy: &RetryPolicy{
 //   			MaximumRetryAttempts: jsii.Number(2),

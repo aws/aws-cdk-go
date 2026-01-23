@@ -12,7 +12,7 @@ package awswafv2
 //   // Associate waf with Event API
 //   wafv2.NewCfnWebACLAssociation(this, jsii.String("WafAssociation"), &CfnWebACLAssociationProps{
 //   	ResourceArn: api.ApiArn,
-//   	WebAclArn: webAcl.AttrArn,
+//   	WebAclArn: webAcl.attrArn,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html

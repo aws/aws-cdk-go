@@ -30,7 +30,7 @@ import (
 //   		jsii.String("s3:*"),
 //   	},
 //   	Resources: []*string{
-//   		cfnBucket.AttrArn,
+//   		cfnBucket.attrArn,
 //   	},
 //   }))
 //

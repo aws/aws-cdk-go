@@ -1,5 +1,8 @@
 package awscdksagemakeralpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Construction properties for an instance production variant.
 //
@@ -7,6 +10,7 @@ package awscdksagemakeralpha
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import sagemaker_alpha "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var acceleratorType AcceleratorType
 //   var instanceType InstanceType
@@ -18,6 +22,7 @@ package awscdksagemakeralpha
 //
 //   	// the properties below are optional
 //   	AcceleratorType: acceleratorType,
+//   	ContainerStartupHealthCheckTimeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   	InitialInstanceCount: jsii.Number(123),
 //   	InitialVariantWeight: jsii.Number(123),
 //   	InstanceType: instanceType,
@@ -39,6 +44,13 @@ type InstanceProductionVariantProps struct {
 	//
 	// Experimental.
 	AcceleratorType AcceleratorType `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
+	// The timeout value, in seconds, for your inference container to pass health check.
+	//
+	// Range between 60 and 3600 seconds.
+	// Default: - none.
+	//
+	// Experimental.
+	ContainerStartupHealthCheckTimeout awscdk.Duration `field:"optional" json:"containerStartupHealthCheckTimeout" yaml:"containerStartupHealthCheckTimeout"`
 	// Number of instances to launch initially.
 	// Default: 1.
 	//

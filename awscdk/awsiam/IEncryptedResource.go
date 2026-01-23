@@ -8,6 +8,8 @@ import (
 )
 
 // A resource that contains data that can be encrypted, using a KMS key.
+//
+// [awslint:interface-extends-ref].
 type IEncryptedResource interface {
 	awscdk.IResource
 	// Gives permissions to a grantable entity to perform actions on the encryption key.

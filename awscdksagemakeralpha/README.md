@@ -231,6 +231,32 @@ endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"
 })
 ```
 
+#### Container Startup Health Check Timeout
+
+You can specify a timeout value for your inference container to pass health check by configuring
+the `containerStartupHealthCheckTimeout` property. This is useful when your model takes longer
+to initialize and you want to avoid premature health check failures:
+
+```go
+import sagemaker "github.com/aws/aws-cdk-go/awscdksagemakeralpha"
+
+var model Model
+
+
+endpointConfig := sagemaker.NewEndpointConfig(this, jsii.String("EndpointConfig"), &EndpointConfigProps{
+	InstanceProductionVariants: []InstanceProductionVariantProps{
+		&InstanceProductionVariantProps{
+			Model: model,
+			VariantName: jsii.String("my-variant"),
+			ContainerStartupHealthCheckTimeout: cdk.Duration_Minutes(jsii.Number(5)),
+		},
+	},
+})
+```
+
+The timeout value must be between 60 seconds and 1 hour (3600 seconds). If not specified,
+Amazon SageMaker uses the default timeout behavior.
+
 ### Serverless Inference
 
 Amazon SageMaker Serverless Inference is a purpose-built inference option that makes it easy for you to deploy and scale ML models. Serverless endpoints automatically launch compute resources and scale them in and out depending on traffic, eliminating the need to choose instance types or manage scaling policies. For more information, see [SageMaker Serverless Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html).

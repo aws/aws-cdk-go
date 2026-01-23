@@ -21,7 +21,7 @@ import (
 //   	RecordingConfig: &RecordingConfig{
 //   		Enabled: jsii.Boolean(true),
 //   		S3Location: &Location{
-//   			BucketName: recordingBucket.BucketName,
+//   			BucketName: recordingBucket.bucketName,
 //   			ObjectKey: jsii.String("browser-recordings/"),
 //   		},
 //   	},

@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnEvaluationForm) validateSetLanguageConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnEvaluationForm) validateSetReviewConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEvaluationForm) validateSetScoringStrategyParameters(val interface{}) error {
 	return nil
 }

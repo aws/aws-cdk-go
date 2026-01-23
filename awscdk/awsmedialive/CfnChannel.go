@@ -73,6 +73,8 @@ type CfnChannel interface {
 	// The input specification for this channel.
 	InputSpecification() interface{}
 	SetInputSpecification(val interface{})
+	LinkedChannelSettings() interface{}
+	SetLinkedChannelSettings(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -442,6 +444,16 @@ func (j *jsiiProxy_CfnChannel) InputSpecification() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) LinkedChannelSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"linkedChannelSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -694,6 +706,17 @@ func (j *jsiiProxy_CfnChannel)SetInputSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"inputSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetLinkedChannelSettings(val interface{}) {
+	if err := j.validateSetLinkedChannelSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"linkedChannelSettings",
 		val,
 	)
 }

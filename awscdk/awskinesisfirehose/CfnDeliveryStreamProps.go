@@ -15,8 +15,8 @@ import (
 //   stream := firehose.NewCfnDeliveryStream(this, jsii.String("MyStream"), &CfnDeliveryStreamProps{
 //   	DeliveryStreamName: jsii.String("amazon-apigateway-delivery-stream"),
 //   	S3DestinationConfiguration: &S3DestinationConfigurationProperty{
-//   		BucketArn: destinationBucket.BucketArn,
-//   		RoleArn: deliveryStreamRole.RoleArn,
+//   		BucketArn: destinationBucket.bucketArn,
+//   		RoleArn: deliveryStreamRole.roleArn,
 //   	},
 //   })
 //

@@ -48,9 +48,9 @@ type ProfilingGroup interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
-	// The ARN of the Profiling Group.
+	// The ARN of the profiling group.
 	ProfilingGroupArn() *string
-	// The name of the Profiling Group.
+	// The name of the profiling group.
 	ProfilingGroupName() *string
 	// A reference to a ProfilingGroup resource.
 	ProfilingGroupRef() *interfacesawscodeguruprofiler.ProfilingGroupReference

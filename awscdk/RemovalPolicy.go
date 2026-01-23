@@ -44,7 +44,7 @@ package awscdk
 //   	InvocationConfiguration: &InvocationConfiguration{
 //   		Topic: topic,
 //   		S3Location: &Location{
-//   			BucketName: bucket.BucketName,
+//   			BucketName: bucket.bucketName,
 //   			ObjectKey: jsii.String("memory/"),
 //   		},
 //   	},

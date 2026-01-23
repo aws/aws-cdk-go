@@ -19,9 +19,6 @@ package awsbedrockagentcorealpha
 //
 // Experimental.
 type AddSmithyTargetOptions struct {
-	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
-	// Experimental.
-	GatewayTargetName *string `field:"required" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// The Smithy model defining the API.
 	// Experimental.
 	SmithyModel ApiSchema `field:"required" json:"smithyModel" yaml:"smithyModel"`
@@ -35,5 +32,10 @@ type AddSmithyTargetOptions struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
+	// Default: - auto generate.
+	//
+	// Experimental.
+	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 }
 

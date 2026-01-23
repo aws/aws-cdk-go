@@ -14,7 +14,7 @@ import (
 //
 //   userData := ec2.UserData_ForLinux()
 //   userData.AddCommands(jsii.String("set -o xtrace"),
-//   fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.ClusterName))
+//   fmt.Sprintf("/etc/eks/bootstrap.sh %v", cluster.clusterName))
 //   lt := ec2.NewCfnLaunchTemplate(this, jsii.String("LaunchTemplate"), &CfnLaunchTemplateProps{
 //   	LaunchTemplateData: &LaunchTemplateDataProperty{
 //   		ImageId: jsii.String("some-ami-id"),
@@ -26,7 +26,7 @@ import (
 //   cluster.AddNodegroupCapacity(jsii.String("extra-ng"), &NodegroupOptions{
 //   	LaunchTemplateSpec: &LaunchTemplateSpec{
 //   		Id: lt.ref,
-//   		Version: lt.AttrLatestVersionNumber,
+//   		Version: lt.attrLatestVersionNumber,
 //   	},
 //   })
 //

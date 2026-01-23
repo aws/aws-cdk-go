@@ -37,7 +37,7 @@ import (
 //   	 // custom data identifier
 //   	LogGroupAuditDestination: logGroupDestination,
 //   	S3BucketAuditDestination: bucket,
-//   	DeliveryStreamNameAuditDestination: deliveryStream.DeliveryStreamName,
+//   	DeliveryStreamNameAuditDestination: deliveryStream.deliveryStreamName,
 //   })
 //
 //   logs.NewLogGroup(this, jsii.String("LogGroupLambda"), &LogGroupProps{

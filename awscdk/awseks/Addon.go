@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -30,10 +31,12 @@ import (
 type Addon interface {
 	awscdk.Resource
 	IAddon
-	// Arn of the addon.
+	// ARN of the Add-On.
 	AddonArn() *string
-	// Name of the addon.
+	// Name of the Add-On.
 	AddonName() *string
+	// A reference to a Addon resource.
+	AddonRef() *interfacesawseks.AddonReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -105,6 +108,16 @@ func (j *jsiiProxy_Addon) AddonName() *string {
 	_jsii_.Get(
 		j,
 		"addonName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Addon) AddonRef() *interfacesawseks.AddonReference {
+	var returns *interfacesawseks.AddonReference
+	_jsii_.Get(
+		j,
+		"addonRef",
 		&returns,
 	)
 	return returns

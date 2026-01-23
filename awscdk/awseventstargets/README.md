@@ -292,7 +292,7 @@ rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 	Schedule: events.Schedule_Rate(awscdk.Duration_Hours(jsii.Number(1))),
 })
 
-rule.AddTarget(targets.NewBatchJob(jobQueue.JobQueueArn, jobQueue, jobDefinition.JobDefinitionArn, jobDefinition, &BatchJobProps{
+rule.AddTarget(targets.NewBatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition, &BatchJobProps{
 	DeadLetterQueue: queue,
 	Event: events.RuleTargetInput_FromObject(map[string]*string{
 		"SomeParam": jsii.String("SomeValue"),
@@ -421,7 +421,7 @@ rule.AddTarget(targets.NewAwsApi(&AwsApiProps{
 			jsii.String("s3:GetEncryptionConfiguration"),
 		},
 		Resources: []*string{
-			bucket.BucketArn,
+			bucket.bucketArn,
 		},
 	}),
 }))
@@ -753,7 +753,7 @@ rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
 
 dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
 
-rule.AddTarget(targets.NewRedshiftQuery(workgroup.AttrWorkgroupWorkgroupArn, &RedshiftQueryProps{
+rule.AddTarget(targets.NewRedshiftQuery(workgroup.attrWorkgroupWorkgroupArn, &RedshiftQueryProps{
 	Database: jsii.String("dev"),
 	DeadLetterQueue: dlq,
 	Sql: []*string{

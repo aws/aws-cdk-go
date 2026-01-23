@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsscheduler/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsscheduler"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,6 +62,8 @@ type Schedule interface {
 	ScheduleGroup() IScheduleGroup
 	// The name of the schedule.
 	ScheduleName() *string
+	// A reference to a Schedule resource.
+	ScheduleRef() *interfacesawsscheduler.ScheduleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Apply the given removal policy to this resource.
@@ -162,6 +165,16 @@ func (j *jsiiProxy_Schedule) ScheduleName() *string {
 	_jsii_.Get(
 		j,
 		"scheduleName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Schedule) ScheduleRef() *interfacesawsscheduler.ScheduleReference {
+	var returns *interfacesawsscheduler.ScheduleReference
+	_jsii_.Get(
+		j,
+		"scheduleRef",
 		&returns,
 	)
 	return returns

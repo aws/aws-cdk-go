@@ -299,7 +299,7 @@ streamConsumer := kinesis.NewStreamConsumer(this, jsii.String("MyStreamConsumer"
 // create a stream resource policy via addToResourcePolicy method
 stream.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	Resources: []*string{
-		stream.StreamArn,
+		stream.streamArn,
 	},
 	Actions: []*string{
 		jsii.String("kinesis:GetRecords"),
@@ -312,7 +312,7 @@ stream.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 // create a stream consumer resource policy via addToResourcePolicy method
 streamConsumer.addToResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 	Resources: []*string{
-		stream.*StreamArn,
+		stream.streamArn,
 	},
 	Actions: []*string{
 		jsii.String("kinesis:DescribeStreamConsumer"),
@@ -343,7 +343,7 @@ policyDocument := iam.NewPolicyDocument(&PolicyDocumentProps{
 				jsii.String("kinesis:GetRecords"),
 			},
 			Resources: []*string{
-				stream.StreamArn,
+				stream.streamArn,
 			},
 			Principals: []IPrincipal{
 				iam.NewAnyPrincipal(),

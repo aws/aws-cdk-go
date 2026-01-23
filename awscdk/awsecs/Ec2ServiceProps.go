@@ -43,6 +43,12 @@ type Ec2ServiceProps struct {
 	// Default: - none.
 	//
 	BakeTime awscdk.Duration `field:"optional" json:"bakeTime" yaml:"bakeTime"`
+	// Configuration for canary deployment strategy.
+	//
+	// Only valid when deploymentStrategy is set to CANARY.
+	// Default: - no canary configuration.
+	//
+	CanaryConfiguration *TrafficShiftConfig `field:"optional" json:"canaryConfiguration" yaml:"canaryConfiguration"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Default: - undefined.
 	//
@@ -97,6 +103,12 @@ type Ec2ServiceProps struct {
 	// Default: - none;.
 	//
 	LifecycleHooks *[]IDeploymentLifecycleHookTarget `field:"optional" json:"lifecycleHooks" yaml:"lifecycleHooks"`
+	// Configuration for linear deployment strategy.
+	//
+	// Only valid when deploymentStrategy is set to LINEAR.
+	// Default: - no linear configuration.
+	//
+	LinearConfiguration *TrafficShiftConfig `field:"optional" json:"linearConfiguration" yaml:"linearConfiguration"`
 	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
 	// Default: - 100 if daemon, otherwise 200.
 	//

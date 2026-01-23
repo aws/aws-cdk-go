@@ -185,10 +185,10 @@ build := gamelift.NewBuild(this, jsii.String("Build"), &BuildProps{
 })
 
 awscdk.NewCfnOutput(this, jsii.String("BuildArn"), &CfnOutputProps{
-	Value: build.BuildArn,
+	Value: build.buildArn,
 })
 awscdk.NewCfnOutput(this, jsii.String("BuildId"), &CfnOutputProps{
-	Value: build.BuildId,
+	Value: build.buildId,
 })
 ```
 

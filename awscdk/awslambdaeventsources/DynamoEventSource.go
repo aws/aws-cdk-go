@@ -27,8 +27,8 @@ import (
 //   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_LATEST,
 //   	MetricsConfig: &MetricsConfig{
-//   		Metrics: []eVENT_COUNT{
-//   			lambda.MetricType_*eVENT_COUNT,
+//   		Metrics: []MetricType{
+//   			lambda.MetricType_EVENT_COUNT,
 //   		},
 //   	},
 //   }))

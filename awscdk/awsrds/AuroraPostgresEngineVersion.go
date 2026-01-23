@@ -920,6 +920,17 @@ func AuroraPostgresEngineVersion_VER_14_19() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_14_20() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_14_20",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_14_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion

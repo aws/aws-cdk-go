@@ -116,7 +116,7 @@ cluster.Connections.AllowDefaultPortFromAnyIpv4(jsii.String("Open to the world")
 The endpoint to access your database cluster will be available as the `.clusterEndpoint` attribute:
 
 ```go
-cluster.ClusterEndpoint.SocketAddress
+cluster.ClusterEndpoint.socketAddress
 ```
 
 ## Database Resources

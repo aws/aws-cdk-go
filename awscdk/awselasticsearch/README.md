@@ -261,8 +261,8 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
 	Resources: []*string{
-		domain.DomainArn,
-		fmt.Sprintf("%v/*", domain.*DomainArn),
+		domain.domainArn,
+		fmt.Sprintf("%v/*", domain.domainArn),
 	},
 }),
 iam.NewPolicyStatement(&PolicyStatementProps{
@@ -274,16 +274,16 @@ iam.NewPolicyStatement(&PolicyStatementProps{
 		iam.NewAccountPrincipal(jsii.String("123456789012")),
 	},
 	Resources: []*string{
-		fmt.Sprintf("%v/_all/_settings", domain.*DomainArn),
-		fmt.Sprintf("%v/_cluster/stats", domain.*DomainArn),
-		fmt.Sprintf("%v/index-name*/_mapping/type-name", domain.*DomainArn),
-		fmt.Sprintf("%v/roletest*/_mapping/roletest", domain.*DomainArn),
-		fmt.Sprintf("%v/_nodes", domain.*DomainArn),
-		fmt.Sprintf("%v/_nodes/stats", domain.*DomainArn),
-		fmt.Sprintf("%v/_nodes/*/stats", domain.*DomainArn),
-		fmt.Sprintf("%v/_stats", domain.*DomainArn),
-		fmt.Sprintf("%v/index-name*/_stats", domain.*DomainArn),
-		fmt.Sprintf("%v/roletest*/_stat", domain.*DomainArn),
+		fmt.Sprintf("%v/_all/_settings", domain.domainArn),
+		fmt.Sprintf("%v/_cluster/stats", domain.domainArn),
+		fmt.Sprintf("%v/index-name*/_mapping/type-name", domain.domainArn),
+		fmt.Sprintf("%v/roletest*/_mapping/roletest", domain.domainArn),
+		fmt.Sprintf("%v/_nodes", domain.domainArn),
+		fmt.Sprintf("%v/_nodes/stats", domain.domainArn),
+		fmt.Sprintf("%v/_nodes/*/stats", domain.domainArn),
+		fmt.Sprintf("%v/_stats", domain.domainArn),
+		fmt.Sprintf("%v/index-name*/_stats", domain.domainArn),
+		fmt.Sprintf("%v/roletest*/_stat", domain.domainArn),
 	},
 }))
 ```

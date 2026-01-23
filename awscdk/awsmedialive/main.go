@@ -40,6 +40,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "inputAttachments", GoGetter: "InputAttachments"},
 			_jsii_.MemberProperty{JsiiProperty: "inputSpecification", GoGetter: "InputSpecification"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "linkedChannelSettings", GoGetter: "LinkedChannelSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "logLevel", GoGetter: "LogLevel"},
 			_jsii_.MemberProperty{JsiiProperty: "maintenance", GoGetter: "Maintenance"},
@@ -353,6 +354,10 @@ func init() {
 		reflect.TypeOf((*CfnChannel_Fmp4HlsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.FollowerChannelSettingsProperty",
+		reflect.TypeOf((*CfnChannel_FollowerChannelSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.FrameCaptureCdnSettingsProperty",
 		reflect.TypeOf((*CfnChannel_FrameCaptureCdnSettingsProperty)(nil)).Elem(),
 	)
@@ -483,6 +488,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.KeyProviderSettingsProperty",
 		reflect.TypeOf((*CfnChannel_KeyProviderSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.LinkedChannelSettingsProperty",
+		reflect.TypeOf((*CfnChannel_LinkedChannelSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.M2tsSettingsProperty",
@@ -627,6 +636,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.PassThroughSettingsProperty",
 		reflect.TypeOf((*CfnChannel_PassThroughSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.PrimaryChannelSettingsProperty",
+		reflect.TypeOf((*CfnChannel_PrimaryChannelSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.RawSettingsProperty",

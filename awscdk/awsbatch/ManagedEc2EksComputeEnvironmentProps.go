@@ -278,7 +278,6 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	// (of the same architecture) in addition to the optimal instance classes.
 	// Default: true.
 	//
-	// Deprecated: use defaultInstanceClasses instead.
 	UseOptimalInstanceClasses *bool `field:"optional" json:"useOptimalInstanceClasses" yaml:"useOptimalInstanceClasses"`
 }
 

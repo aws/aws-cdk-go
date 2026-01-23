@@ -524,7 +524,7 @@ elbv2.NewNetworkLoadBalancer(this, jsii.String("InternetFacingLb"), &NetworkLoad
 		&SubnetMapping{
 			Subnet: *Subnet,
 			// The allocation ID of the Elastic IP address
-			AllocationId: cfnEip.AttrAllocationId,
+			AllocationId: cfnEip.attrAllocationId,
 		},
 	},
 })

@@ -23,7 +23,7 @@ package awsstepfunctionstasks
 //   		jsii.String("sqs:SendMessage"),
 //   	},
 //   	Resources: []*string{
-//   		targetQueue.QueueArn,
+//   		targetQueue.queueArn,
 //   	},
 //   }))
 //
@@ -41,7 +41,7 @@ package awsstepfunctionstasks
 //   	Timezone: jsii.String("UTC"),
 //   	Enabled: jsii.Boolean(true),
 //   	Target: tasks.NewEventBridgeSchedulerTarget(&EventBridgeSchedulerTargetProps{
-//   		Arn: targetQueue.*QueueArn,
+//   		Arn: targetQueue.queueArn,
 //   		Role: schedulerRole,
 //   		RetryPolicy: &RetryPolicy{
 //   			MaximumRetryAttempts: jsii.Number(2),

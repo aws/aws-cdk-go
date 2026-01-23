@@ -46,6 +46,9 @@ type CfnChannelMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputspecification
 	//
 	InputSpecification interface{} `field:"optional" json:"inputSpecification" yaml:"inputSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-linkedchannelsettings
+	//
+	LinkedChannelSettings interface{} `field:"optional" json:"linkedChannelSettings" yaml:"linkedChannelSettings"`
 	// The verbosity for logging activity for this channel.
 	//
 	// Charges for logging (which are generated through Amazon CloudWatch Logging) are higher for higher verbosities.

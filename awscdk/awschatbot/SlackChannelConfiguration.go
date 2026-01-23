@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawschatbot"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -61,6 +62,8 @@ type SlackChannelConfiguration interface {
 	SlackChannelConfigurationArn() *string
 	// The name of Slack channel configuration.
 	SlackChannelConfigurationName() *string
+	// A reference to a SlackChannelConfiguration resource.
+	SlackChannelConfigurationRef() *interfacesawschatbot.SlackChannelConfigurationReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Adds a SNS topic that deliver notifications to AWS Chatbot.
@@ -170,6 +173,16 @@ func (j *jsiiProxy_SlackChannelConfiguration) SlackChannelConfigurationName() *s
 	_jsii_.Get(
 		j,
 		"slackChannelConfigurationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SlackChannelConfiguration) SlackChannelConfigurationRef() *interfacesawschatbot.SlackChannelConfigurationReference {
+	var returns *interfacesawschatbot.SlackChannelConfigurationReference
+	_jsii_.Get(
+		j,
+		"slackChannelConfigurationRef",
 		&returns,
 	)
 	return returns

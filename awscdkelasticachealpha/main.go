@@ -32,6 +32,7 @@ func init() {
 			"REDIS_LATEST": CacheEngine_REDIS_LATEST,
 			"REDIS_7": CacheEngine_REDIS_7,
 			"MEMCACHED_LATEST": CacheEngine_MEMCACHED_LATEST,
+			"MEMCACHED_1_6": CacheEngine_MEMCACHED_1_6,
 		},
 	)
 	_jsii_.RegisterStruct(

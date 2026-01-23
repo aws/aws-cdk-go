@@ -23,6 +23,7 @@ package awsecs
 //
 //   	// the properties below are optional
 //   	CapacityOptionType: jsii.String("capacityOptionType"),
+//   	FipsEnabled: jsii.Boolean(false),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		MemoryMiB: &MemoryMiBRequestProperty{
 //   			Min: jsii.Number(123),
@@ -136,6 +137,9 @@ type CfnCapacityProvider_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-capacityoptiontype
 	//
 	CapacityOptionType *string `field:"optional" json:"capacityOptionType" yaml:"capacityOptionType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-fipsenabled
+	//
+	FipsEnabled interface{} `field:"optional" json:"fipsEnabled" yaml:"fipsEnabled"`
 	// The instance requirements. You can specify:.
 	//
 	// - The instance types

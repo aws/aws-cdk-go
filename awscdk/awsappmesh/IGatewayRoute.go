@@ -5,10 +5,14 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsappmesh/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for which all GatewayRoute based classes MUST implement.
 type IGatewayRoute interface {
+	interfacesawsappmesh.IGatewayRouteRef
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) for the GatewayRoute.
 	GatewayRouteArn() *string
@@ -20,7 +24,19 @@ type IGatewayRoute interface {
 
 // The jsii proxy for IGatewayRoute
 type jsiiProxy_IGatewayRoute struct {
+	internal.Type__interfacesawsappmeshIGatewayRouteRef
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IGatewayRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IGatewayRoute) GatewayRouteArn() *string {
@@ -48,6 +64,46 @@ func (j *jsiiProxy_IGatewayRoute) VirtualGateway() IVirtualGateway {
 	_jsii_.Get(
 		j,
 		"virtualGateway",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayRoute) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayRoute) GatewayRouteRef() *interfacesawsappmesh.GatewayRouteReference {
+	var returns *interfacesawsappmesh.GatewayRouteReference
+	_jsii_.Get(
+		j,
+		"gatewayRouteRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayRoute) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayRoute) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

@@ -22,7 +22,7 @@ import (
 //
 //   cognito.NewCfnIdentityPool(this, jsii.String("IdentityPool"), &CfnIdentityPoolProps{
 //   	OpenIdConnectProviderArns: []interface{}{
-//   		myProvider.OpenIdConnectProviderArn,
+//   		myProvider.openIdConnectProviderArn,
 //   	},
 //   	// And the other properties for your identity pool
 //   	AllowUnauthenticatedIdentities: jsii.Boolean(false),

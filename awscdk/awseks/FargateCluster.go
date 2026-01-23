@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawseks"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -50,9 +51,7 @@ type FargateCluster interface {
 	//
 	// If not defined, a default layer will be used containing the AWS CLI 1.x.
 	AwscliLayer() awslambda.ILayerVersion
-	// The AWS generated ARN for the Cluster resource.
-	//
-	// For example, `arn:aws:eks:us-west-2:666666666666:cluster/prod`.
+	// The unique ARN assigned to the service by AWS in the form of arn:aws:eks:.
 	ClusterArn() *string
 	// The certificate-authority-data for your cluster.
 	ClusterCertificateAuthorityData() *string
@@ -72,7 +71,7 @@ type FargateCluster interface {
 	// Default: - No security group.
 	//
 	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
-	// The Name of the created EKS Cluster.
+	// The physical name of the Cluster.
 	ClusterName() *string
 	// If this cluster is kubectl-enabled, returns the OpenID Connect issuer.
 	//
@@ -86,6 +85,8 @@ type FargateCluster interface {
 	// by CloudFormation. If this cluster is not kubectl-enabled (i.e. uses the
 	// stock `CfnCluster`), this is `undefined`.
 	ClusterOpenIdConnectIssuerUrl() *string
+	// A reference to a Cluster resource.
+	ClusterRef() *interfacesawseks.ClusterReference
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
@@ -408,6 +409,16 @@ func (j *jsiiProxy_FargateCluster) ClusterOpenIdConnectIssuerUrl() *string {
 	_jsii_.Get(
 		j,
 		"clusterOpenIdConnectIssuerUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateCluster) ClusterRef() *interfacesawseks.ClusterReference {
+	var returns *interfacesawseks.ClusterReference
+	_jsii_.Get(
+		j,
+		"clusterRef",
 		&returns,
 	)
 	return returns

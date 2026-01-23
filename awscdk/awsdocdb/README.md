@@ -70,7 +70,7 @@ attributes:
 ```go
 var cluster DatabaseCluster
 
-writeAddress := cluster.ClusterEndpoint.SocketAddress
+writeAddress := cluster.ClusterEndpoint.socketAddress
 ```
 
 If you have existing security groups you would like to add to the cluster, use the `addSecurityGroups` method. Security
