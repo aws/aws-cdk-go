@@ -1,16 +1,19 @@
 package awscdkeksv2alpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Initialization properties for `OpenIdConnectProvider`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   openIdConnectProviderProps := &OpenIdConnectProviderProps{
-//   	Url: jsii.String("url"),
-//   }
+//   // Step 1: Add retain policy to existing provider
+//   existingProvider := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
+//   	Url: jsii.String("https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLE"),
+//   	RemovalPolicy: cdk.RemovalPolicy_RETAIN,
+//   })
 //
 // Experimental.
 type OpenIdConnectProviderProps struct {
@@ -26,5 +29,10 @@ type OpenIdConnectProviderProps struct {
 	// aws eks describe-cluster --name %cluster_name% --query "cluster.identity.oidc.issuer" --output text
 	// Experimental.
 	Url *string `field:"required" json:"url" yaml:"url"`
+	// The removal policy to apply to the OpenID Connect Provider.
+	// Default: - RemovalPolicy.DESTROY
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

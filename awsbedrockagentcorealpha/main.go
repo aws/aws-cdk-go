@@ -367,6 +367,15 @@ func init() {
 			"GATEWAY_IAM_ROLE": CredentialProviderType_GATEWAY_IAM_ROLE,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.CustomClaimOperator",
+		reflect.TypeOf((*CustomClaimOperator)(nil)).Elem(),
+		map[string]interface{}{
+			"EQUALS": CustomClaimOperator_EQUALS,
+			"CONTAINS": CustomClaimOperator_CONTAINS,
+			"CONTAINS_ANY": CustomClaimOperator_CONTAINS_ANY,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CustomJwtAuthorizer",
 		reflect.TypeOf((*CustomJwtAuthorizer)(nil)).Elem(),
@@ -520,6 +529,14 @@ func init() {
 		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_GatewayCredentialProvider{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayCustomClaim",
+		reflect.TypeOf((*GatewayCustomClaim)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GatewayCustomClaim{}
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -1474,6 +1491,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IBedrockAgentRuntime)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeCustomClaim",
+		reflect.TypeOf((*RuntimeCustomClaim)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_RuntimeCustomClaim{}
 		},
 	)
 	_jsii_.RegisterClass(

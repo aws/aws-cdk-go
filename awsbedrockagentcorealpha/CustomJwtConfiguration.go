@@ -4,16 +4,18 @@ package awsbedrockagentcorealpha
 // Custom JWT authorizer configuration.
 //
 // Example:
-//   // Create a KMS key for encryption
-//   encryptionKey := kms.NewKey(this, jsii.String("GatewayEncryptionKey"), &KeyProps{
-//   	EnableKeyRotation: jsii.Boolean(true),
-//   	Description: jsii.String("KMS key for gateway encryption"),
+//   // Create a custom execution role
+//   executionRole := iam.NewRole(this, jsii.String("GatewayExecutionRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+//   	ManagedPolicies: []IManagedPolicy{
+//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreGatewayExecutionRolePolicy")),
+//   	},
 //   })
 //
-//   // Create gateway with KMS encryption
+//   // Create gateway with custom execution role
 //   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-encrypted-gateway"),
-//   	Description: jsii.String("Gateway with KMS encryption"),
+//   	GatewayName: jsii.String("my-gateway"),
+//   	Description: jsii.String("Gateway with custom execution role"),
 //   	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
 //   		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
 //   		SearchType: agentcore.McpGatewaySearchType_SEMANTIC,
@@ -29,9 +31,12 @@ package awsbedrockagentcorealpha
 //   		AllowedClients: []*string{
 //   			jsii.String("my-client-id"),
 //   		},
+//   		AllowedScopes: []*string{
+//   			jsii.String("read"),
+//   			jsii.String("write"),
+//   		},
 //   	}),
-//   	KmsKey: encryptionKey,
-//   	ExceptionLevel: agentcore.GatewayExceptionLevel_DEBUG,
+//   	Role: executionRole,
 //   })
 //
 // Experimental.
@@ -52,5 +57,17 @@ type CustomJwtConfiguration struct {
 	//
 	// Experimental.
 	AllowedClients *[]*string `field:"optional" json:"allowedClients" yaml:"allowedClients"`
+	// Represents individual scopes that are validated in the incoming JWT token validation process.
+	// Default: - No scope validation.
+	//
+	// Experimental.
+	AllowedScopes *[]*string `field:"optional" json:"allowedScopes" yaml:"allowedScopes"`
+	// Custom claims for additional JWT token validation.
+	//
+	// Allows you to validate additional fields in JWT tokens beyond the standard audience, client, and scope validations.
+	// Default: - No custom claim validation.
+	//
+	// Experimental.
+	CustomClaims *[]GatewayCustomClaim `field:"optional" json:"customClaims" yaml:"customClaims"`
 }
 

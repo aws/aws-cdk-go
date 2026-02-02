@@ -12,24 +12,15 @@ import (
 // Service Account.
 //
 // Example:
-//   // or create a new one using an existing issuer url
-//   var issuerUrl string
-//   // you can import an existing provider
-//   provider := eks.OpenIdConnectProvider_FromOpenIdConnectProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
-//   provider2 := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
-//   	Url: issuerUrl,
+//   var cluster Cluster
+//
+//
+//   eks.NewServiceAccount(this, jsii.String("ServiceAccount"), &ServiceAccountProps{
+//   	Cluster: Cluster,
+//   	Name: jsii.String("test-sa"),
+//   	Namespace: jsii.String("default"),
+//   	IdentityType: eks.IdentityType_POD_IDENTITY,
 //   })
-//
-//   cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
-//   	ClusterName: jsii.String("Cluster"),
-//   	OpenIdConnectProvider: provider,
-//   	KubectlRoleArn: jsii.String("arn:aws:iam::123456:role/service-role/k8sservicerole"),
-//   })
-//
-//   serviceAccount := cluster.AddServiceAccount(jsii.String("MyServiceAccount"))
-//
-//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
-//   bucket.GrantReadWrite(serviceAccount)
 //
 type ServiceAccount interface {
 	constructs.Construct

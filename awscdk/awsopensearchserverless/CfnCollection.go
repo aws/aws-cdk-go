@@ -72,7 +72,7 @@ type CfnCollection interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
-	// The name of the collection group.
+	// The name of the collection group to associate with the collection.
 	CollectionGroupName() *string
 	SetCollectionGroupName(val *string)
 	// A reference to a Collection resource.
@@ -84,7 +84,7 @@ type CfnCollection interface {
 	// A description of the collection.
 	Description() *string
 	SetDescription(val *string)
-	// The configuration to encrypt the collection.
+	// Encryption settings for the collection.
 	EncryptionConfig() interface{}
 	SetEncryptionConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment

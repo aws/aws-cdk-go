@@ -33,6 +33,19 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketVersioning",
+		reflect.TypeOf((*BucketVersioning)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BucketVersioning{}
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnAccessGrantMixinProps",
 		reflect.TypeOf((*CfnAccessGrantMixinProps)(nil)).Elem(),
@@ -636,18 +649,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnStorageLensPropsMixin.StorageLensTableDestinationProperty",
 		reflect.TypeOf((*CfnStorageLensPropsMixin_StorageLensTableDestinationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_s3.mixins.EnableVersioning",
-		reflect.TypeOf((*EnableVersioning)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_EnableVersioning{}
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
-			return &j
-		},
 	)
 }

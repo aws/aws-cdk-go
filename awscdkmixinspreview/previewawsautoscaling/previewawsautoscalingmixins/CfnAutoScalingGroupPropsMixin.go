@@ -51,6 +51,7 @@ import (
 //   	Context: jsii.String("context"),
 //   	Cooldown: jsii.String("cooldown"),
 //   	DefaultInstanceWarmup: jsii.Number(123),
+//   	DeletionProtection: jsii.String("deletionProtection"),
 //   	DesiredCapacity: jsii.String("desiredCapacity"),
 //   	DesiredCapacityType: jsii.String("desiredCapacityType"),
 //   	HealthCheckGracePeriod: jsii.Number(123),
@@ -255,7 +256,7 @@ type CfnAutoScalingGroupPropsMixin interface {
 	Props() *CfnAutoScalingGroupMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -349,20 +350,15 @@ func CfnAutoScalingGroupPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
 	return returns
 }
 
-func (c *jsiiProxy_CfnAutoScalingGroupPropsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnAutoScalingGroupPropsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnAutoScalingGroupPropsMixin) Supports(construct constructs.IConstruct) *bool {

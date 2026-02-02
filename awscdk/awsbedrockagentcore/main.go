@@ -656,6 +656,14 @@ func init() {
 		reflect.TypeOf((*CfnRuntime_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.AuthorizingClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnRuntime_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.ClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnRuntime_ClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.CodeConfigurationProperty",
 		reflect.TypeOf((*CfnRuntime_CodeConfigurationProperty)(nil)).Elem(),
 	)
@@ -666,6 +674,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.ContainerConfigurationProperty",
 		reflect.TypeOf((*CfnRuntime_ContainerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.CustomClaimValidationTypeProperty",
+		reflect.TypeOf((*CfnRuntime_CustomClaimValidationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.CustomJWTAuthorizerConfigurationProperty",

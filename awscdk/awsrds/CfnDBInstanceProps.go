@@ -135,6 +135,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html
 //
 type CfnDBInstanceProps struct {
+	// The additional storage volumes associated with the DB instance.
+	//
+	// RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-additionalstoragevolumes
 	//
 	AdditionalStorageVolumes interface{} `field:"optional" json:"additionalStorageVolumes" yaml:"additionalStorageVolumes"`

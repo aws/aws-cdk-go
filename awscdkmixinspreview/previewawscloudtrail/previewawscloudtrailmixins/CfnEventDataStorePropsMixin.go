@@ -90,7 +90,7 @@ type CfnEventDataStorePropsMixin interface {
 	Props() *CfnEventDataStoreMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -184,20 +184,15 @@ func CfnEventDataStorePropsMixin_CFN_PROPERTY_KEYS() *[]*string {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEventDataStorePropsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnEventDataStorePropsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnEventDataStorePropsMixin) Supports(construct constructs.IConstruct) *bool {

@@ -17,6 +17,7 @@ import (
 //   // The values are placeholders you should change.
 //   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
 //
+//   var additionalHelmChartValues interface{}
 //   var albControllerVersion AlbControllerVersion
 //   var cluster Cluster
 //   var policy interface{}
@@ -26,6 +27,10 @@ import (
 //   	Version: albControllerVersion,
 //
 //   	// the properties below are optional
+//   	AdditionalHelmChartValues: map[string]interface{}{
+//   		"additionalHelmChartValuesKey": additionalHelmChartValues,
+//   	},
+//   	OverwriteServiceAccount: jsii.Boolean(false),
 //   	Policy: policy,
 //   	Repository: jsii.String("repository"),
 //   })

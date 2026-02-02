@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnVPCLogsMixin to generate ROUTE53_RESOLVER_QUERY_LOGS for CfnVPC.
@@ -24,7 +25,7 @@ type CfnVPCRoute53ResolverQueryLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVPCLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnVPCLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVPCLogsMixin
 }
 
 // The jsii proxy struct for CfnVPCRoute53ResolverQueryLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToLogGroup(logGroup interface
 	return returns
 }
 
-func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnVPCLogsMixin {
+func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVPCLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToS3(bucket interfacesawss3.I
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

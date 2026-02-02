@@ -484,15 +484,40 @@ repository := ecr.NewRepository(this, jsii.String("TestRepository"), &Repository
 })
 agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 
+// Optional: Create custom claims for additional validation
+customClaims := []RuntimeCustomClaim{
+	agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+	agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+		jsii.String("admin"),
+	}, agentcore.CustomClaimOperator_CONTAINS),
+	agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+}
+
 runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 	RuntimeName: jsii.String("myAgent"),
 	AgentRuntimeArtifact: agentRuntimeArtifact,
 	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingCognito(userPool, []IUserPoolClient{
 		userPoolClient,
 		anotherUserPoolClient,
-	}),
+	}, []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, customClaims),
 })
 ```
+
+You can configure:
+
+* User Pool: The Cognito User Pool that issues JWT tokens
+* User Pool Clients: One or more Cognito User Pool App Clients that are allowed to access the runtime
+* Allowed audiences: Used to validate that the audiences specified in the Cognito token match or are a subset of the audiences specified in the AgentCore Runtime
+* Allowed scopes: Allow access only if the token contains at least one of the required scopes configured here
+* Custom claims: A set of rules to match specific claims in the incoming token against predefined values for validating JWT tokens
 
 #### JWT Authentication
 
@@ -512,11 +537,84 @@ runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimePro
 		jsii.String("client2"),
 	}, []*string{
 		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("read"),
+		jsii.String("write"),
 	}),
 })
 ```
 
+You can configure:
+
+* Discovery URL: Enter the Discovery URL from your identity provider (e.g. Okta, Cognito, etc.), typically found in that provider's documentation. This allows your Agent or Tool to fetch login, downstream resource token, and verification settings.
+* Allowed audiences: This is used to validate that the audiences specified for the OAuth token matches or are a subset of the audiences specified in the AgentCore Runtime.
+* Allowed clients: This is used to validate that the public identifier of the client, as specified in the authorization token, is allowed to access the AgentCore Runtime.
+* Allowed scopes: Allow access only if the token contains at least one of the required scopes configured here.
+* Custom claims: A set of rules to match specific claims in the incoming token against predefined values for validating JWT tokens.
+
 **Note**: The discovery URL must end with `/.well-known/openid-configuration`.
+
+##### Custom Claims Validation
+
+Custom claims allow you to validate additional fields in JWT tokens beyond the standard audience, client, and scope validations. You can create custom claims using the `RuntimeCustomClaim` class:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// String claim - validates that the claim exactly equals the specified value
+// Uses EQUALS operator automatically
+departmentClaim := agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering"))
+
+// String array claim with CONTAINS operator (default)
+// Validates that the claim array contains a specific string value
+// IMPORTANT: CONTAINS requires exactly one value in the array parameter
+rolesClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+	jsii.String("admin"),
+})
+
+// String array claim with CONTAINS_ANY operator
+// Validates that the claim array contains at least one of the specified values
+// Use this when you want to check for multiple possible values
+permissionsClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+	jsii.String("read"),
+	jsii.String("write"),
+}, agentcore.CustomClaimOperator_CONTAINS_ANY)
+
+// Use custom claims in authorizer configuration
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingJWT(jsii.String("https://example.com/.well-known/openid-configuration"), []*string{
+		jsii.String("client1"),
+		jsii.String("client2"),
+	}, []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, []RuntimeCustomClaim{
+		departmentClaim,
+		rolesClaim,
+		permissionsClaim,
+	}),
+})
+```
+
+**Custom Claim Rules**:
+
+* **String claims**: Must use the `EQUALS` operator (automatically set). The claim value must exactly match the specified string.
+* **String array claims**: Can use `CONTAINS` (default) or `CONTAINS_ANY` operators:
+
+  * **`CONTAINS`**: Checks if the claim array contains a specific string value. **Requires exactly one value** in the array parameter. For example, `['admin']` will check if the token's claim array contains the string `'admin'`.
+  * **`CONTAINS_ANY`**: Checks if the claim array contains at least one of the provided string values. Use this when you want to validate against multiple possible values. For example, `['read', 'write']` will check if the token's claim array contains either `'read'` or `'write'`.
+
+**Example Use Cases**:
+
+* Use `CONTAINS` when you need to verify a user has a specific role: `RuntimeCustomClaim.withStringArrayValue('roles', ['admin'])`
+* Use `CONTAINS_ANY` when you need to verify a user has any of several permissions: `RuntimeCustomClaim.withStringArrayValue('permissions', ['read', 'write'], CustomClaimOperator.CONTAINS_ANY)`
 
 #### OAuth Authentication
 
@@ -531,7 +629,12 @@ agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(reposit
 runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 	RuntimeName: jsii.String("myAgent"),
 	AgentRuntimeArtifact: agentRuntimeArtifact,
-	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123"), []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("openid"),
+		jsii.String("profile"),
+	}),
 })
 ```
 
@@ -1168,15 +1271,29 @@ your AgentCore gateway. By default, if not provided, the construct will create a
 **JSON Web Token (JWT)** – A secure and compact token used for authorization. After creating the JWT, you specify it as the authorization
 configuration when you create the gateway. You can create a JWT with any of the identity providers at Provider setup and configuration.
 
-You can configure a custom authorization provider using the `inboundAuthorizer` property with `GatewayAuthorizer.usingCustomJwt()`.
+You can configure a custom authorization provider using the `authorizerConfiguration` property with `GatewayAuthorizer.usingCustomJwt()`.
 You need to specify an OAuth discovery server and client IDs/audiences when you create the gateway. You can specify the following:
 
 * Discovery Url — String that must match the pattern ^.+/.well-known/openid-configuration$ for OpenID Connect discovery URLs
 * At least one of the below options depending on the chosen identity provider.
 * Allowed audiences — List of allowed audiences for JWT tokens
 * Allowed clients — List of allowed client identifiers
+* Allowed scopes — List of allowed scopes for JWT tokens
+* Custom claims — Optional custom claim validations (see Custom Claims Validation section below)
 
 ```go
+// Optional: Create custom claims (CustomClaimOperator and GatewayCustomClaim from agentcore)
+customClaims := []GatewayCustomClaim{
+	agentcore.GatewayCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+		jsii.String("admin"),
+	}, agentcore.CustomClaimOperator_CONTAINS),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+}
+
 gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
 	GatewayName: jsii.String("my-gateway"),
 	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
@@ -1187,6 +1304,11 @@ gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
 		AllowedClients: []*string{
 			jsii.String("my-client-id"),
 		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+		CustomClaims: customClaims,
 	}),
 })
 ```
@@ -1225,6 +1347,44 @@ userPoolClient := gateway.UserPoolClient
 // Get the token endpoint URL and OAuth scopes for client credentials flow
 tokenEndpointUrl := gateway.TokenEndpointUrl
 oauthScopes := gateway.OauthScopes
+```
+
+**Using Cognito User Pool Explicitly with Custom Claims** – You can also use an existing Cognito User Pool with custom claims:
+
+```go
+var userPool UserPool
+var userPoolClient UserPoolClient
+
+
+// Optional: Create custom claims (CustomClaimOperator and GatewayCustomClaim from agentcore)
+customClaims := []GatewayCustomClaim{
+	agentcore.GatewayCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+		jsii.String("admin"),
+	}, agentcore.CustomClaimOperator_CONTAINS),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+}
+
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCognito(&CognitoAuthorizerProps{
+		UserPool: userPool,
+		AllowedClients: []IUserPoolClient{
+			userPoolClient,
+		},
+		AllowedAudiences: []*string{
+			jsii.String("audience1"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+		CustomClaims: customClaims,
+	}),
+})
 ```
 
 To authenticate with the gateway, request an access token using the client credentials flow and use it to call Gateway endpoints. For more information about the token endpoint, see [The token issuer endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html).
@@ -1270,6 +1430,10 @@ gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
 		AllowedClients: []*string{
 			jsii.String("my-client-id"),
 		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
 	}),
 	KmsKey: encryptionKey,
 	ExceptionLevel: agentcore.GatewayExceptionLevel_DEBUG,
@@ -1306,6 +1470,10 @@ gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
 		AllowedClients: []*string{
 			jsii.String("my-client-id"),
 		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
 	}),
 	Role: executionRole,
 })
@@ -1334,6 +1502,10 @@ gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
 		},
 		AllowedClients: []*string{
 			jsii.String("my-client-id"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
 		},
 	}),
 })

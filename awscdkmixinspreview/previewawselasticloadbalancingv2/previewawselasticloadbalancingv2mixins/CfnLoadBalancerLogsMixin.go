@@ -30,7 +30,7 @@ type CfnLoadBalancerLogsMixin interface {
 	LogDelivery() previewawslogs.ILogsDelivery
 	LogType() *string
 	// Apply vended logs configuration to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct (has vendedLogs property).
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -124,20 +124,15 @@ func CfnLoadBalancerLogsMixin_NLB_ACCESS_LOGS() CfnLoadBalancerNlbAccessLogs {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLoadBalancerLogsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnLoadBalancerLogsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnLoadBalancerLogsMixin) Supports(construct constructs.IConstruct) *bool {

@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnLogging) validateSetDefaultLogLevelParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnLogging) validateSetEventConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLogging) validateSetRoleArnParameters(val *string) error {
 	return nil
 }

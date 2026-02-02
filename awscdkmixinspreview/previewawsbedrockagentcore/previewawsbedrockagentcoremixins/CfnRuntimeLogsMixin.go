@@ -36,7 +36,7 @@ type CfnRuntimeLogsMixin interface {
 	LogDelivery() previewawslogs.ILogsDelivery
 	LogType() *string
 	// Apply vended logs configuration to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct (has vendedLogs property).
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -152,20 +152,15 @@ func CfnRuntimeLogsMixin_USAGE_LOGS() CfnRuntimeUsageLogs {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRuntimeLogsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnRuntimeLogsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnRuntimeLogsMixin) Supports(construct constructs.IConstruct) *bool {

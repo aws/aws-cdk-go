@@ -39,7 +39,7 @@ type BucketPolicyStatementsMixin interface {
 	core.Mixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Determines whether this mixin can be applied to the given construct.
 	// Experimental.
 	Supports(construct constructs.IConstruct) *bool
@@ -101,20 +101,15 @@ func BucketPolicyStatementsMixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
-func (b *jsiiProxy_BucketPolicyStatementsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (b *jsiiProxy_BucketPolicyStatementsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := b.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		b,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (b *jsiiProxy_BucketPolicyStatementsMixin) Supports(construct constructs.IConstruct) *bool {

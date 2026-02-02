@@ -55,29 +55,31 @@ group.AddManagedPolicy(awscdk.ManagedPolicy_FromAwsManagedPolicyName(jsii.String
 
 ## Granting permissions to resources
 
-Many of the AWS CDK resources have `grant*` methods that allow you to grant other resources access to that resource. As an example, the following code gives a Lambda function write permissions (Put, Update, Delete) to a DynamoDB table.
+Many of the AWS CDK resources have grant methods (accessible via the `grants` attribute) that allow you to grant other
+resources access to that resource. As an example, the following code gives a Lambda function write permissions
+(Put, Update, Delete) to a DynamoDB table.
 
 ```go
 var fn Function
 var table Table
 
 
-table.GrantWriteData(fn)
+table.grants.WriteData(fn)
 ```
 
-The more generic `grant` method allows you to give specific permissions to a resource:
+The more generic `actions` method allows you to give specific permissions to a resource:
 
 ```go
 var fn Function
 var table Table
 
 
-table.Grant(fn, jsii.String("dynamodb:PutItem"))
+table.grants.Actions(fn, jsii.String("dynamodb:PutItem"))
 ```
 
-The `grant*` methods accept an `IGrantable` object. This interface is implemented by IAM principal resources (groups, users and roles), policies, managed policies and resources that assume a role such as a Lambda function, EC2 instance or a Codebuild project.
+The grant methods accept an `IGrantable` object. This interface is implemented by IAM principal resources (groups, users and roles), policies, managed policies and resources that assume a role such as a Lambda function, EC2 instance or a Codebuild project.
 
-You can find which `grant*` methods exist for a resource in the [AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-construct-library.html).
+You can find which grant methods exist for a resource in the [AWS CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-construct-library.html).
 
 ## Roles
 
@@ -95,8 +97,8 @@ automatically if you associate the construct with other constructs from the
 AWS Construct Library (for example, if you tell an *AWS CodePipeline* to trigger
 an *AWS Lambda Function*, the Pipeline's Role will automatically get
 `lambda:InvokeFunction` permissions on that particular Lambda Function),
-or if you explicitly grant permissions using `grant` functions (see the
-previous section).
+or if you explicitly grant permissions using the public methods in the
+`RoleGrants` class (see the previous section).
 
 ### Opting out of automatic permissions management
 
@@ -216,7 +218,7 @@ fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 })
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-bucket.GrantRead(fn)
+bucket.Grants.Read(fn)
 ```
 
 The following report will be generated.
@@ -490,7 +492,8 @@ iam.NewRole(this, jsii.String("Role"), &RoleProps{
 
 ### Granting a principal permission to assume a role
 
-A principal can be granted permission to assume a role using `grantAssumeRole`.
+A principal can be granted permission to assume a role using `assumeRole` from the `RoleGrants` class.
+For convenience, an instance of this class is available via the `grants` attribute on the `Role` class.
 
 Note that this does not apply to service principals or account principals as they must be added to the role trust policy via `assumeRolePolicy`.
 
@@ -500,7 +503,7 @@ role := iam.NewRole(this, jsii.String("role"), &RoleProps{
 	AssumedBy: iam.NewAccountPrincipal(this.Account),
 })
 
-role.GrantAssumeRole(user)
+role.Grants.AssumeRole(user)
 ```
 
 ### Granting service and account principals permission to assume a role

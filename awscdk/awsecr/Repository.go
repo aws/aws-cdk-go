@@ -15,19 +15,13 @@ import (
 // Define an ECR repository.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
+//   containerRecipe := imagebuilder.NewContainerRecipe(this, jsii.String("MyContainerRecipe"), &ContainerRecipeProps{
+//   	BaseImage: imagebuilder.BaseContainerImage_*FromDockerHub(jsii.String("amazonlinux"), jsii.String("latest")),
+//   	TargetRepository: imagebuilder.Repository_*FromEcr(ecr.Repository_*FromRepositoryName(this, jsii.String("Repository"), jsii.String("my-container-repo"))),
 //   })
 //
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
-//
-//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("test_runtime"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	LifecycleConfiguration: &LifecycleConfiguration{
-//   		IdleRuntimeSessionTimeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   		MaxLifetime: awscdk.Duration_Hours(jsii.Number(4)),
-//   	},
+//   containerPipeline := imagebuilder.NewImagePipeline(this, jsii.String("MyContainerPipeline"), &ImagePipelineProps{
+//   	Recipe: exampleContainerRecipe,
 //   })
 //
 type Repository interface {

@@ -12,5 +12,6 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__constructsIConstruct = constructs.IConstruct
+type Type__awsiamOidcProviderNative = awsiam.OidcProviderNative
 type Type__awsiamOpenIdConnectProvider = awsiam.OpenIdConnectProvider
 type Type__awsiamIPrincipal = awsiam.IPrincipal

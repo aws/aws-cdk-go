@@ -3,22 +3,20 @@ package awsiam
 import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 )
 
-// A resource that contains data that can be encrypted, using a KMS key.
-//
-// [awslint:interface-extends-ref].
+// A resource that contains data that can be encrypted, using a KMS key.s.
 type IEncryptedResource interface {
-	awscdk.IResource
+	interfaces.IEnvironmentAware
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
 	GrantOnKey(grantee IGrantable, actions ...*string) *GrantOnKeyResult
 }
 
 // The jsii proxy for IEncryptedResource
 type jsiiProxy_IEncryptedResource struct {
-	internal.Type__awscdkIResource
+	internal.Type__interfacesIEnvironmentAware
 }
 
 func (i *jsiiProxy_IEncryptedResource) GrantOnKey(grantee IGrantable, actions ...*string) *GrantOnKeyResult {

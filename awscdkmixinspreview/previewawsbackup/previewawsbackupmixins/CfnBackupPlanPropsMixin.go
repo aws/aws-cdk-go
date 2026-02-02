@@ -63,11 +63,26 @@ import (
 //   					"recoveryPointTagsKey": jsii.String("recoveryPointTags"),
 //   				},
 //   				RuleName: jsii.String("ruleName"),
+//   				ScanActions: []interface{}{
+//   					&ScanActionResourceTypeProperty{
+//   						MalwareScanner: jsii.String("malwareScanner"),
+//   						ScanMode: jsii.String("scanMode"),
+//   					},
+//   				},
 //   				ScheduleExpression: jsii.String("scheduleExpression"),
 //   				ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
 //   				StartWindowMinutes: jsii.Number(123),
 //   				TargetBackupVault: jsii.String("targetBackupVault"),
 //   				TargetLogicallyAirGappedBackupVaultArn: jsii.String("targetLogicallyAirGappedBackupVaultArn"),
+//   			},
+//   		},
+//   		ScanSettings: []interface{}{
+//   			&ScanSettingResourceTypeProperty{
+//   				MalwareScanner: jsii.String("malwareScanner"),
+//   				ResourceTypes: []*string{
+//   					jsii.String("resourceTypes"),
+//   				},
+//   				ScannerRoleArn: jsii.String("scannerRoleArn"),
 //   			},
 //   		},
 //   	},
@@ -86,7 +101,7 @@ type CfnBackupPlanPropsMixin interface {
 	Props() *CfnBackupPlanMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -180,20 +195,15 @@ func CfnBackupPlanPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
 	return returns
 }
 
-func (c *jsiiProxy_CfnBackupPlanPropsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnBackupPlanPropsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnBackupPlanPropsMixin) Supports(construct constructs.IConstruct) *bool {

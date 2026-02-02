@@ -31,9 +31,9 @@ const (
 	//
 	// These metrics help you monitor the flow and status of events through your event source mapping.
 	MetricType_EVENT_COUNT MetricType = "EVENT_COUNT"
-	// Error Count metrics provide insights into invocation failures for your event source mapping.
-	MetricType_ERRORCOUNT MetricType = "ERRORCOUNT"
-	// Kafka-specific metrics for monitoring Apache Kafka and Amazon MSK event sources.
-	MetricType_KAFKAMETRICS MetricType = "KAFKAMETRICS"
+	// Error Count metrics provide insights into invocation errors and failures in your event source mapping processing.
+	MetricType_ERROR_COUNT MetricType = "ERROR_COUNT"
+	// Kafka-specific metrics provide detailed insights into Kafka consumer behavior, including lag, throughput, and partition-specific metrics.
+	MetricType_KAFKA_METRICS MetricType = "KAFKA_METRICS"
 )
 

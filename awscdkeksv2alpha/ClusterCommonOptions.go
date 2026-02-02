@@ -18,6 +18,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalHelmChartValues interface{}
 //   var albControllerVersion AlbControllerVersion
 //   var endpointAccess EndpointAccess
 //   var keyRef IKeyRef
@@ -39,6 +40,10 @@ import (
 //   		Version: albControllerVersion,
 //
 //   		// the properties below are optional
+//   		AdditionalHelmChartValues: map[string]interface{}{
+//   			"additionalHelmChartValuesKey": additionalHelmChartValues,
+//   		},
+//   		OverwriteServiceAccount: jsii.Boolean(false),
 //   		Policy: policy,
 //   		Repository: jsii.String("repository"),
 //   	},

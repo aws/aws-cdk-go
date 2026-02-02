@@ -12,26 +12,31 @@ import (
 // Service Account.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cluster Cluster
+//   // or create a new one using an existing issuer url
+//   var issuerUrl string
 //
-//   serviceAccount := eks_v2_alpha.NewServiceAccount(this, jsii.String("MyServiceAccount"), &ServiceAccountProps{
-//   	Cluster: cluster,
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
 //
-//   	// the properties below are optional
-//   	Annotations: map[string]*string{
-//   		"annotationsKey": jsii.String("annotations"),
-//   	},
-//   	IdentityType: eks_v2_alpha.IdentityType_IRSA,
-//   	Labels: map[string]*string{
-//   		"labelsKey": jsii.String("labels"),
-//   	},
-//   	Name: jsii.String("name"),
-//   	Namespace: jsii.String("namespace"),
+//   // you can import an existing provider
+//   provider := eks.OidcProviderNative_FromOidcProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
+//   provider2 := eks.NewOidcProviderNative(this, jsii.String("Provider"), &OidcProviderNativeProps{
+//   	Url: issuerUrl,
 //   })
+//
+//   cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+//   	ClusterName: jsii.String("Cluster"),
+//   	OpenIdConnectProvider: provider,
+//   	KubectlProviderOptions: &KubectlProviderOptions{
+//   		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   	},
+//   })
+//
+//   serviceAccount := cluster.AddServiceAccount(jsii.String("MyServiceAccount"))
+//
+//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
+//   bucket.GrantReadWrite(serviceAccount)
 //
 // Experimental.
 type ServiceAccount interface {

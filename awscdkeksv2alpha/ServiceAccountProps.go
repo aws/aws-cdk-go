@@ -23,6 +23,7 @@ package awscdkeksv2alpha
 //   	},
 //   	Name: jsii.String("name"),
 //   	Namespace: jsii.String("namespace"),
+//   	OverwriteServiceAccount: jsii.Boolean(false),
 //   }
 //
 // Experimental.
@@ -58,6 +59,15 @@ type ServiceAccountProps struct {
 	//
 	// Experimental.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	// Overwrite existing service account.
+	//
+	// If this is set, we will use `kubectl apply` instead of `kubectl create`
+	// when the service account is created. Otherwise, if there is already a service account
+	// in the cluster with the same name, the operation will fail.
+	// Default: false.
+	//
+	// Experimental.
+	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
 	// The cluster to apply the patch to.
 	// Experimental.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`

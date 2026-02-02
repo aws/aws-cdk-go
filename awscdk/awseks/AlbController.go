@@ -30,6 +30,7 @@ import (
 //   		EnableWaf: jsii.Boolean(false),
 //   		EnableWafv2: jsii.Boolean(false),
 //   	},
+//   	OverwriteServiceAccount: jsii.Boolean(false),
 //   	Policy: policy,
 //   	Repository: jsii.String("repository"),
 //   })

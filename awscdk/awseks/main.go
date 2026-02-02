@@ -1532,6 +1532,36 @@ func init() {
 		reflect.TypeOf((*NodegroupRemoteAccess)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_eks.OidcProviderNative",
+		reflect.TypeOf((*OidcProviderNative)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "oidcProviderArn", GoGetter: "OidcProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "oidcProviderIssuer", GoGetter: "OidcProviderIssuer"},
+			_jsii_.MemberProperty{JsiiProperty: "oidcProviderRef", GoGetter: "OidcProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "oidcProviderThumbprints", GoGetter: "OidcProviderThumbprints"},
+			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArn", GoGetter: "OpenIdConnectProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderIssuer", GoGetter: "OpenIdConnectProviderIssuer"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OidcProviderNative{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamOidcProviderNative)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.OidcProviderNativeProps",
+		reflect.TypeOf((*OidcProviderNativeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_eks.OpenIdConnectProvider",
 		reflect.TypeOf((*OpenIdConnectProvider)(nil)).Elem(),
 		[]_jsii_.Member{

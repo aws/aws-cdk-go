@@ -309,6 +309,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantEncrypt", GoMethod: "GrantEncrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantEncryptDecrypt", GoMethod: "GrantEncryptDecrypt"},
 			_jsii_.MemberMethod{JsiiMethod: "grantGenerateMac", GoMethod: "GrantGenerateMac"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSign", GoMethod: "GrantSign"},
 			_jsii_.MemberMethod{JsiiMethod: "grantSignVerify", GoMethod: "GrantSignVerify"},
 			_jsii_.MemberMethod{JsiiMethod: "grantVerify", GoMethod: "GrantVerify"},
@@ -328,6 +329,25 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IKey)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kms.KeyGrants",
+		reflect.TypeOf((*KeyGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
+			_jsii_.MemberMethod{JsiiMethod: "decrypt", GoMethod: "Decrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "encrypt", GoMethod: "Encrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "encryptDecrypt", GoMethod: "EncryptDecrypt"},
+			_jsii_.MemberMethod{JsiiMethod: "generateMac", GoMethod: "GenerateMac"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "sign", GoMethod: "Sign"},
+			_jsii_.MemberMethod{JsiiMethod: "signVerify", GoMethod: "SignVerify"},
+			_jsii_.MemberMethod{JsiiMethod: "verify", GoMethod: "Verify"},
+			_jsii_.MemberMethod{JsiiMethod: "verifyMac", GoMethod: "VerifyMac"},
+		},
+		func() interface{} {
+			return &jsiiProxy_KeyGrants{}
 		},
 	)
 	_jsii_.RegisterStruct(

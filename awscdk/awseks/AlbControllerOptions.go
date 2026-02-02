@@ -11,6 +11,7 @@ package awseks
 //   	Version: eks.KubernetesVersion_V1_34(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_8_2(),
+//   		OverwriteServiceAccount: jsii.Boolean(true),
 //   	},
 //   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
 //   })
@@ -22,6 +23,14 @@ type AlbControllerOptions struct {
 	// Default: - no additional helm chart values.
 	//
 	AdditionalHelmChartValues *AlbControllerHelmChartOptions `field:"optional" json:"additionalHelmChartValues" yaml:"additionalHelmChartValues"`
+	// Overwrite any existing ALB controller service account.
+	//
+	// If this is set, we will use `kubectl apply` instead of `kubectl create`
+	// when the ALB controller service account is created. Otherwise, if there is already a service account
+	// named 'aws-load-balancer-controller' in the kube-system namespace, the operation will fail.
+	// Default: false.
+	//
+	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
 	// The IAM policy to apply to the service account.
 	//
 	// If you're using one of the built-in versions, this is not required since

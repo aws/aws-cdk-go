@@ -1,5 +1,8 @@
 package awsiam
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Initialization properties for `OIDCProviderNative`.
 //
@@ -49,6 +52,10 @@ type OidcProviderNativeProps struct {
 	// Default: - A name is automatically generated.
 	//
 	OidcProviderName *string `field:"optional" json:"oidcProviderName" yaml:"oidcProviderName"`
+	// The removal policy to apply to the OpenID Connect Provider.
+	// Default: - RemovalPolicy.DESTROY
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates.
 	//
 	// Typically this list includes only 1 entry or empty. However, IAM lets

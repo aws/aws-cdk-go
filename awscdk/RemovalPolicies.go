@@ -10,11 +10,11 @@ import (
 // Manages removal policies for all resources within a construct scope, overriding any existing policies by default.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   var cluster Cluster
 //
-//   removalPolicies := cdk.RemovalPolicies_Of(this)
+//
+//   cdk.RemovalPolicies_Of(cluster.openIdConnectProvider).Apply(cdk.RemovalPolicy_RETAIN)
 //
 type RemovalPolicies interface {
 	// Apply a removal policy to all resources within this scope, overriding any existing policies.

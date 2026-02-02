@@ -26,6 +26,13 @@ import (
 //   cfnLoggingPropsMixin := awscdkmixinspreview.Mixins.NewCfnLoggingPropsMixin(&CfnLoggingMixinProps{
 //   	AccountId: jsii.String("accountId"),
 //   	DefaultLogLevel: jsii.String("defaultLogLevel"),
+//   	EventConfigurations: []interface{}{
+//   		&EventConfigurationProperty{
+//   			EventType: jsii.String("eventType"),
+//   			LogDestination: jsii.String("logDestination"),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
@@ -39,7 +46,7 @@ type CfnLoggingPropsMixin interface {
 	Props() *CfnLoggingMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -133,20 +140,15 @@ func CfnLoggingPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLoggingPropsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnLoggingPropsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnLoggingPropsMixin) Supports(construct constructs.IConstruct) *bool {

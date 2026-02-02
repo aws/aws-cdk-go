@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnHypervisorLogsMixin to generate BGW_HYPERVISOR_LOGS for CfnHypervisor.
@@ -24,7 +25,7 @@ type CfnHypervisorBgwHypervisorLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnHypervisorLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnHypervisorLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnHypervisorLogsMixin
 }
 
 // The jsii proxy struct for CfnHypervisorBgwHypervisorLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToLogGroup(logGroup interface
 	return returns
 }
 
-func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnHypervisorLogsMixin {
+func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnHypervisorLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToS3(bucket interfacesawss3.I
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

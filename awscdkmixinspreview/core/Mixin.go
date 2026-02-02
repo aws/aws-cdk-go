@@ -13,7 +13,7 @@ type Mixin interface {
 	IMixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Determines whether this mixin can be applied to the given construct.
 	// Experimental.
 	Supports(construct constructs.IConstruct) *bool
@@ -57,20 +57,15 @@ func Mixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
-func (m *jsiiProxy_Mixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (m *jsiiProxy_Mixin) ApplyTo(construct constructs.IConstruct) {
 	if err := m.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		m,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (m *jsiiProxy_Mixin) Supports(construct constructs.IConstruct) *bool {

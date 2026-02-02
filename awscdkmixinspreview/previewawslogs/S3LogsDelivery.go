@@ -15,10 +15,13 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var bucketRef IBucketRef
+//   var keyRef IKeyRef
 //
 //   s3LogsDelivery := awscdkmixinspreview.Aws_logs.NewS3LogsDelivery(bucketRef, &S3LogsDeliveryProps{
+//   	KmsKey: keyRef,
 //   	PermissionsVersion: awscdkmixinspreview.*Aws_logs.S3LogsDeliveryPermissionsVersion_V1,
 //   })
 //

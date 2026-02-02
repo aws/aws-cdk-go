@@ -474,6 +474,35 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 })
 ```
 
+To provide additional Helm chart values supported by `albController` in CDK, use the `additionalHelmChartValues` property. For example, the following code snippet shows how to set the `enableWafV2` flag:
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+
+
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_34(),
+	AlbController: &AlbControllerOptions{
+		Version: eks.AlbControllerVersion_V2_8_2(),
+		AdditionalHelmChartValues: map[string]interface{}{
+			"enableWafv2": jsii.Boolean(false),
+		},
+	},
+})
+```
+
+To overwrite an existing ALB controller service account, use the `overwriteServiceAccount` property:
+
+```go
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_34(),
+	AlbController: &AlbControllerOptions{
+		Version: eks.AlbControllerVersion_V2_8_2(),
+		OverwriteServiceAccount: jsii.Boolean(true),
+	},
+})
+```
+
 The `albController` requires `defaultCapacity` or at least one nodegroup. If there's no `defaultCapacity` or available
 nodegroup for the cluster, the `albController` deployment would fail.
 
@@ -804,6 +833,175 @@ By default, the cluster creator role will be granted the cluster admin permissio
 `bootstrapClusterCreatorAdminPermissions` to false.
 
 > **Note** - Switching `bootstrapClusterCreatorAdminPermissions` on an existing cluster would cause cluster replacement and should be avoided in production.
+
+### Service Accounts
+
+With services account you can provide Kubernetes Pods access to AWS resources.
+
+```go
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+var cluster Cluster
+
+// add service account
+serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"))
+
+bucket := s3.NewBucket(this, jsii.String("Bucket"))
+bucket.GrantReadWrite(serviceAccount)
+
+mypod := cluster.addManifest(jsii.String("mypod"), map[string]interface{}{
+	"apiVersion": jsii.String("v1"),
+	"kind": jsii.String("Pod"),
+	"metadata": map[string]*string{
+		"name": jsii.String("mypod"),
+	},
+	"spec": map[string]interface{}{
+		"serviceAccountName": serviceAccount.serviceAccountName,
+		"containers": []map[string]interface{}{
+			map[string]interface{}{
+				"name": jsii.String("hello"),
+				"image": jsii.String("paulbouwer/hello-kubernetes:1.5"),
+				"ports": []map[string]*f64{
+					map[string]*f64{
+						"containerPort": jsii.Number(8080),
+					},
+				},
+			},
+		},
+	},
+})
+
+// create the resource after the service account.
+mypod.Node.AddDependency(serviceAccount)
+
+// print the IAM role arn for this service account
+// print the IAM role arn for this service account
+awscdk.NewCfnOutput(this, jsii.String("ServiceAccountIamRole"), &CfnOutputProps{
+	Value: serviceAccount.Role.RoleArn,
+})
+```
+
+Note that using `serviceAccount.serviceAccountName` above **does not** translate into a resource dependency.
+This is why an explicit dependency is needed. See [https://github.com/aws/aws-cdk/issues/9910](https://github.com/aws/aws-cdk/issues/9910) for more details.
+
+It is possible to pass annotations and labels to the service account.
+
+```go
+var cluster Cluster
+
+// add service account with annotations and labels
+serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &ServiceAccountOptions{
+	Annotations: map[string]*string{
+		"eks.amazonaws.com/sts-regional-endpoints": jsii.String("false"),
+	},
+	Labels: map[string]*string{
+		"some-label": jsii.String("with-some-value"),
+	},
+})
+```
+
+You can also add service accounts to existing clusters.
+To do so, pass the `openIdConnectProvider` property when you import the cluster into the application.
+
+```go
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+
+// or create a new one using an existing issuer url
+var issuerUrl string
+
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+
+// you can import an existing provider
+provider := eks.OidcProviderNative_FromOidcProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
+provider2 := eks.NewOidcProviderNative(this, jsii.String("Provider"), &OidcProviderNativeProps{
+	Url: issuerUrl,
+})
+
+cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
+	ClusterName: jsii.String("Cluster"),
+	OpenIdConnectProvider: provider,
+	KubectlProviderOptions: &KubectlProviderOptions{
+		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+	},
+})
+
+serviceAccount := cluster.AddServiceAccount(jsii.String("MyServiceAccount"))
+
+bucket := s3.NewBucket(this, jsii.String("Bucket"))
+bucket.GrantReadWrite(serviceAccount)
+```
+
+Note that adding service accounts requires running `kubectl` commands against the cluster which requires you to provide `kubectlProviderOptions` in the cluster props to create the `kubectl` provider. See [Kubectl Support](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-eks-v2-alpha-readme.html#kubectl-support)
+
+#### Migrating from the deprecated eks.OpenIdConnectProvider to eks.OidcProviderNative
+
+`eks.OpenIdConnectProvider` creates an IAM OIDC (OpenId Connect) provider using a custom resource while `eks.OidcProviderNative` uses the CFN L1 (AWS::IAM::OidcProvider) to create the provider. It is recommended for new and existing projects to use `eks.OidcProviderNative`.
+
+To migrate without temporarily removing the OIDCProvider, follow these steps:
+
+1. Set the `removalPolicy` of `cluster.openIdConnectProvider` to `RETAIN`.
+
+   ```go
+   import cdk "github.com/aws/aws-cdk-go/awscdk"
+   var cluster Cluster
+
+
+   cdk.RemovalPolicies_Of(cluster.openIdConnectProvider).Apply(cdk.RemovalPolicy_RETAIN)
+   ```
+2. Run `cdk diff` to verify the changes are expected then `cdk deploy`.
+3. Add the following to the `context` field of your `cdk.json` to enable the feature flag that creates the native oidc provider.
+
+   ```json
+   "@aws-cdk/aws-eks:useNativeOidcProvider": true,
+   ```
+4. Run `cdk diff` and ensure the changes are expected. Example of an expected diff:
+
+   ```bash
+   Resources
+   [-] Custom::AWSCDKOpenIdConnectProvider TestCluster/OpenIdConnectProvider/Resource TestClusterOpenIdConnectProviderE18F0FD0 orphan
+   [-] AWS::IAM::Role Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Role CustomAWSCDKOpenIdConnectProviderCustomResourceProviderRole517FED65 destroy
+   [-] AWS::Lambda::Function Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Handler CustomAWSCDKOpenIdConnectProviderCustomResourceProviderHandlerF2C543E0 destroy
+   [+] AWS::IAM::OIDCProvider TestCluster/OidcProviderNative TestClusterOidcProviderNative0BE3F155
+   ```
+5. Run `cdk import --force` and provide the ARN of the existing OpenIdConnectProvider when prompted. You will get a warning about pending changes to existing resources which is expected.
+6. Run `cdk deploy` to apply any pending changes. This will apply the destroy/orphan changes in the above example.
+
+If you are creating the OpenIdConnectProvider manually via `new eks.OpenIdConnectProvider`, follow these steps:
+
+1. Set the `removalPolicy` of the existing `OpenIdConnectProvider` to `RemovalPolicy.RETAIN`.
+
+   ```go
+   import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+   // Step 1: Add retain policy to existing provider
+   existingProvider := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
+   	Url: jsii.String("https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLE"),
+   	RemovalPolicy: cdk.RemovalPolicy_RETAIN,
+   })
+   ```
+2. Deploy with the retain policy to avoid deletion of the underlying resource.
+
+   ```bash
+   cdk deploy
+   ```
+3. Replace `OpenIdConnectProvider` with `OidcProviderNative` in your code.
+
+   ```go
+   // Step 3: Replace with native provider
+   nativeProvider := eks.NewOidcProviderNative(this, jsii.String("Provider"), &OidcProviderNativeProps{
+   	Url: jsii.String("https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLE"),
+   })
+   ```
+4. Run `cdk diff` and verify the changes are expected. Example of an expected diff:
+
+   ```bash
+   Resources
+   [-] Custom::AWSCDKOpenIdConnectProvider TestCluster/OpenIdConnectProvider/Resource TestClusterOpenIdConnectProviderE18F0FD0 orphan
+   [-] AWS::IAM::Role Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Role CustomAWSCDKOpenIdConnectProviderCustomResourceProviderRole517FED65 destroy
+   [-] AWS::Lambda::Function Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Handler CustomAWSCDKOpenIdConnectProviderCustomResourceProviderHandlerF2C543E0 destroy
+   [+] AWS::IAM::OIDCProvider TestCluster/OidcProviderNative TestClusterOidcProviderNative0BE3F155
+   ```
+5. Run `cdk import --force` to import the existing OIDC provider resource by providing the existing ARN.
+6. Run `cdk deploy` to apply any pending changes. This will apply the destroy/orphan operations in the example diff above.
 
 ### Cluster Security Group
 

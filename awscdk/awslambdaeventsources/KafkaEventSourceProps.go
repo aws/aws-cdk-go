@@ -39,8 +39,14 @@ import (
 //   			"filtersKey": filters,
 //   		},
 //   	},
+//   	LogLevel: awscdk.*Aws_lambda.EventSourceMappingLogLevel_INFO,
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []MetricType{
+//   			awscdk.*Aws_lambda.MetricType_EVENT_COUNT,
+//   		},
+//   	},
 //   	OnFailure: eventSourceDlq,
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
 //   		MaximumPollers: jsii.Number(123),
@@ -117,6 +123,10 @@ type KafkaEventSourceProps struct {
 	// Default: - none.
 	//
 	Filters *[]*map[string]interface{} `field:"optional" json:"filters" yaml:"filters"`
+	// Configuration for logging verbosity from the event source mapping poller.
+	// Default: - No logging.
+	//
+	LogLevel awslambda.EventSourceMappingLogLevel `field:"optional" json:"logLevel" yaml:"logLevel"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// The default value is -1, which sets the maximum age to infinite.
@@ -125,6 +135,10 @@ type KafkaEventSourceProps struct {
 	// Default: -1.
 	//
 	MaxRecordAge awscdk.Duration `field:"optional" json:"maxRecordAge" yaml:"maxRecordAge"`
+	// Configuration for enhanced monitoring metrics collection.
+	// Default: - Enhanced monitoring is disabled.
+	//
+	MetricsConfig *awslambda.MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// Add an on Failure Destination for this Kafka event.
 	//
 	// Supported destinations:

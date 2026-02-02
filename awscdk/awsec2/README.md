@@ -255,7 +255,7 @@ securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &Secur
 })
 securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)))
 for _, gateway := range provider.gatewayInstances {
-	bucket.GrantWrite(gateway)
+	bucket.Grants.Write(gateway)
 	gateway.AddSecurityGroup(securityGroup)
 }
 ```

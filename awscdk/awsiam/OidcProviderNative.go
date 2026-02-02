@@ -56,6 +56,12 @@ type OidcProviderNative interface {
 	OidcProviderRef() *interfacesawsiam.OIDCProviderReference
 	// The thumbprints configured for this provider.
 	OidcProviderThumbprints() *string
+	// The Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
+	// Deprecated: Use `oidcProviderArn` instead. This property exists for backward compatibility with existing constructs as migrating between the 2 constructs (OpenIdConnectProvider and OidcProviderNative) is not reasonably feasible as it requires a manual step (cdk import) since the resource type is changing between OpenIdConnectProvider and OidcProviderNative.
+	OpenIdConnectProviderArn() *string
+	// The issuer for OIDC Provider.
+	// Deprecated: use `oidcProviderIssuer` instead. This property exists for backward compatibility with existing constructs as migrating between the 2 constructs (OpenIdConnectProvider and OidcProviderNative) is not reasonably feasible as it requires a manual step (cdk import) since the resource type is changing between OpenIdConnectProvider and OidcProviderNative.
+	OpenIdConnectProviderIssuer() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -155,6 +161,26 @@ func (j *jsiiProxy_OidcProviderNative) OidcProviderThumbprints() *string {
 	_jsii_.Get(
 		j,
 		"oidcProviderThumbprints",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OidcProviderNative) OpenIdConnectProviderArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"openIdConnectProviderArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OidcProviderNative) OpenIdConnectProviderIssuer() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"openIdConnectProviderIssuer",
 		&returns,
 	)
 	return returns

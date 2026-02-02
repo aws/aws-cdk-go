@@ -15,15 +15,25 @@ import (
 // Bedrock Agent Core Runtime Enables running containerized agents with specific network configurations, security settings, and runtime artifacts.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
+//   // S3 bucket containing the agent core
+//   codeBucket := s3.NewBucket(this, jsii.String("AgentCode"), &BucketProps{
+//   	BucketName: jsii.String("my-code-bucket"),
+//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 //   })
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+//   // the bucket above needs to contain the agent code
+//
+//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
+//   	BucketName: codeBucket.bucketName,
+//   	ObjectKey: jsii.String("deployment_package.zip"),
+//   }, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
+//   	jsii.String("opentelemetry-instrument"),
+//   	jsii.String("main.py"),
+//   })
+//
+//   runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 //   	RuntimeName: jsii.String("myAgent"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime.html

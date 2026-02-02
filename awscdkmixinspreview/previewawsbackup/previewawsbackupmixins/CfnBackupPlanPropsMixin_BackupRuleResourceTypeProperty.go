@@ -37,6 +37,12 @@ package previewawsbackupmixins
 //   		"recoveryPointTagsKey": jsii.String("recoveryPointTags"),
 //   	},
 //   	RuleName: jsii.String("ruleName"),
+//   	ScanActions: []interface{}{
+//   		&ScanActionResourceTypeProperty{
+//   			MalwareScanner: jsii.String("malwareScanner"),
+//   			ScanMode: jsii.String("scanMode"),
+//   		},
+//   	},
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
 //   	StartWindowMinutes: jsii.Number(123),
@@ -82,6 +88,9 @@ type CfnBackupPlanPropsMixin_BackupRuleResourceTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
 	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scanactions
+	//
+	ScanActions interface{} `field:"optional" json:"scanActions" yaml:"scanActions"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
 	//

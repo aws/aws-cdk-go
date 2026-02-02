@@ -11,6 +11,13 @@ package previewawsiotmixins
 //   cfnLoggingMixinProps := &CfnLoggingMixinProps{
 //   	AccountId: jsii.String("accountId"),
 //   	DefaultLogLevel: jsii.String("defaultLogLevel"),
+//   	EventConfigurations: []interface{}{
+//   		&EventConfigurationProperty{
+//   			EventType: jsii.String("eventType"),
+//   			LogDestination: jsii.String("logDestination"),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
@@ -27,6 +34,12 @@ type CfnLoggingMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-defaultloglevel
 	//
 	DefaultLogLevel *string `field:"optional" json:"defaultLogLevel" yaml:"defaultLogLevel"`
+	// Configurations for event-based logging that specifies which event types to log and their logging settings.
+	//
+	// Overrides account-level logging for the specified event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-eventconfigurations
+	//
+	EventConfigurations interface{} `field:"optional" json:"eventConfigurations" yaml:"eventConfigurations"`
 	// The role ARN used for the log.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-rolearn
 	//

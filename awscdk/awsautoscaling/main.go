@@ -184,6 +184,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cooldown", GoGetter: "Cooldown"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultInstanceWarmup", GoGetter: "DefaultInstanceWarmup"},
+			_jsii_.MemberProperty{JsiiProperty: "deletionProtection", GoGetter: "DeletionProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "desiredCapacity", GoGetter: "DesiredCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "desiredCapacityType", GoGetter: "DesiredCapacityType"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

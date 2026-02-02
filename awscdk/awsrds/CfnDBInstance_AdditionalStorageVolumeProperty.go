@@ -38,15 +38,19 @@ type CfnDBInstance_AdditionalStorageVolumeProperty struct {
 	MaxAllocatedStorage *float64 `field:"optional" json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
 	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps).
 	//
-	// This setting applies only to the General Purpose SSD gp3 storage type.
+	// This setting applies only to the General Purpose SSD (``gp3``) storage type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html#cfn-rds-dbinstance-additionalstoragevolume-storagethroughput
 	//
 	StorageThroughput *float64 `field:"optional" json:"storageThroughput" yaml:"storageThroughput"`
 	// The storage type for the additional storage volume.
+	//
+	// Valid Values: ``GP3 | IO2``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html#cfn-rds-dbinstance-additionalstoragevolume-storagetype
 	//
 	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// The name of the additional storage volume.
+	//
+	// Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html#cfn-rds-dbinstance-additionalstoragevolume-volumename
 	//
 	VolumeName *string `field:"optional" json:"volumeName" yaml:"volumeName"`

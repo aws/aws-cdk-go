@@ -20,7 +20,7 @@ type AutoDeleteObjects interface {
 	core.IMixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Determines whether this mixin can be applied to the given construct.
 	// Experimental.
 	Supports(construct constructs.IConstruct) *bool
@@ -57,20 +57,15 @@ func NewAutoDeleteObjects_Override(a AutoDeleteObjects) {
 	)
 }
 
-func (a *jsiiProxy_AutoDeleteObjects) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (a *jsiiProxy_AutoDeleteObjects) ApplyTo(construct constructs.IConstruct) {
 	if err := a.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		a,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (a *jsiiProxy_AutoDeleteObjects) Supports(construct constructs.IConstruct) *bool {

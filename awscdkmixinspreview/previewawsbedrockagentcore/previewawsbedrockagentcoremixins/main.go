@@ -580,6 +580,14 @@ func init() {
 		reflect.TypeOf((*CfnRuntimePropsMixin_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.AuthorizingClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.ClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_ClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.CodeConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_CodeConfigurationProperty)(nil)).Elem(),
 	)
@@ -590,6 +598,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.ContainerConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_ContainerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.CustomClaimValidationTypeProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_CustomClaimValidationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimePropsMixin.CustomJWTAuthorizerConfigurationProperty",

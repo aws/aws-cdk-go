@@ -416,7 +416,7 @@ var role Role
 
 // grant "elasticache:Connect" action permissions to role
 user.GrantConnect(role)
-serverlessCache.GrantConnect(role)
+serverlessCache.Grants.Connect(role)
 ```
 
 ### Import an existing user and user group

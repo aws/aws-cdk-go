@@ -815,6 +815,22 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 })
 ```
 
+To overwrite an existing ALB controller service account, use the `overwriteServiceAccount` property:
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+
+
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_34(),
+	AlbController: &AlbControllerOptions{
+		Version: eks.AlbControllerVersion_V2_8_2(),
+		OverwriteServiceAccount: jsii.Boolean(true),
+	},
+	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+})
+```
+
 The `albController` requires `defaultCapacity` or at least one nodegroup. If there's no `defaultCapacity` or available
 nodegroup for the cluster, the `albController` deployment would fail.
 
@@ -1583,6 +1599,17 @@ serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &Se
 })
 ```
 
+To overwrite an existing service account, use the `overwriteServiceAccount` property:
+
+```go
+var cluster Cluster
+
+// overwrite existing service account
+serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &ServiceAccountOptions{
+	OverwriteServiceAccount: jsii.Boolean(true),
+})
+```
+
 You can also add service accounts to existing clusters.
 To do so, pass the `openIdConnectProvider` property when you import the cluster into the application.
 
@@ -1590,8 +1617,8 @@ To do so, pass the `openIdConnectProvider` property when you import the cluster 
 // or create a new one using an existing issuer url
 var issuerUrl string
 // you can import an existing provider
-provider := eks.OpenIdConnectProvider_FromOpenIdConnectProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
-provider2 := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
+provider := eks.OidcProviderNative_FromOidcProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
+provider2 := eks.NewOidcProviderNative(this, jsii.String("Provider"), &OidcProviderNativeProps{
 	Url: issuerUrl,
 })
 
@@ -1610,6 +1637,77 @@ bucket.GrantReadWrite(serviceAccount)
 Note that adding service accounts requires running `kubectl` commands against the cluster.
 This means you must also pass the `kubectlRoleArn` when importing the cluster.
 See [Using existing Clusters](https://github.com/aws/aws-cdk/tree/main/packages/aws-cdk-lib/aws-eks#using-existing-clusters).
+
+##### Migrating from eks.OpenIdConnectProvider to eks.OidcProviderNative
+
+`eks.OpenIdConnectProvider` creates an IAM OIDC (OpenId Connect) provider using a custom resource while `eks.OidcProviderNative` uses the CFN L1 (AWS::IAM::OidcProvider) to create the provider. It is recommended for new and existing projects to use `eks.OidcProviderNative`. Migrating from the `eks.OpenIdConnectProvider` is not as trivial as switching out the property since the property controls the creation of a resource whose type is changing. Due to the potential complexlity of the migration and the requirement of a manual step (`cdk import`) we are not deprecating the `eks.OpenIdConnectProvider` construct but encourge you to migrate.
+
+To migrate without temporarily removing the OIDCProvider, follow these steps:
+
+1. Set the `removalPolicy` of `cluster.openIdConnectProvider` to `RETAIN`.
+
+   ```go
+   import cdk "github.com/aws/aws-cdk-go/awscdk"
+   var cluster Cluster
+
+
+   cdk.RemovalPolicies_Of(cluster.openIdConnectProvider).Apply(cdk.RemovalPolicy_RETAIN)
+   ```
+2. Run `cdk diff` to verify the changes are expected then `cdk deploy`.
+3. Add the following to the `context` field of your `cdk.json` to enable the feature flag that creates the native oidc provider.
+
+   ```json
+   "@aws-cdk/aws-eks:useNativeOidcProvider": true,
+   ```
+4. Run `cdk diff` and ensure the changes are expected. Example of an expected diff:
+
+   ```bash
+   Resources
+   [-] Custom::AWSCDKOpenIdConnectProvider TestCluster/OpenIdConnectProvider/Resource TestClusterOpenIdConnectProviderE18F0FD0 orphan
+   [-] AWS::IAM::Role Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Role CustomAWSCDKOpenIdConnectProviderCustomResourceProviderRole517FED65 destroy
+   [-] AWS::Lambda::Function Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Handler CustomAWSCDKOpenIdConnectProviderCustomResourceProviderHandlerF2C543E0 destroy
+   [+] AWS::IAM::OIDCProvider TestCluster/OidcProviderNative TestClusterOidcProviderNative0BE3F155
+   ```
+5. Run `cdk import --force` and provide the ARN of the existing OpenIdConnectProvider when prompted. You will get a warning about pending changes to existing resources which is expected.
+6. Run `cdk deploy` to apply any pending changes. This will apply the destroy/orphan changes in the above example.
+
+If you are creating the OpenIdConnectProvider manually via `new eks.OpenIdConnectProvider`, follow these steps:
+
+1. Set the `removalPolicy` of the existing `OpenIdConnectProvider` to `RemovalPolicy.RETAIN`.
+
+   ```go
+   import cdk "github.com/aws/aws-cdk-go/awscdk"
+
+   // Step 1: Add retain policy to existing provider
+   existingProvider := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
+   	Url: jsii.String("https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLE"),
+   	RemovalPolicy: cdk.RemovalPolicy_RETAIN,
+   })
+   ```
+2. Deploy with the retain policy to avoid deletion of the underlying resource.
+
+   ```bash
+   cdk deploy
+   ```
+3. Replace `OpenIdConnectProvider` with `OidcProviderNative` in your code.
+
+   ```go
+   // Step 3: Replace with native provider
+   nativeProvider := eks.NewOidcProviderNative(this, jsii.String("Provider"), &OidcProviderNativeProps{
+   	Url: jsii.String("https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLE"),
+   })
+   ```
+4. Run `cdk diff` and verify the changes are expected. Example of an expected diff:
+
+   ```bash
+   Resources
+   [-] Custom::AWSCDKOpenIdConnectProvider TestCluster/OpenIdConnectProvider/Resource TestClusterOpenIdConnectProviderE18F0FD0 orphan
+   [-] AWS::IAM::Role Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Role CustomAWSCDKOpenIdConnectProviderCustomResourceProviderRole517FED65 destroy
+   [-] AWS::Lambda::Function Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider/Handler CustomAWSCDKOpenIdConnectProviderCustomResourceProviderHandlerF2C543E0 destroy
+   [+] AWS::IAM::OIDCProvider TestCluster/OidcProviderNative TestClusterOidcProviderNative0BE3F155
+   ```
+5. Run `cdk import --force` to import the existing OIDC provider resource by providing the existing ARN.
+6. Run `cdk deploy` to apply any pending changes. This will apply the destroy/orphan operations in the example diff above.
 
 ### Pod Identities
 

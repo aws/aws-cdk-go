@@ -35,6 +35,7 @@ package previewawsautoscalingmixins
 //   	Context: jsii.String("context"),
 //   	Cooldown: jsii.String("cooldown"),
 //   	DefaultInstanceWarmup: jsii.Number(123),
+//   	DeletionProtection: jsii.String("deletionProtection"),
 //   	DesiredCapacity: jsii.String("desiredCapacity"),
 //   	DesiredCapacityType: jsii.String("desiredCapacityType"),
 //   	HealthCheckGracePeriod: jsii.Number(123),
@@ -286,6 +287,9 @@ type CfnAutoScalingGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-defaultinstancewarmup
 	//
 	DefaultInstanceWarmup *float64 `field:"optional" json:"defaultInstanceWarmup" yaml:"defaultInstanceWarmup"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-deletionprotection
+	//
+	DeletionProtection *string `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain.
 	//
 	// It can scale beyond this capacity if you configure automatic scaling.

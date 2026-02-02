@@ -14,6 +14,7 @@ import (
 //   	Version: eks.KubernetesVersion_V1_34(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_8_2(),
+//   		OverwriteServiceAccount: jsii.Boolean(true),
 //   	},
 //   })
 //

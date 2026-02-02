@@ -18,6 +18,24 @@ package awsbedrockagentcore
 //   	AllowedClients: []*string{
 //   		jsii.String("allowedClients"),
 //   	},
+//   	AllowedScopes: []*string{
+//   		jsii.String("allowedScopes"),
+//   	},
+//   	CustomClaims: []interface{}{
+//   		&CustomClaimValidationTypeProperty{
+//   			AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   				ClaimMatchOperator: jsii.String("claimMatchOperator"),
+//   				ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   					MatchValueString: jsii.String("matchValueString"),
+//   					MatchValueStringList: []*string{
+//   						jsii.String("matchValueStringList"),
+//   					},
+//   				},
+//   			},
+//   			InboundTokenClaimName: jsii.String("inboundTokenClaimName"),
+//   			InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html
@@ -35,5 +53,13 @@ type CfnRuntime_CustomJWTAuthorizerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-allowedclients
 	//
 	AllowedClients *[]*string `field:"optional" json:"allowedClients" yaml:"allowedClients"`
+	// List of allowed scopes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-allowedscopes
+	//
+	AllowedScopes *[]*string `field:"optional" json:"allowedScopes" yaml:"allowedScopes"`
+	// List of required custom claims.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-customclaims
+	//
+	CustomClaims interface{} `field:"optional" json:"customClaims" yaml:"customClaims"`
 }
 

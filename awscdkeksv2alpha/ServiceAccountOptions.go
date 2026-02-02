@@ -4,21 +4,17 @@ package awscdkeksv2alpha
 // Options for `ServiceAccount`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   var cluster Cluster
 //
-//   serviceAccountOptions := &ServiceAccountOptions{
+//   // add service account with annotations and labels
+//   serviceAccount := cluster.addServiceAccount(jsii.String("MyServiceAccount"), &ServiceAccountOptions{
 //   	Annotations: map[string]*string{
-//   		"annotationsKey": jsii.String("annotations"),
+//   		"eks.amazonaws.com/sts-regional-endpoints": jsii.String("false"),
 //   	},
-//   	IdentityType: eks_v2_alpha.IdentityType_IRSA,
 //   	Labels: map[string]*string{
-//   		"labelsKey": jsii.String("labels"),
+//   		"some-label": jsii.String("with-some-value"),
 //   	},
-//   	Name: jsii.String("name"),
-//   	Namespace: jsii.String("namespace"),
-//   }
+//   })
 //
 // Experimental.
 type ServiceAccountOptions struct {
@@ -53,5 +49,14 @@ type ServiceAccountOptions struct {
 	//
 	// Experimental.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	// Overwrite existing service account.
+	//
+	// If this is set, we will use `kubectl apply` instead of `kubectl create`
+	// when the service account is created. Otherwise, if there is already a service account
+	// in the cluster with the same name, the operation will fail.
+	// Default: false.
+	//
+	// Experimental.
+	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
 }
 

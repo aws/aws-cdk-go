@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnClusterLogsMixin to generate AUTO_MODE_LOAD_BALANCING_LOGS for CfnCluster.
@@ -24,7 +25,7 @@ type CfnClusterAutoModeLoadBalancingLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnClusterLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnClusterLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnClusterLogsMixin
 }
 
 // The jsii proxy struct for CfnClusterAutoModeLoadBalancingLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnClusterAutoModeLoadBalancingLogs) ToLogGroup(logGroup inte
 	return returns
 }
 
-func (c *jsiiProxy_CfnClusterAutoModeLoadBalancingLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnClusterLogsMixin {
+func (c *jsiiProxy_CfnClusterAutoModeLoadBalancingLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnClusterLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnClusterAutoModeLoadBalancingLogs) ToS3(bucket interfacesaw
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

@@ -16,6 +16,24 @@ package previewawsbedrockagentcoremixins
 //   		AllowedClients: []*string{
 //   			jsii.String("allowedClients"),
 //   		},
+//   		AllowedScopes: []*string{
+//   			jsii.String("allowedScopes"),
+//   		},
+//   		CustomClaims: []interface{}{
+//   			&CustomClaimValidationTypeProperty{
+//   				AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   					ClaimMatchOperator: jsii.String("claimMatchOperator"),
+//   					ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   						MatchValueString: jsii.String("matchValueString"),
+//   						MatchValueStringList: []*string{
+//   							jsii.String("matchValueStringList"),
+//   						},
+//   					},
+//   				},
+//   				InboundTokenClaimName: jsii.String("inboundTokenClaimName"),
+//   				InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
+//   			},
+//   		},
 //   		DiscoveryUrl: jsii.String("discoveryUrl"),
 //   	},
 //   }

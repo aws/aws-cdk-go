@@ -41,6 +41,16 @@ func init() {
 			return &jsiiProxy_ILogsDeliveryConfig{}
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/mixins-preview.aws_logs.IS3LogsDestinationProps",
+		reflect.TypeOf((*IS3LogsDestinationProps)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IS3LogsDestinationProps{}
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_logs.LogGroupLogsDelivery",
 		reflect.TypeOf((*LogGroupLogsDelivery)(nil)).Elem(),

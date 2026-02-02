@@ -81,14 +81,14 @@ Or more conveniently, write permissions to the log group can be granted as follo
 
 ```go
 logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
-logGroup.grantWrite(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
+logGroup.grants.Write(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
 ```
 
 Similarly, read permissions can be granted to the log group as follows.
 
 ```go
 logGroup := logs.NewLogGroup(this, jsii.String("LogGroup"))
-logGroup.grantRead(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
+logGroup.grants.Read(iam.NewServicePrincipal(jsii.String("es.amazonaws.com")))
 ```
 
 Be aware that any ARNs or tokenized values passed to the resource policy will be converted into AWS Account IDs.

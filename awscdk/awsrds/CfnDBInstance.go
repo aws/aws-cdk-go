@@ -88,6 +88,7 @@ type CfnDBInstance interface {
 	awscdk.IInspectable
 	interfacesawsrds.IDBInstanceRef
 	awscdk.ITaggable
+	// The additional storage volumes associated with the DB instance.
 	AdditionalStorageVolumes() interface{}
 	SetAdditionalStorageVolumes(val interface{})
 	// The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.

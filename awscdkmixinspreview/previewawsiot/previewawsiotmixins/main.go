@@ -400,6 +400,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnLoggingPropsMixin.EventConfigurationProperty",
+		reflect.TypeOf((*CfnLoggingPropsMixin_EventConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnMitigationActionMixinProps",
 		reflect.TypeOf((*CfnMitigationActionMixinProps)(nil)).Elem(),
 	)

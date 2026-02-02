@@ -57,6 +57,7 @@ import (
 //   	Context: jsii.String("context"),
 //   	Cooldown: jsii.String("cooldown"),
 //   	DefaultInstanceWarmup: jsii.Number(123),
+//   	DeletionProtection: jsii.String("deletionProtection"),
 //   	DesiredCapacity: jsii.String("desiredCapacity"),
 //   	DesiredCapacityType: jsii.String("desiredCapacityType"),
 //   	HealthCheckGracePeriod: jsii.Number(123),
@@ -318,6 +319,8 @@ type CfnAutoScalingGroup interface {
 	// The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the `InService` state.
 	DefaultInstanceWarmup() *float64
 	SetDefaultInstanceWarmup(val *float64)
+	DeletionProtection() *string
+	SetDeletionProtection(val *string)
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain.
 	DesiredCapacity() *string
 	SetDesiredCapacity(val *string)
@@ -717,6 +720,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) DefaultInstanceWarmup() *float64 {
 	_jsii_.Get(
 		j,
 		"defaultInstanceWarmup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) DeletionProtection() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deletionProtection",
 		&returns,
 	)
 	return returns
@@ -1182,6 +1195,14 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetDefaultInstanceWarmup(val *float64) {
 	_jsii_.Set(
 		j,
 		"defaultInstanceWarmup",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetDeletionProtection(val *string) {
+	_jsii_.Set(
+		j,
+		"deletionProtection",
 		val,
 	)
 }

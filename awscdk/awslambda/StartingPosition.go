@@ -4,21 +4,30 @@ package awslambda
 // The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 //
 // Example:
-//   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var table Table
-//
-//   var fn Function
+//   var myFunction Function
 //
 //
-//   deadLetterQueue := sqs.NewQueue(this, jsii.String("deadLetterQueue"))
-//   fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
-//   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
-//   	BatchSize: jsii.Number(5),
-//   	BisectBatchOnError: jsii.Boolean(true),
-//   	OnFailure: awscdk.NewSqsDlq(deadLetterQueue),
-//   	RetryAttempts: jsii.Number(10),
+//   // Your MSK cluster arn
+//   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
+//
+//   // Enable basic event and error metrics
+//   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
+//   	ClusterArn: jsii.String(ClusterArn),
+//   	Topic: jsii.String("basic-monitoring"),
+//   	StartingPosition: lambda.StartingPosition_LATEST,
+//   	// Provisioned mode is required for observability features
+//   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+//   		MinimumPollers: jsii.Number(2),
+//   		MaximumPollers: jsii.Number(10),
+//   	},
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []MetricType{
+//   			lambda.MetricType_EVENT_COUNT,
+//   			lambda.MetricType_ERROR_COUNT,
+//   		},
+//   	},
 //   }))
 //
 type StartingPosition string

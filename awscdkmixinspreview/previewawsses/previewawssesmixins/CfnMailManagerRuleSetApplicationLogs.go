@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnMailManagerRuleSetLogsMixin to generate APPLICATION_LOGS for CfnMailManagerRuleSet.
@@ -24,7 +25,7 @@ type CfnMailManagerRuleSetApplicationLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnMailManagerRuleSetLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnMailManagerRuleSetLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnMailManagerRuleSetLogsMixin
 }
 
 // The jsii proxy struct for CfnMailManagerRuleSetApplicationLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnMailManagerRuleSetApplicationLogs) ToLogGroup(logGroup int
 	return returns
 }
 
-func (c *jsiiProxy_CfnMailManagerRuleSetApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnMailManagerRuleSetLogsMixin {
+func (c *jsiiProxy_CfnMailManagerRuleSetApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnMailManagerRuleSetLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnMailManagerRuleSetApplicationLogs) ToS3(bucket interfacesa
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

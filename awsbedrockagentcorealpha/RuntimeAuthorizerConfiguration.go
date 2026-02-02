@@ -17,10 +17,42 @@ import (
 //   })
 //   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
+//   // String claim - validates that the claim exactly equals the specified value
+//   // Uses EQUALS operator automatically
+//   departmentClaim := agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering"))
+//
+//   // String array claim with CONTAINS operator (default)
+//   // Validates that the claim array contains a specific string value
+//   // IMPORTANT: CONTAINS requires exactly one value in the array parameter
+//   rolesClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+//   	jsii.String("admin"),
+//   })
+//
+//   // String array claim with CONTAINS_ANY operator
+//   // Validates that the claim array contains at least one of the specified values
+//   // Use this when you want to check for multiple possible values
+//   permissionsClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+//   	jsii.String("read"),
+//   	jsii.String("write"),
+//   }, agentcore.CustomClaimOperator_CONTAINS_ANY)
+//
+//   // Use custom claims in authorizer configuration
 //   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 //   	RuntimeName: jsii.String("myAgent"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123")),
+//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingJWT(jsii.String("https://example.com/.well-known/openid-configuration"), []*string{
+//   		jsii.String("client1"),
+//   		jsii.String("client2"),
+//   	}, []*string{
+//   		jsii.String("audience1"),
+//   	}, []*string{
+//   		jsii.String("read"),
+//   		jsii.String("write"),
+//   	}, []RuntimeCustomClaim{
+//   		departmentClaim,
+//   		rolesClaim,
+//   		permissionsClaim,
+//   	}),
 //   })
 //
 // Experimental.
@@ -49,7 +81,7 @@ func NewRuntimeAuthorizerConfiguration_Override(r RuntimeAuthorizerConfiguration
 //
 // Returns: RuntimeAuthorizerConfiguration for Cognito authentication.
 // Experimental.
-func RuntimeAuthorizerConfiguration_UsingCognito(userPool awscognito.IUserPool, userPoolClients *[]awscognito.IUserPoolClient, allowedAudience *[]*string) RuntimeAuthorizerConfiguration {
+func RuntimeAuthorizerConfiguration_UsingCognito(userPool awscognito.IUserPool, userPoolClients *[]awscognito.IUserPoolClient, allowedAudience *[]*string, allowedScopes *[]*string, customClaims *[]RuntimeCustomClaim) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
 	if err := validateRuntimeAuthorizerConfiguration_UsingCognitoParameters(userPool, userPoolClients); err != nil {
@@ -60,7 +92,7 @@ func RuntimeAuthorizerConfiguration_UsingCognito(userPool awscognito.IUserPool, 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeAuthorizerConfiguration",
 		"usingCognito",
-		[]interface{}{userPool, userPoolClients, allowedAudience},
+		[]interface{}{userPool, userPoolClients, allowedAudience, allowedScopes, customClaims},
 		&returns,
 	)
 
@@ -94,7 +126,7 @@ func RuntimeAuthorizerConfiguration_UsingIAM() RuntimeAuthorizerConfiguration {
 //
 // Returns: RuntimeAuthorizerConfiguration for JWT authentication.
 // Experimental.
-func RuntimeAuthorizerConfiguration_UsingJWT(discoveryUrl *string, allowedClients *[]*string, allowedAudience *[]*string) RuntimeAuthorizerConfiguration {
+func RuntimeAuthorizerConfiguration_UsingJWT(discoveryUrl *string, allowedClients *[]*string, allowedAudience *[]*string, allowedScopes *[]*string, customClaims *[]RuntimeCustomClaim) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
 	if err := validateRuntimeAuthorizerConfiguration_UsingJWTParameters(discoveryUrl); err != nil {
@@ -105,7 +137,7 @@ func RuntimeAuthorizerConfiguration_UsingJWT(discoveryUrl *string, allowedClient
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeAuthorizerConfiguration",
 		"usingJWT",
-		[]interface{}{discoveryUrl, allowedClients, allowedAudience},
+		[]interface{}{discoveryUrl, allowedClients, allowedAudience, allowedScopes, customClaims},
 		&returns,
 	)
 
@@ -116,7 +148,7 @@ func RuntimeAuthorizerConfiguration_UsingJWT(discoveryUrl *string, allowedClient
 //
 // Returns: RuntimeAuthorizerConfiguration for OAuth authentication.
 // Experimental.
-func RuntimeAuthorizerConfiguration_UsingOAuth(discoveryUrl *string, clientId *string, allowedAudience *[]*string) RuntimeAuthorizerConfiguration {
+func RuntimeAuthorizerConfiguration_UsingOAuth(discoveryUrl *string, clientId *string, allowedAudience *[]*string, allowedScopes *[]*string, customClaims *[]RuntimeCustomClaim) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
 	if err := validateRuntimeAuthorizerConfiguration_UsingOAuthParameters(discoveryUrl, clientId); err != nil {
@@ -127,7 +159,7 @@ func RuntimeAuthorizerConfiguration_UsingOAuth(discoveryUrl *string, clientId *s
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RuntimeAuthorizerConfiguration",
 		"usingOAuth",
-		[]interface{}{discoveryUrl, clientId, allowedAudience},
+		[]interface{}{discoveryUrl, clientId, allowedAudience, allowedScopes, customClaims},
 		&returns,
 	)
 

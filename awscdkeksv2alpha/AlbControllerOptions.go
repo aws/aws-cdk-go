@@ -8,6 +8,7 @@ package awscdkeksv2alpha
 //   	Version: eks.KubernetesVersion_V1_34(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V2_8_2(),
+//   		OverwriteServiceAccount: jsii.Boolean(true),
 //   	},
 //   })
 //
@@ -16,6 +17,23 @@ type AlbControllerOptions struct {
 	// Version of the controller.
 	// Experimental.
 	Version AlbControllerVersion `field:"required" json:"version" yaml:"version"`
+	// Additional helm chart values for ALB controller.
+	//
+	// For available options, see:
+	// https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/helm/aws-load-balancer-controller/values.yaml
+	// Default: - no additional helm chart values.
+	//
+	// Experimental.
+	AdditionalHelmChartValues *map[string]interface{} `field:"optional" json:"additionalHelmChartValues" yaml:"additionalHelmChartValues"`
+	// Overwrite any existing ALB controller service account.
+	//
+	// If this is set, we will use `kubectl apply` instead of `kubectl create`
+	// when the ALB controller service account is created. Otherwise, if there is already a service account
+	// named 'aws-load-balancer-controller' in the kube-system namespace, the operation will fail.
+	// Default: false.
+	//
+	// Experimental.
+	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
 	// The IAM policy to apply to the service account.
 	//
 	// If you're using one of the built-in versions, this is not required since

@@ -52,7 +52,7 @@ For convenience, you can use the `.with()` method for a more fluent syntax:
 import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 
 
-bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).with(awscdkmixinspreview.NewEnableVersioning()).with(awscdkmixinspreview.NewAutoDeleteObjects())
+bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).with(awscdkmixinspreview.NewBucketVersioning()).with(awscdkmixinspreview.NewAutoDeleteObjects())
 ```
 
 The `.with()` method is available after importing `@aws-cdk/mixins-preview/with`, which augments all constructs with this method. It provides the same functionality as `Mixins.of().apply()` but with a more chainable API.
@@ -124,11 +124,11 @@ bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
 awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewAutoDeleteObjects())
 ```
 
-**EnableVersioning**: Enables versioning on S3 buckets
+**BucketVersioning**: Enables versioning on S3 buckets
 
 ```go
 bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewEnableVersioning())
+awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewBucketVersioning())
 ```
 
 **BucketPolicyStatementsMixin**: Adds IAM policy statements to a bucket policy
@@ -241,7 +241,7 @@ Mixins provide comprehensive error handling:
 awscdkmixinspreview.Mixins_Of(scope).Apply(NewEncryptionAtRest()) // Skips unsupported constructs
 
 // Strict application that requires all constructs to match
-awscdkmixinspreview.Mixins_Of(scope).MustApply(NewEncryptionAtRest())
+awscdkmixinspreview.Mixins_Of(scope).RequireAll().Apply(NewEncryptionAtRest())
 ```
 
 ---

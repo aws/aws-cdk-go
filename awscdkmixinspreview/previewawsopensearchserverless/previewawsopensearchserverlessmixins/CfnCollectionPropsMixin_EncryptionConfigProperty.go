@@ -1,7 +1,7 @@
 package previewawsopensearchserverlessmixins
 
 
-// The configuration to encrypt the collection.
+// Encryption settings for the collection.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -16,11 +16,11 @@ package previewawsopensearchserverlessmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-encryptionconfig.html
 //
 type CfnCollectionPropsMixin_EncryptionConfigProperty struct {
-	// The configuration to encrypt the collection with AWS owned key.
+	// Indicates whether to use an AWS owned key for encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-encryptionconfig.html#cfn-opensearchserverless-collection-encryptionconfig-awsownedkey
 	//
 	AwsOwnedKey interface{} `field:"optional" json:"awsOwnedKey" yaml:"awsOwnedKey"`
-	// The ARN of the KMS key to encrypt the collection with.
+	// Key Management Service key used to encrypt the collection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-encryptionconfig.html#cfn-opensearchserverless-collection-encryptionconfig-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

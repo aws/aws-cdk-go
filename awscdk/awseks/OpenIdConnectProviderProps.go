@@ -1,27 +1,19 @@
 package awseks
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Initialization properties for `OpenIdConnectProvider`.
 //
 // Example:
-//   // or create a new one using an existing issuer url
-//   var issuerUrl string
-//   // you can import an existing provider
-//   provider := eks.OpenIdConnectProvider_FromOpenIdConnectProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
-//   provider2 := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
-//   	Url: issuerUrl,
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   // Step 1: Add retain policy to existing provider
+//   existingProvider := eks.NewOpenIdConnectProvider(this, jsii.String("Provider"), &OpenIdConnectProviderProps{
+//   	Url: jsii.String("https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLE"),
+//   	RemovalPolicy: cdk.RemovalPolicy_RETAIN,
 //   })
-//
-//   cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
-//   	ClusterName: jsii.String("Cluster"),
-//   	OpenIdConnectProvider: provider,
-//   	KubectlRoleArn: jsii.String("arn:aws:iam::123456:role/service-role/k8sservicerole"),
-//   })
-//
-//   serviceAccount := cluster.AddServiceAccount(jsii.String("MyServiceAccount"))
-//
-//   bucket := s3.NewBucket(this, jsii.String("Bucket"))
-//   bucket.GrantReadWrite(serviceAccount)
 //
 type OpenIdConnectProviderProps struct {
 	// The URL of the identity provider.
@@ -35,5 +27,9 @@ type OpenIdConnectProviderProps struct {
 	// You can find your OIDC Issuer URL by:
 	// aws eks describe-cluster --name %cluster_name% --query "cluster.identity.oidc.issuer" --output text
 	Url *string `field:"required" json:"url" yaml:"url"`
+	// The removal policy to apply to the OpenID Connect Provider.
+	// Default: - RemovalPolicy.DESTROY
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

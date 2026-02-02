@@ -52,6 +52,24 @@ import (
 //   			AllowedClients: []*string{
 //   				jsii.String("allowedClients"),
 //   			},
+//   			AllowedScopes: []*string{
+//   				jsii.String("allowedScopes"),
+//   			},
+//   			CustomClaims: []interface{}{
+//   				&CustomClaimValidationTypeProperty{
+//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
+//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   							MatchValueString: jsii.String("matchValueString"),
+//   							MatchValueStringList: []*string{
+//   								jsii.String("matchValueStringList"),
+//   							},
+//   						},
+//   					},
+//   					InboundTokenClaimName: jsii.String("inboundTokenClaimName"),
+//   					InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
+//   				},
+//   			},
 //   			DiscoveryUrl: jsii.String("discoveryUrl"),
 //   		},
 //   	},
@@ -96,7 +114,7 @@ type CfnRuntimePropsMixin interface {
 	Props() *CfnRuntimeMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
 	Supports(construct constructs.IConstruct) *bool
 }
@@ -190,20 +208,15 @@ func CfnRuntimePropsMixin_CFN_PROPERTY_KEYS() *[]*string {
 	return returns
 }
 
-func (c *jsiiProxy_CfnRuntimePropsMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (c *jsiiProxy_CfnRuntimePropsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		c,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (c *jsiiProxy_CfnRuntimePropsMixin) Supports(construct constructs.IConstruct) *bool {

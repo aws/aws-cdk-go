@@ -1398,6 +1398,15 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.EventSourceMappingLogLevel",
+		reflect.TypeOf((*EventSourceMappingLogLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"INFO": EventSourceMappingLogLevel_INFO,
+			"DEBUG": EventSourceMappingLogLevel_DEBUG,
+			"WARN": EventSourceMappingLogLevel_WARN,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.EventSourceMappingOptions",
 		reflect.TypeOf((*EventSourceMappingOptions)(nil)).Elem(),
@@ -2085,8 +2094,8 @@ func init() {
 		reflect.TypeOf((*MetricType)(nil)).Elem(),
 		map[string]interface{}{
 			"EVENT_COUNT": MetricType_EVENT_COUNT,
-			"ERRORCOUNT": MetricType_ERRORCOUNT,
-			"KAFKAMETRICS": MetricType_KAFKAMETRICS,
+			"ERROR_COUNT": MetricType_ERROR_COUNT,
+			"KAFKA_METRICS": MetricType_KAFKA_METRICS,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -27,6 +27,17 @@ import (
 //   	AccountId: jsii.String("accountId"),
 //   	DefaultLogLevel: jsii.String("defaultLogLevel"),
 //   	RoleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	EventConfigurations: []interface{}{
+//   		&EventConfigurationProperty{
+//   			EventType: jsii.String("eventType"),
+//
+//   			// the properties below are optional
+//   			LogDestination: jsii.String("logDestination"),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html
@@ -51,6 +62,9 @@ type CfnLogging interface {
 	DefaultLogLevel() *string
 	SetDefaultLogLevel(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// Configurations for event-based logging that specifies which event types to log and their logging settings.
+	EventConfigurations() interface{}
+	SetEventConfigurations(val interface{})
 	// A reference to a Logging resource.
 	LoggingRef() *interfacesawsiot.LoggingReference
 	// The logical ID for this CloudFormation stack element.
@@ -294,6 +308,16 @@ func (j *jsiiProxy_CfnLogging) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogging) EventConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"eventConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLogging) LoggingRef() *interfacesawsiot.LoggingReference {
 	var returns *interfacesawsiot.LoggingReference
 	_jsii_.Get(
@@ -422,6 +446,17 @@ func (j *jsiiProxy_CfnLogging)SetDefaultLogLevel(val *string) {
 	_jsii_.Set(
 		j,
 		"defaultLogLevel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogging)SetEventConfigurations(val interface{}) {
+	if err := j.validateSetEventConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"eventConfigurations",
 		val,
 	)
 }

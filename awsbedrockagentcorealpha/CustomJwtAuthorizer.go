@@ -12,6 +12,8 @@ import (
 //   // The values are placeholders you should change.
 //   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
+//   var gatewayCustomClaim GatewayCustomClaim
+//
 //   customJwtAuthorizer := bedrock_agentcore_alpha.NewCustomJwtAuthorizer(&CustomJwtConfiguration{
 //   	DiscoveryUrl: jsii.String("discoveryUrl"),
 //
@@ -21,6 +23,12 @@ import (
 //   	},
 //   	AllowedClients: []*string{
 //   		jsii.String("allowedClients"),
+//   	},
+//   	AllowedScopes: []*string{
+//   		jsii.String("allowedScopes"),
+//   	},
+//   	CustomClaims: []GatewayCustomClaim{
+//   		gatewayCustomClaim,
 //   	},
 //   })
 //

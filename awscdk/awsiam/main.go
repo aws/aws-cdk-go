@@ -1324,15 +1324,12 @@ func init() {
 		"aws-cdk-lib.aws_iam.IEncryptedResource",
 		reflect.TypeOf((*IEncryptedResource)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IEncryptedResource{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
 		},
 	)
@@ -1440,6 +1437,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderArn", GoGetter: "OidcProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderIssuer", GoGetter: "OidcProviderIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderRef", GoGetter: "OidcProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArn", GoGetter: "OpenIdConnectProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderIssuer", GoGetter: "OpenIdConnectProviderIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
@@ -1730,6 +1729,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderIssuer", GoGetter: "OidcProviderIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderRef", GoGetter: "OidcProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "oidcProviderThumbprints", GoGetter: "OidcProviderThumbprints"},
+			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArn", GoGetter: "OpenIdConnectProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderIssuer", GoGetter: "OpenIdConnectProviderIssuer"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

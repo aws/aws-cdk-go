@@ -52,6 +52,14 @@ func init() {
 		reflect.TypeOf((*CfnBackupPlanPropsMixin_LifecycleResourceTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnBackupPlanPropsMixin.ScanActionResourceTypeProperty",
+		reflect.TypeOf((*CfnBackupPlanPropsMixin_ScanActionResourceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnBackupPlanPropsMixin.ScanSettingResourceTypeProperty",
+		reflect.TypeOf((*CfnBackupPlanPropsMixin_ScanSettingResourceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnBackupSelectionMixinProps",
 		reflect.TypeOf((*CfnBackupSelectionMixinProps)(nil)).Elem(),
 	)
@@ -238,5 +246,29 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnRestoreTestingSelectionPropsMixin.ProtectedResourceConditionsProperty",
 		reflect.TypeOf((*CfnRestoreTestingSelectionPropsMixin_ProtectedResourceConditionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnTieringConfigurationMixinProps",
+		reflect.TypeOf((*CfnTieringConfigurationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnTieringConfigurationPropsMixin",
+		reflect.TypeOf((*CfnTieringConfigurationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTieringConfigurationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_backup.mixins.CfnTieringConfigurationPropsMixin.ResourceSelectionProperty",
+		reflect.TypeOf((*CfnTieringConfigurationPropsMixin_ResourceSelectionProperty)(nil)).Elem(),
 	)
 }

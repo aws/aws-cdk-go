@@ -62,6 +62,7 @@ import (
 //   	},
 //   	KafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
 //   	KafkaTopic: jsii.String("kafkaTopic"),
+//   	LogLevel: awscdk.*Aws_lambda.EventSourceMappingLogLevel_INFO,
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MaxConcurrency: jsii.Number(123),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),

@@ -12,20 +12,21 @@ package awslambdaeventsources
 //   // Your MSK cluster arn
 //   clusterArn := "arn:aws:kafka:us-east-1:0123456789019:cluster/SalesCluster/abcd1234-abcd-cafe-abab-9876543210ab-4"
 //
-//   // The Kafka topic you want to subscribe to
-//   topic := "some-cool-topic"
-//
-//   // Create a Kafka DLQ destination
-//   kafkaDlq := awscdk.NewKafkaDlq(jsii.String("failure-topic"))
-//
+//   // Enable basic event and error metrics
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 //   	ClusterArn: jsii.String(ClusterArn),
-//   	Topic: jsii.String(Topic),
-//   	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
-//   	OnFailure: kafkaDlq,
+//   	Topic: jsii.String("basic-monitoring"),
+//   	StartingPosition: lambda.StartingPosition_LATEST,
+//   	// Provisioned mode is required for observability features
 //   	ProvisionedPollerConfig: &ProvisionedPollerConfig{
-//   		MinimumPollers: jsii.Number(1),
-//   		MaximumPollers: jsii.Number(1),
+//   		MinimumPollers: jsii.Number(2),
+//   		MaximumPollers: jsii.Number(10),
+//   	},
+//   	MetricsConfig: &MetricsConfig{
+//   		Metrics: []MetricType{
+//   			lambda.MetricType_EVENT_COUNT,
+//   			lambda.MetricType_ERROR_COUNT,
+//   		},
 //   	},
 //   }))
 //

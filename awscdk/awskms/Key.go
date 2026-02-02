@@ -53,6 +53,8 @@ type Key interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Collection of grant methods for a Key.
+	Grants() KeyGrants
 	// The ARN of the key.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
@@ -172,6 +174,16 @@ func (j *jsiiProxy_Key) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Key) Grants() KeyGrants {
+	var returns KeyGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns

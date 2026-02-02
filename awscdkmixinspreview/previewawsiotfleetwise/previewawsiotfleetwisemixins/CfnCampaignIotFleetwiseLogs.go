@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnCampaignLogsMixin to generate IOT_FLEETWISE_LOGS for CfnCampaign.
@@ -24,7 +25,7 @@ type CfnCampaignIotFleetwiseLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnCampaignLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnCampaignLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnCampaignLogsMixin
 }
 
 // The jsii proxy struct for CfnCampaignIotFleetwiseLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnCampaignIotFleetwiseLogs) ToLogGroup(logGroup interfacesaw
 	return returns
 }
 
-func (c *jsiiProxy_CfnCampaignIotFleetwiseLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnCampaignLogsMixin {
+func (c *jsiiProxy_CfnCampaignIotFleetwiseLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnCampaignLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnCampaignIotFleetwiseLogs) ToS3(bucket interfacesawss3.IBuc
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

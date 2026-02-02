@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnIdMappingWorkflowLogsMixin to generate WORKFLOW_LOGS for CfnIdMappingWorkflow.
@@ -24,7 +25,7 @@ type CfnIdMappingWorkflowWorkflowLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnIdMappingWorkflowLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnIdMappingWorkflowLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnIdMappingWorkflowLogsMixin
 }
 
 // The jsii proxy struct for CfnIdMappingWorkflowWorkflowLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnIdMappingWorkflowWorkflowLogs) ToLogGroup(logGroup interfa
 	return returns
 }
 
-func (c *jsiiProxy_CfnIdMappingWorkflowWorkflowLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnIdMappingWorkflowLogsMixin {
+func (c *jsiiProxy_CfnIdMappingWorkflowWorkflowLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnIdMappingWorkflowLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnIdMappingWorkflowWorkflowLogs) ToS3(bucket interfacesawss3
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

@@ -47,6 +47,12 @@ package awsbackup
 //   			RecoveryPointTags: map[string]*string{
 //   				"recoveryPointTagsKey": jsii.String("recoveryPointTags"),
 //   			},
+//   			ScanActions: []interface{}{
+//   				&ScanActionResourceTypeProperty{
+//   					MalwareScanner: jsii.String("malwareScanner"),
+//   					ScanMode: jsii.String("scanMode"),
+//   				},
+//   			},
 //   			ScheduleExpression: jsii.String("scheduleExpression"),
 //   			ScheduleExpressionTimezone: jsii.String("scheduleExpressionTimezone"),
 //   			StartWindowMinutes: jsii.Number(123),
@@ -59,6 +65,15 @@ package awsbackup
 //   		&AdvancedBackupSettingResourceTypeProperty{
 //   			BackupOptions: backupOptions,
 //   			ResourceType: jsii.String("resourceType"),
+//   		},
+//   	},
+//   	ScanSettings: []interface{}{
+//   		&ScanSettingResourceTypeProperty{
+//   			MalwareScanner: jsii.String("malwareScanner"),
+//   			ResourceTypes: []*string{
+//   				jsii.String("resourceTypes"),
+//   			},
+//   			ScannerRoleArn: jsii.String("scannerRoleArn"),
 //   		},
 //   	},
 //   }
@@ -78,5 +93,8 @@ type CfnBackupPlan_BackupPlanResourceTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
 	//
 	AdvancedBackupSettings interface{} `field:"optional" json:"advancedBackupSettings" yaml:"advancedBackupSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-scansettings
+	//
+	ScanSettings interface{} `field:"optional" json:"scanSettings" yaml:"scanSettings"`
 }
 

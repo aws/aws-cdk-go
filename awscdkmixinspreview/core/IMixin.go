@@ -11,7 +11,7 @@ import (
 type IMixin interface {
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
-	ApplyTo(construct constructs.IConstruct) constructs.IConstruct
+	ApplyTo(construct constructs.IConstruct)
 	// Determines whether this mixin can be applied to the given construct.
 	// Experimental.
 	Supports(construct constructs.IConstruct) *bool
@@ -22,20 +22,15 @@ type jsiiProxy_IMixin struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IMixin) ApplyTo(construct constructs.IConstruct) constructs.IConstruct {
+func (i *jsiiProxy_IMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := i.validateApplyToParameters(construct); err != nil {
 		panic(err)
 	}
-	var returns constructs.IConstruct
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		i,
 		"applyTo",
 		[]interface{}{construct},
-		&returns,
 	)
-
-	return returns
 }
 
 func (i *jsiiProxy_IMixin) Supports(construct constructs.IConstruct) *bool {

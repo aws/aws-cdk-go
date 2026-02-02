@@ -49,12 +49,19 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.core.MixinApplication",
+		reflect.TypeOf((*MixinApplication)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.core.MixinApplicator",
 		reflect.TypeOf((*MixinApplicator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "apply", GoMethod: "Apply"},
-			_jsii_.MemberMethod{JsiiMethod: "mustApply", GoMethod: "MustApply"},
+			_jsii_.MemberProperty{JsiiProperty: "report", GoGetter: "Report"},
+			_jsii_.MemberMethod{JsiiMethod: "requireAll", GoMethod: "RequireAll"},
+			_jsii_.MemberMethod{JsiiMethod: "requireAny", GoMethod: "RequireAny"},
+			_jsii_.MemberProperty{JsiiProperty: "selectedConstructs", GoGetter: "SelectedConstructs"},
 		},
 		func() interface{} {
 			return &jsiiProxy_MixinApplicator{}

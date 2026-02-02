@@ -4,7 +4,7 @@ package awsiam
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateGrantableResources_IsEncryptedResourceParameters(resource constructs.IConstruct) error {
+func validateGrantableResources_IsEncryptedResourceParameters(resource interfaces.IEnvironmentAware) error {
 	return nil
 }
 

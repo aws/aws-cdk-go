@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnApplicationLogsMixin to generate BATCH_JOB_LOGS for CfnApplication.
@@ -24,7 +25,7 @@ type CfnApplicationBatchJobLogs interface {
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnApplicationLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef) CfnApplicationLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnApplicationLogsMixin
 }
 
 // The jsii proxy struct for CfnApplicationBatchJobLogs
@@ -90,7 +91,7 @@ func (c *jsiiProxy_CfnApplicationBatchJobLogs) ToLogGroup(logGroup interfacesaws
 	return returns
 }
 
-func (c *jsiiProxy_CfnApplicationBatchJobLogs) ToS3(bucket interfacesawss3.IBucketRef) CfnApplicationLogsMixin {
+func (c *jsiiProxy_CfnApplicationBatchJobLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnApplicationLogsMixin {
 	if err := c.validateToS3Parameters(bucket); err != nil {
 		panic(err)
 	}
@@ -99,7 +100,7 @@ func (c *jsiiProxy_CfnApplicationBatchJobLogs) ToS3(bucket interfacesawss3.IBuck
 	_jsii_.Invoke(
 		c,
 		"toS3",
-		[]interface{}{bucket},
+		[]interface{}{bucket, props},
 		&returns,
 	)
 

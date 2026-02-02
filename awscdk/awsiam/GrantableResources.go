@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
-	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Utility methods to check for specific types of grantable resources.
@@ -50,7 +49,7 @@ func NewGrantableResources_Override(g GrantableResources) {
 }
 
 // Whether this resource holds data that can be encrypted using a KMS key.
-func GrantableResources_IsEncryptedResource(resource constructs.IConstruct) *bool {
+func GrantableResources_IsEncryptedResource(resource interfaces.IEnvironmentAware) *bool {
 	_init_.Initialize()
 
 	if err := validateGrantableResources_IsEncryptedResourceParameters(resource); err != nil {

@@ -33,6 +33,10 @@ import (
 //   		AllowedClients: []*string{
 //   			jsii.String("my-client-id"),
 //   		},
+//   		AllowedScopes: []*string{
+//   			jsii.String("read"),
+//   			jsii.String("write"),
+//   		},
 //   	}),
 //   	KmsKey: encryptionKey,
 //   	ExceptionLevel: agentcore.GatewayExceptionLevel_DEBUG,

@@ -12,6 +12,17 @@ package awsiot
 //   	AccountId: jsii.String("accountId"),
 //   	DefaultLogLevel: jsii.String("defaultLogLevel"),
 //   	RoleArn: jsii.String("roleArn"),
+//
+//   	// the properties below are optional
+//   	EventConfigurations: []interface{}{
+//   		&EventConfigurationProperty{
+//   			EventType: jsii.String("eventType"),
+//
+//   			// the properties below are optional
+//   			LogDestination: jsii.String("logDestination"),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html
@@ -31,5 +42,11 @@ type CfnLoggingProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-rolearn
 	//
 	RoleArn interface{} `field:"required" json:"roleArn" yaml:"roleArn"`
+	// Configurations for event-based logging that specifies which event types to log and their logging settings.
+	//
+	// Overrides account-level logging for the specified event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-logging.html#cfn-iot-logging-eventconfigurations
+	//
+	EventConfigurations interface{} `field:"optional" json:"eventConfigurations" yaml:"eventConfigurations"`
 }
 
