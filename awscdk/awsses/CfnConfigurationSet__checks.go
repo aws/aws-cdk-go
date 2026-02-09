@@ -212,6 +212,30 @@ func validateCfnConfigurationSet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) validateSetArchivingOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConfigurationSet_ArchivingOptionsProperty:
+		val := val.(*CfnConfigurationSet_ArchivingOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConfigurationSet_ArchivingOptionsProperty:
+		val_ := val.(CfnConfigurationSet_ArchivingOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConfigurationSet_ArchivingOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) validateSetDeliveryOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

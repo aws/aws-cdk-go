@@ -19,18 +19,23 @@ package cxapi
 //   	TerminationProtection: jsii.Boolean(false),
 //   }
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type AwsCloudFormationStackProperties struct {
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	TemplateFile *string `field:"required" json:"templateFile" yaml:"templateFile"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Parameters *map[string]*string `field:"optional" json:"parameters" yaml:"parameters"`
 	// The name to use for the CloudFormation stack.
 	// Default: - name derived from artifact ID.
 	//
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	StackName *string `field:"optional" json:"stackName" yaml:"stackName"`
 	// Whether to enable termination protection for this stack.
 	// Default: false.
 	//
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	TerminationProtection *bool `field:"optional" json:"terminationProtection" yaml:"terminationProtection"`
 }
 

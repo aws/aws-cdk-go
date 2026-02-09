@@ -28,6 +28,10 @@ func init() {
 		reflect.TypeOf((*DatabaseReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_lightsail.DatabaseSnapshotReference",
+		reflect.TypeOf((*DatabaseSnapshotReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_lightsail.DiskReference",
 		reflect.TypeOf((*DiskReference)(nil)).Elem(),
 	)
@@ -113,6 +117,21 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDatabaseRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_lightsail.IDatabaseSnapshotRef",
+		reflect.TypeOf((*IDatabaseSnapshotRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "databaseSnapshotRef", GoGetter: "DatabaseSnapshotRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDatabaseSnapshotRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

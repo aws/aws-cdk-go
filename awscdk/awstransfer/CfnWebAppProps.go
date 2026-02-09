@@ -20,6 +20,17 @@ import (
 //
 //   	// the properties below are optional
 //   	AccessEndpoint: jsii.String("accessEndpoint"),
+//   	EndpointDetails: &EndpointDetailsProperty{
+//   		Vpc: &VpcProperty{
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcId: jsii.String("vpcId"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -54,6 +65,9 @@ type CfnWebAppProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-webapp.html#cfn-transfer-webapp-accessendpoint
 	//
 	AccessEndpoint *string `field:"optional" json:"accessEndpoint" yaml:"accessEndpoint"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-webapp.html#cfn-transfer-webapp-endpointdetails
+	//
+	EndpointDetails interface{} `field:"optional" json:"endpointDetails" yaml:"endpointDetails"`
 	// Key-value pairs that can be used to group and search for web apps.
 	//
 	// Tags are metadata attached to web apps for any purpose.

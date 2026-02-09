@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -49,6 +50,9 @@ type MemoryBase interface {
 	// The id of the memory.
 	// Experimental.
 	MemoryId() *string
+	// A reference to a Memory resource.
+	// Experimental.
+	MemoryRef() *interfacesawsbedrockagentcore.MemoryReference
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -331,6 +335,16 @@ func (j *jsiiProxy_MemoryBase) MemoryId() *string {
 	_jsii_.Get(
 		j,
 		"memoryId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MemoryBase) MemoryRef() *interfacesawsbedrockagentcore.MemoryReference {
+	var returns *interfacesawsbedrockagentcore.MemoryReference
+	_jsii_.Get(
+		j,
+		"memoryRef",
 		&returns,
 	)
 	return returns

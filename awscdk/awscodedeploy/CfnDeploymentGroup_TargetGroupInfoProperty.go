@@ -1,7 +1,7 @@
 package awscodedeploy
 
 
-// The `TargetGroupInfo` property type specifies information about a target group in ELB to use in a deployment.
+// The `TargetGroupInfo` property type specifies information about a target group in Elastic Load Balancing to use in a deployment.
 //
 // Instances are registered as targets in a target group, and traffic is routed to the target group. For more information, see [TargetGroupInfo](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_TargetGroupInfo.html) in the *AWS CodeDeploy API Reference*
 //

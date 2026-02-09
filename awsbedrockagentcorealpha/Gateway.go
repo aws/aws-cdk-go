@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -78,6 +79,9 @@ type Gateway interface {
 	// The unique identifier of the gateway.
 	// Experimental.
 	GatewayId() *string
+	// A reference to a Gateway resource.
+	// Experimental.
+	GatewayRef() *interfacesawsbedrockagentcore.GatewayReference
 	// The URL endpoint for the gateway.
 	// Experimental.
 	GatewayUrl() *string
@@ -343,6 +347,16 @@ func (j *jsiiProxy_Gateway) GatewayId() *string {
 	_jsii_.Get(
 		j,
 		"gatewayId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Gateway) GatewayRef() *interfacesawsbedrockagentcore.GatewayReference {
+	var returns *interfacesawsbedrockagentcore.GatewayReference
+	_jsii_.Get(
+		j,
+		"gatewayRef",
 		&returns,
 	)
 	return returns

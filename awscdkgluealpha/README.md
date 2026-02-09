@@ -801,6 +801,223 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 })
 ```
 
+### Partition Projection
+
+Partition projection allows Athena to automatically add new partitions as new data arrives, without requiring `ALTER TABLE ADD PARTITION` statements. This improves query performance and reduces management overhead by eliminating the need to manually manage partition metadata.
+
+For more information, see the [AWS documentation on partition projection](https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html).
+
+#### INTEGER Projection
+
+For partition keys with sequential numeric values:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("data"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	PartitionKeys: []Column{
+		&Column{
+			Name: jsii.String("year"),
+			Type: glue.Schema_INTEGER(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+	PartitionProjection: map[string]PartitionProjectionConfiguration{
+		"year": glue.PartitionProjectionConfiguration_integer(&IntegerPartitionProjectionConfigurationProps{
+			"min": jsii.Number(2020),
+			"max": jsii.Number(2023),
+			"interval": jsii.Number(1),
+			 // optional, defaults to 1
+			"digits": jsii.Number(4),
+		}),
+	},
+})
+```
+
+#### DATE Projection
+
+For partition keys with date or timestamp values. Supports both fixed dates and relative dates using `NOW`:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("data"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	PartitionKeys: []Column{
+		&Column{
+			Name: jsii.String("date"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+	PartitionProjection: map[string]PartitionProjectionConfiguration{
+		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
+			"min": jsii.String("2020-01-01"),
+			"max": jsii.String("2023-12-31"),
+			"format": jsii.String("yyyy-MM-dd"),
+			"interval": jsii.Number(1),
+			 // optional, defaults to 1
+			"intervalUnit": glue.DateIntervalUnit_DAYS,
+		}),
+	},
+})
+```
+
+You can also use relative dates with `NOW`:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("data"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	PartitionKeys: []Column{
+		&Column{
+			Name: jsii.String("date"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+	PartitionProjection: map[string]PartitionProjectionConfiguration{
+		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
+			"min": jsii.String("NOW-3YEARS"),
+			"max": jsii.String("NOW"),
+			"format": jsii.String("yyyy-MM-dd"),
+		}),
+	},
+})
+```
+
+#### ENUM Projection
+
+For partition keys with a known set of values:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("data"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	PartitionKeys: []Column{
+		&Column{
+			Name: jsii.String("region"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+	PartitionProjection: map[string]PartitionProjectionConfiguration{
+		"region": glue.PartitionProjectionConfiguration_enum(&EnumPartitionProjectionConfigurationProps{
+			"values": []*string{
+				jsii.String("us-east-1"),
+				jsii.String("us-west-2"),
+				jsii.String("eu-west-1"),
+			},
+		}),
+	},
+})
+```
+
+#### INJECTED Projection
+
+For custom partition values injected at query time:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("data"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	PartitionKeys: []Column{
+		&Column{
+			Name: jsii.String("custom"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+	PartitionProjection: map[string]PartitionProjectionConfiguration{
+		"custom": glue.PartitionProjectionConfiguration_injected(),
+	},
+})
+```
+
+#### Multiple Partition Projections
+
+You can configure partition projection for multiple partition keys:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("data"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	PartitionKeys: []Column{
+		&Column{
+			Name: jsii.String("year"),
+			Type: glue.Schema_INTEGER(),
+		},
+		&Column{
+			Name: jsii.String("month"),
+			Type: glue.Schema_INTEGER(),
+		},
+		&Column{
+			Name: jsii.String("region"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+	PartitionProjection: map[string]PartitionProjectionConfiguration{
+		"year": glue.PartitionProjectionConfiguration_integer(&IntegerPartitionProjectionConfigurationProps{
+			"min": jsii.Number(2020),
+			"max": jsii.Number(2023),
+		}),
+		"month": glue.PartitionProjectionConfiguration_integer(&IntegerPartitionProjectionConfigurationProps{
+			"min": jsii.Number(1),
+			"max": jsii.Number(12),
+			"digits": jsii.Number(2),
+		}),
+		"region": glue.PartitionProjectionConfiguration_enum(&EnumPartitionProjectionConfigurationProps{
+			"values": []*string{
+				jsii.String("us-east-1"),
+				jsii.String("us-west-2"),
+			},
+		}),
+	},
+})
+```
+
 ### Glue Connections
 
 Glue connections allow external data connections to third party databases and data warehouses. However, these connections can also be assigned to Glue Tables, allowing you to query external data sources using the Glue Data Catalog.

@@ -461,6 +461,43 @@ func (j *jsiiProxy_CfnMultiRegionEndpoint)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnMultiRegionEndpoint_ArnForMultiRegionEndpoint(resource interfacesawsses.IMultiRegionEndpointRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMultiRegionEndpoint_ArnForMultiRegionEndpointParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpoint",
+		"arnForMultiRegionEndpoint",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IMultiRegionEndpointRef from a endpointName.
+func CfnMultiRegionEndpoint_FromEndpointName(scope constructs.Construct, id *string, endpointName *string) interfacesawsses.IMultiRegionEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnMultiRegionEndpoint_FromEndpointNameParameters(scope, id, endpointName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsses.IMultiRegionEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.CfnMultiRegionEndpoint",
+		"fromEndpointName",
+		[]interface{}{scope, id, endpointName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

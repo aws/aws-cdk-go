@@ -588,6 +588,44 @@ func CfnAccessPoint_ArnForAccessPoint(resource interfacesawss3objectlambda.IAcce
 	return returns
 }
 
+// Creates a new IAccessPointRef from an ARN.
+func CfnAccessPoint_FromAccessPointArn(scope constructs.Construct, id *string, arn *string) interfacesawss3objectlambda.IAccessPointRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_FromAccessPointArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawss3objectlambda.IAccessPointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
+		"fromAccessPointArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAccessPointRef from a accessPointName.
+func CfnAccessPoint_FromAccessPointName(scope constructs.Construct, id *string, accessPointName *string) interfacesawss3objectlambda.IAccessPointRef {
+	_init_.Initialize()
+
+	if err := validateCfnAccessPoint_FromAccessPointNameParameters(scope, id, accessPointName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawss3objectlambda.IAccessPointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
+		"fromAccessPointName",
+		[]interface{}{scope, id, accessPointName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnAccessPoint.
 func CfnAccessPoint_IsCfnAccessPoint(x interface{}) *bool {
 	_init_.Initialize()

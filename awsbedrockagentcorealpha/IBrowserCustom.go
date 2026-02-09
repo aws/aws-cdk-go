@@ -9,12 +9,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for Browser resources.
 // Experimental.
 type IBrowserCustom interface {
+	interfacesawsbedrockagentcore.IBrowserCustomRef
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscdk.IResource
@@ -85,6 +87,7 @@ type IBrowserCustom interface {
 
 // The jsii proxy for IBrowserCustom
 type jsiiProxy_IBrowserCustom struct {
+	internal.Type__interfacesawsbedrockagentcoreIBrowserCustomRef
 	internal.Type__awsec2IConnectable
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
@@ -401,6 +404,16 @@ func (j *jsiiProxy_IBrowserCustom) Status() *string {
 	_jsii_.Get(
 		j,
 		"status",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBrowserCustom) BrowserCustomRef() *interfacesawsbedrockagentcore.BrowserCustomReference {
+	var returns *interfacesawsbedrockagentcore.BrowserCustomReference
+	_jsii_.Get(
+		j,
+		"browserCustomRef",
 		&returns,
 	)
 	return returns

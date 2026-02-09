@@ -164,6 +164,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_HeaderMatchPatternProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnRuleGroupPropsMixin.HeaderOrderProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_HeaderOrderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnRuleGroupPropsMixin.HeadersProperty",
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_HeadersProperty)(nil)).Elem(),
 	)
@@ -510,6 +514,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnWebACLPropsMixin.HeaderMatchPatternProperty",
 		reflect.TypeOf((*CfnWebACLPropsMixin_HeaderMatchPatternProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnWebACLPropsMixin.HeaderOrderProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_HeaderOrderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnWebACLPropsMixin.HeadersProperty",

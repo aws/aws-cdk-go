@@ -510,6 +510,43 @@ func (j *jsiiProxy_CfnDBParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDBParameterGroup_ArnForDBParameterGroup(resource interfacesawsneptune.IDBParameterGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBParameterGroup_ArnForDBParameterGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_neptune.CfnDBParameterGroup",
+		"arnForDBParameterGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDBParameterGroupRef from a dbParameterGroupName.
+func CfnDBParameterGroup_FromDBParameterGroupName(scope constructs.Construct, id *string, dbParameterGroupName *string) interfacesawsneptune.IDBParameterGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnDBParameterGroup_FromDBParameterGroupNameParameters(scope, id, dbParameterGroupName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsneptune.IDBParameterGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_neptune.CfnDBParameterGroup",
+		"fromDBParameterGroupName",
+		[]interface{}{scope, id, dbParameterGroupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnDBParameterGroup.
 func CfnDBParameterGroup_IsCfnDBParameterGroup(x interface{}) *bool {
 	_init_.Initialize()

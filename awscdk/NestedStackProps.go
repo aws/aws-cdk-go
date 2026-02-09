@@ -7,6 +7,8 @@ package awscdk
 //   import "github.com/aws/constructs-go/constructs"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   /**
 //    * This file showcases how to split up a RestApi's Resources and Methods across nested stacks.
@@ -191,6 +193,14 @@ type NestedStackProps struct {
 	// Default: RemovalPolicy.DESTROY
 	//
 	RemovalPolicy RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// Enable this flag to suppress indentation in generated CloudFormation templates.
+	//
+	// If not specified, the value of the `@aws-cdk/core:suppressTemplateIndentation`
+	// context key will be used. If that is not specified, then the
+	// default value `false` will be used.
+	// Default: - the value of `@aws-cdk/core:suppressTemplateIndentation`, or `false` if that is not set.
+	//
+	SuppressTemplateIndentation *bool `field:"optional" json:"suppressTemplateIndentation" yaml:"suppressTemplateIndentation"`
 	// The length of time that CloudFormation waits for the nested stack to reach the CREATE_COMPLETE state.
 	//
 	// When CloudFormation detects that the nested stack has reached the

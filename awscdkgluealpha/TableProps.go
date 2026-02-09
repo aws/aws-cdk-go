@@ -16,6 +16,7 @@ import (
 //   var database Database
 //   var dataFormat DataFormat
 //   var key Key
+//   var partitionProjectionConfiguration PartitionProjectionConfiguration
 //   var storageParameter StorageParameter
 //
 //   tableProps := &TableProps{
@@ -65,6 +66,9 @@ import (
 //   			// the properties below are optional
 //   			Comment: jsii.String("comment"),
 //   		},
+//   	},
+//   	PartitionProjection: map[string]PartitionProjectionConfiguration{
+//   		"partitionProjectionKey": partitionProjectionConfiguration,
 //   	},
 //   	S3Prefix: jsii.String("s3Prefix"),
 //   	StorageParameters: []StorageParameter{
@@ -125,6 +129,16 @@ type TableProps struct {
 	//
 	// Experimental.
 	PartitionKeys *[]*Column `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
+	// Partition projection configuration for this table.
+	//
+	// Partition projection allows Athena to automatically add new partitions
+	// without requiring `ALTER TABLE ADD PARTITION` statements.
+	// See: https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html
+	//
+	// Default: - No partition projection.
+	//
+	// Experimental.
+	PartitionProjection *map[string]PartitionProjectionConfiguration `field:"optional" json:"partitionProjection" yaml:"partitionProjection"`
 	// The user-supplied properties for the description of the physical storage of this table.
 	//
 	// These properties help describe the format of the data that is stored within the crawled data sources.

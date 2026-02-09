@@ -55,6 +55,9 @@ package awswafv2
 //   				MatchScope: jsii.String("matchScope"),
 //   				OversizeHandling: jsii.String("oversizeHandling"),
 //   			},
+//   			HeaderOrder: &HeaderOrderProperty{
+//   				OversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			Headers: &HeadersProperty{
 //   				MatchPattern: &HeaderMatchPatternProperty{
 //   					All: all,
@@ -230,6 +233,9 @@ package awswafv2
 //   				MatchScope: jsii.String("matchScope"),
 //   				OversizeHandling: jsii.String("oversizeHandling"),
 //   			},
+//   			HeaderOrder: &HeaderOrderProperty{
+//   				OversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			Headers: &HeadersProperty{
 //   				MatchPattern: &HeaderMatchPatternProperty{
 //   					All: all,
@@ -297,6 +303,9 @@ package awswafv2
 //   					},
 //   				},
 //   				MatchScope: jsii.String("matchScope"),
+//   				OversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			HeaderOrder: &HeaderOrderProperty{
 //   				OversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			Headers: &HeadersProperty{
@@ -367,6 +376,9 @@ package awswafv2
 //   				MatchScope: jsii.String("matchScope"),
 //   				OversizeHandling: jsii.String("oversizeHandling"),
 //   			},
+//   			HeaderOrder: &HeaderOrderProperty{
+//   				OversizeHandling: jsii.String("oversizeHandling"),
+//   			},
 //   			Headers: &HeadersProperty{
 //   				MatchPattern: &HeaderMatchPatternProperty{
 //   					All: all,
@@ -433,6 +445,9 @@ package awswafv2
 //   					},
 //   				},
 //   				MatchScope: jsii.String("matchScope"),
+//   				OversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			HeaderOrder: &HeaderOrderProperty{
 //   				OversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			Headers: &HeadersProperty{
@@ -503,6 +518,9 @@ package awswafv2
 //   					},
 //   				},
 //   				MatchScope: jsii.String("matchScope"),
+//   				OversizeHandling: jsii.String("oversizeHandling"),
+//   			},
+//   			HeaderOrder: &HeaderOrderProperty{
 //   				OversizeHandling: jsii.String("oversizeHandling"),
 //   			},
 //   			Headers: &HeadersProperty{

@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnConnectorPropsMixin_As2ConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_transfer.mixins.CfnConnectorPropsMixin.ConnectorAsyncMdnConfigProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_ConnectorAsyncMdnConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_transfer.mixins.CfnConnectorPropsMixin.ConnectorEgressConfigProperty",
 		reflect.TypeOf((*CfnConnectorPropsMixin_ConnectorEgressConfigProperty)(nil)).Elem(),
 	)
@@ -228,8 +232,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_transfer.mixins.CfnWebAppPropsMixin.EndpointDetailsProperty",
+		reflect.TypeOf((*CfnWebAppPropsMixin_EndpointDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_transfer.mixins.CfnWebAppPropsMixin.IdentityProviderDetailsProperty",
 		reflect.TypeOf((*CfnWebAppPropsMixin_IdentityProviderDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_transfer.mixins.CfnWebAppPropsMixin.VpcProperty",
+		reflect.TypeOf((*CfnWebAppPropsMixin_VpcProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_transfer.mixins.CfnWebAppPropsMixin.WebAppCustomizationProperty",

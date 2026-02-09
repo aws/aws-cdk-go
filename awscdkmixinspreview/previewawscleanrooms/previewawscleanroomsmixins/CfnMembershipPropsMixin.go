@@ -40,6 +40,7 @@ import (
 //   		},
 //   		RoleArn: jsii.String("roleArn"),
 //   	},
+//   	IsMetricsEnabled: jsii.Boolean(false),
 //   	JobLogStatus: jsii.String("jobLogStatus"),
 //   	PaymentConfiguration: &MembershipPaymentConfigurationProperty{
 //   		JobCompute: &MembershipJobComputePaymentConfigProperty{

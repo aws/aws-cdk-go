@@ -14,6 +14,7 @@ package awsec2
 //
 //   	// the properties below are optional
 //   	Device: jsii.String("device"),
+//   	EbsCardIndex: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html
@@ -35,5 +36,11 @@ type CfnVolumeAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-device
 	//
 	Device *string `field:"optional" json:"device" yaml:"device"`
+	// The index of the EBS card.
+	//
+	// Some instance types support multiple EBS cards. The default EBS card index is 0.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-ebscardindex
+	//
+	EbsCardIndex *float64 `field:"optional" json:"ebsCardIndex" yaml:"ebsCardIndex"`
 }
 

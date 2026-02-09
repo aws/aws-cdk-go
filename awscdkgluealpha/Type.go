@@ -10,21 +10,27 @@ package awscdkgluealpha
 //   	Database: myDatabase,
 //   	Columns: []Column{
 //   		&Column{
-//   			Name: jsii.String("col1"),
+//   			Name: jsii.String("data"),
 //   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	PartitionKeys: []Column{
 //   		&Column{
-//   			Name: jsii.String("year"),
-//   			Type: glue.Schema_SMALL_INT(),
-//   		},
-//   		&Column{
-//   			Name: jsii.String("month"),
-//   			Type: glue.Schema_SMALL_INT(),
+//   			Name: jsii.String("date"),
+//   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	DataFormat: glue.DataFormat_JSON(),
+//   	PartitionProjection: map[string]PartitionProjectionConfiguration{
+//   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
+//   			"min": jsii.String("2020-01-01"),
+//   			"max": jsii.String("2023-12-31"),
+//   			"format": jsii.String("yyyy-MM-dd"),
+//   			"interval": jsii.Number(1),
+//   			 // optional, defaults to 1
+//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   		}),
+//   	},
 //   })
 //
 // Experimental.

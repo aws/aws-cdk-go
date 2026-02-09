@@ -26,6 +26,7 @@ import (
 //
 //   cfnVolumeAttachmentPropsMixin := awscdkmixinspreview.Mixins.NewCfnVolumeAttachmentPropsMixin(&CfnVolumeAttachmentMixinProps{
 //   	Device: jsii.String("device"),
+//   	EbsCardIndex: jsii.Number(123),
 //   	InstanceId: jsii.String("instanceId"),
 //   	VolumeId: jsii.String("volumeId"),
 //   }, &CfnPropertyMixinOptions{

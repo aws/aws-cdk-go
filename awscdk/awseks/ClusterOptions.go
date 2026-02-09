@@ -13,7 +13,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -48,6 +48,7 @@ import (
 //   		},
 //   		OverwriteServiceAccount: jsii.Boolean(false),
 //   		Policy: policy,
+//   		RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   		Repository: jsii.String("repository"),
 //   	},
 //   	AuthenticationMode: awscdk.Aws_eks.AuthenticationMode_CONFIG_MAP,

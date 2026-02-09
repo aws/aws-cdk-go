@@ -24,9 +24,12 @@ import (
 //   	ProjectIdentifier: jsii.String("projectIdentifier"),
 //
 //   	// the properties below are optional
+//   	DeploymentOrder: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	EnvironmentAccountIdentifier: jsii.String("environmentAccountIdentifier"),
 //   	EnvironmentAccountRegion: jsii.String("environmentAccountRegion"),
+//   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
+//   	EnvironmentConfigurationId: jsii.String("environmentConfigurationId"),
 //   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
 //   	EnvironmentRoleArn: jsii.String("environmentRoleArn"),
 //   	GlossaryTerms: []*string{
@@ -79,6 +82,9 @@ type CfnEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The deployment order for the environment.
+	DeploymentOrder() *float64
+	SetDeploymentOrder(val *float64)
 	// The description of the environment.
 	Description() *string
 	SetDescription(val *string)
@@ -92,6 +98,12 @@ type CfnEnvironment interface {
 	// The AWS Region in which an environment exists.
 	EnvironmentAccountRegion() *string
 	SetEnvironmentAccountRegion(val *string)
+	// The identifier of the environment blueprint.
+	EnvironmentBlueprintIdentifier() *string
+	SetEnvironmentBlueprintIdentifier(val *string)
+	// The identifier of the environment configuration.
+	EnvironmentConfigurationId() *string
+	SetEnvironmentConfigurationId(val *string)
 	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
 	EnvironmentProfileIdentifier() *string
 	SetEnvironmentProfileIdentifier(val *string)
@@ -440,6 +452,16 @@ func (j *jsiiProxy_CfnEnvironment) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEnvironment) DeploymentOrder() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"deploymentOrder",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEnvironment) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -485,6 +507,26 @@ func (j *jsiiProxy_CfnEnvironment) EnvironmentAccountRegion() *string {
 	_jsii_.Get(
 		j,
 		"environmentAccountRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) EnvironmentBlueprintIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentBlueprintIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironment) EnvironmentConfigurationId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environmentConfigurationId",
 		&returns,
 	)
 	return returns
@@ -650,6 +692,14 @@ func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id
 	)
 }
 
+func (j *jsiiProxy_CfnEnvironment)SetDeploymentOrder(val *float64) {
+	_jsii_.Set(
+		j,
+		"deploymentOrder",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnEnvironment)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -681,6 +731,22 @@ func (j *jsiiProxy_CfnEnvironment)SetEnvironmentAccountRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"environmentAccountRegion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetEnvironmentBlueprintIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentBlueprintIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEnvironment)SetEnvironmentConfigurationId(val *string) {
+	_jsii_.Set(
+		j,
+		"environmentConfigurationId",
 		val,
 	)
 }

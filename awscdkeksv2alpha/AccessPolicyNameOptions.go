@@ -4,17 +4,17 @@ package awscdkeksv2alpha
 // Represents the options required to create an Amazon EKS Access Policy using the `fromAccessPolicyName()` method.
 //
 // Example:
-//   // AmazonEKSClusterAdminPolicy with `cluster` scope
-//   eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSClusterAdminPolicy"), &AccessPolicyNameOptions{
-//   	AccessScopeType: eks.AccessScopeType_CLUSTER,
-//   })
-//   // AmazonEKSAdminPolicy with `namespace` scope
-//   eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &AccessPolicyNameOptions{
-//   	AccessScopeType: eks.AccessScopeType_NAMESPACE,
-//   	Namespaces: []*string{
-//   		jsii.String("foo"),
-//   		jsii.String("bar"),
-//   	},
+//   var cluster Cluster
+//   var nodeRole Role
+//
+//
+//   // Grant access with EC2 type for Auto Mode node role
+//   cluster.GrantAccess(jsii.String("nodeAccess"), nodeRole.roleArn, []IAccessPolicy{
+//   	eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAutoNodePolicy"), &AccessPolicyNameOptions{
+//   		AccessScopeType: eks.AccessScopeType_CLUSTER,
+//   	}),
+//   }, &GrantAccessOptions{
+//   	AccessEntryType: eks.AccessEntryType_EC2,
 //   })
 //
 // Experimental.

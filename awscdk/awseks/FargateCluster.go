@@ -274,7 +274,7 @@ type FargateCluster interface {
 	// This method creates an `AccessEntry` construct that grants the specified IAM principal the access permissions
 	// defined by the provided `IAccessPolicy` array. This allows the IAM principal to perform the actions permitted
 	// by the access policies within the EKS cluster.
-	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy)
+	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -1011,14 +1011,14 @@ func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *st
 	return returns
 }
 
-func (f *jsiiProxy_FargateCluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy) {
-	if err := f.validateGrantAccessParameters(id, principal, accessPolicies); err != nil {
+func (f *jsiiProxy_FargateCluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions) {
+	if err := f.validateGrantAccessParameters(id, principal, accessPolicies, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		f,
 		"grantAccess",
-		[]interface{}{id, principal, accessPolicies},
+		[]interface{}{id, principal, accessPolicies, options},
 	)
 }
 

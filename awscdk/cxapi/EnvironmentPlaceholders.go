@@ -17,6 +17,7 @@ import (
 //
 //   environmentPlaceholders := awscdk.Cx_api.NewEnvironmentPlaceholders()
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type EnvironmentPlaceholders interface {
 }
 
@@ -25,6 +26,7 @@ type jsiiProxy_EnvironmentPlaceholders struct {
 	_ byte // padding
 }
 
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	_init_.Initialize()
 
@@ -39,6 +41,7 @@ func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	return &j
 }
 
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 	_init_.Initialize()
 
@@ -53,6 +56,7 @@ func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 //
 // Duplicated between cdk-assets and aws-cdk CLI because we don't have a good single place to put it
 // (they're nominally independent tools).
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlaceholderValues) interface{} {
 	_init_.Initialize()
 
@@ -72,6 +76,7 @@ func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlac
 }
 
 // Like 'replace', but asynchronous.
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironmentPlaceholderProvider) interface{} {
 	_init_.Initialize()
 

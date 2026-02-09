@@ -34,6 +34,7 @@ import (
 //   				DeviceName: jsii.String("deviceName"),
 //   				Ebs: &EbsProperty{
 //   					DeleteOnTermination: jsii.Boolean(false),
+//   					EbsCardIndex: jsii.Number(123),
 //   					Encrypted: jsii.Boolean(false),
 //   					Iops: jsii.Number(123),
 //   					KmsKeyId: jsii.String("kmsKeyId"),

@@ -88,6 +88,10 @@ func validateCfnWebApp_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebApp) validateSetEndpointDetailsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebApp) validateSetIdentityProviderDetailsParameters(val interface{}) error {
 	return nil
 }

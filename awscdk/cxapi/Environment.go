@@ -14,12 +14,16 @@ package cxapi
 //   	Region: jsii.String("region"),
 //   }
 //
+// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type Environment struct {
 	// The AWS account this environment deploys into.
+	// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Account *string `field:"required" json:"account" yaml:"account"`
 	// The arbitrary name of this environment (user-set, or at least user-meaningful).
+	// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The AWS region name where this environment deploys into.
+	// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Region *string `field:"required" json:"region" yaml:"region"`
 }
 

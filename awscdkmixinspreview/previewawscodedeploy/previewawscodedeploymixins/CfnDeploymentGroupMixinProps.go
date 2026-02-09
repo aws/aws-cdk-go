@@ -242,7 +242,7 @@ type CfnDeploymentGroupMixinProps struct {
 	EcsServices interface{} `field:"optional" json:"ecsServices" yaml:"ecsServices"`
 	// Information about the load balancer to use in a deployment.
 	//
-	// For more information, see [Integrating CodeDeploy with ELB](https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html) in the *AWS CodeDeploy User Guide* .
+	// For more information, see [Integrating CodeDeploy with Elastic Load Balancing](https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html) in the *AWS CodeDeploy User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo
 	//
 	LoadBalancerInfo interface{} `field:"optional" json:"loadBalancerInfo" yaml:"loadBalancerInfo"`

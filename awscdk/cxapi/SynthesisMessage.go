@@ -23,9 +23,13 @@ import (
 //   	Level: awscdk.Cx_api.SynthesisMessageLevel_INFO,
 //   }
 //
+// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type SynthesisMessage struct {
+	// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Entry *cloudassemblyschema.MetadataEntry `field:"required" json:"entry" yaml:"entry"`
+	// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Id *string `field:"required" json:"id" yaml:"id"`
+	// Deprecated: The official definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Level SynthesisMessageLevel `field:"required" json:"level" yaml:"level"`
 }
 

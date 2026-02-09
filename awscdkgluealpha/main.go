@@ -250,6 +250,27 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.DatabaseProps",
 		reflect.TypeOf((*DatabaseProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.DateIntervalUnit",
+		reflect.TypeOf((*DateIntervalUnit)(nil)).Elem(),
+		map[string]interface{}{
+			"YEARS": DateIntervalUnit_YEARS,
+			"MONTHS": DateIntervalUnit_MONTHS,
+			"WEEKS": DateIntervalUnit_WEEKS,
+			"DAYS": DateIntervalUnit_DAYS,
+			"HOURS": DateIntervalUnit_HOURS,
+			"MINUTES": DateIntervalUnit_MINUTES,
+			"SECONDS": DateIntervalUnit_SECONDS,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.DatePartitionProjectionConfigurationProps",
+		reflect.TypeOf((*DatePartitionProjectionConfigurationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.EnumPartitionProjectionConfigurationProps",
+		reflect.TypeOf((*EnumPartitionProjectionConfigurationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.EventBatchingCondition",
 		reflect.TypeOf((*EventBatchingCondition)(nil)).Elem(),
@@ -286,6 +307,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionKeys", GoGetter: "PartitionKeys"},
+			_jsii_.MemberProperty{JsiiProperty: "partitionProjection", GoGetter: "PartitionProjection"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageParameters", GoGetter: "StorageParameters"},
@@ -460,6 +482,10 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_InputFormat{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.IntegerPartitionProjectionConfigurationProps",
+		reflect.TypeOf((*IntegerPartitionProjectionConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.InvalidCharHandlingAction",
@@ -648,6 +674,33 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.PartitionIndex",
 		reflect.TypeOf((*PartitionIndex)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.PartitionProjectionConfiguration",
+		reflect.TypeOf((*PartitionProjectionConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dateRange", GoGetter: "DateRange"},
+			_jsii_.MemberProperty{JsiiProperty: "digits", GoGetter: "Digits"},
+			_jsii_.MemberProperty{JsiiProperty: "format", GoGetter: "Format"},
+			_jsii_.MemberProperty{JsiiProperty: "integerRange", GoGetter: "IntegerRange"},
+			_jsii_.MemberProperty{JsiiProperty: "interval", GoGetter: "Interval"},
+			_jsii_.MemberProperty{JsiiProperty: "intervalUnit", GoGetter: "IntervalUnit"},
+			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
+			_jsii_.MemberProperty{JsiiProperty: "values", GoGetter: "Values"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PartitionProjectionConfiguration{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.PartitionProjectionType",
+		reflect.TypeOf((*PartitionProjectionType)(nil)).Elem(),
+		map[string]interface{}{
+			"INTEGER": PartitionProjectionType_INTEGER,
+			"DATE": PartitionProjectionType_DATE,
+			"ENUM": PartitionProjectionType_ENUM,
+			"INJECTED": PartitionProjectionType_INJECTED,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.Predicate",
@@ -942,6 +995,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionKeys", GoGetter: "PartitionKeys"},
+			_jsii_.MemberProperty{JsiiProperty: "partitionProjection", GoGetter: "PartitionProjection"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "s3Prefix", GoGetter: "S3Prefix"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1277,6 +1331,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionKeys", GoGetter: "PartitionKeys"},
+			_jsii_.MemberProperty{JsiiProperty: "partitionProjection", GoGetter: "PartitionProjection"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "s3Prefix", GoGetter: "S3Prefix"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1319,6 +1374,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionKeys", GoGetter: "PartitionKeys"},
+			_jsii_.MemberProperty{JsiiProperty: "partitionProjection", GoGetter: "PartitionProjection"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageParameters", GoGetter: "StorageParameters"},

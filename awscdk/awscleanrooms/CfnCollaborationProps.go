@@ -60,6 +60,7 @@ import (
 //   		AllowJoinsOnColumnsWithDifferentNames: jsii.Boolean(false),
 //   		PreserveNulls: jsii.Boolean(false),
 //   	},
+//   	IsMetricsEnabled: jsii.Boolean(false),
 //   	JobLogStatus: jsii.String("jobLogStatus"),
 //   	Members: []interface{}{
 //   		&MemberSpecificationProperty{
@@ -163,6 +164,9 @@ type CfnCollaborationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-dataencryptionmetadata
 	//
 	DataEncryptionMetadata interface{} `field:"optional" json:"dataEncryptionMetadata" yaml:"dataEncryptionMetadata"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-ismetricsenabled
+	//
+	IsMetricsEnabled interface{} `field:"optional" json:"isMetricsEnabled" yaml:"isMetricsEnabled"`
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	//
 	// When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .

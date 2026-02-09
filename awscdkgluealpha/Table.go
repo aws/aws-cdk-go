@@ -88,6 +88,9 @@ type Table interface {
 	// This table's partition keys if the table is partitioned.
 	// Deprecated: Use {@link S3Table } instead.
 	PartitionKeys() *[]*Column
+	// This table's partition projection configuration if enabled.
+	// Deprecated: Use {@link S3Table } instead.
+	PartitionProjection() *map[string]PartitionProjectionConfiguration
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -304,6 +307,16 @@ func (j *jsiiProxy_Table) PartitionKeys() *[]*Column {
 	_jsii_.Get(
 		j,
 		"partitionKeys",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) PartitionProjection() *map[string]PartitionProjectionConfiguration {
+	var returns *map[string]PartitionProjectionConfiguration
+	_jsii_.Get(
+		j,
+		"partitionProjection",
 		&returns,
 	)
 	return returns

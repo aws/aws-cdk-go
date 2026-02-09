@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnMultiRegionEndpoint) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnMultiRegionEndpoint_ArnForMultiRegionEndpointParameters(resource interfacesawsses.IMultiRegionEndpointRef) error {
+	return nil
+}
+
+func validateCfnMultiRegionEndpoint_FromEndpointNameParameters(scope constructs.Construct, id *string, endpointName *string) error {
+	return nil
+}
+
 func validateCfnMultiRegionEndpoint_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

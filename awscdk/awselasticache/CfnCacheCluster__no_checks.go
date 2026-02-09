@@ -68,14 +68,6 @@ func (c *jsiiProxy_CfnCacheCluster) validateValidatePropertiesParameters(_proper
 	return nil
 }
 
-func validateCfnCacheCluster_ArnForCacheClusterParameters(resource interfacesawselasticache.ICacheClusterRef) error {
-	return nil
-}
-
-func validateCfnCacheCluster_FromClusterNameParameters(scope constructs.Construct, id *string, clusterName *string) error {
-	return nil
-}
-
 func validateCfnCacheCluster_IsCfnCacheClusterParameters(x interface{}) error {
 	return nil
 }

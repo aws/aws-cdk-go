@@ -49,6 +49,9 @@ package awswafv2
 //   		MatchScope: jsii.String("matchScope"),
 //   		OversizeHandling: jsii.String("oversizeHandling"),
 //   	},
+//   	HeaderOrder: &HeaderOrderProperty{
+//   		OversizeHandling: jsii.String("oversizeHandling"),
+//   	},
 //   	Headers: &HeadersProperty{
 //   		MatchPattern: &HeaderMatchPatternProperty{
 //   			All: all,
@@ -120,6 +123,10 @@ type CfnRuleGroup_FieldToMatchProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-cookies
 	//
 	Cookies interface{} `field:"optional" json:"cookies" yaml:"cookies"`
+	// The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-headerorder
+	//
+	HeaderOrder interface{} `field:"optional" json:"headerOrder" yaml:"headerOrder"`
 	// Inspect the request headers.
 	//
 	// You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.

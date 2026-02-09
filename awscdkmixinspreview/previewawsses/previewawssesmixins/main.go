@@ -72,6 +72,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.ArchivingOptionsProperty",
+		reflect.TypeOf((*CfnConfigurationSetPropsMixin_ArchivingOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnConfigurationSetPropsMixin.ConditionThresholdProperty",
 		reflect.TypeOf((*CfnConfigurationSetPropsMixin_ConditionThresholdProperty)(nil)).Elem(),
 	)

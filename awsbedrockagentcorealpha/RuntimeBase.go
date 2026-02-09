@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -71,6 +72,9 @@ type RuntimeBase interface {
 	// The IAM role that provides permissions for the agent runtime.
 	// Experimental.
 	Role() awsiam.IRole
+	// A reference to a Runtime resource.
+	// Experimental.
+	RuntimeRef() *interfacesawsbedrockagentcore.RuntimeReference
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -301,6 +305,16 @@ func (j *jsiiProxy_RuntimeBase) Role() awsiam.IRole {
 	_jsii_.Get(
 		j,
 		"role",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RuntimeBase) RuntimeRef() *interfacesawsbedrockagentcore.RuntimeReference {
+	var returns *interfacesawsbedrockagentcore.RuntimeReference
+	_jsii_.Get(
+		j,
+		"runtimeRef",
 		&returns,
 	)
 	return returns

@@ -34,6 +34,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnConfigurationSet := awscdk.Aws_ses.NewCfnConfigurationSet(this, jsii.String("MyCfnConfigurationSet"), &CfnConfigurationSetProps{
+//   	ArchivingOptions: &ArchivingOptionsProperty{
+//   		ArchiveArn: jsii.String("archiveArn"),
+//   	},
 //   	DeliveryOptions: &DeliveryOptionsProperty{
 //   		MaxDeliverySeconds: jsii.Number(123),
 //   		SendingPoolName: jsii.String("sendingPoolName"),
@@ -88,6 +91,9 @@ type CfnConfigurationSet interface {
 	awscdk.IInspectable
 	interfacesawsses.IConfigurationSetRef
 	awscdk.ITaggableV2
+	// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+	ArchivingOptions() interface{}
+	SetArchivingOptions(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -295,6 +301,16 @@ type jsiiProxy_CfnConfigurationSet struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawssesIConfigurationSetRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnConfigurationSet) ArchivingOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"archivingOptions",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnConfigurationSet) CdkTagManager() awscdk.TagManager {
@@ -534,6 +550,17 @@ func NewCfnConfigurationSet_Override(c CfnConfigurationSet, scope constructs.Con
 		"aws-cdk-lib.aws_ses.CfnConfigurationSet",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationSet)SetArchivingOptions(val interface{}) {
+	if err := j.validateSetArchivingOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"archivingOptions",
+		val,
 	)
 }
 

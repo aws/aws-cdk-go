@@ -12,22 +12,27 @@ import (
 //   	Database: myDatabase,
 //   	Columns: []Column{
 //   		&Column{
-//   			Name: jsii.String("col1"),
+//   			Name: jsii.String("data"),
 //   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	PartitionKeys: []Column{
 //   		&Column{
-//   			Name: jsii.String("year"),
-//   			Type: glue.Schema_SMALL_INT(),
-//   		},
-//   		&Column{
-//   			Name: jsii.String("month"),
-//   			Type: glue.Schema_SMALL_INT(),
+//   			Name: jsii.String("date"),
+//   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	DataFormat: glue.DataFormat_JSON(),
-//   	EnablePartitionFiltering: jsii.Boolean(true),
+//   	PartitionProjection: map[string]PartitionProjectionConfiguration{
+//   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
+//   			"min": jsii.String("2020-01-01"),
+//   			"max": jsii.String("2023-12-31"),
+//   			"format": jsii.String("yyyy-MM-dd"),
+//   			"interval": jsii.Number(1),
+//   			 // optional, defaults to 1
+//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   		}),
+//   	},
 //   })
 //
 // Experimental.
@@ -81,6 +86,16 @@ type S3TableProps struct {
 	//
 	// Experimental.
 	PartitionKeys *[]*Column `field:"optional" json:"partitionKeys" yaml:"partitionKeys"`
+	// Partition projection configuration for this table.
+	//
+	// Partition projection allows Athena to automatically add new partitions
+	// without requiring `ALTER TABLE ADD PARTITION` statements.
+	// See: https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html
+	//
+	// Default: - No partition projection.
+	//
+	// Experimental.
+	PartitionProjection *map[string]PartitionProjectionConfiguration `field:"optional" json:"partitionProjection" yaml:"partitionProjection"`
 	// The user-supplied properties for the description of the physical storage of this table.
 	//
 	// These properties help describe the format of the data that is stored within the crawled data sources.

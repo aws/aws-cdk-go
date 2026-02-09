@@ -234,7 +234,7 @@ type FargateCluster interface {
 	// by the access policies within the EKS cluster.
 	// [disable-awslint:no-grants].
 	// Experimental.
-	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy)
+	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions)
 	// Grants the specified IAM principal cluster admin access to the EKS cluster.
 	//
 	// This method creates an `AccessEntry` construct that grants the specified IAM principal the cluster admin
@@ -848,14 +848,14 @@ func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *st
 	return returns
 }
 
-func (f *jsiiProxy_FargateCluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy) {
-	if err := f.validateGrantAccessParameters(id, principal, accessPolicies); err != nil {
+func (f *jsiiProxy_FargateCluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions) {
+	if err := f.validateGrantAccessParameters(id, principal, accessPolicies, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		f,
 		"grantAccess",
-		[]interface{}{id, principal, accessPolicies},
+		[]interface{}{id, principal, accessPolicies, options},
 	)
 }
 

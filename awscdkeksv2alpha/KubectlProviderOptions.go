@@ -43,6 +43,18 @@ type KubectlProviderOptions struct {
 	// endpoint is expected to be accessible publicly.
 	// Experimental.
 	PrivateSubnets *[]awsec2.ISubnet `field:"optional" json:"privateSubnets" yaml:"privateSubnets"`
+	// The removal policy applied to the custom resource that provides kubectl.
+	//
+	// The removal policy controls what happens to the resource if it stops being managed by CloudFormation.
+	// This can happen in one of three situations:
+	//
+	// - The resource is removed from the template, so CloudFormation stops managing it
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	// Default: RemovalPolicy.DESTROY
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.

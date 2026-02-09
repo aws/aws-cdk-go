@@ -12,6 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnConfigurationSetMixinProps := &CfnConfigurationSetMixinProps{
+//   	ArchivingOptions: &ArchivingOptionsProperty{
+//   		ArchiveArn: jsii.String("archiveArn"),
+//   	},
 //   	DeliveryOptions: &DeliveryOptionsProperty{
 //   		MaxDeliverySeconds: jsii.Number(123),
 //   		SendingPoolName: jsii.String("sendingPoolName"),
@@ -60,6 +63,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
 //
 type CfnConfigurationSetMixinProps struct {
+	// An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-archivingoptions
+	//
+	ArchivingOptions interface{} `field:"optional" json:"archivingOptions" yaml:"archivingOptions"`
 	// Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-deliveryoptions
 	//

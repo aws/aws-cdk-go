@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -29,7 +30,10 @@ type FlowLog interface {
 	IFlowLog
 	// The S3 bucket to publish flow logs to.
 	Bucket() awss3.IBucket
+	// The Amazon Data Firehose delivery stream to publish flow logs to.
+	DeliveryStream() interfacesawskinesisfirehose.IDeliveryStreamRef
 	// The ARN of the Amazon Data Firehose delivery stream to publish flow logs to.
+	// Deprecated: Use deliveryStream.
 	DeliveryStreamArn() *string
 	// The environment this resource belongs to.
 	//
@@ -102,6 +106,16 @@ func (j *jsiiProxy_FlowLog) Bucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FlowLog) DeliveryStream() interfacesawskinesisfirehose.IDeliveryStreamRef {
+	var returns interfacesawskinesisfirehose.IDeliveryStreamRef
+	_jsii_.Get(
+		j,
+		"deliveryStream",
 		&returns,
 	)
 	return returns

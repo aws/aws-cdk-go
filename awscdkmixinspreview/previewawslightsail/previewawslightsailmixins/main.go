@@ -152,6 +152,30 @@ func init() {
 		reflect.TypeOf((*CfnDatabasePropsMixin_RelationalDatabaseParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lightsail.mixins.CfnDatabaseSnapshotMixinProps",
+		reflect.TypeOf((*CfnDatabaseSnapshotMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_lightsail.mixins.CfnDatabaseSnapshotPropsMixin",
+		reflect.TypeOf((*CfnDatabaseSnapshotPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDatabaseSnapshotPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lightsail.mixins.CfnDatabaseSnapshotPropsMixin.LocationProperty",
+		reflect.TypeOf((*CfnDatabaseSnapshotPropsMixin_LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lightsail.mixins.CfnDiskMixinProps",
 		reflect.TypeOf((*CfnDiskMixinProps)(nil)).Elem(),
 	)

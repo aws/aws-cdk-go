@@ -6,6 +6,9 @@ import (
 	"github.com/aws/aws-cdk-go/awsbedrockagentcorealpha/v2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for GatewayTarget resources.
@@ -14,6 +17,7 @@ import (
 // Targets can be Lambda functions, OpenAPI schemas, or Smithy models.
 // Experimental.
 type IGatewayTarget interface {
+	interfacesawsbedrockagentcore.IGatewayTargetRef
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
 	// Experimental.
@@ -61,6 +65,7 @@ type IGatewayTarget interface {
 
 // The jsii proxy for IGatewayTarget
 type jsiiProxy_IGatewayTarget struct {
+	internal.Type__interfacesawsbedrockagentcoreIGatewayTargetRef
 	internal.Type__awscdkIResource
 }
 
@@ -115,6 +120,17 @@ func (i *jsiiProxy_IGatewayTarget) GrantRead(grantee awsiam.IGrantable) awsiam.G
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IGatewayTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IGatewayTarget) CreatedAt() *string {
@@ -222,6 +238,46 @@ func (j *jsiiProxy_IGatewayTarget) UpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"updatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) GatewayTargetRef() *interfacesawsbedrockagentcore.GatewayTargetReference {
+	var returns *interfacesawsbedrockagentcore.GatewayTargetReference
+	_jsii_.Get(
+		j,
+		"gatewayTargetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

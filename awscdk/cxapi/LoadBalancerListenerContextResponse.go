@@ -16,12 +16,16 @@ package cxapi
 //   	},
 //   }
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type LoadBalancerListenerContextResponse struct {
 	// The ARN of the listener.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	ListenerArn *string `field:"required" json:"listenerArn" yaml:"listenerArn"`
 	// The port the listener is listening on.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	ListenerPort *float64 `field:"required" json:"listenerPort" yaml:"listenerPort"`
 	// The security groups of the load balancer.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
 }
 

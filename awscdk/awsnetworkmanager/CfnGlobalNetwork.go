@@ -513,6 +513,44 @@ func CfnGlobalNetwork_ArnForGlobalNetwork(resource interfacesawsnetworkmanager.I
 	return returns
 }
 
+// Creates a new IGlobalNetworkRef from an ARN.
+func CfnGlobalNetwork_FromGlobalNetworkArn(scope constructs.Construct, id *string, arn *string) interfacesawsnetworkmanager.IGlobalNetworkRef {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalNetwork_FromGlobalNetworkArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsnetworkmanager.IGlobalNetworkRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnGlobalNetwork",
+		"fromGlobalNetworkArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IGlobalNetworkRef from a globalNetworkId.
+func CfnGlobalNetwork_FromGlobalNetworkId(scope constructs.Construct, id *string, globalNetworkId *string) interfacesawsnetworkmanager.IGlobalNetworkRef {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalNetwork_FromGlobalNetworkIdParameters(scope, id, globalNetworkId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsnetworkmanager.IGlobalNetworkRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnGlobalNetwork",
+		"fromGlobalNetworkId",
+		[]interface{}{scope, id, globalNetworkId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

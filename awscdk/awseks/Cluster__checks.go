@@ -175,7 +175,7 @@ func (c *jsiiProxy_Cluster) validateGetServiceLoadBalancerAddressParameters(serv
 	return nil
 }
 
-func (c *jsiiProxy_Cluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy) error {
+func (c *jsiiProxy_Cluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
@@ -186,6 +186,10 @@ func (c *jsiiProxy_Cluster) validateGrantAccessParameters(id *string, principal 
 
 	if accessPolicies == nil {
 		return fmt.Errorf("parameter accessPolicies is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

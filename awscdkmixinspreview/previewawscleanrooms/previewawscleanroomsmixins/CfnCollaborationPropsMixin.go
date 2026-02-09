@@ -61,6 +61,7 @@ import (
 //   		PreserveNulls: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	IsMetricsEnabled: jsii.Boolean(false),
 //   	JobLogStatus: jsii.String("jobLogStatus"),
 //   	Members: []interface{}{
 //   		&MemberSpecificationProperty{

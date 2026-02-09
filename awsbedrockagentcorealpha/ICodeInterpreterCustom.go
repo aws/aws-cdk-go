@@ -9,12 +9,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for CodeInterpreterCustom resources.
 // Experimental.
 type ICodeInterpreterCustom interface {
+	interfacesawsbedrockagentcore.ICodeInterpreterCustomRef
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscdk.IResource
@@ -76,6 +78,7 @@ type ICodeInterpreterCustom interface {
 
 // The jsii proxy for ICodeInterpreterCustom
 type jsiiProxy_ICodeInterpreterCustom struct {
+	internal.Type__interfacesawsbedrockagentcoreICodeInterpreterCustomRef
 	internal.Type__awsec2IConnectable
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
@@ -344,6 +347,16 @@ func (j *jsiiProxy_ICodeInterpreterCustom) Status() *string {
 	_jsii_.Get(
 		j,
 		"status",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICodeInterpreterCustom) CodeInterpreterCustomRef() *interfacesawsbedrockagentcore.CodeInterpreterCustomReference {
+	var returns *interfacesawsbedrockagentcore.CodeInterpreterCustomReference
+	_jsii_.Get(
+		j,
+		"codeInterpreterCustomRef",
 		&returns,
 	)
 	return returns

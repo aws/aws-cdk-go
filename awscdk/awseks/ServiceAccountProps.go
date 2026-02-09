@@ -1,5 +1,8 @@
 package awseks
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining service accounts.
 //
@@ -49,6 +52,17 @@ type ServiceAccountProps struct {
 	// Default: false.
 	//
 	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
+	// The removal policy applied to the service account resources.
+	//
+	// The removal policy controls what happens to the resources if they stop being managed by CloudFormation.
+	// This can happen in one of three situations:
+	//
+	// - The resource is removed from the template, so CloudFormation stops managing it
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	// Default: RemovalPolicy.DESTROY
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The cluster to apply the patch to.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 }

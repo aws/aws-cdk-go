@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -18,6 +19,7 @@ type IBedrockAgentRuntime interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscdk.IResource
+	interfacesawsbedrockagentcore.IRuntimeRef
 	// Adds a policy statement to the runtime's execution role.
 	//
 	// Returns: The runtime instance for chaining.
@@ -114,6 +116,7 @@ type jsiiProxy_IBedrockAgentRuntime struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awsiamIGrantable
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsbedrockagentcoreIRuntimeRef
 }
 
 func (i *jsiiProxy_IBedrockAgentRuntime) AddToRolePolicy(statement awsiam.PolicyStatement) IBedrockAgentRuntime {
@@ -482,6 +485,16 @@ func (j *jsiiProxy_IBedrockAgentRuntime) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBedrockAgentRuntime) RuntimeRef() *interfacesawsbedrockagentcore.RuntimeReference {
+	var returns *interfacesawsbedrockagentcore.RuntimeReference
+	_jsii_.Get(
+		j,
+		"runtimeRef",
 		&returns,
 	)
 	return returns

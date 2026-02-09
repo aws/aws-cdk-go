@@ -180,8 +180,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.AwsJsonSubstitutionCommandPreprocessorConfigProperty",
+		reflect.TypeOf((*CfnCommandPropsMixin_AwsJsonSubstitutionCommandPreprocessorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandParameterProperty",
 		reflect.TypeOf((*CfnCommandPropsMixin_CommandParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandParameterValueComparisonOperandProperty",
+		reflect.TypeOf((*CfnCommandPropsMixin_CommandParameterValueComparisonOperandProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandParameterValueConditionProperty",
+		reflect.TypeOf((*CfnCommandPropsMixin_CommandParameterValueConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandParameterValueNumberRangeProperty",
+		reflect.TypeOf((*CfnCommandPropsMixin_CommandParameterValueNumberRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandParameterValueProperty",
@@ -190,6 +206,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandPayloadProperty",
 		reflect.TypeOf((*CfnCommandPropsMixin_CommandPayloadProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCommandPropsMixin.CommandPreprocessorProperty",
+		reflect.TypeOf((*CfnCommandPropsMixin_CommandPreprocessorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_iot.mixins.CfnCustomMetricMixinProps",

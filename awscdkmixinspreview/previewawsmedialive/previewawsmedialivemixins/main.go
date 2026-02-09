@@ -608,6 +608,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_PassThroughSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.PipelineLockingSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_PipelineLockingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.PrimaryChannelSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_PrimaryChannelSettingsProperty)(nil)).Elem(),
 	)

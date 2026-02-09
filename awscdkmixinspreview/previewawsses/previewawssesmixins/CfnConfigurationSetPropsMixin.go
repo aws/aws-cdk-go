@@ -34,6 +34,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnConfigurationSetPropsMixin := awscdkmixinspreview.Mixins.NewCfnConfigurationSetPropsMixin(&CfnConfigurationSetMixinProps{
+//   	ArchivingOptions: &ArchivingOptionsProperty{
+//   		ArchiveArn: jsii.String("archiveArn"),
+//   	},
 //   	DeliveryOptions: &DeliveryOptionsProperty{
 //   		MaxDeliverySeconds: jsii.Number(123),
 //   		SendingPoolName: jsii.String("sendingPoolName"),

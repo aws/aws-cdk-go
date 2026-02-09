@@ -72,6 +72,14 @@ func validateCfnCoreNetwork_ArnForCoreNetworkParameters(resource interfacesawsne
 	return nil
 }
 
+func validateCfnCoreNetwork_FromCoreNetworkArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnCoreNetwork_FromCoreNetworkIdParameters(scope constructs.Construct, id *string, coreNetworkId *string) error {
+	return nil
+}
+
 func validateCfnCoreNetwork_IsCfnCoreNetworkParameters(x interface{}) error {
 	return nil
 }

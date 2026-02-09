@@ -592,6 +592,44 @@ func CfnCoreNetwork_ArnForCoreNetwork(resource interfacesawsnetworkmanager.ICore
 	return returns
 }
 
+// Creates a new ICoreNetworkRef from an ARN.
+func CfnCoreNetwork_FromCoreNetworkArn(scope constructs.Construct, id *string, arn *string) interfacesawsnetworkmanager.ICoreNetworkRef {
+	_init_.Initialize()
+
+	if err := validateCfnCoreNetwork_FromCoreNetworkArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsnetworkmanager.ICoreNetworkRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnCoreNetwork",
+		"fromCoreNetworkArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ICoreNetworkRef from a coreNetworkId.
+func CfnCoreNetwork_FromCoreNetworkId(scope constructs.Construct, id *string, coreNetworkId *string) interfacesawsnetworkmanager.ICoreNetworkRef {
+	_init_.Initialize()
+
+	if err := validateCfnCoreNetwork_FromCoreNetworkIdParameters(scope, id, coreNetworkId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsnetworkmanager.ICoreNetworkRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnCoreNetwork",
+		"fromCoreNetworkId",
+		[]interface{}{scope, id, coreNetworkId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnCoreNetwork.
 func CfnCoreNetwork_IsCfnCoreNetwork(x interface{}) *bool {
 	_init_.Initialize()

@@ -31,6 +31,17 @@ import (
 //
 //   	// the properties below are optional
 //   	AccessEndpoint: jsii.String("accessEndpoint"),
+//   	EndpointDetails: &EndpointDetailsProperty{
+//   		Vpc: &VpcProperty{
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcId: jsii.String("vpcId"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -62,6 +73,7 @@ type CfnWebApp interface {
 	AttrArn() *string
 	// The Amazon Resource Name (ARN) for the IAM Identity Center application: this value is set automatically when you create your web app.
 	AttrIdentityProviderDetailsApplicationArn() *string
+	AttrVpcEndpointId() *string
 	// The unique identifier for the web app.
 	AttrWebAppId() *string
 	// Tag Manager which manages the tags for this resource.
@@ -75,6 +87,8 @@ type CfnWebApp interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	EndpointDetails() interface{}
+	SetEndpointDetails(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// You can provide a structure that contains the details for the identity provider to use with your web app.
 	IdentityProviderDetails() interface{}
@@ -294,6 +308,16 @@ func (j *jsiiProxy_CfnWebApp) AttrIdentityProviderDetailsApplicationArn() *strin
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebApp) AttrVpcEndpointId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEndpointId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebApp) AttrWebAppId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -349,6 +373,16 @@ func (j *jsiiProxy_CfnWebApp) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebApp) EndpointDetails() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"endpointDetails",
 		&returns,
 	)
 	return returns
@@ -518,6 +552,17 @@ func (j *jsiiProxy_CfnWebApp)SetAccessEndpoint(val *string) {
 	_jsii_.Set(
 		j,
 		"accessEndpoint",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWebApp)SetEndpointDetails(val interface{}) {
+	if err := j.validateSetEndpointDetailsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"endpointDetails",
 		val,
 	)
 }

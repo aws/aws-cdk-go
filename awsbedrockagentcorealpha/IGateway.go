@@ -8,11 +8,15 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for Gateway resources.
 // Experimental.
 type IGateway interface {
+	interfacesawsbedrockagentcore.IGatewayRef
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
 	// Experimental.
@@ -132,6 +136,7 @@ type IGateway interface {
 
 // The jsii proxy for IGateway
 type jsiiProxy_IGateway struct {
+	internal.Type__interfacesawsbedrockagentcoreIGatewayRef
 	internal.Type__awscdkIResource
 }
 
@@ -348,6 +353,17 @@ func (i *jsiiProxy_IGateway) MetricUserErrors(props *awscloudwatch.MetricOptions
 	return returns
 }
 
+func (i *jsiiProxy_IGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IGateway) AuthorizerConfiguration() IGatewayAuthorizerConfig {
 	var returns IGatewayAuthorizerConfig
 	_jsii_.Get(
@@ -483,6 +499,46 @@ func (j *jsiiProxy_IGateway) UpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"updatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGateway) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGateway) GatewayRef() *interfacesawsbedrockagentcore.GatewayReference {
+	var returns *interfacesawsbedrockagentcore.GatewayReference
+	_jsii_.Get(
+		j,
+		"gatewayRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGateway) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGateway) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

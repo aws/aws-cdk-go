@@ -472,6 +472,44 @@ func CfnAgentSpace_ArnForAgentSpace(resource interfacesawsdevopsagent.IAgentSpac
 	return returns
 }
 
+// Creates a new IAgentSpaceRef from an ARN.
+func CfnAgentSpace_FromAgentSpaceArn(scope constructs.Construct, id *string, arn *string) interfacesawsdevopsagent.IAgentSpaceRef {
+	_init_.Initialize()
+
+	if err := validateCfnAgentSpace_FromAgentSpaceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdevopsagent.IAgentSpaceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace",
+		"fromAgentSpaceArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IAgentSpaceRef from a agentSpaceId.
+func CfnAgentSpace_FromAgentSpaceId(scope constructs.Construct, id *string, agentSpaceId *string) interfacesawsdevopsagent.IAgentSpaceRef {
+	_init_.Initialize()
+
+	if err := validateCfnAgentSpace_FromAgentSpaceIdParameters(scope, id, agentSpaceId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdevopsagent.IAgentSpaceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace",
+		"fromAgentSpaceId",
+		[]interface{}{scope, id, agentSpaceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnAgentSpace.
 func CfnAgentSpace_IsCfnAgentSpace(x interface{}) *bool {
 	_init_.Initialize()

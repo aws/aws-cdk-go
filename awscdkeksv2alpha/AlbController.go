@@ -16,6 +16,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var additionalHelmChartValues interface{}
 //   var albControllerVersion AlbControllerVersion
@@ -32,6 +33,7 @@ import (
 //   	},
 //   	OverwriteServiceAccount: jsii.Boolean(false),
 //   	Policy: policy,
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	Repository: jsii.String("repository"),
 //   })
 //

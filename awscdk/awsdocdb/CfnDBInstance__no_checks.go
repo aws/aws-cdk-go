@@ -68,6 +68,14 @@ func (c *jsiiProxy_CfnDBInstance) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnDBInstance_ArnForDBInstanceParameters(resource interfacesawsdocdb.IDBInstanceRef) error {
+	return nil
+}
+
+func validateCfnDBInstance_FromDBInstanceIdParameters(scope constructs.Construct, id *string, dbInstanceId *string) error {
+	return nil
+}
+
 func validateCfnDBInstance_IsCfnDBInstanceParameters(x interface{}) error {
 	return nil
 }

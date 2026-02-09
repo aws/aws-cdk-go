@@ -577,6 +577,24 @@ func (j *jsiiProxy_CfnEIP)SetTransferAddress(val *string) {
 	)
 }
 
+func CfnEIP_ArnForEIP(resource interfacesawsec2.IEIPRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEIP_ArnForEIPParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnEIP",
+		"arnForEIP",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnEIP.
 func CfnEIP_IsCfnEIP(x interface{}) *bool {
 	_init_.Initialize()

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -38,6 +39,9 @@ type CodeInterpreterCustom interface {
 	// The ARN of the code interpreter resource.
 	// Experimental.
 	CodeInterpreterArn() *string
+	// A reference to a CodeInterpreterCustom resource.
+	// Experimental.
+	CodeInterpreterCustomRef() *interfacesawsbedrockagentcore.CodeInterpreterCustomReference
 	// The id of the code interpreter.
 	// Experimental.
 	CodeInterpreterId() *string
@@ -266,6 +270,16 @@ func (j *jsiiProxy_CodeInterpreterCustom) CodeInterpreterArn() *string {
 	_jsii_.Get(
 		j,
 		"codeInterpreterArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CodeInterpreterCustom) CodeInterpreterCustomRef() *interfacesawsbedrockagentcore.CodeInterpreterCustomReference {
+	var returns *interfacesawsbedrockagentcore.CodeInterpreterCustomReference
+	_jsii_.Get(
+		j,
+		"codeInterpreterCustomRef",
 		&returns,
 	)
 	return returns

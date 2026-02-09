@@ -6,14 +6,14 @@ package previewawsmedialivemixins
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var pipelineLockingSettings interface{}
-//
 //   outputLockingSettingsProperty := &OutputLockingSettingsProperty{
 //   	EpochLockingSettings: &EpochLockingSettingsProperty{
 //   		CustomEpoch: jsii.String("customEpoch"),
 //   		JamSyncTime: jsii.String("jamSyncTime"),
 //   	},
-//   	PipelineLockingSettings: pipelineLockingSettings,
+//   	PipelineLockingSettings: &PipelineLockingSettingsProperty{
+//   		PipelineLockingMethod: jsii.String("pipelineLockingMethod"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html

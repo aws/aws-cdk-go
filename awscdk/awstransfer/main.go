@@ -207,6 +207,10 @@ func init() {
 		reflect.TypeOf((*CfnConnector_As2ConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnConnector.ConnectorAsyncMdnConfigProperty",
+		reflect.TypeOf((*CfnConnector_ConnectorAsyncMdnConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnConnector.ConnectorEgressConfigProperty",
 		reflect.TypeOf((*CfnConnector_ConnectorEgressConfigProperty)(nil)).Elem(),
 	)
@@ -462,12 +466,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIdentityProviderDetailsApplicationArn", GoGetter: "AttrIdentityProviderDetailsApplicationArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEndpointId", GoGetter: "AttrVpcEndpointId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWebAppId", GoGetter: "AttrWebAppId"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointDetails", GoGetter: "EndpointDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -504,8 +510,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnWebApp.EndpointDetailsProperty",
+		reflect.TypeOf((*CfnWebApp_EndpointDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnWebApp.IdentityProviderDetailsProperty",
 		reflect.TypeOf((*CfnWebApp_IdentityProviderDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnWebApp.VpcProperty",
+		reflect.TypeOf((*CfnWebApp_VpcProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnWebApp.WebAppCustomizationProperty",

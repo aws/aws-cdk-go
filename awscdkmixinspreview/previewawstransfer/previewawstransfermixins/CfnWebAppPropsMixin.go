@@ -24,6 +24,17 @@ import (
 //
 //   cfnWebAppPropsMixin := awscdkmixinspreview.Mixins.NewCfnWebAppPropsMixin(&CfnWebAppMixinProps{
 //   	AccessEndpoint: jsii.String("accessEndpoint"),
+//   	EndpointDetails: &EndpointDetailsProperty{
+//   		Vpc: &VpcProperty{
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcId: jsii.String("vpcId"),
+//   		},
+//   	},
 //   	IdentityProviderDetails: &IdentityProviderDetailsProperty{
 //   		ApplicationArn: jsii.String("applicationArn"),
 //   		InstanceArn: jsii.String("instanceArn"),

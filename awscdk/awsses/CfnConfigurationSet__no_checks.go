@@ -92,6 +92,10 @@ func validateCfnConfigurationSet_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigurationSet) validateSetArchivingOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfigurationSet) validateSetDeliveryOptionsParameters(val interface{}) error {
 	return nil
 }

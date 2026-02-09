@@ -25,15 +25,19 @@ package cxapi
 //   	Type: awscdk.Cx_api.VpcSubnetGroupType_PUBLIC,
 //   }
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type VpcSubnetGroup struct {
 	// The name of the subnet group, determined by looking at the tags of of the subnets that belong to it.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The subnets that are part of this group.
 	//
 	// There is no condition that the subnets have to be symmetric
 	// in the group.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Subnets *[]*VpcSubnet `field:"required" json:"subnets" yaml:"subnets"`
 	// The type of the subnet group.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Type VpcSubnetGroupType `field:"required" json:"type" yaml:"type"`
 }
 

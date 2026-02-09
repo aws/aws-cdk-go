@@ -17,6 +17,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -65,6 +66,7 @@ import (
 //   			securityGroup,
 //   		},
 //   	},
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	Subnets: &SubnetSelection{
 //   		AvailabilityZones: []*string{
 //   			jsii.String("availabilityZones"),

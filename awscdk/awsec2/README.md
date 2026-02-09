@@ -2682,11 +2682,11 @@ ec2.NewFlowLog(this, jsii.String("FlowLogWithKeyPrefix"), &FlowLogProps{
 import firehose "github.com/aws/aws-cdk-go/awscdk"
 
 var vpc Vpc
-var deliveryStream CfnDeliveryStream
+var deliveryStream IDeliveryStream
 
 
-vpc.addFlowLog(jsii.String("FlowLogsKinesisDataFirehose"), &FlowLogOptions{
-	Destination: ec2.FlowLogDestination_ToKinesisDataFirehoseDestination(deliveryStream.attrArn),
+vpc.addFlowLog(jsii.String("FlowLogsFirehose"), &FlowLogOptions{
+	Destination: ec2.FlowLogDestination_ToFirehose(deliveryStream),
 })
 ```
 

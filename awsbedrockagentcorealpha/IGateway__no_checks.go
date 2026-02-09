@@ -56,3 +56,7 @@ func (i *jsiiProxy_IGateway) validateMetricUserErrorsParameters(props *awscloudw
 	return nil
 }
 
+func (i *jsiiProxy_IGateway) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

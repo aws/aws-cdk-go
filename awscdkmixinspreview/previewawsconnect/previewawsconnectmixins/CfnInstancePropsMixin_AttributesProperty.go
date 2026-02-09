@@ -19,6 +19,7 @@ package previewawsconnectmixins
 //   	EnhancedContactMonitoring: jsii.Boolean(false),
 //   	HighVolumeOutBound: jsii.Boolean(false),
 //   	InboundCalls: jsii.Boolean(false),
+//   	MessageStreaming: jsii.Boolean(false),
 //   	MultiPartyChatConference: jsii.Boolean(false),
 //   	MultiPartyConference: jsii.Boolean(false),
 //   	OutboundCalls: jsii.Boolean(false),
@@ -60,6 +61,10 @@ type CfnInstancePropsMixin_AttributesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-inboundcalls
 	//
 	InboundCalls interface{} `field:"optional" json:"inboundCalls" yaml:"inboundCalls"`
+	// Boolean flag which enables MESSAGE_STREAMING on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-messagestreaming
+	//
+	MessageStreaming interface{} `field:"optional" json:"messageStreaming" yaml:"messageStreaming"`
 	// Boolean flag which enables MULTI_PARTY_CHAT_CONFERENCE on an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-multipartychatconference
 	//

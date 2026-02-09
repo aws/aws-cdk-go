@@ -282,7 +282,7 @@ type Cluster interface {
 	// This method creates an `AccessEntry` construct that grants the specified IAM principal the access permissions
 	// defined by the provided `IAccessPolicy` array. This allows the IAM principal to perform the actions permitted
 	// by the access policies within the EKS cluster.
-	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy)
+	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions)
 	// Returns a string representation of this construct.
 	ToString() *string
 }
@@ -1012,14 +1012,14 @@ func (c *jsiiProxy_Cluster) GetServiceLoadBalancerAddress(serviceName *string, o
 	return returns
 }
 
-func (c *jsiiProxy_Cluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy) {
-	if err := c.validateGrantAccessParameters(id, principal, accessPolicies); err != nil {
+func (c *jsiiProxy_Cluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions) {
+	if err := c.validateGrantAccessParameters(id, principal, accessPolicies, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"grantAccess",
-		[]interface{}{id, principal, accessPolicies},
+		[]interface{}{id, principal, accessPolicies, options},
 	)
 }
 

@@ -67,6 +67,7 @@ import (
 //   		AllowJoinsOnColumnsWithDifferentNames: jsii.Boolean(false),
 //   		PreserveNulls: jsii.Boolean(false),
 //   	},
+//   	IsMetricsEnabled: jsii.Boolean(false),
 //   	JobLogStatus: jsii.String("jobLogStatus"),
 //   	Members: []interface{}{
 //   		&MemberSpecificationProperty{
@@ -169,6 +170,8 @@ type CfnCollaboration interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	IsMetricsEnabled() interface{}
+	SetIsMetricsEnabled(val interface{})
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	JobLogStatus() *string
 	SetJobLogStatus(val *string)
@@ -533,6 +536,16 @@ func (j *jsiiProxy_CfnCollaboration) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollaboration) IsMetricsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"isMetricsEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollaboration) JobLogStatus() *string {
 	var returns *string
 	_jsii_.Get(
@@ -756,6 +769,17 @@ func (j *jsiiProxy_CfnCollaboration)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollaboration)SetIsMetricsEnabled(val interface{}) {
+	if err := j.validateSetIsMetricsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"isMetricsEnabled",
 		val,
 	)
 }

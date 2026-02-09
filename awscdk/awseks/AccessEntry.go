@@ -18,6 +18,7 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicy AccessPolicy
@@ -33,6 +34,7 @@ import (
 //   	// the properties below are optional
 //   	AccessEntryName: jsii.String("accessEntryName"),
 //   	AccessEntryType: awscdk.*Aws_eks.AccessEntryType_STANDARD,
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   })
 //
 type AccessEntry interface {

@@ -164,6 +164,38 @@ func validateCfnAgentSpace_ArnForAgentSpaceParameters(resource interfacesawsdevo
 	return nil
 }
 
+func validateCfnAgentSpace_FromAgentSpaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnAgentSpace_FromAgentSpaceIdParameters(scope constructs.Construct, id *string, agentSpaceId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if agentSpaceId == nil {
+		return fmt.Errorf("parameter agentSpaceId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnAgentSpace_IsCfnAgentSpaceParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

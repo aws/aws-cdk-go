@@ -72,6 +72,14 @@ func validateCfnAgentSpace_ArnForAgentSpaceParameters(resource interfacesawsdevo
 	return nil
 }
 
+func validateCfnAgentSpace_FromAgentSpaceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAgentSpace_FromAgentSpaceIdParameters(scope constructs.Construct, id *string, agentSpaceId *string) error {
+	return nil
+}
+
 func validateCfnAgentSpace_IsCfnAgentSpaceParameters(x interface{}) error {
 	return nil
 }

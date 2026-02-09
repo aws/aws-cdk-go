@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -98,6 +99,9 @@ type RuntimeEndpoint interface {
 	//   cross-environment scenarios.
 	// Experimental.
 	PhysicalName() *string
+	// A reference to a RuntimeEndpoint resource.
+	// Experimental.
+	RuntimeEndpointRef() *interfacesawsbedrockagentcore.RuntimeEndpointReference
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -274,6 +278,16 @@ func (j *jsiiProxy_RuntimeEndpoint) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RuntimeEndpoint) RuntimeEndpointRef() *interfacesawsbedrockagentcore.RuntimeEndpointReference {
+	var returns *interfacesawsbedrockagentcore.RuntimeEndpointReference
+	_jsii_.Get(
+		j,
+		"runtimeEndpointRef",
 		&returns,
 	)
 	return returns

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -34,6 +35,9 @@ type BrowserCustom interface {
 	// The ARN of the browser resource.
 	// Experimental.
 	BrowserArn() *string
+	// A reference to a BrowserCustom resource.
+	// Experimental.
+	BrowserCustomRef() *interfacesawsbedrockagentcore.BrowserCustomReference
 	// The id of the browser.
 	// Experimental.
 	BrowserId() *string
@@ -284,6 +288,16 @@ func (j *jsiiProxy_BrowserCustom) BrowserArn() *string {
 	_jsii_.Get(
 		j,
 		"browserArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BrowserCustom) BrowserCustomRef() *interfacesawsbedrockagentcore.BrowserCustomReference {
+	var returns *interfacesawsbedrockagentcore.BrowserCustomReference
+	_jsii_.Get(
+		j,
+		"browserCustomRef",
 		&returns,
 	)
 	return returns

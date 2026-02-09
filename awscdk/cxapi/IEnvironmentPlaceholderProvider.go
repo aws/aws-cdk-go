@@ -5,12 +5,16 @@ import (
 )
 
 // Return the appropriate values for the environment placeholders.
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type IEnvironmentPlaceholderProvider interface {
 	// Return the account.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	AccountId() *string
 	// Return the partition.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Partition() *string
 	// Return the region.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Region() *string
 }
 

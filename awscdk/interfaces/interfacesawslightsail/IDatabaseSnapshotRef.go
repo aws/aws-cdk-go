@@ -1,0 +1,56 @@
+package interfacesawslightsail
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslightsail/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a DatabaseSnapshot.
+// Experimental.
+type IDatabaseSnapshotRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a DatabaseSnapshot resource.
+	// Experimental.
+	DatabaseSnapshotRef() *DatabaseSnapshotReference
+}
+
+// The jsii proxy for IDatabaseSnapshotRef
+type jsiiProxy_IDatabaseSnapshotRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (j *jsiiProxy_IDatabaseSnapshotRef) DatabaseSnapshotRef() *DatabaseSnapshotReference {
+	var returns *DatabaseSnapshotReference
+	_jsii_.Get(
+		j,
+		"databaseSnapshotRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseSnapshotRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IDatabaseSnapshotRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

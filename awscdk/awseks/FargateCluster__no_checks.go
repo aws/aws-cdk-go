@@ -56,7 +56,7 @@ func (f *jsiiProxy_FargateCluster) validateGetServiceLoadBalancerAddressParamete
 	return nil
 }
 
-func (f *jsiiProxy_FargateCluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy) error {
+func (f *jsiiProxy_FargateCluster) validateGrantAccessParameters(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions) error {
 	return nil
 }
 

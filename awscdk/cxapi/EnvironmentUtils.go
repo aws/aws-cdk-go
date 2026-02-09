@@ -12,6 +12,7 @@ import (
 //
 //   environmentUtils := awscdk.Cx_api.NewEnvironmentUtils()
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type EnvironmentUtils interface {
 }
 
@@ -20,6 +21,7 @@ type jsiiProxy_EnvironmentUtils struct {
 	_ byte // padding
 }
 
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func NewEnvironmentUtils() EnvironmentUtils {
 	_init_.Initialize()
 
@@ -34,6 +36,7 @@ func NewEnvironmentUtils() EnvironmentUtils {
 	return &j
 }
 
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func NewEnvironmentUtils_Override(e EnvironmentUtils) {
 	_init_.Initialize()
 
@@ -45,6 +48,7 @@ func NewEnvironmentUtils_Override(e EnvironmentUtils) {
 }
 
 // Format an environment string from an account and region.
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func EnvironmentUtils_Format(account *string, region *string) *string {
 	_init_.Initialize()
 
@@ -64,6 +68,7 @@ func EnvironmentUtils_Format(account *string, region *string) *string {
 }
 
 // Build an environment object from an account and region.
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	_init_.Initialize()
 
@@ -82,6 +87,7 @@ func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	return returns
 }
 
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 func EnvironmentUtils_Parse(environment *string) *Environment {
 	_init_.Initialize()
 

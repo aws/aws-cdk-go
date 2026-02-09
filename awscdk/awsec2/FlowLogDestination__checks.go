@@ -7,6 +7,7 @@ import (
 
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17,6 +18,14 @@ func (f *jsiiProxy_FlowLogDestination) validateBindParameters(scope constructs.C
 
 	if flowLog == nil {
 		return fmt.Errorf("parameter flowLog is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateFlowLogDestination_ToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+	if deliveryStream == nil {
+		return fmt.Errorf("parameter deliveryStream is required, but nil was provided")
 	}
 
 	return nil

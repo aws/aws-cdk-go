@@ -72,6 +72,14 @@ func validateCfnGlobalNetwork_ArnForGlobalNetworkParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnGlobalNetwork_FromGlobalNetworkArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnGlobalNetwork_FromGlobalNetworkIdParameters(scope constructs.Construct, id *string, globalNetworkId *string) error {
+	return nil
+}
+
 func validateCfnGlobalNetwork_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

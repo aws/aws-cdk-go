@@ -14,12 +14,16 @@ package cxapi
 //   	ServiceName: jsii.String("serviceName"),
 //   }
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// Query region.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Query service name.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	ServiceName *string `field:"optional" json:"serviceName" yaml:"serviceName"`
 }
 

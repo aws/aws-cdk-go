@@ -24,6 +24,7 @@ import (
 //   		EnhancedChatMonitoring: jsii.Boolean(false),
 //   		EnhancedContactMonitoring: jsii.Boolean(false),
 //   		HighVolumeOutBound: jsii.Boolean(false),
+//   		MessageStreaming: jsii.Boolean(false),
 //   		MultiPartyChatConference: jsii.Boolean(false),
 //   		MultiPartyConference: jsii.Boolean(false),
 //   		UseCustomTtsVoices: jsii.Boolean(false),

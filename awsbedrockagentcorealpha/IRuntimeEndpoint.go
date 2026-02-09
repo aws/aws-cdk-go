@@ -5,12 +5,16 @@ import (
 
 	"github.com/aws/aws-cdk-go/awsbedrockagentcorealpha/v2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Interface for Runtime Endpoint resources.
 // Experimental.
 type IRuntimeEndpoint interface {
 	awscdk.IResource
+	interfacesawsbedrockagentcore.IRuntimeEndpointRef
 	// The ARN of the parent agent runtime.
 	// Experimental.
 	AgentRuntimeArn() *string
@@ -44,6 +48,18 @@ type IRuntimeEndpoint interface {
 // The jsii proxy for IRuntimeEndpoint
 type jsiiProxy_IRuntimeEndpoint struct {
 	internal.Type__awscdkIResource
+	internal.Type__interfacesawsbedrockagentcoreIRuntimeEndpointRef
+}
+
+func (i *jsiiProxy_IRuntimeEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IRuntimeEndpoint) AgentRuntimeArn() *string {
@@ -121,6 +137,46 @@ func (j *jsiiProxy_IRuntimeEndpoint) TargetVersion() *string {
 	_jsii_.Get(
 		j,
 		"targetVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRuntimeEndpoint) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRuntimeEndpoint) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRuntimeEndpoint) RuntimeEndpointRef() *interfacesawsbedrockagentcore.RuntimeEndpointReference {
+	var returns *interfacesawsbedrockagentcore.RuntimeEndpointReference
+	_jsii_.Get(
+		j,
+		"runtimeEndpointRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IRuntimeEndpoint) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns

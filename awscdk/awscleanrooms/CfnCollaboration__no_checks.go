@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnCollaboration) validateSetDescriptionParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollaboration) validateSetIsMetricsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCollaboration) validateSetMembersParameters(val interface{}) error {
 	return nil
 }

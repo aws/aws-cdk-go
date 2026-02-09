@@ -10,8 +10,6 @@ package previewawsmedialivemixins
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var pipelineLockingSettings interface{}
-//
 //   globalConfigurationProperty := &GlobalConfigurationProperty{
 //   	InitialAudioGain: jsii.Number(123),
 //   	InputEndAction: jsii.String("inputEndAction"),
@@ -32,7 +30,9 @@ package previewawsmedialivemixins
 //   			CustomEpoch: jsii.String("customEpoch"),
 //   			JamSyncTime: jsii.String("jamSyncTime"),
 //   		},
-//   		PipelineLockingSettings: pipelineLockingSettings,
+//   		PipelineLockingSettings: &PipelineLockingSettingsProperty{
+//   			PipelineLockingMethod: jsii.String("pipelineLockingMethod"),
+//   		},
 //   	},
 //   	OutputTimingSource: jsii.String("outputTimingSource"),
 //   	SupportLowFramerateInputs: jsii.String("supportLowFramerateInputs"),

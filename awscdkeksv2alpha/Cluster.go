@@ -242,7 +242,7 @@ type Cluster interface {
 	// by the access policies within the EKS cluster.
 	// [disable-awslint:no-grants].
 	// Experimental.
-	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy)
+	GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions)
 	// Grants the specified IAM principal cluster admin access to the EKS cluster.
 	//
 	// This method creates an `AccessEntry` construct that grants the specified IAM principal the cluster admin
@@ -849,14 +849,14 @@ func (c *jsiiProxy_Cluster) GetServiceLoadBalancerAddress(serviceName *string, o
 	return returns
 }
 
-func (c *jsiiProxy_Cluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy) {
-	if err := c.validateGrantAccessParameters(id, principal, accessPolicies); err != nil {
+func (c *jsiiProxy_Cluster) GrantAccess(id *string, principal *string, accessPolicies *[]IAccessPolicy, options *GrantAccessOptions) {
+	if err := c.validateGrantAccessParameters(id, principal, accessPolicies, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		c,
 		"grantAccess",
-		[]interface{}{id, principal, accessPolicies},
+		[]interface{}{id, principal, accessPolicies, options},
 	)
 }
 

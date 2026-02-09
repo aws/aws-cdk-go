@@ -359,6 +359,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_HeaderMatchPatternProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.HeaderOrderProperty",
+		reflect.TypeOf((*CfnRuleGroup_HeaderOrderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.HeadersProperty",
 		reflect.TypeOf((*CfnRuleGroup_HeadersProperty)(nil)).Elem(),
 	)
@@ -715,6 +719,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.HeaderMatchPatternProperty",
 		reflect.TypeOf((*CfnWebACL_HeaderMatchPatternProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.HeaderOrderProperty",
+		reflect.TypeOf((*CfnWebACL_HeaderOrderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.HeadersProperty",

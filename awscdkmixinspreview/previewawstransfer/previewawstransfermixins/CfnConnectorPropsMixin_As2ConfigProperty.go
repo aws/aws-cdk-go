@@ -9,6 +9,12 @@ package previewawstransfermixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   as2ConfigProperty := &As2ConfigProperty{
+//   	AsyncMdnConfig: &ConnectorAsyncMdnConfigProperty{
+//   		ServerIds: []*string{
+//   			jsii.String("serverIds"),
+//   		},
+//   		Url: jsii.String("url"),
+//   	},
 //   	BasicAuthSecretId: jsii.String("basicAuthSecretId"),
 //   	Compression: jsii.String("compression"),
 //   	EncryptionAlgorithm: jsii.String("encryptionAlgorithm"),
@@ -24,6 +30,9 @@ package previewawstransfermixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html
 //
 type CfnConnectorPropsMixin_As2ConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html#cfn-transfer-connector-as2config-asyncmdnconfig
+	//
+	AsyncMdnConfig interface{} `field:"optional" json:"asyncMdnConfig" yaml:"asyncMdnConfig"`
 	// Provides Basic authentication support to the AS2 Connectors API.
 	//
 	// To use Basic authentication, you must provide the name or Amazon Resource Name (ARN) of a secret in AWS Secrets Manager .

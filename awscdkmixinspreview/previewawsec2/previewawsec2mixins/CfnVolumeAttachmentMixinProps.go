@@ -10,6 +10,7 @@ package previewawsec2mixins
 //
 //   cfnVolumeAttachmentMixinProps := &CfnVolumeAttachmentMixinProps{
 //   	Device: jsii.String("device"),
+//   	EbsCardIndex: jsii.Number(123),
 //   	InstanceId: jsii.String("instanceId"),
 //   	VolumeId: jsii.String("volumeId"),
 //   }
@@ -21,6 +22,12 @@ type CfnVolumeAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-device
 	//
 	Device *string `field:"optional" json:"device" yaml:"device"`
+	// The index of the EBS card.
+	//
+	// Some instance types support multiple EBS cards. The default EBS card index is 0.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html#cfn-ec2-volumeattachment-ebscardindex
+	//
+	EbsCardIndex *float64 `field:"optional" json:"ebsCardIndex" yaml:"ebsCardIndex"`
 	// The ID of the instance to which the volume attaches.
 	//
 	// This value can be a reference to an [`AWS::EC2::Instance`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.

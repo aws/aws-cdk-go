@@ -79,11 +79,15 @@ type OidcProviderNative interface {
 	// The thumbprints configured for this provider.
 	// Experimental.
 	OidcProviderThumbprints() *string
-	// The Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
-	// Deprecated: Use `oidcProviderArn` instead. This property exists for backward compatibility with existing constructs as migrating between the 2 constructs (OpenIdConnectProvider and OidcProviderNative) is not reasonably feasible as it requires a manual step (cdk import) since the resource type is changing between OpenIdConnectProvider and OidcProviderNative.
+	// Alias for `oidcProviderArn` to maintain backwards compatibility for constructs which accept `iam.IOpenIdConnectProvider`.
+	//
+	// Use `oidcProviderArn` instead. This property exists for backward compatibility with existing constructs as migrating between the 2 constructs (OpenIdConnectProvider and OidcProviderNative) is not reasonably feasible as it requires a manual step (cdk import) since the resource type is changing between OpenIdConnectProvider and OidcProviderNative.
+	// Experimental.
 	OpenIdConnectProviderArn() *string
-	// The issuer for OIDC Provider.
-	// Deprecated: use `oidcProviderIssuer` instead. This property exists for backward compatibility with existing constructs as migrating between the 2 constructs (OpenIdConnectProvider and OidcProviderNative) is not reasonably feasible as it requires a manual step (cdk import) since the resource type is changing between OpenIdConnectProvider and OidcProviderNative.
+	// Alias for `oidcProviderIssuer` to maintain backwards compatibility for constructs which accept `iam.IOpenIdConnectProvider.
+	//
+	// Use `oidcProviderIssuer` instead. This property exists for backward compatibility with existing constructs as migrating between the 2 constructs (OpenIdConnectProvider and OidcProviderNative) is not reasonably feasible as it requires a manual step (cdk import) since the resource type is changing between OpenIdConnectProvider and OidcProviderNative.
+	// Experimental.
 	OpenIdConnectProviderIssuer() *string
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//

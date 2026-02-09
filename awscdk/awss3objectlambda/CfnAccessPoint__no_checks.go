@@ -72,6 +72,14 @@ func validateCfnAccessPoint_ArnForAccessPointParameters(resource interfacesawss3
 	return nil
 }
 
+func validateCfnAccessPoint_FromAccessPointArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnAccessPoint_FromAccessPointNameParameters(scope constructs.Construct, id *string, accessPointName *string) error {
+	return nil
+}
+
 func validateCfnAccessPoint_IsCfnAccessPointParameters(x interface{}) error {
 	return nil
 }

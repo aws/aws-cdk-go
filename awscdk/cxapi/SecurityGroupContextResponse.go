@@ -13,14 +13,17 @@ package cxapi
 //   	SecurityGroupId: jsii.String("securityGroupId"),
 //   }
 //
+// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 type SecurityGroupContextResponse struct {
 	// Whether the security group allows all outbound traffic.
 	//
 	// This will be true
 	// when the security group has all-protocol egress permissions to access both
 	// `0.0.0.0/0` and `::/0`.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	AllowAllOutbound *bool `field:"required" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// The security group's id.
+	// Deprecated: The definition of this type has moved to `@aws-cdk/cloud-assembly-api`.
 	SecurityGroupId *string `field:"required" json:"securityGroupId" yaml:"securityGroupId"`
 }
 

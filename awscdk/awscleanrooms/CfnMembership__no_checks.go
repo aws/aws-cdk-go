@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnMembership) validateSetDefaultResultConfigurationParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnMembership) validateSetIsMetricsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMembership) validateSetPaymentConfigurationParameters(val interface{}) error {
 	return nil
 }

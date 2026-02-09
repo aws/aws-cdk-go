@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -16,6 +17,7 @@ import (
 // Experimental.
 type IMemory interface {
 	awsiam.IGrantable
+	interfacesawsbedrockagentcore.IMemoryRef
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform actions on this memory.
 	// Experimental.
@@ -93,6 +95,7 @@ type IMemory interface {
 // The jsii proxy for IMemory
 type jsiiProxy_IMemory struct {
 	internal.Type__awsiamIGrantable
+	internal.Type__interfacesawsbedrockagentcoreIMemoryRef
 	internal.Type__awscdkIResource
 }
 
@@ -453,6 +456,16 @@ func (j *jsiiProxy_IMemory) GrantPrincipal() awsiam.IPrincipal {
 	_jsii_.Get(
 		j,
 		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IMemory) MemoryRef() *interfacesawsbedrockagentcore.MemoryReference {
+	var returns *interfacesawsbedrockagentcore.MemoryReference
+	_jsii_.Get(
+		j,
+		"memoryRef",
 		&returns,
 	)
 	return returns

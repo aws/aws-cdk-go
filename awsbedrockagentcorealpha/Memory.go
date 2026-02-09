@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -80,6 +81,9 @@ type Memory interface {
 	// The name of the memory.
 	// Experimental.
 	MemoryName() *string
+	// A reference to a Memory resource.
+	// Experimental.
+	MemoryRef() *interfacesawsbedrockagentcore.MemoryReference
 	// The memory strategies used by the memory.
 	// Experimental.
 	MemoryStrategies() *[]IMemoryStrategy
@@ -414,6 +418,16 @@ func (j *jsiiProxy_Memory) MemoryName() *string {
 	_jsii_.Get(
 		j,
 		"memoryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Memory) MemoryRef() *interfacesawsbedrockagentcore.MemoryReference {
+	var returns *interfacesawsbedrockagentcore.MemoryReference
+	_jsii_.Get(
+		j,
+		"memoryRef",
 		&returns,
 	)
 	return returns

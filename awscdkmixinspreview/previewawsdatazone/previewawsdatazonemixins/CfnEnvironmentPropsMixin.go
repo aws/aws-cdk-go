@@ -19,10 +19,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnEnvironmentPropsMixin := awscdkmixinspreview.Mixins.NewCfnEnvironmentPropsMixin(&CfnEnvironmentMixinProps{
+//   	DeploymentOrder: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnvironmentAccountIdentifier: jsii.String("environmentAccountIdentifier"),
 //   	EnvironmentAccountRegion: jsii.String("environmentAccountRegion"),
+//   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
+//   	EnvironmentConfigurationId: jsii.String("environmentConfigurationId"),
 //   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
 //   	EnvironmentRoleArn: jsii.String("environmentRoleArn"),
 //   	GlossaryTerms: []*string{

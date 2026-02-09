@@ -32,6 +32,7 @@ import (
 //   		EnhancedContactMonitoring: jsii.Boolean(false),
 //   		HighVolumeOutBound: jsii.Boolean(false),
 //   		InboundCalls: jsii.Boolean(false),
+//   		MessageStreaming: jsii.Boolean(false),
 //   		MultiPartyChatConference: jsii.Boolean(false),
 //   		MultiPartyConference: jsii.Boolean(false),
 //   		OutboundCalls: jsii.Boolean(false),

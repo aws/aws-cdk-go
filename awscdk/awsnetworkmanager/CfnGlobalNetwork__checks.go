@@ -164,6 +164,38 @@ func validateCfnGlobalNetwork_ArnForGlobalNetworkParameters(resource interfacesa
 	return nil
 }
 
+func validateCfnGlobalNetwork_FromGlobalNetworkArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnGlobalNetwork_FromGlobalNetworkIdParameters(scope constructs.Construct, id *string, globalNetworkId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if globalNetworkId == nil {
+		return fmt.Errorf("parameter globalNetworkId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGlobalNetwork_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

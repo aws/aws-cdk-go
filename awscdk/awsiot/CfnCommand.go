@@ -42,6 +42,7 @@ import (
 //   				Ul: jsii.String("ul"),
 //   			},
 //   			Description: jsii.String("description"),
+//   			Type: jsii.String("type"),
 //   			Value: &CommandParameterValueProperty{
 //   				B: jsii.Boolean(false),
 //   				Bin: jsii.String("bin"),
@@ -51,6 +52,25 @@ import (
 //   				S: jsii.String("s"),
 //   				Ul: jsii.String("ul"),
 //   			},
+//   			ValueConditions: []interface{}{
+//   				&CommandParameterValueConditionProperty{
+//   					ComparisonOperator: jsii.String("comparisonOperator"),
+//   					Operand: &CommandParameterValueComparisonOperandProperty{
+//   						Number: jsii.String("number"),
+//   						NumberRange: &CommandParameterValueNumberRangeProperty{
+//   							Max: jsii.String("max"),
+//   							Min: jsii.String("min"),
+//   						},
+//   						Numbers: []*string{
+//   							jsii.String("numbers"),
+//   						},
+//   						String: jsii.String("string"),
+//   						Strings: []*string{
+//   							jsii.String("strings"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Namespace: jsii.String("namespace"),
@@ -58,7 +78,13 @@ import (
 //   		Content: jsii.String("content"),
 //   		ContentType: jsii.String("contentType"),
 //   	},
+//   	PayloadTemplate: jsii.String("payloadTemplate"),
 //   	PendingDeletion: jsii.Boolean(false),
+//   	Preprocessor: &CommandPreprocessorProperty{
+//   		AwsJsonSubstitution: &AwsJsonSubstitutionCommandPreprocessorConfigProperty{
+//   			OutputFormat: jsii.String("outputFormat"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -128,9 +154,14 @@ type CfnCommand interface {
 	Node() constructs.Node
 	Payload() interface{}
 	SetPayload(val interface{})
+	// The payload template associated with the command.
+	PayloadTemplate() *string
+	SetPayloadTemplate(val *string)
 	// Indicates whether the command is pending deletion.
 	PendingDeletion() interface{}
 	SetPendingDeletion(val interface{})
+	Preprocessor() interface{}
+	SetPreprocessor(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -484,11 +515,31 @@ func (j *jsiiProxy_CfnCommand) Payload() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCommand) PayloadTemplate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"payloadTemplate",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCommand) PendingDeletion() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"pendingDeletion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCommand) Preprocessor() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"preprocessor",
 		&returns,
 	)
 	return returns
@@ -668,6 +719,14 @@ func (j *jsiiProxy_CfnCommand)SetPayload(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCommand)SetPayloadTemplate(val *string) {
+	_jsii_.Set(
+		j,
+		"payloadTemplate",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCommand)SetPendingDeletion(val interface{}) {
 	if err := j.validateSetPendingDeletionParameters(val); err != nil {
 		panic(err)
@@ -675,6 +734,17 @@ func (j *jsiiProxy_CfnCommand)SetPendingDeletion(val interface{}) {
 	_jsii_.Set(
 		j,
 		"pendingDeletion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCommand)SetPreprocessor(val interface{}) {
+	if err := j.validateSetPreprocessorParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"preprocessor",
 		val,
 	)
 }

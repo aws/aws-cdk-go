@@ -9,10 +9,13 @@ package previewawsdatazonemixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnEnvironmentMixinProps := &CfnEnvironmentMixinProps{
+//   	DeploymentOrder: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnvironmentAccountIdentifier: jsii.String("environmentAccountIdentifier"),
 //   	EnvironmentAccountRegion: jsii.String("environmentAccountRegion"),
+//   	EnvironmentBlueprintIdentifier: jsii.String("environmentBlueprintIdentifier"),
+//   	EnvironmentConfigurationId: jsii.String("environmentConfigurationId"),
 //   	EnvironmentProfileIdentifier: jsii.String("environmentProfileIdentifier"),
 //   	EnvironmentRoleArn: jsii.String("environmentRoleArn"),
 //   	GlossaryTerms: []*string{
@@ -31,6 +34,10 @@ package previewawsdatazonemixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html
 //
 type CfnEnvironmentMixinProps struct {
+	// The deployment order for the environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-deploymentorder
+	//
+	DeploymentOrder *float64 `field:"optional" json:"deploymentOrder" yaml:"deploymentOrder"`
 	// The description of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-description
 	//
@@ -47,6 +54,14 @@ type CfnEnvironmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentaccountregion
 	//
 	EnvironmentAccountRegion *string `field:"optional" json:"environmentAccountRegion" yaml:"environmentAccountRegion"`
+	// The identifier of the environment blueprint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentblueprintidentifier
+	//
+	EnvironmentBlueprintIdentifier *string `field:"optional" json:"environmentBlueprintIdentifier" yaml:"environmentBlueprintIdentifier"`
+	// The identifier of the environment configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentconfigurationid
+	//
+	EnvironmentConfigurationId *string `field:"optional" json:"environmentConfigurationId" yaml:"environmentConfigurationId"`
 	// The identifier of the environment profile that is used to create this Amazon DataZone environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html#cfn-datazone-environment-environmentprofileidentifier
 	//

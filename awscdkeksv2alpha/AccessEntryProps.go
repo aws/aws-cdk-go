@@ -1,5 +1,8 @@
 package awscdkeksv2alpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Represents the properties required to create an Amazon EKS access entry.
 //
@@ -7,6 +10,7 @@ package awscdkeksv2alpha
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicy AccessPolicy
 //   var cluster Cluster
@@ -21,6 +25,7 @@ package awscdkeksv2alpha
 //   	// the properties below are optional
 //   	AccessEntryName: jsii.String("accessEntryName"),
 //   	AccessEntryType: eks_v2_alpha.AccessEntryType_STANDARD,
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   }
 //
 // Experimental.
@@ -44,5 +49,17 @@ type AccessEntryProps struct {
 	//
 	// Experimental.
 	AccessEntryType AccessEntryType `field:"optional" json:"accessEntryType" yaml:"accessEntryType"`
+	// The removal policy applied to the access entry.
+	//
+	// The removal policy controls what happens to the resources if they stop being managed by CloudFormation.
+	// This can happen in one of three situations:
+	//
+	// - The resource is removed from the template, so CloudFormation stops managing it
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	// Default: RemovalPolicy.DESTROY
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

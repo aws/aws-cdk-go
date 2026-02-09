@@ -48,6 +48,9 @@ func init() {
 			"FARGATE_LINUX": AccessEntryType_FARGATE_LINUX,
 			"EC2_LINUX": AccessEntryType_EC2_LINUX,
 			"EC2_WINDOWS": AccessEntryType_EC2_WINDOWS,
+			"EC2": AccessEntryType_EC2,
+			"HYBRID_LINUX": AccessEntryType_HYBRID_LINUX,
+			"HYPERPOD_LINUX": AccessEntryType_HYPERPOD_LINUX,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -398,6 +401,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-eks-v2-alpha.FargateProfileProps",
 		reflect.TypeOf((*FargateProfileProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-eks-v2-alpha.GrantAccessOptions",
+		reflect.TypeOf((*GrantAccessOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-eks-v2-alpha.HelmChart",
@@ -799,6 +806,14 @@ func init() {
 			"MERGE": PatchType_MERGE,
 			"STRATEGIC": PatchType_STRATEGIC,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-eks-v2-alpha.RemoteNodeNetwork",
+		reflect.TypeOf((*RemoteNodeNetwork)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-eks-v2-alpha.RemotePodNetwork",
+		reflect.TypeOf((*RemotePodNetwork)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-eks-v2-alpha.Selector",

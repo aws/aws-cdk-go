@@ -35,6 +35,7 @@ import (
 //   				Ul: jsii.String("ul"),
 //   			},
 //   			Description: jsii.String("description"),
+//   			Type: jsii.String("type"),
 //   			Value: &CommandParameterValueProperty{
 //   				B: jsii.Boolean(false),
 //   				Bin: jsii.String("bin"),
@@ -44,6 +45,25 @@ import (
 //   				S: jsii.String("s"),
 //   				Ul: jsii.String("ul"),
 //   			},
+//   			ValueConditions: []interface{}{
+//   				&CommandParameterValueConditionProperty{
+//   					ComparisonOperator: jsii.String("comparisonOperator"),
+//   					Operand: &CommandParameterValueComparisonOperandProperty{
+//   						Number: jsii.String("number"),
+//   						NumberRange: &CommandParameterValueNumberRangeProperty{
+//   							Max: jsii.String("max"),
+//   							Min: jsii.String("min"),
+//   						},
+//   						Numbers: []*string{
+//   							jsii.String("numbers"),
+//   						},
+//   						String: jsii.String("string"),
+//   						Strings: []*string{
+//   							jsii.String("strings"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Namespace: jsii.String("namespace"),
@@ -51,7 +71,13 @@ import (
 //   		Content: jsii.String("content"),
 //   		ContentType: jsii.String("contentType"),
 //   	},
+//   	PayloadTemplate: jsii.String("payloadTemplate"),
 //   	PendingDeletion: jsii.Boolean(false),
+//   	Preprocessor: &CommandPreprocessorProperty{
+//   		AwsJsonSubstitution: &AwsJsonSubstitutionCommandPreprocessorConfigProperty{
+//   			OutputFormat: jsii.String("outputFormat"),
+//   		},
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -98,10 +124,17 @@ type CfnCommandProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html#cfn-iot-command-payload
 	//
 	Payload interface{} `field:"optional" json:"payload" yaml:"payload"`
+	// The payload template associated with the command.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html#cfn-iot-command-payloadtemplate
+	//
+	PayloadTemplate *string `field:"optional" json:"payloadTemplate" yaml:"payloadTemplate"`
 	// Indicates whether the command is pending deletion.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html#cfn-iot-command-pendingdeletion
 	//
 	PendingDeletion interface{} `field:"optional" json:"pendingDeletion" yaml:"pendingDeletion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html#cfn-iot-command-preprocessor
+	//
+	Preprocessor interface{} `field:"optional" json:"preprocessor" yaml:"preprocessor"`
 	// The customer role associated with the command.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html#cfn-iot-command-rolearn
 	//

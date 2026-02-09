@@ -12,6 +12,7 @@ package previewawsec2mixins
 //
 //   ebsProperty := &EbsProperty{
 //   	DeleteOnTermination: jsii.Boolean(false),
+//   	EbsCardIndex: jsii.Number(123),
 //   	Encrypted: jsii.Boolean(false),
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -29,6 +30,9 @@ type CfnLaunchTemplatePropsMixin_EbsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-deleteontermination
 	//
 	DeleteOnTermination interface{} `field:"optional" json:"deleteOnTermination" yaml:"deleteOnTermination"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-ebscardindex
+	//
+	EbsCardIndex *float64 `field:"optional" json:"ebsCardIndex" yaml:"ebsCardIndex"`
 	// Indicates whether the EBS volume is encrypted.
 	//
 	// Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.

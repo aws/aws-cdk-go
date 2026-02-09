@@ -11,4 +11,5 @@ type Type__awssagemakerIEndpoint = awssagemaker.IEndpoint
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awsiamIGrantable = awsiam.IGrantable
+type Type__awssagemakerIPipeline = awssagemaker.IPipeline
 type Type__awsapplicationautoscalingBaseScalableAttribute = awsapplicationautoscaling.BaseScalableAttribute

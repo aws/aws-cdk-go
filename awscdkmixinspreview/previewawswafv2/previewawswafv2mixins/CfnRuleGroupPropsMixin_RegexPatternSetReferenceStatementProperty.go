@@ -40,6 +40,9 @@ package previewawswafv2mixins
 //   			MatchScope: jsii.String("matchScope"),
 //   			OversizeHandling: jsii.String("oversizeHandling"),
 //   		},
+//   		HeaderOrder: &HeaderOrderProperty{
+//   			OversizeHandling: jsii.String("oversizeHandling"),
+//   		},
 //   		Headers: &HeadersProperty{
 //   			MatchPattern: &HeaderMatchPatternProperty{
 //   				All: all,

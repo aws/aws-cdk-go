@@ -1,6 +1,7 @@
 package awscdkeksv2alpha
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
@@ -12,7 +13,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -45,6 +46,7 @@ import (
 //   		},
 //   		OverwriteServiceAccount: jsii.Boolean(false),
 //   		Policy: policy,
+//   		RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   		Repository: jsii.String("repository"),
 //   	},
 //   	ClusterLogging: []ClusterLoggingTypes{
@@ -66,11 +68,27 @@ import (
 //   		PrivateSubnets: []ISubnet{
 //   			subnet,
 //   		},
+//   		RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   		Role: role,
 //   		SecurityGroup: securityGroup,
 //   	},
 //   	MastersRole: role,
 //   	Prune: jsii.Boolean(false),
+//   	RemoteNodeNetworks: []RemoteNodeNetwork{
+//   		&RemoteNodeNetwork{
+//   			Cidrs: []*string{
+//   				jsii.String("cidrs"),
+//   			},
+//   		},
+//   	},
+//   	RemotePodNetworks: []RemotePodNetwork{
+//   		&RemotePodNetwork{
+//   			Cidrs: []*string{
+//   				jsii.String("cidrs"),
+//   			},
+//   		},
+//   	},
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	Role: role,
 //   	SecretsEncryptionKey: keyRef,
 //   	SecurityGroup: securityGroup,
@@ -161,6 +179,29 @@ type ClusterCommonOptions struct {
 	//
 	// Experimental.
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
+	// IPv4 CIDR blocks defining the expected address range of hybrid nodes that will join the cluster.
+	// Default: - none.
+	//
+	// Experimental.
+	RemoteNodeNetworks *[]*RemoteNodeNetwork `field:"optional" json:"remoteNodeNetworks" yaml:"remoteNodeNetworks"`
+	// IPv4 CIDR blocks for Pods running Kubernetes webhooks on hybrid nodes.
+	// Default: - none.
+	//
+	// Experimental.
+	RemotePodNetworks *[]*RemotePodNetwork `field:"optional" json:"remotePodNetworks" yaml:"remotePodNetworks"`
+	// The removal policy applied to all CloudFormation resources created by this construct when they are no longer managed by CloudFormation.
+	//
+	// This can happen in one of three situations:
+	// - The resource is removed from the template, so CloudFormation stops managing it;
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it;
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	//
+	// This affects the EKS cluster itself, associated IAM roles, node groups, security groups, VPC
+	// and any other CloudFormation resources managed by this construct.
+	// Default: - Resources will be deleted.
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	// Default: - A role is automatically created for you.
 	//

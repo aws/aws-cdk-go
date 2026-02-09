@@ -638,6 +638,10 @@ func init() {
 		reflect.TypeOf((*CfnChannel_PassThroughSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.PipelineLockingSettingsProperty",
+		reflect.TypeOf((*CfnChannel_PipelineLockingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.PrimaryChannelSettingsProperty",
 		reflect.TypeOf((*CfnChannel_PrimaryChannelSettingsProperty)(nil)).Elem(),
 	)

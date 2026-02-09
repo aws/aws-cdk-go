@@ -418,7 +418,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "payload", GoGetter: "Payload"},
+			_jsii_.MemberProperty{JsiiProperty: "payloadTemplate", GoGetter: "PayloadTemplate"},
 			_jsii_.MemberProperty{JsiiProperty: "pendingDeletion", GoGetter: "PendingDeletion"},
+			_jsii_.MemberProperty{JsiiProperty: "preprocessor", GoGetter: "Preprocessor"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -442,8 +444,24 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnCommand.AwsJsonSubstitutionCommandPreprocessorConfigProperty",
+		reflect.TypeOf((*CfnCommand_AwsJsonSubstitutionCommandPreprocessorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnCommand.CommandParameterProperty",
 		reflect.TypeOf((*CfnCommand_CommandParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnCommand.CommandParameterValueComparisonOperandProperty",
+		reflect.TypeOf((*CfnCommand_CommandParameterValueComparisonOperandProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnCommand.CommandParameterValueConditionProperty",
+		reflect.TypeOf((*CfnCommand_CommandParameterValueConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnCommand.CommandParameterValueNumberRangeProperty",
+		reflect.TypeOf((*CfnCommand_CommandParameterValueNumberRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnCommand.CommandParameterValueProperty",
@@ -452,6 +470,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnCommand.CommandPayloadProperty",
 		reflect.TypeOf((*CfnCommand_CommandPayloadProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnCommand.CommandPreprocessorProperty",
+		reflect.TypeOf((*CfnCommand_CommandPreprocessorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnCommandProps",

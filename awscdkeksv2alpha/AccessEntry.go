@@ -18,6 +18,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var accessPolicy AccessPolicy
 //   var cluster Cluster
@@ -32,6 +33,7 @@ import (
 //   	// the properties below are optional
 //   	AccessEntryName: jsii.String("accessEntryName"),
 //   	AccessEntryType: eks_v2_alpha.AccessEntryType_STANDARD,
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   })
 //
 // Experimental.

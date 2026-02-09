@@ -30,6 +30,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Device: jsii.String("device"),
+//   	EbsCardIndex: jsii.Number(123),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html
@@ -50,6 +51,9 @@ type CfnVolumeAttachment interface {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
 	Device() *string
 	SetDevice(val *string)
+	// The index of the EBS card.
+	EbsCardIndex() *float64
+	SetEbsCardIndex(val *float64)
 	Env() *interfaces.ResourceEnvironment
 	// The ID of the instance to which the volume attaches.
 	InstanceId() *string
@@ -277,6 +281,16 @@ func (j *jsiiProxy_CfnVolumeAttachment) Device() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVolumeAttachment) EbsCardIndex() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ebsCardIndex",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVolumeAttachment) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -411,6 +425,14 @@ func (j *jsiiProxy_CfnVolumeAttachment)SetDevice(val *string) {
 	_jsii_.Set(
 		j,
 		"device",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVolumeAttachment)SetEbsCardIndex(val *float64) {
+	_jsii_.Set(
+		j,
+		"ebsCardIndex",
 		val,
 	)
 }

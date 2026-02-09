@@ -1,11 +1,15 @@
 package awseks
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for `AlbController`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var albControllerVersion AlbControllerVersion
@@ -23,6 +27,7 @@ package awseks
 //   	},
 //   	OverwriteServiceAccount: jsii.Boolean(false),
 //   	Policy: policy,
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	Repository: jsii.String("repository"),
 //   }
 //
@@ -50,6 +55,17 @@ type AlbControllerProps struct {
 	// Default: - Corresponds to the predefined version.
 	//
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
+	// The removal policy applied to the ALB controller resources.
+	//
+	// The removal policy controls what happens to the resources if they stop being managed by CloudFormation.
+	// This can happen in one of three situations:
+	//
+	// - The resource is removed from the template, so CloudFormation stops managing it
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	// Default: RemovalPolicy.DESTROY
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The repository to pull the controller image from.
 	//
 	// Note that the default repository works for most regions, but not all.

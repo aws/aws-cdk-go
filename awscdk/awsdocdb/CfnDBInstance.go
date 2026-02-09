@@ -657,6 +657,43 @@ func (j *jsiiProxy_CfnDBInstance)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnDBInstance_ArnForDBInstance(resource interfacesawsdocdb.IDBInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBInstance_ArnForDBInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdb.CfnDBInstance",
+		"arnForDBInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDBInstanceRef from a dbInstanceId.
+func CfnDBInstance_FromDBInstanceId(scope constructs.Construct, id *string, dbInstanceId *string) interfacesawsdocdb.IDBInstanceRef {
+	_init_.Initialize()
+
+	if err := validateCfnDBInstance_FromDBInstanceIdParameters(scope, id, dbInstanceId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdocdb.IDBInstanceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdb.CfnDBInstance",
+		"fromDBInstanceId",
+		[]interface{}{scope, id, dbInstanceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnDBInstance.
 func CfnDBInstance_IsCfnDBInstance(x interface{}) *bool {
 	_init_.Initialize()

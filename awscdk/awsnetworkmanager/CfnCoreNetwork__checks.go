@@ -164,6 +164,38 @@ func validateCfnCoreNetwork_ArnForCoreNetworkParameters(resource interfacesawsne
 	return nil
 }
 
+func validateCfnCoreNetwork_FromCoreNetworkArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnCoreNetwork_FromCoreNetworkIdParameters(scope constructs.Construct, id *string, coreNetworkId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if coreNetworkId == nil {
+		return fmt.Errorf("parameter coreNetworkId is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnCoreNetwork_IsCfnCoreNetworkParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

@@ -1,5 +1,8 @@
 package awscdkeksv2alpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Options for `KubernetesManifest`.
 //
@@ -7,11 +10,13 @@ package awscdkeksv2alpha
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import eks_v2_alpha "github.com/aws/aws-cdk-go/awscdkeksv2alpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   kubernetesManifestOptions := &KubernetesManifestOptions{
 //   	IngressAlb: jsii.Boolean(false),
 //   	IngressAlbScheme: eks_v2_alpha.AlbScheme_INTERNAL,
 //   	Prune: jsii.Boolean(false),
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	SkipValidation: jsii.Boolean(false),
 //   }
 //
@@ -51,6 +56,18 @@ type KubernetesManifestOptions struct {
 	//
 	// Experimental.
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
+	// The removal policy applied to the custom resource that manages the Kubernetes manifest.
+	//
+	// The removal policy controls what happens to the resource if it stops being managed by CloudFormation.
+	// This can happen in one of three situations:
+	//
+	// - The resource is removed from the template, so CloudFormation stops managing it
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	// Default: RemovalPolicy.DESTROY
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// A flag to signify if the manifest validation should be skipped.
 	// Default: false.
 	//

@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsses"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,30 @@ func (c *jsiiProxy_CfnMultiRegionEndpoint) validateReplaceDependencyParameters(t
 func (c *jsiiProxy_CfnMultiRegionEndpoint) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnMultiRegionEndpoint_ArnForMultiRegionEndpointParameters(resource interfacesawsses.IMultiRegionEndpointRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnMultiRegionEndpoint_FromEndpointNameParameters(scope constructs.Construct, id *string, endpointName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if endpointName == nil {
+		return fmt.Errorf("parameter endpointName is required, but nil was provided")
 	}
 
 	return nil

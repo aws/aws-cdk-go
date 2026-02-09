@@ -49,6 +49,7 @@ import (
 //   		// the properties below are optional
 //   		RoleArn: jsii.String("roleArn"),
 //   	},
+//   	IsMetricsEnabled: jsii.Boolean(false),
 //   	JobLogStatus: jsii.String("jobLogStatus"),
 //   	PaymentConfiguration: &MembershipPaymentConfigurationProperty{
 //   		QueryCompute: &MembershipQueryComputePaymentConfigProperty{
@@ -123,6 +124,8 @@ type CfnMembership interface {
 	DefaultResultConfiguration() interface{}
 	SetDefaultResultConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	IsMetricsEnabled() interface{}
+	SetIsMetricsEnabled(val interface{})
 	// An indicator as to whether job logging has been enabled or disabled for the collaboration.
 	JobLogStatus() *string
 	SetJobLogStatus(val *string)
@@ -436,6 +439,16 @@ func (j *jsiiProxy_CfnMembership) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMembership) IsMetricsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"isMetricsEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMembership) JobLogStatus() *string {
 	var returns *string
 	_jsii_.Get(
@@ -605,6 +618,17 @@ func (j *jsiiProxy_CfnMembership)SetDefaultResultConfiguration(val interface{}) 
 	_jsii_.Set(
 		j,
 		"defaultResultConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMembership)SetIsMetricsEnabled(val interface{}) {
+	if err := j.validateSetIsMetricsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"isMetricsEnabled",
 		val,
 	)
 }

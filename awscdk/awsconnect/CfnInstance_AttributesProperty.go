@@ -22,6 +22,7 @@ package awsconnect
 //   	EnhancedChatMonitoring: jsii.Boolean(false),
 //   	EnhancedContactMonitoring: jsii.Boolean(false),
 //   	HighVolumeOutBound: jsii.Boolean(false),
+//   	MessageStreaming: jsii.Boolean(false),
 //   	MultiPartyChatConference: jsii.Boolean(false),
 //   	MultiPartyConference: jsii.Boolean(false),
 //   	UseCustomTtsVoices: jsii.Boolean(false),
@@ -66,6 +67,10 @@ type CfnInstance_AttributesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-highvolumeoutbound
 	//
 	HighVolumeOutBound interface{} `field:"optional" json:"highVolumeOutBound" yaml:"highVolumeOutBound"`
+	// Boolean flag which enables MESSAGE_STREAMING on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-messagestreaming
+	//
+	MessageStreaming interface{} `field:"optional" json:"messageStreaming" yaml:"messageStreaming"`
 	// Boolean flag which enables MULTI_PARTY_CHAT_CONFERENCE on an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-multipartychatconference
 	//

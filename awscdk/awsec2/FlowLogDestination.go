@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -64,6 +65,30 @@ func FlowLogDestination_ToCloudWatchLogs(logGroup interfacesawslogs.ILogGroupRef
 }
 
 // Use Amazon Data Firehose as the destination.
+//
+// If the delivery stream and the VPC are in different account, you must specify `iamRole`.
+// See: https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html
+//
+func FlowLogDestination_ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, iamRole awsiam.IRole) FlowLogDestination {
+	_init_.Initialize()
+
+	if err := validateFlowLogDestination_ToFirehoseParameters(deliveryStream); err != nil {
+		panic(err)
+	}
+	var returns FlowLogDestination
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.FlowLogDestination",
+		"toFirehose",
+		[]interface{}{deliveryStream, iamRole},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use Amazon Data Firehose as the destination.
+// Deprecated: use `toFirehose`.
 func FlowLogDestination_ToKinesisDataFirehoseDestination(deliveryStreamArn *string) FlowLogDestination {
 	_init_.Initialize()
 

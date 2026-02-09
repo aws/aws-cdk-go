@@ -690,6 +690,43 @@ func (j *jsiiProxy_CfnConnectPeer)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnConnectPeer_ArnForConnectPeer(resource interfacesawsnetworkmanager.IConnectPeerRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnectPeer_ArnForConnectPeerParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectPeer",
+		"arnForConnectPeer",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IConnectPeerRef from a connectPeerId.
+func CfnConnectPeer_FromConnectPeerId(scope constructs.Construct, id *string, connectPeerId *string) interfacesawsnetworkmanager.IConnectPeerRef {
+	_init_.Initialize()
+
+	if err := validateCfnConnectPeer_FromConnectPeerIdParameters(scope, id, connectPeerId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsnetworkmanager.IConnectPeerRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectPeer",
+		"fromConnectPeerId",
+		[]interface{}{scope, id, connectPeerId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnConnectPeer.
 func CfnConnectPeer_IsCfnConnectPeer(x interface{}) *bool {
 	_init_.Initialize()

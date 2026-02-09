@@ -57,7 +57,7 @@ bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).with(awscdkmixinsprevi
 
 The `.with()` method is available after importing `@aws-cdk/mixins-preview/with`, which augments all constructs with this method. It provides the same functionality as `Mixins.of().apply()` but with a more chainable API.
 
-> **Note**: The `.with()` fluent syntax is only available in JavaScript and TypeScript. Other jsii languages (Python, Java, C#, and Go) should use the `Mixins.of(...).mustApply()` syntax instead. The import requirement is temporary during the preview phase. Once the API is stable, the `.with()` method will be available by default on all constructs and in all languages.
+> **Note**: The `.with()` fluent syntax is only available in JavaScript and TypeScript. Other jsii languages (Python, Java, C#, and Go) should use the `Mixins.of(...).requireAll()` syntax instead. The import requirement is temporary during the preview phase. Once the API is stable, the `.with()` method will be available by default on all constructs and in all languages.
 
 ### Creating Custom Mixins
 
@@ -73,11 +73,10 @@ func (this *customVersioningMixin) supports(construct interface{}) *bool {
 	return jsii.Boolean(*construct instanceof s3.CfnBucket)
 }
 
-func (this *customVersioningMixin) applyTo(bucket interface{}) interface{} {
+func (this *customVersioningMixin) applyTo(bucket interface{}) {
 	*bucket.versioningConfiguration = map[string]*string{
 		"status": jsii.String("Enabled"),
 	}
-	return *bucket
 }
 
 // Usage

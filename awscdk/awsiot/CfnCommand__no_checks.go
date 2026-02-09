@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnCommand) validateSetPendingDeletionParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnCommand) validateSetPreprocessorParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCommand) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

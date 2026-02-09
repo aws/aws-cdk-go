@@ -22,22 +22,27 @@ import (
 //   	Database: myDatabase,
 //   	Columns: []Column{
 //   		&Column{
-//   			Name: jsii.String("col1"),
+//   			Name: jsii.String("data"),
 //   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	PartitionKeys: []Column{
 //   		&Column{
-//   			Name: jsii.String("year"),
-//   			Type: glue.Schema_SMALL_INT(),
-//   		},
-//   		&Column{
-//   			Name: jsii.String("month"),
-//   			Type: glue.Schema_SMALL_INT(),
+//   			Name: jsii.String("date"),
+//   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	DataFormat: glue.DataFormat_JSON(),
-//   	EnablePartitionFiltering: jsii.Boolean(true),
+//   	PartitionProjection: map[string]PartitionProjectionConfiguration{
+//   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
+//   			"min": jsii.String("2020-01-01"),
+//   			"max": jsii.String("2023-12-31"),
+//   			"format": jsii.String("yyyy-MM-dd"),
+//   			"interval": jsii.Number(1),
+//   			 // optional, defaults to 1
+//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   		}),
+//   	},
 //   })
 //
 // Experimental.
@@ -91,6 +96,9 @@ type S3Table interface {
 	// This table's partition keys if the table is partitioned.
 	// Experimental.
 	PartitionKeys() *[]*Column
+	// This table's partition projection configuration if enabled.
+	// Experimental.
+	PartitionProjection() *map[string]PartitionProjectionConfiguration
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
 	// This value will resolve to one of the following:
@@ -307,6 +315,16 @@ func (j *jsiiProxy_S3Table) PartitionKeys() *[]*Column {
 	_jsii_.Get(
 		j,
 		"partitionKeys",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3Table) PartitionProjection() *map[string]PartitionProjectionConfiguration {
+	var returns *map[string]PartitionProjectionConfiguration
+	_jsii_.Get(
+		j,
+		"partitionProjection",
 		&returns,
 	)
 	return returns

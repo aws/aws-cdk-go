@@ -16,3 +16,7 @@ func (i *jsiiProxy_IGatewayTarget) validateGrantReadParameters(grantee awsiam.IG
 	return nil
 }
 
+func (i *jsiiProxy_IGatewayTarget) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+

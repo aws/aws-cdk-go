@@ -1035,43 +1035,6 @@ func (j *jsiiProxy_CfnCacheCluster)SetVpcSecurityGroupIds(val *[]*string) {
 	)
 }
 
-func CfnCacheCluster_ArnForCacheCluster(resource interfacesawselasticache.ICacheClusterRef) *string {
-	_init_.Initialize()
-
-	if err := validateCfnCacheCluster_ArnForCacheClusterParameters(resource); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
-		"arnForCacheCluster",
-		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICacheClusterRef from a clusterName.
-func CfnCacheCluster_FromClusterName(scope constructs.Construct, id *string, clusterName *string) interfacesawselasticache.ICacheClusterRef {
-	_init_.Initialize()
-
-	if err := validateCfnCacheCluster_FromClusterNameParameters(scope, id, clusterName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawselasticache.ICacheClusterRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticache.CfnCacheCluster",
-		"fromClusterName",
-		[]interface{}{scope, id, clusterName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Checks whether the given object is a CfnCacheCluster.
 func CfnCacheCluster_IsCfnCacheCluster(x interface{}) *bool {
 	_init_.Initialize()

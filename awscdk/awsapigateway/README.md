@@ -105,6 +105,8 @@ The following example uses sets up two Resources '/pets' and '/books' in separat
 import "github.com/aws/constructs-go/constructs"
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 
 /**
  * This file showcases how to split up a RestApi's Resources and Methods across nested stacks.
