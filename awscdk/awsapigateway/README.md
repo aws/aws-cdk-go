@@ -1192,8 +1192,8 @@ authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &R
 secondAuthorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MySecondAuthorizer"), &RequestAuthorizerProps{
 	Handler: authorizerFn,
 	IdentitySources: []*string{
-		awscdk.IdentitySource_*Header(jsii.String("Authorization")),
-		awscdk.IdentitySource_*QueryString(jsii.String("allow")),
+		awscdk.IdentitySource_Header(jsii.String("Authorization")),
+		awscdk.IdentitySource_QueryString(jsii.String("allow")),
 	},
 })
 
