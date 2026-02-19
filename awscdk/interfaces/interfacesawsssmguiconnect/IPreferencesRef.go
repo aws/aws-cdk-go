@@ -24,6 +24,24 @@ type jsiiProxy_IPreferencesRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IPreferencesRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IPreferencesRef) PreferencesRef() *PreferencesReference {
 	var returns *PreferencesReference
 	_jsii_.Get(

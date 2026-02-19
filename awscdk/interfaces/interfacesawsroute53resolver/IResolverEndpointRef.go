@@ -24,6 +24,24 @@ type jsiiProxy_IResolverEndpointRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IResolverEndpointRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IResolverEndpointRef) ResolverEndpointRef() *ResolverEndpointReference {
 	var returns *ResolverEndpointReference
 	_jsii_.Get(

@@ -88,6 +88,10 @@ func validateCfnGrant_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGrant) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnGrantParameters(scope constructs.Construct, id *string, props *CfnGrantProps) error {
 	return nil
 }

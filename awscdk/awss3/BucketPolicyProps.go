@@ -6,22 +6,33 @@ import (
 )
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
+//   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
+//   // Create CloudFront distribution
 //   var bucket Bucket
-//   var policyDocument PolicyDocument
 //
-//   bucketPolicyProps := &BucketPolicyProps{
-//   	Bucket: bucket,
+//   distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
+//   	},
+//   })
 //
-//   	// the properties below are optional
-//   	Document: policyDocument,
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-//   }
+//   // Create destination bucket
+//   destBucket := s3.NewBucket(scope, jsii.String("DeliveryBucket"))
+//   // Add permissions to bucket to facilitate log delivery
+//   bucketPolicy := s3.NewBucketPolicy(scope, jsii.String("DeliveryBucketPolicy"), &BucketPolicyProps{
+//   	Bucket: destBucket,
+//   	Document: iam.NewPolicyDocument(),
+//   })
+//   // Create S3 delivery destination for logs
+//   destination := logs.NewCfnDeliveryDestination(scope, jsii.String("Destination"), &CfnDeliveryDestinationProps{
+//   	DestinationResourceArn: destBucket.bucketArn,
+//   	Name: jsii.String("unique-destination-name"),
+//   	DeliveryDestinationType: jsii.String("S3"),
+//   })
+//
+//   distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToDestination(destination))
 //
 type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.

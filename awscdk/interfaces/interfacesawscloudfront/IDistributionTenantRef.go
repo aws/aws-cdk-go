@@ -24,6 +24,24 @@ type jsiiProxy_IDistributionTenantRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IDistributionTenantRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IDistributionTenantRef) DistributionTenantRef() *DistributionTenantReference {
 	var returns *DistributionTenantReference
 	_jsii_.Get(

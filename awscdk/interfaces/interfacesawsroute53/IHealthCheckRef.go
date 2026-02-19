@@ -24,6 +24,24 @@ type jsiiProxy_IHealthCheckRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IHealthCheckRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IHealthCheckRef) HealthCheckRef() *HealthCheckReference {
 	var returns *HealthCheckReference
 	_jsii_.Get(

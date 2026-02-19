@@ -16,6 +16,19 @@ package awssagemaker
 //   		VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   		VolumeSizeInGb: jsii.Number(123),
 //   	},
+//   	FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   		DnsName: jsii.String("dnsName"),
+//   		MountName: jsii.String("mountName"),
+//
+//   		// the properties below are optional
+//   		MountPath: jsii.String("mountPath"),
+//   	},
+//   	FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   		DnsName: jsii.String("dnsName"),
+//
+//   		// the properties below are optional
+//   		MountPath: jsii.String("mountPath"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html
@@ -27,5 +40,13 @@ type CfnCluster_ClusterInstanceStorageConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html#cfn-sagemaker-cluster-clusterinstancestorageconfig-ebsvolumeconfig
 	//
 	EbsVolumeConfig interface{} `field:"optional" json:"ebsVolumeConfig" yaml:"ebsVolumeConfig"`
+	// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html#cfn-sagemaker-cluster-clusterinstancestorageconfig-fsxlustreconfig
+	//
+	FsxLustreConfig interface{} `field:"optional" json:"fsxLustreConfig" yaml:"fsxLustreConfig"`
+	// Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html#cfn-sagemaker-cluster-clusterinstancestorageconfig-fsxopenzfsconfig
+	//
+	FsxOpenZfsConfig interface{} `field:"optional" json:"fsxOpenZfsConfig" yaml:"fsxOpenZfsConfig"`
 }
 

@@ -307,6 +307,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnWebACLAccessLogs",
 		reflect.TypeOf((*CfnWebACLAccessLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -715,6 +716,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_wafv2.mixins.CfnWebACLTokenLogs",
 		reflect.TypeOf((*CfnWebACLTokenLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},

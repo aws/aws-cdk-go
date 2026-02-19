@@ -24,6 +24,24 @@ type jsiiProxy_ISimpleTableRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ISimpleTableRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ISimpleTableRef) SimpleTableRef() *SimpleTableReference {
 	var returns *SimpleTableReference
 	_jsii_.Get(

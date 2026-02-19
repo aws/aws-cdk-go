@@ -1,5 +1,8 @@
 package awsses
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnTemplate`.
 //
@@ -9,6 +12,12 @@ package awsses
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnTemplateProps := &CfnTemplateProps{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Template: &TemplateProperty{
 //   		SubjectPart: jsii.String("subjectPart"),
 //
@@ -22,6 +31,10 @@ package awsses
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html
 //
 type CfnTemplateProps struct {
+	// The tags (keys and values) associated with the email template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html#cfn-ses-template-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html#cfn-ses-template-template
 	//

@@ -9,6 +9,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AddApiGatewayTargetOptions",
+		reflect.TypeOf((*AddApiGatewayTargetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AddEndpointOptions",
 		reflect.TypeOf((*AddEndpointOptions)(nil)).Elem(),
 	)
@@ -51,6 +55,53 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeAttributes",
 		reflect.TypeOf((*AgentRuntimeAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiGatewayHttpMethod",
+		reflect.TypeOf((*ApiGatewayHttpMethod)(nil)).Elem(),
+		map[string]interface{}{
+			"GET": ApiGatewayHttpMethod_GET,
+			"POST": ApiGatewayHttpMethod_POST,
+			"PUT": ApiGatewayHttpMethod_PUT,
+			"DELETE": ApiGatewayHttpMethod_DELETE,
+			"PATCH": ApiGatewayHttpMethod_PATCH,
+			"HEAD": ApiGatewayHttpMethod_HEAD,
+			"OPTIONS": ApiGatewayHttpMethod_OPTIONS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiGatewayTargetConfiguration",
+		reflect.TypeOf((*ApiGatewayTargetConfiguration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiGatewayToolConfiguration", GoGetter: "ApiGatewayToolConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "metadataConfiguration", GoGetter: "MetadataConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "renderMcpConfiguration", GoMethod: "RenderMcpConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "restApiId", GoGetter: "RestApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "stage", GoGetter: "Stage"},
+			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiGatewayTargetConfiguration{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_McpTargetConfiguration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiGatewayTargetConfigurationProps",
+		reflect.TypeOf((*ApiGatewayTargetConfigurationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiGatewayToolConfiguration",
+		reflect.TypeOf((*ApiGatewayToolConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiGatewayToolFilter",
+		reflect.TypeOf((*ApiGatewayToolFilter)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiGatewayToolOverride",
+		reflect.TypeOf((*ApiGatewayToolOverride)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiKeyAdditionalConfiguration",
@@ -162,6 +213,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BrowserCustom{}
@@ -210,6 +262,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BrowserCustomBase{}
@@ -244,6 +297,10 @@ func init() {
 			"ENABLED": BrowserSigning_ENABLED,
 			"DISABLED": BrowserSigning_DISABLED,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.CodeAssetOptions",
+		reflect.TypeOf((*CodeAssetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CodeInterpreterCustom",
@@ -285,6 +342,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CodeInterpreterCustom{}
@@ -331,6 +389,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CodeInterpreterCustomBase{}
@@ -404,6 +463,7 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.Gateway",
 		reflect.TypeOf((*Gateway)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addApiGatewayTarget", GoMethod: "AddApiGatewayTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterceptor", GoMethod: "AddInterceptor"},
 			_jsii_.MemberMethod{JsiiMethod: "addLambdaTarget", GoMethod: "AddLambdaTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "addMcpServerTarget", GoMethod: "AddMcpServerTarget"},
@@ -453,6 +513,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "userPool", GoGetter: "UserPool"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolClient", GoGetter: "UserPoolClient"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolDomain", GoGetter: "UserPoolDomain"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Gateway{}
@@ -521,6 +582,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "statusReason", GoGetter: "StatusReason"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GatewayBase{}
@@ -594,6 +656,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GatewayTarget{}
@@ -601,6 +664,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IMcpGatewayTarget)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayTargetApiGatewayProps",
+		reflect.TypeOf((*GatewayTargetApiGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayTargetAttributes",
@@ -634,6 +701,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetProtocolType", GoGetter: "TargetProtocolType"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GatewayTargetBase{}
@@ -707,6 +775,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "runtimeRef", GoGetter: "RuntimeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IBedrockAgentRuntime{}
@@ -749,6 +818,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IBrowserCustom{}
@@ -788,6 +858,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ICodeInterpreterCustom{}
@@ -845,6 +916,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "statusReason", GoGetter: "StatusReason"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGateway{}
@@ -896,6 +968,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetId", GoGetter: "TargetId"},
 			_jsii_.MemberProperty{JsiiProperty: "targetProtocolType", GoGetter: "TargetProtocolType"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGatewayTarget{}
@@ -939,6 +1012,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "targetProtocolType", GoGetter: "TargetProtocolType"},
 			_jsii_.MemberProperty{JsiiProperty: "targetType", GoGetter: "TargetType"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IMcpGatewayTarget{}
@@ -979,6 +1053,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IMemory{}
@@ -1019,6 +1094,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "targetVersion", GoGetter: "TargetVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRuntimeEndpoint{}
@@ -1230,6 +1306,7 @@ func init() {
 			"SMITHY_MODEL": McpTargetType_SMITHY_MODEL,
 			"LAMBDA": McpTargetType_LAMBDA,
 			"MCP_SERVER": McpTargetType_MCP_SERVER,
+			"API_GATEWAY": McpTargetType_API_GATEWAY,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1278,6 +1355,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Memory{}
@@ -1328,6 +1406,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_MemoryBase{}
@@ -1362,6 +1441,10 @@ func init() {
 			"EPISODIC": MemoryStrategyType_EPISODIC,
 			"CUSTOM": MemoryStrategyType_CUSTOM,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.MetadataConfiguration",
+		reflect.TypeOf((*MetadataConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.NetworkConfiguration",
@@ -1458,6 +1541,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "runtimeRef", GoGetter: "RuntimeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Runtime{}
@@ -1512,6 +1596,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "runtimeRef", GoGetter: "RuntimeRef"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_RuntimeBase{}
@@ -1554,6 +1639,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "targetVersion", GoGetter: "TargetVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_RuntimeEndpoint{}
@@ -1587,6 +1673,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
 			_jsii_.MemberProperty{JsiiProperty: "targetVersion", GoGetter: "TargetVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_RuntimeEndpointBase{}

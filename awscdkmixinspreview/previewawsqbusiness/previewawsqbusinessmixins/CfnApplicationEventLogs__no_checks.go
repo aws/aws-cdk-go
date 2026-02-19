@@ -4,6 +4,10 @@ package previewawsqbusinessmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CfnApplicationEventLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationEventLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
 	return nil
 }

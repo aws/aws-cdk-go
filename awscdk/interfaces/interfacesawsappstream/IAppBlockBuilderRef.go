@@ -24,6 +24,24 @@ type jsiiProxy_IAppBlockBuilderRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IAppBlockBuilderRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAppBlockBuilderRef) AppBlockBuilderRef() *AppBlockBuilderReference {
 	var returns *AppBlockBuilderReference
 	_jsii_.Get(

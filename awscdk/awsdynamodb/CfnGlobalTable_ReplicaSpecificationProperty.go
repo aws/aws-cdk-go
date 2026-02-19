@@ -58,6 +58,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
 //   	KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
 //   		StreamArn: jsii.String("streamArn"),
 //
@@ -132,6 +133,9 @@ type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
 	//
 	GlobalSecondaryIndexes interface{} `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globaltablesettingsreplicationmode
+	//
+	GlobalTableSettingsReplicationMode *string `field:"optional" json:"globalTableSettingsReplicationMode" yaml:"globalTableSettingsReplicationMode"`
 	// Defines the Kinesis Data Streams configuration for the specified replica.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-kinesisstreamspecification
 	//

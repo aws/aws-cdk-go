@@ -21,6 +21,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketBlockPublicAccess",
+		reflect.TypeOf((*BucketBlockPublicAccess)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_BucketBlockPublicAccess{}
+			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketPolicyStatementsMixin",
 		reflect.TypeOf((*BucketPolicyStatementsMixin)(nil)).Elem(),
 		[]_jsii_.Member{

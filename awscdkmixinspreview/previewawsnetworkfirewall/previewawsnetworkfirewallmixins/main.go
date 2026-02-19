@@ -11,6 +11,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_networkfirewall.mixins.CfnFirewallAlertLogs",
 		reflect.TypeOf((*CfnFirewallAlertLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -23,6 +24,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_networkfirewall.mixins.CfnFirewallFlowLogs",
 		reflect.TypeOf((*CfnFirewallFlowLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -147,6 +149,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_networkfirewall.mixins.CfnFirewallTlsLogs",
 		reflect.TypeOf((*CfnFirewallTlsLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},

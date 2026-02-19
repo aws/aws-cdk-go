@@ -39,6 +39,15 @@ import (
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
+//   					FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountName: jsii.String("mountName"),
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountPath: jsii.String("mountPath"),
+//   					},
 //   				},
 //   			},
 //   			InstanceType: jsii.String("instanceType"),
@@ -91,6 +100,12 @@ import (
 //   				},
 //   				ScheduleExpression: jsii.String("scheduleExpression"),
 //   			},
+//   			SlurmConfig: &ClusterSlurmConfigProperty{
+//   				NodeType: jsii.String("nodeType"),
+//   				PartitionNames: []*string{
+//   					jsii.String("partitionNames"),
+//   				},
+//   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
@@ -100,6 +115,9 @@ import (
 //   	Orchestrator: &OrchestratorProperty{
 //   		Eks: &ClusterOrchestratorEksConfigProperty{
 //   			ClusterArn: jsii.String("clusterArn"),
+//   		},
+//   		Slurm: &ClusterOrchestratorSlurmConfigProperty{
+//   			SlurmConfigStrategy: jsii.String("slurmConfigStrategy"),
 //   		},
 //   	},
 //   	RestrictedInstanceGroups: []interface{}{
@@ -120,6 +138,15 @@ import (
 //   						RootVolume: jsii.Boolean(false),
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
+//   					},
+//   					FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountName: jsii.String("mountName"),
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountPath: jsii.String("mountPath"),
 //   					},
 //   				},
 //   			},

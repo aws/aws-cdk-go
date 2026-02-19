@@ -24,6 +24,24 @@ type jsiiProxy_ILogStreamRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ILogStreamRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ILogStreamRef) LogStreamRef() *LogStreamReference {
 	var returns *LogStreamReference
 	_jsii_.Get(

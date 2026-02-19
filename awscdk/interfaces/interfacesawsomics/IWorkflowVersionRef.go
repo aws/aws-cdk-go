@@ -24,6 +24,24 @@ type jsiiProxy_IWorkflowVersionRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IWorkflowVersionRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IWorkflowVersionRef) WorkflowVersionRef() *WorkflowVersionReference {
 	var returns *WorkflowVersionReference
 	_jsii_.Get(

@@ -267,6 +267,16 @@ type CfnApplicationOutputV2 interface {
 	ToString() *string
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnApplicationOutputV2
@@ -833,5 +843,23 @@ func (c *jsiiProxy_CfnApplicationOutputV2) ValidateProperties(_properties interf
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnApplicationOutputV2) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

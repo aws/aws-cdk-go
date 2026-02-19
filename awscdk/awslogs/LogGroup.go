@@ -125,9 +125,13 @@ type LogGroup interface {
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Give permissions to read and filter events from this log group.
 	//
+	// The use of this method is discouraged. Please use `grants.read()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Give permissions to create and write to streams in this log group.
+	//
+	// The use of this method is discouraged. Please use `grants.write()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
@@ -185,6 +189,15 @@ type LogGroup interface {
 	MetricIncomingLogEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for LogGroup
@@ -696,6 +709,24 @@ func (l *jsiiProxy_LogGroup) ToString() *string {
 		l,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroup) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		l,
+		"with",
+		args,
 		&returns,
 	)
 

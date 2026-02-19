@@ -20,15 +20,12 @@ import (
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
-//
-//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
-//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
-//   	Actions: []IAction{
-//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
-//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
-//   		}),
-//   	},
+//   dlt := sns.NewTopic(this, jsii.String("DLQ"))
+//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromInline(jsii.String("// your code here")),
+//   	DeadLetterTopic: dlt,
 //   })
 //
 type Topic interface {
@@ -129,9 +126,17 @@ type Topic interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
 	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
-	// Grant topic publishing permissions to the given identity [disable-awslint:no-grants].
+	// Grant topic publishing permissions to the given identity.
+	//
+	// The use of this method is discouraged. Please use `grants.publish()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
-	// Grant topic subscribing permissions to the given identity [disable-awslint:no-grants].
+	// Grant topic subscribing permissions to the given identity.
+	//
+	// The use of this method is discouraged. Please use `grants.subscribe()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -173,6 +178,15 @@ type Topic interface {
 	MetricSMSSuccessRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for Topic
@@ -832,6 +846,24 @@ func (t *jsiiProxy_Topic) ToString() *string {
 		t,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Topic) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		t,
+		"with",
+		args,
 		&returns,
 	)
 

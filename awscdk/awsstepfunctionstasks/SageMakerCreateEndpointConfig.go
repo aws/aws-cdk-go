@@ -165,6 +165,15 @@ type SageMakerCreateEndpointConfig interface {
 	//
 	// Can be overridden by subclasses.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for SageMakerCreateEndpointConfig
@@ -1118,5 +1127,23 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) WhenBoundToGraph(graph awsstep
 		"whenBoundToGraph",
 		[]interface{}{graph},
 	)
+}
+
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		s,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

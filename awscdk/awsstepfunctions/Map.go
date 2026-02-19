@@ -141,6 +141,15 @@ type Map interface {
 	//
 	// Can be overridden by subclasses.
 	WhenBoundToGraph(graph StateGraph)
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for Map
@@ -988,5 +997,23 @@ func (m *jsiiProxy_Map) WhenBoundToGraph(graph StateGraph) {
 		"whenBoundToGraph",
 		[]interface{}{graph},
 	)
+}
+
+func (m *jsiiProxy_Map) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		m,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

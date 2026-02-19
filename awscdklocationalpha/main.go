@@ -60,6 +60,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ApiKey{}
@@ -107,6 +108,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GeofenceCollection{}
@@ -129,6 +131,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IApiKey{}
@@ -146,6 +149,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "geofenceCollectionName", GoGetter: "GeofenceCollectionName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IGeofenceCollection{}
@@ -163,6 +167,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "mapName", GoGetter: "MapName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IMap{}
@@ -180,6 +185,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "placeIndexArn", GoGetter: "PlaceIndexArn"},
 			_jsii_.MemberProperty{JsiiProperty: "placeIndexName", GoGetter: "PlaceIndexName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlaceIndex{}
@@ -197,6 +203,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorArn", GoGetter: "RouteCalculatorArn"},
 			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorName", GoGetter: "RouteCalculatorName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IRouteCalculator{}
@@ -214,6 +221,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "trackerArn", GoGetter: "TrackerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "trackerName", GoGetter: "TrackerName"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITracker{}
@@ -248,6 +256,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Map{}
@@ -279,6 +288,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "placeIndexUpdateTime", GoGetter: "PlaceIndexUpdateTime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PlaceIndex{}
@@ -326,6 +336,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "routeCalculatorUpdateTime", GoGetter: "RouteCalculatorUpdateTime"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_RouteCalculator{}
@@ -382,6 +393,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "trackerCreateTime", GoGetter: "TrackerCreateTime"},
 			_jsii_.MemberProperty{JsiiProperty: "trackerName", GoGetter: "TrackerName"},
 			_jsii_.MemberProperty{JsiiProperty: "trackerUpdateTime", GoGetter: "TrackerUpdateTime"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Tracker{}

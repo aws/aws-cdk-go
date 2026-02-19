@@ -24,6 +24,24 @@ type jsiiProxy_IRouteTableRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IRouteTableRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IRouteTableRef) RouteTableRef() *RouteTableReference {
 	var returns *RouteTableReference
 	_jsii_.Get(

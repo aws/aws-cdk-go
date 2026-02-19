@@ -7,6 +7,13 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mediaPackageV2GroupSettingsProperty := &MediaPackageV2GroupSettingsProperty{
+//   	AdditionalDestinations: []interface{}{
+//   		&MediaPackageAdditionalDestinationsProperty{
+//   			Destination: &OutputLocationRefProperty{
+//   				DestinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   		},
+//   	},
 //   	CaptionLanguageMappings: []interface{}{
 //   		&CaptionLanguageMappingProperty{
 //   			CaptionChannel: jsii.Number(123),
@@ -28,6 +35,9 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html
 //
 type CfnChannel_MediaPackageV2GroupSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html#cfn-medialive-channel-mediapackagev2groupsettings-additionaldestinations
+	//
+	AdditionalDestinations interface{} `field:"optional" json:"additionalDestinations" yaml:"additionalDestinations"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html#cfn-medialive-channel-mediapackagev2groupsettings-captionlanguagemappings
 	//
 	CaptionLanguageMappings interface{} `field:"optional" json:"captionLanguageMappings" yaml:"captionLanguageMappings"`

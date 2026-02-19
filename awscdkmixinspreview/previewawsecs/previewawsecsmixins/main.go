@@ -603,4 +603,17 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnTaskSetPropsMixin.ServiceRegistryProperty",
 		reflect.TypeOf((*CfnTaskSetPropsMixin_ServiceRegistryProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ecs.mixins.ClusterSettings",
+		reflect.TypeOf((*ClusterSettings)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ClusterSettings{}
+			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			return &j
+		},
+	)
 }

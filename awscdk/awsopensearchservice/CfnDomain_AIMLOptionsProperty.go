@@ -10,6 +10,9 @@ package awsopensearchservice
 //   	S3VectorsEngine: &S3VectorsEngineProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	ServerlessVectorAcceleration: &ServerlessVectorAccelerationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-aimloptions.html
@@ -18,5 +21,8 @@ type CfnDomain_AIMLOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-aimloptions.html#cfn-opensearchservice-domain-aimloptions-s3vectorsengine
 	//
 	S3VectorsEngine interface{} `field:"optional" json:"s3VectorsEngine" yaml:"s3VectorsEngine"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-aimloptions.html#cfn-opensearchservice-domain-aimloptions-serverlessvectoracceleration
+	//
+	ServerlessVectorAcceleration interface{} `field:"optional" json:"serverlessVectorAcceleration" yaml:"serverlessVectorAcceleration"`
 }
 

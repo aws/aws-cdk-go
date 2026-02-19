@@ -48,6 +48,12 @@ import (
 //
 //   				// the properties below are optional
 //   				DesiredEc2Instances: jsii.Number(123),
+//   				ManagedCapacityConfiguration: &ManagedCapacityConfigurationProperty{
+//   					ZeroCapacityStrategy: jsii.String("zeroCapacityStrategy"),
+//
+//   					// the properties below are optional
+//   					ScaleInAfterInactivityMinutes: jsii.Number(123),
+//   				},
 //   				MinSize: jsii.Number(123),
 //   			},
 //   		},

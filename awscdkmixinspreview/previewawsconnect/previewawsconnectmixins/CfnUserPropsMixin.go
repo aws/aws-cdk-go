@@ -21,6 +21,24 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnUserPropsMixin := awscdkmixinspreview.Mixins.NewCfnUserPropsMixin(&CfnUserMixinProps{
+//   	AfterContactWorkConfigs: []interface{}{
+//   		&AfterContactWorkConfigPerChannelProperty{
+//   			AfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   				AfterContactWorkTimeLimit: jsii.Number(123),
+//   			},
+//   			AgentFirstCallbackAfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   				AfterContactWorkTimeLimit: jsii.Number(123),
+//   			},
+//   			Channel: jsii.String("channel"),
+//   		},
+//   	},
+//   	AutoAcceptConfigs: []interface{}{
+//   		&AutoAcceptConfigProperty{
+//   			AgentFirstCallbackAutoAccept: jsii.Boolean(false),
+//   			AutoAccept: jsii.Boolean(false),
+//   			Channel: jsii.String("channel"),
+//   		},
+//   	},
 //   	DirectoryUserId: jsii.String("directoryUserId"),
 //   	HierarchyGroupArn: jsii.String("hierarchyGroupArn"),
 //   	IdentityInfo: &UserIdentityInfoProperty{
@@ -32,12 +50,25 @@ import (
 //   	},
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Password: jsii.String("password"),
+//   	PersistentConnectionConfigs: []interface{}{
+//   		&PersistentConnectionConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			PersistentConnection: jsii.Boolean(false),
+//   		},
+//   	},
 //   	PhoneConfig: &UserPhoneConfigProperty{
 //   		AfterContactWorkTimeLimit: jsii.Number(123),
 //   		AutoAccept: jsii.Boolean(false),
 //   		DeskPhoneNumber: jsii.String("deskPhoneNumber"),
 //   		PersistentConnection: jsii.Boolean(false),
 //   		PhoneType: jsii.String("phoneType"),
+//   	},
+//   	PhoneNumberConfigs: []interface{}{
+//   		&PhoneNumberConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			PhoneNumber: jsii.String("phoneNumber"),
+//   			PhoneType: jsii.String("phoneType"),
+//   		},
 //   	},
 //   	RoutingProfileArn: jsii.String("routingProfileArn"),
 //   	SecurityProfileArns: []*string{
@@ -55,6 +86,12 @@ import (
 //   			AttributeName: jsii.String("attributeName"),
 //   			AttributeValue: jsii.String("attributeValue"),
 //   			Level: jsii.Number(123),
+//   		},
+//   	},
+//   	VoiceEnhancementConfigs: []interface{}{
+//   		&VoiceEnhancementConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			VoiceEnhancementMode: jsii.String("voiceEnhancementMode"),
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{

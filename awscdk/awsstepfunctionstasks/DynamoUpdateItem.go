@@ -165,6 +165,15 @@ type DynamoUpdateItem interface {
 	//
 	// Can be overridden by subclasses.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for DynamoUpdateItem
@@ -1103,5 +1112,23 @@ func (d *jsiiProxy_DynamoUpdateItem) WhenBoundToGraph(graph awsstepfunctions.Sta
 		"whenBoundToGraph",
 		[]interface{}{graph},
 	)
+}
+
+func (d *jsiiProxy_DynamoUpdateItem) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		d,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

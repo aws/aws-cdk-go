@@ -24,6 +24,24 @@ type jsiiProxy_IRouteServerEndpointRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IRouteServerEndpointRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IRouteServerEndpointRef) RouteServerEndpointRef() *RouteServerEndpointReference {
 	var returns *RouteServerEndpointReference
 	_jsii_.Get(

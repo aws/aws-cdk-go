@@ -88,6 +88,14 @@ func validateCfnUser_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnUser) validateSetAfterContactWorkConfigsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetAutoAcceptConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUser) validateSetIdentityInfoParameters(val interface{}) error {
 	return nil
 }
@@ -96,7 +104,15 @@ func (j *jsiiProxy_CfnUser) validateSetInstanceArnParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnUser) validateSetPersistentConnectionConfigsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUser) validateSetPhoneConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetPhoneNumberConfigsParameters(val interface{}) error {
 	return nil
 }
 
@@ -117,6 +133,10 @@ func (j *jsiiProxy_CfnUser) validateSetUsernameParameters(val *string) error {
 }
 
 func (j *jsiiProxy_CfnUser) validateSetUserProficienciesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetVoiceEnhancementConfigsParameters(val interface{}) error {
 	return nil
 }
 

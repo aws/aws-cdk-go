@@ -99,6 +99,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationAdDecisionServerLogs",
 		reflect.TypeOf((*CfnPlaybackConfigurationAdDecisionServerLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -127,6 +128,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationManifestServiceLogs",
 		reflect.TypeOf((*CfnPlaybackConfigurationManifestServiceLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -215,6 +217,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationTranscodeLogs",
 		reflect.TypeOf((*CfnPlaybackConfigurationTranscodeLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},

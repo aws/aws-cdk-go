@@ -108,6 +108,10 @@ func init() {
 		reflect.TypeOf((*CfnContainerFleetPropsMixin_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnContainerFleetPropsMixin.ManagedCapacityConfigurationProperty",
+		reflect.TypeOf((*CfnContainerFleetPropsMixin_ManagedCapacityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnContainerFleetPropsMixin.ScalingPolicyProperty",
 		reflect.TypeOf((*CfnContainerFleetPropsMixin_ScalingPolicyProperty)(nil)).Elem(),
 	)
@@ -206,6 +210,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnFleetPropsMixin.LocationConfigurationProperty",
 		reflect.TypeOf((*CfnFleetPropsMixin_LocationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnFleetPropsMixin.ManagedCapacityConfigurationProperty",
+		reflect.TypeOf((*CfnFleetPropsMixin_ManagedCapacityConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnFleetPropsMixin.ResourceCreationLimitPolicyProperty",

@@ -12,6 +12,24 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnUserMixinProps := &CfnUserMixinProps{
+//   	AfterContactWorkConfigs: []interface{}{
+//   		&AfterContactWorkConfigPerChannelProperty{
+//   			AfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   				AfterContactWorkTimeLimit: jsii.Number(123),
+//   			},
+//   			AgentFirstCallbackAfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   				AfterContactWorkTimeLimit: jsii.Number(123),
+//   			},
+//   			Channel: jsii.String("channel"),
+//   		},
+//   	},
+//   	AutoAcceptConfigs: []interface{}{
+//   		&AutoAcceptConfigProperty{
+//   			AgentFirstCallbackAutoAccept: jsii.Boolean(false),
+//   			AutoAccept: jsii.Boolean(false),
+//   			Channel: jsii.String("channel"),
+//   		},
+//   	},
 //   	DirectoryUserId: jsii.String("directoryUserId"),
 //   	HierarchyGroupArn: jsii.String("hierarchyGroupArn"),
 //   	IdentityInfo: &UserIdentityInfoProperty{
@@ -23,12 +41,25 @@ import (
 //   	},
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Password: jsii.String("password"),
+//   	PersistentConnectionConfigs: []interface{}{
+//   		&PersistentConnectionConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			PersistentConnection: jsii.Boolean(false),
+//   		},
+//   	},
 //   	PhoneConfig: &UserPhoneConfigProperty{
 //   		AfterContactWorkTimeLimit: jsii.Number(123),
 //   		AutoAccept: jsii.Boolean(false),
 //   		DeskPhoneNumber: jsii.String("deskPhoneNumber"),
 //   		PersistentConnection: jsii.Boolean(false),
 //   		PhoneType: jsii.String("phoneType"),
+//   	},
+//   	PhoneNumberConfigs: []interface{}{
+//   		&PhoneNumberConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			PhoneNumber: jsii.String("phoneNumber"),
+//   			PhoneType: jsii.String("phoneType"),
+//   		},
 //   	},
 //   	RoutingProfileArn: jsii.String("routingProfileArn"),
 //   	SecurityProfileArns: []*string{
@@ -48,11 +79,25 @@ import (
 //   			Level: jsii.Number(123),
 //   		},
 //   	},
+//   	VoiceEnhancementConfigs: []interface{}{
+//   		&VoiceEnhancementConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			VoiceEnhancementMode: jsii.String("voiceEnhancementMode"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html
 //
 type CfnUserMixinProps struct {
+	// After Contact Work configurations of a user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-aftercontactworkconfigs
+	//
+	AfterContactWorkConfigs interface{} `field:"optional" json:"afterContactWorkConfigs" yaml:"afterContactWorkConfigs"`
+	// Auto-accept configurations of a user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-autoacceptconfigs
+	//
+	AutoAcceptConfigs interface{} `field:"optional" json:"autoAcceptConfigs" yaml:"autoAcceptConfigs"`
 	// The identifier of the user account in the directory used for identity management.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-directoryuserid
 	//
@@ -73,10 +118,18 @@ type CfnUserMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-password
 	//
 	Password *string `field:"optional" json:"password" yaml:"password"`
+	// Persistent Connection configurations of a user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-persistentconnectionconfigs
+	//
+	PersistentConnectionConfigs interface{} `field:"optional" json:"persistentConnectionConfigs" yaml:"persistentConnectionConfigs"`
 	// Information about the phone configuration for the user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-phoneconfig
 	//
 	PhoneConfig interface{} `field:"optional" json:"phoneConfig" yaml:"phoneConfig"`
+	// Phone Number configurations of a user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-phonenumberconfigs
+	//
+	PhoneNumberConfigs interface{} `field:"optional" json:"phoneNumberConfigs" yaml:"phoneNumberConfigs"`
 	// The Amazon Resource Name (ARN) of the user's routing profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-routingprofilearn
 	//
@@ -97,5 +150,9 @@ type CfnUserMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-userproficiencies
 	//
 	UserProficiencies interface{} `field:"optional" json:"userProficiencies" yaml:"userProficiencies"`
+	// Voice Enhancement configurations of a user.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html#cfn-connect-user-voiceenhancementconfigs
+	//
+	VoiceEnhancementConfigs interface{} `field:"optional" json:"voiceEnhancementConfigs" yaml:"voiceEnhancementConfigs"`
 }
 

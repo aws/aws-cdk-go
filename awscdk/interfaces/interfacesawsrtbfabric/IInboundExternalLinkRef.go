@@ -24,6 +24,24 @@ type jsiiProxy_IInboundExternalLinkRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IInboundExternalLinkRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IInboundExternalLinkRef) InboundExternalLinkRef() *InboundExternalLinkReference {
 	var returns *InboundExternalLinkReference
 	_jsii_.Get(

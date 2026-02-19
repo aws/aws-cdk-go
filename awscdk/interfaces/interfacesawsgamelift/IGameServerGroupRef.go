@@ -24,6 +24,24 @@ type jsiiProxy_IGameServerGroupRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IGameServerGroupRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IGameServerGroupRef) GameServerGroupRef() *GameServerGroupReference {
 	var returns *GameServerGroupReference
 	_jsii_.Get(

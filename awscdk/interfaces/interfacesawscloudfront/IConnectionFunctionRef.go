@@ -24,6 +24,24 @@ type jsiiProxy_IConnectionFunctionRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IConnectionFunctionRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IConnectionFunctionRef) ConnectionFunctionRef() *ConnectionFunctionReference {
 	var returns *ConnectionFunctionReference
 	_jsii_.Get(

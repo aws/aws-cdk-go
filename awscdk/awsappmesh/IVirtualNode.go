@@ -62,6 +62,24 @@ func (i *jsiiProxy_IVirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
+func (i *jsiiProxy_IVirtualNode) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IVirtualNode) Mesh() IMesh {
 	var returns IMesh
 	_jsii_.Get(

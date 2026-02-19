@@ -439,6 +439,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogs",
 		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -1000,6 +1001,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.AfterContactWorkConfigPerChannelProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_AfterContactWorkConfigPerChannelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.AfterContactWorkConfigProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_AfterContactWorkConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.AutoAcceptConfigProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_AutoAcceptConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.PersistentConnectionConfigProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_PersistentConnectionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.PhoneNumberConfigProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_PhoneNumberConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.UserIdentityInfoProperty",
 		reflect.TypeOf((*CfnUserPropsMixin_UserIdentityInfoProperty)(nil)).Elem(),
 	)
@@ -1010,6 +1031,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.UserProficiencyProperty",
 		reflect.TypeOf((*CfnUserPropsMixin_UserProficiencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnUserPropsMixin.VoiceEnhancementConfigProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_VoiceEnhancementConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnViewMixinProps",

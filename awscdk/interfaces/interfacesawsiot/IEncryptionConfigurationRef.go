@@ -24,6 +24,24 @@ type jsiiProxy_IEncryptionConfigurationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IEncryptionConfigurationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IEncryptionConfigurationRef) EncryptionConfigurationRef() *EncryptionConfigurationReference {
 	var returns *EncryptionConfigurationReference
 	_jsii_.Get(

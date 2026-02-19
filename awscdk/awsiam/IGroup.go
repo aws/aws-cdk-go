@@ -77,6 +77,24 @@ func (i *jsiiProxy_IGroup) AttachInlinePolicy(policy Policy) {
 	)
 }
 
+func (i *jsiiProxy_IGroup) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IGroup) GroupArn() *string {
 	var returns *string
 	_jsii_.Get(

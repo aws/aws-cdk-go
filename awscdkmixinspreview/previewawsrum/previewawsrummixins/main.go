@@ -75,6 +75,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_rum.mixins.CfnAppMonitorRumOtelLogs",
 		reflect.TypeOf((*CfnAppMonitorRumOtelLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -87,6 +88,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_rum.mixins.CfnAppMonitorRumOtelSpans",
 		reflect.TypeOf((*CfnAppMonitorRumOtelSpans)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -99,6 +101,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_rum.mixins.CfnAppMonitorRumTelemetryLogs",
 		reflect.TypeOf((*CfnAppMonitorRumTelemetryLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},

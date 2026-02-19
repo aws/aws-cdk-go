@@ -20,6 +20,12 @@ import (
 //   cfnRuntimeApplicationLogs := awscdkmixinspreview.Mixins.NewCfnRuntimeApplicationLogs()
 //
 type CfnRuntimeApplicationLogs interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are S3, CWL, FH
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnRuntimeLogsMixin
 	// Send logs to a Firehose Delivery Stream.
 	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnRuntimeLogsMixin
 	// Send logs to a CloudWatch Log Group.
@@ -57,6 +63,22 @@ func NewCfnRuntimeApplicationLogs_Override(c CfnRuntimeApplicationLogs) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnRuntimeApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnRuntimeLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnRuntimeLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnRuntimeApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnRuntimeLogsMixin {

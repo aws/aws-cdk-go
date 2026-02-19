@@ -1,5 +1,8 @@
 package previewawss3vectorsmixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnIndexPropsMixin.
 //
@@ -20,6 +23,12 @@ package previewawss3vectorsmixins
 //   	MetadataConfiguration: &MetadataConfigurationProperty{
 //   		NonFilterableMetadataKeys: []*string{
 //   			jsii.String("nonFilterableMetadataKeys"),
+//   		},
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   	VectorBucketArn: jsii.String("vectorBucketArn"),
@@ -70,6 +79,10 @@ type CfnIndexMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-index.html#cfn-s3vectors-index-metadataconfiguration
 	//
 	MetadataConfiguration interface{} `field:"optional" json:"metadataConfiguration" yaml:"metadataConfiguration"`
+	// User tags (key-value pairs) to associate with the index.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-index.html#cfn-s3vectors-index-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The Amazon Resource Name (ARN) of the vector bucket that contains the vector index.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3vectors-index.html#cfn-s3vectors-index-vectorbucketarn
 	//

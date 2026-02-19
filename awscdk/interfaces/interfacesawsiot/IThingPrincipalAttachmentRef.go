@@ -24,6 +24,24 @@ type jsiiProxy_IThingPrincipalAttachmentRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IThingPrincipalAttachmentRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IThingPrincipalAttachmentRef) ThingPrincipalAttachmentRef() *ThingPrincipalAttachmentReference {
 	var returns *ThingPrincipalAttachmentReference
 	_jsii_.Get(

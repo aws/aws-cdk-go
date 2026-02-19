@@ -24,6 +24,24 @@ type jsiiProxy_IHostedConfigurationVersionRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IHostedConfigurationVersionRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IHostedConfigurationVersionRef) HostedConfigurationVersionRef() *HostedConfigurationVersionReference {
 	var returns *HostedConfigurationVersionReference
 	_jsii_.Get(

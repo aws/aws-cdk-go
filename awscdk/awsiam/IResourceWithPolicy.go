@@ -52,6 +52,24 @@ func (i *jsiiProxy_IResourceWithPolicy) ApplyRemovalPolicy(policy awscdk.Removal
 	)
 }
 
+func (i *jsiiProxy_IResourceWithPolicy) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IResourceWithPolicy) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(

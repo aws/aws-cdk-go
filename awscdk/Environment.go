@@ -5,6 +5,7 @@ package awscdk
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   app := cdk.NewApp()
@@ -23,12 +24,19 @@ package awscdk
 //   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
+//   		&ReplicaTableProps{
+//   			Region: jsii.String("us-east-2"),
+//   		},
 //   	},
 //   })
 //
-//   globalTable.AddReplica(&ReplicaTableProps{
-//   	Region: jsii.String("us-east-2"),
-//   	DeletionProtection: jsii.Boolean(true),
+//   // metric is only for the table in us-west-2
+//   metric := globalTable.MetricConsumedReadCapacityUnits()
+//
+//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+//   	Metric: metric,
+//   	EvaluationPeriods: jsii.Number(1),
+//   	Threshold: jsii.Number(1),
 //   })
 //
 type Environment struct {

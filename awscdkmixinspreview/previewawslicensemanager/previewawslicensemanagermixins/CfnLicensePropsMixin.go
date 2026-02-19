@@ -57,6 +57,12 @@ import (
 //   	ProductName: jsii.String("productName"),
 //   	ProductSku: jsii.String("productSku"),
 //   	Status: jsii.String("status"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Validity: &ValidityDateFormatProperty{
 //   		Begin: jsii.String("begin"),
 //   		End: jsii.String("end"),

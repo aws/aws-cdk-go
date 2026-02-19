@@ -35,6 +35,24 @@ func (i *jsiiProxy_ISubnetNetworkAclAssociation) ApplyRemovalPolicy(policy awscd
 	)
 }
 
+func (i *jsiiProxy_ISubnetNetworkAclAssociation) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ISubnetNetworkAclAssociation) SubnetNetworkAclAssociationAssociationId() *string {
 	var returns *string
 	_jsii_.Get(

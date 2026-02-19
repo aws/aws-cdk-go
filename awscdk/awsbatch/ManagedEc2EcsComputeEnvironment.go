@@ -197,6 +197,15 @@ type ManagedEc2EcsComputeEnvironment interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for ManagedEc2EcsComputeEnvironment
@@ -703,6 +712,24 @@ func (m *jsiiProxy_ManagedEc2EcsComputeEnvironment) ToString() *string {
 		m,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (m *jsiiProxy_ManagedEc2EcsComputeEnvironment) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		m,
+		"with",
+		args,
 		&returns,
 	)
 

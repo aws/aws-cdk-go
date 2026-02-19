@@ -24,6 +24,24 @@ type jsiiProxy_IUserAccessLoggingSettingsRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IUserAccessLoggingSettingsRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IUserAccessLoggingSettingsRef) UserAccessLoggingSettingsRef() *UserAccessLoggingSettingsReference {
 	var returns *UserAccessLoggingSettingsReference
 	_jsii_.Get(

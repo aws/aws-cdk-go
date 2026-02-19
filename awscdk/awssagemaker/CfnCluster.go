@@ -57,6 +57,19 @@ import (
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
+//   					FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountName: jsii.String("mountName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
+//   					},
 //   				},
 //   			},
 //   			KubernetesConfig: &ClusterKubernetesConfigProperty{
@@ -110,6 +123,14 @@ import (
 //   					WaitIntervalInSeconds: jsii.Number(123),
 //   				},
 //   			},
+//   			SlurmConfig: &ClusterSlurmConfigProperty{
+//   				NodeType: jsii.String("nodeType"),
+//
+//   				// the properties below are optional
+//   				PartitionNames: []*string{
+//   					jsii.String("partitionNames"),
+//   				},
+//   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
@@ -119,6 +140,9 @@ import (
 //   	Orchestrator: &OrchestratorProperty{
 //   		Eks: &ClusterOrchestratorEksConfigProperty{
 //   			ClusterArn: jsii.String("clusterArn"),
+//   		},
+//   		Slurm: &ClusterOrchestratorSlurmConfigProperty{
+//   			SlurmConfigStrategy: jsii.String("slurmConfigStrategy"),
 //   		},
 //   	},
 //   	RestrictedInstanceGroups: []interface{}{
@@ -142,6 +166,19 @@ import (
 //   						RootVolume: jsii.Boolean(false),
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
+//   					},
+//   					FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountName: jsii.String("mountName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
 //   					},
 //   				},
 //   			},
@@ -403,6 +440,15 @@ type CfnCluster interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnCluster
@@ -1199,5 +1245,23 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnCluster) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

@@ -88,14 +88,35 @@ type RateLimitedApiKey interface {
 	// referenced across environments, it will be resolved to `this.physicalName`,
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Permits the IAM principal all read operations through this key [disable-awslint:no-grants].
+	// Permits the IAM principal all read operations through this key.
+	//
+	// The use of this method is discouraged. Please use `grants.read()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Permits the IAM principal all read and write operations through this key [disable-awslint:no-grants].
+	// Permits the IAM principal all read and write operations through this key.
+	//
+	// The use of this method is discouraged. Please use `grants.readWrite()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
-	// Permits the IAM principal all write operations through this key [disable-awslint:no-grants].
+	// Permits the IAM principal all write operations through this key.
+	//
+	// The use of this method is discouraged. Please use `grants.write()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for RateLimitedApiKey
@@ -407,6 +428,24 @@ func (r *jsiiProxy_RateLimitedApiKey) ToString() *string {
 		r,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RateLimitedApiKey) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		r,
+		"with",
+		args,
 		&returns,
 	)
 

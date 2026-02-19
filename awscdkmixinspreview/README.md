@@ -52,7 +52,7 @@ For convenience, you can use the `.with()` method for a more fluent syntax:
 import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 
 
-bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).with(awscdkmixinspreview.NewBucketVersioning()).with(awscdkmixinspreview.NewAutoDeleteObjects())
+bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).With(awscdkmixinspreview.NewBucketVersioning()).With(awscdkmixinspreview.NewAutoDeleteObjects())
 ```
 
 The `.with()` method is available after importing `@aws-cdk/mixins-preview/with`, which augments all constructs with this method. It provides the same functionality as `Mixins.of().apply()` but with a more chainable API.
@@ -130,6 +130,13 @@ bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
 awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewBucketVersioning())
 ```
 
+**BucketBlockPublicAccess**: Enables blocking public-access on S3 buckets
+
+```go
+bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
+awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewBucketBlockPublicAccess())
+```
+
 **BucketPolicyStatementsMixin**: Adds IAM policy statements to a bucket policy
 
 ```go
@@ -155,6 +162,24 @@ awscdkmixinspreview.Mixins_Of(bucketPolicy).Apply(awscdkmixinspreview.NewBucketP
 }))
 ```
 
+#### ECS-Specific Mixins
+
+**ClusterSettings**: Applies one or more cluster settings to ECS clusters
+
+```go
+import ecs "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+
+
+cluster := ecs.NewCfnCluster(scope, jsii.String("Cluster"))
+awscdkmixinspreview.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
+	&ClusterSettingsProperty{
+		Name: jsii.String("containerInsights"),
+		Value: jsii.String("enhanced"),
+	},
+}))
+```
+
 ### Logs Delivery
 
 Configures vended logs delivery for supported resources to various destinations:
@@ -176,7 +201,39 @@ distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &
 logGroup := logs.NewLogGroup(scope, jsii.String("DeliveryLogGroup"))
 
 // Configure log delivery using the mixin
-distribution.with(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToLogGroup(logGroup))
+distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToLogGroup(logGroup))
+```
+
+Configures vended logs delivery for supported resources when a pre-created destination is provided:
+
+```go
+import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
+import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+
+// Create CloudFront distribution
+var bucket Bucket
+
+distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
+	DefaultBehavior: &BehaviorOptions{
+		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
+	},
+})
+
+// Create destination bucket
+destBucket := s3.NewBucket(scope, jsii.String("DeliveryBucket"))
+// Add permissions to bucket to facilitate log delivery
+bucketPolicy := s3.NewBucketPolicy(scope, jsii.String("DeliveryBucketPolicy"), &BucketPolicyProps{
+	Bucket: destBucket,
+	Document: iam.NewPolicyDocument(),
+})
+// Create S3 delivery destination for logs
+destination := logs.NewCfnDeliveryDestination(scope, jsii.String("Destination"), &CfnDeliveryDestinationProps{
+	DestinationResourceArn: destBucket.bucketArn,
+	Name: jsii.String("unique-destination-name"),
+	DeliveryDestinationType: jsii.String("S3"),
+})
+
+distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToDestination(destination))
 ```
 
 ### L1 Property Mixins
@@ -187,7 +244,7 @@ For every CloudFormation resource, CDK Mixins automatically generates type-safe 
 import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 
 
-bucket := s3.NewBucket(scope, jsii.String("Bucket")).with(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
+bucket := s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 	VersioningConfiguration: &VersioningConfigurationProperty{
 		Status: jsii.String("Enabled"),
 	},

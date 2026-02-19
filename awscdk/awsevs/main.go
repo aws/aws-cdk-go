@@ -66,6 +66,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "vcfHostnames", GoGetter: "VcfHostnames"},
 			_jsii_.MemberProperty{JsiiProperty: "vcfVersion", GoGetter: "VcfVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEnvironment{}

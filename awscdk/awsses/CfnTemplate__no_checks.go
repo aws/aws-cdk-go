@@ -84,6 +84,10 @@ func validateCfnTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTemplate) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTemplate) validateSetTemplateParameters(val interface{}) error {
 	return nil
 }

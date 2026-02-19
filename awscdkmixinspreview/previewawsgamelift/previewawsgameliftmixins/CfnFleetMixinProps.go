@@ -40,6 +40,10 @@ import (
 //   			Location: jsii.String("location"),
 //   			LocationCapacity: &LocationCapacityProperty{
 //   				DesiredEc2Instances: jsii.Number(123),
+//   				ManagedCapacityConfiguration: &ManagedCapacityConfigurationProperty{
+//   					ScaleInAfterInactivityMinutes: jsii.Number(123),
+//   					ZeroCapacityStrategy: jsii.String("zeroCapacityStrategy"),
+//   				},
 //   				MaxSize: jsii.Number(123),
 //   				MinSize: jsii.Number(123),
 //   			},

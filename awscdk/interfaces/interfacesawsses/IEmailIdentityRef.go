@@ -24,6 +24,24 @@ type jsiiProxy_IEmailIdentityRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IEmailIdentityRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IEmailIdentityRef) EmailIdentityRef() *EmailIdentityReference {
 	var returns *EmailIdentityReference
 	_jsii_.Get(

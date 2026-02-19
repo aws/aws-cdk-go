@@ -26,6 +26,12 @@ package awsdynamodb
 //   	},
 //
 //   	// the properties below are optional
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   	},
+//   	ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   		ReadCapacityUnits: jsii.Number(123),
+//   	},
 //   	WarmThroughput: &WarmThroughputProperty{
 //   		ReadUnitsPerSecond: jsii.Number(123),
 //   		WriteUnitsPerSecond: jsii.Number(123),
@@ -75,6 +81,12 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
 	//
 	Projection interface{} `field:"required" json:"projection" yaml:"projection"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-readondemandthroughputsettings
+	//
+	ReadOnDemandThroughputSettings interface{} `field:"optional" json:"readOnDemandThroughputSettings" yaml:"readOnDemandThroughputSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-readprovisionedthroughputsettings
+	//
+	ReadProvisionedThroughputSettings interface{} `field:"optional" json:"readProvisionedThroughputSettings" yaml:"readProvisionedThroughputSettings"`
 	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.
 	//
 	// If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.

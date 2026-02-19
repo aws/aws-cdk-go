@@ -24,6 +24,24 @@ type jsiiProxy_IConnectorDefinitionVersionRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IConnectorDefinitionVersionRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IConnectorDefinitionVersionRef) ConnectorDefinitionVersionRef() *ConnectorDefinitionVersionReference {
 	var returns *ConnectorDefinitionVersionReference
 	_jsii_.Get(

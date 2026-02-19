@@ -24,6 +24,24 @@ type jsiiProxy_IPolicyAssociationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IPolicyAssociationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IPolicyAssociationRef) PolicyAssociationRef() *PolicyAssociationReference {
 	var returns *PolicyAssociationReference
 	_jsii_.Get(

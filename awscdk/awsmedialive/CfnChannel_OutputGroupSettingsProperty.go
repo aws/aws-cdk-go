@@ -166,6 +166,13 @@ package awsmedialive
 //   			DestinationRefId: jsii.String("destinationRefId"),
 //   		},
 //   		MediapackageV2GroupSettings: &MediaPackageV2GroupSettingsProperty{
+//   			AdditionalDestinations: []interface{}{
+//   				&MediaPackageAdditionalDestinationsProperty{
+//   					Destination: &OutputLocationRefProperty{
+//   						DestinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   				},
+//   			},
 //   			CaptionLanguageMappings: []interface{}{
 //   				&CaptionLanguageMappingProperty{
 //   					CaptionChannel: jsii.Number(123),

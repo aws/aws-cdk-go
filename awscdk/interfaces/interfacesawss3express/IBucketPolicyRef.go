@@ -24,6 +24,24 @@ type jsiiProxy_IBucketPolicyRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IBucketPolicyRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IBucketPolicyRef) BucketPolicyRef() *BucketPolicyReference {
 	var returns *BucketPolicyReference
 	_jsii_.Get(

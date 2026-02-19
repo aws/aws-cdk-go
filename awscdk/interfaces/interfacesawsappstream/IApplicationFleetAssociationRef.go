@@ -24,6 +24,24 @@ type jsiiProxy_IApplicationFleetAssociationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IApplicationFleetAssociationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IApplicationFleetAssociationRef) ApplicationFleetAssociationRef() *ApplicationFleetAssociationReference {
 	var returns *ApplicationFleetAssociationReference
 	_jsii_.Get(

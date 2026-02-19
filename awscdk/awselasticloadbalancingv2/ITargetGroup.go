@@ -29,6 +29,24 @@ type jsiiProxy_ITargetGroup struct {
 	internal.Type__interfacesawselasticloadbalancingv2ITargetGroupRef
 }
 
+func (i *jsiiProxy_ITargetGroup) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ITargetGroup) LoadBalancerArns() *string {
 	var returns *string
 	_jsii_.Get(

@@ -17,6 +17,14 @@ func (k *jsiiProxy_KeyGrants) validateActionsParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (k *jsiiProxy_KeyGrants) validateAdminParameters(grantee awsiam.IGrantable) error {
+	if grantee == nil {
+		return fmt.Errorf("parameter grantee is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (k *jsiiProxy_KeyGrants) validateDecryptParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

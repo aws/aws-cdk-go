@@ -144,6 +144,10 @@ func init() {
 		reflect.TypeOf((*CfnDomainPropsMixin_SAMLOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_opensearchservice.mixins.CfnDomainPropsMixin.ServerlessVectorAccelerationProperty",
+		reflect.TypeOf((*CfnDomainPropsMixin_ServerlessVectorAccelerationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_opensearchservice.mixins.CfnDomainPropsMixin.ServiceSoftwareOptionsProperty",
 		reflect.TypeOf((*CfnDomainPropsMixin_ServiceSoftwareOptionsProperty)(nil)).Elem(),
 	)

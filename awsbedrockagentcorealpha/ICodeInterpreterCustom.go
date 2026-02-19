@@ -292,6 +292,24 @@ func (i *jsiiProxy_ICodeInterpreterCustom) ApplyRemovalPolicy(policy awscdk.Remo
 	)
 }
 
+func (i *jsiiProxy_ICodeInterpreterCustom) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ICodeInterpreterCustom) CodeInterpreterArn() *string {
 	var returns *string
 	_jsii_.Get(

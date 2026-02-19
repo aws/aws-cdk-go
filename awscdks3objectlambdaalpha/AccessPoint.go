@@ -117,6 +117,16 @@ type AccessPoint interface {
 	// Implement the `IAccessPoint.virtualHostedUrlForObject` method.
 	// Experimental.
 	VirtualHostedUrlForObject(key *string, options *awss3.VirtualHostedStyleUrlOptions) *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	// Experimental.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for AccessPoint
@@ -441,6 +451,24 @@ func (a *jsiiProxy_AccessPoint) VirtualHostedUrlForObject(key *string, options *
 		a,
 		"virtualHostedUrlForObject",
 		[]interface{}{key, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_AccessPoint) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		a,
+		"with",
+		args,
 		&returns,
 	)
 

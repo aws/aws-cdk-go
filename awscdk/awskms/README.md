@@ -136,9 +136,9 @@ trail := cloudtrail.NewTrail(this, jsii.String("myCloudTrail"), &TrailProps{
 ```
 
 Note that calls to `addToResourcePolicy` method on `myKeyAlias` will be a no-op, `addAlias` and `aliasTargetKey` will fail.
-The `grant*` methods will not modify the key policy, as the imported alias does not have a reference to the underlying KMS Key.
-For the `grant*` methods to modify the principal's IAM policy, the feature flag `@aws-cdk/aws-kms:applyImportedAliasPermissionsToPrincipal`
-must be set to `true`. By default, this flag is `false` and `grant*` calls on an imported alias are a no-op.
+The grant methods (i.e., methods in `KeyGrants`) will not modify the key policy, as the imported alias does not have a reference to the underlying KMS Key.
+For the grant methods to modify the principal's IAM policy, the feature flag `@aws-cdk/aws-kms:applyImportedAliasPermissionsToPrincipal`
+must be set to `true`. By default, this flag is `false` and grant calls on an imported alias are a no-op.
 
 ### Lookup key by alias
 
@@ -223,7 +223,7 @@ With the above default policy, future permissions can be added to either the key
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.grantEncrypt(user)
+key.Grants.Encrypt(user)
 ```
 
 Adopting the default KMS key policy (and so trusting account identities)
@@ -237,7 +237,7 @@ which can cause cyclic dependencies if the permissions cross stack boundaries.
 The default key policy can be amended or replaced entirely, depending on your use case and requirements.
 A common addition to the key policy would be to add other key admins that are allowed to administer the key
 (e.g., change permissions, revoke, delete). Additional key admins can be specified at key creation or after
-via the `grantAdmin` method.
+via the `key.grants.admin` method.
 
 ```go
 myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
@@ -248,7 +248,7 @@ key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 })
 
 secondKey := kms.NewKey(this, jsii.String("MyKey2"))
-secondKey.GrantAdmin(myTrustedAdminRole)
+secondKey.Grants.Admin(myTrustedAdminRole)
 ```
 
 Alternatively, a custom key policy can be specified, which will replace the default key policy.
@@ -292,31 +292,87 @@ key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 ### Signing and Verification key policies
 
 Creating signatures and verifying them with KMS requires specific permissions.
-The respective policies can be attached to a principal via the `grantSign` and `grantVerify` methods.
+The respective policies can be attached to a principal via the `key.grants.sign` and `key.grants.verify` methods.
 
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.grantSign(user) // Adds 'kms:Sign' to the principal's policy
-key.grantVerify(user)
+key.Grants.Sign(user) // Adds 'kms:Sign' to the principal's policy
+key.Grants.Verify(user)
 ```
 
-If both sign and verify permissions are required, they can be applied with one method called `grantSignVerify`.
+If both sign and verify permissions are required, they can be applied with one method in `KeyGrants` called `signVerify`.
 
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.grantSignVerify(user)
+key.Grants.SignVerify(user)
 ```
 
 ### HMAC specific key policies
 
 HMAC keys have a different key policy than other KMS keys. They have a policy for generating and for verifying a MAC.
-The respective policies can be attached to a principal via the `grantGenerateMac` and `grantVerifyMac` methods.
+The respective policies can be attached to a principal via the `generateMac` and `verifyMac` methods in `KeyGrants`.
 
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.grantGenerateMac(user) // Adds 'kms:GenerateMac' to the principal's policy
-key.grantVerifyMac(user)
+key.Grants.GenerateMac(user) // Adds 'kms:GenerateMac' to the principal's policy
+key.Grants.VerifyMac(user)
 ```
+
+### Granting permissions for L1s
+
+The examples above show how to use the `KeyGrants` methods to grant permissions to principals.
+If you are using L1 constructs that require permissions to be granted to a principal, you can
+use the `KeyGrants` utility class:
+
+```go
+var principal IPrincipal
+var key IKeyRef
+// can be either an L1 or L2
+
+kms.KeyGrants_FromKey(key).Sign(principal)
+```
+
+If `key` is an instance of `CfnKey`, and the grants process involves adding statements
+to the key policy, then the `KeyGrants` class will, by default, do the same thing it
+would do for an instance of `Key`: add statements to the `keyPolicy` property.
+
+But if you want to customize this behavior, you can register an instance of `IResourcePolicyFactory`
+for the `AWS::KMS::Key` CloudFormation type:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/constructs-go/constructs"
+
+var scope Construct
+type myFactory struct {
+}
+
+func (this *myFactory) forResource(resource CfnResource) IResourceWithPolicyV2 {
+	return map[string]ResourceEnvironment{
+		"env": *resource.env,
+		(MethodDeclaration addToResourcePolicy(statement: PolicyStatement) {
+		        // custom implementation to add the statement to the resource policy
+		        return { statementAdded: true, policyDependable: resource };
+		      }
+				addToResourcePolicy
+				statement PolicyStatement
+				{
+					// custom implementation to add the statement to the resource policy
+					return &AddToResourcePolicyResult{
+						"statementAdded": jsii.Boolean(true),
+						"policyDependable": resource,
+					}
+				}),
+	}
+}
+
+awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::KMS::Key"), NewMyFactory())
+```
+
+`IResourcePolicyFactory` is responsible for converting a construct into a `IResourceWithPolicyV2`,
+effectively providing an ad-hoc way to extend the behavior of L1s to support grants the same way
+as L2s do.

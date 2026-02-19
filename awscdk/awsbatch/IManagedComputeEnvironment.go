@@ -105,6 +105,24 @@ func (i *jsiiProxy_IManagedComputeEnvironment) ApplyRemovalPolicy(policy awscdk.
 	)
 }
 
+func (i *jsiiProxy_IManagedComputeEnvironment) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IManagedComputeEnvironment) MaxvCpus() *float64 {
 	var returns *float64
 	_jsii_.Get(

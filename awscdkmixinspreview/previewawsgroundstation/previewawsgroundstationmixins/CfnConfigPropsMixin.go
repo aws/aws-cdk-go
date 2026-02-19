@@ -77,6 +77,15 @@ import (
 //   			Prefix: jsii.String("prefix"),
 //   			RoleArn: jsii.String("roleArn"),
 //   		},
+//   		TelemetrySinkConfig: &TelemetrySinkConfigProperty{
+//   			TelemetrySinkData: &TelemetrySinkDataProperty{
+//   				KinesisDataStreamData: &KinesisDataStreamDataProperty{
+//   					KinesisDataStreamArn: jsii.String("kinesisDataStreamArn"),
+//   					KinesisRoleArn: jsii.String("kinesisRoleArn"),
+//   				},
+//   			},
+//   			TelemetrySinkType: jsii.String("telemetrySinkType"),
+//   		},
 //   		TrackingConfig: &TrackingConfigProperty{
 //   			Autotrack: jsii.String("autotrack"),
 //   		},

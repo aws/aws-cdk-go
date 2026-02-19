@@ -24,6 +24,24 @@ type jsiiProxy_IElasticLoadBalancerAttachmentRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IElasticLoadBalancerAttachmentRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IElasticLoadBalancerAttachmentRef) ElasticLoadBalancerAttachmentRef() *ElasticLoadBalancerAttachmentReference {
 	var returns *ElasticLoadBalancerAttachmentReference
 	_jsii_.Get(

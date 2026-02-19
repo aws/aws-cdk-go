@@ -52,6 +52,24 @@ func (i *jsiiProxy_IAlarm) RenderAlarmRule() *string {
 	return returns
 }
 
+func (i *jsiiProxy_IAlarm) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAlarm) AlarmArn() *string {
 	var returns *string
 	_jsii_.Get(

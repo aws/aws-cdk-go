@@ -16,7 +16,6 @@ package awscdkredshiftalpha
 //   	},
 //   	Vpc: Vpc,
 //   	NodeType: nodeType_RA3_XLPLUS,
-//   	AvailabilityZoneRelocation: jsii.Boolean(true),
 //   })
 //
 // Experimental.

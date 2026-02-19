@@ -171,6 +171,16 @@ type GatewayTarget interface {
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	// Experimental.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for GatewayTarget
@@ -377,6 +387,30 @@ func NewGatewayTarget_Override(g GatewayTarget, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		g,
 	)
+}
+
+// Create an API Gateway-based target Convenience method for creating a target that connects to an API Gateway REST API.
+//
+// Returns: A new GatewayTarget instance.
+// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-api-gateway.html
+//
+// Experimental.
+func GatewayTarget_ForApiGateway(scope constructs.Construct, id *string, props *GatewayTargetApiGatewayProps) GatewayTarget {
+	_init_.Initialize()
+
+	if err := validateGatewayTarget_ForApiGatewayParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns GatewayTarget
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayTarget",
+		"forApiGateway",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
 }
 
 // Create a Lambda-based MCP target Convenience method for creating a target that wraps a Lambda function.
@@ -710,6 +744,24 @@ func (g *jsiiProxy_GatewayTarget) ToString() *string {
 		g,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (g *jsiiProxy_GatewayTarget) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		g,
+		"with",
+		args,
 		&returns,
 	)
 

@@ -11,14 +11,11 @@ import (
 // Collection of grant methods for an IKey.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var principal IPrincipal
+//   var key IKeyRef
+//   // can be either an L1 or L2
 //
-//   var keyRef IKeyRef
-//
-//   keyGrants := awscdk.Aws_kms.KeyGrants_FromKey(keyRef, jsii.Boolean(false))
+//   kms.KeyGrants_FromKey(key).Sign(principal)
 //
 type KeyGrants interface {
 	Resource() interfacesawskms.IKeyRef
@@ -28,6 +25,11 @@ type KeyGrants interface {
 	// since the default CloudFormation setup for KMS keys is that the policy
 	// must not be empty and so default grants won't work.
 	Actions(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Grant admins permissions using this key to the given principal.
+	//
+	// Key administrators have permissions to manage the key (e.g., change permissions, revoke), but do not have permissions
+	// to use the key in cryptographic operations (e.g., encrypt, decrypt).
+	Admin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant decryption permissions using this key to the given principal.
 	Decrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption permissions using this key to the given principal.
@@ -96,6 +98,22 @@ func (k *jsiiProxy_KeyGrants) Actions(grantee awsiam.IGrantable, actions ...*str
 		k,
 		"actions",
 		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_KeyGrants) Admin(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := k.validateAdminParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		k,
+		"admin",
+		[]interface{}{grantee},
 		&returns,
 	)
 

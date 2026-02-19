@@ -22,6 +22,10 @@ package previewawscognitomixins
 //   		LambdaVersion: jsii.String("lambdaVersion"),
 //   	},
 //   	DefineAuthChallenge: jsii.String("defineAuthChallenge"),
+//   	InboundFederation: &InboundFederationProperty{
+//   		LambdaArn: jsii.String("lambdaArn"),
+//   		LambdaVersion: jsii.String("lambdaVersion"),
+//   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	PostAuthentication: jsii.String("postAuthentication"),
 //   	PostConfirmation: jsii.String("postConfirmation"),
@@ -65,6 +69,9 @@ type CfnUserPoolPropsMixin_LambdaConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-defineauthchallenge
 	//
 	DefineAuthChallenge *string `field:"optional" json:"defineAuthChallenge" yaml:"defineAuthChallenge"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-inboundfederation
+	//
+	InboundFederation interface{} `field:"optional" json:"inboundFederation" yaml:"inboundFederation"`
 	// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-kmskeyid
 	//

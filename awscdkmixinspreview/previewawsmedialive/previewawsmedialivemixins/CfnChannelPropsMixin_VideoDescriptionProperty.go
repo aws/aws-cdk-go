@@ -52,6 +52,7 @@ package previewawsmedialivemixins
 //   				Position: jsii.String("position"),
 //   				Prefix: jsii.String("prefix"),
 //   			},
+//   			TimecodeInsertion: jsii.String("timecodeInsertion"),
 //   		},
 //   		FrameCaptureSettings: &FrameCaptureSettingsProperty{
 //   			CaptureInterval: jsii.Number(123),

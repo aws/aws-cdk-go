@@ -40,6 +40,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AutoScalingConfiguration{}
@@ -183,6 +184,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IAutoScalingConfiguration{}
@@ -201,6 +203,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationName", GoGetter: "ObservabilityConfigurationName"},
 			_jsii_.MemberProperty{JsiiProperty: "observabilityConfigurationRevision", GoGetter: "ObservabilityConfigurationRevision"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IObservabilityConfiguration{}
@@ -218,6 +221,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IService{}
@@ -237,6 +241,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorArn", GoGetter: "VpcConnectorArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorName", GoGetter: "VpcConnectorName"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorRevision", GoGetter: "VpcConnectorRevision"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcConnector{}
@@ -255,6 +260,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionArn", GoGetter: "VpcIngressConnectionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionName", GoGetter: "VpcIngressConnectionName"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IVpcIngressConnection{}
@@ -312,6 +318,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ObservabilityConfiguration{}
@@ -377,6 +384,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceUrl", GoGetter: "ServiceUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Service{}
@@ -440,6 +448,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorArn", GoGetter: "VpcConnectorArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorName", GoGetter: "VpcConnectorName"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConnectorRevision", GoGetter: "VpcConnectorRevision"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VpcConnector{}
@@ -473,6 +482,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionArn", GoGetter: "VpcIngressConnectionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcIngressConnectionName", GoGetter: "VpcIngressConnectionName"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_VpcIngressConnection{}

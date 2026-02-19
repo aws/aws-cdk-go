@@ -79,6 +79,10 @@ import (
 //   			LambdaVersion: jsii.String("lambdaVersion"),
 //   		},
 //   		DefineAuthChallenge: jsii.String("defineAuthChallenge"),
+//   		InboundFederation: &InboundFederationProperty{
+//   			LambdaArn: jsii.String("lambdaArn"),
+//   			LambdaVersion: jsii.String("lambdaVersion"),
+//   		},
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   		PostAuthentication: jsii.String("postAuthentication"),
 //   		PostConfirmation: jsii.String("postConfirmation"),

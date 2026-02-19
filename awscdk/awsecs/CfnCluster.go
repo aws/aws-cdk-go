@@ -14,55 +14,17 @@ import (
 // The `AWS::ECS::Cluster` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import ecs "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   cfnCluster := awscdk.Aws_ecs.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
-//   	CapacityProviders: []interface{}{
-//   		jsii.String("capacityProviders"),
+//
+//   cluster := ecs.NewCfnCluster(scope, jsii.String("Cluster"))
+//   awscdkmixinspreview.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
+//   	&ClusterSettingsProperty{
+//   		Name: jsii.String("containerInsights"),
+//   		Value: jsii.String("enhanced"),
 //   	},
-//   	ClusterName: jsii.String("clusterName"),
-//   	ClusterSettings: []interface{}{
-//   		&ClusterSettingsProperty{
-//   			Name: jsii.String("name"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	Configuration: &ClusterConfigurationProperty{
-//   		ExecuteCommandConfiguration: &ExecuteCommandConfigurationProperty{
-//   			KmsKeyId: jsii.String("kmsKeyId"),
-//   			LogConfiguration: &ExecuteCommandLogConfigurationProperty{
-//   				CloudWatchEncryptionEnabled: jsii.Boolean(false),
-//   				CloudWatchLogGroupName: jsii.String("cloudWatchLogGroupName"),
-//   				S3BucketName: jsii.String("s3BucketName"),
-//   				S3EncryptionEnabled: jsii.Boolean(false),
-//   				S3KeyPrefix: jsii.String("s3KeyPrefix"),
-//   			},
-//   			Logging: jsii.String("logging"),
-//   		},
-//   		ManagedStorageConfiguration: &ManagedStorageConfigurationProperty{
-//   			FargateEphemeralStorageKmsKeyId: jsii.String("fargateEphemeralStorageKmsKeyId"),
-//   			KmsKeyId: jsii.String("kmsKeyId"),
-//   		},
-//   	},
-//   	DefaultCapacityProviderStrategy: []interface{}{
-//   		&CapacityProviderStrategyItemProperty{
-//   			Base: jsii.Number(123),
-//   			CapacityProvider: jsii.String("capacityProvider"),
-//   			Weight: jsii.Number(123),
-//   		},
-//   	},
-//   	ServiceConnectDefaults: &ServiceConnectDefaultsProperty{
-//   		Namespace: jsii.String("namespace"),
-//   	},
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   })
+//   }))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
 //
@@ -267,6 +229,15 @@ type CfnCluster interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnCluster
@@ -993,5 +964,23 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnCluster) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

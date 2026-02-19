@@ -43,6 +43,9 @@ type CfnBotPropsMixin_BotLocaleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-speechdetectionsensitivity
 	//
 	SpeechDetectionSensitivity *string `field:"optional" json:"speechDetectionSensitivity" yaml:"speechDetectionSensitivity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-speechrecognitionsettings
+	//
+	SpeechRecognitionSettings interface{} `field:"optional" json:"speechRecognitionSettings" yaml:"speechRecognitionSettings"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-unifiedspeechsettings
 	//
 	UnifiedSpeechSettings interface{} `field:"optional" json:"unifiedSpeechSettings" yaml:"unifiedSpeechSettings"`

@@ -88,6 +88,10 @@ func validateCfnLicense_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLicense) validateSetBeneficiaryParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLicense) validateSetConsumptionConfigurationParameters(val interface{}) error {
 	return nil
 }
@@ -113,6 +117,14 @@ func (j *jsiiProxy_CfnLicense) validateSetLicenseNameParameters(val *string) err
 }
 
 func (j *jsiiProxy_CfnLicense) validateSetProductNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLicense) validateSetProductSkuParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLicense) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

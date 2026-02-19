@@ -175,6 +175,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_cognito.mixins.CfnUserPoolApplicationLogs",
 		reflect.TypeOf((*CfnUserPoolApplicationLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -342,6 +343,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cognito.mixins.CfnUserPoolPropsMixin.EmailConfigurationProperty",
 		reflect.TypeOf((*CfnUserPoolPropsMixin_EmailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cognito.mixins.CfnUserPoolPropsMixin.InboundFederationProperty",
+		reflect.TypeOf((*CfnUserPoolPropsMixin_InboundFederationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_cognito.mixins.CfnUserPoolPropsMixin.InviteMessageTemplateProperty",

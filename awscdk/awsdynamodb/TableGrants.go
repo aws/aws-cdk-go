@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdynamodb"
 )
 
 // A set of permissions to grant on a Table.
@@ -43,6 +44,10 @@ type TableGrants interface {
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
 	FullAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Grants permissions for this table to act as a destination for multi-account global table replication.
+	MultiAccountReplicationFrom(sourceReplicaArn *string)
+	// Grants permissions for this table to act as a source for multi-account global table replication.
+	MultiAccountReplicationTo(destinationReplicaArn *string)
 	// Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
@@ -95,6 +100,25 @@ func NewTableGrants_Override(t TableGrants, props *TableGrantsProps) {
 	)
 }
 
+// Creates a TableGrants object for a given table.
+func TableGrants_FromTable(table interfacesawsdynamodb.ITableRef, regions *[]*string, hasIndex *bool) TableGrants {
+	_init_.Initialize()
+
+	if err := validateTableGrants_FromTableParameters(table); err != nil {
+		panic(err)
+	}
+	var returns TableGrants
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dynamodb.TableGrants",
+		"fromTable",
+		[]interface{}{table, regions, hasIndex},
+		&returns,
+	)
+
+	return returns
+}
+
 func (t *jsiiProxy_TableGrants) Actions(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	if err := t.validateActionsParameters(grantee); err != nil {
 		panic(err)
@@ -130,6 +154,28 @@ func (t *jsiiProxy_TableGrants) FullAccess(grantee awsiam.IGrantable) awsiam.Gra
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TableGrants) MultiAccountReplicationFrom(sourceReplicaArn *string) {
+	if err := t.validateMultiAccountReplicationFromParameters(sourceReplicaArn); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"multiAccountReplicationFrom",
+		[]interface{}{sourceReplicaArn},
+	)
+}
+
+func (t *jsiiProxy_TableGrants) MultiAccountReplicationTo(destinationReplicaArn *string) {
+	if err := t.validateMultiAccountReplicationToParameters(destinationReplicaArn); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"multiAccountReplicationTo",
+		[]interface{}{destinationReplicaArn},
+	)
 }
 
 func (t *jsiiProxy_TableGrants) ReadData(grantee awsiam.IGrantable) awsiam.Grant {

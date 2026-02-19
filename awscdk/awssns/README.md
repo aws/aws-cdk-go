@@ -270,6 +270,23 @@ topicPolicy := sns.NewTopicPolicy(this, jsii.String("Policy"), &TopicPolicyProps
 })
 ```
 
+A simpler and more general way of achieving the same result is to use the
+`TopicGrants` class:
+
+```go
+topic := sns.NewTopic(this, jsii.String("Topic"))
+
+// This would work the same way if topic was a CfnTopic (L1)
+sns.TopicGrants_FromTopic(topic).Subscribe(iam.NewAnyPrincipal())
+```
+
+For convenience, if you are using an L2, you can also call `grants` on the topic:
+
+```go
+topic := sns.NewTopic(this, jsii.String("Topic"))
+topic.Grants.Subscribe(iam.NewAnyPrincipal())
+```
+
 ### Enforce encryption of data in transit when publishing to a topic
 
 You can enforce SSL when creating a topic policy by setting the `enforceSSL` flag:

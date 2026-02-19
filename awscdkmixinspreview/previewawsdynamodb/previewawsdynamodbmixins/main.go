@@ -40,6 +40,10 @@ func init() {
 		reflect.TypeOf((*CfnGlobalTablePropsMixin_ContributorInsightsSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_dynamodb.mixins.CfnGlobalTablePropsMixin.GlobalReadProvisionedThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_GlobalReadProvisionedThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_dynamodb.mixins.CfnGlobalTablePropsMixin.GlobalSecondaryIndexProperty",
 		reflect.TypeOf((*CfnGlobalTablePropsMixin_GlobalSecondaryIndexProperty)(nil)).Elem(),
 	)

@@ -6,5 +6,6 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawss3vectorsIIndexRef = interfacesawss3vectors.IIndexRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawss3vectorsIVectorBucketRef = interfacesawss3vectors.IVectorBucketRef
 type Type__interfacesawss3vectorsIVectorBucketPolicyRef = interfacesawss3vectors.IVectorBucketPolicyRef

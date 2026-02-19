@@ -24,6 +24,24 @@ type jsiiProxy_IClusterSecurityGroupIngressRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IClusterSecurityGroupIngressRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IClusterSecurityGroupIngressRef) ClusterSecurityGroupIngressRef() *ClusterSecurityGroupIngressReference {
 	var returns *ClusterSecurityGroupIngressReference
 	_jsii_.Get(

@@ -24,6 +24,24 @@ type jsiiProxy_IAutomatedReasoningPolicyRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IAutomatedReasoningPolicyRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAutomatedReasoningPolicyRef) AutomatedReasoningPolicyRef() *AutomatedReasoningPolicyReference {
 	var returns *AutomatedReasoningPolicyReference
 	_jsii_.Get(

@@ -24,6 +24,10 @@ func validateToken_CompareStringsParameters(possibleToken1 *string, possibleToke
 	return nil
 }
 
+func validateToken_IsResolvedParameters(obj interface{}) error {
+	return nil
+}
+
 func validateToken_IsUnresolvedParameters(obj interface{}) error {
 	return nil
 }

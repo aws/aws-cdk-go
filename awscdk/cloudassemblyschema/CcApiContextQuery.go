@@ -15,6 +15,9 @@ package cloudassemblyschema
 //   x := &CcApiContextQuery{
 //   	TypeName: jsii.String("AWS::Some::Type"),
 //   	ExpectedMatchCount: jsii.String("exactly-one"),
+//   	ResourceModel: map[string]interface{}{
+//   		"SomeArn": jsii.String("arn:aws:...."),
+//   	},
 //   	PropertiesToReturn: []*string{
 //   		jsii.String("SomeProp"),
 //   	},
@@ -127,5 +130,13 @@ type CcApiContextQuery struct {
 	// Default: - Either exactIdentifier or propertyMatch should be specified.
 	//
 	PropertyMatch *map[string]interface{} `field:"optional" json:"propertyMatch" yaml:"propertyMatch"`
+	// The resource model to use to select the resources, using `ListResources`..
+	//
+	// This is needed for sub-resources where the parent Arn is required.
+	//
+	// See https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html#resource-operations-list-containers
+	// Default: - no resource Model is provided.
+	//
+	ResourceModel *map[string]interface{} `field:"optional" json:"resourceModel" yaml:"resourceModel"`
 }
 

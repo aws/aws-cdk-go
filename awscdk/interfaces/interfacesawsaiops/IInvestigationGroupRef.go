@@ -24,6 +24,24 @@ type jsiiProxy_IInvestigationGroupRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IInvestigationGroupRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IInvestigationGroupRef) InvestigationGroupRef() *InvestigationGroupReference {
 	var returns *InvestigationGroupReference
 	_jsii_.Get(

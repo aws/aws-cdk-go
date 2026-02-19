@@ -20,6 +20,12 @@ import (
 //   cfnProfileRoute53ProfilesResolverQueryLogs := awscdkmixinspreview.Mixins.NewCfnProfileRoute53ProfilesResolverQueryLogs()
 //
 type CfnProfileRoute53ProfilesResolverQueryLogs interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are S3, CWL, FH
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnProfileLogsMixin
 	// Send logs to a Firehose Delivery Stream.
 	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnProfileLogsMixin
 	// Send logs to a CloudWatch Log Group.
@@ -57,6 +63,22 @@ func NewCfnProfileRoute53ProfilesResolverQueryLogs_Override(c CfnProfileRoute53P
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnProfileRoute53ProfilesResolverQueryLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnProfileLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnProfileLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnProfileRoute53ProfilesResolverQueryLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnProfileLogsMixin {

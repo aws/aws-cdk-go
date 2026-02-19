@@ -18,5 +18,8 @@ const (
 	// MCP server target type.
 	// Experimental.
 	McpTargetType_MCP_SERVER McpTargetType = "MCP_SERVER"
+	// API Gateway target type.
+	// Experimental.
+	McpTargetType_API_GATEWAY McpTargetType = "API_GATEWAY"
 )
 

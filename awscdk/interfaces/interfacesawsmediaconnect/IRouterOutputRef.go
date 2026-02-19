@@ -24,6 +24,24 @@ type jsiiProxy_IRouterOutputRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IRouterOutputRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IRouterOutputRef) RouterOutputRef() *RouterOutputReference {
 	var returns *RouterOutputReference
 	_jsii_.Get(

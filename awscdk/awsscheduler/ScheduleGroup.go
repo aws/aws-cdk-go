@@ -88,11 +88,23 @@ type ScheduleGroup interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grant the indicated permissions on this schedule group to the given principal [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant delete schedule permission for schedules in this group to the given principal [disable-awslint:no-grants].
+	// Grant delete schedule permission for schedules in this group to the given principal.
+	//
+	// The use of this method is discouraged. Please use `grants.deleteSchedules()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantDeleteSchedules(identity awsiam.IGrantable) awsiam.Grant
-	// Grant list and get schedule permissions for schedules in this group to the given principal [disable-awslint:no-grants].
+	// Grant list and get schedule permissions for schedules in this group to the given principal.
+	//
+	// The use of this method is discouraged. Please use `grants.readSchedules()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantReadSchedules(identity awsiam.IGrantable) awsiam.Grant
-	// Grant create and update schedule permissions for schedules in this group to the given principal [disable-awslint:no-grants].
+	// Grant create and update schedule permissions for schedules in this group to the given principal.
+	//
+	// The use of this method is discouraged. Please use `grants.writeSchedules()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantWriteSchedules(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this schedule group.
 	// Default: - sum over 5 minutes.
@@ -134,6 +146,15 @@ type ScheduleGroup interface {
 	MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for ScheduleGroup
@@ -667,6 +688,24 @@ func (s *jsiiProxy_ScheduleGroup) ToString() *string {
 		s,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScheduleGroup) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		s,
+		"with",
+		args,
 		&returns,
 	)
 

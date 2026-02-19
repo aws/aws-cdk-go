@@ -24,6 +24,24 @@ type jsiiProxy_IConnectionAliasRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IConnectionAliasRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IConnectionAliasRef) ConnectionAliasRef() *ConnectionAliasReference {
 	var returns *ConnectionAliasReference
 	_jsii_.Get(

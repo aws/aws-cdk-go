@@ -73,18 +73,6 @@ import (
 //   var policyDocument interface{}
 //
 //   cfnGlobalTable := awscdk.Aws_dynamodb.NewCfnGlobalTable(this, jsii.String("MyCfnGlobalTable"), &CfnGlobalTableProps{
-//   	AttributeDefinitions: []interface{}{
-//   		&AttributeDefinitionProperty{
-//   			AttributeName: jsii.String("attributeName"),
-//   			AttributeType: jsii.String("attributeType"),
-//   		},
-//   	},
-//   	KeySchema: []interface{}{
-//   		&KeySchemaProperty{
-//   			AttributeName: jsii.String("attributeName"),
-//   			KeyType: jsii.String("keyType"),
-//   		},
-//   	},
 //   	Replicas: []interface{}{
 //   		&ReplicaSpecificationProperty{
 //   			Region: jsii.String("region"),
@@ -131,6 +119,7 @@ import (
 //   					},
 //   				},
 //   			},
+//   			GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
 //   			KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
 //   				StreamArn: jsii.String("streamArn"),
 //
@@ -184,6 +173,12 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AttributeDefinitions: []interface{}{
+//   		&AttributeDefinitionProperty{
+//   			AttributeName: jsii.String("attributeName"),
+//   			AttributeType: jsii.String("attributeType"),
+//   		},
+//   	},
 //   	BillingMode: jsii.String("billingMode"),
 //   	GlobalSecondaryIndexes: []interface{}{
 //   		&GlobalSecondaryIndexProperty{
@@ -202,6 +197,12 @@ import (
 //   			},
 //
 //   			// the properties below are optional
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   			},
+//   			ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   				ReadCapacityUnits: jsii.Number(123),
+//   			},
 //   			WarmThroughput: &WarmThroughputProperty{
 //   				ReadUnitsPerSecond: jsii.Number(123),
 //   				WriteUnitsPerSecond: jsii.Number(123),
@@ -228,9 +229,16 @@ import (
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
 //   	GlobalTableWitnesses: []interface{}{
 //   		&GlobalTableWitnessProperty{
 //   			Region: jsii.String("region"),
+//   		},
+//   	},
+//   	KeySchema: []interface{}{
+//   		&KeySchemaProperty{
+//   			AttributeName: jsii.String("attributeName"),
+//   			KeyType: jsii.String("keyType"),
 //   		},
 //   	},
 //   	LocalSecondaryIndexes: []interface{}{
@@ -251,6 +259,12 @@ import (
 //   		},
 //   	},
 //   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   	},
+//   	ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   		ReadCapacityUnits: jsii.Number(123),
+//   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -334,6 +348,8 @@ type CfnGlobalTable interface {
 	SetGlobalSecondaryIndexes(val interface{})
 	// A reference to a GlobalTable resource.
 	GlobalTableRef() *interfacesawsdynamodb.GlobalTableReference
+	GlobalTableSourceArn() *string
+	SetGlobalTableSourceArn(val *string)
 	// The list of witnesses of the MRSC global table.
 	GlobalTableWitnesses() interface{}
 	SetGlobalTableWitnesses(val interface{})
@@ -358,6 +374,10 @@ type CfnGlobalTable interface {
 	SetMultiRegionConsistency(val *string)
 	// The tree node.
 	Node() constructs.Node
+	ReadOnDemandThroughputSettings() interface{}
+	SetReadOnDemandThroughputSettings(val interface{})
+	ReadProvisionedThroughputSettings() interface{}
+	SetReadProvisionedThroughputSettings(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -529,6 +549,15 @@ type CfnGlobalTable interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnGlobalTable
@@ -658,6 +687,16 @@ func (j *jsiiProxy_CfnGlobalTable) GlobalTableRef() *interfacesawsdynamodb.Globa
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalTable) GlobalTableSourceArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"globalTableSourceArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalTable) GlobalTableWitnesses() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -713,6 +752,26 @@ func (j *jsiiProxy_CfnGlobalTable) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalTable) ReadOnDemandThroughputSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"readOnDemandThroughputSettings",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalTable) ReadProvisionedThroughputSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"readProvisionedThroughputSettings",
 		&returns,
 	)
 	return returns
@@ -898,6 +957,14 @@ func (j *jsiiProxy_CfnGlobalTable)SetGlobalSecondaryIndexes(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnGlobalTable)SetGlobalTableSourceArn(val *string) {
+	_jsii_.Set(
+		j,
+		"globalTableSourceArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnGlobalTable)SetGlobalTableWitnesses(val interface{}) {
 	if err := j.validateSetGlobalTableWitnessesParameters(val); err != nil {
 		panic(err)
@@ -935,6 +1002,28 @@ func (j *jsiiProxy_CfnGlobalTable)SetMultiRegionConsistency(val *string) {
 	_jsii_.Set(
 		j,
 		"multiRegionConsistency",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetReadOnDemandThroughputSettings(val interface{}) {
+	if err := j.validateSetReadOnDemandThroughputSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"readOnDemandThroughputSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetReadProvisionedThroughputSettings(val interface{}) {
+	if err := j.validateSetReadProvisionedThroughputSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"readProvisionedThroughputSettings",
 		val,
 	)
 }
@@ -1391,5 +1480,23 @@ func (c *jsiiProxy_CfnGlobalTable) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnGlobalTable) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

@@ -24,6 +24,24 @@ type jsiiProxy_IAutomationRuleV2Ref struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IAutomationRuleV2Ref) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAutomationRuleV2Ref) AutomationRuleV2Ref() *AutomationRuleV2Reference {
 	var returns *AutomationRuleV2Reference
 	_jsii_.Get(

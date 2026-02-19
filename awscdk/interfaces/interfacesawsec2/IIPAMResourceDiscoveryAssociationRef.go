@@ -24,6 +24,24 @@ type jsiiProxy_IIPAMResourceDiscoveryAssociationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IIPAMResourceDiscoveryAssociationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IIPAMResourceDiscoveryAssociationRef) IpamResourceDiscoveryAssociationRef() *IPAMResourceDiscoveryAssociationReference {
 	var returns *IPAMResourceDiscoveryAssociationReference
 	_jsii_.Get(

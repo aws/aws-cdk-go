@@ -37,6 +37,24 @@ func (i *jsiiProxy_IAppsyncFunction) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
+func (i *jsiiProxy_IAppsyncFunction) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAppsyncFunction) FunctionArn() *string {
 	var returns *string
 	_jsii_.Get(

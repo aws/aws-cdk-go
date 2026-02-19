@@ -132,10 +132,16 @@ type Repository interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// [disable-awslint:no-grants].
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// The use of this method is discouraged. Please use `grants.pull()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantPull(grantee awsiam.IGrantable) awsiam.Grant
+	// The use of this method is discouraged. Please use `grants.pullPush()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantPullPush(grantee awsiam.IGrantable) awsiam.Grant
+	// The use of this method is discouraged. Please use `grants.read()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
@@ -184,6 +190,15 @@ type Repository interface {
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for Repository
@@ -903,6 +918,24 @@ func (r *jsiiProxy_Repository) ToString() *string {
 		r,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_Repository) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		r,
+		"with",
+		args,
 		&returns,
 	)
 

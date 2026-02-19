@@ -35,6 +35,19 @@ package awssagemaker
 //   				VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   				VolumeSizeInGb: jsii.Number(123),
 //   			},
+//   			FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   				DnsName: jsii.String("dnsName"),
+//   				MountName: jsii.String("mountName"),
+//
+//   				// the properties below are optional
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   			FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   				DnsName: jsii.String("dnsName"),
+//
+//   				// the properties below are optional
+//   				MountPath: jsii.String("mountPath"),
+//   			},
 //   		},
 //   	},
 //   	KubernetesConfig: &ClusterKubernetesConfigProperty{
@@ -86,6 +99,14 @@ package awssagemaker
 //   				},
 //   			},
 //   			WaitIntervalInSeconds: jsii.Number(123),
+//   		},
+//   	},
+//   	SlurmConfig: &ClusterSlurmConfigProperty{
+//   		NodeType: jsii.String("nodeType"),
+//
+//   		// the properties below are optional
+//   		PartitionNames: []*string{
+//   			jsii.String("partitionNames"),
 //   		},
 //   	},
 //   	ThreadsPerCore: jsii.Number(123),
@@ -155,6 +176,10 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-scheduledupdateconfig
 	//
 	ScheduledUpdateConfig interface{} `field:"optional" json:"scheduledUpdateConfig" yaml:"scheduledUpdateConfig"`
+	// Slurm configuration for the instance group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-slurmconfig
+	//
+	SlurmConfig interface{} `field:"optional" json:"slurmConfig" yaml:"slurmConfig"`
 	// The number of threads per CPU core you specified under `CreateCluster` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-threadspercore
 	//

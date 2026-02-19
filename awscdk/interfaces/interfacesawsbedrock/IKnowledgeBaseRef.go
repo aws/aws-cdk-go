@@ -24,6 +24,24 @@ type jsiiProxy_IKnowledgeBaseRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IKnowledgeBaseRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IKnowledgeBaseRef) KnowledgeBaseRef() *KnowledgeBaseReference {
 	var returns *KnowledgeBaseReference
 	_jsii_.Get(

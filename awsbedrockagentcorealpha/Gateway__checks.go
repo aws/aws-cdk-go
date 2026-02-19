@@ -13,6 +13,21 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (g *jsiiProxy_Gateway) validateAddApiGatewayTargetParameters(id *string, props *AddApiGatewayTargetOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (g *jsiiProxy_Gateway) validateAddInterceptorParameters(interceptor IInterceptor) error {
 	if interceptor == nil {
 		return fmt.Errorf("parameter interceptor is required, but nil was provided")

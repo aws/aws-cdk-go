@@ -11,14 +11,10 @@ import (
 // Collection of grant methods for a ITopicRef.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   topic := sns.NewTopic(this, jsii.String("Topic"))
 //
-//   var topicRef ITopicRef
-//
-//   topicGrants := awscdk.Aws_sns.TopicGrants_FromTopic(topicRef)
+//   // This would work the same way if topic was a CfnTopic (L1)
+//   sns.TopicGrants_FromTopic(topic).Subscribe(iam.NewAnyPrincipal())
 //
 type TopicGrants interface {
 	EncryptedResource() awsiam.IEncryptedResource

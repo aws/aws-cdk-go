@@ -7,6 +7,8 @@ import (
 // Represents an instance of a DynamoDB table.
 type ITableV2 interface {
 	ITable
+	// Grants for this table.
+	Grants() TableGrants
 	// The ID of the table.
 	TableId() *string
 }
@@ -14,6 +16,16 @@ type ITableV2 interface {
 // The jsii proxy for ITableV2
 type jsiiProxy_ITableV2 struct {
 	jsiiProxy_ITable
+}
+
+func (j *jsiiProxy_ITableV2) Grants() TableGrants {
+	var returns TableGrants
+	_jsii_.Get(
+		j,
+		"grants",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_ITableV2) TableId() *string {

@@ -9,22 +9,16 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   userPhoneConfigProperty := &UserPhoneConfigProperty{
-//   	PhoneType: jsii.String("phoneType"),
-//
-//   	// the properties below are optional
 //   	AfterContactWorkTimeLimit: jsii.Number(123),
 //   	AutoAccept: jsii.Boolean(false),
 //   	DeskPhoneNumber: jsii.String("deskPhoneNumber"),
 //   	PersistentConnection: jsii.Boolean(false),
+//   	PhoneType: jsii.String("phoneType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html
 //
 type CfnUser_UserPhoneConfigProperty struct {
-	// The phone type.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-phonetype
-	//
-	PhoneType *string `field:"required" json:"phoneType" yaml:"phoneType"`
 	// The After Call Work (ACW) timeout setting, in seconds.
 	//
 	// This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
@@ -45,5 +39,9 @@ type CfnUser_UserPhoneConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-persistentconnection
 	//
 	PersistentConnection interface{} `field:"optional" json:"persistentConnection" yaml:"persistentConnection"`
+	// The phone type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-phonetype
+	//
+	PhoneType *string `field:"optional" json:"phoneType" yaml:"phoneType"`
 }
 

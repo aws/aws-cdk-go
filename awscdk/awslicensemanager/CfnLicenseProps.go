@@ -1,5 +1,8 @@
 package awslicensemanager
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnLicense`.
 //
@@ -9,6 +12,7 @@ package awslicensemanager
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnLicenseProps := &CfnLicenseProps{
+//   	Beneficiary: jsii.String("beneficiary"),
 //   	ConsumptionConfiguration: &ConsumptionConfigurationProperty{
 //   		BorrowConfiguration: &BorrowConfigurationProperty{
 //   			AllowEarlyCheckIn: jsii.Boolean(false),
@@ -40,26 +44,35 @@ package awslicensemanager
 //   	},
 //   	LicenseName: jsii.String("licenseName"),
 //   	ProductName: jsii.String("productName"),
+//   	ProductSku: jsii.String("productSku"),
 //   	Validity: &ValidityDateFormatProperty{
 //   		Begin: jsii.String("begin"),
 //   		End: jsii.String("end"),
 //   	},
 //
 //   	// the properties below are optional
-//   	Beneficiary: jsii.String("beneficiary"),
 //   	LicenseMetadata: []interface{}{
 //   		&MetadataProperty{
 //   			Name: jsii.String("name"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	ProductSku: jsii.String("productSku"),
 //   	Status: jsii.String("status"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
 //
 type CfnLicenseProps struct {
+	// License beneficiary.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
+	//
+	Beneficiary *string `field:"required" json:"beneficiary" yaml:"beneficiary"`
 	// Configuration for consumption of the license.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
 	//
@@ -84,25 +97,25 @@ type CfnLicenseProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
 	//
 	ProductName *string `field:"required" json:"productName" yaml:"productName"`
+	// Product SKU.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+	//
+	ProductSku *string `field:"required" json:"productSku" yaml:"productSku"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
 	//
 	Validity interface{} `field:"required" json:"validity" yaml:"validity"`
-	// License beneficiary.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-	//
-	Beneficiary *string `field:"optional" json:"beneficiary" yaml:"beneficiary"`
 	// License metadata.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
 	//
 	LicenseMetadata interface{} `field:"optional" json:"licenseMetadata" yaml:"licenseMetadata"`
-	// Product SKU.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-	//
-	ProductSku *string `field:"optional" json:"productSku" yaml:"productSku"`
 	// License status.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
+	// A list of tags to attach.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

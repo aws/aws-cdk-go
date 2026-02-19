@@ -6,14 +6,34 @@ package interfaces
 // Used as the return value for the `IEnvironmentAware.env` property.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/constructs-go/constructs"
 //
-//   resourceEnvironment := &ResourceEnvironment{
-//   	Account: jsii.String("account"),
-//   	Region: jsii.String("region"),
+//   var scope Construct
+//   type myFactory struct {
 //   }
+//
+//   func (this *myFactory) forResource(resource CfnResource) IResourceWithPolicyV2 {
+//   	return map[string]ResourceEnvironment{
+//   		"env": *resource.env,
+//   		(MethodDeclaration addToResourcePolicy(statement: PolicyStatement) {
+//   		        // custom implementation to add the statement to the resource policy
+//   		        return { statementAdded: true, policyDependable: resource };
+//   		      }
+//   				addToResourcePolicy
+//   				statement PolicyStatement
+//   				{
+//   					// custom implementation to add the statement to the resource policy
+//   					return &AddToResourcePolicyResult{
+//   						"statementAdded": jsii.Boolean(true),
+//   						"policyDependable": resource,
+//   					}
+//   				}),
+//   	}
+//   }
+//
+//   awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::KMS::Key"), NewMyFactory())
 //
 type ResourceEnvironment struct {
 	// The AWS Account ID that this resource belongs to.

@@ -19,6 +19,12 @@ import (
 //   cfnWorkteamActivityLogs := awscdkmixinspreview.Mixins.NewCfnWorkteamActivityLogs()
 //
 type CfnWorkteamActivityLogs interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are S3, CWL
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnWorkteamLogsMixin
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnWorkteamLogsMixin
 	// Send logs to an S3 Bucket.
@@ -54,6 +60,22 @@ func NewCfnWorkteamActivityLogs_Override(c CfnWorkteamActivityLogs) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnWorkteamActivityLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnWorkteamLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnWorkteamLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnWorkteamActivityLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnWorkteamLogsMixin {

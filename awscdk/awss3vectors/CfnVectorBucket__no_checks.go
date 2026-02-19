@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnVectorBucket) validateSetEncryptionConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnVectorBucket) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnVectorBucketParameters(scope constructs.Construct, id *string, props *CfnVectorBucketProps) error {
 	return nil
 }

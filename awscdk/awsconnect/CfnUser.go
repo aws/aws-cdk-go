@@ -22,15 +22,6 @@ import (
 //
 //   cfnUser := awscdk.Aws_connect.NewCfnUser(this, jsii.String("MyCfnUser"), &CfnUserProps{
 //   	InstanceArn: jsii.String("instanceArn"),
-//   	PhoneConfig: &UserPhoneConfigProperty{
-//   		PhoneType: jsii.String("phoneType"),
-//
-//   		// the properties below are optional
-//   		AfterContactWorkTimeLimit: jsii.Number(123),
-//   		AutoAccept: jsii.Boolean(false),
-//   		DeskPhoneNumber: jsii.String("deskPhoneNumber"),
-//   		PersistentConnection: jsii.Boolean(false),
-//   	},
 //   	RoutingProfileArn: jsii.String("routingProfileArn"),
 //   	SecurityProfileArns: []*string{
 //   		jsii.String("securityProfileArns"),
@@ -38,6 +29,28 @@ import (
 //   	Username: jsii.String("username"),
 //
 //   	// the properties below are optional
+//   	AfterContactWorkConfigs: []interface{}{
+//   		&AfterContactWorkConfigPerChannelProperty{
+//   			AfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   				AfterContactWorkTimeLimit: jsii.Number(123),
+//   			},
+//   			Channel: jsii.String("channel"),
+//
+//   			// the properties below are optional
+//   			AgentFirstCallbackAfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   				AfterContactWorkTimeLimit: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	AutoAcceptConfigs: []interface{}{
+//   		&AutoAcceptConfigProperty{
+//   			AutoAccept: jsii.Boolean(false),
+//   			Channel: jsii.String("channel"),
+//
+//   			// the properties below are optional
+//   			AgentFirstCallbackAutoAccept: jsii.Boolean(false),
+//   		},
+//   	},
 //   	DirectoryUserId: jsii.String("directoryUserId"),
 //   	HierarchyGroupArn: jsii.String("hierarchyGroupArn"),
 //   	IdentityInfo: &UserIdentityInfoProperty{
@@ -48,6 +61,28 @@ import (
 //   		SecondaryEmail: jsii.String("secondaryEmail"),
 //   	},
 //   	Password: jsii.String("password"),
+//   	PersistentConnectionConfigs: []interface{}{
+//   		&PersistentConnectionConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			PersistentConnection: jsii.Boolean(false),
+//   		},
+//   	},
+//   	PhoneConfig: &UserPhoneConfigProperty{
+//   		AfterContactWorkTimeLimit: jsii.Number(123),
+//   		AutoAccept: jsii.Boolean(false),
+//   		DeskPhoneNumber: jsii.String("deskPhoneNumber"),
+//   		PersistentConnection: jsii.Boolean(false),
+//   		PhoneType: jsii.String("phoneType"),
+//   	},
+//   	PhoneNumberConfigs: []interface{}{
+//   		&PhoneNumberConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			PhoneType: jsii.String("phoneType"),
+//
+//   			// the properties below are optional
+//   			PhoneNumber: jsii.String("phoneNumber"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -61,6 +96,12 @@ import (
 //   			Level: jsii.Number(123),
 //   		},
 //   	},
+//   	VoiceEnhancementConfigs: []interface{}{
+//   		&VoiceEnhancementConfigProperty{
+//   			Channel: jsii.String("channel"),
+//   			VoiceEnhancementMode: jsii.String("voiceEnhancementMode"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html
@@ -70,8 +111,14 @@ type CfnUser interface {
 	awscdk.IInspectable
 	interfacesawsconnect.IUserRef
 	awscdk.ITaggable
+	// After Contact Work configurations of a user.
+	AfterContactWorkConfigs() interface{}
+	SetAfterContactWorkConfigs(val interface{})
 	// The Amazon Resource Name (ARN) of the user.
 	AttrUserArn() *string
+	// Auto-accept configurations of a user.
+	AutoAcceptConfigs() interface{}
+	SetAutoAcceptConfigs(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -109,9 +156,15 @@ type CfnUser interface {
 	// The user's password.
 	Password() *string
 	SetPassword(val *string)
+	// Persistent Connection configurations of a user.
+	PersistentConnectionConfigs() interface{}
+	SetPersistentConnectionConfigs(val interface{})
 	// Information about the phone configuration for the user.
 	PhoneConfig() interface{}
 	SetPhoneConfig(val interface{})
+	// Phone Number configurations of a user.
+	PhoneNumberConfigs() interface{}
+	SetPhoneNumberConfigs(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -153,6 +206,9 @@ type CfnUser interface {
 	SetUserProficiencies(val interface{})
 	// A reference to a User resource.
 	UserRef() *interfacesawsconnect.UserReference
+	// Voice Enhancement configurations of a user.
+	VoiceEnhancementConfigs() interface{}
+	SetVoiceEnhancementConfigs(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -278,6 +334,15 @@ type CfnUser interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnUser
@@ -288,11 +353,31 @@ type jsiiProxy_CfnUser struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnUser) AfterContactWorkConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"afterContactWorkConfigs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUser) AttrUserArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrUserArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUser) AutoAcceptConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoAcceptConfigs",
 		&returns,
 	)
 	return returns
@@ -418,11 +503,31 @@ func (j *jsiiProxy_CfnUser) Password() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) PersistentConnectionConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"persistentConnectionConfigs",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUser) PhoneConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"phoneConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUser) PhoneNumberConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"phoneNumberConfigs",
 		&returns,
 	)
 	return returns
@@ -538,6 +643,16 @@ func (j *jsiiProxy_CfnUser) UserRef() *interfacesawsconnect.UserReference {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUser) VoiceEnhancementConfigs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"voiceEnhancementConfigs",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Connect::User`.
 func NewCfnUser(scope constructs.Construct, id *string, props *CfnUserProps) CfnUser {
@@ -565,6 +680,28 @@ func NewCfnUser_Override(c CfnUser, scope constructs.Construct, id *string, prop
 		"aws-cdk-lib.aws_connect.CfnUser",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetAfterContactWorkConfigs(val interface{}) {
+	if err := j.validateSetAfterContactWorkConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"afterContactWorkConfigs",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetAutoAcceptConfigs(val interface{}) {
+	if err := j.validateSetAutoAcceptConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoAcceptConfigs",
+		val,
 	)
 }
 
@@ -614,6 +751,17 @@ func (j *jsiiProxy_CfnUser)SetPassword(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnUser)SetPersistentConnectionConfigs(val interface{}) {
+	if err := j.validateSetPersistentConnectionConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"persistentConnectionConfigs",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnUser)SetPhoneConfig(val interface{}) {
 	if err := j.validateSetPhoneConfigParameters(val); err != nil {
 		panic(err)
@@ -621,6 +769,17 @@ func (j *jsiiProxy_CfnUser)SetPhoneConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"phoneConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetPhoneNumberConfigs(val interface{}) {
+	if err := j.validateSetPhoneNumberConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"phoneNumberConfigs",
 		val,
 	)
 }
@@ -676,6 +835,17 @@ func (j *jsiiProxy_CfnUser)SetUserProficiencies(val interface{}) {
 	_jsii_.Set(
 		j,
 		"userProficiencies",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUser)SetVoiceEnhancementConfigs(val interface{}) {
+	if err := j.validateSetVoiceEnhancementConfigsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"voiceEnhancementConfigs",
 		val,
 	)
 }
@@ -1047,5 +1217,23 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnUser) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

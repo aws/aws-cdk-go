@@ -4,6 +4,10 @@ package previewawseksmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CfnClusterAutoModeComputeLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterAutoModeComputeLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
 	return nil
 }

@@ -461,6 +461,24 @@ func (i *jsiiProxy_IRepository) BindAsNotificationRuleSource(scope constructs.Co
 	return returns
 }
 
+func (i *jsiiProxy_IRepository) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IRepository) RepositoryArn() *string {
 	var returns *string
 	_jsii_.Get(

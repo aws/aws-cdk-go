@@ -846,6 +846,17 @@ func AuroraMysqlEngineVersion_VER_3_04_4() AuroraMysqlEngineVersion {
 	return returns
 }
 
+func AuroraMysqlEngineVersion_VER_3_04_6() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_3_04_6",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraMysqlEngineVersion_VER_3_05_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
@@ -995,6 +1006,17 @@ func AuroraMysqlEngineVersion_VER_3_10_2() AuroraMysqlEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
 		"VER_3_10_2",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraMysqlEngineVersion_VER_3_10_3() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"VER_3_10_3",
 		&returns,
 	)
 	return returns

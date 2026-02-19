@@ -24,6 +24,24 @@ type jsiiProxy_IMemberInvitationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IMemberInvitationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IMemberInvitationRef) MemberInvitationRef() *MemberInvitationReference {
 	var returns *MemberInvitationReference
 	_jsii_.Get(

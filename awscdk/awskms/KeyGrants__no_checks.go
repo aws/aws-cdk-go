@@ -8,6 +8,10 @@ func (k *jsiiProxy_KeyGrants) validateActionsParameters(grantee awsiam.IGrantabl
 	return nil
 }
 
+func (k *jsiiProxy_KeyGrants) validateAdminParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (k *jsiiProxy_KeyGrants) validateDecryptParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

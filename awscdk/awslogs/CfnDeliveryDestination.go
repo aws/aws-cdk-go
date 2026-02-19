@@ -25,30 +25,33 @@ import (
 // You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
+//   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var deliveryDestinationPolicy interface{}
+//   // Create CloudFront distribution
+//   var bucket Bucket
 //
-//   cfnDeliveryDestination := awscdk.Aws_logs.NewCfnDeliveryDestination(this, jsii.String("MyCfnDeliveryDestination"), &CfnDeliveryDestinationProps{
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
-//   	DeliveryDestinationPolicy: &DestinationPolicyProperty{
-//   		DeliveryDestinationName: jsii.String("deliveryDestinationName"),
-//   		DeliveryDestinationPolicy: deliveryDestinationPolicy,
-//   	},
-//   	DeliveryDestinationType: jsii.String("deliveryDestinationType"),
-//   	DestinationResourceArn: jsii.String("destinationResourceArn"),
-//   	OutputFormat: jsii.String("outputFormat"),
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
+//   distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
 //   	},
 //   })
+//
+//   // Create destination bucket
+//   destBucket := s3.NewBucket(scope, jsii.String("DeliveryBucket"))
+//   // Add permissions to bucket to facilitate log delivery
+//   bucketPolicy := s3.NewBucketPolicy(scope, jsii.String("DeliveryBucketPolicy"), &BucketPolicyProps{
+//   	Bucket: destBucket,
+//   	Document: iam.NewPolicyDocument(),
+//   })
+//   // Create S3 delivery destination for logs
+//   destination := logs.NewCfnDeliveryDestination(scope, jsii.String("Destination"), &CfnDeliveryDestinationProps{
+//   	DestinationResourceArn: destBucket.bucketArn,
+//   	Name: jsii.String("unique-destination-name"),
+//   	DeliveryDestinationType: jsii.String("S3"),
+//   })
+//
+//   distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToDestination(destination))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html
 //
@@ -250,6 +253,15 @@ type CfnDeliveryDestination interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnDeliveryDestination
@@ -952,5 +964,23 @@ func (c *jsiiProxy_CfnDeliveryDestination) ValidateProperties(_properties interf
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnDeliveryDestination) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

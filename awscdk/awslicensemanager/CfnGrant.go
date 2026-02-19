@@ -31,6 +31,12 @@ import (
 //   		jsii.String("principals"),
 //   	},
 //   	Status: jsii.String("status"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
@@ -39,6 +45,7 @@ type CfnGrant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawslicensemanager.IGrantRef
+	awscdk.ITaggableV2
 	// Allowed operations for the grant.
 	AllowedOperations() *[]*string
 	SetAllowedOperations(val *[]*string)
@@ -46,6 +53,8 @@ type CfnGrant interface {
 	AttrGrantArn() *string
 	// The grant version.
 	AttrVersion() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -96,6 +105,9 @@ type CfnGrant interface {
 	// Granted license status.
 	Status() *string
 	SetStatus(val *string)
+	// A list of tags to attach.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -234,6 +246,15 @@ type CfnGrant interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnGrant
@@ -241,6 +262,7 @@ type jsiiProxy_CfnGrant struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawslicensemanagerIGrantRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnGrant) AllowedOperations() *[]*string {
@@ -268,6 +290,16 @@ func (j *jsiiProxy_CfnGrant) AttrVersion() *string {
 	_jsii_.Get(
 		j,
 		"attrVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGrant) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -423,6 +455,16 @@ func (j *jsiiProxy_CfnGrant) Status() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGrant) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGrant) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -517,6 +559,17 @@ func (j *jsiiProxy_CfnGrant)SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGrant)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }
@@ -888,5 +941,23 @@ func (c *jsiiProxy_CfnGrant) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnGrant) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

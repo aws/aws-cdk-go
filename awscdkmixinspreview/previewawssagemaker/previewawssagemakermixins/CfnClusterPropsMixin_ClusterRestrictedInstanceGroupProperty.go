@@ -26,6 +26,15 @@ package previewawssagemakermixins
 //   				VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   				VolumeSizeInGb: jsii.Number(123),
 //   			},
+//   			FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   				DnsName: jsii.String("dnsName"),
+//   				MountName: jsii.String("mountName"),
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   			FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   				DnsName: jsii.String("dnsName"),
+//   				MountPath: jsii.String("mountPath"),
+//   			},
 //   		},
 //   	},
 //   	InstanceType: jsii.String("instanceType"),

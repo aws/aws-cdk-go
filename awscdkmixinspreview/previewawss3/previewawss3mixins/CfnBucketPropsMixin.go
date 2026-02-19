@@ -20,7 +20,7 @@ import (
 //   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //
 //
-//   bucket := s3.NewBucket(scope, jsii.String("Bucket")).with(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
+//   bucket := s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 //   	VersioningConfiguration: &VersioningConfigurationProperty{
 //   		Status: jsii.String("Enabled"),
 //   	},

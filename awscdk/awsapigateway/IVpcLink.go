@@ -35,6 +35,24 @@ func (i *jsiiProxy_IVpcLink) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+func (i *jsiiProxy_IVpcLink) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IVpcLink) VpcLinkId() *string {
 	var returns *string
 	_jsii_.Get(

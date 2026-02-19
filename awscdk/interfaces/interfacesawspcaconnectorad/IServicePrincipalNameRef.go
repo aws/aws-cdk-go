@@ -24,6 +24,24 @@ type jsiiProxy_IServicePrincipalNameRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IServicePrincipalNameRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IServicePrincipalNameRef) ServicePrincipalNameRef() *ServicePrincipalNameReference {
 	var returns *ServicePrincipalNameReference
 	_jsii_.Get(

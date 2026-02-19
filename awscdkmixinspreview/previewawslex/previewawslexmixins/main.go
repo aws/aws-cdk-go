@@ -220,6 +220,10 @@ func init() {
 		reflect.TypeOf((*CfnBotPropsMixin_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.DeepgramSpeechModelConfigProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_DeepgramSpeechModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.DefaultConditionalBranchProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_DefaultConditionalBranchProperty)(nil)).Elem(),
 	)
@@ -494,6 +498,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.SpeechFoundationModelProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_SpeechFoundationModelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.SpeechModelConfigProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_SpeechModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.SpeechRecognitionSettingsProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_SpeechRecognitionSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_lex.mixins.CfnBotPropsMixin.StillWaitingResponseSpecificationProperty",

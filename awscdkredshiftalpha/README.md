@@ -54,6 +54,24 @@ A default database named `default_db` will be created in the cluster. To change 
 By default, the cluster will not be publicly accessible.
 Depending on your use case, you can make the cluster publicly accessible with the `publiclyAccessible` property.
 
+By default, the node type is `RA3_LARGE`. You can specify a different node type by setting the `nodeType` property.
+
+```go
+// Example automatically generated from non-compiling source. May contain errors.
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+
+var vpc IVpc
+
+
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
+	},
+	Vpc: Vpc,
+	NodeType: nodeType_RA3_XLPLUS,
+})
+```
+
 ## Adding a logging bucket for database audit logging to S3
 
 Amazon Redshift logs information about connections and user activities in your database. These logs help you to monitor the database for security and troubleshooting purposes, a process called database auditing. To send these logs to an S3 bucket, specify the `loggingProperties` when creating a new cluster.

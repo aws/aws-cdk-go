@@ -120,6 +120,14 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_ClusterEbsVolumeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.ClusterFsxLustreConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ClusterFsxLustreConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.ClusterFsxOpenZfsConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ClusterFsxOpenZfsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.ClusterInstanceGroupProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ClusterInstanceGroupProperty)(nil)).Elem(),
 	)
@@ -144,8 +152,16 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_ClusterOrchestratorEksConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.ClusterOrchestratorSlurmConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ClusterOrchestratorSlurmConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.ClusterRestrictedInstanceGroupProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ClusterRestrictedInstanceGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.ClusterSlurmConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ClusterSlurmConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnClusterPropsMixin.DeploymentConfigProperty",
@@ -2031,6 +2047,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_sagemaker.mixins.CfnWorkteamActivityLogs",
 		reflect.TypeOf((*CfnWorkteamActivityLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
 		},

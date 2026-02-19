@@ -67,6 +67,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineExpressLogs",
 		reflect.TypeOf((*CfnStateMachineExpressLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 		},
 		func() interface{} {
@@ -141,6 +142,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineStandardLogs",
 		reflect.TypeOf((*CfnStateMachineStandardLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 		},
 		func() interface{} {

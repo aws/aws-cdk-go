@@ -29,7 +29,7 @@ import (
 //   logGroup := logs.NewLogGroup(scope, jsii.String("DeliveryLogGroup"))
 //
 //   // Configure log delivery using the mixin
-//   distribution.with(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToLogGroup(logGroup))
+//   distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToLogGroup(logGroup))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
 //

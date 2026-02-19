@@ -24,6 +24,24 @@ type jsiiProxy_IS3TableIntegrationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IS3TableIntegrationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IS3TableIntegrationRef) S3TableIntegrationRef() *S3TableIntegrationReference {
 	var returns *S3TableIntegrationReference
 	_jsii_.Get(

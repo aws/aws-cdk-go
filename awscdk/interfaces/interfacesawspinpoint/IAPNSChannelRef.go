@@ -24,6 +24,24 @@ type jsiiProxy_IAPNSChannelRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IAPNSChannelRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAPNSChannelRef) ApnsChannelRef() *APNSChannelReference {
 	var returns *APNSChannelReference
 	_jsii_.Get(

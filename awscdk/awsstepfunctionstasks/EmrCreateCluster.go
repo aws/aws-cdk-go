@@ -203,6 +203,15 @@ type EmrCreateCluster interface {
 	//
 	// Can be overridden by subclasses.
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for EmrCreateCluster
@@ -1175,5 +1184,23 @@ func (e *jsiiProxy_EmrCreateCluster) WhenBoundToGraph(graph awsstepfunctions.Sta
 		"whenBoundToGraph",
 		[]interface{}{graph},
 	)
+}
+
+func (e *jsiiProxy_EmrCreateCluster) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		e,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

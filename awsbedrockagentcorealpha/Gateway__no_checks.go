@@ -4,6 +4,10 @@ package awsbedrockagentcorealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (g *jsiiProxy_Gateway) validateAddApiGatewayTargetParameters(id *string, props *AddApiGatewayTargetOptions) error {
+	return nil
+}
+
 func (g *jsiiProxy_Gateway) validateAddInterceptorParameters(interceptor IInterceptor) error {
 	return nil
 }

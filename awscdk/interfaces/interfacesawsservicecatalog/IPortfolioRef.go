@@ -24,6 +24,24 @@ type jsiiProxy_IPortfolioRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IPortfolioRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IPortfolioRef) PortfolioRef() *PortfolioReference {
 	var returns *PortfolioReference
 	_jsii_.Get(

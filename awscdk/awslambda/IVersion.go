@@ -296,6 +296,24 @@ func (i *jsiiProxy_IVersion) MetricThrottles(props *awscloudwatch.MetricOptions)
 	return returns
 }
 
+func (i *jsiiProxy_IVersion) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IVersion) EdgeArn() *string {
 	var returns *string
 	_jsii_.Get(

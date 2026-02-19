@@ -56,6 +56,9 @@ import (
 //   		S3VectorsEngine: &S3VectorsEngineProperty{
 //   			Enabled: jsii.Boolean(false),
 //   		},
+//   		ServerlessVectorAcceleration: &ServerlessVectorAccelerationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
 //   	},
 //   	ClusterConfig: &ClusterConfigProperty{
 //   		ColdStorageOptions: &ColdStorageOptionsProperty{

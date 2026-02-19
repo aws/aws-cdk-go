@@ -248,6 +248,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_ColorSpacePassthroughSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.DisabledLockingSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_DisabledLockingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.DolbyVision81SettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_DolbyVision81SettingsProperty)(nil)).Elem(),
 	)
@@ -478,6 +482,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.MaintenanceCreateSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_MaintenanceCreateSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.MediaPackageAdditionalDestinationsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaPackageAdditionalDestinationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_medialive.mixins.CfnChannelPropsMixin.MediaPackageGroupSettingsProperty",

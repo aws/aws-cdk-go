@@ -47,6 +47,15 @@ type ProductStackHistory interface {
 	ToString() *string
 	// Retrieves a CloudFormationProductVersion from a previously deployed productVersionName.
 	VersionFromSnapshot(productVersionName *string) *CloudFormationProductVersion
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for ProductStackHistory
@@ -174,6 +183,24 @@ func (p *jsiiProxy_ProductStackHistory) VersionFromSnapshot(productVersionName *
 		p,
 		"versionFromSnapshot",
 		[]interface{}{productVersionName},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProductStackHistory) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		p,
+		"with",
+		args,
 		&returns,
 	)
 

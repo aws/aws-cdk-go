@@ -524,6 +524,7 @@ result that contains records in a specific format, including the following field
 * `result` -- the status of the transformation of the record: "Ok" (success), "Dropped"
   (not processed intentionally), or "ProcessingFailed" (not processed due to an error).
 * `data` -- the transformed data, Base64-encoded.
+* `metadata` -- the metadata used by dynamic partitioning.
 
 The data is buffered up to 1 minute and up to 3 MiB by default before being sent to the
 function, but can be configured using `bufferInterval` and `bufferSize`
@@ -740,6 +741,103 @@ firehose.NewDeliveryStream(this, jsii.String("Delivery Stream"), &DeliveryStream
 	Destination: s3Destination,
 })
 ```
+
+## Dynamic Partitioning
+
+Dynamic partitioning enables you to continuously partition streaming data in Firehose by using keys within data (for example, `customer_id` or `transaction_id`) and then deliver the data grouped by these keys into corresponding Amazon S3 prefixes.
+
+For details, see [Partition streaming data in Amazon Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html).
+
+### Create partitioning keys with inline parsing
+
+To enable dynamic partitioning with inline parsing, specify `MetadataExtractionProcessor` data processor in `processors`.
+
+Only supported mechanism currently is [jq 1.6 parser](https://stedolan.github.io/jq/).
+
+The partition keys can be referred as `!{partitionKeyFromQuery:key}` in `dataOutputPrefix`.
+
+```go
+var bucket Bucket
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	DynamicPartitioning: &DynamicPartitioningProps{
+		Enabled: jsii.Boolean(true),
+	},
+	Processors: []IDataProcessor{
+		firehose.MetadataExtractionProcessor_Jq16(map[string]*string{
+			"customer_id": jsii.String(".customer_id"),
+			"device": jsii.String(".type.device"),
+			"year": jsii.String(".event_timestamp|strftime(\"%Y\")"),
+		}),
+	},
+	DataOutputPrefix: jsii.String("!{partitionKeyFromQuery:year}/!{partitionKeyFromQuery:device}/!{partitionKeyFromQuery:customer_id}/"),
+})
+firehose.NewDeliveryStream(this, jsii.String("DeliveryStream"), &DeliveryStreamProps{
+	Destination: s3Destination,
+})
+```
+
+### Create partitioning keys with an AWS Lambda function
+
+For compressed or encrypted data records, or data that is in any file format other than JSON, you can use the `LambdaFunctionDataProcessor` with your own custom code to decompress, decrypt, or transform the records in order to extract and return the data fields needed for partitioning.
+
+The lambda function must return `metadata` in your result records.
+
+The partition keys can be referred as `!{partitionKeyFromLambda:key}` in `dataOutputPrefix`.
+
+```go
+var bucket Bucket
+var lambdaFunction Function
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	DynamicPartitioning: &DynamicPartitioningProps{
+		Enabled: jsii.Boolean(true),
+	},
+	Processors: []IDataProcessor{
+		firehose.NewLambdaFunctionProcessor(lambdaFunction),
+	},
+	DataOutputPrefix: jsii.String("!{partitionKeyFromLambda:year}/!{partitionKeyFromLambda:device}/!{partitionKeyFromLambda:customer_id}/"),
+})
+firehose.NewDeliveryStream(this, jsii.String("DeliveryStream"), &DeliveryStreamProps{
+	Destination: s3Destination,
+})
+```
+
+### Multi record deaggregation
+
+To apply dynamic partitioning to aggregated data (for example, multiple events, logs, or records aggregated into a single PutRecord and PutRecordBatch API call), use `RecordDeAggregationProcessor`.
+
+When the input data is JSON objects on a single line with no delimiter or newline-delimited (JSONL), specify `RecordDeAggregationProcessor.json()`.
+
+```go
+var bucket Bucket
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	DynamicPartitioning: &DynamicPartitioningProps{
+		Enabled: jsii.Boolean(true),
+	},
+	Processors: []IDataProcessor{
+		firehose.RecordDeAggregationProcessor_Json(),
+	},
+})
+```
+
+You can also specify custom delimiter using `RecordDeAggregationProcessor.delimited()`.
+
+```go
+var bucket Bucket
+
+s3Destination := firehose.NewS3Bucket(bucket, &S3BucketProps{
+	DynamicPartitioning: &DynamicPartitioningProps{
+		Enabled: jsii.Boolean(true),
+	},
+	Processors: []IDataProcessor{
+		firehose.RecordDeAggregationProcessor_Delimited(jsii.String("####")),
+	},
+})
+```
+
+Record deaggregation by JSON or by delimiter is capped at 500 per record.
 
 ## Specifying an IAM role
 

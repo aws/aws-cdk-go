@@ -24,6 +24,24 @@ type jsiiProxy_IBridgeSourceRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IBridgeSourceRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IBridgeSourceRef) BridgeSourceRef() *BridgeSourceReference {
 	var returns *BridgeSourceReference
 	_jsii_.Get(

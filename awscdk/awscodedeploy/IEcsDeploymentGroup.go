@@ -41,6 +41,24 @@ func (i *jsiiProxy_IEcsDeploymentGroup) ApplyRemovalPolicy(policy awscdk.Removal
 	)
 }
 
+func (i *jsiiProxy_IEcsDeploymentGroup) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IEcsDeploymentGroup) Application() IEcsApplication {
 	var returns IEcsApplication
 	_jsii_.Get(

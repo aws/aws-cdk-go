@@ -4,6 +4,10 @@ package previewawsm2mixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CfnApplicationDatasetImportLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationDatasetImportLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
 	return nil
 }

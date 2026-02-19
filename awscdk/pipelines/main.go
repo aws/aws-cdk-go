@@ -105,6 +105,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usePipelineRoleForActions", GoGetter: "UsePipelineRoleForActions"},
 			_jsii_.MemberProperty{JsiiProperty: "waves", GoGetter: "Waves"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CodePipeline{}
@@ -312,6 +313,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "synth", GoGetter: "Synth"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "waves", GoGetter: "Waves"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PipelineBase{}

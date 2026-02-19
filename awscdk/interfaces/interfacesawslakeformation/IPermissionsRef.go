@@ -24,6 +24,24 @@ type jsiiProxy_IPermissionsRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IPermissionsRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IPermissionsRef) PermissionsRef() *PermissionsReference {
 	var returns *PermissionsReference
 	_jsii_.Get(

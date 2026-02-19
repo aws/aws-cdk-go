@@ -15,7 +15,7 @@ import (
 //   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //
 //
-//   bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).with(awscdkmixinspreview.NewBucketVersioning()).with(awscdkmixinspreview.NewAutoDeleteObjects())
+//   bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).With(awscdkmixinspreview.NewBucketVersioning()).With(awscdkmixinspreview.NewAutoDeleteObjects())
 //
 // Experimental.
 type BucketVersioning interface {

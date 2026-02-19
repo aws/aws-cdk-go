@@ -33,6 +33,12 @@ package previewawsdynamodbmixins
 //   				},
 //   				ProjectionType: jsii.String("projectionType"),
 //   			},
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   			},
+//   			ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   				ReadCapacityUnits: jsii.Number(123),
+//   			},
 //   			WarmThroughput: &WarmThroughputProperty{
 //   				ReadUnitsPerSecond: jsii.Number(123),
 //   				WriteUnitsPerSecond: jsii.Number(123),
@@ -55,6 +61,7 @@ package previewawsdynamodbmixins
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
 //   	GlobalTableWitnesses: []interface{}{
 //   		&GlobalTableWitnessProperty{
 //   			Region: jsii.String("region"),
@@ -84,6 +91,12 @@ package previewawsdynamodbmixins
 //   		},
 //   	},
 //   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   	},
+//   	ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   		ReadCapacityUnits: jsii.Number(123),
+//   	},
 //   	Replicas: []interface{}{
 //   		&ReplicaSpecificationProperty{
 //   			ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
@@ -117,6 +130,7 @@ package previewawsdynamodbmixins
 //   					},
 //   				},
 //   			},
+//   			GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
 //   			KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
 //   				ApproximateCreationDateTimePrecision: jsii.String("approximateCreationDateTimePrecision"),
 //   				StreamArn: jsii.String("streamArn"),
@@ -221,6 +235,9 @@ type CfnGlobalTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
 	//
 	GlobalSecondaryIndexes interface{} `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablesourcearn
+	//
+	GlobalTableSourceArn *string `field:"optional" json:"globalTableSourceArn" yaml:"globalTableSourceArn"`
 	// The list of witnesses of the MRSC global table.
 	//
 	// Only one witness Region can be configured per MRSC global table.
@@ -250,6 +267,12 @@ type CfnGlobalTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-multiregionconsistency
 	//
 	MultiRegionConsistency *string `field:"optional" json:"multiRegionConsistency" yaml:"multiRegionConsistency"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-readondemandthroughputsettings
+	//
+	ReadOnDemandThroughputSettings interface{} `field:"optional" json:"readOnDemandThroughputSettings" yaml:"readOnDemandThroughputSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings
+	//
+	ReadProvisionedThroughputSettings interface{} `field:"optional" json:"readProvisionedThroughputSettings" yaml:"readProvisionedThroughputSettings"`
 	// Specifies the list of replicas for your global table.
 	//
 	// The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.

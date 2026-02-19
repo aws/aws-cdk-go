@@ -17,6 +17,12 @@ package awsgamelift
 //
 //   	// the properties below are optional
 //   	DesiredEc2Instances: jsii.Number(123),
+//   	ManagedCapacityConfiguration: &ManagedCapacityConfigurationProperty{
+//   		ZeroCapacityStrategy: jsii.String("zeroCapacityStrategy"),
+//
+//   		// the properties below are optional
+//   		ScaleInAfterInactivityMinutes: jsii.Number(123),
+//   	},
 //   	MinSize: jsii.Number(123),
 //   }
 //
@@ -35,6 +41,10 @@ type CfnFleet_LocationCapacityProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
 	//
 	DesiredEc2Instances *float64 `field:"optional" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
+	// Configuration options for Amazon GameLift Servers-managed capacity behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-managedcapacityconfiguration
+	//
+	ManagedCapacityConfiguration interface{} `field:"optional" json:"managedCapacityConfiguration" yaml:"managedCapacityConfiguration"`
 	// The minimum number of instances that are allowed in the specified fleet location.
 	//
 	// If this parameter is not set, the default is 0.

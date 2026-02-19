@@ -37,6 +37,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetrySinkConfigArn: jsii.String("telemetrySinkConfigArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
@@ -82,5 +83,9 @@ type CfnMissionProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-telemetrysinkconfigarn
+	//
+	TelemetrySinkConfigArn *string `field:"optional" json:"telemetrySinkConfigArn" yaml:"telemetrySinkConfigArn"`
 }
 

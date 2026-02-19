@@ -24,6 +24,24 @@ type jsiiProxy_IMultiplexprogramRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IMultiplexprogramRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IMultiplexprogramRef) MultiplexprogramRef() *MultiplexprogramReference {
 	var returns *MultiplexprogramReference
 	_jsii_.Get(

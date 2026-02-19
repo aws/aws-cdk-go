@@ -41,6 +41,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetrySinkConfigArn: jsii.String("telemetrySinkConfigArn"),
 //   	TrackingConfigArn: jsii.String("trackingConfigArn"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,

@@ -17,6 +17,12 @@ import (
 //   cfnStateMachineStandardLogs := awscdkmixinspreview.Mixins.NewCfnStateMachineStandardLogs()
 //
 type CfnStateMachineStandardLogs interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are CWL
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnStateMachineLogsMixin
 	// Send logs to a CloudWatch Log Group.
 	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnStateMachineLogsMixin
 }
@@ -50,6 +56,22 @@ func NewCfnStateMachineStandardLogs_Override(c CfnStateMachineStandardLogs) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnStateMachineStandardLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnStateMachineLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnStateMachineLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnStateMachineStandardLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnStateMachineLogsMixin {

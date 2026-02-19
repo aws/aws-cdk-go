@@ -24,6 +24,24 @@ type jsiiProxy_IContainerGroupDefinitionRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IContainerGroupDefinitionRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IContainerGroupDefinitionRef) ContainerGroupDefinitionRef() *ContainerGroupDefinitionReference {
 	var returns *ContainerGroupDefinitionReference
 	_jsii_.Get(

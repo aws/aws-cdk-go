@@ -104,6 +104,16 @@ type OpenIdConnectProvider interface {
 	// Returns a string representation of this construct.
 	// Deprecated: Use `OidcProviderNative` instead. This construct will be removed in a future major release.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	// Deprecated: Use `OidcProviderNative` instead. This construct will be removed in a future major release.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for OpenIdConnectProvider
@@ -393,6 +403,24 @@ func (o *jsiiProxy_OpenIdConnectProvider) ToString() *string {
 		o,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (o *jsiiProxy_OpenIdConnectProvider) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		o,
+		"with",
+		args,
 		&returns,
 	)
 

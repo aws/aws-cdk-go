@@ -68,12 +68,24 @@ func init() {
 		reflect.TypeOf((*CfnConfigPropsMixin_FrequencyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnConfigPropsMixin.KinesisDataStreamDataProperty",
+		reflect.TypeOf((*CfnConfigPropsMixin_KinesisDataStreamDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnConfigPropsMixin.S3RecordingConfigProperty",
 		reflect.TypeOf((*CfnConfigPropsMixin_S3RecordingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnConfigPropsMixin.SpectrumConfigProperty",
 		reflect.TypeOf((*CfnConfigPropsMixin_SpectrumConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnConfigPropsMixin.TelemetrySinkConfigProperty",
+		reflect.TypeOf((*CfnConfigPropsMixin_TelemetrySinkConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnConfigPropsMixin.TelemetrySinkDataProperty",
+		reflect.TypeOf((*CfnConfigPropsMixin_TelemetrySinkDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_groundstation.mixins.CfnConfigPropsMixin.TrackingConfigProperty",

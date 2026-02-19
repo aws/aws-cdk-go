@@ -12,6 +12,10 @@ package previewawsgameliftmixins
 //
 //   locationCapacityProperty := &LocationCapacityProperty{
 //   	DesiredEc2Instances: jsii.Number(123),
+//   	ManagedCapacityConfiguration: &ManagedCapacityConfigurationProperty{
+//   		ScaleInAfterInactivityMinutes: jsii.Number(123),
+//   		ZeroCapacityStrategy: jsii.String("zeroCapacityStrategy"),
+//   	},
 //   	MaxSize: jsii.Number(123),
 //   	MinSize: jsii.Number(123),
 //   }
@@ -25,6 +29,10 @@ type CfnContainerFleetPropsMixin_LocationCapacityProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-desiredec2instances
 	//
 	DesiredEc2Instances *float64 `field:"optional" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
+	// Configuration options for GameLift-managed capacity behavior.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-managedcapacityconfiguration
+	//
+	ManagedCapacityConfiguration interface{} `field:"optional" json:"managedCapacityConfiguration" yaml:"managedCapacityConfiguration"`
 	// The maximum value that is allowed for the fleet's instance count for a location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-maxsize
 	//

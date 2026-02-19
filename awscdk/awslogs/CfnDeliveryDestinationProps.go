@@ -7,30 +7,33 @@ import (
 // Properties for defining a `CfnDeliveryDestination`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
+//   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var deliveryDestinationPolicy interface{}
+//   // Create CloudFront distribution
+//   var bucket Bucket
 //
-//   cfnDeliveryDestinationProps := &CfnDeliveryDestinationProps{
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
-//   	DeliveryDestinationPolicy: &DestinationPolicyProperty{
-//   		DeliveryDestinationName: jsii.String("deliveryDestinationName"),
-//   		DeliveryDestinationPolicy: deliveryDestinationPolicy,
+//   distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
 //   	},
-//   	DeliveryDestinationType: jsii.String("deliveryDestinationType"),
-//   	DestinationResourceArn: jsii.String("destinationResourceArn"),
-//   	OutputFormat: jsii.String("outputFormat"),
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   }
+//   })
+//
+//   // Create destination bucket
+//   destBucket := s3.NewBucket(scope, jsii.String("DeliveryBucket"))
+//   // Add permissions to bucket to facilitate log delivery
+//   bucketPolicy := s3.NewBucketPolicy(scope, jsii.String("DeliveryBucketPolicy"), &BucketPolicyProps{
+//   	Bucket: destBucket,
+//   	Document: iam.NewPolicyDocument(),
+//   })
+//   // Create S3 delivery destination for logs
+//   destination := logs.NewCfnDeliveryDestination(scope, jsii.String("Destination"), &CfnDeliveryDestinationProps{
+//   	DestinationResourceArn: destBucket.bucketArn,
+//   	Name: jsii.String("unique-destination-name"),
+//   	DeliveryDestinationType: jsii.String("S3"),
+//   })
+//
+//   distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToDestination(destination))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html
 //

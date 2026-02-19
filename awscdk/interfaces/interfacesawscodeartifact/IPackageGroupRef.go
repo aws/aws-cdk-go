@@ -24,6 +24,24 @@ type jsiiProxy_IPackageGroupRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IPackageGroupRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IPackageGroupRef) PackageGroupRef() *PackageGroupReference {
 	var returns *PackageGroupReference
 	_jsii_.Get(

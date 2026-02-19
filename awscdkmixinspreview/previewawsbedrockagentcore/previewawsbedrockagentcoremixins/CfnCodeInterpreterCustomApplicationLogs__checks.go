@@ -10,6 +10,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
+func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	if destination == nil {
+		return fmt.Errorf("parameter destination is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
 	if deliveryStream == nil {
 		return fmt.Errorf("parameter deliveryStream is required, but nil was provided")

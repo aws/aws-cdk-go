@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnIndex) validateSetMetadataConfigurationParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnIndex) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIndexParameters(scope constructs.Construct, id *string, props *CfnIndexProps) error {
 	return nil
 }

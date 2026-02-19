@@ -60,6 +60,14 @@ func validateToken_CompareStringsParameters(possibleToken1 *string, possibleToke
 	return nil
 }
 
+func validateToken_IsResolvedParameters(obj interface{}) error {
+	if obj == nil {
+		return fmt.Errorf("parameter obj is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateToken_IsUnresolvedParameters(obj interface{}) error {
 	if obj == nil {
 		return fmt.Errorf("parameter obj is required, but nil was provided")

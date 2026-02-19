@@ -94,6 +94,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "globalSecondaryIndexes", GoGetter: "GlobalSecondaryIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "globalTableRef", GoGetter: "GlobalTableRef"},
+			_jsii_.MemberProperty{JsiiProperty: "globalTableSourceArn", GoGetter: "GlobalTableSourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "globalTableWitnesses", GoGetter: "GlobalTableWitnesses"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "keySchema", GoGetter: "KeySchema"},
@@ -104,6 +105,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "readOnDemandThroughputSettings", GoGetter: "ReadOnDemandThroughputSettings"},
+			_jsii_.MemberProperty{JsiiProperty: "readProvisionedThroughputSettings", GoGetter: "ReadProvisionedThroughputSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -120,6 +123,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "warmThroughput", GoGetter: "WarmThroughput"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 			_jsii_.MemberProperty{JsiiProperty: "writeOnDemandThroughputSettings", GoGetter: "WriteOnDemandThroughputSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "writeProvisionedThroughputSettings", GoGetter: "WriteProvisionedThroughputSettings"},
 		},
@@ -142,6 +146,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.ContributorInsightsSpecificationProperty",
 		reflect.TypeOf((*CfnGlobalTable_ContributorInsightsSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.GlobalReadProvisionedThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTable_GlobalReadProvisionedThroughputSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable.GlobalSecondaryIndexProperty",
@@ -290,6 +298,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "warmThroughput", GoGetter: "WarmThroughput"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTable{}
@@ -408,6 +417,13 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.GlobalSecondaryIndexPropsV2",
 		reflect.TypeOf((*GlobalSecondaryIndexPropsV2)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_dynamodb.GlobalTableSettingsReplicationMode",
+		reflect.TypeOf((*GlobalTableSettingsReplicationMode)(nil)).Elem(),
+		map[string]interface{}{
+			"ALL": GlobalTableSettingsReplicationMode_ALL,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_dynamodb.IScalableTableAttribute",
 		reflect.TypeOf((*IScalableTableAttribute)(nil)).Elem(),
@@ -417,6 +433,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "scalableTargetRef", GoGetter: "ScalableTargetRef"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnSchedule", GoMethod: "ScaleOnSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnUtilization", GoMethod: "ScaleOnUtilization"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IScalableTableAttribute{}
@@ -454,6 +471,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITable{}
@@ -473,6 +491,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
@@ -493,6 +512,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ITableV2{}
@@ -677,6 +697,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Table{}
@@ -737,6 +758,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TableBase{}
@@ -761,8 +783,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
@@ -790,6 +814,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TableBaseV2{}
@@ -834,6 +859,8 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "fullAccess", GoMethod: "FullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "multiAccountReplicationFrom", GoMethod: "MultiAccountReplicationFrom"},
+			_jsii_.MemberMethod{JsiiMethod: "multiAccountReplicationTo", GoMethod: "MultiAccountReplicationTo"},
 			_jsii_.MemberMethod{JsiiMethod: "readData", GoMethod: "ReadData"},
 			_jsii_.MemberMethod{JsiiMethod: "readWriteData", GoMethod: "ReadWriteData"},
 			_jsii_.MemberMethod{JsiiMethod: "writeData", GoMethod: "WriteData"},
@@ -878,8 +905,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
 			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
 			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
@@ -909,12 +938,69 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TableV2{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_TableBaseV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_dynamodb.TableV2MultiAccountReplica",
+		reflect.TypeOf((*TableV2MultiAccountReplica)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberMethod{JsiiMethod: "grantOnKey", GoMethod: "GrantOnKey"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadData", GoMethod: "GrantReadData"},
+			_jsii_.MemberMethod{JsiiMethod: "grantReadWriteData", GoMethod: "GrantReadWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStream", GoMethod: "GrantStream"},
+			_jsii_.MemberMethod{JsiiMethod: "grantStreamRead", GoMethod: "GrantStreamRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantTableListStreams", GoMethod: "GrantTableListStreams"},
+			_jsii_.MemberMethod{JsiiMethod: "grantWriteData", GoMethod: "GrantWriteData"},
+			_jsii_.MemberProperty{JsiiProperty: "hasIndex", GoGetter: "HasIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConditionalCheckFailedRequests", GoMethod: "MetricConditionalCheckFailedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperation", GoMethod: "MetricThrottledRequestsForOperation"},
+			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequestsForOperations", GoMethod: "MetricThrottledRequestsForOperations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicy", GoGetter: "ResourcePolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "tableId", GoGetter: "TableId"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberProperty{JsiiProperty: "tableRef", GoGetter: "TableRef"},
+			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_TableV2MultiAccountReplica{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TableBaseV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dynamodb.TableV2MultiAccountReplicaProps",
+		reflect.TypeOf((*TableV2MultiAccountReplicaProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dynamodb.ThroughputProps",

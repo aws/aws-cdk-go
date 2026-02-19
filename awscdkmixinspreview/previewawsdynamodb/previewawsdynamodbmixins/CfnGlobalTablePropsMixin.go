@@ -95,6 +95,12 @@ import (
 //   				},
 //   				ProjectionType: jsii.String("projectionType"),
 //   			},
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   			},
+//   			ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   				ReadCapacityUnits: jsii.Number(123),
+//   			},
 //   			WarmThroughput: &WarmThroughputProperty{
 //   				ReadUnitsPerSecond: jsii.Number(123),
 //   				WriteUnitsPerSecond: jsii.Number(123),
@@ -117,6 +123,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
 //   	GlobalTableWitnesses: []interface{}{
 //   		&GlobalTableWitnessProperty{
 //   			Region: jsii.String("region"),
@@ -146,6 +153,12 @@ import (
 //   		},
 //   	},
 //   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   	},
+//   	ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   		ReadCapacityUnits: jsii.Number(123),
+//   	},
 //   	Replicas: []interface{}{
 //   		&ReplicaSpecificationProperty{
 //   			ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
@@ -179,6 +192,7 @@ import (
 //   					},
 //   				},
 //   			},
+//   			GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
 //   			KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
 //   				ApproximateCreationDateTimePrecision: jsii.String("approximateCreationDateTimePrecision"),
 //   				StreamArn: jsii.String("streamArn"),

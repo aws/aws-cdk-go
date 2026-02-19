@@ -17,9 +17,11 @@ package previewawsmedialivemixins
 //   	},
 //   	MediaPackageSettings: []interface{}{
 //   		&MediaPackageOutputDestinationSettingsProperty{
+//   			ChannelEndpointId: jsii.String("channelEndpointId"),
 //   			ChannelGroup: jsii.String("channelGroup"),
 //   			ChannelId: jsii.String("channelId"),
 //   			ChannelName: jsii.String("channelName"),
+//   			MediaPackageRegionName: jsii.String("mediaPackageRegionName"),
 //   		},
 //   	},
 //   	MultiplexSettings: &MultiplexProgramChannelDestinationSettingsProperty{

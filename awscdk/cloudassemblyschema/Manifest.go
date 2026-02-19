@@ -14,6 +14,16 @@ type jsiiProxy_Manifest struct {
 	_ byte // padding
 }
 
+func NewManifest_Override(m Manifest) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		nil, // no parameters
+		m,
+	)
+}
+
 // Return the CLI version that supports this Cloud Assembly Schema version.
 func Manifest_CliVersion() *string {
 	_init_.Initialize()

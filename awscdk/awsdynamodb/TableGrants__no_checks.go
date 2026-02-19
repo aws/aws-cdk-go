@@ -12,6 +12,14 @@ func (t *jsiiProxy_TableGrants) validateFullAccessParameters(grantee awsiam.IGra
 	return nil
 }
 
+func (t *jsiiProxy_TableGrants) validateMultiAccountReplicationFromParameters(sourceReplicaArn *string) error {
+	return nil
+}
+
+func (t *jsiiProxy_TableGrants) validateMultiAccountReplicationToParameters(destinationReplicaArn *string) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableGrants) validateReadDataParameters(grantee awsiam.IGrantable) error {
 	return nil
 }
@@ -21,6 +29,10 @@ func (t *jsiiProxy_TableGrants) validateReadWriteDataParameters(grantee awsiam.I
 }
 
 func (t *jsiiProxy_TableGrants) validateWriteDataParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
+func validateTableGrants_FromTableParameters(table interfacesawsdynamodb.ITableRef) error {
 	return nil
 }
 

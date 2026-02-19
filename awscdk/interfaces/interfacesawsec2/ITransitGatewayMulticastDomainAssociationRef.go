@@ -24,6 +24,24 @@ type jsiiProxy_ITransitGatewayMulticastDomainAssociationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ITransitGatewayMulticastDomainAssociationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ITransitGatewayMulticastDomainAssociationRef) TransitGatewayMulticastDomainAssociationRef() *TransitGatewayMulticastDomainAssociationReference {
 	var returns *TransitGatewayMulticastDomainAssociationReference
 	_jsii_.Get(

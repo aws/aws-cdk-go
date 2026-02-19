@@ -35,6 +35,7 @@ import (
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
 //   	MaxConcurrentSessions: jsii.Number(123),
 //   	NetworkSettingsArn: jsii.String("networkSettingsArn"),
+//   	PortalCustomDomain: jsii.String("portalCustomDomain"),
 //   	SessionLoggerArn: jsii.String("sessionLoggerArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

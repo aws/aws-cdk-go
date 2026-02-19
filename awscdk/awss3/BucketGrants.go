@@ -11,14 +11,11 @@ import (
 // Collection of grant methods for a Bucket.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var principal IPrincipal
+//   var bucket IBucketRef
 //
-//   var bucketRef IBucketRef
 //
-//   bucketGrants := awscdk.Aws_s3.BucketGrants_FromBucket(bucketRef)
+//   s3.BucketGrants_FromBucket(bucket).Delete(principal)
 //
 type BucketGrants interface {
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.

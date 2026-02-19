@@ -385,6 +385,24 @@ func (i *jsiiProxy_ITable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+func (i *jsiiProxy_ITable) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ITable) EncryptionKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(

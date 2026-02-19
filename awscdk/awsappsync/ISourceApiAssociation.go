@@ -41,6 +41,24 @@ func (i *jsiiProxy_ISourceApiAssociation) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
+func (i *jsiiProxy_ISourceApiAssociation) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ISourceApiAssociation) AssociationArn() *string {
 	var returns *string
 	_jsii_.Get(

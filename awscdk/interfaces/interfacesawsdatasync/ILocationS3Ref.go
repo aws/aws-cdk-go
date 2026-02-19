@@ -24,6 +24,24 @@ type jsiiProxy_ILocationS3Ref struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ILocationS3Ref) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ILocationS3Ref) LocationS3Ref() *LocationS3Reference {
 	var returns *LocationS3Reference
 	_jsii_.Get(

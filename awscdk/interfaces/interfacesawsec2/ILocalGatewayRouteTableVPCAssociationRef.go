@@ -24,6 +24,24 @@ type jsiiProxy_ILocalGatewayRouteTableVPCAssociationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ILocalGatewayRouteTableVPCAssociationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ILocalGatewayRouteTableVPCAssociationRef) LocalGatewayRouteTableVpcAssociationRef() *LocalGatewayRouteTableVPCAssociationReference {
 	var returns *LocalGatewayRouteTableVPCAssociationReference
 	_jsii_.Get(

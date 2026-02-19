@@ -1,5 +1,8 @@
 package previewawslicensemanagermixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnLicensePropsMixin.
 //
@@ -45,6 +48,12 @@ package previewawslicensemanagermixins
 //   	ProductName: jsii.String("productName"),
 //   	ProductSku: jsii.String("productSku"),
 //   	Status: jsii.String("status"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Validity: &ValidityDateFormatProperty{
 //   		Begin: jsii.String("begin"),
 //   		End: jsii.String("end"),
@@ -94,6 +103,10 @@ type CfnLicenseMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
+	// A list of tags to attach.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// Date and time range during which the license is valid, in ISO8601-UTC format.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
 	//

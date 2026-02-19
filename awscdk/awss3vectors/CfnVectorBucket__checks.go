@@ -220,6 +220,16 @@ func (j *jsiiProxy_CfnVectorBucket) validateSetEncryptionConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnVectorBucket) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnVectorBucketParameters(scope constructs.Construct, id *string, props *CfnVectorBucketProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

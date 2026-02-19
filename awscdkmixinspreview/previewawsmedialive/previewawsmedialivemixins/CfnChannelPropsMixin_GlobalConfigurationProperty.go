@@ -26,11 +26,15 @@ package previewawsmedialivemixins
 //   	},
 //   	OutputLockingMode: jsii.String("outputLockingMode"),
 //   	OutputLockingSettings: &OutputLockingSettingsProperty{
+//   		DisabledLockingSettings: &DisabledLockingSettingsProperty{
+//   			CustomEpoch: jsii.String("customEpoch"),
+//   		},
 //   		EpochLockingSettings: &EpochLockingSettingsProperty{
 //   			CustomEpoch: jsii.String("customEpoch"),
 //   			JamSyncTime: jsii.String("jamSyncTime"),
 //   		},
 //   		PipelineLockingSettings: &PipelineLockingSettingsProperty{
+//   			CustomEpoch: jsii.String("customEpoch"),
 //   			PipelineLockingMethod: jsii.String("pipelineLockingMethod"),
 //   		},
 //   	},

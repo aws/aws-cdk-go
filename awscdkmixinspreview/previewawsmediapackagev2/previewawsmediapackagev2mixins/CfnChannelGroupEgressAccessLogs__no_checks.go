@@ -4,6 +4,10 @@ package previewawsmediapackagev2mixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CfnChannelGroupEgressAccessLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnChannelGroupEgressAccessLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
 	return nil
 }

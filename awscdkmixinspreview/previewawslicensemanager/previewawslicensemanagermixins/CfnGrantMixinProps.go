@@ -1,5 +1,8 @@
 package previewawslicensemanagermixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnGrantPropsMixin.
 //
@@ -19,6 +22,12 @@ package previewawslicensemanagermixins
 //   		jsii.String("principals"),
 //   	},
 //   	Status: jsii.String("status"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
@@ -54,5 +63,9 @@ type CfnGrantMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
 	//
 	Status *string `field:"optional" json:"status" yaml:"status"`
+	// A list of tags to attach.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -154,6 +154,13 @@ type Gateway interface {
 	UserPoolDomain() awscognito.IUserPoolDomain
 	// Experimental.
 	SetUserPoolDomain(val awscognito.IUserPoolDomain)
+	// Add an API Gateway target to this gateway This is a convenience method that creates a GatewayTarget associated with this gateway.
+	//
+	// Returns: The created GatewayTarget.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-api-gateway.html
+	//
+	// Experimental.
+	AddApiGatewayTarget(id *string, props *AddApiGatewayTargetOptions) GatewayTarget
 	// Add an interceptor to this gateway.
 	//
 	// Interceptors allow you to run custom code at specific points in the gateway request/response flow:
@@ -275,6 +282,16 @@ type Gateway interface {
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	// Experimental.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for Gateway
@@ -713,6 +730,22 @@ func Gateway_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
+func (g *jsiiProxy_Gateway) AddApiGatewayTarget(id *string, props *AddApiGatewayTargetOptions) GatewayTarget {
+	if err := g.validateAddApiGatewayTargetParameters(id, props); err != nil {
+		panic(err)
+	}
+	var returns GatewayTarget
+
+	_jsii_.Invoke(
+		g,
+		"addApiGatewayTarget",
+		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (g *jsiiProxy_Gateway) AddInterceptor(interceptor IInterceptor) {
 	if err := g.validateAddInterceptorParameters(interceptor); err != nil {
 		panic(err)
@@ -1064,6 +1097,24 @@ func (g *jsiiProxy_Gateway) ToString() *string {
 		g,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (g *jsiiProxy_Gateway) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		g,
+		"with",
+		args,
 		&returns,
 	)
 

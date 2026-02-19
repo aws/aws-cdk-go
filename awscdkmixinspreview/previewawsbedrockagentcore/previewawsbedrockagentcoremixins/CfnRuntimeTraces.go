@@ -3,6 +3,8 @@ package previewawsbedrockagentcoremixins
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Builder for CfnRuntimeLogsMixin to generate TRACES for CfnRuntime.
@@ -15,6 +17,12 @@ import (
 //   cfnRuntimeTraces := awscdkmixinspreview.Mixins.NewCfnRuntimeTraces()
 //
 type CfnRuntimeTraces interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are XRAY
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnRuntimeLogsMixin
 	// Send traces to X-Ray.
 	ToXRay() CfnRuntimeLogsMixin
 }
@@ -48,6 +56,22 @@ func NewCfnRuntimeTraces_Override(c CfnRuntimeTraces) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnRuntimeTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnRuntimeLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnRuntimeLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnRuntimeTraces) ToXRay() CfnRuntimeLogsMixin {

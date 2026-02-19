@@ -838,6 +838,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_4_5_20250929_V1_0() Found
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_4_6() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_SONNET_4_6",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier

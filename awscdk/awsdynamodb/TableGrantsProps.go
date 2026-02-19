@@ -34,8 +34,10 @@ type TableGrantsProps struct {
 	// The table to grant permissions on.
 	Table interfacesawsdynamodb.ITableRef `field:"required" json:"table" yaml:"table"`
 	// The encrypted resource on which actions will be allowed.
-	// Default: - No permission is added to the KMS key, even if it exists.
+	// Default: - A best-effort attempt will be made to discover an associated KMS key and grant permissions to it.
 	//
+	// Deprecated: - Leave this field undefined. If the table is encrypted with a customer-managed KMS key, appropriate
+	// grants to the key will be automatically added.
 	EncryptedResource awsiam.IEncryptedResource `field:"optional" json:"encryptedResource" yaml:"encryptedResource"`
 	// Whether this table has indexes.
 	//
@@ -44,8 +46,10 @@ type TableGrantsProps struct {
 	//
 	HasIndex *bool `field:"optional" json:"hasIndex" yaml:"hasIndex"`
 	// The resource with policy on which actions will be allowed.
-	// Default: - No resource policy is created.
+	// Default: - A best-effort attempt will be made to discover a resource policy and add permissions to it.
 	//
+	// Deprecated: - Leave this field undefined. A best-effort attempt will be made to discover a resource policy and add
+	// permissions to it.
 	PolicyResource awsiam.IResourceWithPolicyV2 `field:"optional" json:"policyResource" yaml:"policyResource"`
 	// Additional regions other than the main one that this table is replicated to.
 	// Default: - No regions.

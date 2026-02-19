@@ -24,6 +24,24 @@ type jsiiProxy_IModelQualityJobDefinitionRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IModelQualityJobDefinitionRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IModelQualityJobDefinitionRef) ModelQualityJobDefinitionRef() *ModelQualityJobDefinitionReference {
 	var returns *ModelQualityJobDefinitionReference
 	_jsii_.Get(

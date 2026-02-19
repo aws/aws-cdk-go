@@ -84,6 +84,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDeliveryStream{}
@@ -471,6 +472,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_DeliveryStream{}
@@ -521,6 +523,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILoggingConfig)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DynamicPartitioningProps",
+		reflect.TypeOf((*DynamicPartitioningProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.EnableLogging",
@@ -584,6 +590,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricIncomingRecords", GoMethod: "MetricIncomingRecords"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IDeliveryStream{}
@@ -654,6 +661,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.JsonParsingEngine",
+		reflect.TypeOf((*JsonParsingEngine)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "parsingEngine", GoGetter: "ParsingEngine"},
+		},
+		func() interface{} {
+			return &jsiiProxy_JsonParsingEngine{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.KinesisStreamSource",
 		reflect.TypeOf((*KinesisStreamSource)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -677,6 +694,23 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.MetadataExtractionProcessor",
+		reflect.TypeOf((*MetadataExtractionProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MetadataExtractionProcessor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.MetadataExtractionProcessorOptions",
+		reflect.TypeOf((*MetadataExtractionProcessorOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.OpenXJsonInputFormat",
@@ -774,6 +808,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.RecordDeAggregationProcessor",
+		reflect.TypeOf((*RecordDeAggregationProcessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RecordDeAggregationProcessor{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDataProcessor)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.RecordDeAggregationProcessorOptions",
+		reflect.TypeOf((*RecordDeAggregationProcessorOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.S3Bucket",
 		reflect.TypeOf((*S3Bucket)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -825,6 +876,14 @@ func init() {
 			"UNENCRYPTED": StreamEncryptionType_UNENCRYPTED,
 			"CUSTOMER_MANAGED": StreamEncryptionType_CUSTOMER_MANAGED,
 			"AWS_OWNED": StreamEncryptionType_AWS_OWNED,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.SubRecordType",
+		reflect.TypeOf((*SubRecordType)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": SubRecordType_JSON,
+			"DELIMITED": SubRecordType_DELIMITED,
 		},
 	)
 	_jsii_.RegisterClass(

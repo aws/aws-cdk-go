@@ -156,6 +156,9 @@ type Table interface {
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
 	//
+	//
+	// The use of this method is discouraged. Please use `grants.fullAccess()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
@@ -164,6 +167,9 @@ type Table interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	//
+	// The use of this method is discouraged. Please use `grants.readData()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
@@ -175,12 +181,18 @@ type Table interface {
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
 	//
+	//
+	// The use of this method is discouraged. Please use `grants.readWriteData()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
+	//
+	//
+	// The use of this method is discouraged. Please use `streamGrants.stream()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
@@ -189,9 +201,14 @@ type Table interface {
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
 	//
+	//
+	// The use of this method is discouraged. Please use `streamGrants.streamRead()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM Principal to list streams attached to current dynamodb table.
+	//
+	// The use of this method is discouraged. Please use `streamGrants.tableListStreams()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant
@@ -199,6 +216,9 @@ type Table interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
+	//
+	//
+	// The use of this method is discouraged. Please use `grants.writeData()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
@@ -270,6 +290,15 @@ type Table interface {
 	SchemaV2(indexName *string) *KeySchema
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for Table
@@ -1130,6 +1159,24 @@ func (t *jsiiProxy_Table) ToString() *string {
 		t,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_Table) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		t,
+		"with",
+		args,
 		&returns,
 	)
 

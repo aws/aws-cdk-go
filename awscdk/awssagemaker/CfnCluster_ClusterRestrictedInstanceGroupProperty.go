@@ -29,6 +29,19 @@ package awssagemaker
 //   				VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   				VolumeSizeInGb: jsii.Number(123),
 //   			},
+//   			FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   				DnsName: jsii.String("dnsName"),
+//   				MountName: jsii.String("mountName"),
+//
+//   				// the properties below are optional
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   			FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   				DnsName: jsii.String("dnsName"),
+//
+//   				// the properties below are optional
+//   				MountPath: jsii.String("mountPath"),
+//   			},
 //   		},
 //   	},
 //   	OnStartDeepHealthChecks: []*string{

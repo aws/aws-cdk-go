@@ -32,6 +32,10 @@ func (g *jsiiProxy_GatewayTarget) validateGrantSyncParameters(grantee awsiam.IGr
 	return nil
 }
 
+func validateGatewayTarget_ForApiGatewayParameters(scope constructs.Construct, id *string, props *GatewayTargetApiGatewayProps) error {
+	return nil
+}
+
 func validateGatewayTarget_ForLambdaParameters(scope constructs.Construct, id *string, props *GatewayTargetLambdaProps) error {
 	return nil
 }

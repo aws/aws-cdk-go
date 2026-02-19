@@ -20,6 +20,12 @@ import (
 //   cfnRouteServerPeerEventLogs := awscdkmixinspreview.Mixins.NewCfnRouteServerPeerEventLogs()
 //
 type CfnRouteServerPeerEventLogs interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are S3, CWL, FH
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnRouteServerPeerLogsMixin
 	// Send logs to a Firehose Delivery Stream.
 	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnRouteServerPeerLogsMixin
 	// Send logs to a CloudWatch Log Group.
@@ -57,6 +63,22 @@ func NewCfnRouteServerPeerEventLogs_Override(c CfnRouteServerPeerEventLogs) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnRouteServerPeerEventLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnRouteServerPeerLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnRouteServerPeerLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnRouteServerPeerEventLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnRouteServerPeerLogsMixin {

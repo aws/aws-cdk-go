@@ -98,6 +98,17 @@ type TablePropsV2 struct {
 	// Default: - no global secondary indexes.
 	//
 	GlobalSecondaryIndexes *[]*GlobalSecondaryIndexPropsV2 `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// Controls whether table settings are synchronized across replicas.
+	//
+	// When set to ALL, synchronizable settings (billing mode, throughput, TTL, streams view type, GSIs)
+	// are automatically replicated across all replicas. When set to NONE, each replica manages its own
+	// settings independently (billing mode must be PAY_PER_REQUEST).
+	//
+	// Note: Some settings are always synchronized (key schema, LSIs) regardless of this setting,
+	// and some are never synchronized (table class, SSE, deletion protection, PITR, tags, resource policy).
+	// Default: GlobalTableSettingsReplicationMode.NONE
+	//
+	GlobalTableSettingsReplicationMode GlobalTableSettingsReplicationMode `field:"optional" json:"globalTableSettingsReplicationMode" yaml:"globalTableSettingsReplicationMode"`
 	// Local secondary indexes.
 	//
 	// Note: You can only provide a maximum of 5 local secondary indexes.

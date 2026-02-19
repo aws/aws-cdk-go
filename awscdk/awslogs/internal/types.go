@@ -21,6 +21,7 @@ type Type__interfacesawslogsILogStreamRef = interfacesawslogs.ILogStreamRef
 type Type__interfacesawslogsIMetricFilterRef = interfacesawslogs.IMetricFilterRef
 type Type__interfacesawslogsIQueryDefinitionRef = interfacesawslogs.IQueryDefinitionRef
 type Type__interfacesawslogsIResourcePolicyRef = interfacesawslogs.IResourcePolicyRef
+type Type__interfacesawslogsIScheduledQueryRef = interfacesawslogs.IScheduledQueryRef
 type Type__interfacesawslogsISubscriptionFilterRef = interfacesawslogs.ISubscriptionFilterRef
 type Type__interfacesawslogsITransformerRef = interfacesawslogs.ITransformerRef
 type Type__awscdkResource = awscdk.Resource

@@ -24,6 +24,24 @@ type jsiiProxy_IEncoderConfigurationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IEncoderConfigurationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IEncoderConfigurationRef) EncoderConfigurationRef() *EncoderConfigurationReference {
 	var returns *EncoderConfigurationReference
 	_jsii_.Get(

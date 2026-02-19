@@ -37,6 +37,17 @@ func validateAgentRuntimeArtifact_FromAssetParameters(directory *string, options
 	return nil
 }
 
+func validateAgentRuntimeArtifact_FromCodeAssetParameters(options *CodeAssetOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateAgentRuntimeArtifact_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	if repository == nil {
 		return fmt.Errorf("parameter repository is required, but nil was provided")

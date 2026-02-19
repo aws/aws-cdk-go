@@ -24,6 +24,24 @@ type jsiiProxy_IOrganizationConformancePackRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IOrganizationConformancePackRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IOrganizationConformancePackRef) OrganizationConformancePackRef() *OrganizationConformancePackReference {
 	var returns *OrganizationConformancePackReference
 	_jsii_.Get(

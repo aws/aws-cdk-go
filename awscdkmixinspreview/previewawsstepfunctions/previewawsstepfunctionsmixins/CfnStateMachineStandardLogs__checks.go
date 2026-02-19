@@ -8,6 +8,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
+func (c *jsiiProxy_CfnStateMachineStandardLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	if destination == nil {
+		return fmt.Errorf("parameter destination is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnStateMachineStandardLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
 	if logGroup == nil {
 		return fmt.Errorf("parameter logGroup is required, but nil was provided")

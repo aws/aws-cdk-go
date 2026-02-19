@@ -28,6 +28,10 @@ func (t *jsiiProxy_TableBaseV2) validateGrantFullAccessParameters(grantee awsiam
 	return nil
 }
 
+func (t *jsiiProxy_TableBaseV2) validateGrantOnKeyParameters(grantee awsiam.IGrantable) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableBaseV2) validateGrantReadDataParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

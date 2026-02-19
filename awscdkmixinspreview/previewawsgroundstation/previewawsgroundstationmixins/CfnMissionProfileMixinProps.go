@@ -34,6 +34,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetrySinkConfigArn: jsii.String("telemetrySinkConfigArn"),
 //   	TrackingConfigArn: jsii.String("trackingConfigArn"),
 //   }
 //
@@ -76,6 +77,10 @@ type CfnMissionProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-telemetrysinkconfigarn
+	//
+	TelemetrySinkConfigArn *string `field:"optional" json:"telemetrySinkConfigArn" yaml:"telemetrySinkConfigArn"`
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
 	//

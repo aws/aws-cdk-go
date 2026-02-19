@@ -12,6 +12,10 @@ func validateAgentRuntimeArtifact_FromAssetParameters(directory *string, options
 	return nil
 }
 
+func validateAgentRuntimeArtifact_FromCodeAssetParameters(options *CodeAssetOptions) error {
+	return nil
+}
+
 func validateAgentRuntimeArtifact_FromEcrRepositoryParameters(repository awsecr.IRepository) error {
 	return nil
 }

@@ -24,6 +24,24 @@ type jsiiProxy_IVpcConnectorRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IVpcConnectorRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IVpcConnectorRef) VpcConnectorRef() *VpcConnectorReference {
 	var returns *VpcConnectorReference
 	_jsii_.Get(

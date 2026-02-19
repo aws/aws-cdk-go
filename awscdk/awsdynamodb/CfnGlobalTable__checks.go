@@ -197,9 +197,6 @@ func validateCfnGlobalTable_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnGlobalTable) validateSetAttributeDefinitionsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -380,9 +377,6 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetGlobalTableWitnessesParameters(val
 }
 
 func (j *jsiiProxy_CfnGlobalTable) validateSetKeySchemaParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -496,6 +490,54 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetLocalSecondaryIndexesParameters(va
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnGlobalTable) validateSetReadOnDemandThroughputSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGlobalTable_ReadOnDemandThroughputSettingsProperty:
+		val := val.(*CfnGlobalTable_ReadOnDemandThroughputSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGlobalTable_ReadOnDemandThroughputSettingsProperty:
+		val_ := val.(CfnGlobalTable_ReadOnDemandThroughputSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGlobalTable_ReadOnDemandThroughputSettingsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnGlobalTable) validateSetReadProvisionedThroughputSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGlobalTable_GlobalReadProvisionedThroughputSettingsProperty:
+		val := val.(*CfnGlobalTable_GlobalReadProvisionedThroughputSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGlobalTable_GlobalReadProvisionedThroughputSettingsProperty:
+		val_ := val.(CfnGlobalTable_GlobalReadProvisionedThroughputSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGlobalTable_GlobalReadProvisionedThroughputSettingsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

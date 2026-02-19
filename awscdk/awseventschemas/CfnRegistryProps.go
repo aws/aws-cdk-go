@@ -29,7 +29,7 @@ type CfnRegistryProps struct {
 	// The name of the schema registry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-registryname
 	//
-	RegistryName *string `field:"optional" json:"registryName" yaml:"registryName"`
+	RegistryName interface{} `field:"optional" json:"registryName" yaml:"registryName"`
 	// Tags to associate with the registry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#cfn-eventschemas-registry-tags
 	//

@@ -24,6 +24,24 @@ type jsiiProxy_IBasePathMappingV2Ref struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IBasePathMappingV2Ref) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IBasePathMappingV2Ref) BasePathMappingV2Ref() *BasePathMappingV2Reference {
 	var returns *BasePathMappingV2Reference
 	_jsii_.Get(

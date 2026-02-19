@@ -349,6 +349,24 @@ func (i *jsiiProxy_IBrowserCustom) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
+func (i *jsiiProxy_IBrowserCustom) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IBrowserCustom) BrowserArn() *string {
 	var returns *string
 	_jsii_.Get(

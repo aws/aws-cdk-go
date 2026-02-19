@@ -8,25 +8,26 @@ package awsdynamodb
 //
 //
 //   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//
+//   // Source table in Account A
+//   sourceStack := cdk.NewStack(app, jsii.String("SourceStack"), &StackProps{
 //   	Env: &Environment{
-//   		Region: jsii.String("us-west-2"),
+//   		Region: jsii.String("us-east-1"),
+//   		Account: jsii.String("111111111111"),
 //   	},
 //   })
 //
-//   mrscTable := dynamodb.NewTableV2(stack, jsii.String("MRSCTable"), &TablePropsV2{
+//   // Region us-west-2
+//   sourceTable := dynamodb.NewTableV2(sourceStack, jsii.String("SourceTable"), &TablePropsV2{
+//   	TableName: jsii.String("MyMultiAccountTable"),
 //   	PartitionKey: &Attribute{
 //   		Name: jsii.String("pk"),
 //   		Type: dynamodb.AttributeType_STRING,
 //   	},
-//   	MultiRegionConsistency: dynamodb.MultiRegionConsistency_STRONG,
-//   	Replicas: []ReplicaTableProps{
-//   		&ReplicaTableProps{
-//   			Region: jsii.String("us-east-1"),
-//   		},
-//   	},
-//   	WitnessRegion: jsii.String("us-east-2"),
+//   	GlobalTableSettingsReplicationMode: dynamodb.GlobalTableSettingsReplicationMode_ALL,
 //   })
+//   // After replica is deployed, update source stack with the ARN
+//   sourceTable.Grants.MultiAccountReplicationTo(jsii.String("arn:aws:dynamodb:us-east-1:222222222222:table/MyMultiAccountTable"))
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes
 //

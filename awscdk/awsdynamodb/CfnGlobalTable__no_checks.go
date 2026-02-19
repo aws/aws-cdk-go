@@ -108,6 +108,14 @@ func (j *jsiiProxy_CfnGlobalTable) validateSetLocalSecondaryIndexesParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnGlobalTable) validateSetReadOnDemandThroughputSettingsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnGlobalTable) validateSetReadProvisionedThroughputSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGlobalTable) validateSetReplicasParameters(val interface{}) error {
 	return nil
 }

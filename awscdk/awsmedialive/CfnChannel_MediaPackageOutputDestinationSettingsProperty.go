@@ -11,14 +11,19 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mediaPackageOutputDestinationSettingsProperty := &MediaPackageOutputDestinationSettingsProperty{
+//   	ChannelEndpointId: jsii.String("channelEndpointId"),
 //   	ChannelGroup: jsii.String("channelGroup"),
 //   	ChannelId: jsii.String("channelId"),
 //   	ChannelName: jsii.String("channelName"),
+//   	MediaPackageRegionName: jsii.String("mediaPackageRegionName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html
 //
 type CfnChannel_MediaPackageOutputDestinationSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html#cfn-medialive-channel-mediapackageoutputdestinationsettings-channelendpointid
+	//
+	ChannelEndpointId *string `field:"optional" json:"channelEndpointId" yaml:"channelEndpointId"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html#cfn-medialive-channel-mediapackageoutputdestinationsettings-channelgroup
 	//
 	ChannelGroup *string `field:"optional" json:"channelGroup" yaml:"channelGroup"`
@@ -31,5 +36,8 @@ type CfnChannel_MediaPackageOutputDestinationSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html#cfn-medialive-channel-mediapackageoutputdestinationsettings-channelname
 	//
 	ChannelName *string `field:"optional" json:"channelName" yaml:"channelName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html#cfn-medialive-channel-mediapackageoutputdestinationsettings-mediapackageregionname
+	//
+	MediaPackageRegionName *string `field:"optional" json:"mediaPackageRegionName" yaml:"mediaPackageRegionName"`
 }
 

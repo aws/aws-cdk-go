@@ -24,6 +24,24 @@ type jsiiProxy_ISchedulingPolicyRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ISchedulingPolicyRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ISchedulingPolicyRef) SchedulingPolicyRef() *SchedulingPolicyReference {
 	var returns *SchedulingPolicyReference
 	_jsii_.Get(

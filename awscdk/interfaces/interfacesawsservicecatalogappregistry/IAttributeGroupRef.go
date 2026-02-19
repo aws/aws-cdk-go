@@ -24,6 +24,24 @@ type jsiiProxy_IAttributeGroupRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IAttributeGroupRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IAttributeGroupRef) AttributeGroupRef() *AttributeGroupReference {
 	var returns *AttributeGroupReference
 	_jsii_.Get(

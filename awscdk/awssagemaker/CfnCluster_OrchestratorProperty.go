@@ -12,6 +12,9 @@ package awssagemaker
 //   	Eks: &ClusterOrchestratorEksConfigProperty{
 //   		ClusterArn: jsii.String("clusterArn"),
 //   	},
+//   	Slurm: &ClusterOrchestratorSlurmConfigProperty{
+//   		SlurmConfigStrategy: jsii.String("slurmConfigStrategy"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html
@@ -20,6 +23,10 @@ type CfnCluster_OrchestratorProperty struct {
 	// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html#cfn-sagemaker-cluster-orchestrator-eks
 	//
-	Eks interface{} `field:"required" json:"eks" yaml:"eks"`
+	Eks interface{} `field:"optional" json:"eks" yaml:"eks"`
+	// Specifies parameter(s) related to Slurm as orchestrator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html#cfn-sagemaker-cluster-orchestrator-slurm
+	//
+	Slurm interface{} `field:"optional" json:"slurm" yaml:"slurm"`
 }
 

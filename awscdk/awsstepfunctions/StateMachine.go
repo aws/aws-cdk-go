@@ -109,25 +109,41 @@ type StateMachine interface {
 	//
 	// [disable-awslint:no-grants].
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
-	// Grant the given identity permissions on all executions of the state machine [disable-awslint:no-grants].
+	// Grant the given identity permissions on all executions of the state machine.
+	//
+	// The use of this method is discouraged. Please use `grants.execution()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions to read results from state machine.
+	//
+	// The use of this method is discouraged. Please use `grants.read()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permission to redrive the execution of the state machine.
 	//
+	// The use of this method is discouraged. Please use `grants.redriveExecution()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantRedriveExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start an execution of this state machine.
+	//
+	// The use of this method is discouraged. Please use `grants.startExecution()` instead.
 	//
 	// [disable-awslint:no-grants].
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start a synchronous execution of this state machine.
 	//
+	// The use of this method is discouraged. Please use `grants.startSyncExecution()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity task response permissions on a state machine [disable-awslint:no-grants].
+	// Grant the given identity task response permissions on a state machine.
+	//
+	// The use of this method is discouraged. Please use `grants.taskResponse()` instead.
+	//
+	// [disable-awslint:no-grants].
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this State Machine's executions.
 	// Default: - sum over 5 minutes.
@@ -163,6 +179,15 @@ type StateMachine interface {
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for StateMachine
@@ -776,6 +801,24 @@ func (s *jsiiProxy_StateMachine) ToString() *string {
 		s,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StateMachine) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		s,
+		"with",
+		args,
 		&returns,
 	)
 

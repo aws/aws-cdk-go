@@ -13,4 +13,5 @@ type Type__interfacesawsmskIConfigurationRef = interfacesawsmsk.IConfigurationRe
 type Type__interfacesawsmskIReplicatorRef = interfacesawsmsk.IReplicatorRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsmskIServerlessClusterRef = interfacesawsmsk.IServerlessClusterRef
+type Type__interfacesawsmskITopicRef = interfacesawsmsk.ITopicRef
 type Type__interfacesawsmskIVpcConnectionRef = interfacesawsmsk.IVpcConnectionRef

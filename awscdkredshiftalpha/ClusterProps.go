@@ -121,7 +121,7 @@ type ClusterProps struct {
 	// Experimental.
 	MultiAz *bool `field:"optional" json:"multiAz" yaml:"multiAz"`
 	// The node type to be provisioned for the cluster.
-	// Default: `NodeType.DC2_LARGE`
+	// Default: `NodeType.RA3_LARGE`
 	//
 	// Experimental.
 	NodeType NodeType `field:"optional" json:"nodeType" yaml:"nodeType"`

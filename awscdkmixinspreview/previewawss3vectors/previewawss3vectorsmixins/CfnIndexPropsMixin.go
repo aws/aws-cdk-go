@@ -55,6 +55,12 @@ import (
 //   			jsii.String("nonFilterableMetadataKeys"),
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VectorBucketArn: jsii.String("vectorBucketArn"),
 //   	VectorBucketName: jsii.String("vectorBucketName"),
 //   }, &CfnPropertyMixinOptions{

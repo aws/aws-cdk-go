@@ -24,6 +24,24 @@ type jsiiProxy_IGlobalReplicationGroupRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IGlobalReplicationGroupRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IGlobalReplicationGroupRef) GlobalReplicationGroupRef() *GlobalReplicationGroupReference {
 	var returns *GlobalReplicationGroupReference
 	_jsii_.Get(

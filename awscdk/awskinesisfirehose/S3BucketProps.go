@@ -32,16 +32,16 @@ import (
 type S3BucketProps struct {
 	// The length of time that Firehose buffers incoming data before delivering it to the S3 bucket.
 	//
-	// Minimum: Duration.seconds(0)
+	// Minimum: Duration.seconds(0) when dynamic partitioning is disabled, Duration.seconds(60) when it is enabled
 	// Maximum: Duration.seconds(900)
 	// Default: Duration.seconds(300)
 	//
 	BufferingInterval awscdk.Duration `field:"optional" json:"bufferingInterval" yaml:"bufferingInterval"`
 	// The size of the buffer that Amazon Data Firehose uses for incoming data before delivering it to the S3 bucket.
 	//
-	// Minimum: Size.mebibytes(1) when record data format conversion is disabled, Size.mebibytes(64) when it is enabled
+	// Minimum: Size.mebibytes(1) when record data format conversion or dynamic partitioning is disabled, Size.mebibytes(64) when it is enabled
 	// Maximum: Size.mebibytes(128)
-	// Default: Size.mebibytes(5) when record data format conversion is disabled, Size.mebibytes(128) when it is enabled
+	// Default: Size.mebibytes(5) when record data format conversion or dynamic partitioning is disabled, Size.mebibytes(128) when it is enabled
 	//
 	BufferingSize awscdk.Size `field:"optional" json:"bufferingSize" yaml:"bufferingSize"`
 	// The type of compression that Amazon Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket.
@@ -57,7 +57,7 @@ type S3BucketProps struct {
 	// This prefix appears immediately following the bucket name.
 	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
 	//
-	// Default: "YYYY/MM/DD/HH".
+	// Default: - "YYYY/MM/DD/HH/".
 	//
 	DataOutputPrefix *string `field:"optional" json:"dataOutputPrefix" yaml:"dataOutputPrefix"`
 	// The AWS KMS key used to encrypt the data that it delivers to your Amazon S3 bucket.
@@ -67,9 +67,9 @@ type S3BucketProps struct {
 	// A prefix that Amazon Data Firehose evaluates and adds to failed records before writing them to S3.
 	//
 	// This prefix appears immediately following the bucket name.
-	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html
+	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html#prefix-rules
 	//
-	// Default: "YYYY/MM/DD/HH".
+	// Default: - See the documentation above.
 	//
 	ErrorOutputPrefix *string `field:"optional" json:"errorOutputPrefix" yaml:"errorOutputPrefix"`
 	// Configuration that determines whether to log errors during data transformation or delivery failures, and specifies the CloudWatch log group for storing error logs.
@@ -98,9 +98,15 @@ type S3BucketProps struct {
 	// The input format, output format, and schema config for converting data from the JSON format to the Parquet or ORC format before writing to Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
 	//
-	// Default: no data format conversion is done.
+	// Default: - no data format conversion is done.
 	//
 	DataFormatConversion *DataFormatConversionProps `field:"optional" json:"dataFormatConversion" yaml:"dataFormatConversion"`
+	// Specify dynamic partitioning.
+	// See: https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html
+	//
+	// Default: - Dynamic partitioning is disabled.
+	//
+	DynamicPartitioning *DynamicPartitioningProps `field:"optional" json:"dynamicPartitioning" yaml:"dynamicPartitioning"`
 	// Specify a file extension.
 	//
 	// It will override the default file extension appended by Data Format Conversion or S3 compression features such as `.parquet` or `.gz`.

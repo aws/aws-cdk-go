@@ -24,6 +24,24 @@ type jsiiProxy_IDirectoryRegistrationRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IDirectoryRegistrationRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IDirectoryRegistrationRef) DirectoryRegistrationRef() *DirectoryRegistrationReference {
 	var returns *DirectoryRegistrationReference
 	_jsii_.Get(

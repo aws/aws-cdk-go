@@ -4,6 +4,10 @@ package previewawsstepfunctionsmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_CfnStateMachineExpressLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStateMachineExpressLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
 	return nil
 }

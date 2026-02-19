@@ -26,57 +26,6 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
 
 ## Table of contents
 
-* [AgentCore Runtime](#agentcore-runtime)
-
-  * [Runtime Versioning](#runtime-versioning)
-  * [Runtime Endpoints](#runtime-endpoints)
-  * [AgentCore Runtime Properties](#agentcore-runtime-properties)
-  * [Runtime Endpoint Properties](#runtime-endpoint-properties)
-  * [Creating a Runtime](#creating-a-runtime)
-
-    * [Option 1: Use an existing image in ECR](#option-1-use-an-existing-image-in-ecr)
-    * [Managing Endpoints and Versions](#managing-endpoints-and-versions)
-    * [Option 2: Use a local asset](#option-2-use-a-local-asset)
-* [Browser Custom tool](#browser)
-
-  * [Browser properties](#browser-properties)
-  * [Browser Network modes](#browser-network-modes)
-  * [Basic Browser Creation](#basic-browser-creation)
-  * [Browser IAM permissions](#browser-iam-permissions)
-* [Code Interpreter Custom tool](#code-interpreter)
-
-  * [Code Interpreter properties](#code-interpreter-properties)
-  * [Code Interpreter Network Modes](#code-interpreter-network-modes)
-  * [Basic Code Interpreter Creation](#basic-code-interpreter-creation)
-  * [Code Interpreter IAM permissions](#code-interpreter-iam-permissions)
-* [Gateway](#gateway)
-
-  * [Gateway Properties](#gateway-properties)
-  * [Basic Gateway Creation](#basic-gateway-creation)
-  * [Protocol configuration](#protocol-configuration)
-  * [Inbound authorization](#inbound-authorization)
-  * [Gateway with KMS Encryption](#gateway-with-kms-encryption)
-  * [Gateway with Custom Execution Role](#gateway-with-custom-execution-role)
-  * [Gateway IAM Permissions](#gateway-iam-permissions)
-* [Gateway Target](#gateway-target)
-
-  * [Gateway Target Properties](#gateway-target-properties)
-  * [Targets types](#targets-types)
-  * [Outbound auth](#outbound-auth)
-  * [Api schema](#api-schema-for-openapi-and-smithy-target)
-  * [Basic Gateway Target Creation](#basic-gateway-target-creation)
-
-    * [Using addTarget methods (Recommended)](#using-addtarget-methods-recommended)
-    * [Using static factory methods](#using-static-factory-methods)
-  * [Lambda Target with Tool Schema](#tools-schema-for-lambda-target)
-  * [Smithy Model Target with OAuth](#api-schema-for-openapi-and-smithy-target)
-  * [Gateway Target IAM Permissions](#gateway-target-iam-permissions)
-* [Memory](#memory)
-
-  * [Memory properties](#memory-properties)
-  * [Basic Memory Creation](#basic-memory-creation)
-  * [LTM Memory Extraction Stategies](#ltm-memory-extraction-stategies)
-  * [Memory Strategy Methods](#memory-strategy-methods)
 * [Amazon Bedrock AgentCore Construct Library](#amazon-bedrock-agentcore-construct-library)
 
   * [Table of contents](#table-of-contents)
@@ -90,6 +39,7 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
       * [Option 1: Use an existing image in ECR](#option-1-use-an-existing-image-in-ecr)
       * [Option 2: Use a local asset](#option-2-use-a-local-asset)
       * [Option 3: Use direct code deployment](#option-3-use-direct-code-deployment)
+      * [Option 4: Use an ECR container image URI](#option-4-use-an-ecr-container-image-uri)
     * [Granting Permissions to Invoke Bedrock Models or Inference Profiles](#granting-permissions-to-invoke-bedrock-models-or-inference-profiles)
     * [Runtime Versioning](#runtime-versioning)
 
@@ -115,6 +65,11 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
       * [Public Network Mode (Default)](#public-network-mode-default)
       * [VPC Network Mode](#vpc-network-mode)
       * [Managing Security Groups with VPC Configuration](#managing-security-groups-with-vpc-configuration)
+    * [Runtime IAM Permissions](#runtime-iam-permissions)
+    * [Other configuration](#other-configuration)
+
+      * [Lifecycle configuration](#lifecycle-configuration)
+      * [Request header configuration](#request-header-configuration)
   * [Browser](#browser)
 
     * [Browser Network modes](#browser-network-modes)
@@ -125,6 +80,7 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
     * [Browser with Recording Configuration](#browser-with-recording-configuration)
     * [Browser with Custom Execution Role](#browser-with-custom-execution-role)
     * [Browser with S3 Recording and Permissions](#browser-with-s3-recording-and-permissions)
+    * [Browser with Browser signing](#browser-with-browser-signing)
     * [Browser IAM Permissions](#browser-iam-permissions)
   * [Code Interpreter](#code-interpreter)
 
@@ -136,6 +92,32 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
     * [Code Interpreter with Custom Execution Role](#code-interpreter-with-custom-execution-role)
     * [Code Interpreter IAM Permissions](#code-interpreter-iam-permissions)
     * [Code interpreter with tags](#code-interpreter-with-tags)
+  * [Gateway](#gateway)
+
+    * [Gateway Properties](#gateway-properties)
+    * [Basic Gateway Creation](#basic-gateway-creation)
+    * [Protocol configuration](#protocol-configuration)
+    * [Inbound authorization](#inbound-authorization)
+    * [Gateway with KMS Encryption](#gateway-with-kms-encryption)
+    * [Gateway with Custom Execution Role](#gateway-with-custom-execution-role)
+    * [Gateway IAM Permissions](#gateway-iam-permissions)
+  * [Gateway Target](#gateway-target)
+
+    * [Gateway Target Properties](#gateway-target-properties)
+    * [Targets types](#targets-types)
+    * [Understanding Tool Naming](#understanding-tool-naming)
+    * [Tools schema For Lambda target](#tools-schema-for-lambda-target)
+    * [Api schema For OpenAPI and Smithy target](#api-schema-for-openapi-and-smithy-target)
+    * [Outbound auth](#outbound-auth)
+    * [Basic Gateway Target Creation](#basic-gateway-target-creation)
+
+      * [Using addTarget methods (Recommended)](#using-addtarget-methods-recommended)
+      * [Using static factory methods](#using-static-factory-methods)
+    * [Advanced Usage: Direct Configuration for gateway target](#advanced-usage-direct-configuration-for-gateway-target)
+
+      * [Configuration Factory Methods](#configuration-factory-methods)
+      * [Example: Lambda Target with Custom Configuration](#example-lambda-target-with-custom-configuration)
+    * [Gateway Target IAM Permissions](#gateway-target-iam-permissions)
   * [Memory](#memory)
 
     * [Memory Properties](#memory-properties)
@@ -256,6 +238,24 @@ agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
 }, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
 	jsii.String("opentelemetry-instrument"),
 	jsii.String("main.py"),
+})
+
+runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+Alternatively, you can use local code assets that will be automatically packaged and uploaded to a CDK-managed S3 bucket:
+
+```go
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromCodeAsset(&CodeAssetOptions{
+	Path: path.join(__dirname, jsii.String("path/to/agent/code")),
+	Runtime: agentcore.AgentCoreRuntime_PYTHON_3_12,
+	Entrypoint: []*string{
+		jsii.String("opentelemetry-instrument"),
+		jsii.String("main.py"),
+	},
 })
 
 runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
@@ -1539,7 +1539,7 @@ credential provider attached enabling you to securely access targets whether the
 | `gatewayTargetName` | `string` | No | The name of the gateway target. Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen). If not provided, a unique name will be auto-generated |
 | `description` | `string` | No | Optional description for the gateway target. Maximum 200 characters |
 | `gateway` | `IGateway` | Yes | The gateway this target belongs to |
-| `targetConfiguration` | `ITargetConfiguration` | Yes | The target configuration (Lambda, OpenAPI, or Smithy). **Note:** Users typically don't create this directly. When using convenience methods like `GatewayTarget.forLambda()`, `GatewayTarget.forOpenApi()`, `GatewayTarget.forSmithy()` or the gateway's `addLambdaTarget()`, `addOpenApiTarget()`, `addSmithyTarget()` methods, this configuration is created internally for you. Only needed when using the GatewayTarget constructor directly for [advanced scenarios](#advanced-usage-direct-configuration-for-gateway-target). |
+| `targetConfiguration` | `ITargetConfiguration` | Yes | The target configuration (Lambda, OpenAPI, Smithy, or API Gateway). **Note:** Users typically don't create this directly. When using convenience methods like `GatewayTarget.forLambda()`, `GatewayTarget.forOpenApi()`, `GatewayTarget.forSmithy()`, `GatewayTarget.forApiGateway()`, `GatewayTarget.forMcpServer()` or the gateway's `addLambdaTarget()`, `addOpenApiTarget()`, `addSmithyTarget()`, `addApiGatewayTarget()`, `addMcpServerTarget()` methods, this configuration is created internally for you. Only needed when using the GatewayTarget constructor directly for [advanced scenarios](#advanced-usage-direct-configuration-for-gateway-target). |
 | `credentialProviderConfigurations` | `IGatewayCredentialProvider[]` | No | Credential providers for authentication. Defaults to `[GatewayCredentialProvider.fromIamRole()]`. Use `GatewayCredentialProvider.fromApiKeyIdentityArn()`, `GatewayCredentialProvider.fromOauthIdentityArn()`, or `GatewayCredentialProvider.fromIamRole()` |
 | `validateOpenApiSchema` | `boolean` | No | (OpenAPI targets only) Whether to validate the OpenAPI schema at synthesis time. Defaults to `true`. Only applies to inline and local asset schemas. For more information refer here [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-schema-openapi.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-schema-openapi.html) |
 
@@ -1750,7 +1750,9 @@ You can create targets in two ways: using the static factory methods on `Gateway
 
 #### Using addTarget methods (Recommended)
 
-Below are the examples on how you can create Lambda , Smity and OpenAPI target using `addTarget` method.
+This approach is recommended for most use cases, especially when creating targets alongside the gateway. It provides a cleaner, more fluent API by eliminating the need to explicitly pass the gateway reference.
+
+Below are the examples on how you can create Lambda, Smithy, OpenAPI, MCP Server, and API Gateway targets using `addTarget` methods.
 
 ```go
 // Create a gateway first
@@ -1895,9 +1897,38 @@ syncFunction := lambda.NewFunction(this, jsii.String("SyncFunction"), &FunctionP
 mcpTarget.GrantSync(syncFunction)
 ```
 
+* API Gateway Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
+	RestApiName: jsii.String("my-api"),
+})
+
+// Uses IAM authorization for outbound auth by default
+apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
+	RestApi: api,
+	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
+		ToolFilters: []ApiGatewayToolFilter{
+			&ApiGatewayToolFilter{
+				FilterPath: jsii.String("/pets/*"),
+				Methods: []ApiGatewayHttpMethod{
+					agentcore.ApiGatewayHttpMethod_GET,
+				},
+			},
+		},
+	},
+})
+```
+
 #### Using static factory methods
 
-Create Gateway target using static convienence method.
+Use static factory methods when working with imported gateways, creating targets in different constructs/stacks, or when you need more explicit control over the construct tree hierarchy.
+
+Create Gateway target using static convenience methods.
 
 * Lambda Target
 
@@ -2008,6 +2039,45 @@ mcpTarget := agentcore.GatewayTarget_ForMcpServer(this, jsii.String("MyMcpServer
 })
 ```
 
+* API Gateway Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
+	RestApiName: jsii.String("my-api"),
+})
+
+// Create a gateway target using the static factory method
+apiGatewayTarget := agentcore.GatewayTarget_ForApiGateway(this, jsii.String("MyApiGatewayTarget"), &GatewayTargetApiGatewayProps{
+	GatewayTargetName: jsii.String("my-api-gateway-target"),
+	Description: jsii.String("Target for API Gateway REST API integration"),
+	Gateway: gateway,
+	RestApi: api,
+	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
+		ToolFilters: []ApiGatewayToolFilter{
+			&ApiGatewayToolFilter{
+				FilterPath: jsii.String("/pets/*"),
+				Methods: []ApiGatewayHttpMethod{
+					agentcore.ApiGatewayHttpMethod_GET,
+					agentcore.ApiGatewayHttpMethod_POST,
+				},
+			},
+		},
+	},
+	MetadataConfiguration: &MetadataConfiguration{
+		AllowedRequestHeaders: []*string{
+			jsii.String("X-User-Id"),
+		},
+		AllowedQueryParameters: []*string{
+			jsii.String("limit"),
+		},
+	},
+})
+```
+
 ### Advanced Usage: Direct Configuration for gateway target
 
 For advanced use cases where you need full control over the target configuration, you can create configurations manually using the static factory methods and use the GatewayTarget constructor directly.
@@ -2019,6 +2089,7 @@ Each target type has a corresponding configuration class with a static `create()
 * **Lambda**: `LambdaTargetConfiguration.create(lambdaFunction, toolSchema)`
 * **OpenAPI**: `OpenApiTargetConfiguration.create(apiSchema, validateSchema?)`
 * **Smithy**: `SmithyTargetConfiguration.create(smithyModel)`
+* **API Gateway**: `ApiGatewayTargetConfiguration.create(props)`
 
 #### Example: Lambda Target with Custom Configuration
 
@@ -2062,7 +2133,7 @@ target := agentcore.NewGatewayTarget(this, jsii.String("AdvancedTarget"), &Gatew
 })
 ```
 
-This approach gives you full control over the configuration but is typically not necessary for most use cases. The convenience methods (`GatewayTarget.forLambda()`, `GatewayTarget.forOpenApi()`, `GatewayTarget.forSmithy()`) handle all of this internally.
+This approach gives you full control over the configuration but is typically not necessary for most use cases. The convenience methods (`GatewayTarget.forLambda()`, `GatewayTarget.forOpenApi()`, `GatewayTarget.forSmithy()`, `GatewayTarget.forApiGateway()`) handle all of this internally.
 
 ### Gateway Interceptors
 

@@ -24,6 +24,24 @@ type jsiiProxy_ISiteToSiteVpnAttachmentRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_ISiteToSiteVpnAttachmentRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_ISiteToSiteVpnAttachmentRef) SiteToSiteVpnAttachmentRef() *SiteToSiteVpnAttachmentReference {
 	var returns *SiteToSiteVpnAttachmentReference
 	_jsii_.Get(

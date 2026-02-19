@@ -193,6 +193,8 @@ type Bucket interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 	//
+	// The use of this method is discouraged. Please use `grants.delete()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Gives permissions to a grantable entity to perform actions on the encryption key.
@@ -218,6 +220,9 @@ type Bucket interface {
 	// managed by CloudFormation, this method will have no effect, since it's
 	// impossible to modify the policy of an existing bucket.
 	//
+	//
+	// The use of this method is discouraged. Please use `grants.publicAccess()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
 	// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
@@ -225,8 +230,13 @@ type Bucket interface {
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
 	//
+	//
+	// The use of this method is discouraged. Please use `grants.put()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
+	// The use of this method is discouraged. Please use `grants.putAcl()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
 	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
@@ -234,8 +244,13 @@ type Bucket interface {
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
 	//
+	//
+	// The use of this method is discouraged. Please use `grants.read()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
+	// The use of this method is discouraged. Please use `grants.readWrite()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Grant replication permission to a principal. This method allows the principal to perform replication operations on this bucket.
@@ -243,8 +258,13 @@ type Bucket interface {
 	// Note that when calling this function for source or destination buckets that support KMS encryption,
 	// you need to specify the KMS key for encryption and the KMS key for decryption, respectively.
 	//
+	//
+	// The use of this method is discouraged. Please use `grants.replicationPermission()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantReplicationPermission(identity awsiam.IGrantable, props *GrantReplicationPermissionProps) awsiam.Grant
+	// The use of this method is discouraged. Please use `grants.write()` instead.
+	//
 	// [disable-awslint:no-grants].
 	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant
 	// Define a CloudWatch event that triggers when something happens to this repository.
@@ -309,6 +329,15 @@ type Bucket interface {
 	//
 	// Returns: an ObjectS3Url token.
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for Bucket
@@ -1269,6 +1298,24 @@ func (b *jsiiProxy_Bucket) VirtualHostedUrlForObject(key *string, options *Virtu
 		b,
 		"virtualHostedUrlForObject",
 		[]interface{}{key, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_Bucket) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		b,
+		"with",
+		args,
 		&returns,
 	)
 

@@ -44,6 +44,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetrySinkConfigArn: jsii.String("telemetrySinkConfigArn"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
@@ -118,6 +119,9 @@ type CfnMissionProfile interface {
 	// Tags assigned to the mission profile.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
+	// ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+	TelemetrySinkConfigArn() *string
+	SetTelemetrySinkConfigArn(val *string)
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	TrackingConfigArn() *string
 	SetTrackingConfigArn(val *string)
@@ -259,6 +263,15 @@ type CfnMissionProfile interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnMissionProfile
@@ -489,6 +502,16 @@ func (j *jsiiProxy_CfnMissionProfile) TagsRaw() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMissionProfile) TelemetrySinkConfigArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"telemetrySinkConfigArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMissionProfile) TrackingConfigArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -624,6 +647,14 @@ func (j *jsiiProxy_CfnMissionProfile)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMissionProfile)SetTelemetrySinkConfigArn(val *string) {
+	_jsii_.Set(
+		j,
+		"telemetrySinkConfigArn",
 		val,
 	)
 }
@@ -1025,5 +1056,23 @@ func (c *jsiiProxy_CfnMissionProfile) ValidateProperties(_properties interface{}
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnMissionProfile) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

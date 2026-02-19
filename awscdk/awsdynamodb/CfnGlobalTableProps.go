@@ -11,18 +11,6 @@ package awsdynamodb
 //   var policyDocument interface{}
 //
 //   cfnGlobalTableProps := &CfnGlobalTableProps{
-//   	AttributeDefinitions: []interface{}{
-//   		&AttributeDefinitionProperty{
-//   			AttributeName: jsii.String("attributeName"),
-//   			AttributeType: jsii.String("attributeType"),
-//   		},
-//   	},
-//   	KeySchema: []interface{}{
-//   		&KeySchemaProperty{
-//   			AttributeName: jsii.String("attributeName"),
-//   			KeyType: jsii.String("keyType"),
-//   		},
-//   	},
 //   	Replicas: []interface{}{
 //   		&ReplicaSpecificationProperty{
 //   			Region: jsii.String("region"),
@@ -69,6 +57,7 @@ package awsdynamodb
 //   					},
 //   				},
 //   			},
+//   			GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
 //   			KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
 //   				StreamArn: jsii.String("streamArn"),
 //
@@ -122,6 +111,12 @@ package awsdynamodb
 //   	},
 //
 //   	// the properties below are optional
+//   	AttributeDefinitions: []interface{}{
+//   		&AttributeDefinitionProperty{
+//   			AttributeName: jsii.String("attributeName"),
+//   			AttributeType: jsii.String("attributeType"),
+//   		},
+//   	},
 //   	BillingMode: jsii.String("billingMode"),
 //   	GlobalSecondaryIndexes: []interface{}{
 //   		&GlobalSecondaryIndexProperty{
@@ -140,6 +135,12 @@ package awsdynamodb
 //   			},
 //
 //   			// the properties below are optional
+//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   				MaxReadRequestUnits: jsii.Number(123),
+//   			},
+//   			ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   				ReadCapacityUnits: jsii.Number(123),
+//   			},
 //   			WarmThroughput: &WarmThroughputProperty{
 //   				ReadUnitsPerSecond: jsii.Number(123),
 //   				WriteUnitsPerSecond: jsii.Number(123),
@@ -166,9 +167,16 @@ package awsdynamodb
 //   			},
 //   		},
 //   	},
+//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
 //   	GlobalTableWitnesses: []interface{}{
 //   		&GlobalTableWitnessProperty{
 //   			Region: jsii.String("region"),
+//   		},
+//   	},
+//   	KeySchema: []interface{}{
+//   		&KeySchemaProperty{
+//   			AttributeName: jsii.String("attributeName"),
+//   			KeyType: jsii.String("keyType"),
 //   		},
 //   	},
 //   	LocalSecondaryIndexes: []interface{}{
@@ -189,6 +197,12 @@ package awsdynamodb
 //   		},
 //   	},
 //   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
+//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
+//   		MaxReadRequestUnits: jsii.Number(123),
+//   	},
+//   	ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
+//   		ReadCapacityUnits: jsii.Number(123),
+//   	},
 //   	SseSpecification: &SSESpecificationProperty{
 //   		SseEnabled: jsii.Boolean(false),
 //
@@ -234,16 +248,6 @@ package awsdynamodb
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
 //
 type CfnGlobalTableProps struct {
-	// A list of attributes that describe the key schema for the global table and indexes.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-	//
-	AttributeDefinitions interface{} `field:"required" json:"attributeDefinitions" yaml:"attributeDefinitions"`
-	// Specifies the attributes that make up the primary key for the table.
-	//
-	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-	//
-	KeySchema interface{} `field:"required" json:"keySchema" yaml:"keySchema"`
 	// Specifies the list of replicas for your global table.
 	//
 	// The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
@@ -256,6 +260,10 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
 	Replicas interface{} `field:"required" json:"replicas" yaml:"replicas"`
+	// A list of attributes that describe the key schema for the global table and indexes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
+	//
+	AttributeDefinitions interface{} `field:"optional" json:"attributeDefinitions" yaml:"attributeDefinitions"`
 	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:.
 	//
 	// - `PAY_PER_REQUEST`
@@ -273,12 +281,21 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
 	//
 	GlobalSecondaryIndexes interface{} `field:"optional" json:"globalSecondaryIndexes" yaml:"globalSecondaryIndexes"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablesourcearn
+	//
+	GlobalTableSourceArn *string `field:"optional" json:"globalTableSourceArn" yaml:"globalTableSourceArn"`
 	// The list of witnesses of the MRSC global table.
 	//
 	// Only one witness Region can be configured per MRSC global table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablewitnesses
 	//
 	GlobalTableWitnesses interface{} `field:"optional" json:"globalTableWitnesses" yaml:"globalTableWitnesses"`
+	// Specifies the attributes that make up the primary key for the table.
+	//
+	// The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
+	//
+	KeySchema interface{} `field:"optional" json:"keySchema" yaml:"keySchema"`
 	// Local secondary indexes to be created on the table.
 	//
 	// You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
@@ -296,6 +313,12 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-multiregionconsistency
 	//
 	MultiRegionConsistency *string `field:"optional" json:"multiRegionConsistency" yaml:"multiRegionConsistency"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-readondemandthroughputsettings
+	//
+	ReadOnDemandThroughputSettings interface{} `field:"optional" json:"readOnDemandThroughputSettings" yaml:"readOnDemandThroughputSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings
+	//
+	ReadProvisionedThroughputSettings interface{} `field:"optional" json:"readProvisionedThroughputSettings" yaml:"readProvisionedThroughputSettings"`
 	// Specifies the settings to enable server-side encryption.
 	//
 	// These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.

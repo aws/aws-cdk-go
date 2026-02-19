@@ -21,15 +21,28 @@ import (
 // public endpoint.
 //
 // Example:
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
-//   	Definition: stepfunctions.Chain_Start(stepfunctions.NewPass(this, jsii.String("Pass"))),
+//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   api := apigateway.NewRestApi(this, jsii.String("Api"), &RestApiProps{
-//   	RestApiName: jsii.String("MyApi"),
+//   api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
+//   	RestApiName: jsii.String("my-api"),
 //   })
-//   api.Root.AddMethod(jsii.String("GET"), apigateway.StepFunctionsIntegration_StartExecution(stateMachine))
+//
+//   // Uses IAM authorization for outbound auth by default
+//   apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
+//   	RestApi: api,
+//   	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
+//   		ToolFilters: []ApiGatewayToolFilter{
+//   			&ApiGatewayToolFilter{
+//   				FilterPath: jsii.String("/pets/*"),
+//   				Methods: []ApiGatewayHttpMethod{
+//   					agentcore.ApiGatewayHttpMethod_GET,
+//   				},
+//   			},
+//   		},
+//   	},
+//   })
 //
 type RestApi interface {
 	RestApiBase
@@ -176,6 +189,15 @@ type RestApi interface {
 	//
 	// Fails if `deploymentStage` is not set either by `deploy` or explicitly.
 	UrlForPath(path *string) *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for RestApi
@@ -879,6 +901,24 @@ func (r *jsiiProxy_RestApi) UrlForPath(path *string) *string {
 		r,
 		"urlForPath",
 		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RestApi) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		r,
+		"with",
+		args,
 		&returns,
 	)
 

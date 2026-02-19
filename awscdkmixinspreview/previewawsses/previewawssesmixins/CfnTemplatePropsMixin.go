@@ -21,6 +21,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnTemplatePropsMixin := awscdkmixinspreview.Mixins.NewCfnTemplatePropsMixin(&CfnTemplateMixinProps{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Template: &TemplateProperty{
 //   		HtmlPart: jsii.String("htmlPart"),
 //   		SubjectPart: jsii.String("subjectPart"),

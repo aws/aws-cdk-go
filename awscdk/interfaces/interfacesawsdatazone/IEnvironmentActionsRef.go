@@ -24,6 +24,24 @@ type jsiiProxy_IEnvironmentActionsRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IEnvironmentActionsRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IEnvironmentActionsRef) EnvironmentActionsRef() *EnvironmentActionsReference {
 	var returns *EnvironmentActionsReference
 	_jsii_.Get(

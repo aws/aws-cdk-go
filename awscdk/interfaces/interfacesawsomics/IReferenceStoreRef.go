@@ -24,6 +24,24 @@ type jsiiProxy_IReferenceStoreRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IReferenceStoreRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IReferenceStoreRef) ReferenceStoreRef() *ReferenceStoreReference {
 	var returns *ReferenceStoreReference
 	_jsii_.Get(

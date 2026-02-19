@@ -24,6 +24,24 @@ type jsiiProxy_IReplicationConfigRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IReplicationConfigRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IReplicationConfigRef) ReplicationConfigRef() *ReplicationConfigReference {
 	var returns *ReplicationConfigReference
 	_jsii_.Get(

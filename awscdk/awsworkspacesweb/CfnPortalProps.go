@@ -24,6 +24,7 @@ import (
 //   	IpAccessSettingsArn: jsii.String("ipAccessSettingsArn"),
 //   	MaxConcurrentSessions: jsii.Number(123),
 //   	NetworkSettingsArn: jsii.String("networkSettingsArn"),
+//   	PortalCustomDomain: jsii.String("portalCustomDomain"),
 //   	SessionLoggerArn: jsii.String("sessionLoggerArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -93,6 +94,9 @@ type CfnPortalProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-networksettingsarn
 	//
 	NetworkSettingsArn *string `field:"optional" json:"networkSettingsArn" yaml:"networkSettingsArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-portalcustomdomain
+	//
+	PortalCustomDomain *string `field:"optional" json:"portalCustomDomain" yaml:"portalCustomDomain"`
 	// The ARN of the session logger that is associated with the portal.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-sessionloggerarn
 	//

@@ -109,6 +109,12 @@ type AwsCloudFormationStackProperties struct {
 	//
 	StackTemplateAssetObjectUrl *string `field:"optional" json:"stackTemplateAssetObjectUrl" yaml:"stackTemplateAssetObjectUrl"`
 	// Values for CloudFormation stack tags that should be passed when the stack is deployed.
+	//
+	// N.B.: Tags are also written to stack metadata, under the path of the Stack
+	// construct. Only in CDK CLI v1 are those tags found in metadata used for
+	// actual deployments; in all stable versions of CDK only the stack tags
+	// directly found in the `tags` property of `AwsCloudFormationStack` artifact
+	// (i.e., this property) are used.
 	// Default: - No tags.
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

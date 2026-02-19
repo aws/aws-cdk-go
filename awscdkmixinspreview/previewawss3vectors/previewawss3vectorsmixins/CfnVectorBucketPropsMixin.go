@@ -50,6 +50,12 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseType: jsii.String("sseType"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VectorBucketName: jsii.String("vectorBucketName"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,

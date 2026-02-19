@@ -124,6 +124,25 @@ func Token_CompareStrings(possibleToken1 *string, possibleToken2 *string) TokenC
 	return returns
 }
 
+// The negation of `Token.isUnresolved()`. In TypeScript, narrows the type to exclude `IResolvable`.
+func Token_IsResolved(obj interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateToken_IsResolvedParameters(obj); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Token",
+		"isResolved",
+		[]interface{}{obj},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns true if obj represents an unresolved value.
 //
 // One of these must be true:

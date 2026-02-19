@@ -57,6 +57,12 @@ import (
 //   			jsii.String("nonFilterableMetadataKeys"),
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VectorBucketArn: jsii.String("vectorBucketArn"),
 //   	VectorBucketName: jsii.String("vectorBucketName"),
 //   })
@@ -67,6 +73,7 @@ type CfnIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawss3vectors.IIndexRef
+	awscdk.ITaggableV2
 	// Returns the date and time when the vector index was created.
 	//
 	// Example: `2024-12-21T10:30:00Z`.
@@ -75,6 +82,8 @@ type CfnIndex interface {
 	//
 	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`.
 	AttrIndexArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -128,6 +137,9 @@ type CfnIndex interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// User tags (key-value pairs) to associate with the index.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -272,6 +284,15 @@ type CfnIndex interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnIndex
@@ -279,6 +300,7 @@ type jsiiProxy_CfnIndex struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawss3vectorsIIndexRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnIndex) AttrCreationTime() *string {
@@ -296,6 +318,16 @@ func (j *jsiiProxy_CfnIndex) AttrIndexArn() *string {
 	_jsii_.Get(
 		j,
 		"attrIndexArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIndex) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -461,6 +493,16 @@ func (j *jsiiProxy_CfnIndex) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIndex) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIndex) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -590,6 +632,17 @@ func (j *jsiiProxy_CfnIndex)SetMetadataConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"metadataConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIndex)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }
@@ -977,5 +1030,23 @@ func (c *jsiiProxy_CfnIndex) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnIndex) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

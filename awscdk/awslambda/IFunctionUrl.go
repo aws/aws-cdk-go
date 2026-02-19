@@ -58,6 +58,24 @@ func (i *jsiiProxy_IFunctionUrl) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
+func (i *jsiiProxy_IFunctionUrl) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IFunctionUrl) AuthType() FunctionUrlAuthType {
 	var returns FunctionUrlAuthType
 	_jsii_.Get(

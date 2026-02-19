@@ -54,6 +54,8 @@ type TableV2 interface {
 	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
 	// different than the stack they were imported into.
 	Env() *interfaces.ResourceEnvironment
+	// Grants for this table.
+	Grants() TableGrants
 	HasIndex() *bool
 	// The tree node.
 	Node() constructs.Node
@@ -138,6 +140,8 @@ type TableV2 interface {
 	//
 	// [disable-awslint:no-grants].
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
+	// Grants permissions on the table's encryption key.
+	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Permits an IAM principal all data read operations on this table.
 	//
 	// Actions: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan, DescribeTable.
@@ -249,6 +253,15 @@ type TableV2 interface {
 	Replica(region *string) ITableV2
 	// Returns a string representation of this construct.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for TableV2
@@ -271,6 +284,16 @@ func (j *jsiiProxy_TableV2) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableV2) Grants() TableGrants {
+	var returns TableGrants
+	_jsii_.Get(
+		j,
+		"grants",
 		&returns,
 	)
 	return returns
@@ -715,6 +738,27 @@ func (t *jsiiProxy_TableV2) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Gr
 	return returns
 }
 
+func (t *jsiiProxy_TableV2) GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult {
+	if err := t.validateGrantOnKeyParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns *awsiam.GrantOnKeyResult
+
+	_jsii_.Invoke(
+		t,
+		"grantOnKey",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (t *jsiiProxy_TableV2) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant {
 	if err := t.validateGrantReadDataParameters(grantee); err != nil {
 		panic(err)
@@ -1015,6 +1059,24 @@ func (t *jsiiProxy_TableV2) ToString() *string {
 		t,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TableV2) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		t,
+		"with",
+		args,
 		&returns,
 	)
 

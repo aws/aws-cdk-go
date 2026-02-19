@@ -79,6 +79,26 @@ func AgentRuntimeArtifact_FromAsset(directory *string, options *awsecrassets.Doc
 	return returns
 }
 
+// Reference an agent runtime artifact that's constructed from local code assets uploaded to a CDK-managed S3 bucket.
+// Experimental.
+func AgentRuntimeArtifact_FromCodeAsset(options *CodeAssetOptions) AgentRuntimeArtifact {
+	_init_.Initialize()
+
+	if err := validateAgentRuntimeArtifact_FromCodeAssetParameters(options); err != nil {
+		panic(err)
+	}
+	var returns AgentRuntimeArtifact
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AgentRuntimeArtifact",
+		"fromCodeAsset",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Reference an image in an ECR repository.
 // Experimental.
 func AgentRuntimeArtifact_FromEcrRepository(repository awsecr.IRepository, tag *string) AgentRuntimeArtifact {

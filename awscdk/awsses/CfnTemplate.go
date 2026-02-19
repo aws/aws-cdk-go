@@ -21,6 +21,12 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnTemplate := awscdk.Aws_ses.NewCfnTemplate(this, jsii.String("MyCfnTemplate"), &CfnTemplateProps{
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Template: &TemplateProperty{
 //   		SubjectPart: jsii.String("subjectPart"),
 //
@@ -37,7 +43,10 @@ type CfnTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsses.ITemplateRef
+	awscdk.ITaggableV2
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -69,6 +78,9 @@ type CfnTemplate interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags (keys and values) associated with the email template.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The content of the email, composed of a subject line and either an HTML part or a text-only part.
 	Template() interface{}
 	SetTemplate(val interface{})
@@ -212,6 +224,15 @@ type CfnTemplate interface {
 	// Returns: a string representation of this resource.
 	ToString() *string
 	ValidateProperties(_properties interface{})
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for CfnTemplate
@@ -219,6 +240,7 @@ type jsiiProxy_CfnTemplate struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawssesITemplateRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnTemplate) AttrId() *string {
@@ -226,6 +248,16 @@ func (j *jsiiProxy_CfnTemplate) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTemplate) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -321,6 +353,16 @@ func (j *jsiiProxy_CfnTemplate) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTemplate) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTemplate) Template() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -388,6 +430,17 @@ func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_ses.CfnTemplate",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTemplate)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
 	)
 }
 
@@ -751,5 +804,23 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 		"validateProperties",
 		[]interface{}{_properties},
 	)
+}
+
+func (c *jsiiProxy_CfnTemplate) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		c,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
 }
 

@@ -24,6 +24,24 @@ type jsiiProxy_IThreatIntelSetRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IThreatIntelSetRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IThreatIntelSetRef) ThreatIntelSetRef() *ThreatIntelSetReference {
 	var returns *ThreatIntelSetReference
 	_jsii_.Get(

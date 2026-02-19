@@ -8,6 +8,18 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_logs.DestinationLogsDelivery",
+		reflect.TypeOf((*DestinationLogsDelivery)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_DestinationLogsDelivery{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ILogsDelivery)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_logs.FirehoseLogsDelivery",
 		reflect.TypeOf((*FirehoseLogsDelivery)(nil)).Elem(),
 		[]_jsii_.Member{

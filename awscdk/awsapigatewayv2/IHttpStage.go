@@ -186,6 +186,24 @@ func (i *jsiiProxy_IHttpStage) Metric(metricName *string, props *awscloudwatch.M
 	return returns
 }
 
+func (i *jsiiProxy_IHttpStage) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IHttpStage) Api() IHttpApi {
 	var returns IHttpApi
 	_jsii_.Get(

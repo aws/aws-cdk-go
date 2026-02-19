@@ -129,6 +129,24 @@ func (i *jsiiProxy_IApplicationListener) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
+func (i *jsiiProxy_IApplicationListener) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IApplicationListener) Connections() awsec2.Connections {
 	var returns awsec2.Connections
 	_jsii_.Get(

@@ -48,6 +48,19 @@ import (
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
 //   					},
+//   					FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountName: jsii.String("mountName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
+//   					},
 //   				},
 //   			},
 //   			KubernetesConfig: &ClusterKubernetesConfigProperty{
@@ -101,6 +114,14 @@ import (
 //   					WaitIntervalInSeconds: jsii.Number(123),
 //   				},
 //   			},
+//   			SlurmConfig: &ClusterSlurmConfigProperty{
+//   				NodeType: jsii.String("nodeType"),
+//
+//   				// the properties below are optional
+//   				PartitionNames: []*string{
+//   					jsii.String("partitionNames"),
+//   				},
+//   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
@@ -110,6 +131,9 @@ import (
 //   	Orchestrator: &OrchestratorProperty{
 //   		Eks: &ClusterOrchestratorEksConfigProperty{
 //   			ClusterArn: jsii.String("clusterArn"),
+//   		},
+//   		Slurm: &ClusterOrchestratorSlurmConfigProperty{
+//   			SlurmConfigStrategy: jsii.String("slurmConfigStrategy"),
 //   		},
 //   	},
 //   	RestrictedInstanceGroups: []interface{}{
@@ -133,6 +157,19 @@ import (
 //   						RootVolume: jsii.Boolean(false),
 //   						VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
 //   						VolumeSizeInGb: jsii.Number(123),
+//   					},
+//   					FsxLustreConfig: &ClusterFsxLustreConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//   						MountName: jsii.String("mountName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					FsxOpenZfsConfig: &ClusterFsxOpenZfsConfigProperty{
+//   						DnsName: jsii.String("dnsName"),
+//
+//   						// the properties below are optional
+//   						MountPath: jsii.String("mountPath"),
 //   					},
 //   				},
 //   			},

@@ -56,6 +56,24 @@ func (i *jsiiProxy_IReceiptRuleSet) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
+func (i *jsiiProxy_IReceiptRuleSet) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 	var returns *string
 	_jsii_.Get(

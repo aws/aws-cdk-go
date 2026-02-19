@@ -64,6 +64,15 @@ package awsgroundstation
 //   		Prefix: jsii.String("prefix"),
 //   		RoleArn: jsii.String("roleArn"),
 //   	},
+//   	TelemetrySinkConfig: &TelemetrySinkConfigProperty{
+//   		TelemetrySinkData: &TelemetrySinkDataProperty{
+//   			KinesisDataStreamData: &KinesisDataStreamDataProperty{
+//   				KinesisDataStreamArn: jsii.String("kinesisDataStreamArn"),
+//   				KinesisRoleArn: jsii.String("kinesisRoleArn"),
+//   			},
+//   		},
+//   		TelemetrySinkType: jsii.String("telemetrySinkType"),
+//   	},
 //   	TrackingConfig: &TrackingConfigProperty{
 //   		Autotrack: jsii.String("autotrack"),
 //   	},
@@ -106,6 +115,9 @@ type CfnConfig_ConfigDataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
 	//
 	S3RecordingConfig interface{} `field:"optional" json:"s3RecordingConfig" yaml:"s3RecordingConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-telemetrysinkconfig
+	//
+	TelemetrySinkConfig interface{} `field:"optional" json:"telemetrySinkConfig" yaml:"telemetrySinkConfig"`
 	// Provides information for a tracking config object.
 	//
 	// Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.

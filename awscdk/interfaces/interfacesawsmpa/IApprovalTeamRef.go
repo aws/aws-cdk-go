@@ -24,6 +24,24 @@ type jsiiProxy_IApprovalTeamRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IApprovalTeamRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IApprovalTeamRef) ApprovalTeamRef() *ApprovalTeamReference {
 	var returns *ApprovalTeamReference
 	_jsii_.Get(

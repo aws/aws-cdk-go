@@ -20,6 +20,12 @@ import (
 //   cfnBrowserCustomUsageLogs := awscdkmixinspreview.Mixins.NewCfnBrowserCustomUsageLogs()
 //
 type CfnBrowserCustomUsageLogs interface {
+	// Delivers logs to a pre-created delivery destination.
+	//
+	// Supported destinations are S3, CWL, FH
+	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
+	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnBrowserCustomLogsMixin
 	// Send logs to a Firehose Delivery Stream.
 	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnBrowserCustomLogsMixin
 	// Send logs to a CloudWatch Log Group.
@@ -57,6 +63,22 @@ func NewCfnBrowserCustomUsageLogs_Override(c CfnBrowserCustomUsageLogs) {
 		nil, // no parameters
 		c,
 	)
+}
+
+func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnBrowserCustomLogsMixin {
+	if err := c.validateToDestinationParameters(destination); err != nil {
+		panic(err)
+	}
+	var returns CfnBrowserCustomLogsMixin
+
+	_jsii_.Invoke(
+		c,
+		"toDestination",
+		[]interface{}{destination},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnBrowserCustomLogsMixin {

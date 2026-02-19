@@ -24,6 +24,24 @@ type jsiiProxy_IGlobalClusterRef struct {
 	internal.Type__interfacesIEnvironmentAware
 }
 
+func (i *jsiiProxy_IGlobalClusterRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IGlobalClusterRef) GlobalClusterRef() *GlobalClusterReference {
 	var returns *GlobalClusterReference
 	_jsii_.Get(

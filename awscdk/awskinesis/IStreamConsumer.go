@@ -103,6 +103,24 @@ func (i *jsiiProxy_IStreamConsumer) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
+func (i *jsiiProxy_IStreamConsumer) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IStreamConsumer) Stream() IStream {
 	var returns IStream
 	_jsii_.Get(

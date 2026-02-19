@@ -170,13 +170,69 @@ from the bucket.
 
 ### Understanding "grant" Methods
 
-The S3 construct library provides several grant methods for the `Bucket` resource, but two of them have a special behavior. This two accept an `objectsKeyPattern` parameter to restrict granted permissions to specific resources:
+The S3 construct library provides several grant methods for `IBucketRef` instances, which can
+be accessed via the `BucketGrants` class:
 
-* `grantRead`
-* `grantReadWrite`
+```go
+var principal IPrincipal
+var bucket IBucketRef
 
-When examining the synthesized policy, you'll notice it includes both your specified object key patterns and the bucket itself.
-This is by design. Some permissions (like `s3:ListBucket`) apply at the bucket level, while others (like `s3:GetObject`) apply to specific objects.
+
+s3.BucketGrants_FromBucket(bucket).Delete(principal)
+```
+
+If `bucket` is an instance of `CfnBucket`, and the grants process involves adding statements
+to the bucket policy, then the `BucketGrants` class will, by default, do the same thing it
+would do for an instance of `Bucket`: create a new bucket policy (or reuse an existing one)
+and add the necessary statements to it.
+
+But if you want to customize this behavior, you can register an instance of `IResourcePolicyFactory`
+for the `AWS::S3::Bucket` CloudFormation type:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/constructs-go/constructs"
+
+var scope Construct
+type myFactory struct {
+}
+
+func (this *myFactory) forResource(resource CfnResource) IResourceWithPolicyV2 {
+	return map[string]ResourceEnvironment{
+		"env": *resource.env,
+		(MethodDeclaration addToResourcePolicy(statement: PolicyStatement) {
+		        // custom implementation to add the statement to the resource policy
+		        return { statementAdded: true, policyDependable: resource };
+		      }
+				addToResourcePolicy
+				statement PolicyStatement
+				{
+					// custom implementation to add the statement to the resource policy
+					return &AddToResourcePolicyResult{
+						"statementAdded": jsii.Boolean(true),
+						"policyDependable": resource,
+					}
+				}),
+	}
+}
+
+awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::S3::Bucket"), NewMyFactory())
+```
+
+`IResourcePolicyFactory` is responsible for converting a construct into a `IResourceWithPolicyV2`,
+effectively providing an ad-hoc way to extend the behavior of L1s to support grants the same way
+as L2s do.
+
+The `BucketGrants` class has many methods, but two of them have a special behavior. These two
+accept an `objectsKeyPattern` parameter to restrict granted permissions to specific resources:
+
+* `read`
+* `readWrite`
+
+When examining the synthesized policy, you'll notice it includes both your specified object key
+patterns and the bucket itself. This is by design. Some permissions (like `s3:ListBucket`) apply
+at the bucket level, while others (like `s3:GetObject`) apply to specific objects.
 
 Specifically, the [`s3:ListBucket` action operates on bucket resources](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-bucket)
 and requires the bucket ARN to work properly. This might be seen as a bug, giving the impression that more permissions were granted than the ones you intended, but the reality is that the policy does not ignore your `objectsKeyPattern` - object-specific actions like `s3:GetObject`

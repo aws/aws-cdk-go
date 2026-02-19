@@ -11,6 +11,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnAgentAliasEventLogs",
 		reflect.TypeOf((*CfnAgentAliasEventLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -67,6 +68,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnAgentApplicationLogs",
 		reflect.TypeOf((*CfnAgentApplicationLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -683,6 +685,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnFlowApplicationLogs",
 		reflect.TypeOf((*CfnFlowApplicationLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -1235,6 +1238,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseApplicationLogs",
 		reflect.TypeOf((*CfnKnowledgeBaseApplicationLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
@@ -1447,6 +1451,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogs",
 		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogs)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
 			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},

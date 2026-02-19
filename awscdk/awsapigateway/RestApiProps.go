@@ -8,15 +8,28 @@ import (
 // Props to create a new instance of RestApi.
 //
 // Example:
-//   stateMachine := stepfunctions.NewStateMachine(this, jsii.String("MyStateMachine"), &StateMachineProps{
-//   	StateMachineType: stepfunctions.StateMachineType_EXPRESS,
-//   	Definition: stepfunctions.Chain_Start(stepfunctions.NewPass(this, jsii.String("Pass"))),
+//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   api := apigateway.NewRestApi(this, jsii.String("Api"), &RestApiProps{
-//   	RestApiName: jsii.String("MyApi"),
+//   api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
+//   	RestApiName: jsii.String("my-api"),
 //   })
-//   api.Root.AddMethod(jsii.String("GET"), apigateway.StepFunctionsIntegration_StartExecution(stateMachine))
+//
+//   // Uses IAM authorization for outbound auth by default
+//   apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
+//   	RestApi: api,
+//   	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
+//   		ToolFilters: []ApiGatewayToolFilter{
+//   			&ApiGatewayToolFilter{
+//   				FilterPath: jsii.String("/pets/*"),
+//   				Methods: []ApiGatewayHttpMethod{
+//   					agentcore.ApiGatewayHttpMethod_GET,
+//   				},
+//   			},
+//   		},
+//   	},
+//   })
 //
 type RestApiProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
