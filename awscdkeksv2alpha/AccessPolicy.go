@@ -21,14 +21,14 @@ import (
 //   	AccessEntryType: eks.AccessEntryType_EC2,
 //   })
 //
-// Experimental.
+// Deprecated.
 type AccessPolicy interface {
 	IAccessPolicy
 	// The scope of the access policy, which determines the level of access granted.
-	// Experimental.
+	// Deprecated.
 	AccessScope() *AccessScope
 	// The access policy itself, which defines the specific permissions.
-	// Experimental.
+	// Deprecated.
 	Policy() *string
 }
 
@@ -59,7 +59,7 @@ func (j *jsiiProxy_AccessPolicy) Policy() *string {
 
 
 // Constructs a new instance of the AccessPolicy class.
-// Experimental.
+// Deprecated.
 func NewAccessPolicy(props *AccessPolicyProps) AccessPolicy {
 	_init_.Initialize()
 
@@ -78,7 +78,7 @@ func NewAccessPolicy(props *AccessPolicyProps) AccessPolicy {
 }
 
 // Constructs a new instance of the AccessPolicy class.
-// Experimental.
+// Deprecated.
 func NewAccessPolicy_Override(a AccessPolicy, props *AccessPolicyProps) {
 	_init_.Initialize()
 
@@ -90,7 +90,7 @@ func NewAccessPolicy_Override(a AccessPolicy, props *AccessPolicyProps) {
 }
 
 // Import AccessPolicy by name.
-// Experimental.
+// Deprecated.
 func AccessPolicy_FromAccessPolicyName(policyName *string, options *AccessPolicyNameOptions) IAccessPolicy {
 	_init_.Initialize()
 

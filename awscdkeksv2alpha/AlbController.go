@@ -39,14 +39,14 @@ import (
 //
 // See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 //
-// Experimental.
+// Deprecated.
 type AlbController interface {
 	constructs.Construct
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -56,7 +56,7 @@ type AlbController interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -76,7 +76,7 @@ func (j *jsiiProxy_AlbController) Node() constructs.Node {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewAlbController(scope constructs.Construct, id *string, props *AlbControllerProps) AlbController {
 	_init_.Initialize()
 
@@ -94,7 +94,7 @@ func NewAlbController(scope constructs.Construct, id *string, props *AlbControll
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewAlbController_Override(a AlbController, scope constructs.Construct, id *string, props *AlbControllerProps) {
 	_init_.Initialize()
 
@@ -108,7 +108,7 @@ func NewAlbController_Override(a AlbController, scope constructs.Construct, id *
 // Create the controller construct associated with this cluster and scope.
 //
 // Singleton per stack/cluster.
-// Experimental.
+// Deprecated.
 func AlbController_Create(scope constructs.Construct, props *AlbControllerProps) AlbController {
 	_init_.Initialize()
 
@@ -144,7 +144,7 @@ func AlbController_Create(scope constructs.Construct, props *AlbControllerProps)
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func AlbController_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

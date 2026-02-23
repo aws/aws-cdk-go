@@ -26,24 +26,24 @@ import (
 //   	Version: jsii.String("0.0.1"),
 //   })
 //
-// Experimental.
+// Deprecated.
 type HelmChart interface {
 	constructs.Construct
-	// Experimental.
+	// Deprecated.
 	Atomic() *bool
-	// Experimental.
+	// Deprecated.
 	Chart() *string
-	// Experimental.
+	// Deprecated.
 	ChartAsset() awss3assets.Asset
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
-	// Experimental.
+	// Deprecated.
 	Repository() *string
-	// Experimental.
+	// Deprecated.
 	Version() *string
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -53,7 +53,7 @@ type HelmChart interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -123,7 +123,7 @@ func (j *jsiiProxy_HelmChart) Version() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewHelmChart(scope constructs.Construct, id *string, props *HelmChartProps) HelmChart {
 	_init_.Initialize()
 
@@ -141,7 +141,7 @@ func NewHelmChart(scope constructs.Construct, id *string, props *HelmChartProps)
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewHelmChart_Override(h HelmChart, scope constructs.Construct, id *string, props *HelmChartProps) {
 	_init_.Initialize()
 
@@ -169,7 +169,7 @@ func NewHelmChart_Override(h HelmChart, scope constructs.Construct, id *string, 
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func HelmChart_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

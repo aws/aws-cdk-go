@@ -15,10 +15,10 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type AlbControllerOptions struct {
 	// Version of the controller.
-	// Experimental.
+	// Deprecated.
 	Version AlbControllerVersion `field:"required" json:"version" yaml:"version"`
 	// Additional helm chart values for ALB controller.
 	//
@@ -26,7 +26,7 @@ type AlbControllerOptions struct {
 	// https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/helm/aws-load-balancer-controller/values.yaml
 	// Default: - no additional helm chart values.
 	//
-	// Experimental.
+	// Deprecated.
 	AdditionalHelmChartValues *map[string]interface{} `field:"optional" json:"additionalHelmChartValues" yaml:"additionalHelmChartValues"`
 	// Overwrite any existing ALB controller service account.
 	//
@@ -35,7 +35,7 @@ type AlbControllerOptions struct {
 	// named 'aws-load-balancer-controller' in the kube-system namespace, the operation will fail.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
 	// The IAM policy to apply to the service account.
 	//
@@ -45,7 +45,7 @@ type AlbControllerOptions struct {
 	// However, if you are using a custom version, this is required (and validated).
 	// Default: - Corresponds to the predefined version.
 	//
-	// Experimental.
+	// Deprecated.
 	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
 	// The removal policy applied to the ALB controller resources.
 	//
@@ -57,7 +57,7 @@ type AlbControllerOptions struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The repository to pull the controller image from.
 	//
@@ -66,7 +66,7 @@ type AlbControllerOptions struct {
 	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
 	// Default: '602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon/aws-load-balancer-controller'
 	//
-	// Experimental.
+	// Deprecated.
 	Repository *string `field:"optional" json:"repository" yaml:"repository"`
 }
 

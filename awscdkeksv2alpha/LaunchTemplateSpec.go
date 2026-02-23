@@ -15,15 +15,15 @@ package awscdkeksv2alpha
 //   	Version: jsii.String("version"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type LaunchTemplateSpec struct {
 	// The Launch template ID.
-	// Experimental.
+	// Deprecated.
 	Id *string `field:"required" json:"id" yaml:"id"`
 	// The launch template version to be used (optional).
 	// Default: - the default version of the launch template.
 	//
-	// Experimental.
+	// Deprecated.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

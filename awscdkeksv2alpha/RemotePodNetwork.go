@@ -14,10 +14,10 @@ package awscdkeksv2alpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type RemotePodNetwork struct {
 	// IPv4 CIDR blocks for the remote pod network.
-	// Experimental.
+	// Deprecated.
 	Cidrs *[]*string `field:"required" json:"cidrs" yaml:"cidrs"`
 }
 

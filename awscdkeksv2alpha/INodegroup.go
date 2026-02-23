@@ -8,11 +8,11 @@ import (
 )
 
 // NodeGroup interface.
-// Experimental.
+// Deprecated.
 type INodegroup interface {
 	awscdk.IResource
 	// Name of the nodegroup.
-	// Experimental.
+	// Deprecated.
 	NodegroupName() *string
 }
 

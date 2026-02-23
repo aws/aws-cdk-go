@@ -2,21 +2,21 @@ package awscdkeksv2alpha
 
 
 // Whether the worker nodes should support GPU or just standard instances.
-// Experimental.
+// Deprecated.
 type NodeType string
 
 const (
 	// Standard instances.
-	// Experimental.
+	// Deprecated.
 	NodeType_STANDARD NodeType = "STANDARD"
 	// GPU instances.
-	// Experimental.
+	// Deprecated.
 	NodeType_GPU NodeType = "GPU"
 	// Inferentia instances.
-	// Experimental.
+	// Deprecated.
 	NodeType_INFERENTIA NodeType = "INFERENTIA"
 	// Trainium instances.
-	// Experimental.
+	// Deprecated.
 	NodeType_TRAINIUM NodeType = "TRAINIUM"
 )
 

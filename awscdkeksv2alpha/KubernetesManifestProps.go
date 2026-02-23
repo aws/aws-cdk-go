@@ -76,19 +76,19 @@ import (
 //   // or, option2: use `addManifest`
 //   cluster.addManifest(jsii.String("hello-kub"), service, deployment)
 //
-// Experimental.
+// Deprecated.
 type KubernetesManifestProps struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	IngressAlb *bool `field:"optional" json:"ingressAlb" yaml:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
 	// Default: AlbScheme.INTERNAL
 	//
-	// Experimental.
+	// Deprecated.
 	IngressAlbScheme AlbScheme `field:"optional" json:"ingressAlbScheme" yaml:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
@@ -110,7 +110,7 @@ type KubernetesManifestProps struct {
 	// Default: - based on the prune option of the cluster, which is `true` unless
 	// otherwise specified.
 	//
-	// Experimental.
+	// Deprecated.
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
 	// The removal policy applied to the custom resource that manages the Kubernetes manifest.
 	//
@@ -122,17 +122,17 @@ type KubernetesManifestProps struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// A flag to signify if the manifest validation should be skipped.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 	// The EKS cluster to apply this manifest to.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
+	// Deprecated.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// The manifest to apply.
 	//
@@ -166,7 +166,7 @@ type KubernetesManifestProps struct {
 	//   	},
 	//   }
 	//
-	// Experimental.
+	// Deprecated.
 	Manifest *[]*map[string]interface{} `field:"required" json:"manifest" yaml:"manifest"`
 	// Overwrite any existing resources.
 	//
@@ -175,7 +175,7 @@ type KubernetesManifestProps struct {
 	// in the cluster with the same name, the operation will fail.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	Overwrite *bool `field:"optional" json:"overwrite" yaml:"overwrite"`
 }
 

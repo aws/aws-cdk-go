@@ -21,52 +21,52 @@ import (
 //   	KubectlProvider: KubectlProvider,
 //   })
 //
-// Experimental.
+// Deprecated.
 type ClusterAttributes struct {
 	// The physical name of the Cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 	// The certificate-authority-data for your cluster.
 	// Default: - if not specified `cluster.clusterCertificateAuthorityData` will
 	// throw an error.
 	//
-	// Experimental.
+	// Deprecated.
 	ClusterCertificateAuthorityData *string `field:"optional" json:"clusterCertificateAuthorityData" yaml:"clusterCertificateAuthorityData"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 	// Default: - if not specified `cluster.clusterEncryptionConfigKeyArn` will
 	// throw an error.
 	//
-	// Experimental.
+	// Deprecated.
 	ClusterEncryptionConfigKeyArn *string `field:"optional" json:"clusterEncryptionConfigKeyArn" yaml:"clusterEncryptionConfigKeyArn"`
 	// The API Server endpoint URL.
 	// Default: - if not specified `cluster.clusterEndpoint` will throw an error.
 	//
-	// Experimental.
+	// Deprecated.
 	ClusterEndpoint *string `field:"optional" json:"clusterEndpoint" yaml:"clusterEndpoint"`
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	// Default: - if not specified `cluster.clusterSecurityGroupId` will throw an
 	// error.
 	//
-	// Experimental.
+	// Deprecated.
 	ClusterSecurityGroupId *string `field:"optional" json:"clusterSecurityGroupId" yaml:"clusterSecurityGroupId"`
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
 	// Default: - IpFamily.IP_V4
 	//
-	// Experimental.
+	// Deprecated.
 	IpFamily IpFamily `field:"optional" json:"ipFamily" yaml:"ipFamily"`
 	// KubectlProvider for issuing kubectl commands.
 	// Default: - Default CDK provider.
 	//
-	// Experimental.
+	// Deprecated.
 	KubectlProvider IKubectlProvider `field:"optional" json:"kubectlProvider" yaml:"kubectlProvider"`
 	// Options for creating the kubectl provider - a lambda function that executes `kubectl` and `helm` against the cluster.
 	//
 	// If defined, `kubectlLayer` is a required property.
 	//
 	// If not defined, kubectl provider will not be created by default.
-	// Experimental.
+	// Deprecated.
 	KubectlProviderOptions *KubectlProviderOptions `field:"optional" json:"kubectlProviderOptions" yaml:"kubectlProviderOptions"`
 	// An Open ID Connect provider for this cluster that can be used to configure service accounts.
 	//
@@ -74,7 +74,7 @@ type ClusterAttributes struct {
 	// or create a new provider using `new eks.OpenIdConnectProvider`
 	// Default: - if not specified `cluster.openIdConnectProvider` and `cluster.addServiceAccount` will throw an error.
 	//
-	// Experimental.
+	// Deprecated.
 	OpenIdConnectProvider awsiam.IOpenIdConnectProvider `field:"optional" json:"openIdConnectProvider" yaml:"openIdConnectProvider"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
@@ -83,18 +83,18 @@ type ClusterAttributes struct {
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
 	// Default: true.
 	//
-	// Experimental.
+	// Deprecated.
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
 	// Additional security groups associated with this cluster.
 	// Default: - if not specified, no additional security groups will be
 	// considered in `cluster.connections`.
 	//
-	// Experimental.
+	// Deprecated.
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The VPC in which this Cluster was created.
 	// Default: - if not specified `cluster.vpc` will throw an error
 	//
-	// Experimental.
+	// Deprecated.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

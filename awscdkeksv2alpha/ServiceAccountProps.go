@@ -31,22 +31,22 @@ import (
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   }
 //
-// Experimental.
+// Deprecated.
 type ServiceAccountProps struct {
 	// Additional annotations of the service account.
 	// Default: - no additional annotations.
 	//
-	// Experimental.
+	// Deprecated.
 	Annotations *map[string]*string `field:"optional" json:"annotations" yaml:"annotations"`
 	// The identity type to use for the service account.
 	// Default: IdentityType.IRSA
 	//
-	// Experimental.
+	// Deprecated.
 	IdentityType IdentityType `field:"optional" json:"identityType" yaml:"identityType"`
 	// Additional labels of the service account.
 	// Default: - no additional labels.
 	//
-	// Experimental.
+	// Deprecated.
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// The name of the service account.
 	//
@@ -54,7 +54,7 @@ type ServiceAccountProps struct {
 	// https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 	// Default: - If no name is given, it will use the id of the resource.
 	//
-	// Experimental.
+	// Deprecated.
 	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The namespace of the service account.
 	//
@@ -62,7 +62,7 @@ type ServiceAccountProps struct {
 	// https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#namespaces-and-dns
 	// Default: "default".
 	//
-	// Experimental.
+	// Deprecated.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Overwrite existing service account.
 	//
@@ -71,7 +71,7 @@ type ServiceAccountProps struct {
 	// in the cluster with the same name, the operation will fail.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
 	// The removal policy applied to the service account resources.
 	//
@@ -83,10 +83,10 @@ type ServiceAccountProps struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The cluster to apply the patch to.
-	// Experimental.
+	// Deprecated.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 }
 

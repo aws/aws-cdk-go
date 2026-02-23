@@ -25,21 +25,21 @@ import (
 //   	KubectlProvider: KubectlProvider,
 //   })
 //
-// Experimental.
+// Deprecated.
 type KubectlProvider interface {
 	constructs.Construct
 	IKubectlProvider
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// The IAM execution role of the handler.
-	// Experimental.
+	// Deprecated.
 	Role() awsiam.IRole
 	// The custom resource provider's service token.
-	// Experimental.
+	// Deprecated.
 	ServiceToken() *string
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -49,7 +49,7 @@ type KubectlProvider interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -90,7 +90,7 @@ func (j *jsiiProxy_KubectlProvider) ServiceToken() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewKubectlProvider(scope constructs.Construct, id *string, props *KubectlProviderProps) KubectlProvider {
 	_init_.Initialize()
 
@@ -108,7 +108,7 @@ func NewKubectlProvider(scope constructs.Construct, id *string, props *KubectlPr
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewKubectlProvider_Override(k KubectlProvider, scope constructs.Construct, id *string, props *KubectlProviderProps) {
 	_init_.Initialize()
 
@@ -120,7 +120,7 @@ func NewKubectlProvider_Override(k KubectlProvider, scope constructs.Construct, 
 }
 
 // Import an existing provider.
-// Experimental.
+// Deprecated.
 func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) IKubectlProvider {
 	_init_.Initialize()
 
@@ -140,7 +140,7 @@ func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, i
 }
 
 // Take existing provider on cluster.
-// Experimental.
+// Deprecated.
 func KubectlProvider_GetKubectlProvider(scope constructs.Construct, cluster ICluster) IKubectlProvider {
 	_init_.Initialize()
 
@@ -176,7 +176,7 @@ func KubectlProvider_GetKubectlProvider(scope constructs.Construct, cluster IClu
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func KubectlProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

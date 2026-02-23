@@ -30,14 +30,14 @@ import (
 //
 // See: https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/
 //
-// Experimental.
+// Deprecated.
 type KubernetesPatch interface {
 	constructs.Construct
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -47,7 +47,7 @@ type KubernetesPatch interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -67,7 +67,7 @@ func (j *jsiiProxy_KubernetesPatch) Node() constructs.Node {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewKubernetesPatch(scope constructs.Construct, id *string, props *KubernetesPatchProps) KubernetesPatch {
 	_init_.Initialize()
 
@@ -85,7 +85,7 @@ func NewKubernetesPatch(scope constructs.Construct, id *string, props *Kubernete
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewKubernetesPatch_Override(k KubernetesPatch, scope constructs.Construct, id *string, props *KubernetesPatchProps) {
 	_init_.Initialize()
 
@@ -113,7 +113,7 @@ func NewKubernetesPatch_Override(k KubernetesPatch, scope constructs.Construct, 
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

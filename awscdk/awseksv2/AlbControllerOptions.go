@@ -1,0 +1,65 @@
+package awseksv2
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Options for `AlbController`.
+//
+// Example:
+//   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_34(),
+//   	AlbController: &AlbControllerOptions{
+//   		Version: eks.AlbControllerVersion_V2_8_2(),
+//   		OverwriteServiceAccount: jsii.Boolean(true),
+//   	},
+//   })
+//
+type AlbControllerOptions struct {
+	// Version of the controller.
+	Version AlbControllerVersion `field:"required" json:"version" yaml:"version"`
+	// Additional helm chart values for ALB controller.
+	//
+	// For available options, see:
+	// https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/main/helm/aws-load-balancer-controller/values.yaml
+	// Default: - no additional helm chart values.
+	//
+	AdditionalHelmChartValues *map[string]interface{} `field:"optional" json:"additionalHelmChartValues" yaml:"additionalHelmChartValues"`
+	// Overwrite any existing ALB controller service account.
+	//
+	// If this is set, we will use `kubectl apply` instead of `kubectl create`
+	// when the ALB controller service account is created. Otherwise, if there is already a service account
+	// named 'aws-load-balancer-controller' in the kube-system namespace, the operation will fail.
+	// Default: false.
+	//
+	OverwriteServiceAccount *bool `field:"optional" json:"overwriteServiceAccount" yaml:"overwriteServiceAccount"`
+	// The IAM policy to apply to the service account.
+	//
+	// If you're using one of the built-in versions, this is not required since
+	// CDK ships with the appropriate policies for those versions.
+	//
+	// However, if you are using a custom version, this is required (and validated).
+	// Default: - Corresponds to the predefined version.
+	//
+	Policy interface{} `field:"optional" json:"policy" yaml:"policy"`
+	// The removal policy applied to the ALB controller resources.
+	//
+	// The removal policy controls what happens to the resources if they stop being managed by CloudFormation.
+	// This can happen in one of three situations:
+	//
+	// - The resource is removed from the template, so CloudFormation stops managing it
+	// - A change to the resource is made that requires it to be replaced, so CloudFormation stops managing it
+	// - The stack is deleted, so CloudFormation stops managing all resources in it.
+	// Default: RemovalPolicy.DESTROY
+	//
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// The repository to pull the controller image from.
+	//
+	// Note that the default repository works for most regions, but not all.
+	// If the repository is not applicable to your region, use a custom repository
+	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
+	// Default: '602401143452.dkr.ecr.us-west-2.amazonaws.com/amazon/aws-load-balancer-controller'
+	//
+	Repository *string `field:"optional" json:"repository" yaml:"repository"`
+}
+

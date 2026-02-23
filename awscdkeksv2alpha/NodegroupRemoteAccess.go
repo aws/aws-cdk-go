@@ -25,10 +25,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html
 //
-// Experimental.
+// Deprecated.
 type NodegroupRemoteAccess struct {
 	// The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in the managed node group.
-	// Experimental.
+	// Deprecated.
 	SshKeyName *string `field:"required" json:"sshKeyName" yaml:"sshKeyName"`
 	// The security groups that are allowed SSH access (port 22) to the worker nodes.
 	//
@@ -37,7 +37,7 @@ type NodegroupRemoteAccess struct {
 	// nodes is opened to the internet (0.0.0.0/0).
 	// Default: - port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
 	//
-	// Experimental.
+	// Deprecated.
 	SourceSecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"sourceSecurityGroups" yaml:"sourceSecurityGroups"`
 }
 

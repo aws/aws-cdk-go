@@ -38,39 +38,39 @@ import (
 //   bucket := s3.NewBucket(this, jsii.String("Bucket"))
 //   bucket.GrantReadWrite(serviceAccount)
 //
-// Experimental.
+// Deprecated.
 type ServiceAccount interface {
 	constructs.Construct
 	awsiam.IPrincipal
 	// When this Principal is used in an AssumeRole policy, the action to use.
-	// Experimental.
+	// Deprecated.
 	AssumeRoleAction() *string
 	// The principal to grant permissions to.
-	// Experimental.
+	// Deprecated.
 	GrantPrincipal() awsiam.IPrincipal
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// Return the policy fragment that identifies this principal in a Policy.
-	// Experimental.
+	// Deprecated.
 	PolicyFragment() awsiam.PrincipalPolicyFragment
 	// The role which is linked to the service account.
-	// Experimental.
+	// Deprecated.
 	Role() awsiam.IRole
 	// The name of the service account.
-	// Experimental.
+	// Deprecated.
 	ServiceAccountName() *string
 	// The namespace where the service account is located in.
-	// Experimental.
+	// Deprecated.
 	ServiceAccountNamespace() *string
 	// Add to the policy of this principal.
 	// Deprecated: use `addToPrincipalPolicy()`.
 	AddToPolicy(statement awsiam.PolicyStatement) *bool
 	// Add to the policy of this principal.
-	// Experimental.
+	// Deprecated.
 	AddToPrincipalPolicy(statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -80,7 +80,7 @@ type ServiceAccount interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -161,7 +161,7 @@ func (j *jsiiProxy_ServiceAccount) ServiceAccountNamespace() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAccountProps) ServiceAccount {
 	_init_.Initialize()
 
@@ -179,7 +179,7 @@ func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAcc
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewServiceAccount_Override(s ServiceAccount, scope constructs.Construct, id *string, props *ServiceAccountProps) {
 	_init_.Initialize()
 
@@ -207,7 +207,7 @@ func NewServiceAccount_Override(s ServiceAccount, scope constructs.Construct, id
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func ServiceAccount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

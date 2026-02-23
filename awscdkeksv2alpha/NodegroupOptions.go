@@ -23,7 +23,7 @@ import (
 //   	DiskSize: jsii.Number(100),
 //   })
 //
-// Experimental.
+// Deprecated.
 type NodegroupOptions struct {
 	// The AMI type for your node group.
 	//
@@ -31,12 +31,12 @@ type NodegroupOptions struct {
 	// the node group deployment will fail. In other cases, you will need to specify correct amiType for the nodegroup.
 	// Default: - auto-determined from the instanceTypes property when launchTemplateSpec property is not specified.
 	//
-	// Experimental.
+	// Deprecated.
 	AmiType NodegroupAmiType `field:"optional" json:"amiType" yaml:"amiType"`
 	// The capacity type of the nodegroup.
 	// Default: CapacityType.ON_DEMAND
 	//
-	// Experimental.
+	// Deprecated.
 	CapacityType CapacityType `field:"optional" json:"capacityType" yaml:"capacityType"`
 	// The current number of worker nodes that the managed node group should maintain.
 	//
@@ -44,12 +44,12 @@ type NodegroupOptions struct {
 	// the nodewgroup will initially create `minSize` instances.
 	// Default: 2.
 	//
-	// Experimental.
+	// Deprecated.
 	DesiredSize *float64 `field:"optional" json:"desiredSize" yaml:"desiredSize"`
 	// The root device disk size (in GiB) for your node group instances.
 	// Default: 20.
 	//
-	// Experimental.
+	// Deprecated.
 	DiskSize *float64 `field:"optional" json:"diskSize" yaml:"diskSize"`
 	// Specifies whether to enable node auto repair for the node group.
 	//
@@ -58,7 +58,7 @@ type NodegroupOptions struct {
 	//
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	EnableNodeAutoRepair *bool `field:"optional" json:"enableNodeAutoRepair" yaml:"enableNodeAutoRepair"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
@@ -67,7 +67,7 @@ type NodegroupOptions struct {
 	// running on the node.
 	// Default: true.
 	//
-	// Experimental.
+	// Deprecated.
 	ForceUpdate *bool `field:"optional" json:"forceUpdate" yaml:"forceUpdate"`
 	// The instance type to use for your node group.
 	//
@@ -83,26 +83,26 @@ type NodegroupOptions struct {
 	//
 	// Default: t3.medium will be used according to the cloudformation document.
 	//
-	// Experimental.
+	// Deprecated.
 	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Labels *map[string]*string `field:"optional" json:"labels" yaml:"labels"`
 	// Launch template specification used for the nodegroup.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
 	// Default: - no launch template.
 	//
-	// Experimental.
+	// Deprecated.
 	LaunchTemplateSpec *LaunchTemplateSpec `field:"optional" json:"launchTemplateSpec" yaml:"launchTemplateSpec"`
 	// The maximum number of worker nodes that the managed node group can scale out to.
 	//
 	// Managed node groups can support up to 100 nodes by default.
 	// Default: - same as desiredSize property.
 	//
-	// Experimental.
+	// Deprecated.
 	MaxSize *float64 `field:"optional" json:"maxSize" yaml:"maxSize"`
 	// The maximum number of nodes unavailable at once during a version update.
 	//
@@ -113,7 +113,7 @@ type NodegroupOptions struct {
 	//
 	// Default: 1.
 	//
-	// Experimental.
+	// Deprecated.
 	MaxUnavailable *float64 `field:"optional" json:"maxUnavailable" yaml:"maxUnavailable"`
 	// The maximum percentage of nodes unavailable during a version update.
 	//
@@ -124,19 +124,19 @@ type NodegroupOptions struct {
 	//
 	// Default: undefined - node groups will update instances one at a time.
 	//
-	// Experimental.
+	// Deprecated.
 	MaxUnavailablePercentage *float64 `field:"optional" json:"maxUnavailablePercentage" yaml:"maxUnavailablePercentage"`
 	// The minimum number of worker nodes that the managed node group can scale in to.
 	//
 	// This number must be greater than or equal to zero.
 	// Default: 1.
 	//
-	// Experimental.
+	// Deprecated.
 	MinSize *float64 `field:"optional" json:"minSize" yaml:"minSize"`
 	// Name of the Nodegroup.
 	// Default: - resource ID.
 	//
-	// Experimental.
+	// Deprecated.
 	NodegroupName *string `field:"optional" json:"nodegroupName" yaml:"nodegroupName"`
 	// The IAM role to associate with your node group.
 	//
@@ -146,12 +146,12 @@ type NodegroupOptions struct {
 	// into a cluster, you must create an IAM role for those worker nodes to use when they are launched.
 	// Default: - None. Auto-generated if not specified.
 	//
-	// Experimental.
+	// Deprecated.
 	NodeRole awsiam.IRole `field:"optional" json:"nodeRole" yaml:"nodeRole"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group (for example, `1.14.7-YYYYMMDD`).
 	// Default: - The latest available AMI version for the node group's current Kubernetes version is used.
 	//
-	// Experimental.
+	// Deprecated.
 	ReleaseVersion *string `field:"optional" json:"releaseVersion" yaml:"releaseVersion"`
 	// The remote access (SSH) configuration to use with your node group.
 	//
@@ -160,7 +160,7 @@ type NodegroupOptions struct {
 	// then port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
 	// Default: - disabled.
 	//
-	// Experimental.
+	// Deprecated.
 	RemoteAccess *NodegroupRemoteAccess `field:"optional" json:"remoteAccess" yaml:"remoteAccess"`
 	// The removal policy applied to the managed node group resources.
 	//
@@ -172,7 +172,7 @@ type NodegroupOptions struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
@@ -182,7 +182,7 @@ type NodegroupOptions struct {
 	// the name of your cluster.
 	// Default: - private subnets.
 	//
-	// Experimental.
+	// Deprecated.
 	Subnets *awsec2.SubnetSelection `field:"optional" json:"subnets" yaml:"subnets"`
 	// The metadata to apply to the node group to assist with categorization and organization.
 	//
@@ -191,12 +191,12 @@ type NodegroupOptions struct {
 	// associated with the node group, such as the Amazon EC2 instances or subnets.
 	// Default: None.
 	//
-	// Experimental.
+	// Deprecated.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Taints *[]*TaintSpec `field:"optional" json:"taints" yaml:"taints"`
 }
 

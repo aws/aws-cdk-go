@@ -5,13 +5,13 @@ import (
 )
 
 // Represents an access policy that defines the permissions and scope for a user or role to access an Amazon EKS cluster.
-// Experimental.
+// Deprecated.
 type IAccessPolicy interface {
 	// The scope of the access policy, which determines the level of access granted.
-	// Experimental.
+	// Deprecated.
 	AccessScope() *AccessScope
 	// The access policy itself, which defines the specific permissions.
-	// Experimental.
+	// Deprecated.
 	Policy() *string
 }
 

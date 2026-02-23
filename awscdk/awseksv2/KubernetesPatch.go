@@ -1,0 +1,158 @@
+package awseksv2
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseksv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// A CloudFormation resource which applies/restores a JSON patch into a Kubernetes resource.
+//
+// Example:
+//   var cluster Cluster
+//
+//   eks.NewKubernetesPatch(this, jsii.String("hello-kub-deployment-label"), &KubernetesPatchProps{
+//   	Cluster: Cluster,
+//   	ResourceName: jsii.String("deployment/hello-kubernetes"),
+//   	ApplyPatch: map[string]interface{}{
+//   		"spec": map[string]*f64{
+//   			"replicas": jsii.Number(5),
+//   		},
+//   	},
+//   	RestorePatch: map[string]interface{}{
+//   		"spec": map[string]*f64{
+//   			"replicas": jsii.Number(3),
+//   		},
+//   	},
+//   })
+//
+// See: https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/
+//
+type KubernetesPatch interface {
+	constructs.Construct
+	// The tree node.
+	Node() constructs.Node
+	// Returns a string representation of this construct.
+	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	//
+	// Returns: This construct for chaining.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
+}
+
+// The jsii proxy struct for KubernetesPatch
+type jsiiProxy_KubernetesPatch struct {
+	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_KubernetesPatch) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewKubernetesPatch(scope constructs.Construct, id *string, props *KubernetesPatchProps) KubernetesPatch {
+	_init_.Initialize()
+
+	if err := validateNewKubernetesPatchParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_KubernetesPatch{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_eks_v2.KubernetesPatch",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewKubernetesPatch_Override(k KubernetesPatch, scope constructs.Construct, id *string, props *KubernetesPatchProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_eks_v2.KubernetesPatch",
+		[]interface{}{scope, id, props},
+		k,
+	)
+}
+
+// Checks if `x` is a construct.
+//
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+func KubernetesPatch_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateKubernetesPatch_IsConstructParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks_v2.KubernetesPatch",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_KubernetesPatch) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		k,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (k *jsiiProxy_KubernetesPatch) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		k,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+

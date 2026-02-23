@@ -9,17 +9,17 @@ import (
 )
 
 // Imported KubectlProvider that can be used in place of the default one created by CDK.
-// Experimental.
+// Deprecated.
 type IKubectlProvider interface {
 	constructs.IConstruct
 	// The role of the provider lambda function.
 	//
 	// If undefined,
 	// you cannot use this provider to deploy helm charts.
-	// Experimental.
+	// Deprecated.
 	Role() awsiam.IRole
 	// The custom resource provider's service token.
-	// Experimental.
+	// Deprecated.
 	ServiceToken() *string
 }
 

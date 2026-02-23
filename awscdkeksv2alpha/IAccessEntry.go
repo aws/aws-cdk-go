@@ -10,14 +10,14 @@ import (
 // Represents an access entry in an Amazon EKS cluster.
 //
 // An access entry defines the permissions and scope for a user or role to access an Amazon EKS cluster.
-// Experimental.
+// Deprecated.
 type IAccessEntry interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) of the access entry.
-	// Experimental.
+	// Deprecated.
 	AccessEntryArn() *string
 	// The name of the access entry.
-	// Experimental.
+	// Deprecated.
 	AccessEntryName() *string
 }
 

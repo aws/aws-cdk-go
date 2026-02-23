@@ -24,28 +24,28 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type KubernetesPatchProps struct {
 	// The JSON object to pass to `kubectl patch` when the resource is created/updated.
-	// Experimental.
+	// Deprecated.
 	ApplyPatch *map[string]interface{} `field:"required" json:"applyPatch" yaml:"applyPatch"`
 	// The cluster to apply the patch to.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
+	// Deprecated.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// The full name of the resource to patch (e.g. `deployment/coredns`).
-	// Experimental.
+	// Deprecated.
 	ResourceName *string `field:"required" json:"resourceName" yaml:"resourceName"`
 	// The JSON object to pass to `kubectl patch` when the resource is removed.
-	// Experimental.
+	// Deprecated.
 	RestorePatch *map[string]interface{} `field:"required" json:"restorePatch" yaml:"restorePatch"`
 	// The patch type to pass to `kubectl patch`.
 	//
 	// The default type used by `kubectl patch` is "strategic".
 	// Default: PatchType.STRATEGIC
 	//
-	// Experimental.
+	// Deprecated.
 	PatchType PatchType `field:"optional" json:"patchType" yaml:"patchType"`
 	// The removal policy applied to the custom resource that manages the Kubernetes patch.
 	//
@@ -57,12 +57,12 @@ type KubernetesPatchProps struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The kubernetes API namespace.
 	// Default: "default".
 	//
-	// Experimental.
+	// Deprecated.
 	ResourceNamespace *string `field:"optional" json:"resourceNamespace" yaml:"resourceNamespace"`
 }
 

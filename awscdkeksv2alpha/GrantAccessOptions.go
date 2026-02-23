@@ -17,7 +17,7 @@ package awscdkeksv2alpha
 //   	AccessEntryType: eks.AccessEntryType_EC2,
 //   })
 //
-// Experimental.
+// Deprecated.
 type GrantAccessOptions struct {
 	// The type of the access entry.
 	//
@@ -29,7 +29,7 @@ type GrantAccessOptions struct {
 	// have access policies attached per AWS EKS API constraints.
 	// Default: AccessEntryType.STANDARD - Standard access entry type that supports access policies
 	//
-	// Experimental.
+	// Deprecated.
 	AccessEntryType AccessEntryType `field:"optional" json:"accessEntryType" yaml:"accessEntryType"`
 }
 

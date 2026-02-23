@@ -23,7 +23,7 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type FargateProfileOptions struct {
 	// The selectors to match for pods to use this Fargate profile.
 	//
@@ -32,12 +32,12 @@ type FargateProfileOptions struct {
 	// for a namespace.
 	//
 	// At least one selector is required and you may specify up to five selectors.
-	// Experimental.
+	// Deprecated.
 	Selectors *[]*Selector `field:"required" json:"selectors" yaml:"selectors"`
 	// The name of the Fargate profile.
 	// Default: - generated.
 	//
-	// Experimental.
+	// Deprecated.
 	FargateProfileName *string `field:"optional" json:"fargateProfileName" yaml:"fargateProfileName"`
 	// The pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
@@ -48,7 +48,7 @@ type FargateProfileOptions struct {
 	//
 	// Default: - a role will be automatically created.
 	//
-	// Experimental.
+	// Deprecated.
 	PodExecutionRole awsiam.IRole `field:"optional" json:"podExecutionRole" yaml:"podExecutionRole"`
 	// The removal policy applied to the custom resource that manages the Fargate profile.
 	//
@@ -60,7 +60,7 @@ type FargateProfileOptions struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Select which subnets to launch your pods into.
 	//
@@ -71,7 +71,7 @@ type FargateProfileOptions struct {
 	// You must specify the VPC to customize the subnet selection.
 	// Default: - all private subnets of the VPC are selected.
 	//
-	// Experimental.
+	// Deprecated.
 	SubnetSelection *awsec2.SubnetSelection `field:"optional" json:"subnetSelection" yaml:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
 	//
@@ -79,7 +79,7 @@ type FargateProfileOptions struct {
 	// `subnetSelection`.
 	// Default: - all private subnets used by the EKS cluster.
 	//
-	// Experimental.
+	// Deprecated.
 	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

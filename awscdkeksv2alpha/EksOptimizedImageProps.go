@@ -14,22 +14,22 @@ package awscdkeksv2alpha
 //   	NodeType: eks_v2_alpha.NodeType_STANDARD,
 //   }
 //
-// Experimental.
+// Deprecated.
 type EksOptimizedImageProps struct {
 	// What cpu architecture to retrieve the image for (arm64 or x86_64).
 	// Default: CpuArch.X86_64
 	//
-	// Experimental.
+	// Deprecated.
 	CpuArch CpuArch `field:"optional" json:"cpuArch" yaml:"cpuArch"`
 	// The Kubernetes version to use.
 	// Default: - The latest version.
 	//
-	// Experimental.
+	// Deprecated.
 	KubernetesVersion *string `field:"optional" json:"kubernetesVersion" yaml:"kubernetesVersion"`
 	// What instance type to retrieve the image for (standard or GPU-optimized).
 	// Default: NodeType.STANDARD
 	//
-	// Experimental.
+	// Deprecated.
 	NodeType NodeType `field:"optional" json:"nodeType" yaml:"nodeType"`
 }
 

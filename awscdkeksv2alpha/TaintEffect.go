@@ -13,18 +13,18 @@ package awscdkeksv2alpha
 // - 'NoExecute' instead of TaintEffect.NO_EXECUTE
 // See: https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html
 //
-// Experimental.
+// Deprecated.
 type TaintEffect string
 
 const (
 	// NoSchedule.
-	// Experimental.
+	// Deprecated.
 	TaintEffect_NO_SCHEDULE TaintEffect = "NO_SCHEDULE"
 	// PreferNoSchedule.
-	// Experimental.
+	// Deprecated.
 	TaintEffect_PREFER_NO_SCHEDULE TaintEffect = "PREFER_NO_SCHEDULE"
 	// NoExecute.
-	// Experimental.
+	// Deprecated.
 	TaintEffect_NO_EXECUTE TaintEffect = "NO_EXECUTE"
 )
 

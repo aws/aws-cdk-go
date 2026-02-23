@@ -2,18 +2,18 @@ package awscdkeksv2alpha
 
 
 // Values for `kubectl patch` --type argument.
-// Experimental.
+// Deprecated.
 type PatchType string
 
 const (
 	// JSON Patch, RFC 6902.
-	// Experimental.
+	// Deprecated.
 	PatchType_JSON PatchType = "JSON"
 	// JSON Merge patch.
-	// Experimental.
+	// Deprecated.
 	PatchType_MERGE PatchType = "MERGE"
 	// Strategic merge patch.
-	// Experimental.
+	// Deprecated.
 	PatchType_STRATEGIC PatchType = "STRATEGIC"
 )
 

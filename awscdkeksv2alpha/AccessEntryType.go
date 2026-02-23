@@ -17,29 +17,29 @@ package awscdkeksv2alpha
 //   	AccessEntryType: eks.AccessEntryType_EC2,
 //   })
 //
-// Experimental.
+// Deprecated.
 type AccessEntryType string
 
 const (
 	// Represents a standard access entry.
 	//
 	// Use this type for standard IAM principals that need cluster access with policies.
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_STANDARD AccessEntryType = "STANDARD"
 	// Represents a Fargate Linux access entry.
 	//
 	// Use this type for AWS Fargate profiles running Linux containers.
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_FARGATE_LINUX AccessEntryType = "FARGATE_LINUX"
 	// Represents an EC2 Linux access entry.
 	//
 	// Use this type for self-managed EC2 instances running Linux that join the cluster as worker nodes.
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_EC2_LINUX AccessEntryType = "EC2_LINUX"
 	// Represents an EC2 Windows access entry.
 	//
 	// Use this type for self-managed EC2 instances running Windows that join the cluster as worker nodes.
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_EC2_WINDOWS AccessEntryType = "EC2_WINDOWS"
 	// Represents an EC2 access entry for EKS Auto Mode.
 	//
@@ -47,7 +47,7 @@ const (
 	// the compute infrastructure. This type cannot have access policies attached.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/eks-auto-mode.html
 	//
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_EC2 AccessEntryType = "EC2"
 	// Represents a Hybrid Linux access entry for EKS Hybrid Nodes.
 	//
@@ -55,7 +55,7 @@ const (
 	// to your EKS cluster. This type cannot have access policies attached.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/hybrid-nodes.html
 	//
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_HYBRID_LINUX AccessEntryType = "HYBRID_LINUX"
 	// Represents a HyperPod Linux access entry for Amazon SageMaker HyperPod.
 	//
@@ -63,7 +63,7 @@ const (
 	// for distributed machine learning workloads. This type cannot have access policies attached.
 	// See: https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod.html
 	//
-	// Experimental.
+	// Deprecated.
 	AccessEntryType_HYPERPOD_LINUX AccessEntryType = "HYPERPOD_LINUX"
 )
 

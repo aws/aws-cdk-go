@@ -2,18 +2,18 @@ package awscdkeksv2alpha
 
 
 // Capacity type of the managed node group.
-// Experimental.
+// Deprecated.
 type CapacityType string
 
 const (
 	// spot instances.
-	// Experimental.
+	// Deprecated.
 	CapacityType_SPOT CapacityType = "SPOT"
 	// on-demand instances.
-	// Experimental.
+	// Deprecated.
 	CapacityType_ON_DEMAND CapacityType = "ON_DEMAND"
 	// capacity block instances.
-	// Experimental.
+	// Deprecated.
 	CapacityType_CAPACITY_BLOCK CapacityType = "CAPACITY_BLOCK"
 )
 

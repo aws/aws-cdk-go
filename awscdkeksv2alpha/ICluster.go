@@ -13,29 +13,29 @@ import (
 )
 
 // An EKS cluster.
-// Experimental.
+// Deprecated.
 type ICluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Defines a CDK8s chart in this cluster.
 	//
 	// Returns: a `KubernetesManifest` construct representing the chart.
-	// Experimental.
+	// Deprecated.
 	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	// Defines a Helm chart in this cluster.
 	//
 	// Returns: a `HelmChart` construct.
-	// Experimental.
+	// Deprecated.
 	AddHelmChart(id *string, options *HelmChartOptions) HelmChart
 	// Defines a Kubernetes resource in this cluster.
 	//
 	// The manifest will be applied/deleted using kubectl as needed.
 	//
 	// Returns: a `KubernetesManifest` object.
-	// Experimental.
+	// Deprecated.
 	AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest
 	// Creates a new service account with corresponding IAM Role (IRSA).
-	// Experimental.
+	// Deprecated.
 	AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount
 	// Connect capacity in the form of an existing AutoScalingGroup to the EKS cluster.
 	//
@@ -47,28 +47,28 @@ type ICluster interface {
 	// Prefer to use `addAutoScalingGroupCapacity` if possible.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 	//
-	// Experimental.
+	// Deprecated.
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
 	// The unique ARN assigned to the service by AWS in the form of arn:aws:eks:.
-	// Experimental.
+	// Deprecated.
 	ClusterArn() *string
 	// The certificate-authority-data for your cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterCertificateAuthorityData() *string
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
-	// Experimental.
+	// Deprecated.
 	ClusterEncryptionConfigKeyArn() *string
 	// The API Server endpoint URL.
-	// Experimental.
+	// Deprecated.
 	ClusterEndpoint() *string
 	// The physical name of the Cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterName() *string
 	// The cluster security group that was created by Amazon EKS for the cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterSecurityGroupId() *string
 	// The EKS Pod Identity Agent addon for the EKS cluster.
 	//
@@ -80,29 +80,29 @@ type ICluster interface {
 	// This property returns the `CfnAddon` resource representing the EKS Pod Identity
 	// Agent addon. If the addon has not been created yet, it will be created and
 	// returned.
-	// Experimental.
+	// Deprecated.
 	EksPodIdentityAgent() IAddon
 	// Specify which IP family is used to assign Kubernetes pod and service IP addresses.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-ipFamily
 	//
 	// Default: - IpFamily.IP_V4
 	//
-	// Experimental.
+	// Deprecated.
 	IpFamily() IpFamily
 	// Kubectl Provider for issuing kubectl commands against it.
 	//
 	// If not defined, a default provider will be used.
-	// Experimental.
+	// Deprecated.
 	KubectlProvider() IKubectlProvider
 	// Options for creating the kubectl provider - a lambda function that executes `kubectl` and `helm` against the cluster.
 	//
 	// If defined, `kubectlLayer` is a required property.
 	//
 	// If not defined, kubectl provider will not be created by default.
-	// Experimental.
+	// Deprecated.
 	KubectlProviderOptions() *KubectlProviderOptions
 	// The Open ID Connect Provider of the cluster used to configure Service Accounts.
-	// Experimental.
+	// Deprecated.
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	// Indicates whether Kubernetes resources can be automatically pruned.
 	//
@@ -110,10 +110,10 @@ type ICluster interface {
 	// this is enabled (default), prune labels will be allocated and injected to
 	// each resource. These labels will then be used when issuing the `kubectl
 	// apply` operation with the `--prune` switch.
-	// Experimental.
+	// Deprecated.
 	Prune() *bool
 	// The VPC in which this Cluster was created.
-	// Experimental.
+	// Deprecated.
 	Vpc() awsec2.IVpc
 }
 

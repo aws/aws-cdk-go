@@ -15,7 +15,7 @@ import (
 //   	RemovalPolicy: cdk.RemovalPolicy_RETAIN,
 //   })
 //
-// Experimental.
+// Deprecated.
 type OpenIdConnectProviderProps struct {
 	// The URL of the identity provider.
 	//
@@ -27,12 +27,12 @@ type OpenIdConnectProviderProps struct {
 	//
 	// You can find your OIDC Issuer URL by:
 	// aws eks describe-cluster --name %cluster_name% --query "cluster.identity.oidc.issuer" --output text
-	// Experimental.
+	// Deprecated.
 	Url *string `field:"required" json:"url" yaml:"url"`
 	// The removal policy to apply to the OpenID Connect Provider.
 	// Default: - RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

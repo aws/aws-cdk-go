@@ -8,14 +8,14 @@ import (
 )
 
 // Represents an Amazon EKS Add-On.
-// Experimental.
+// Deprecated.
 type IAddon interface {
 	awscdk.IResource
 	// ARN of the Add-On.
-	// Experimental.
+	// Deprecated.
 	AddonArn() *string
 	// Name of the Add-On.
-	// Experimental.
+	// Deprecated.
 	AddonName() *string
 }
 

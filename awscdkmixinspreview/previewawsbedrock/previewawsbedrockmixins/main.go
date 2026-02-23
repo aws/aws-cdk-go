@@ -1460,6 +1460,17 @@ func init() {
 			return &jsiiProxy_CfnKnowledgeBaseRuntimeLogs{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseTraces",
+		reflect.TypeOf((*CfnKnowledgeBaseTraces)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toXRay", GoMethod: "ToXRay"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnKnowledgeBaseTraces{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnPromptMixinProps",
 		reflect.TypeOf((*CfnPromptMixinProps)(nil)).Elem(),

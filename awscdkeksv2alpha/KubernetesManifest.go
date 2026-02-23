@@ -37,14 +37,14 @@ import (
 //
 //   service.Node.AddDependency(namespace)
 //
-// Experimental.
+// Deprecated.
 type KubernetesManifest interface {
 	constructs.Construct
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -54,7 +54,7 @@ type KubernetesManifest interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -74,7 +74,7 @@ func (j *jsiiProxy_KubernetesManifest) Node() constructs.Node {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewKubernetesManifest(scope constructs.Construct, id *string, props *KubernetesManifestProps) KubernetesManifest {
 	_init_.Initialize()
 
@@ -92,7 +92,7 @@ func NewKubernetesManifest(scope constructs.Construct, id *string, props *Kubern
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewKubernetesManifest_Override(k KubernetesManifest, scope constructs.Construct, id *string, props *KubernetesManifestProps) {
 	_init_.Initialize()
 
@@ -120,7 +120,7 @@ func NewKubernetesManifest_Override(k KubernetesManifest, scope constructs.Const
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func KubernetesManifest_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

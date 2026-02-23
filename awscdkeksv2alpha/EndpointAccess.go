@@ -13,12 +13,12 @@ import (
 //   	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 //   })
 //
-// Experimental.
+// Deprecated.
 type EndpointAccess interface {
 	// Restrict public access to specific CIDR blocks.
 	//
 	// If public access is disabled, this method will result in an error.
-	// Experimental.
+	// Deprecated.
 	OnlyFrom(cidr ...*string) EndpointAccess
 }
 

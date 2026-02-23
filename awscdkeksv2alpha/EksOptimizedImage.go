@@ -22,11 +22,11 @@ import (
 //   	NodeType: eks_v2_alpha.NodeType_STANDARD,
 //   })
 //
-// Experimental.
+// Deprecated.
 type EksOptimizedImage interface {
 	awsec2.IMachineImage
 	// Return the correct image.
-	// Experimental.
+	// Deprecated.
 	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
 }
 
@@ -36,7 +36,7 @@ type jsiiProxy_EksOptimizedImage struct {
 }
 
 // Constructs a new instance of the EcsOptimizedAmi class.
-// Experimental.
+// Deprecated.
 func NewEksOptimizedImage(props *EksOptimizedImageProps) EksOptimizedImage {
 	_init_.Initialize()
 
@@ -55,7 +55,7 @@ func NewEksOptimizedImage(props *EksOptimizedImageProps) EksOptimizedImage {
 }
 
 // Constructs a new instance of the EcsOptimizedAmi class.
-// Experimental.
+// Deprecated.
 func NewEksOptimizedImage_Override(e EksOptimizedImage, props *EksOptimizedImageProps) {
 	_init_.Initialize()
 

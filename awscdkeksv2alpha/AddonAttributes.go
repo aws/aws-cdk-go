@@ -13,13 +13,13 @@ package awscdkeksv2alpha
 //   	ClusterName: jsii.String("clusterName"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type AddonAttributes struct {
 	// The name of the addon.
-	// Experimental.
+	// Deprecated.
 	AddonName *string `field:"required" json:"addonName" yaml:"addonName"`
 	// The name of the Amazon EKS cluster the addon is associated with.
-	// Experimental.
+	// Deprecated.
 	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
 }
 

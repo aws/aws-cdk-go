@@ -33,17 +33,17 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type KubernetesObjectValue interface {
 	constructs.Construct
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// The value as a string token.
-	// Experimental.
+	// Deprecated.
 	Value() *string
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -53,7 +53,7 @@ type KubernetesObjectValue interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -83,7 +83,7 @@ func (j *jsiiProxy_KubernetesObjectValue) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *KubernetesObjectValueProps) KubernetesObjectValue {
 	_init_.Initialize()
 
@@ -101,7 +101,7 @@ func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *Kub
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewKubernetesObjectValue_Override(k KubernetesObjectValue, scope constructs.Construct, id *string, props *KubernetesObjectValueProps) {
 	_init_.Initialize()
 
@@ -129,7 +129,7 @@ func NewKubernetesObjectValue_Override(k KubernetesObjectValue, scope constructs
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func KubernetesObjectValue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

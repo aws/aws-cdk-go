@@ -21,13 +21,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type AddonProps struct {
 	// Name of the Add-On.
-	// Experimental.
+	// Deprecated.
 	AddonName *string `field:"required" json:"addonName" yaml:"addonName"`
 	// The EKS cluster the Add-On is associated with.
-	// Experimental.
+	// Deprecated.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// Version of the Add-On.
 	//
@@ -37,19 +37,19 @@ type AddonProps struct {
 	// --query 'addons[*].addonVersions[*].addonVersion'
 	// Default: the latest version.
 	//
-	// Experimental.
+	// Deprecated.
 	AddonVersion *string `field:"optional" json:"addonVersion" yaml:"addonVersion"`
 	// The configuration values for the Add-on.
 	// Default: - Use default configuration.
 	//
-	// Experimental.
+	// Deprecated.
 	ConfigurationValues *map[string]interface{} `field:"optional" json:"configurationValues" yaml:"configurationValues"`
 	// Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on.
 	//
 	// If an IAM account is associated with the add-on, it isn't removed.
 	// Default: true.
 	//
-	// Experimental.
+	// Deprecated.
 	PreserveOnDelete *bool `field:"optional" json:"preserveOnDelete" yaml:"preserveOnDelete"`
 	// The removal policy applied to the EKS add-on.
 	//
@@ -61,7 +61,7 @@ type AddonProps struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

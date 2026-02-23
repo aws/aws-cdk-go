@@ -21,27 +21,27 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type KubectlProviderOptions struct {
 	// An AWS Lambda layer that includes `kubectl` and `helm`.
-	// Experimental.
+	// Deprecated.
 	KubectlLayer awslambda.ILayerVersion `field:"required" json:"kubectlLayer" yaml:"kubectlLayer"`
 	// An AWS Lambda layer that contains the `aws` CLI.
 	//
 	// If not defined, a default layer will be used containing the AWS CLI 2.x.
-	// Experimental.
+	// Deprecated.
 	AwscliLayer awslambda.ILayerVersion `field:"optional" json:"awscliLayer" yaml:"awscliLayer"`
 	// Custom environment variables when running `kubectl` against this cluster.
-	// Experimental.
+	// Deprecated.
 	Environment *map[string]*string `field:"optional" json:"environment" yaml:"environment"`
 	// The amount of memory allocated to the kubectl provider's lambda function.
-	// Experimental.
+	// Deprecated.
 	Memory awscdk.Size `field:"optional" json:"memory" yaml:"memory"`
 	// Subnets to host the `kubectl` compute resources.
 	//
 	// If not specified, the k8s
 	// endpoint is expected to be accessible publicly.
-	// Experimental.
+	// Deprecated.
 	PrivateSubnets *[]awsec2.ISubnet `field:"optional" json:"privateSubnets" yaml:"privateSubnets"`
 	// The removal policy applied to the custom resource that provides kubectl.
 	//
@@ -53,7 +53,7 @@ type KubectlProviderOptions struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
@@ -63,13 +63,13 @@ type KubectlProviderOptions struct {
 	// Default: - if not specified, the default role created by a lambda function will
 	// be used.
 	//
-	// Experimental.
+	// Deprecated.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// A security group to use for `kubectl` execution.
 	// Default: - If not specified, the k8s endpoint is expected to be accessible
 	// publicly.
 	//
-	// Experimental.
+	// Deprecated.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
 }
 

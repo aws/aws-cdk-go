@@ -18,16 +18,16 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type AlbControllerVersion interface {
 	// Whether or not its a custom version.
-	// Experimental.
+	// Deprecated.
 	Custom() *bool
 	// The version of the helm chart to use.
-	// Experimental.
+	// Deprecated.
 	HelmChartVersion() *string
 	// The version string.
-	// Experimental.
+	// Deprecated.
 	Version() *string
 }
 
@@ -74,7 +74,7 @@ func (j *jsiiProxy_AlbControllerVersion) Version() *string {
 //
 // ALB controller version and helm chart version compatibility information can be found
 // here: https://github.com/aws/eks-charts/blob/v0.0.133/stable/aws-load-balancer-controller/Chart.yaml
-// Experimental.
+// Deprecated.
 func AlbControllerVersion_Of(version *string, helmChartVersion *string) AlbControllerVersion {
 	_init_.Initialize()
 

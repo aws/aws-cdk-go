@@ -20,19 +20,19 @@ import (
 //   	SkipValidation: jsii.Boolean(false),
 //   }
 //
-// Experimental.
+// Deprecated.
 type KubernetesManifestOptions struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	IngressAlb *bool `field:"optional" json:"ingressAlb" yaml:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
 	// Default: AlbScheme.INTERNAL
 	//
-	// Experimental.
+	// Deprecated.
 	IngressAlbScheme AlbScheme `field:"optional" json:"ingressAlbScheme" yaml:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
@@ -54,7 +54,7 @@ type KubernetesManifestOptions struct {
 	// Default: - based on the prune option of the cluster, which is `true` unless
 	// otherwise specified.
 	//
-	// Experimental.
+	// Deprecated.
 	Prune *bool `field:"optional" json:"prune" yaml:"prune"`
 	// The removal policy applied to the custom resource that manages the Kubernetes manifest.
 	//
@@ -66,12 +66,12 @@ type KubernetesManifestOptions struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// A flag to signify if the manifest validation should be skipped.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated.
 	SkipValidation *bool `field:"optional" json:"skipValidation" yaml:"skipValidation"`
 }
 

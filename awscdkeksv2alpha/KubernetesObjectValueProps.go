@@ -27,30 +27,30 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type KubernetesObjectValueProps struct {
 	// The EKS cluster to fetch attributes from.
 	//
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
+	// Deprecated.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// JSONPath to the specific value.
 	// See: https://kubernetes.io/docs/reference/kubectl/jsonpath/
 	//
-	// Experimental.
+	// Deprecated.
 	JsonPath *string `field:"required" json:"jsonPath" yaml:"jsonPath"`
 	// The name of the object to query.
-	// Experimental.
+	// Deprecated.
 	ObjectName *string `field:"required" json:"objectName" yaml:"objectName"`
 	// The object type to query.
 	//
 	// (e.g 'service', 'pod'...)
-	// Experimental.
+	// Deprecated.
 	ObjectType *string `field:"required" json:"objectType" yaml:"objectType"`
 	// The namespace the object belongs to.
 	// Default: 'default'.
 	//
-	// Experimental.
+	// Deprecated.
 	ObjectNamespace *string `field:"optional" json:"objectNamespace" yaml:"objectNamespace"`
 	// The removal policy applied to the custom resource that manages the Kubernetes object value.
 	//
@@ -62,12 +62,12 @@ type KubernetesObjectValueProps struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// Timeout for waiting on a value.
 	// Default: Duration.minutes(5)
 	//
-	// Experimental.
+	// Deprecated.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

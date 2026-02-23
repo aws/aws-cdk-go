@@ -41,31 +41,31 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type FargateProfile interface {
 	constructs.Construct
 	awscdk.ITaggable
 	// The full Amazon Resource Name (ARN) of the Fargate profile.
-	// Experimental.
+	// Deprecated.
 	FargateProfileArn() *string
 	// The name of the Fargate profile.
-	// Experimental.
+	// Deprecated.
 	FargateProfileName() *string
 	// The tree node.
-	// Experimental.
+	// Deprecated.
 	Node() constructs.Node
 	// The pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
 	// The pod execution role allows Fargate infrastructure to
 	// register with your cluster as a node, and it provides read access to Amazon
 	// ECR image repositories.
-	// Experimental.
+	// Deprecated.
 	PodExecutionRole() awsiam.IRole
 	// Resource tags.
-	// Experimental.
+	// Deprecated.
 	Tags() awscdk.TagManager
 	// Returns a string representation of this construct.
-	// Experimental.
+	// Deprecated.
 	ToString() *string
 	// Applies one or more mixins to this construct.
 	//
@@ -75,7 +75,7 @@ type FargateProfile interface {
 	// constructs.
 	//
 	// Returns: This construct for chaining.
-	// Experimental.
+	// Deprecated.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -136,7 +136,7 @@ func (j *jsiiProxy_FargateProfile) Tags() awscdk.TagManager {
 }
 
 
-// Experimental.
+// Deprecated.
 func NewFargateProfile(scope constructs.Construct, id *string, props *FargateProfileProps) FargateProfile {
 	_init_.Initialize()
 
@@ -154,7 +154,7 @@ func NewFargateProfile(scope constructs.Construct, id *string, props *FargatePro
 	return &j
 }
 
-// Experimental.
+// Deprecated.
 func NewFargateProfile_Override(f FargateProfile, scope constructs.Construct, id *string, props *FargateProfileProps) {
 	_init_.Initialize()
 
@@ -182,7 +182,7 @@ func NewFargateProfile_Override(f FargateProfile, scope constructs.Construct, id
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
+// Deprecated.
 func FargateProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 

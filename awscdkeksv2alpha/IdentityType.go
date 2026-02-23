@@ -2,7 +2,7 @@ package awscdkeksv2alpha
 
 
 // Enum representing the different identity types that can be used for a Kubernetes service account.
-// Experimental.
+// Deprecated.
 type IdentityType string
 
 const (
@@ -15,7 +15,7 @@ const (
 	// When enabled, the openIdConnectProvider of the cluster would be created when you create the ServiceAccount.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html
 	//
-	// Experimental.
+	// Deprecated.
 	IdentityType_IRSA IdentityType = "IRSA"
 	// Use the EKS Pod Identities identity type.
 	//
@@ -26,7 +26,7 @@ const (
 	// When enabled, the Pod Identity Agent AddOn of the cluster would be created when you create the ServiceAccount.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html
 	//
-	// Experimental.
+	// Deprecated.
 	IdentityType_POD_IDENTITY IdentityType = "POD_IDENTITY"
 )
 

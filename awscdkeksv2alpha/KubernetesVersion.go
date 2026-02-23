@@ -24,10 +24,10 @@ import (
 //
 // See: https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar
 //
-// Experimental.
+// Deprecated.
 type KubernetesVersion interface {
 	// cluster version number.
-	// Experimental.
+	// Deprecated.
 	Version() *string
 }
 
@@ -48,7 +48,7 @@ func (j *jsiiProxy_KubernetesVersion) Version() *string {
 
 
 // Custom cluster version.
-// Experimental.
+// Deprecated.
 func KubernetesVersion_Of(version *string) KubernetesVersion {
 	_init_.Initialize()
 

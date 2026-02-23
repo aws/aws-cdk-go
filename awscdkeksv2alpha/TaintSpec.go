@@ -14,22 +14,22 @@ package awscdkeksv2alpha
 //   	Value: jsii.String("value"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type TaintSpec struct {
 	// Effect type.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Effect TaintEffect `field:"optional" json:"effect" yaml:"effect"`
 	// Taint key.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Key *string `field:"optional" json:"key" yaml:"key"`
 	// Taint value.
 	// Default: - None.
 	//
-	// Experimental.
+	// Deprecated.
 	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

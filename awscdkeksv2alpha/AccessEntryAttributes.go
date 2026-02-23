@@ -13,13 +13,13 @@ package awscdkeksv2alpha
 //   	AccessEntryName: jsii.String("accessEntryName"),
 //   }
 //
-// Experimental.
+// Deprecated.
 type AccessEntryAttributes struct {
 	// The Amazon Resource Name (ARN) of the access entry.
-	// Experimental.
+	// Deprecated.
 	AccessEntryArn *string `field:"required" json:"accessEntryArn" yaml:"accessEntryArn"`
 	// The name of the access entry.
-	// Experimental.
+	// Deprecated.
 	AccessEntryName *string `field:"required" json:"accessEntryName" yaml:"accessEntryName"`
 }
 

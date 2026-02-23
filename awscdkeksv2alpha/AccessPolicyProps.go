@@ -22,13 +22,13 @@ package awscdkeksv2alpha
 //   	Policy: accessPolicyArn,
 //   }
 //
-// Experimental.
+// Deprecated.
 type AccessPolicyProps struct {
 	// The scope of the access policy, which determines the level of access granted.
-	// Experimental.
+	// Deprecated.
 	AccessScope *AccessScope `field:"required" json:"accessScope" yaml:"accessScope"`
 	// The access policy itself, which defines the specific permissions.
-	// Experimental.
+	// Deprecated.
 	Policy AccessPolicyArn `field:"required" json:"policy" yaml:"policy"`
 }
 

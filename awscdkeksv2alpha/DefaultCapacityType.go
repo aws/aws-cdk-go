@@ -18,18 +18,18 @@ package awscdkeksv2alpha
 //   	DiskSize: jsii.Number(100),
 //   })
 //
-// Experimental.
+// Deprecated.
 type DefaultCapacityType string
 
 const (
 	// managed node group.
-	// Experimental.
+	// Deprecated.
 	DefaultCapacityType_NODEGROUP DefaultCapacityType = "NODEGROUP"
 	// EC2 autoscaling group.
-	// Experimental.
+	// Deprecated.
 	DefaultCapacityType_EC2 DefaultCapacityType = "EC2"
 	// Auto Mode.
-	// Experimental.
+	// Deprecated.
 	DefaultCapacityType_AUTOMODE DefaultCapacityType = "AUTOMODE"
 )
 

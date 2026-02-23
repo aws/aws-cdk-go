@@ -17,17 +17,17 @@ import (
 //   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
+// Deprecated.
 type IngressLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
 	// Default: 'default'.
 	//
-	// Experimental.
+	// Deprecated.
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// Timeout for waiting on the load balancer address.
 	// Default: Duration.minutes(5)
 	//
-	// Experimental.
+	// Deprecated.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

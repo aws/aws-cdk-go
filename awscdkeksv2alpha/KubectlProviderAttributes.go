@@ -20,17 +20,17 @@ import (
 //   	KubectlProvider: KubectlProvider,
 //   })
 //
-// Experimental.
+// Deprecated.
 type KubectlProviderAttributes struct {
 	// The kubectl provider lambda arn.
-	// Experimental.
+	// Deprecated.
 	ServiceToken *string `field:"required" json:"serviceToken" yaml:"serviceToken"`
 	// The role of the provider lambda function.
 	//
 	// Only required if you deploy helm charts using this imported provider.
 	// Default: - no role.
 	//
-	// Experimental.
+	// Deprecated.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 }
 

@@ -19,10 +19,10 @@ package awscdkeksv2alpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated.
 type AccessScope struct {
 	// The scope type of the policy, either 'namespace' or 'cluster'.
-	// Experimental.
+	// Deprecated.
 	Type AccessScopeType `field:"required" json:"type" yaml:"type"`
 	// A Kubernetes namespace that an access policy is scoped to.
 	//
@@ -30,7 +30,7 @@ type AccessScope struct {
 	// namespace for Type.
 	// Default: - no specific namespaces for this scope.
 	//
-	// Experimental.
+	// Deprecated.
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
 }
 

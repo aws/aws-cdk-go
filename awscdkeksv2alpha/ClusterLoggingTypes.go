@@ -14,24 +14,24 @@ package awscdkeksv2alpha
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated.
 type ClusterLoggingTypes string
 
 const (
 	// Logs pertaining to API requests to the cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterLoggingTypes_API ClusterLoggingTypes = "API"
 	// Logs pertaining to cluster access via the Kubernetes API.
-	// Experimental.
+	// Deprecated.
 	ClusterLoggingTypes_AUDIT ClusterLoggingTypes = "AUDIT"
 	// Logs pertaining to authentication requests into the cluster.
-	// Experimental.
+	// Deprecated.
 	ClusterLoggingTypes_AUTHENTICATOR ClusterLoggingTypes = "AUTHENTICATOR"
 	// Logs pertaining to state of cluster controllers.
-	// Experimental.
+	// Deprecated.
 	ClusterLoggingTypes_CONTROLLER_MANAGER ClusterLoggingTypes = "CONTROLLER_MANAGER"
 	// Logs pertaining to scheduling decisions.
-	// Experimental.
+	// Deprecated.
 	ClusterLoggingTypes_SCHEDULER ClusterLoggingTypes = "SCHEDULER"
 )
 

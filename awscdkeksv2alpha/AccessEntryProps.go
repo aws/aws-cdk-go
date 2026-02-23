@@ -28,26 +28,26 @@ import (
 //   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   }
 //
-// Experimental.
+// Deprecated.
 type AccessEntryProps struct {
 	// The access policies that define the permissions and scope for the access entry.
-	// Experimental.
+	// Deprecated.
 	AccessPolicies *[]IAccessPolicy `field:"required" json:"accessPolicies" yaml:"accessPolicies"`
 	// The Amazon EKS cluster to which the access entry applies.
-	// Experimental.
+	// Deprecated.
 	Cluster ICluster `field:"required" json:"cluster" yaml:"cluster"`
 	// The Amazon Resource Name (ARN) of the principal (user or role) to associate the access entry with.
-	// Experimental.
+	// Deprecated.
 	Principal *string `field:"required" json:"principal" yaml:"principal"`
 	// The name of the AccessEntry.
 	// Default: - No access entry name is provided.
 	//
-	// Experimental.
+	// Deprecated.
 	AccessEntryName *string `field:"optional" json:"accessEntryName" yaml:"accessEntryName"`
 	// The type of the AccessEntry.
 	// Default: STANDARD.
 	//
-	// Experimental.
+	// Deprecated.
 	AccessEntryType AccessEntryType `field:"optional" json:"accessEntryType" yaml:"accessEntryType"`
 	// The removal policy applied to the access entry.
 	//
@@ -59,7 +59,7 @@ type AccessEntryProps struct {
 	// - The stack is deleted, so CloudFormation stops managing all resources in it.
 	// Default: RemovalPolicy.DESTROY
 	//
-	// Experimental.
+	// Deprecated.
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

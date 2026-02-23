@@ -17,17 +17,17 @@ package awscdkeksv2alpha
 //   	AccessEntryType: eks.AccessEntryType_EC2,
 //   })
 //
-// Experimental.
+// Deprecated.
 type AccessPolicyNameOptions struct {
 	// The scope of the access policy.
 	//
 	// This determines the level of access granted by the policy.
-	// Experimental.
+	// Deprecated.
 	AccessScopeType AccessScopeType `field:"required" json:"accessScopeType" yaml:"accessScopeType"`
 	// An optional array of Kubernetes namespaces to which the access policy applies.
 	// Default: - no specific namespaces for this scope.
 	//
-	// Experimental.
+	// Deprecated.
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
 }
 

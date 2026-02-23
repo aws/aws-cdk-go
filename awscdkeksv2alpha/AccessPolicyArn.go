@@ -18,15 +18,15 @@ import (
 //
 // See: https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html
 //
-// Experimental.
+// Deprecated.
 type AccessPolicyArn interface {
 	// The Amazon Resource Name (ARN) of the access policy.
-	// Experimental.
+	// Deprecated.
 	PolicyArn() *string
 	// - The name of the Amazon EKS access policy.
 	//
 	// This is used to construct the policy ARN.
-	// Experimental.
+	// Deprecated.
 	PolicyName() *string
 }
 
@@ -57,7 +57,7 @@ func (j *jsiiProxy_AccessPolicyArn) PolicyName() *string {
 
 
 // Constructs a new instance of the `AccessEntry` class.
-// Experimental.
+// Deprecated.
 func NewAccessPolicyArn(policyName *string) AccessPolicyArn {
 	_init_.Initialize()
 
@@ -76,7 +76,7 @@ func NewAccessPolicyArn(policyName *string) AccessPolicyArn {
 }
 
 // Constructs a new instance of the `AccessEntry` class.
-// Experimental.
+// Deprecated.
 func NewAccessPolicyArn_Override(a AccessPolicyArn, policyName *string) {
 	_init_.Initialize()
 
@@ -90,7 +90,7 @@ func NewAccessPolicyArn_Override(a AccessPolicyArn, policyName *string) {
 // Creates a new instance of the AccessPolicy class with the specified policy name.
 //
 // Returns: A new instance of the AccessPolicy class.
-// Experimental.
+// Deprecated.
 func AccessPolicyArn_Of(policyName *string) AccessPolicyArn {
 	_init_.Initialize()
 

@@ -19,15 +19,15 @@ package awscdkeksv2alpha
 //   	AccessEntryType: eks.AccessEntryType_EC2,
 //   })
 //
-// Experimental.
+// Deprecated.
 type AccessScopeType string
 
 const (
 	// The policy applies to a specific namespace within the cluster.
-	// Experimental.
+	// Deprecated.
 	AccessScopeType_NAMESPACE AccessScopeType = "NAMESPACE"
 	// The policy applies to the entire cluster.
-	// Experimental.
+	// Deprecated.
 	AccessScopeType_CLUSTER AccessScopeType = "CLUSTER"
 )
 

@@ -150,6 +150,17 @@ func CfnKnowledgeBaseLogsMixin_RUNTIME_LOGS() CfnKnowledgeBaseRuntimeLogs {
 	return returns
 }
 
+func CfnKnowledgeBaseLogsMixin_TRACES() CfnKnowledgeBaseTraces {
+	_init_.Initialize()
+	var returns CfnKnowledgeBaseTraces
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseLogsMixin",
+		"TRACES",
+		&returns,
+	)
+	return returns
+}
+
 func (c *jsiiProxy_CfnKnowledgeBaseLogsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)

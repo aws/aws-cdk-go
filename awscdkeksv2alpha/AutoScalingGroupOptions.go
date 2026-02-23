@@ -22,7 +22,7 @@ package awscdkeksv2alpha
 //   	MachineImageType: eks_v2_alpha.MachineImageType_AMAZON_LINUX_2,
 //   }
 //
-// Experimental.
+// Deprecated.
 type AutoScalingGroupOptions struct {
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
 	//
@@ -30,17 +30,17 @@ type AutoScalingGroupOptions struct {
 	// manually invoke `autoscalingGroup.addUserData()`.
 	// Default: true.
 	//
-	// Experimental.
+	// Deprecated.
 	BootstrapEnabled *bool `field:"optional" json:"bootstrapEnabled" yaml:"bootstrapEnabled"`
 	// Allows options for node bootstrapping through EC2 user data.
 	// Default: - default options.
 	//
-	// Experimental.
+	// Deprecated.
 	BootstrapOptions *BootstrapOptions `field:"optional" json:"bootstrapOptions" yaml:"bootstrapOptions"`
 	// Allow options to specify different machine image type.
 	// Default: MachineImageType.AMAZON_LINUX_2
 	//
-	// Experimental.
+	// Deprecated.
 	MachineImageType MachineImageType `field:"optional" json:"machineImageType" yaml:"machineImageType"`
 }
 

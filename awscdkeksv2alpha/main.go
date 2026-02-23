@@ -1,4 +1,4 @@
-// The CDK Construct Library for AWS::EKS
+// This module is deprecated. All constructs are now available under aws-cdk-lib/aws-eks-v2
 package awscdkeksv2alpha
 
 import (
