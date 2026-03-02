@@ -18,8 +18,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPipelineLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -40,6 +40,53 @@ func init() {
 			return &jsiiProxy_CfnPipelinePipelineLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsFirehoseProps",
+		reflect.TypeOf((*CfnPipelinePipelineLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsLogGroupProps",
+		reflect.TypeOf((*CfnPipelinePipelineLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsOutputFormat",
+		reflect.TypeOf((*CfnPipelinePipelineLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnPipelinePipelineLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnPipelinePipelineLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnPipelinePipelineLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnPipelinePipelineLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnPipelinePipelineLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnPipelinePipelineLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnPipelinePipelineLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnPipelinePipelineLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnPipelinePipelineLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnPipelinePipelineLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnPipelinePipelineLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnPipelinePipelineLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnPipelinePipelineLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePipelineLogsS3Props",
+		reflect.TypeOf((*CfnPipelinePipelineLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_osis.mixins.CfnPipelinePropsMixin",
 		reflect.TypeOf((*CfnPipelinePropsMixin)(nil)).Elem(),
@@ -51,8 +98,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPipelinePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

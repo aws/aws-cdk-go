@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnPlaybackConfigurationLogsMixin to generate AD_DECISION_SERVER_LOGS for CfnPlaybackConfiguration.
@@ -25,13 +24,13 @@ type CfnPlaybackConfigurationAdDecisionServerLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnPlaybackConfigurationLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnPlaybackConfigurationAdDecisionServerLogsDestProps) CfnPlaybackConfigurationLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnPlaybackConfigurationLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnPlaybackConfigurationAdDecisionServerLogsFirehoseProps) CfnPlaybackConfigurationLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnPlaybackConfigurationLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnPlaybackConfigurationAdDecisionServerLogsLogGroupProps) CfnPlaybackConfigurationLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnPlaybackConfigurationLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnPlaybackConfigurationAdDecisionServerLogsS3Props) CfnPlaybackConfigurationLogsMixin
 }
 
 // The jsii proxy struct for CfnPlaybackConfigurationAdDecisionServerLogs
@@ -65,8 +64,8 @@ func NewCfnPlaybackConfigurationAdDecisionServerLogs_Override(c CfnPlaybackConfi
 	)
 }
 
-func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnPlaybackConfigurationLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnPlaybackConfigurationAdDecisionServerLogsDestProps) CfnPlaybackConfigurationLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPlaybackConfigurationLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToDestination(d
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnPlaybackConfigurationLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnPlaybackConfigurationAdDecisionServerLogsFirehoseProps) CfnPlaybackConfigurationLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPlaybackConfigurationLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToFirehose(deli
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnPlaybackConfigurationLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnPlaybackConfigurationAdDecisionServerLogsLogGroupProps) CfnPlaybackConfigurationLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPlaybackConfigurationLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToLogGroup(logG
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnPlaybackConfigurationLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnPlaybackConfigurationAdDecisionServerLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnPlaybackConfigurationAdDecisionServerLogsS3Props) CfnPlaybackConfigurationLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPlaybackConfigurationLogsMixin

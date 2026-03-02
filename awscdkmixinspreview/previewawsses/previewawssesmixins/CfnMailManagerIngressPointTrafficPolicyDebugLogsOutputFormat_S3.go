@@ -1,0 +1,17 @@
+package previewawssesmixins
+
+
+// Experimental.
+type CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3 string
+
+const (
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_JSON CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3 = "JSON"
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_PLAIN CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3 = "PLAIN"
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_W3C CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3 = "W3C"
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_PARQUET CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3 = "PARQUET"
+)
+

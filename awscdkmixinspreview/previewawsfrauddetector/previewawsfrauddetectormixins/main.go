@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDetectorPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -70,8 +70,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEntityTypePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -90,8 +90,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEventTypePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -122,8 +122,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLabelPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -142,8 +142,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnListPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -162,8 +162,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnOutcomePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -182,8 +182,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVariablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

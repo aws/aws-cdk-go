@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAccountAuditConfigurationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -66,8 +66,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAuthorizerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -86,8 +86,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnBillingGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -110,8 +110,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCACertificatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -134,8 +134,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCertificatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -154,8 +154,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCertificateProviderPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -174,8 +174,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCommandPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -226,8 +226,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCustomMetricPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -246,8 +246,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDimensionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -266,8 +266,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDomainConfigurationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -306,8 +306,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEncryptionConfigurationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -330,8 +330,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnFleetMetricPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -354,8 +354,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnJobTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -414,8 +414,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLoggingPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -438,8 +438,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnMitigationActionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -490,8 +490,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyPrincipalAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -506,8 +506,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -526,8 +526,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnProvisioningTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -550,8 +550,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnResourceSpecificLoggingPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -570,8 +570,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRoleAliasPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -590,8 +590,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnScheduledAuditPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -610,8 +610,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityProfilePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -666,8 +666,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSoftwarePackagePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -686,8 +686,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSoftwarePackageVersionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -718,8 +718,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnThingGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -750,8 +750,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnThingPrincipalAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -766,8 +766,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnThingPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -790,8 +790,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnThingTypePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -822,8 +822,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTopicRuleDestinationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -850,8 +850,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTopicRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

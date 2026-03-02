@@ -11,7 +11,7 @@ import (
 // Common configuration props for EKS clusters.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 //
 //   // or
 //   var vpc Vpc
@@ -19,8 +19,8 @@ import (
 //
 //   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 //   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_34(),
-//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_35(),
+//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 //   })
 //   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
 //   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),

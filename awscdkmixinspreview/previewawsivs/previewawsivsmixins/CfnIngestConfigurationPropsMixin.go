@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsivs/previewawsivsmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -39,8 +39,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-ingestconfiguration.html
 //
 type CfnIngestConfigurationPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnIngestConfigurationMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -51,8 +51,8 @@ type CfnIngestConfigurationPropsMixin interface {
 
 // The jsii proxy struct for CfnIngestConfigurationPropsMixin
 type jsiiProxy_CfnIngestConfigurationPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnIngestConfigurationPropsMixin) Props() *CfnIngestConfigurationMixinProps {
@@ -108,7 +108,6 @@ func NewCfnIngestConfigurationPropsMixin_Override(c CfnIngestConfigurationPropsM
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnIngestConfigurationPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

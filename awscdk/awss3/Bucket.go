@@ -105,7 +105,8 @@ type Bucket interface {
 	// Example:
 	//      declare const myLambda: lambda.Function;
 	//      const bucket = new s3.Bucket(this, 'MyBucket');
-	//      bucket.addEventNotification(s3.EventType.OBJECT_CREATED, new s3n.LambdaDestination(myLambda), {prefix: 'home/myusername/*'});
+	//      const filter: s3.NotificationKeyFilter = { prefix: 'home/myusername/*' };
+	//      bucket.addEventNotification(s3.EventType.OBJECT_CREATED, new s3n.LambdaDestination(myLambda), filter);
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//
@@ -335,8 +336,6 @@ type Bucket interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

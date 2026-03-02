@@ -5,6 +5,8 @@ package previewawslogs
 import (
 	"fmt"
 
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -25,9 +27,13 @@ func (d *jsiiProxy_DestinationLogsDelivery) validateBindParameters(scope constru
 	return nil
 }
 
-func validateNewDestinationLogsDeliveryParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func validateNewDestinationLogsDeliveryParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *RecordFieldDeliveryProps) error {
 	if destination == nil {
 		return fmt.Errorf("parameter destination is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

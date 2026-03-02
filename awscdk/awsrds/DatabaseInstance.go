@@ -21,24 +21,18 @@ import (
 // Example:
 //   var vpc Vpc
 //
-//
-//   iopsInstance := rds.NewDatabaseInstance(this, jsii.String("IopsInstance"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-//   		Version: rds.MysqlEngineVersion_VER_8_0_39(),
+//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+//   	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
+//   		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
 //   	}),
+//   	// optional, defaults to m5.large
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("syscdk")),
+//   	 // Optional - will default to 'admin' username and generated password
 //   	Vpc: Vpc,
-//   	StorageType: rds.StorageType_IO1,
-//   	Iops: jsii.Number(5000),
-//   })
-//
-//   gp3Instance := rds.NewDatabaseInstance(this, jsii.String("Gp3Instance"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_*Mysql(&MySqlInstanceEngineProps{
-//   		Version: rds.MysqlEngineVersion_VER_8_0_39(),
-//   	}),
-//   	Vpc: Vpc,
-//   	AllocatedStorage: jsii.Number(500),
-//   	StorageType: rds.StorageType_GP3,
-//   	StorageThroughput: jsii.Number(500),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
 //   })
 //
 type DatabaseInstance interface {
@@ -183,8 +177,6 @@ type DatabaseInstance interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

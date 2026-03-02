@@ -1,0 +1,37 @@
+package previewawssesmixins
+
+
+// Experimental.
+type CfnMailManagerIngressPointApplicationLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE CfnMailManagerIngressPointApplicationLogsRecordFields = "INGRESS_POINT_TYPE"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_ID CfnMailManagerIngressPointApplicationLogsRecordFields = "INGRESS_POINT_ID"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_SENDER_IP_ADDRESS CfnMailManagerIngressPointApplicationLogsRecordFields = "SENDER_IP_ADDRESS"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_SMTP_MAIL_FROM CfnMailManagerIngressPointApplicationLogsRecordFields = "SMTP_MAIL_FROM"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_SMTP_HELO CfnMailManagerIngressPointApplicationLogsRecordFields = "SMTP_HELO"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_TLS_PROTOCOL CfnMailManagerIngressPointApplicationLogsRecordFields = "TLS_PROTOCOL"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_RECIPIENTS CfnMailManagerIngressPointApplicationLogsRecordFields = "RECIPIENTS"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_METADATA CfnMailManagerIngressPointApplicationLogsRecordFields = "INGRESS_POINT_METADATA"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_TLS_CIPHER_SUITE CfnMailManagerIngressPointApplicationLogsRecordFields = "TLS_CIPHER_SUITE"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_MESSAGE_SIZE_BYTES CfnMailManagerIngressPointApplicationLogsRecordFields = "MESSAGE_SIZE_BYTES"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_RULE_SET_ID CfnMailManagerIngressPointApplicationLogsRecordFields = "RULE_SET_ID"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_RESOURCE_ARN CfnMailManagerIngressPointApplicationLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_EVENT_TIMESTAMP CfnMailManagerIngressPointApplicationLogsRecordFields = "EVENT_TIMESTAMP"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_MESSAGE_ID CfnMailManagerIngressPointApplicationLogsRecordFields = "MESSAGE_ID"
+)
+

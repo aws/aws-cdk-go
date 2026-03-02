@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsworkspacesweb/previewawsworkspaceswebmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -40,8 +40,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html
 //
 type CfnIdentityProviderPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnIdentityProviderMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -52,8 +52,8 @@ type CfnIdentityProviderPropsMixin interface {
 
 // The jsii proxy struct for CfnIdentityProviderPropsMixin
 type jsiiProxy_CfnIdentityProviderPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnIdentityProviderPropsMixin) Props() *CfnIdentityProviderMixinProps {
@@ -109,7 +109,6 @@ func NewCfnIdentityProviderPropsMixin_Override(c CfnIdentityProviderPropsMixin, 
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnIdentityProviderPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsivs/previewawsivsmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -42,8 +42,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html
 //
 type CfnPlaybackRestrictionPolicyPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnPlaybackRestrictionPolicyMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -54,8 +54,8 @@ type CfnPlaybackRestrictionPolicyPropsMixin interface {
 
 // The jsii proxy struct for CfnPlaybackRestrictionPolicyPropsMixin
 type jsiiProxy_CfnPlaybackRestrictionPolicyPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnPlaybackRestrictionPolicyPropsMixin) Props() *CfnPlaybackRestrictionPolicyMixinProps {
@@ -111,7 +111,6 @@ func NewCfnPlaybackRestrictionPolicyPropsMixin_Override(c CfnPlaybackRestriction
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnPlaybackRestrictionPolicyPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

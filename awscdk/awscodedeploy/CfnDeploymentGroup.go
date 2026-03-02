@@ -195,7 +195,6 @@ type CfnDeploymentGroup interface {
 	// The name of an existing CodeDeploy application to associate this deployment group with.
 	ApplicationName() *string
 	SetApplicationName(val *string)
-	AttrId() *string
 	// Information about the automatic rollback configuration that is associated with the deployment group.
 	AutoRollbackConfiguration() interface{}
 	SetAutoRollbackConfiguration(val interface{})
@@ -429,8 +428,6 @@ type CfnDeploymentGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -457,16 +454,6 @@ func (j *jsiiProxy_CfnDeploymentGroup) ApplicationName() *string {
 	_jsii_.Get(
 		j,
 		"applicationName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDeploymentGroup) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

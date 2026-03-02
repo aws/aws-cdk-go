@@ -8,15 +8,15 @@ func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToDestinationParameters(des
 	return nil
 }
 
-func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnAppMonitorRumOtelLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnAppMonitorRumOtelLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnAppMonitorRumOtelLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnAppMonitorRumOtelLogsS3Props) error {
 	return nil
 }
 

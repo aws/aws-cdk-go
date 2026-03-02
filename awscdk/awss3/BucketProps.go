@@ -31,6 +31,14 @@ import (
 //   })
 //
 type BucketProps struct {
+	// Enables Amazon S3 to evaluate the ABAC policy in the request.
+	//
+	// Set to true to enable ABAC, false to explicitly disable it.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-abacstatus
+	//
+	// Default: - The ABAC status is not set.
+	//
+	AbacStatus *bool `field:"optional" json:"abacStatus" yaml:"abacStatus"`
 	// Specifies a canned ACL that grants predefined permissions to the bucket.
 	// Default: BucketAccessControl.PRIVATE
 	//

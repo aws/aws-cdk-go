@@ -18,7 +18,14 @@ import (
 //
 //   var deliveryDestinationRef IDeliveryDestinationRef
 //
-//   destinationLogsDelivery := awscdkmixinspreview.Aws_logs.NewDestinationLogsDelivery(deliveryDestinationRef)
+//   destinationLogsDelivery := awscdkmixinspreview.Aws_logs.NewDestinationLogsDelivery(deliveryDestinationRef, &RecordFieldDeliveryProps{
+//   	MandatoryFields: []*string{
+//   		jsii.String("mandatoryFields"),
+//   	},
+//   	ProvidedFields: []*string{
+//   		jsii.String("providedFields"),
+//   	},
+//   })
 //
 // Experimental.
 type DestinationLogsDelivery interface {
@@ -34,17 +41,17 @@ type jsiiProxy_DestinationLogsDelivery struct {
 }
 
 // Experimental.
-func NewDestinationLogsDelivery(destination interfacesawslogs.IDeliveryDestinationRef) DestinationLogsDelivery {
+func NewDestinationLogsDelivery(destination interfacesawslogs.IDeliveryDestinationRef, props *RecordFieldDeliveryProps) DestinationLogsDelivery {
 	_init_.Initialize()
 
-	if err := validateNewDestinationLogsDeliveryParameters(destination); err != nil {
+	if err := validateNewDestinationLogsDeliveryParameters(destination, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_DestinationLogsDelivery{}
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.DestinationLogsDelivery",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&j,
 	)
 
@@ -52,12 +59,12 @@ func NewDestinationLogsDelivery(destination interfacesawslogs.IDeliveryDestinati
 }
 
 // Experimental.
-func NewDestinationLogsDelivery_Override(d DestinationLogsDelivery, destination interfacesawslogs.IDeliveryDestinationRef) {
+func NewDestinationLogsDelivery_Override(d DestinationLogsDelivery, destination interfacesawslogs.IDeliveryDestinationRef, props *RecordFieldDeliveryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.DestinationLogsDelivery",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		d,
 	)
 }

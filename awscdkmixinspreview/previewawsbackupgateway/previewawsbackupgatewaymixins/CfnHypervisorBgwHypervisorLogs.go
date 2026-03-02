@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnHypervisorLogsMixin to generate BGW_HYPERVISOR_LOGS for CfnHypervisor.
@@ -27,11 +26,11 @@ type CfnHypervisorBgwHypervisorLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnHypervisorLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnHypervisorLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnHypervisorBgwHypervisorLogsFirehoseProps) CfnHypervisorLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnHypervisorLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnHypervisorBgwHypervisorLogsLogGroupProps) CfnHypervisorLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnHypervisorLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnHypervisorBgwHypervisorLogsS3Props) CfnHypervisorLogsMixin
 }
 
 // The jsii proxy struct for CfnHypervisorBgwHypervisorLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToDestination(destination int
 	return returns
 }
 
-func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnHypervisorLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnHypervisorBgwHypervisorLogsFirehoseProps) CfnHypervisorLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnHypervisorLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToFirehose(deliveryStream int
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnHypervisorLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnHypervisorBgwHypervisorLogsLogGroupProps) CfnHypervisorLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnHypervisorLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToLogGroup(logGroup interface
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnHypervisorLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnHypervisorBgwHypervisorLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnHypervisorBgwHypervisorLogsS3Props) CfnHypervisorLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnHypervisorLogsMixin

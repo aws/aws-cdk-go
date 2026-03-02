@@ -18,6 +18,9 @@ package awskafkaconnect
 //   	ScaleOutPolicy: &ScaleOutPolicyProperty{
 //   		CpuUtilizationPercentage: jsii.Number(123),
 //   	},
+//
+//   	// the properties below are optional
+//   	MaxAutoscalingTaskCount: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html
@@ -45,5 +48,9 @@ type CfnConnector_AutoScalingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-scaleoutpolicy
 	//
 	ScaleOutPolicy interface{} `field:"required" json:"scaleOutPolicy" yaml:"scaleOutPolicy"`
+	// The maximum number of tasks allocated to the connector during autoscaling operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-maxautoscalingtaskcount
+	//
+	MaxAutoscalingTaskCount *float64 `field:"optional" json:"maxAutoscalingTaskCount" yaml:"maxAutoscalingTaskCount"`
 }
 

@@ -19,6 +19,7 @@ import (
 //   	SkipEnumCheck: jsii.Boolean(false),
 //   	SkipVersionCheck: jsii.Boolean(false),
 //   	TopoSort: jsii.Boolean(false),
+//   	ValidateSchema: jsii.Boolean(false),
 //   })
 //
 type CloudAssembly interface {

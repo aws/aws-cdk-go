@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnActivityPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -50,8 +50,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachineAliasPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -74,6 +74,45 @@ func init() {
 			return &jsiiProxy_CfnStateMachineExpressLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineExpressLogsDestProps",
+		reflect.TypeOf((*CfnStateMachineExpressLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineExpressLogsLogGroupProps",
+		reflect.TypeOf((*CfnStateMachineExpressLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineExpressLogsOutputFormat",
+		reflect.TypeOf((*CfnStateMachineExpressLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnStateMachineExpressLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineExpressLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnStateMachineExpressLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnStateMachineExpressLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnStateMachineExpressLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineExpressLogsRecordFields",
+		reflect.TypeOf((*CfnStateMachineExpressLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"DETAILS": CfnStateMachineExpressLogsRecordFields_DETAILS,
+			"MAP_RUN_ARN": CfnStateMachineExpressLogsRecordFields_MAP_RUN_ARN,
+			"PARENT_EXECUTION_ARN": CfnStateMachineExpressLogsRecordFields_PARENT_EXECUTION_ARN,
+			"REDRIVE_COUNT": CfnStateMachineExpressLogsRecordFields_REDRIVE_COUNT,
+			"ID": CfnStateMachineExpressLogsRecordFields_ID,
+			"TYPE": CfnStateMachineExpressLogsRecordFields_TYPE,
+			"PREVIOUS_EVENT_ID": CfnStateMachineExpressLogsRecordFields_PREVIOUS_EVENT_ID,
+			"EVENT_TIMESTAMP": CfnStateMachineExpressLogsRecordFields_EVENT_TIMESTAMP,
+			"EXECUTION_ARN": CfnStateMachineExpressLogsRecordFields_EXECUTION_ARN,
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineLogsMixin",
 		reflect.TypeOf((*CfnStateMachineLogsMixin)(nil)).Elem(),
@@ -85,8 +124,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachineLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -105,8 +144,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachinePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -150,6 +189,45 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineStandardLogsDestProps",
+		reflect.TypeOf((*CfnStateMachineStandardLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineStandardLogsLogGroupProps",
+		reflect.TypeOf((*CfnStateMachineStandardLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineStandardLogsOutputFormat",
+		reflect.TypeOf((*CfnStateMachineStandardLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnStateMachineStandardLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineStandardLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnStateMachineStandardLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnStateMachineStandardLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnStateMachineStandardLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineStandardLogsRecordFields",
+		reflect.TypeOf((*CfnStateMachineStandardLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"DETAILS": CfnStateMachineStandardLogsRecordFields_DETAILS,
+			"MAP_RUN_ARN": CfnStateMachineStandardLogsRecordFields_MAP_RUN_ARN,
+			"PARENT_EXECUTION_ARN": CfnStateMachineStandardLogsRecordFields_PARENT_EXECUTION_ARN,
+			"REDRIVE_COUNT": CfnStateMachineStandardLogsRecordFields_REDRIVE_COUNT,
+			"ID": CfnStateMachineStandardLogsRecordFields_ID,
+			"TYPE": CfnStateMachineStandardLogsRecordFields_TYPE,
+			"PREVIOUS_EVENT_ID": CfnStateMachineStandardLogsRecordFields_PREVIOUS_EVENT_ID,
+			"EVENT_TIMESTAMP": CfnStateMachineStandardLogsRecordFields_EVENT_TIMESTAMP,
+			"EXECUTION_ARN": CfnStateMachineStandardLogsRecordFields_EXECUTION_ARN,
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_stepfunctions.mixins.CfnStateMachineVersionMixinProps",
 		reflect.TypeOf((*CfnStateMachineVersionMixinProps)(nil)).Elem(),
 	)
@@ -164,8 +242,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnStateMachineVersionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

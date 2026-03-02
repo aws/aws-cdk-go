@@ -29,11 +29,11 @@ import (
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   // Create CloudFront distribution
-//   var bucket Bucket
+//   var origin IBucket
 //
 //   distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(origin),
 //   	},
 //   })
 //
@@ -259,8 +259,6 @@ type CfnDeliveryDestination interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

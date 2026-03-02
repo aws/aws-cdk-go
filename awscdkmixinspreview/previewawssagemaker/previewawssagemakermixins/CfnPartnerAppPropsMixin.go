@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawssagemaker/previewawssagemakermixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -55,8 +55,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html
 //
 type CfnPartnerAppPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnPartnerAppMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -67,8 +67,8 @@ type CfnPartnerAppPropsMixin interface {
 
 // The jsii proxy struct for CfnPartnerAppPropsMixin
 type jsiiProxy_CfnPartnerAppPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnPartnerAppPropsMixin) Props() *CfnPartnerAppMixinProps {
@@ -124,7 +124,6 @@ func NewCfnPartnerAppPropsMixin_Override(c CfnPartnerAppPropsMixin, props *CfnPa
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnPartnerAppPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

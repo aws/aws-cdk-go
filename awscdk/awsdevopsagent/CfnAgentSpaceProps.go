@@ -13,6 +13,24 @@ package awsdevopsagent
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	OperatorApp: &OperatorAppProperty{
+//   		Iam: &IamAuthConfigurationProperty{
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//
+//   			// the properties below are optional
+//   			CreatedAt: jsii.String("createdAt"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   		Idc: &IdcAuthConfigurationProperty{
+//   			IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//
+//   			// the properties below are optional
+//   			CreatedAt: jsii.String("createdAt"),
+//   			IdcApplicationArn: jsii.String("idcApplicationArn"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
@@ -26,5 +44,8 @@ type CfnAgentSpaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-operatorapp
+	//
+	OperatorApp interface{} `field:"optional" json:"operatorApp" yaml:"operatorApp"`
 }
 

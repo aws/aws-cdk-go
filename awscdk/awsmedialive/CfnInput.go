@@ -116,6 +116,14 @@ import (
 //   				StreamId: jsii.String("streamId"),
 //   			},
 //   		},
+//   		SrtListenerSettings: &SrtListenerSettingsRequestProperty{
+//   			Decryption: &SrtListenerDecryptionRequestProperty{
+//   				Algorithm: jsii.String("algorithm"),
+//   				PassphraseSecretArn: jsii.String("passphraseSecretArn"),
+//   			},
+//   			MinimumLatency: jsii.Number(123),
+//   			StreamId: jsii.String("streamId"),
+//   		},
 //   	},
 //   	Tags: tags,
 //   	Type: jsii.String("type"),
@@ -371,8 +379,6 @@ type CfnInput interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

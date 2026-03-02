@@ -13,6 +13,7 @@ package awss3tables
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	Id: jsii.Number(123),
 //   	Required: jsii.Boolean(false),
 //   }
 //
@@ -29,6 +30,10 @@ type CfnTable_SchemaFieldProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html#cfn-s3tables-table-schemafield-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// The unique identifier for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html#cfn-s3tables-table-schemafield-id
+	//
+	Id *float64 `field:"optional" json:"id" yaml:"id"`
 	// A Boolean value that specifies whether values are required for each row in this field.
 	//
 	// By default, this is `false` and null values are allowed in the field. If this is `true` the field does not allow null values.

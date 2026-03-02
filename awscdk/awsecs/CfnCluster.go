@@ -19,7 +19,7 @@ import (
 //
 //
 //   cluster := ecs.NewCfnCluster(scope, jsii.String("Cluster"))
-//   awscdkmixinspreview.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
+//   awscdk.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
 //   	&ClusterSettingsProperty{
 //   		Name: jsii.String("containerInsights"),
 //   		Value: jsii.String("enhanced"),
@@ -235,8 +235,6 @@ type CfnCluster interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

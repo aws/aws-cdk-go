@@ -38,6 +38,7 @@ type CfnLaunchRoleConstraint interface {
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
+	// The unique identifier for the launch role constraint.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -231,8 +232,6 @@ type CfnLaunchRoleConstraint interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

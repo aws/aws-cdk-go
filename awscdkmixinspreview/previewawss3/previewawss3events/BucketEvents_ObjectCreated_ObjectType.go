@@ -11,8 +11,8 @@ package previewawss3events
 //
 //
 //   // Works with L2 constructs
-//   bucket := s3.NewBucket(scope, jsii.String("Bucket"))
-//   bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(bucket)
+//   myBucket := s3.NewBucket(scope, jsii.String("Bucket"))
+//   bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(myBucket)
 //
 //   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
 //   	EventPattern: bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{

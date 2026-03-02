@@ -104,7 +104,7 @@ func (j *jsiiProxy_CfnCapacityReservationFleet) validateSetRemoveEndDateParamete
 	return nil
 }
 
-func (j *jsiiProxy_CfnCapacityReservationFleet) validateSetTagSpecificationsParameters(val *[]*CfnCapacityReservationFleet_TagSpecificationProperty) error {
+func (j *jsiiProxy_CfnCapacityReservationFleet) validateSetTagSpecificationsParameters(val interface{}) error {
 	return nil
 }
 

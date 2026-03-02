@@ -11,11 +11,11 @@ import (
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   // Create CloudFront distribution
-//   var bucket Bucket
+//   var origin IBucket
 //
 //   distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(origin),
 //   	},
 //   })
 //

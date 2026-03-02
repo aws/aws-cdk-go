@@ -1,5 +1,8 @@
 package previewawsdirectoryservicemixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnSimpleADPropsMixin.
 //
@@ -16,6 +19,12 @@ package previewawsdirectoryservicemixins
 //   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   	Size: jsii.String("size"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
@@ -67,6 +76,9 @@ type CfnSimpleADMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-size
 	//
 	Size *string `field:"optional" json:"size" yaml:"size"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A [DirectoryVpcSettings](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DirectoryVpcSettings.html) object that contains additional information for the operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-vpcsettings
 	//

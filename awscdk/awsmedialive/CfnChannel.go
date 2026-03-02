@@ -54,6 +54,8 @@ type CfnChannel interface {
 	SetChannelEngineVersion(val interface{})
 	// A reference to a Channel resource.
 	ChannelRef() *interfacesawsmedialive.ChannelReference
+	ChannelSecurityGroups() *[]*string
+	SetChannelSecurityGroups(val *[]*string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -260,8 +262,6 @@ type CfnChannel interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -378,6 +378,16 @@ func (j *jsiiProxy_CfnChannel) ChannelRef() *interfacesawsmedialive.ChannelRefer
 	_jsii_.Get(
 		j,
 		"channelRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) ChannelSecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"channelSecurityGroups",
 		&returns,
 	)
 	return returns
@@ -660,6 +670,14 @@ func (j *jsiiProxy_CfnChannel)SetChannelEngineVersion(val interface{}) {
 	_jsii_.Set(
 		j,
 		"channelEngineVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetChannelSecurityGroups(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"channelSecurityGroups",
 		val,
 	)
 }

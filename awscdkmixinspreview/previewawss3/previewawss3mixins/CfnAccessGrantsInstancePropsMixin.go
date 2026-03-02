@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawss3/previewawss3mixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -38,8 +38,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantsinstance.html
 //
 type CfnAccessGrantsInstancePropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnAccessGrantsInstanceMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -50,8 +50,8 @@ type CfnAccessGrantsInstancePropsMixin interface {
 
 // The jsii proxy struct for CfnAccessGrantsInstancePropsMixin
 type jsiiProxy_CfnAccessGrantsInstancePropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnAccessGrantsInstancePropsMixin) Props() *CfnAccessGrantsInstanceMixinProps {
@@ -107,7 +107,6 @@ func NewCfnAccessGrantsInstancePropsMixin_Override(c CfnAccessGrantsInstanceProp
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnAccessGrantsInstancePropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

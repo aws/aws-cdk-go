@@ -20,6 +20,85 @@ func init() {
 			return &jsiiProxy_CfnChannelGroupEgressAccessLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsDestProps",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsFirehoseProps",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsLogGroupProps",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsOutputFormat",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnChannelGroupEgressAccessLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnChannelGroupEgressAccessLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnChannelGroupEgressAccessLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnChannelGroupEgressAccessLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnChannelGroupEgressAccessLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsRecordFields",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ARN": CfnChannelGroupEgressAccessLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnChannelGroupEgressAccessLogsRecordFields_EVENT_TIMESTAMP,
+			"CLIENT_IP": CfnChannelGroupEgressAccessLogsRecordFields_CLIENT_IP,
+			"TIME_TO_FIRST_BYTE": CfnChannelGroupEgressAccessLogsRecordFields_TIME_TO_FIRST_BYTE,
+			"STATUS_CODE": CfnChannelGroupEgressAccessLogsRecordFields_STATUS_CODE,
+			"RECEIVED_BYTES": CfnChannelGroupEgressAccessLogsRecordFields_RECEIVED_BYTES,
+			"SENT_BYTES": CfnChannelGroupEgressAccessLogsRecordFields_SENT_BYTES,
+			"METHOD": CfnChannelGroupEgressAccessLogsRecordFields_METHOD,
+			"REQUEST_URI_BASE": CfnChannelGroupEgressAccessLogsRecordFields_REQUEST_URI_BASE,
+			"REQUEST_QUERY_PARAMS": CfnChannelGroupEgressAccessLogsRecordFields_REQUEST_QUERY_PARAMS,
+			"PROTOCOL": CfnChannelGroupEgressAccessLogsRecordFields_PROTOCOL,
+			"USER_AGENT": CfnChannelGroupEgressAccessLogsRecordFields_USER_AGENT,
+			"DOMAIN_NAME": CfnChannelGroupEgressAccessLogsRecordFields_DOMAIN_NAME,
+			"REQUEST_ID": CfnChannelGroupEgressAccessLogsRecordFields_REQUEST_ID,
+			"ACCOUNT": CfnChannelGroupEgressAccessLogsRecordFields_ACCOUNT,
+			"CHANNEL_ID": CfnChannelGroupEgressAccessLogsRecordFields_CHANNEL_ID,
+			"CHANNEL_ARN": CfnChannelGroupEgressAccessLogsRecordFields_CHANNEL_ARN,
+			"ENDPOINT_ID": CfnChannelGroupEgressAccessLogsRecordFields_ENDPOINT_ID,
+			"ENDPOINT_ARN": CfnChannelGroupEgressAccessLogsRecordFields_ENDPOINT_ARN,
+			"CHANNEL_GROUP_ID": CfnChannelGroupEgressAccessLogsRecordFields_CHANNEL_GROUP_ID,
+			"MANIFEST_NAME": CfnChannelGroupEgressAccessLogsRecordFields_MANIFEST_NAME,
+			"MANIFEST_TYPE": CfnChannelGroupEgressAccessLogsRecordFields_MANIFEST_TYPE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsS3Props",
+		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogs",
 		reflect.TypeOf((*CfnChannelGroupIngressAccessLogs)(nil)).Elem(),
@@ -33,6 +112,82 @@ func init() {
 			return &jsiiProxy_CfnChannelGroupIngressAccessLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsDestProps",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsFirehoseProps",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsLogGroupProps",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsOutputFormat",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnChannelGroupIngressAccessLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnChannelGroupIngressAccessLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnChannelGroupIngressAccessLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnChannelGroupIngressAccessLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnChannelGroupIngressAccessLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsRecordFields",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ARN": CfnChannelGroupIngressAccessLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnChannelGroupIngressAccessLogsRecordFields_EVENT_TIMESTAMP,
+			"CLIENT_IP": CfnChannelGroupIngressAccessLogsRecordFields_CLIENT_IP,
+			"TIME_TO_FIRST_BYTE": CfnChannelGroupIngressAccessLogsRecordFields_TIME_TO_FIRST_BYTE,
+			"STATUS_CODE": CfnChannelGroupIngressAccessLogsRecordFields_STATUS_CODE,
+			"RECEIVED_BYTES": CfnChannelGroupIngressAccessLogsRecordFields_RECEIVED_BYTES,
+			"SENT_BYTES": CfnChannelGroupIngressAccessLogsRecordFields_SENT_BYTES,
+			"METHOD": CfnChannelGroupIngressAccessLogsRecordFields_METHOD,
+			"REQUEST": CfnChannelGroupIngressAccessLogsRecordFields_REQUEST,
+			"PROTOCOL": CfnChannelGroupIngressAccessLogsRecordFields_PROTOCOL,
+			"USER_AGENT": CfnChannelGroupIngressAccessLogsRecordFields_USER_AGENT,
+			"DOMAIN_NAME": CfnChannelGroupIngressAccessLogsRecordFields_DOMAIN_NAME,
+			"REQUEST_ID": CfnChannelGroupIngressAccessLogsRecordFields_REQUEST_ID,
+			"ACCOUNT": CfnChannelGroupIngressAccessLogsRecordFields_ACCOUNT,
+			"CHANNEL_ID": CfnChannelGroupIngressAccessLogsRecordFields_CHANNEL_ID,
+			"CHANNEL_ARN": CfnChannelGroupIngressAccessLogsRecordFields_CHANNEL_ARN,
+			"CHANNEL_GROUP_ID": CfnChannelGroupIngressAccessLogsRecordFields_CHANNEL_GROUP_ID,
+			"INPUT_TYPE": CfnChannelGroupIngressAccessLogsRecordFields_INPUT_TYPE,
+			"INPUT_INDEX": CfnChannelGroupIngressAccessLogsRecordFields_INPUT_INDEX,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsS3Props",
+		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupLogsMixin",
 		reflect.TypeOf((*CfnChannelGroupLogsMixin)(nil)).Elem(),
@@ -44,8 +199,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnChannelGroupLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -64,8 +219,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnChannelGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -88,8 +243,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnChannelPolicyPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -104,8 +259,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnChannelPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -140,8 +295,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnOriginEndpointPolicyPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -160,8 +315,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnOriginEndpointPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

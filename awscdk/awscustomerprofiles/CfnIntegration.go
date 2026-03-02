@@ -114,6 +114,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Scope: jsii.String("scope"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -178,6 +179,9 @@ type CfnIntegration interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Scope of the integration, such as 'PROFILE' or 'DOMAIN'.
+	Scope() *string
+	SetScope(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -334,8 +338,6 @@ type CfnIntegration interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -507,6 +509,16 @@ func (j *jsiiProxy_CfnIntegration) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIntegration) Scope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scope",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIntegration) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -642,6 +654,14 @@ func (j *jsiiProxy_CfnIntegration)SetObjectTypeNames(val interface{}) {
 	_jsii_.Set(
 		j,
 		"objectTypeNames",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegration)SetScope(val *string) {
+	_jsii_.Set(
+		j,
+		"scope",
 		val,
 	)
 }

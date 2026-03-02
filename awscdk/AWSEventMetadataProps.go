@@ -7,7 +7,6 @@ package awscdk
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //   import events "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var bucket Bucket
 //
 //   bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(bucket)
 //

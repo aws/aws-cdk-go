@@ -8,16 +8,17 @@ import (
 // A reference to a bucket outside this stack.
 //
 // Example:
-//   var myLambda Function
+//   // Deploy an imported S3 bucket from a different account
+//   var stage IStage
+//   var input Artifact
 //
-//   bucket := s3.Bucket_FromBucketAttributes(this, jsii.String("ImportedBucket"), &BucketAttributes{
-//   	BucketArn: jsii.String("arn:aws:s3:::amzn-s3-demo-bucket"),
-//   })
-//
-//   // now you can just call methods on the bucket
-//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), &NotificationKeyFilter{
-//   	Prefix: jsii.String("home/myusername/*"),
-//   })
+//   stage.AddAction(codepipeline_actions.NewS3DeployAction(&S3DeployActionProps{
+//   	Bucket: s3.Bucket_FromBucketAttributes(this, jsii.String("Bucket"), &BucketAttributes{
+//   		Account: jsii.String("123456789012"),
+//   	}),
+//   	Input: input,
+//   	ActionName: jsii.String("s3-deploy-action"),
+//   }))
 //
 type BucketAttributes struct {
 	// The account this existing bucket belongs to.

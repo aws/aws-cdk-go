@@ -12,6 +12,7 @@ package previewawsmedialivemixins
 //
 //   av1SettingsProperty := &Av1SettingsProperty{
 //   	AfdSignaling: jsii.String("afdSignaling"),
+//   	BitDepth: jsii.String("bitDepth"),
 //   	Bitrate: jsii.Number(123),
 //   	BufSize: jsii.Number(123),
 //   	ColorSpaceSettings: &Av1ColorSpaceSettingsProperty{
@@ -54,6 +55,9 @@ type CfnChannelPropsMixin_Av1SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-afdsignaling
 	//
 	AfdSignaling *string `field:"optional" json:"afdSignaling" yaml:"afdSignaling"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-bitdepth
+	//
+	BitDepth *string `field:"optional" json:"bitDepth" yaml:"bitDepth"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-bitrate
 	//
 	Bitrate *float64 `field:"optional" json:"bitrate" yaml:"bitrate"`

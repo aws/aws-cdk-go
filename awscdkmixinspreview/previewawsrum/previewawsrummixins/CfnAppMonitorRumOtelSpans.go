@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnAppMonitorLogsMixin to generate RUM_OTEL_SPANS for CfnAppMonitor.
@@ -27,11 +26,11 @@ type CfnAppMonitorRumOtelSpans interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnAppMonitorLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnAppMonitorLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnAppMonitorRumOtelSpansFirehoseProps) CfnAppMonitorLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnAppMonitorLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnAppMonitorRumOtelSpansLogGroupProps) CfnAppMonitorLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnAppMonitorLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnAppMonitorRumOtelSpansS3Props) CfnAppMonitorLogsMixin
 }
 
 // The jsii proxy struct for CfnAppMonitorRumOtelSpans
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToDestination(destination interfac
 	return returns
 }
 
-func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnAppMonitorLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnAppMonitorRumOtelSpansFirehoseProps) CfnAppMonitorLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnAppMonitorLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToFirehose(deliveryStream interfac
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnAppMonitorLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnAppMonitorRumOtelSpansLogGroupProps) CfnAppMonitorLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnAppMonitorLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToLogGroup(logGroup interfacesawsl
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnAppMonitorLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnAppMonitorRumOtelSpans) ToS3(bucket interfacesawss3.IBucketRef, props *CfnAppMonitorRumOtelSpansS3Props) CfnAppMonitorLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnAppMonitorLogsMixin

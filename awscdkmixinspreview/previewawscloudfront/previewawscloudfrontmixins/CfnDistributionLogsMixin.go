@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawscloudfront/previewawscloudfrontmixins/internal"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -17,25 +17,35 @@ import (
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   // Create CloudFront distribution
-//   var bucket Bucket
+//   var origin IBucket
 //
 //   distribution := cloudfront.NewDistribution(scope, jsii.String("Distribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(bucket),
+//   		Origin: origins.S3BucketOrigin_WithOriginAccessControl(origin),
 //   	},
 //   })
 //
-//   // Create log destination
-//   logGroup := logs.NewLogGroup(scope, jsii.String("DeliveryLogGroup"))
+//   // Create destination bucket
+//   destBucket := s3.NewBucket(scope, jsii.String("DeliveryBucket"))
+//   // Add permissions to bucket to facilitate log delivery
+//   bucketPolicy := s3.NewBucketPolicy(scope, jsii.String("DeliveryBucketPolicy"), &BucketPolicyProps{
+//   	Bucket: destBucket,
+//   	Document: iam.NewPolicyDocument(),
+//   })
+//   // Create S3 delivery destination for logs
+//   destination := logs.NewCfnDeliveryDestination(scope, jsii.String("Destination"), &CfnDeliveryDestinationProps{
+//   	DestinationResourceArn: destBucket.bucketArn,
+//   	Name: jsii.String("unique-destination-name"),
+//   	DeliveryDestinationType: jsii.String("S3"),
+//   })
 //
-//   // Configure log delivery using the mixin
-//   distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToLogGroup(logGroup))
+//   distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().ToDestination(destination))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
 //
 type CfnDistributionLogsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	LogDelivery() previewawslogs.ILogsDelivery
 	LogType() *string
 	// Apply vended logs configuration to the construct.
@@ -46,8 +56,8 @@ type CfnDistributionLogsMixin interface {
 
 // The jsii proxy struct for CfnDistributionLogsMixin
 type jsiiProxy_CfnDistributionLogsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnDistributionLogsMixin) LogDelivery() previewawslogs.ILogsDelivery {
@@ -103,7 +113,6 @@ func NewCfnDistributionLogsMixin_Override(c CfnDistributionLogsMixin, logType *s
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnDistributionLogsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

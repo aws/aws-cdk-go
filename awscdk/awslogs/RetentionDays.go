@@ -4,37 +4,21 @@ package awslogs
 // How long, in days, the log contents will be retained.
 //
 // Example:
-//   import logs "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   apiKeyProvider := &AppSyncAuthProvider{
-//   	AuthorizationType: appsync.AppSyncAuthorizationType_API_KEY,
-//   }
-//
-//   api := appsync.NewEventApi(this, jsii.String("api"), &EventApiProps{
-//   	ApiName: jsii.String("Api"),
-//   	OwnerContact: jsii.String("OwnerContact"),
-//   	AuthorizationConfig: &EventApiAuthConfig{
-//   		AuthProviders: []AppSyncAuthProvider{
-//   			apiKeyProvider,
-//   		},
-//   		ConnectionAuthModeTypes: []AppSyncAuthorizationType{
-//   			appsync.AppSyncAuthorizationType_API_KEY,
-//   		},
-//   		DefaultPublishAuthModeTypes: []AppSyncAuthorizationType{
-//   			appsync.AppSyncAuthorizationType_API_KEY,
-//   		},
-//   		DefaultSubscribeAuthModeTypes: []AppSyncAuthorizationType{
-//   			appsync.AppSyncAuthorizationType_API_KEY,
-//   		},
-//   	},
-//   	LogConfig: &AppSyncLogConfig{
-//   		FieldLogLevel: appsync.AppSyncFieldLogLevel_INFO,
-//   		Retention: logs.RetentionDays_ONE_WEEK,
-//   	},
+//   pipelineLogGroup := logs.NewLogGroup(this, jsii.String("PipelineLogGroup"), &LogGroupProps{
+//   	LogGroupName: jsii.String("/custom/imagebuilder/pipeline/logs"),
+//   	Retention: logs.RetentionDays_ONE_MONTH,
 //   })
 //
-//   api.AddChannelNamespace(jsii.String("default"))
+//   imageLogGroup := logs.NewLogGroup(this, jsii.String("ImageLogGroup"), &LogGroupProps{
+//   	LogGroupName: jsii.String("/custom/imagebuilder/image/logs"),
+//   	Retention: logs.RetentionDays_ONE_WEEK,
+//   })
+//
+//   loggedPipeline := imagebuilder.NewImagePipeline(this, jsii.String("LoggedPipeline"), &ImagePipelineProps{
+//   	Recipe: exampleImageRecipe,
+//   	ImagePipelineLogGroup: pipelineLogGroup,
+//   	ImageLogGroup: imageLogGroup,
+//   })
 //
 type RetentionDays string
 

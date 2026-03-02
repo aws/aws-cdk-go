@@ -2100,6 +2100,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "approvalDescription", GoGetter: "ApprovalDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedTime", GoGetter: "AttrLastModifiedTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrModelPackageArn", GoGetter: "AttrModelPackageArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrModelPackageStatus", GoGetter: "AttrModelPackageStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "certifyForMarketplace", GoGetter: "CertifyForMarketplace"},

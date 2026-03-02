@@ -110,8 +110,6 @@ type OpenIdConnectProvider interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	// Deprecated: Use `OidcProviderNative` instead. This construct will be removed in a future major release.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }

@@ -67,9 +67,6 @@ type CfnCapacityProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-vpcconfig
 	//
 	VpcConfig interface{} `field:"required" json:"vpcConfig" yaml:"vpcConfig"`
-	// The name of the capacity provider.
-	//
-	// The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-capacityprovidername
 	//
 	CapacityProviderName *string `field:"optional" json:"capacityProviderName" yaml:"capacityProviderName"`

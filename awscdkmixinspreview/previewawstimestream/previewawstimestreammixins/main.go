@@ -22,10 +22,38 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDatabasePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_timestream.mixins.CfnInfluxDBClusterMixinProps",
+		reflect.TypeOf((*CfnInfluxDBClusterMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_timestream.mixins.CfnInfluxDBClusterPropsMixin",
+		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnInfluxDBClusterPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_timestream.mixins.CfnInfluxDBClusterPropsMixin.LogDeliveryConfigurationProperty",
+		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_LogDeliveryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_timestream.mixins.CfnInfluxDBClusterPropsMixin.S3ConfigurationProperty",
+		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_S3ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_timestream.mixins.CfnInfluxDBInstanceMixinProps",
@@ -42,8 +70,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInfluxDBInstancePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -70,8 +98,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnScheduledQueryPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -134,8 +162,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

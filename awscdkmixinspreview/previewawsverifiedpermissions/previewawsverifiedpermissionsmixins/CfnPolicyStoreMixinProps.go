@@ -11,11 +11,22 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
+//   var default_ interface{}
+//
 //   cfnPolicyStoreMixinProps := &CfnPolicyStoreMixinProps{
 //   	DeletionProtection: &DeletionProtectionProperty{
 //   		Mode: jsii.String("mode"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	EncryptionSettings: &EncryptionSettingsProperty{
+//   		Default: default_,
+//   		KmsEncryptionSettings: &KmsEncryptionSettingsProperty{
+//   			EncryptionContext: map[string]*string{
+//   				"encryptionContextKey": jsii.String("encryptionContext"),
+//   			},
+//   			Key: jsii.String("key"),
+//   		},
+//   	},
 //   	Schema: &SchemaDefinitionProperty{
 //   		CedarFormat: jsii.String("cedarFormat"),
 //   		CedarJson: jsii.String("cedarJson"),
@@ -44,6 +55,9 @@ type CfnPolicyStoreMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html#cfn-verifiedpermissions-policystore-encryptionsettings
+	//
+	EncryptionSettings interface{} `field:"optional" json:"encryptionSettings" yaml:"encryptionSettings"`
 	// Creates or updates the policy schema in a policy store.
 	//
 	// Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.

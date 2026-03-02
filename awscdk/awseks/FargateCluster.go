@@ -21,12 +21,12 @@ import (
 // `addFargateProfile`.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 //
 //
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_34(),
-//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_35(),
+//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 //   })
 //
 type FargateCluster interface {
@@ -283,8 +283,6 @@ type FargateCluster interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

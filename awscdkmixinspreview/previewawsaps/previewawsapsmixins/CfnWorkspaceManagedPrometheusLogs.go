@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnWorkspaceLogsMixin to generate MANAGED_PROMETHEUS_LOGS for CfnWorkspace.
@@ -27,11 +26,11 @@ type CfnWorkspaceManagedPrometheusLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnWorkspaceLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnWorkspaceLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnWorkspaceManagedPrometheusLogsFirehoseProps) CfnWorkspaceLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnWorkspaceLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnWorkspaceManagedPrometheusLogsLogGroupProps) CfnWorkspaceLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnWorkspaceLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnWorkspaceManagedPrometheusLogsS3Props) CfnWorkspaceLogsMixin
 }
 
 // The jsii proxy struct for CfnWorkspaceManagedPrometheusLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToDestination(destination 
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnWorkspaceLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnWorkspaceManagedPrometheusLogsFirehoseProps) CfnWorkspaceLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkspaceLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToFirehose(deliveryStream 
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnWorkspaceLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnWorkspaceManagedPrometheusLogsLogGroupProps) CfnWorkspaceLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkspaceLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToLogGroup(logGroup interf
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnWorkspaceLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnWorkspaceManagedPrometheusLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnWorkspaceManagedPrometheusLogsS3Props) CfnWorkspaceLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkspaceLogsMixin

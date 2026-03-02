@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCapabilityPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -62,8 +62,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPartnershipPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -130,8 +130,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnProfilePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -148,6 +148,53 @@ func init() {
 			return &jsiiProxy_CfnTransformerB2biExecutionLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsFirehoseProps",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsLogGroupProps",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsOutputFormat",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnTransformerB2biExecutionLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnTransformerB2biExecutionLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnTransformerB2biExecutionLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnTransformerB2biExecutionLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnTransformerB2biExecutionLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnTransformerB2biExecutionLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnTransformerB2biExecutionLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnTransformerB2biExecutionLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnTransformerB2biExecutionLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnTransformerB2biExecutionLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerB2biExecutionLogsS3Props",
+		reflect.TypeOf((*CfnTransformerB2biExecutionLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_b2bi.mixins.CfnTransformerLogsMixin",
 		reflect.TypeOf((*CfnTransformerLogsMixin)(nil)).Elem(),
@@ -159,8 +206,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransformerLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -179,8 +226,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransformerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

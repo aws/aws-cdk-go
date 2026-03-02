@@ -38,7 +38,9 @@ package awsmedialive
 //   	},
 //   	SrtSettings: []interface{}{
 //   		&SrtOutputDestinationSettingsProperty{
+//   			ConnectionMode: jsii.String("connectionMode"),
 //   			EncryptionPassphraseSecretArn: jsii.String("encryptionPassphraseSecretArn"),
+//   			ListenerPort: jsii.Number(123),
 //   			StreamId: jsii.String("streamId"),
 //   			Url: jsii.String("url"),
 //   		},

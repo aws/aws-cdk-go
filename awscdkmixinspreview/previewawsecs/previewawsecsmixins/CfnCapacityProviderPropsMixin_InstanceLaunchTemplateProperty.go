@@ -12,6 +12,10 @@ package previewawsecsmixins
 //
 //   instanceLaunchTemplateProperty := &InstanceLaunchTemplateProperty{
 //   	CapacityOptionType: jsii.String("capacityOptionType"),
+//   	CapacityReservations: &CapacityReservationRequestProperty{
+//   		ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   		ReservationPreference: jsii.String("reservationPreference"),
+//   	},
 //   	Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   	FipsEnabled: jsii.Boolean(false),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
@@ -115,6 +119,9 @@ type CfnCapacityProviderPropsMixin_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-capacityoptiontype
 	//
 	CapacityOptionType *string `field:"optional" json:"capacityOptionType" yaml:"capacityOptionType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-capacityreservations
+	//
+	CapacityReservations interface{} `field:"optional" json:"capacityReservations" yaml:"capacityReservations"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances.
 	//
 	// This instance profile must include the necessary permissions for your tasks to access AWS services and resources.

@@ -5,6 +5,8 @@ package previewawslogs
 import (
 	"fmt"
 
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -19,6 +21,14 @@ func (x *jsiiProxy_XRayLogsDelivery) validateBindParameters(scope constructs.ICo
 
 	if sourceResourceArn == nil {
 		return fmt.Errorf("parameter sourceResourceArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateNewXRayLogsDeliveryParameters(props *RecordFieldDeliveryProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

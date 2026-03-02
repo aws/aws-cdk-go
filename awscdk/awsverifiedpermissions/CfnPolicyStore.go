@@ -20,6 +20,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var default_ interface{}
+//
 //   cfnPolicyStore := awscdk.Aws_verifiedpermissions.NewCfnPolicyStore(this, jsii.String("MyCfnPolicyStore"), &CfnPolicyStoreProps{
 //   	ValidationSettings: &ValidationSettingsProperty{
 //   		Mode: jsii.String("mode"),
@@ -30,6 +32,17 @@ import (
 //   		Mode: jsii.String("mode"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	EncryptionSettings: &EncryptionSettingsProperty{
+//   		Default: default_,
+//   		KmsEncryptionSettings: &KmsEncryptionSettingsProperty{
+//   			Key: jsii.String("key"),
+//
+//   			// the properties below are optional
+//   			EncryptionContext: map[string]*string{
+//   				"encryptionContextKey": jsii.String("encryptionContext"),
+//   			},
+//   		},
+//   	},
 //   	Schema: &SchemaDefinitionProperty{
 //   		CedarFormat: jsii.String("cedarFormat"),
 //   		CedarJson: jsii.String("cedarJson"),
@@ -51,6 +64,7 @@ type CfnPolicyStore interface {
 	awscdk.ITaggableV2
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the new or updated policy store.
 	AttrArn() *string
+	AttrEncryptionState() awscdk.IResolvable
 	// The unique ID of the new or updated policy store.
 	AttrPolicyStoreId() *string
 	// Tag Manager which manages the tags for this resource.
@@ -72,6 +86,8 @@ type CfnPolicyStore interface {
 	// Descriptive text that you can provide to help with identification of the current policy store.
 	Description() *string
 	SetDescription(val *string)
+	EncryptionSettings() interface{}
+	SetEncryptionSettings(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -249,8 +265,6 @@ type CfnPolicyStore interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -267,6 +281,16 @@ func (j *jsiiProxy_CfnPolicyStore) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicyStore) AttrEncryptionState() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrEncryptionState",
 		&returns,
 	)
 	return returns
@@ -347,6 +371,16 @@ func (j *jsiiProxy_CfnPolicyStore) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPolicyStore) EncryptionSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionSettings",
 		&returns,
 	)
 	return returns
@@ -507,6 +541,17 @@ func (j *jsiiProxy_CfnPolicyStore)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicyStore)SetEncryptionSettings(val interface{}) {
+	if err := j.validateSetEncryptionSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionSettings",
 		val,
 	)
 }

@@ -47,6 +47,9 @@ package previewawsbatchmixins
 //   		MaxvCpus: jsii.Number(123),
 //   		MinvCpus: jsii.Number(123),
 //   		PlacementGroup: jsii.String("placementGroup"),
+//   		ScalingPolicy: &ComputeScalingPolicyProperty{
+//   			MinScaleDownDelayMinutes: jsii.Number(123),
+//   		},
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},

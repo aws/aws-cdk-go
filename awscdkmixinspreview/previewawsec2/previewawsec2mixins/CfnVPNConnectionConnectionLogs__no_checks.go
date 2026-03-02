@@ -4,19 +4,19 @@ package previewawsec2mixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnVPNConnectionConnectionLogsDestProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVPNConnectionConnectionLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnVPNConnectionConnectionLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnVPNConnectionConnectionLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnVPNConnectionConnectionLogsS3Props) error {
 	return nil
 }
 

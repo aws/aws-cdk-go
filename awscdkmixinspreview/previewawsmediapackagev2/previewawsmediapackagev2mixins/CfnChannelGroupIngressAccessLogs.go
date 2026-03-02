@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnChannelGroupLogsMixin to generate INGRESS_ACCESS_LOGS for CfnChannelGroup.
@@ -25,13 +24,13 @@ type CfnChannelGroupIngressAccessLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnChannelGroupLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnChannelGroupIngressAccessLogsDestProps) CfnChannelGroupLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnChannelGroupLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnChannelGroupIngressAccessLogsFirehoseProps) CfnChannelGroupLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnChannelGroupLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnChannelGroupIngressAccessLogsLogGroupProps) CfnChannelGroupLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnChannelGroupLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnChannelGroupIngressAccessLogsS3Props) CfnChannelGroupLogsMixin
 }
 
 // The jsii proxy struct for CfnChannelGroupIngressAccessLogs
@@ -65,8 +64,8 @@ func NewCfnChannelGroupIngressAccessLogs_Override(c CfnChannelGroupIngressAccess
 	)
 }
 
-func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnChannelGroupLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnChannelGroupIngressAccessLogsDestProps) CfnChannelGroupLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnChannelGroupLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToDestination(destination i
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnChannelGroupLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnChannelGroupIngressAccessLogsFirehoseProps) CfnChannelGroupLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnChannelGroupLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToFirehose(deliveryStream i
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnChannelGroupLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnChannelGroupIngressAccessLogsLogGroupProps) CfnChannelGroupLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnChannelGroupLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToLogGroup(logGroup interfa
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnChannelGroupLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnChannelGroupIngressAccessLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnChannelGroupIngressAccessLogsS3Props) CfnChannelGroupLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnChannelGroupLogsMixin

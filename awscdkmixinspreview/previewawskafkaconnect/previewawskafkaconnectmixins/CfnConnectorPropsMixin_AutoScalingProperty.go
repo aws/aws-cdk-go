@@ -9,6 +9,7 @@ package previewawskafkaconnectmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   autoScalingProperty := &AutoScalingProperty{
+//   	MaxAutoscalingTaskCount: jsii.Number(123),
 //   	MaxWorkerCount: jsii.Number(123),
 //   	McuCount: jsii.Number(123),
 //   	MinWorkerCount: jsii.Number(123),
@@ -23,6 +24,10 @@ package previewawskafkaconnectmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html
 //
 type CfnConnectorPropsMixin_AutoScalingProperty struct {
+	// The maximum number of tasks allocated to the connector during autoscaling operations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-maxautoscalingtaskcount
+	//
+	MaxAutoscalingTaskCount *float64 `field:"optional" json:"maxAutoscalingTaskCount" yaml:"maxAutoscalingTaskCount"`
 	// The maximum number of workers allocated to the connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-autoscaling.html#cfn-kafkaconnect-connector-autoscaling-maxworkercount
 	//

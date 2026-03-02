@@ -4,19 +4,19 @@ package previewawsec2mixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnRouteServerPeerEventLogsDestProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnRouteServerPeerEventLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnRouteServerPeerEventLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnRouteServerPeerEventLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnRouteServerPeerEventLogsS3Props) error {
 	return nil
 }
 

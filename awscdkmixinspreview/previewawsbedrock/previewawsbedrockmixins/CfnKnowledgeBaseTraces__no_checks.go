@@ -4,7 +4,11 @@ package previewawsbedrockmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnKnowledgeBaseTraces) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnKnowledgeBaseTraces) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnKnowledgeBaseTracesDestProps) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnKnowledgeBaseTraces) validateToXRayParameters(props *CfnKnowledgeBaseTracesXRayProps) error {
 	return nil
 }
 

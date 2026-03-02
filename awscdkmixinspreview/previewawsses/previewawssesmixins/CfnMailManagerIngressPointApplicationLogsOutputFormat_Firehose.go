@@ -1,0 +1,15 @@
+package previewawssesmixins
+
+
+// Experimental.
+type CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_JSON CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_PLAIN CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_RAW CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose = "RAW"
+)
+

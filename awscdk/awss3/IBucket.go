@@ -22,9 +22,10 @@ type IBucket interface {
 	//   var myLambda Function
 	//
 	//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-	//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), &NotificationKeyFilter{
+	//   filter := &NotificationKeyFilter{
 	//   	Prefix: jsii.String("home/myusername/*"),
-	//   })
+	//   }
+	//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), filter)
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//

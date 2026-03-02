@@ -8,13 +8,11 @@ package previewawsquicksightmixins
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var visibility interface{}
-//
 //   sheetImageTooltipConfigurationProperty := &SheetImageTooltipConfigurationProperty{
 //   	TooltipText: &SheetImageTooltipTextProperty{
 //   		PlainText: jsii.String("plainText"),
 //   	},
-//   	Visibility: visibility,
+//   	Visibility: jsii.String("visibility"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltipconfiguration.html
@@ -27,6 +25,6 @@ type CfnTemplatePropsMixin_SheetImageTooltipConfigurationProperty struct {
 	// The visibility of the tooltip.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltipconfiguration.html#cfn-quicksight-template-sheetimagetooltipconfiguration-visibility
 	//
-	Visibility interface{} `field:"optional" json:"visibility" yaml:"visibility"`
+	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
 }
 

@@ -4,8 +4,8 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawss3/previewawss3mixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -13,14 +13,11 @@ import (
 // Adds statements to a bucket policy.
 //
 // Example:
-//   var bucket IBucketRef
-//
-//
 //   bucketPolicy := s3.NewCfnBucketPolicy(scope, jsii.String("BucketPolicy"), &CfnBucketPolicyProps{
 //   	Bucket: bucket,
 //   	PolicyDocument: iam.NewPolicyDocument(),
 //   })
-//   awscdkmixinspreview.Mixins_Of(bucketPolicy).Apply(awscdkmixinspreview.NewBucketPolicyStatementsMixin([]PolicyStatement{
+//   awscdk.Mixins_Of(bucketPolicy).Apply(awscdkmixinspreview.NewBucketPolicyStatementsMixin([]PolicyStatement{
 //   	iam.NewPolicyStatement(&PolicyStatementProps{
 //   		Actions: []*string{
 //   			jsii.String("s3:GetObject"),
@@ -36,7 +33,7 @@ import (
 //
 // Experimental.
 type BucketPolicyStatementsMixin interface {
-	core.Mixin
+	awscdk.Mixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
 	ApplyTo(construct constructs.IConstruct)
@@ -47,7 +44,7 @@ type BucketPolicyStatementsMixin interface {
 
 // The jsii proxy struct for BucketPolicyStatementsMixin
 type jsiiProxy_BucketPolicyStatementsMixin struct {
-	internal.Type__coreMixin
+	internal.Type__awscdkMixin
 }
 
 // Experimental.

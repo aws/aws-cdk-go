@@ -20,6 +20,10 @@ func init() {
 		reflect.TypeOf((*ContactListReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ses.CustomVerificationEmailTemplateReference",
+		reflect.TypeOf((*CustomVerificationEmailTemplateReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ses.DedicatedIpPoolReference",
 		reflect.TypeOf((*DedicatedIpPoolReference)(nil)).Elem(),
 	)
@@ -70,6 +74,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IContactListRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ses.ICustomVerificationEmailTemplateRef",
+		reflect.TypeOf((*ICustomVerificationEmailTemplateRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customVerificationEmailTemplateRef", GoGetter: "CustomVerificationEmailTemplateRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICustomVerificationEmailTemplateRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

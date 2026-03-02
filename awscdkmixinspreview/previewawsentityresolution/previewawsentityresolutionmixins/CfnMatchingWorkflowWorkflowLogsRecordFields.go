@@ -1,0 +1,37 @@
+package previewawsentityresolutionmixins
+
+
+// Experimental.
+type CfnMatchingWorkflowWorkflowLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN CfnMatchingWorkflowWorkflowLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TYPE CfnMatchingWorkflowWorkflowLogsRecordFields = "EVENT_TYPE"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TIMESTAMP CfnMatchingWorkflowWorkflowLogsRecordFields = "EVENT_TIMESTAMP"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_JOB_ID CfnMatchingWorkflowWorkflowLogsRecordFields = "JOB_ID"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_NAME CfnMatchingWorkflowWorkflowLogsRecordFields = "WORKFLOW_NAME"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_START_TIME CfnMatchingWorkflowWorkflowLogsRecordFields = "WORKFLOW_START_TIME"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_COMPLETE_TIME CfnMatchingWorkflowWorkflowLogsRecordFields = "WORKFLOW_COMPLETE_TIME"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION CfnMatchingWorkflowWorkflowLogsRecordFields = "DATA_PROCESSING_PROGRESSION"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE CfnMatchingWorkflowWorkflowLogsRecordFields = "ERROR_MESSAGE"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_RULE CfnMatchingWorkflowWorkflowLogsRecordFields = "MATCH_RULE"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_COUNT CfnMatchingWorkflowWorkflowLogsRecordFields = "MATCH_COUNT"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_PROCESSED CfnMatchingWorkflowWorkflowLogsRecordFields = "TOTAL_RECORDS_PROCESSED"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED CfnMatchingWorkflowWorkflowLogsRecordFields = "TOTAL_RECORDS_UNPROCESSED"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED CfnMatchingWorkflowWorkflowLogsRecordFields = "INCREMENTAL_RECORDS_PROCESSED"
+)
+

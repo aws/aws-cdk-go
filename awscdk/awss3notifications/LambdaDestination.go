@@ -21,9 +21,10 @@ import (
 //   })
 //
 //   // now you can just call methods on the bucket
-//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), &NotificationKeyFilter{
+//   filter := &NotificationKeyFilter{
 //   	Prefix: jsii.String("home/myusername/*"),
-//   })
+//   }
+//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), filter)
 //
 type LambdaDestination interface {
 	awss3.IBucketNotificationDestination

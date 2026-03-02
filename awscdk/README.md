@@ -1811,6 +1811,223 @@ awscdk.Annotations_Of(this).AddInfoV2(jsii.String("my-lib:Construct.someInfo"), 
 awscdk.Annotations_Of(this).AcknowledgeInfo(jsii.String("my-lib:Construct.someInfo"), jsii.String("This info can be ignored"))
 ```
 
+## Mixins
+
+CDK Mixins provide a new, advanced way to add functionality through composable abstractions.
+Unlike traditional L2 constructs that bundle all features together, Mixins allow you to pick and choose exactly the capabilities you need for constructs.
+
+Mixins are an *addition*, not a replacement for construct properties.
+They are applied during or after construct construction using the `.with()` method:
+
+```go
+// Apply mixins fluently with .with()
+// Apply mixins fluently with .with()
+s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(NewEncryptionAtRest()).With(NewAutoDeleteObjects())
+
+// Apply multiple mixins to the same construct
+// Apply multiple mixins to the same construct
+s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(NewEncryptionAtRest(), NewAutoDeleteObjects())
+
+// Mixins work with all types of constructs:
+// L1, L2 and even custom constructs
+// Mixins work with all types of constructs:
+// L1, L2 and even custom constructs
+s3.NewBucket(stack, jsii.String("MyL2Bucket")).With(NewEncryptionAtRest())
+NewCustomBucket(stack, jsii.String("MyCustomBucket")).With(NewEncryptionAtRest())
+```
+
+There is an alternative form available that allows additional, advanced configuration of Mixin application: `Mixins.of()`.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// Basic: Apply mixins to any construct, calls can be chained
+myBucket := s3.NewCfnBucket(scope, jsii.String("MyBucket"))
+awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest()).Apply(NewAutoDeleteObjects())
+
+// Basic: Or multiple Mixins passed to apply
+awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest(), NewAutoDeleteObjects())
+
+// Advanced: Apply to constructs matching a selector, e.g. match by ID
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewProductionSecurityMixin())
+
+// Advanced: Require a mixin to be applied to every node in the construct tree
+awscdk.Mixins_Of(stack).Apply(NewProductionSecurityMixin()).RequireAll()
+```
+
+### How Mixins are applied
+
+Each construct has a `with()` method and Mixins will be applied to all nodes of the construct.
+Sometimes more control is needed.
+Especially when authoring construct libraries, it may be desirable to have full control over the Mixin application process.
+Think of the L3 pattern again: How can you encode the rules to which Mixins may or may not be applied in your L3?
+This is where `Mixins.of()` and the `MixinApplicator` class come in.
+They provide more complex ways to select targets, apply Mixins and set expectations.
+
+#### Mixin application on construct trees
+
+When working with construct trees like Stacks (as opposed to single resources),
+`Mixins.of()` offers a more comprehensive API to configure how Mixins are applied.
+By default, Mixins are applied to all supported constructs in the tree:
+
+```go
+// Apply to all constructs in a scope
+awscdk.Mixins_Of(scope).Apply(NewEncryptionAtRest())
+```
+
+Optionally, you may select specific constructs:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+// Apply to a given L1 resource or L2 resource construct
+awscdk.Mixins_Of(bucket, awscdk.ConstructSelector_CfnResource()).Apply(NewEncryptionAtRest())
+
+// Apply to all resources of a specific type
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(s3.CfnBucket_CFN_RESOURCE_TYPE_NAME())).Apply(NewEncryptionAtRest())
+
+// Alternative: select by CloudFormation resource type name
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(jsii.String("AWS::S3::Bucket"))).Apply(NewEncryptionAtRest())
+
+// Apply to constructs matching a pattern
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewProductionSecurityMixin())
+
+// The default is to apply to all constructs in the scope
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_All()).Apply(NewProductionSecurityMixin())
+```
+
+#### Mixins that must be used
+
+Sometimes you need assertions that a Mixin has been applied to certain set of constructs.
+`Mixins.of(...)` keeps track of Mixin applications and this report can be used to create assertions.
+
+It comes with two convenience helpers:
+Use `requireAll()` to assert the Mixin will be applied to all selected constructs.
+If a construct is in the selection that is not supported by the Mixin, this will throw an error.
+The `requireAny()` helper will assert the Mixin was applied to at least one construct from the selection.
+If the Mixin wasn't applied to any construct at all, this will throw an error.
+
+Both helpers will only check future calls of `apply()`.
+Set them before calling `apply()` to take effect.
+
+```go
+awscdk.Mixins_Of(scope, selector).RequireAll().Apply(NewEncryptionAtRest())
+
+// Get an application report for manual assertions
+report := awscdk.Mixins_Of(scope).Apply(NewEncryptionAtRest()).report
+```
+
+### Creating Custom Mixins
+
+Mixins are simple classes that implement the `IMixin` interface (usually by extending the abstract `Mixin` class):
+
+```go
+type enableVersioning struct {
+	Mixin
+}
+
+func (this *enableVersioning) supports(construct interface{}) *bool {
+	return s3.CfnBucket_IsCfnBucket(*construct)
+}
+
+func (this *enableVersioning) applyTo(bucket IConstruct) {
+	(*bucket.(CfnBucket)).VersioningConfiguration = &VersioningConfigurationProperty{
+		Status: jsii.String("Enabled"),
+	}
+}
+
+// Usage
+// Usage
+s3.NewCfnBucket(scope, jsii.String("MyBucket")).With(NewEnableVersioning())
+```
+
+We recommend to implement Mixins at the L1 level and to have them target a specific resource construct.
+This way, the same Mixin can be applied to constructs from all levels.
+
+When applied, the `.supports()` method is used to decided if a Mixin can be applied to a given construct.
+Depending on the application method (see below), the Mixin is then applied, skipped or an error is thrown.
+
+```go
+bucketAccessLogsMixin.Supports(bucket) // returns `true`
+bucketAccessLogsMixin.Supports(queue)
+```
+
+#### Validation with Mixins
+
+Mixins have two distinct phases: Initialization and application.
+During initialization only the Mixin's input properties are available, but during application we also have access the target construct.
+
+Mixins should validate their properties and targets as early as possible.
+During initialization validate all input properties.
+Then during application validate any target dependent pre-conditions or interactions with Mixin properties.
+
+Like with constructs, Mixins should *throw an error* in case of unrecoverable failures and use *annotations* for recoverable ones.
+It is best practices to collect errors and throw as a group whenever possible.
+Mixins can attach *[lazy validators](https://github.com/aws/aws-cdk/blob/main/docs/DESIGN_GUIDELINES.md#attaching-lazy-validators)* to the target construct.
+Use this to ensure a certain property is met at end of an app's execution.
+
+```go
+type myEncryptionAtRest struct {
+	Mixin
+}
+
+func newMyEncryptionAtRest(props myEncryptionAtRestProps) *myEncryptionAtRest {
+	if props == nil {
+		props = &myEncryptionAtRestProps{
+		}
+	}
+	this := &myEncryptionAtRest{}
+	newMixin_Override(this, )
+	// Validate Mixin props at construction time
+	if *props.bucketKey && *props.algorithm == "aws:kms:dsse" {throw new Error("Cannot use S3 Bucket Key and DSSE together");
+	}
+	return this
+}
+
+func (this *myEncryptionAtRest) supports(construct interface{}) *bool {
+	return s3.CfnBucket_IsCfnBucket(*construct)
+}
+
+func (this *myEncryptionAtRest) applyTo(target CfnBucket) CfnBucket {
+	// Validate pre-conditions on the target, throw if error is unrecoverable
+	if !*target.BucketEncryption {throw new Error("Bucket encryption not configured");
+	}
+
+	// Validate properties are met after app execution
+	*target.Node.AddValidation(map[string]validate{
+		"validate": () => isKmsEncrypted(target)
+		        ? ['This bucket must use aws:kms encryption.']
+		        : [],
+	})
+
+	*target.BucketEncryption = &BucketEncryptionProperty{
+		ServerSideEncryptionConfiguration: []interface{}{
+			&ServerSideEncryptionRuleProperty{
+				BucketKeyEnabled: jsii.Boolean(true),
+				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
+					SseAlgorithm: jsii.String("aws:kms"),
+				},
+			},
+		},
+	}
+	return *target
+}
+```
+
+#### Mixins and Aspects
+
+Mixins and Aspects are similar concepts and both are implementations of the [visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern).
+They crucially differ in their time of application:
+
+* Mixins are always applied *immediately*, they are a tool of *imperative* programming.
+* Aspects are applied *after* all other code during the synthesis phase, this makes them *declarative*.
+
+Both Mixins and Aspects have valid use cases and complement each other.
+We recommend to use Mixins to *make changes*, and to use Aspects to *validate behaviors*.
+Aspects may also be used when changes need to apply to *future additions*, for examples in custom libraries.
+
 ## Aspects
 
 [Aspects](https://docs.aws.amazon.com/cdk/v2/guide/aspects.html) is a feature in CDK that allows you to apply operations or transformations across all

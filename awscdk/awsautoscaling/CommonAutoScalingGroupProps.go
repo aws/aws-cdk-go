@@ -44,6 +44,7 @@ import (
 //   	CapacityRebalance: jsii.Boolean(false),
 //   	Cooldown: cdk.Duration_Minutes(jsii.Number(30)),
 //   	DefaultInstanceWarmup: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	DeletionProtection: awscdk.*Aws_autoscaling.DeletionProtection_NONE,
 //   	DesiredCapacity: jsii.Number(123),
 //   	GroupMetrics: []GroupMetrics{
 //   		groupMetrics,
@@ -153,6 +154,12 @@ type CommonAutoScalingGroupProps struct {
 	// Default: None.
 	//
 	DefaultInstanceWarmup awscdk.Duration `field:"optional" json:"defaultInstanceWarmup" yaml:"defaultInstanceWarmup"`
+	// Deletion protection for the Auto Scaling group.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/resource-deletion-protection.html#asg-deletion-protection
+	//
+	// Default: DeletionProtection.NONE
+	//
+	DeletionProtection DeletionProtection `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Initial amount of instances in the fleet.
 	//
 	// If this is set to a number, every deployment will reset the amount of

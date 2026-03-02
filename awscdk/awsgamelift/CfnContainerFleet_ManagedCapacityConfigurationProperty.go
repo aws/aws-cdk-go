@@ -1,7 +1,7 @@
 package awsgamelift
 
 
-// Configuration options for GameLift-managed capacity behavior.
+// Configuration options for Amazon GameLift Servers managed capacity behavior.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -53,6 +53,7 @@ type CfnWorkspace interface {
 	awscdk.ITaggable
 	// The identifier of the WorkSpace, returned as a string.
 	AttrId() *string
+	AttrWorkspaceId() *string
 	// The identifier of the bundle for the WorkSpace.
 	BundleId() *string
 	SetBundleId(val *string)
@@ -256,8 +257,6 @@ type CfnWorkspace interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -274,6 +273,16 @@ func (j *jsiiProxy_CfnWorkspace) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkspace) AttrWorkspaceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrWorkspaceId",
 		&returns,
 	)
 	return returns

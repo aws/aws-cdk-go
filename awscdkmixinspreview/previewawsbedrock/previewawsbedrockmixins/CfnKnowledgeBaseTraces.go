@@ -22,9 +22,9 @@ type CfnKnowledgeBaseTraces interface {
 	// Supported destinations are XRAY
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnKnowledgeBaseLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnKnowledgeBaseTracesDestProps) CfnKnowledgeBaseLogsMixin
 	// Send traces to X-Ray.
-	ToXRay() CfnKnowledgeBaseLogsMixin
+	ToXRay(props *CfnKnowledgeBaseTracesXRayProps) CfnKnowledgeBaseLogsMixin
 }
 
 // The jsii proxy struct for CfnKnowledgeBaseTraces
@@ -58,8 +58,8 @@ func NewCfnKnowledgeBaseTraces_Override(c CfnKnowledgeBaseTraces) {
 	)
 }
 
-func (c *jsiiProxy_CfnKnowledgeBaseTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnKnowledgeBaseLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnKnowledgeBaseTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnKnowledgeBaseTracesDestProps) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnKnowledgeBaseLogsMixin
@@ -67,20 +67,23 @@ func (c *jsiiProxy_CfnKnowledgeBaseTraces) ToDestination(destination interfacesa
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnKnowledgeBaseTraces) ToXRay() CfnKnowledgeBaseLogsMixin {
+func (c *jsiiProxy_CfnKnowledgeBaseTraces) ToXRay(props *CfnKnowledgeBaseTracesXRayProps) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToXRayParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnKnowledgeBaseLogsMixin
 
 	_jsii_.Invoke(
 		c,
 		"toXRay",
-		nil, // no parameters
+		[]interface{}{props},
 		&returns,
 	)
 

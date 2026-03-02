@@ -8,9 +8,6 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dateIconVisibility interface{}
-//   var helperTextVisibility interface{}
-//
 //   timeRangeFilterProperty := &TimeRangeFilterProperty{
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
@@ -25,9 +22,9 @@ package awsquicksight
 //   			DefaultDateTimePickerOptions: &DefaultDateTimePickerControlOptionsProperty{
 //   				CommitMode: jsii.String("commitMode"),
 //   				DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
-//   					DateIconVisibility: dateIconVisibility,
+//   					DateIconVisibility: jsii.String("dateIconVisibility"),
 //   					DateTimeFormat: jsii.String("dateTimeFormat"),
-//   					HelperTextVisibility: helperTextVisibility,
+//   					HelperTextVisibility: jsii.String("helperTextVisibility"),
 //   					InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   						InfoIconText: jsii.String("infoIconText"),
 //   						Visibility: jsii.String("visibility"),

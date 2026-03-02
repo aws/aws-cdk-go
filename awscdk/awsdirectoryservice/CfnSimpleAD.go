@@ -36,6 +36,12 @@ import (
 //   	EnableSso: jsii.Boolean(false),
 //   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
@@ -44,6 +50,7 @@ type CfnSimpleAD interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdirectoryservice.ISimpleADRef
+	awscdk.ITaggableV2
 	// The alias for a directory.
 	//
 	// For example: `alias4-mydirectory-12345abcgmzsk` (if you have the `CreateAlias` property set to true).
@@ -55,6 +62,8 @@ type CfnSimpleAD interface {
 	// The IP addresses of the DNS servers for the directory, such as `[ "172.31.3.154", "172.31.63.203" ]` .
 	AttrDnsIpAddresses() *[]*string
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -109,6 +118,8 @@ type CfnSimpleAD interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -256,8 +267,6 @@ type CfnSimpleAD interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -266,6 +275,7 @@ type jsiiProxy_CfnSimpleAD struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsdirectoryserviceISimpleADRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnSimpleAD) AttrAlias() *string {
@@ -303,6 +313,16 @@ func (j *jsiiProxy_CfnSimpleAD) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimpleAD) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -478,6 +498,16 @@ func (j *jsiiProxy_CfnSimpleAD) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSimpleAD) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSimpleAD) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -602,6 +632,17 @@ func (j *jsiiProxy_CfnSimpleAD)SetSize(val *string) {
 	_jsii_.Set(
 		j,
 		"size",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSimpleAD)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

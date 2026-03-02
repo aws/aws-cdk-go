@@ -1,0 +1,17 @@
+package previewawsmediatailormixins
+
+
+// Experimental.
+type CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3 string
+
+const (
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_JSON CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3 = "JSON"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_PLAIN CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3 = "PLAIN"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_W3C CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3 = "W3C"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_PARQUET CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3 = "PARQUET"
+)
+

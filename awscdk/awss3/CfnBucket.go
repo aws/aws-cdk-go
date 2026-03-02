@@ -18,16 +18,21 @@ import (
 // > You can only delete empty buckets. Deletion fails for buckets that have contents.
 //
 // Example:
-//   var cfnTemplate CfnInclude
+//   var childTemplate CfnInclude
 //
-//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
 //
-//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
-//   	AssumedBy: iam.NewAnyPrincipal(),
+//   cfnBucket := childTemplate.GetResource(jsii.String("MyBucket")).(CfnBucket)
+//   cfnBucket.BucketName = "amzn-s3-demo-bucket1"
+//
+//   role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
+//   	AssumedBy: iam.NewAccountRootPrincipal(),
 //   })
+//
 //   role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
-//   		jsii.String("s3:*"),
+//   		jsii.String("s3:GetObject*"),
+//   		jsii.String("s3:GetBucket*"),
+//   		jsii.String("s3:List*"),
 //   	},
 //   	Resources: []*string{
 //   		cfnBucket.attrArn,
@@ -331,8 +336,6 @@ type CfnBucket interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

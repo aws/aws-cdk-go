@@ -34,6 +34,8 @@ type LambdaDeploymentGroup interface {
 	ILambdaDeploymentGroup
 	// The reference to the CodeDeploy Lambda Application that this Deployment Group belongs to.
 	Application() ILambdaApplication
+	// The name of the Application.
+	ApplicationName() *string
 	// The Deployment Configuration this Group uses.
 	DeploymentConfig() ILambdaDeploymentConfig
 	// The ARN of the Deployment Group.
@@ -108,8 +110,6 @@ type LambdaDeploymentGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -124,6 +124,16 @@ func (j *jsiiProxy_LambdaDeploymentGroup) Application() ILambdaApplication {
 	_jsii_.Get(
 		j,
 		"application",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaDeploymentGroup) ApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationName",
 		&returns,
 	)
 	return returns

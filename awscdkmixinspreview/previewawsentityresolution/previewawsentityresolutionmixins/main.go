@@ -18,8 +18,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdMappingWorkflowLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -38,8 +38,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdMappingWorkflowPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -89,6 +89,77 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsDestProps",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsFirehoseProps",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsLogGroupProps",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsOutputFormat",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnIdMappingWorkflowWorkflowLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnIdMappingWorkflowWorkflowLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsRecordFields",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ARN": CfnIdMappingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TYPE": CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TYPE,
+			"EVENT_TIMESTAMP": CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TIMESTAMP,
+			"JOB_ID": CfnIdMappingWorkflowWorkflowLogsRecordFields_JOB_ID,
+			"WORKFLOW_NAME": CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_NAME,
+			"WORKFLOW_START_TIME": CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_START_TIME,
+			"WORKFLOW_COMPLETE_TIME": CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_COMPLETE_TIME,
+			"DATA_PROCESSING_PROGRESSION": CfnIdMappingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION,
+			"ERROR_MESSAGE": CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE,
+			"MATCH_RULE": CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_RULE,
+			"MATCH_COUNT": CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_COUNT,
+			"TOTAL_RECORDS_PROCESSED": CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_PROCESSED,
+			"TOTAL_RECORDS_UNPROCESSED": CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED,
+			"INCREMENTAL_RECORDS_PROCESSED": CfnIdMappingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsS3Props",
+		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdNamespaceMixinProps",
 		reflect.TypeOf((*CfnIdNamespaceMixinProps)(nil)).Elem(),
 	)
@@ -103,8 +174,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdNamespacePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -139,8 +210,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnMatchingWorkflowLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -159,8 +230,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnMatchingWorkflowPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -226,6 +297,77 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsDestProps",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsFirehoseProps",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsLogGroupProps",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnMatchingWorkflowWorkflowLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnMatchingWorkflowWorkflowLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsRecordFields",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ARN": CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TYPE": CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TYPE,
+			"EVENT_TIMESTAMP": CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TIMESTAMP,
+			"JOB_ID": CfnMatchingWorkflowWorkflowLogsRecordFields_JOB_ID,
+			"WORKFLOW_NAME": CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_NAME,
+			"WORKFLOW_START_TIME": CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_START_TIME,
+			"WORKFLOW_COMPLETE_TIME": CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_COMPLETE_TIME,
+			"DATA_PROCESSING_PROGRESSION": CfnMatchingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION,
+			"ERROR_MESSAGE": CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE,
+			"MATCH_RULE": CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_RULE,
+			"MATCH_COUNT": CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_COUNT,
+			"TOTAL_RECORDS_PROCESSED": CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_PROCESSED,
+			"TOTAL_RECORDS_UNPROCESSED": CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED,
+			"INCREMENTAL_RECORDS_PROCESSED": CfnMatchingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsS3Props",
+		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnPolicyStatementMixinProps",
 		reflect.TypeOf((*CfnPolicyStatementMixinProps)(nil)).Elem(),
 	)
@@ -240,8 +382,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyStatementPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -260,8 +402,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSchemaMappingPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

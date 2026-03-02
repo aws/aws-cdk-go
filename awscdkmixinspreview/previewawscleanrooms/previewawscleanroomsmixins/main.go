@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAnalysisTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -98,8 +98,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCollaborationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -158,8 +158,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnConfiguredTableAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -202,8 +202,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnConfiguredTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -286,8 +286,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdMappingTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -318,8 +318,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdNamespaceAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -348,6 +348,53 @@ func init() {
 			return &jsiiProxy_CfnMembershipAnalysisLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsFirehoseProps",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsLogGroupProps",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsOutputFormat",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnMembershipAnalysisLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnMembershipAnalysisLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnMembershipAnalysisLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnMembershipAnalysisLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnMembershipAnalysisLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnMembershipAnalysisLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnMembershipAnalysisLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnMembershipAnalysisLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnMembershipAnalysisLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnMembershipAnalysisLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipAnalysisLogsS3Props",
+		reflect.TypeOf((*CfnMembershipAnalysisLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_cleanrooms.mixins.CfnMembershipLogsMixin",
 		reflect.TypeOf((*CfnMembershipLogsMixin)(nil)).Elem(),
@@ -359,8 +406,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnMembershipLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -379,8 +426,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnMembershipPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -451,8 +498,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPrivacyBudgetTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

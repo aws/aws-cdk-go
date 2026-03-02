@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAccessEntryPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -50,8 +50,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAddonPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -78,8 +78,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCapabilityPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -120,6 +120,72 @@ func init() {
 			return &jsiiProxy_CfnClusterAutoModeBlockStorageLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsDestProps",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterAutoModeBlockStorageLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeBlockStorageLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterAutoModeBlockStorageLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterAutoModeBlockStorageLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterAutoModeBlockStorageLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterAutoModeBlockStorageLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeBlockStorageLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterAutoModeBlockStorageLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterAutoModeBlockStorageLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterAutoModeBlockStorageLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsRecordFields",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"LEVEL": CfnClusterAutoModeBlockStorageLogsRecordFields_LEVEL,
+			"STREAM": CfnClusterAutoModeBlockStorageLogsRecordFields_STREAM,
+			"MESSAGE": CfnClusterAutoModeBlockStorageLogsRecordFields_MESSAGE,
+			"ERR": CfnClusterAutoModeBlockStorageLogsRecordFields_ERR,
+			"ERROR": CfnClusterAutoModeBlockStorageLogsRecordFields_ERROR,
+			"ENABLED": CfnClusterAutoModeBlockStorageLogsRecordFields_ENABLED,
+			"FEATURE": CfnClusterAutoModeBlockStorageLogsRecordFields_FEATURE,
+			"RESOURCE_ARN": CfnClusterAutoModeBlockStorageLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnClusterAutoModeBlockStorageLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeBlockStorageLogsS3Props",
+		reflect.TypeOf((*CfnClusterAutoModeBlockStorageLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogs",
 		reflect.TypeOf((*CfnClusterAutoModeComputeLogs)(nil)).Elem(),
@@ -132,6 +198,79 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_CfnClusterAutoModeComputeLogs{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsDestProps",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterAutoModeComputeLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeComputeLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterAutoModeComputeLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterAutoModeComputeLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterAutoModeComputeLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterAutoModeComputeLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeComputeLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterAutoModeComputeLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterAutoModeComputeLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterAutoModeComputeLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsRecordFields",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"LEVEL": CfnClusterAutoModeComputeLogsRecordFields_LEVEL,
+			"STREAM": CfnClusterAutoModeComputeLogsRecordFields_STREAM,
+			"MESSAGE": CfnClusterAutoModeComputeLogsRecordFields_MESSAGE,
+			"ERR": CfnClusterAutoModeComputeLogsRecordFields_ERR,
+			"ERROR": CfnClusterAutoModeComputeLogsRecordFields_ERROR,
+			"CONTROLLER": CfnClusterAutoModeComputeLogsRecordFields_CONTROLLER,
+			"CONTROLLERGROUP": CfnClusterAutoModeComputeLogsRecordFields_CONTROLLERGROUP,
+			"CONTROLLERKIND": CfnClusterAutoModeComputeLogsRecordFields_CONTROLLERKIND,
+			"RECONCILEID": CfnClusterAutoModeComputeLogsRecordFields_RECONCILEID,
+			"WORKER_COUNT": CfnClusterAutoModeComputeLogsRecordFields_WORKER_COUNT,
+			"COUNT": CfnClusterAutoModeComputeLogsRecordFields_COUNT,
+			"INSTANCE_TYPE_COUNT": CfnClusterAutoModeComputeLogsRecordFields_INSTANCE_TYPE_COUNT,
+			"MODE": CfnClusterAutoModeComputeLogsRecordFields_MODE,
+			"OFFERING_COUNT": CfnClusterAutoModeComputeLogsRecordFields_OFFERING_COUNT,
+			"RESOURCE_ARN": CfnClusterAutoModeComputeLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnClusterAutoModeComputeLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeComputeLogsS3Props",
+		reflect.TypeOf((*CfnClusterAutoModeComputeLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogs",
@@ -146,6 +285,75 @@ func init() {
 			return &jsiiProxy_CfnClusterAutoModeIpamLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsDestProps",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterAutoModeIpamLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeIpamLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterAutoModeIpamLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterAutoModeIpamLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterAutoModeIpamLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterAutoModeIpamLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeIpamLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterAutoModeIpamLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterAutoModeIpamLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterAutoModeIpamLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsRecordFields",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"LEVEL": CfnClusterAutoModeIpamLogsRecordFields_LEVEL,
+			"STREAM": CfnClusterAutoModeIpamLogsRecordFields_STREAM,
+			"MESSAGE": CfnClusterAutoModeIpamLogsRecordFields_MESSAGE,
+			"ERR": CfnClusterAutoModeIpamLogsRecordFields_ERR,
+			"ERROR": CfnClusterAutoModeIpamLogsRecordFields_ERROR,
+			"CONTROLLER": CfnClusterAutoModeIpamLogsRecordFields_CONTROLLER,
+			"CONTROLLERGROUP": CfnClusterAutoModeIpamLogsRecordFields_CONTROLLERGROUP,
+			"CONTROLLERKIND": CfnClusterAutoModeIpamLogsRecordFields_CONTROLLERKIND,
+			"RECONCILEID": CfnClusterAutoModeIpamLogsRecordFields_RECONCILEID,
+			"WORKER_COUNT": CfnClusterAutoModeIpamLogsRecordFields_WORKER_COUNT,
+			"RESOURCE_ARN": CfnClusterAutoModeIpamLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnClusterAutoModeIpamLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeIpamLogsS3Props",
+		reflect.TypeOf((*CfnClusterAutoModeIpamLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogs",
 		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogs)(nil)).Elem(),
@@ -159,6 +367,78 @@ func init() {
 			return &jsiiProxy_CfnClusterAutoModeLoadBalancingLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsDestProps",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterAutoModeLoadBalancingLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeLoadBalancingLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterAutoModeLoadBalancingLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterAutoModeLoadBalancingLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterAutoModeLoadBalancingLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterAutoModeLoadBalancingLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterAutoModeLoadBalancingLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterAutoModeLoadBalancingLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterAutoModeLoadBalancingLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterAutoModeLoadBalancingLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsRecordFields",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"LEVEL": CfnClusterAutoModeLoadBalancingLogsRecordFields_LEVEL,
+			"STREAM": CfnClusterAutoModeLoadBalancingLogsRecordFields_STREAM,
+			"MESSAGE": CfnClusterAutoModeLoadBalancingLogsRecordFields_MESSAGE,
+			"ERR": CfnClusterAutoModeLoadBalancingLogsRecordFields_ERR,
+			"ERROR": CfnClusterAutoModeLoadBalancingLogsRecordFields_ERROR,
+			"CONTROLLER": CfnClusterAutoModeLoadBalancingLogsRecordFields_CONTROLLER,
+			"CONTROLLERGROUP": CfnClusterAutoModeLoadBalancingLogsRecordFields_CONTROLLERGROUP,
+			"CONTROLLERKIND": CfnClusterAutoModeLoadBalancingLogsRecordFields_CONTROLLERKIND,
+			"RECONCILEID": CfnClusterAutoModeLoadBalancingLogsRecordFields_RECONCILEID,
+			"WORKER_COUNT": CfnClusterAutoModeLoadBalancingLogsRecordFields_WORKER_COUNT,
+			"ATTEMPT": CfnClusterAutoModeLoadBalancingLogsRecordFields_ATTEMPT,
+			"DELAY": CfnClusterAutoModeLoadBalancingLogsRecordFields_DELAY,
+			"TOTALITEMS": CfnClusterAutoModeLoadBalancingLogsRecordFields_TOTALITEMS,
+			"RESOURCE_ARN": CfnClusterAutoModeLoadBalancingLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnClusterAutoModeLoadBalancingLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterAutoModeLoadBalancingLogsS3Props",
+		reflect.TypeOf((*CfnClusterAutoModeLoadBalancingLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnClusterLogsMixin",
 		reflect.TypeOf((*CfnClusterLogsMixin)(nil)).Elem(),
@@ -170,8 +450,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClusterLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -190,8 +470,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClusterPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -290,8 +570,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnFargateProfilePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -318,8 +598,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdentityProviderConfigPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -346,8 +626,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNodegroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -394,8 +674,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPodIdentityAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

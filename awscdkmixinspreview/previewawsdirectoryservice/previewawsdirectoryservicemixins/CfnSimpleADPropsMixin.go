@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsdirectoryservice/previewawsdirectoryservicemixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -28,6 +28,12 @@ import (
 //   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   	Size: jsii.String("size"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
@@ -41,8 +47,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
 //
 type CfnSimpleADPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnSimpleADMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -53,8 +59,8 @@ type CfnSimpleADPropsMixin interface {
 
 // The jsii proxy struct for CfnSimpleADPropsMixin
 type jsiiProxy_CfnSimpleADPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnSimpleADPropsMixin) Props() *CfnSimpleADMixinProps {
@@ -110,7 +116,6 @@ func NewCfnSimpleADPropsMixin_Override(c CfnSimpleADPropsMixin, props *CfnSimple
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnSimpleADPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

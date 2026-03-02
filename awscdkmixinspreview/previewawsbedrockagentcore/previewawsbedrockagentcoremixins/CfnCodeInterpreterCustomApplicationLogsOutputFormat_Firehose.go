@@ -1,0 +1,15 @@
+package previewawsbedrockagentcoremixins
+
+
+// Experimental.
+type CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_JSON CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_PLAIN CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_RAW CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose = "RAW"
+)
+

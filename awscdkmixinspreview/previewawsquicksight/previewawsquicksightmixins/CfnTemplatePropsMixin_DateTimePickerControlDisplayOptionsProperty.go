@@ -8,13 +8,10 @@ package previewawsquicksightmixins
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var dateIconVisibility interface{}
-//   var helperTextVisibility interface{}
-//
 //   dateTimePickerControlDisplayOptionsProperty := &DateTimePickerControlDisplayOptionsProperty{
-//   	DateIconVisibility: dateIconVisibility,
+//   	DateIconVisibility: jsii.String("dateIconVisibility"),
 //   	DateTimeFormat: jsii.String("dateTimeFormat"),
-//   	HelperTextVisibility: helperTextVisibility,
+//   	HelperTextVisibility: jsii.String("helperTextVisibility"),
 //   	InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   		InfoIconText: jsii.String("infoIconText"),
 //   		Visibility: jsii.String("visibility"),
@@ -44,7 +41,7 @@ type CfnTemplatePropsMixin_DateTimePickerControlDisplayOptionsProperty struct {
 	// The date icon visibility of the `DateTimePickerControlDisplayOptions` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-dateiconvisibility
 	//
-	DateIconVisibility interface{} `field:"optional" json:"dateIconVisibility" yaml:"dateIconVisibility"`
+	DateIconVisibility *string `field:"optional" json:"dateIconVisibility" yaml:"dateIconVisibility"`
 	// Customize how dates are formatted in controls.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-datetimeformat
 	//
@@ -52,7 +49,7 @@ type CfnTemplatePropsMixin_DateTimePickerControlDisplayOptionsProperty struct {
 	// The helper text visibility of the `DateTimePickerControlDisplayOptions` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-helpertextvisibility
 	//
-	HelperTextVisibility interface{} `field:"optional" json:"helperTextVisibility" yaml:"helperTextVisibility"`
+	HelperTextVisibility *string `field:"optional" json:"helperTextVisibility" yaml:"helperTextVisibility"`
 	// The configuration of info icon label options.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html#cfn-quicksight-template-datetimepickercontroldisplayoptions-infoiconlabeloptions
 	//

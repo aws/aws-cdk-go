@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsec2/previewawsec2mixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -27,6 +27,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnVPCPeeringConnectionPropsMixin := awscdkmixinspreview.Mixins.NewCfnVPCPeeringConnectionPropsMixin(&CfnVPCPeeringConnectionMixinProps{
+//   	AssumeRoleRegion: jsii.String("assumeRoleRegion"),
 //   	PeerOwnerId: jsii.String("peerOwnerId"),
 //   	PeerRegion: jsii.String("peerRegion"),
 //   	PeerRoleArn: jsii.String("peerRoleArn"),
@@ -45,8 +46,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
 //
 type CfnVPCPeeringConnectionPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnVPCPeeringConnectionMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -57,8 +58,8 @@ type CfnVPCPeeringConnectionPropsMixin interface {
 
 // The jsii proxy struct for CfnVPCPeeringConnectionPropsMixin
 type jsiiProxy_CfnVPCPeeringConnectionPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnVPCPeeringConnectionPropsMixin) Props() *CfnVPCPeeringConnectionMixinProps {
@@ -114,7 +115,6 @@ func NewCfnVPCPeeringConnectionPropsMixin_Override(c CfnVPCPeeringConnectionProp
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnVPCPeeringConnectionPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsiotwireless/previewawsiotwirelessmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -78,8 +78,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
 //
 type CfnWirelessDevicePropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnWirelessDeviceMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -90,8 +90,8 @@ type CfnWirelessDevicePropsMixin interface {
 
 // The jsii proxy struct for CfnWirelessDevicePropsMixin
 type jsiiProxy_CfnWirelessDevicePropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnWirelessDevicePropsMixin) Props() *CfnWirelessDeviceMixinProps {
@@ -147,7 +147,6 @@ func NewCfnWirelessDevicePropsMixin_Override(c CfnWirelessDevicePropsMixin, prop
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnWirelessDevicePropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

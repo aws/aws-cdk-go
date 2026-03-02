@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnSimpleAD) validateSetSizeParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSimpleAD) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSimpleAD) validateSetVpcSettingsParameters(val interface{}) error {
 	return nil
 }

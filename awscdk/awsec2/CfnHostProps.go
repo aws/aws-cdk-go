@@ -48,9 +48,13 @@ type CfnHostProps struct {
 	// Default: `off`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-autoplacement
 	//
+	// Default: - "on".
+	//
 	AutoPlacement *string `field:"optional" json:"autoPlacement" yaml:"autoPlacement"`
 	// Indicates whether host maintenance is enabled or disabled for the Dedicated Host.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostmaintenance
+	//
+	// Default: - "off".
 	//
 	HostMaintenance *string `field:"optional" json:"hostMaintenance" yaml:"hostMaintenance"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host.
@@ -59,6 +63,8 @@ type CfnHostProps struct {
 	//
 	// Default: `off`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostrecovery
+	//
+	// Default: - "off".
 	//
 	HostRecovery *string `field:"optional" json:"hostRecovery" yaml:"hostRecovery"`
 	// The instance family supported by the Dedicated Host.

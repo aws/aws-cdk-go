@@ -185,6 +185,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEncryptionState", GoGetter: "AttrEncryptionState"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPolicyStoreId", GoGetter: "AttrPolicyStoreId"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -193,6 +194,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deletionProtection", GoGetter: "DeletionProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionSettings", GoGetter: "EncryptionSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -230,6 +232,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore.DeletionProtectionProperty",
 		reflect.TypeOf((*CfnPolicyStore_DeletionProtectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore.EncryptionSettingsProperty",
+		reflect.TypeOf((*CfnPolicyStore_EncryptionSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore.EncryptionStateProperty",
+		reflect.TypeOf((*CfnPolicyStore_EncryptionStateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore.KmsEncryptionSettingsProperty",
+		reflect.TypeOf((*CfnPolicyStore_KmsEncryptionSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore.KmsEncryptionStateProperty",
+		reflect.TypeOf((*CfnPolicyStore_KmsEncryptionStateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStore.SchemaDefinitionProperty",

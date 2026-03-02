@@ -10,9 +10,6 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dateIconVisibility interface{}
-//   var helperTextVisibility interface{}
-//
 //   filterControlProperty := &FilterControlProperty{
 //   	CrossSheet: &FilterCrossSheetControlProperty{
 //   		FilterControlId: jsii.String("filterControlId"),
@@ -39,9 +36,9 @@ package awsquicksight
 //   		// the properties below are optional
 //   		CommitMode: jsii.String("commitMode"),
 //   		DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
-//   			DateIconVisibility: dateIconVisibility,
+//   			DateIconVisibility: jsii.String("dateIconVisibility"),
 //   			DateTimeFormat: jsii.String("dateTimeFormat"),
-//   			HelperTextVisibility: helperTextVisibility,
+//   			HelperTextVisibility: jsii.String("helperTextVisibility"),
 //   			InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   				InfoIconText: jsii.String("infoIconText"),
 //   				Visibility: jsii.String("visibility"),

@@ -252,6 +252,30 @@ func (j *jsiiProxy_CfnPolicyStore) validateSetDeletionProtectionParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnPolicyStore) validateSetEncryptionSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPolicyStore_EncryptionSettingsProperty:
+		val := val.(*CfnPolicyStore_EncryptionSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPolicyStore_EncryptionSettingsProperty:
+		val_ := val.(CfnPolicyStore_EncryptionSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPolicyStore_EncryptionSettingsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPolicyStore) validateSetSchemaParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

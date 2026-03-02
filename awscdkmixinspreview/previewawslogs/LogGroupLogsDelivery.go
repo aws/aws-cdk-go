@@ -18,7 +18,15 @@ import (
 //
 //   var logGroupRef ILogGroupRef
 //
-//   logGroupLogsDelivery := awscdkmixinspreview.Aws_logs.NewLogGroupLogsDelivery(logGroupRef)
+//   logGroupLogsDelivery := awscdkmixinspreview.Aws_logs.NewLogGroupLogsDelivery(logGroupRef, &DeliveryProps{
+//   	MandatoryFields: []*string{
+//   		jsii.String("mandatoryFields"),
+//   	},
+//   	OutputFormat: jsii.String("outputFormat"),
+//   	ProvidedFields: []*string{
+//   		jsii.String("providedFields"),
+//   	},
+//   })
 //
 // Experimental.
 type LogGroupLogsDelivery interface {
@@ -35,17 +43,17 @@ type jsiiProxy_LogGroupLogsDelivery struct {
 
 // Creates a new log group delivery.
 // Experimental.
-func NewLogGroupLogsDelivery(logGroup interfacesawslogs.ILogGroupRef) LogGroupLogsDelivery {
+func NewLogGroupLogsDelivery(logGroup interfacesawslogs.ILogGroupRef, props *DeliveryProps) LogGroupLogsDelivery {
 	_init_.Initialize()
 
-	if err := validateNewLogGroupLogsDeliveryParameters(logGroup); err != nil {
+	if err := validateNewLogGroupLogsDeliveryParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_LogGroupLogsDelivery{}
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.LogGroupLogsDelivery",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&j,
 	)
 
@@ -54,12 +62,12 @@ func NewLogGroupLogsDelivery(logGroup interfacesawslogs.ILogGroupRef) LogGroupLo
 
 // Creates a new log group delivery.
 // Experimental.
-func NewLogGroupLogsDelivery_Override(l LogGroupLogsDelivery, logGroup interfacesawslogs.ILogGroupRef) {
+func NewLogGroupLogsDelivery_Override(l LogGroupLogsDelivery, logGroup interfacesawslogs.ILogGroupRef, props *DeliveryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.LogGroupLogsDelivery",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		l,
 	)
 }

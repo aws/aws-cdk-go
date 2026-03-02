@@ -81,12 +81,56 @@ func NewConnectionType_Override(c ConnectionType, name *string) {
 	)
 }
 
+func ConnectionType_AZURECOSMOS() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"AZURECOSMOS",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_AZURESQL() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"AZURESQL",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_BIGQUERY() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"BIGQUERY",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_CUSTOM() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"CUSTOM",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_DYNAMODB() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"DYNAMODB",
 		&returns,
 	)
 	return returns
@@ -235,6 +279,17 @@ func ConnectionType_MONGODB() ConnectionType {
 	return returns
 }
 
+func ConnectionType_MYSQL() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"MYSQL",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_NETSUITEERP() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
@@ -252,6 +307,39 @@ func ConnectionType_NETWORK() ConnectionType {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"NETWORK",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_OPENSEARCH() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"OPENSEARCH",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_ORACLE() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"ORACLE",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_POSTGRESQL() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"POSTGRESQL",
 		&returns,
 	)
 	return returns
@@ -285,6 +373,17 @@ func ConnectionType_SALESFORCEPARDOT() ConnectionType {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"SALESFORCEPARDOT",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_SAPHANA() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SAPHANA",
 		&returns,
 	)
 	return returns
@@ -334,12 +433,45 @@ func ConnectionType_SNAPCHATADS() ConnectionType {
 	return returns
 }
 
+func ConnectionType_SQLSERVER() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"SQLSERVER",
+		&returns,
+	)
+	return returns
+}
+
 func ConnectionType_STRIPE() ConnectionType {
 	_init_.Initialize()
 	var returns ConnectionType
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.ConnectionType",
 		"STRIPE",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_TERADATA() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"TERADATA",
+		&returns,
+	)
+	return returns
+}
+
+func ConnectionType_VERTICA() ConnectionType {
+	_init_.Initialize()
+	var returns ConnectionType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-glue-alpha.ConnectionType",
+		"VERTICA",
 		&returns,
 	)
 	return returns

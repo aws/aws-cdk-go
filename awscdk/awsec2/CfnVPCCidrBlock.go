@@ -18,7 +18,7 @@ import (
 // For more information, see [VPC CIDR blocks](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html) in the *Amazon VPC User Guide* .
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 //   var vpc Vpc
 //
 //
@@ -45,7 +45,7 @@ import (
 //   }
 //
 //   cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_34(),
+//   	Version: eks.KubernetesVersion_V1_35(),
 //   	Vpc: vpc,
 //   	IpFamily: eks.IpFamily_IP_V6,
 //   	VpcSubnets: []SubnetSelection{
@@ -53,7 +53,7 @@ import (
 //   			Subnets: vpc.*PublicSubnets,
 //   		},
 //   	},
-//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
@@ -281,8 +281,6 @@ type CfnVPCCidrBlock interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

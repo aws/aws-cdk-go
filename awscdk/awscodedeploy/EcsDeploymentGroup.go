@@ -47,6 +47,8 @@ type EcsDeploymentGroup interface {
 	IEcsDeploymentGroup
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
 	Application() IEcsApplication
+	// The name of the Application.
+	ApplicationName() *string
 	// The Deployment Configuration this Group uses.
 	DeploymentConfig() IEcsDeploymentConfig
 	// The ARN of the Deployment Group.
@@ -113,8 +115,6 @@ type EcsDeploymentGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -129,6 +129,16 @@ func (j *jsiiProxy_EcsDeploymentGroup) Application() IEcsApplication {
 	_jsii_.Get(
 		j,
 		"application",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsDeploymentGroup) ApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationName",
 		&returns,
 	)
 	return returns

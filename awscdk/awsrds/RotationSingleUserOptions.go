@@ -18,8 +18,6 @@ import (
 //   	ExcludeCharacters: jsii.String("!@#$%^&*"),
 //   	 // defaults to the set " %+~`#/// here*()|[]{}:;<>?!'/@\"\\"
 //   	SecurityGroup: mySecurityGroup,
-//   	 // defaults to an auto-created security group
-//   	RotateImmediatelyOnUpdate: jsii.Boolean(false),
 //   })
 //
 type RotationSingleUserOptions struct {

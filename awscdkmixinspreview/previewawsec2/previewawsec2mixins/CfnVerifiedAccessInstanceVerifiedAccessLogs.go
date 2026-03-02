@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnVerifiedAccessInstanceLogsMixin to generate VERIFIED_ACCESS_LOGS for CfnVerifiedAccessInstance.
@@ -27,11 +26,11 @@ type CfnVerifiedAccessInstanceVerifiedAccessLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnVerifiedAccessInstanceLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnVerifiedAccessInstanceLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVerifiedAccessInstanceVerifiedAccessLogsFirehoseProps) CfnVerifiedAccessInstanceLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVerifiedAccessInstanceLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnVerifiedAccessInstanceVerifiedAccessLogsLogGroupProps) CfnVerifiedAccessInstanceLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVerifiedAccessInstanceLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnVerifiedAccessInstanceVerifiedAccessLogsS3Props) CfnVerifiedAccessInstanceLogsMixin
 }
 
 // The jsii proxy struct for CfnVerifiedAccessInstanceVerifiedAccessLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToDestination(de
 	return returns
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnVerifiedAccessInstanceLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVerifiedAccessInstanceVerifiedAccessLogsFirehoseProps) CfnVerifiedAccessInstanceLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVerifiedAccessInstanceLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToFirehose(deliv
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVerifiedAccessInstanceLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnVerifiedAccessInstanceVerifiedAccessLogsLogGroupProps) CfnVerifiedAccessInstanceLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVerifiedAccessInstanceLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToLogGroup(logGr
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVerifiedAccessInstanceLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnVerifiedAccessInstanceVerifiedAccessLogsS3Props) CfnVerifiedAccessInstanceLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVerifiedAccessInstanceLogsMixin

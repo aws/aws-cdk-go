@@ -8,3 +8,7 @@ func (x *jsiiProxy_XRayLogsDelivery) validateBindParameters(scope constructs.ICo
 	return nil
 }
 
+func validateNewXRayLogsDeliveryParameters(props *RecordFieldDeliveryProps) error {
+	return nil
+}
+

@@ -8,6 +8,7 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawscloudwatchIAlarmRef = interfacesawscloudwatch.IAlarmRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawscloudwatchIAlarmMuteRuleRef = interfacesawscloudwatch.IAlarmMuteRuleRef
 type Type__interfacesawscloudwatchIAnomalyDetectorRef = interfacesawscloudwatch.IAnomalyDetectorRef
 type Type__interfacesawscloudwatchICompositeAlarmRef = interfacesawscloudwatch.ICompositeAlarmRef
 type Type__interfacesawscloudwatchIDashboardRef = interfacesawscloudwatch.IDashboardRef

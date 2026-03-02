@@ -41,8 +41,8 @@ import (
 //
 //
 //   // Works with L2 constructs
-//   bucket := s3.NewBucket(scope, jsii.String("Bucket"))
-//   bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(bucket)
+//   myBucket := s3.NewBucket(scope, jsii.String("Bucket"))
+//   bucketEvents := awscdkmixinspreview.BucketEvents_FromBucket(myBucket)
 //
 //   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
 //   	EventPattern: bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
@@ -289,8 +289,6 @@ type CfnRule interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

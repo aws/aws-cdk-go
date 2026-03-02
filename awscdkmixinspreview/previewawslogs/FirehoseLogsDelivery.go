@@ -18,7 +18,15 @@ import (
 //
 //   var deliveryStreamRef IDeliveryStreamRef
 //
-//   firehoseLogsDelivery := awscdkmixinspreview.Aws_logs.NewFirehoseLogsDelivery(deliveryStreamRef)
+//   firehoseLogsDelivery := awscdkmixinspreview.Aws_logs.NewFirehoseLogsDelivery(deliveryStreamRef, &DeliveryProps{
+//   	MandatoryFields: []*string{
+//   		jsii.String("mandatoryFields"),
+//   	},
+//   	OutputFormat: jsii.String("outputFormat"),
+//   	ProvidedFields: []*string{
+//   		jsii.String("providedFields"),
+//   	},
+//   })
 //
 // Experimental.
 type FirehoseLogsDelivery interface {
@@ -35,17 +43,17 @@ type jsiiProxy_FirehoseLogsDelivery struct {
 
 // Creates a new Firehose delivery.
 // Experimental.
-func NewFirehoseLogsDelivery(stream interfacesawskinesisfirehose.IDeliveryStreamRef) FirehoseLogsDelivery {
+func NewFirehoseLogsDelivery(stream interfacesawskinesisfirehose.IDeliveryStreamRef, props *DeliveryProps) FirehoseLogsDelivery {
 	_init_.Initialize()
 
-	if err := validateNewFirehoseLogsDeliveryParameters(stream); err != nil {
+	if err := validateNewFirehoseLogsDeliveryParameters(stream, props); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_FirehoseLogsDelivery{}
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.FirehoseLogsDelivery",
-		[]interface{}{stream},
+		[]interface{}{stream, props},
 		&j,
 	)
 
@@ -54,12 +62,12 @@ func NewFirehoseLogsDelivery(stream interfacesawskinesisfirehose.IDeliveryStream
 
 // Creates a new Firehose delivery.
 // Experimental.
-func NewFirehoseLogsDelivery_Override(f FirehoseLogsDelivery, stream interfacesawskinesisfirehose.IDeliveryStreamRef) {
+func NewFirehoseLogsDelivery_Override(f FirehoseLogsDelivery, stream interfacesawskinesisfirehose.IDeliveryStreamRef, props *DeliveryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.FirehoseLogsDelivery",
-		[]interface{}{stream},
+		[]interface{}{stream, props},
 		f,
 	)
 }

@@ -1,6 +1,7 @@
 package internal
 import (
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 )
-type Type__coreIMixin = core.IMixin
-type Type__coreMixin = core.Mixin
+type Type__constructsIMixin = constructs.IMixin
+type Type__awscdkMixin = awscdk.Mixin

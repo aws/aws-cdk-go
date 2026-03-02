@@ -70,13 +70,9 @@ type CfnCapacityProvider interface {
 	awscdk.IInspectable
 	interfacesawslambda.ICapacityProviderRef
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the capacity provider.
-	//
-	// This is a read-only property that is automatically generated when the capacity provider is created.
 	AttrArn() *string
 	// The current state of the capacity provider.
 	AttrState() *string
-	// The name of the capacity provider.
 	CapacityProviderName() *string
 	SetCapacityProviderName(val *string)
 	// A reference to a CapacityProvider resource.
@@ -276,8 +272,6 @@ type CfnCapacityProvider interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

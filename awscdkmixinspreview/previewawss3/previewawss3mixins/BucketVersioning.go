@@ -4,7 +4,6 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawss3/previewawss3mixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -12,14 +11,12 @@ import (
 // S3-specific mixin for enabling versioning.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
-//
-//
-//   bucket := s3.NewCfnBucket(scope, jsii.String("MyBucket")).With(awscdkmixinspreview.NewBucketVersioning()).With(awscdkmixinspreview.NewAutoDeleteObjects())
+//   myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
+//   awscdk.Mixins_Of(myBucket).Apply(awscdkmixinspreview.NewBucketVersioning())
 //
 // Experimental.
 type BucketVersioning interface {
-	core.IMixin
+	constructs.IMixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
 	ApplyTo(construct constructs.IConstruct)
@@ -30,7 +27,7 @@ type BucketVersioning interface {
 
 // The jsii proxy struct for BucketVersioning
 type jsiiProxy_BucketVersioning struct {
-	internal.Type__coreIMixin
+	internal.Type__constructsIMixin
 }
 
 // Experimental.

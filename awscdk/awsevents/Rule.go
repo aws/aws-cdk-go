@@ -14,31 +14,24 @@ import (
 // Defines an EventBridge Rule in this stack.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import redshiftserverless "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var workgroup CfnWorkgroup
 //
 //
-//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
+//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
+//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
 //   })
 //
-//   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
-//   	EventPattern: &EventPattern{
-//   		Source: []*string{
-//   			jsii.String("aws.ec2"),
-//   		},
+//   dlq := sqs.NewQueue(this, jsii.String("DeadLetterQueue"))
+//
+//   rule.AddTarget(targets.NewRedshiftQuery(workgroup.attrWorkgroupWorkgroupArn, &RedshiftQueryProps{
+//   	Database: jsii.String("dev"),
+//   	DeadLetterQueue: dlq,
+//   	Sql: []*string{
+//   		jsii.String("SELECT * FROM foo"),
+//   		jsii.String("SELECT * FROM baz"),
 //   	},
-//   })
-//
-//   queue := sqs.NewQueue(this, jsii.String("Queue"))
-//
-//   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
-//   	DeadLetterQueue: queue,
-//   	 // Optional: add a dead letter queue
-//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
-//   	 // Optional: set the maxEventAge retry policy
-//   	RetryAttempts: jsii.Number(2),
 //   }))
 //
 type Rule interface {
@@ -142,8 +135,6 @@ type Rule interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

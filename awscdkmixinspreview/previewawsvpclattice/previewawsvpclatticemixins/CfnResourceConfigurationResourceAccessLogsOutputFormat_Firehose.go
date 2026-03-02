@@ -1,0 +1,15 @@
+package previewawsvpclatticemixins
+
+
+// Experimental.
+type CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose_JSON CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose_PLAIN CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose_RAW CfnResourceConfigurationResourceAccessLogsOutputFormat_Firehose = "RAW"
+)
+

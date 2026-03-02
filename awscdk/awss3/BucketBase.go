@@ -104,9 +104,10 @@ type BucketBase interface {
 	//   var myLambda Function
 	//
 	//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
-	//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), &NotificationKeyFilter{
+	//   filter := &NotificationKeyFilter{
 	//   	Prefix: jsii.String("home/myusername/*"),
-	//   })
+	//   }
+	//   bucket.AddEventNotification(s3.EventType_OBJECT_CREATED, s3n.NewLambdaDestination(myLambda), filter)
 	//
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
 	//
@@ -330,8 +331,6 @@ type BucketBase interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

@@ -12,6 +12,7 @@ package cloudassemblyschema
 //   	SkipEnumCheck: jsii.Boolean(false),
 //   	SkipVersionCheck: jsii.Boolean(false),
 //   	TopoSort: jsii.Boolean(false),
+//   	ValidateSchema: jsii.Boolean(false),
 //   }
 //
 type LoadManifestOptions struct {
@@ -37,5 +38,12 @@ type LoadManifestOptions struct {
 	// Default: true.
 	//
 	TopoSort *bool `field:"optional" json:"topoSort" yaml:"topoSort"`
+	// Validate the file according to the declared JSON Schema.
+	//
+	// Be aware that JSON Schema validation has a significant performance cost
+	// (about 10x over not validating).
+	// Default: false, unless $TESTING_CDK is set to '1'.
+	//
+	ValidateSchema *bool `field:"optional" json:"validateSchema" yaml:"validateSchema"`
 }
 

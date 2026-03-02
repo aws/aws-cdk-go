@@ -22,9 +22,9 @@ type CfnStateMachineStandardLogs interface {
 	// Supported destinations are CWL
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnStateMachineLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnStateMachineStandardLogsDestProps) CfnStateMachineLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnStateMachineLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnStateMachineStandardLogsLogGroupProps) CfnStateMachineLogsMixin
 }
 
 // The jsii proxy struct for CfnStateMachineStandardLogs
@@ -58,8 +58,8 @@ func NewCfnStateMachineStandardLogs_Override(c CfnStateMachineStandardLogs) {
 	)
 }
 
-func (c *jsiiProxy_CfnStateMachineStandardLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnStateMachineLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnStateMachineStandardLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnStateMachineStandardLogsDestProps) CfnStateMachineLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnStateMachineLogsMixin
@@ -67,15 +67,15 @@ func (c *jsiiProxy_CfnStateMachineStandardLogs) ToDestination(destination interf
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnStateMachineStandardLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnStateMachineLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnStateMachineStandardLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnStateMachineStandardLogsLogGroupProps) CfnStateMachineLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnStateMachineLogsMixin
@@ -83,7 +83,7 @@ func (c *jsiiProxy_CfnStateMachineStandardLogs) ToLogGroup(logGroup interfacesaw
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 

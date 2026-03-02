@@ -14,7 +14,14 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   xRayLogsDelivery := awscdkmixinspreview.Aws_logs.NewXRayLogsDelivery()
+//   xRayLogsDelivery := awscdkmixinspreview.Aws_logs.NewXRayLogsDelivery(&RecordFieldDeliveryProps{
+//   	MandatoryFields: []*string{
+//   		jsii.String("mandatoryFields"),
+//   	},
+//   	ProvidedFields: []*string{
+//   		jsii.String("providedFields"),
+//   	},
+//   })
 //
 // Experimental.
 type XRayLogsDelivery interface {
@@ -31,14 +38,17 @@ type jsiiProxy_XRayLogsDelivery struct {
 
 // Creates a new X-Ray delivery.
 // Experimental.
-func NewXRayLogsDelivery() XRayLogsDelivery {
+func NewXRayLogsDelivery(props *RecordFieldDeliveryProps) XRayLogsDelivery {
 	_init_.Initialize()
 
+	if err := validateNewXRayLogsDeliveryParameters(props); err != nil {
+		panic(err)
+	}
 	j := jsiiProxy_XRayLogsDelivery{}
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.XRayLogsDelivery",
-		nil, // no parameters
+		[]interface{}{props},
 		&j,
 	)
 
@@ -47,12 +57,12 @@ func NewXRayLogsDelivery() XRayLogsDelivery {
 
 // Creates a new X-Ray delivery.
 // Experimental.
-func NewXRayLogsDelivery_Override(x XRayLogsDelivery) {
+func NewXRayLogsDelivery_Override(x XRayLogsDelivery, props *RecordFieldDeliveryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/mixins-preview.aws_logs.XRayLogsDelivery",
-		nil, // no parameters
+		[]interface{}{props},
 		x,
 	)
 }

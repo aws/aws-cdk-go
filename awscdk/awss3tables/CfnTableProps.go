@@ -30,9 +30,43 @@ import (
 //   					Type: jsii.String("type"),
 //
 //   					// the properties below are optional
+//   					Id: jsii.Number(123),
 //   					Required: jsii.Boolean(false),
 //   				},
 //   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		IcebergPartitionSpec: &IcebergPartitionSpecProperty{
+//   			Fields: []interface{}{
+//   				&IcebergPartitionFieldProperty{
+//   					Name: jsii.String("name"),
+//   					SourceId: jsii.Number(123),
+//   					Transform: jsii.String("transform"),
+//
+//   					// the properties below are optional
+//   					FieldId: jsii.Number(123),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			SpecId: jsii.Number(123),
+//   		},
+//   		IcebergSortOrder: &IcebergSortOrderProperty{
+//   			Fields: []interface{}{
+//   				&IcebergSortFieldProperty{
+//   					Direction: jsii.String("direction"),
+//   					NullOrder: jsii.String("nullOrder"),
+//   					SourceId: jsii.Number(123),
+//   					Transform: jsii.String("transform"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			OrderId: jsii.Number(123),
+//   		},
+//   		TableProperties: map[string]*string{
+//   			"tablePropertiesKey": jsii.String("tableProperties"),
 //   		},
 //   	},
 //   	SnapshotManagement: &SnapshotManagementProperty{

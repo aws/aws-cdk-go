@@ -34,6 +34,8 @@ type ServerDeploymentGroup interface {
 	awscdk.Resource
 	IServerDeploymentGroup
 	Application() IServerApplication
+	// The name of the Application.
+	ApplicationName() *string
 	AutoScalingGroups() *[]awsautoscaling.IAutoScalingGroup
 	DeploymentConfig() IServerDeploymentConfig
 	// The ARN of the Deployment Group.
@@ -102,8 +104,6 @@ type ServerDeploymentGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -118,6 +118,16 @@ func (j *jsiiProxy_ServerDeploymentGroup) Application() IServerApplication {
 	_jsii_.Get(
 		j,
 		"application",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ServerDeploymentGroup) ApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationName",
 		&returns,
 	)
 	return returns

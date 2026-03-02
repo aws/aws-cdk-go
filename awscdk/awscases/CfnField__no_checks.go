@@ -88,6 +88,10 @@ func validateCfnField_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnField) validateSetAttributesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnField) validateSetNameParameters(val *string) error {
 	return nil
 }

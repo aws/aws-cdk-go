@@ -29,32 +29,24 @@ package awsevents
 // [Minimum information needed for a valid custom event](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html#eb-custom-event).
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
+//   myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Code: lambda.Code_FromAsset(jsii.String("resource/myfunction")),
 //   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
 //   })
 //
-//   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
-//   	EventPattern: &EventPattern{
-//   		Source: []*string{
-//   			jsii.String("aws.ec2"),
-//   		},
+//   eventRule := cloudtrail.Trail_OnEvent(this, jsii.String("MyCloudWatchEvent"), &OnEventOptions{
+//   	Target: targets.NewLambdaFunction(myFunctionHandler),
+//   })
+//
+//   eventRule.AddEventPattern(&EventPattern{
+//   	Account: []*string{
+//   		jsii.String("123456789012"),
+//   	},
+//   	Source: []*string{
+//   		jsii.String("aws.s3"),
 //   	},
 //   })
-//
-//   queue := sqs.NewQueue(this, jsii.String("Queue"))
-//
-//   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
-//   	DeadLetterQueue: queue,
-//   	 // Optional: add a dead letter queue
-//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
-//   	 // Optional: set the maxEventAge retry policy
-//   	RetryAttempts: jsii.Number(2),
-//   }))
 //
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html
 //

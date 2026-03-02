@@ -8,7 +8,7 @@ func (d *jsiiProxy_DestinationLogsDelivery) validateBindParameters(scope constru
 	return nil
 }
 
-func validateNewDestinationLogsDeliveryParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func validateNewDestinationLogsDeliveryParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *RecordFieldDeliveryProps) error {
 	return nil
 }
 

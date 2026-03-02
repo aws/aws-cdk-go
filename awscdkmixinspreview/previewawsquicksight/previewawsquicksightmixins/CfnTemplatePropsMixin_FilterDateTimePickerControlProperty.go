@@ -8,15 +8,12 @@ package previewawsquicksightmixins
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var dateIconVisibility interface{}
-//   var helperTextVisibility interface{}
-//
 //   filterDateTimePickerControlProperty := &FilterDateTimePickerControlProperty{
 //   	CommitMode: jsii.String("commitMode"),
 //   	DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
-//   		DateIconVisibility: dateIconVisibility,
+//   		DateIconVisibility: jsii.String("dateIconVisibility"),
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
-//   		HelperTextVisibility: helperTextVisibility,
+//   		HelperTextVisibility: jsii.String("helperTextVisibility"),
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   			InfoIconText: jsii.String("infoIconText"),
 //   			Visibility: jsii.String("visibility"),

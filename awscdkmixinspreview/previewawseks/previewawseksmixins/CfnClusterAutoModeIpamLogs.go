@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnClusterLogsMixin to generate AUTO_MODE_IPAM_LOGS for CfnCluster.
@@ -25,13 +24,13 @@ type CfnClusterAutoModeIpamLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnClusterLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnClusterAutoModeIpamLogsDestProps) CfnClusterLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnClusterLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnClusterAutoModeIpamLogsFirehoseProps) CfnClusterLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnClusterLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnClusterAutoModeIpamLogsLogGroupProps) CfnClusterLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnClusterLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnClusterAutoModeIpamLogsS3Props) CfnClusterLogsMixin
 }
 
 // The jsii proxy struct for CfnClusterAutoModeIpamLogs
@@ -65,8 +64,8 @@ func NewCfnClusterAutoModeIpamLogs_Override(c CfnClusterAutoModeIpamLogs) {
 	)
 }
 
-func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnClusterLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnClusterAutoModeIpamLogsDestProps) CfnClusterLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnClusterLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToDestination(destination interfa
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnClusterLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnClusterAutoModeIpamLogsFirehoseProps) CfnClusterLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnClusterLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToFirehose(deliveryStream interfa
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnClusterLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnClusterAutoModeIpamLogsLogGroupProps) CfnClusterLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnClusterLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToLogGroup(logGroup interfacesaws
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnClusterLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnClusterAutoModeIpamLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnClusterAutoModeIpamLogsS3Props) CfnClusterLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnClusterLogsMixin

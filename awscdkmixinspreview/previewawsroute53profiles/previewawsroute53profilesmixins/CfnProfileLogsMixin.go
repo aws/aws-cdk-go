@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsroute53profiles/previewawsroute53profilesmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -25,8 +25,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html
 //
 type CfnProfileLogsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	LogDelivery() previewawslogs.ILogsDelivery
 	LogType() *string
 	// Apply vended logs configuration to the construct.
@@ -37,8 +37,8 @@ type CfnProfileLogsMixin interface {
 
 // The jsii proxy struct for CfnProfileLogsMixin
 type jsiiProxy_CfnProfileLogsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnProfileLogsMixin) LogDelivery() previewawslogs.ILogsDelivery {
@@ -94,7 +94,6 @@ func NewCfnProfileLogsMixin_Override(c CfnProfileLogsMixin, logType *string, log
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnProfileLogsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

@@ -12,6 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnFieldMixinProps := &CfnFieldMixinProps{
+//   	Attributes: &FieldAttributesProperty{
+//   		Text: &TextAttributesProperty{
+//   			IsMultiline: jsii.Boolean(false),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DomainId: jsii.String("domainId"),
 //   	Name: jsii.String("name"),
@@ -27,6 +32,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cases-field.html
 //
 type CfnFieldMixinProps struct {
+	// Union of field attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cases-field.html#cfn-cases-field-attributes
+	//
+	Attributes interface{} `field:"optional" json:"attributes" yaml:"attributes"`
 	// Description of the field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cases-field.html#cfn-cases-field-description
 	//

@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnCodeInterpreterCustomLogsMixin to generate APPLICATION_LOGS for CfnCodeInterpreterCustom.
@@ -25,13 +24,13 @@ type CfnCodeInterpreterCustomApplicationLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnCodeInterpreterCustomLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnCodeInterpreterCustomApplicationLogsDestProps) CfnCodeInterpreterCustomLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnCodeInterpreterCustomLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnCodeInterpreterCustomApplicationLogsFirehoseProps) CfnCodeInterpreterCustomLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnCodeInterpreterCustomLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnCodeInterpreterCustomApplicationLogsLogGroupProps) CfnCodeInterpreterCustomLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnCodeInterpreterCustomLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnCodeInterpreterCustomApplicationLogsS3Props) CfnCodeInterpreterCustomLogsMixin
 }
 
 // The jsii proxy struct for CfnCodeInterpreterCustomApplicationLogs
@@ -65,8 +64,8 @@ func NewCfnCodeInterpreterCustomApplicationLogs_Override(c CfnCodeInterpreterCus
 	)
 }
 
-func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnCodeInterpreterCustomLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnCodeInterpreterCustomApplicationLogsDestProps) CfnCodeInterpreterCustomLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnCodeInterpreterCustomLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToDestination(destin
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnCodeInterpreterCustomLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnCodeInterpreterCustomApplicationLogsFirehoseProps) CfnCodeInterpreterCustomLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnCodeInterpreterCustomLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToFirehose(deliveryS
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnCodeInterpreterCustomLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnCodeInterpreterCustomApplicationLogsLogGroupProps) CfnCodeInterpreterCustomLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnCodeInterpreterCustomLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToLogGroup(logGroup 
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnCodeInterpreterCustomLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnCodeInterpreterCustomApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnCodeInterpreterCustomApplicationLogsS3Props) CfnCodeInterpreterCustomLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnCodeInterpreterCustomLogsMixin

@@ -8,15 +8,15 @@ func (c *jsiiProxy_CfnWebACLAccessLogs) validateToDestinationParameters(destinat
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAccessLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnWebACLAccessLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnWebACLAccessLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAccessLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnWebACLAccessLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnWebACLAccessLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWebACLAccessLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnWebACLAccessLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnWebACLAccessLogsS3Props) error {
 	return nil
 }
 

@@ -1,5 +1,8 @@
 package awsdirectoryservice
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnSimpleAD`.
 //
@@ -24,6 +27,12 @@ package awsdirectoryservice
 //   	EnableSso: jsii.Boolean(false),
 //   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
@@ -73,5 +82,8 @@ type CfnSimpleADProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-shortname
 	//
 	ShortName *string `field:"optional" json:"shortName" yaml:"shortName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

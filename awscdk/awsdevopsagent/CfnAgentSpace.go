@@ -23,6 +23,24 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	OperatorApp: &OperatorAppProperty{
+//   		Iam: &IamAuthConfigurationProperty{
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//
+//   			// the properties below are optional
+//   			CreatedAt: jsii.String("createdAt"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   		Idc: &IdcAuthConfigurationProperty{
+//   			IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//
+//   			// the properties below are optional
+//   			CreatedAt: jsii.String("createdAt"),
+//   			IdcApplicationArn: jsii.String("idcApplicationArn"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
@@ -39,6 +57,11 @@ type CfnAgentSpace interface {
 	AttrArn() *string
 	// The timestamp when the resource was created.
 	AttrCreatedAt() *string
+	AttrOperatorAppIamCreatedAt() *string
+	AttrOperatorAppIamUpdatedAt() *string
+	AttrOperatorAppIdcCreatedAt() *string
+	AttrOperatorAppIdcIdcApplicationArn() *string
+	AttrOperatorAppIdcUpdatedAt() *string
 	// The timestamp when the resource was last updated.
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -69,6 +92,8 @@ type CfnAgentSpace interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	OperatorApp() interface{}
+	SetOperatorApp(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -222,8 +247,6 @@ type CfnAgentSpace interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -269,6 +292,56 @@ func (j *jsiiProxy_CfnAgentSpace) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIamCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIamCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIamUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIamUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdcCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIdcCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdcIdcApplicationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIdcIdcApplicationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdcUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIdcUpdatedAt",
 		&returns,
 	)
 	return returns
@@ -374,6 +447,16 @@ func (j *jsiiProxy_CfnAgentSpace) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgentSpace) OperatorApp() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"operatorApp",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgentSpace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -459,6 +542,17 @@ func (j *jsiiProxy_CfnAgentSpace)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgentSpace)SetOperatorApp(val interface{}) {
+	if err := j.validateSetOperatorAppParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"operatorApp",
 		val,
 	)
 }

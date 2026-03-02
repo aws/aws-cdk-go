@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAgentStatusPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -42,14 +42,34 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnApprovedOriginPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowMixinProps",
 		reflect.TypeOf((*CfnContactFlowMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModuleAliasMixinProps",
+		reflect.TypeOf((*CfnContactFlowModuleAliasMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModuleAliasPropsMixin",
+		reflect.TypeOf((*CfnContactFlowModuleAliasPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContactFlowModuleAliasPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModuleMixinProps",
@@ -66,14 +86,34 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnContactFlowModulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModulePropsMixin.ExternalInvocationConfigurationProperty",
 		reflect.TypeOf((*CfnContactFlowModulePropsMixin_ExternalInvocationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModuleVersionMixinProps",
+		reflect.TypeOf((*CfnContactFlowModuleVersionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowModuleVersionPropsMixin",
+		reflect.TypeOf((*CfnContactFlowModuleVersionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContactFlowModuleVersionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnContactFlowPropsMixin",
@@ -86,8 +126,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnContactFlowPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -106,8 +146,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnContactFlowVersionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -126,8 +166,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDataTableAttributePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -158,8 +198,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDataTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -182,8 +222,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDataTableRecordPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -210,8 +250,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEmailAddressPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -234,8 +274,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEvaluationFormPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -398,8 +438,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnHoursOfOperationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -448,6 +488,81 @@ func init() {
 			return &jsiiProxy_CfnInstanceAmazonConnectFlowLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsDestProps",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsFirehoseProps",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsLogGroupProps",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsOutputFormat",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnInstanceAmazonConnectFlowLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnInstanceAmazonConnectFlowLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnInstanceAmazonConnectFlowLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnInstanceAmazonConnectFlowLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnInstanceAmazonConnectFlowLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnInstanceAmazonConnectFlowLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnInstanceAmazonConnectFlowLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnInstanceAmazonConnectFlowLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnInstanceAmazonConnectFlowLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnInstanceAmazonConnectFlowLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsRecordFields",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"INSTANCEARN": CfnInstanceAmazonConnectFlowLogsRecordFields_INSTANCEARN,
+			"TIMESTAMP": CfnInstanceAmazonConnectFlowLogsRecordFields_TIMESTAMP,
+			"ACCOUNTID": CfnInstanceAmazonConnectFlowLogsRecordFields_ACCOUNTID,
+			"RESOURCEARN": CfnInstanceAmazonConnectFlowLogsRecordFields_RESOURCEARN,
+			"RESOURCETYPE": CfnInstanceAmazonConnectFlowLogsRecordFields_RESOURCETYPE,
+			"RESOURCENAME": CfnInstanceAmazonConnectFlowLogsRecordFields_RESOURCENAME,
+			"RESOURCEEXECUTIONSTARTTIME": CfnInstanceAmazonConnectFlowLogsRecordFields_RESOURCEEXECUTIONSTARTTIME,
+			"RESOURCEPUBLISHTIMESTAMP": CfnInstanceAmazonConnectFlowLogsRecordFields_RESOURCEPUBLISHTIMESTAMP,
+			"FLOWTYPE": CfnInstanceAmazonConnectFlowLogsRecordFields_FLOWTYPE,
+			"CONTACTID": CfnInstanceAmazonConnectFlowLogsRecordFields_CONTACTID,
+			"INITIATIONMETHOD": CfnInstanceAmazonConnectFlowLogsRecordFields_INITIATIONMETHOD,
+			"CHANNEL": CfnInstanceAmazonConnectFlowLogsRecordFields_CHANNEL,
+			"SUBTYPE": CfnInstanceAmazonConnectFlowLogsRecordFields_SUBTYPE,
+			"LOGVERSION": CfnInstanceAmazonConnectFlowLogsRecordFields_LOGVERSION,
+			"LOGTYPE": CfnInstanceAmazonConnectFlowLogsRecordFields_LOGTYPE,
+			"ACTIONLOGDATA": CfnInstanceAmazonConnectFlowLogsRecordFields_ACTIONLOGDATA,
+			"MODULECALLSTACK": CfnInstanceAmazonConnectFlowLogsRecordFields_MODULECALLSTACK,
+			"ACTIONCOUNTER": CfnInstanceAmazonConnectFlowLogsRecordFields_ACTIONCOUNTER,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceAmazonConnectFlowLogsS3Props",
+		reflect.TypeOf((*CfnInstanceAmazonConnectFlowLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnInstanceLogsMixin",
 		reflect.TypeOf((*CfnInstanceLogsMixin)(nil)).Elem(),
@@ -459,8 +574,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInstanceLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -479,8 +594,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInstancePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -503,8 +618,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInstanceStorageConfigPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -543,10 +658,34 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIntegrationAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnNotificationMixinProps",
+		reflect.TypeOf((*CfnNotificationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnNotificationPropsMixin",
+		reflect.TypeOf((*CfnNotificationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnNotificationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnNotificationPropsMixin.NotificationContentProperty",
+		reflect.TypeOf((*CfnNotificationPropsMixin_NotificationContentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnPhoneNumberMixinProps",
@@ -563,8 +702,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPhoneNumberPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -583,8 +722,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPredefinedAttributePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -611,8 +750,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPromptPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -631,8 +770,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnQueuePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -659,8 +798,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnQuickConnectPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -695,8 +834,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRoutingProfilePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -735,8 +874,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -803,8 +942,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityKeyPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -823,8 +962,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityProfilePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -863,8 +1002,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTaskTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -911,8 +1050,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrafficDistributionGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -931,8 +1070,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnUserHierarchyGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -951,8 +1090,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnUserHierarchyStructurePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -995,8 +1134,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnUserPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1051,8 +1190,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnViewPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1071,8 +1210,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnViewVersionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1091,8 +1230,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnWorkspacePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

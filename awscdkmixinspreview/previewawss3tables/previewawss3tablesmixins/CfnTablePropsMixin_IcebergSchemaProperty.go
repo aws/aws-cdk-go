@@ -11,6 +11,7 @@ package previewawss3tablesmixins
 //   icebergSchemaProperty := &IcebergSchemaProperty{
 //   	SchemaFieldList: []interface{}{
 //   		&SchemaFieldProperty{
+//   			Id: jsii.Number(123),
 //   			Name: jsii.String("name"),
 //   			Required: jsii.Boolean(false),
 //   			Type: jsii.String("type"),

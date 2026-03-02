@@ -4,11 +4,8 @@ package mixins
 // Strategy for handling nested properties in L1 property mixins.
 //
 // Example:
-//   var bucket CfnBucket
-//
-//
 //   // MERGE (default): Deep merges properties with existing values
-//   awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
+//   awscdk.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 //   	VersioningConfiguration: &VersioningConfigurationProperty{
 //   		Status: jsii.String("Enabled"),
 //   	},
@@ -17,7 +14,7 @@ package mixins
 //   }))
 //
 //   // OVERRIDE: Replaces existing property values
-//   awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
+//   awscdk.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 //   	VersioningConfiguration: &VersioningConfigurationProperty{
 //   		Status: jsii.String("Enabled"),
 //   	},

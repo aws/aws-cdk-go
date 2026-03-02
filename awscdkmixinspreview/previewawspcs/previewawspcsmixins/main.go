@@ -18,8 +18,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClusterLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -40,6 +40,69 @@ func init() {
 			return &jsiiProxy_CfnClusterPcsJobcompLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsDestProps",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterPcsJobcompLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterPcsJobcompLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterPcsJobcompLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterPcsJobcompLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterPcsJobcompLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterPcsJobcompLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterPcsJobcompLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterPcsJobcompLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterPcsJobcompLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterPcsJobcompLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsRecordFields",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ID": CfnClusterPcsJobcompLogsRecordFields_RESOURCE_ID,
+			"RESOURCE_TYPE": CfnClusterPcsJobcompLogsRecordFields_RESOURCE_TYPE,
+			"EVENT_TIMESTAMP": CfnClusterPcsJobcompLogsRecordFields_EVENT_TIMESTAMP,
+			"SCHEDULER_TYPE": CfnClusterPcsJobcompLogsRecordFields_SCHEDULER_TYPE,
+			"SCHEDULER_MAJOR_VERSION": CfnClusterPcsJobcompLogsRecordFields_SCHEDULER_MAJOR_VERSION,
+			"FIELDS": CfnClusterPcsJobcompLogsRecordFields_FIELDS,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsS3Props",
+		reflect.TypeOf((*CfnClusterPcsJobcompLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogs",
 		reflect.TypeOf((*CfnClusterPcsSchedulerLogs)(nil)).Elem(),
@@ -53,6 +116,73 @@ func init() {
 			return &jsiiProxy_CfnClusterPcsSchedulerLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsDestProps",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterPcsSchedulerLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterPcsSchedulerLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterPcsSchedulerLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterPcsSchedulerLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterPcsSchedulerLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsRecordFields",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ID": CfnClusterPcsSchedulerLogsRecordFields_RESOURCE_ID,
+			"RESOURCE_TYPE": CfnClusterPcsSchedulerLogsRecordFields_RESOURCE_TYPE,
+			"EVENT_TIMESTAMP": CfnClusterPcsSchedulerLogsRecordFields_EVENT_TIMESTAMP,
+			"LOG_LEVEL": CfnClusterPcsSchedulerLogsRecordFields_LOG_LEVEL,
+			"LOG_NAME": CfnClusterPcsSchedulerLogsRecordFields_LOG_NAME,
+			"SCHEDULER_TYPE": CfnClusterPcsSchedulerLogsRecordFields_SCHEDULER_TYPE,
+			"SCHEDULER_MAJOR_VERSION": CfnClusterPcsSchedulerLogsRecordFields_SCHEDULER_MAJOR_VERSION,
+			"SCHEDULER_PATCH_VERSION": CfnClusterPcsSchedulerLogsRecordFields_SCHEDULER_PATCH_VERSION,
+			"NODE_TYPE": CfnClusterPcsSchedulerLogsRecordFields_NODE_TYPE,
+			"MESSAGE": CfnClusterPcsSchedulerLogsRecordFields_MESSAGE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsS3Props",
+		reflect.TypeOf((*CfnClusterPcsSchedulerLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPropsMixin",
 		reflect.TypeOf((*CfnClusterPropsMixin)(nil)).Elem(),
@@ -64,8 +194,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClusterPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -128,8 +258,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnComputeNodeGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -176,8 +306,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnQueuePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

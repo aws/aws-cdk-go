@@ -25,6 +25,11 @@ import (
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
+//   	Attributes: &FieldAttributesProperty{
+//   		Text: &TextAttributesProperty{
+//   			IsMultiline: jsii.Boolean(false),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DomainId: jsii.String("domainId"),
 //   	Tags: []CfnTag{
@@ -48,6 +53,9 @@ type CfnField interface {
 	AttrFieldArn() *string
 	// Unique identifier of the field.
 	AttrFieldId() *string
+	// Union of field attributes.
+	Attributes() interface{}
+	SetAttributes(val interface{})
 	// Timestamp at which the resource was created or last modified.
 	AttrLastModifiedTime() *string
 	// Namespace of the field.
@@ -246,8 +254,6 @@ type CfnField interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -284,6 +290,16 @@ func (j *jsiiProxy_CfnField) AttrFieldId() *string {
 	_jsii_.Get(
 		j,
 		"attrFieldId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnField) Attributes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"attributes",
 		&returns,
 	)
 	return returns
@@ -516,6 +532,17 @@ func NewCfnField_Override(c CfnField, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_cases.CfnField",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnField)SetAttributes(val interface{}) {
+	if err := j.validateSetAttributesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"attributes",
+		val,
 	)
 }
 

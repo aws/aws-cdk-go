@@ -17,7 +17,7 @@ import (
 //   // or create a new one using an existing issuer url
 //   var issuerUrl string
 //
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 //
 //   // you can import an existing provider
 //   provider := eks.OidcProviderNative_FromOidcProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
@@ -29,7 +29,7 @@ import (
 //   	ClusterName: jsii.String("Cluster"),
 //   	OpenIdConnectProvider: provider,
 //   	KubectlProviderOptions: &KubectlProviderOptions{
-//   		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 //   	},
 //   })
 //

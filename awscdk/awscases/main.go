@@ -169,6 +169,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedTime", GoGetter: "AttrCreatedTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFieldArn", GoGetter: "AttrFieldArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFieldId", GoGetter: "AttrFieldId"},
+			_jsii_.MemberProperty{JsiiProperty: "attributes", GoGetter: "Attributes"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedTime", GoGetter: "AttrLastModifiedTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNamespace", GoGetter: "AttrNamespace"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -211,6 +212,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cases.CfnField.FieldAttributesProperty",
+		reflect.TypeOf((*CfnField_FieldAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cases.CfnField.TextAttributesProperty",
+		reflect.TypeOf((*CfnField_TextAttributesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cases.CfnFieldProps",

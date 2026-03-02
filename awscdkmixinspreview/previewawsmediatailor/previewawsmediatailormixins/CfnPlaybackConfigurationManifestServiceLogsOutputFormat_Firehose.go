@@ -1,0 +1,15 @@
+package previewawsmediatailormixins
+
+
+// Experimental.
+type CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_JSON CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_PLAIN CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_RAW CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose = "RAW"
+)
+

@@ -8,15 +8,15 @@ func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToDestinationParameters(d
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnApplicationBatchJobLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnApplicationBatchJobLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnApplicationBatchJobLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnApplicationBatchJobLogsS3Props) error {
 	return nil
 }
 

@@ -433,6 +433,8 @@ type CfnModelPackage interface {
 	SetApprovalDescription(val *string)
 	// The time that the model package was created.
 	AttrCreationTime() *string
+	// The time at which the model package was last modified.
+	AttrLastModifiedTime() *string
 	// The Amazon Resource Name (ARN) of the model package.
 	AttrModelPackageArn() *string
 	// The status of the model package. This can be one of the following values.
@@ -698,8 +700,6 @@ type CfnModelPackage interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -746,6 +746,16 @@ func (j *jsiiProxy_CfnModelPackage) AttrCreationTime() *string {
 	_jsii_.Get(
 		j,
 		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModelPackage) AttrLastModifiedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastModifiedTime",
 		&returns,
 	)
 	return returns

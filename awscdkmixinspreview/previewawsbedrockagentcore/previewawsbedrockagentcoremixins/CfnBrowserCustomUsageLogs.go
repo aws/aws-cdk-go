@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnBrowserCustomLogsMixin to generate USAGE_LOGS for CfnBrowserCustom.
@@ -25,13 +24,13 @@ type CfnBrowserCustomUsageLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnBrowserCustomLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnBrowserCustomUsageLogsDestProps) CfnBrowserCustomLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnBrowserCustomLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnBrowserCustomUsageLogsFirehoseProps) CfnBrowserCustomLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnBrowserCustomLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnBrowserCustomUsageLogsLogGroupProps) CfnBrowserCustomLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnBrowserCustomLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnBrowserCustomUsageLogsS3Props) CfnBrowserCustomLogsMixin
 }
 
 // The jsii proxy struct for CfnBrowserCustomUsageLogs
@@ -65,8 +64,8 @@ func NewCfnBrowserCustomUsageLogs_Override(c CfnBrowserCustomUsageLogs) {
 	)
 }
 
-func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnBrowserCustomLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnBrowserCustomUsageLogsDestProps) CfnBrowserCustomLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnBrowserCustomLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToDestination(destination interfac
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnBrowserCustomLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnBrowserCustomUsageLogsFirehoseProps) CfnBrowserCustomLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnBrowserCustomLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToFirehose(deliveryStream interfac
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnBrowserCustomLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnBrowserCustomUsageLogsLogGroupProps) CfnBrowserCustomLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnBrowserCustomLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToLogGroup(logGroup interfacesawsl
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnBrowserCustomLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnBrowserCustomUsageLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnBrowserCustomUsageLogsS3Props) CfnBrowserCustomLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnBrowserCustomLogsMixin

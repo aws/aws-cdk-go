@@ -25,3 +25,4 @@ type Type__interfacesawscloudformationIWaitConditionRef = interfacesawscloudform
 type Type__interfacesawscloudformationIWaitConditionHandleRef = interfacesawscloudformation.IWaitConditionHandleRef
 type Type__constructsIConstruct = constructs.IConstruct
 type Type__interfacesIEnvironmentAware = interfaces.IEnvironmentAware
+type Type__constructsIMixin = constructs.IMixin

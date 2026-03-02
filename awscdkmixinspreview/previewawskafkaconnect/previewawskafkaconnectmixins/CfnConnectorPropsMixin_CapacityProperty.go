@@ -10,6 +10,7 @@ package previewawskafkaconnectmixins
 //
 //   capacityProperty := &CapacityProperty{
 //   	AutoScaling: &AutoScalingProperty{
+//   		MaxAutoscalingTaskCount: jsii.Number(123),
 //   		MaxWorkerCount: jsii.Number(123),
 //   		McuCount: jsii.Number(123),
 //   		MinWorkerCount: jsii.Number(123),

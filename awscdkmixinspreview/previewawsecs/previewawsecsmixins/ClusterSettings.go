@@ -4,8 +4,8 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsecs/previewawsecsmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -20,7 +20,7 @@ import (
 //
 //
 //   cluster := ecs.NewCfnCluster(scope, jsii.String("Cluster"))
-//   awscdkmixinspreview.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
+//   awscdk.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
 //   	&ClusterSettingsProperty{
 //   		Name: jsii.String("containerInsights"),
 //   		Value: jsii.String("enhanced"),
@@ -29,7 +29,7 @@ import (
 //
 // Experimental.
 type ClusterSettings interface {
-	core.Mixin
+	awscdk.Mixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
 	ApplyTo(construct constructs.IConstruct)
@@ -40,7 +40,7 @@ type ClusterSettings interface {
 
 // The jsii proxy struct for ClusterSettings
 type jsiiProxy_ClusterSettings struct {
-	internal.Type__coreMixin
+	internal.Type__awscdkMixin
 }
 
 // Experimental.

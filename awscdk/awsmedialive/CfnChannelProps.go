@@ -25,6 +25,9 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelengineversion
 	//
 	ChannelEngineVersion interface{} `field:"optional" json:"channelEngineVersion" yaml:"channelEngineVersion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelsecuritygroups
+	//
+	ChannelSecurityGroups *[]*string `field:"optional" json:"channelSecurityGroups" yaml:"channelSecurityGroups"`
 	// The settings that identify the destination for the outputs in this MediaLive output package.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations
 	//

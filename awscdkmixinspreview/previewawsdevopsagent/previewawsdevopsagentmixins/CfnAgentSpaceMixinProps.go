@@ -11,6 +11,20 @@ package previewawsdevopsagentmixins
 //   cfnAgentSpaceMixinProps := &CfnAgentSpaceMixinProps{
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
+//   	OperatorApp: &OperatorAppProperty{
+//   		Iam: &IamAuthConfigurationProperty{
+//   			CreatedAt: jsii.String("createdAt"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   		Idc: &IdcAuthConfigurationProperty{
+//   			CreatedAt: jsii.String("createdAt"),
+//   			IdcApplicationArn: jsii.String("idcApplicationArn"),
+//   			IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
@@ -24,5 +38,8 @@ type CfnAgentSpaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-operatorapp
+	//
+	OperatorApp interface{} `field:"optional" json:"operatorApp" yaml:"operatorApp"`
 }
 

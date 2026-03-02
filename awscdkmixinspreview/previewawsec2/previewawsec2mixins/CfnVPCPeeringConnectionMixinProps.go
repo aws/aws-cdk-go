@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnVPCPeeringConnectionMixinProps := &CfnVPCPeeringConnectionMixinProps{
+//   	AssumeRoleRegion: jsii.String("assumeRoleRegion"),
 //   	PeerOwnerId: jsii.String("peerOwnerId"),
 //   	PeerRegion: jsii.String("peerRegion"),
 //   	PeerRoleArn: jsii.String("peerRoleArn"),
@@ -28,6 +29,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
 //
 type CfnVPCPeeringConnectionMixinProps struct {
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-assumeroleregion
+	//
+	AssumeRoleRegion *string `field:"optional" json:"assumeRoleRegion" yaml:"assumeRoleRegion"`
 	// The AWS account ID of the owner of the accepter VPC.
 	//
 	// Default: Your AWS account ID.

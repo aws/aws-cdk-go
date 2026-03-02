@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCapacityProviderPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -42,6 +42,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnCapacityProviderPropsMixin.BaselineEbsBandwidthMbpsRequestProperty",
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnCapacityProviderPropsMixin.CapacityReservationRequestProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityReservationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ecs.mixins.CfnCapacityProviderPropsMixin.InfrastructureOptimizationProperty",
@@ -110,8 +114,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClusterCapacityProviderAssociationsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -134,8 +138,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClusterPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -182,8 +186,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnExpressGatewayServicePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -254,8 +258,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPrimaryTaskSetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -274,8 +278,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnServicePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -422,8 +426,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTaskDefinitionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -574,8 +578,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTaskSetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -612,7 +616,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ClusterSettings{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			return &j
 		},
 	)

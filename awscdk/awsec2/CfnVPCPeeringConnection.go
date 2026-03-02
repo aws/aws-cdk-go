@@ -31,6 +31,7 @@ import (
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	AssumeRoleRegion: jsii.String("assumeRoleRegion"),
 //   	PeerOwnerId: jsii.String("peerOwnerId"),
 //   	PeerRegion: jsii.String("peerRegion"),
 //   	PeerRoleArn: jsii.String("peerRoleArn"),
@@ -49,6 +50,9 @@ type CfnVPCPeeringConnection interface {
 	awscdk.IInspectable
 	interfacesawsec2.IVPCPeeringConnectionRef
 	awscdk.ITaggable
+	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	AssumeRoleRegion() *string
+	SetAssumeRoleRegion(val *string)
 	// The ID of the peering connection.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -248,8 +252,6 @@ type CfnVPCPeeringConnection interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -259,6 +261,16 @@ type jsiiProxy_CfnVPCPeeringConnection struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsec2IVPCPeeringConnectionRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnVPCPeeringConnection) AssumeRoleRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assumeRoleRegion",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnVPCPeeringConnection) AttrId() *string {
@@ -488,6 +500,14 @@ func NewCfnVPCPeeringConnection_Override(c CfnVPCPeeringConnection, scope constr
 		"aws-cdk-lib.aws_ec2.CfnVPCPeeringConnection",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCPeeringConnection)SetAssumeRoleRegion(val *string) {
+	_jsii_.Set(
+		j,
+		"assumeRoleRegion",
+		val,
 	)
 }
 

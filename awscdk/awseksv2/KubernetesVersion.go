@@ -174,3 +174,14 @@ func KubernetesVersion_V1_34() KubernetesVersion {
 	return returns
 }
 
+func KubernetesVersion_V1_35() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks_v2.KubernetesVersion",
+		"V1_35",
+		&returns,
+	)
+	return returns
+}
+

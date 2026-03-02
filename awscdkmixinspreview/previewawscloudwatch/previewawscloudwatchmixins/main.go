@@ -11,6 +11,38 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmMixinProps",
 		reflect.TypeOf((*CfnAlarmMixinProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmMuteRuleMixinProps",
+		reflect.TypeOf((*CfnAlarmMuteRuleMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmMuteRulePropsMixin",
+		reflect.TypeOf((*CfnAlarmMuteRulePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAlarmMuteRulePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmMuteRulePropsMixin.MuteTargetsProperty",
+		reflect.TypeOf((*CfnAlarmMuteRulePropsMixin_MuteTargetsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmMuteRulePropsMixin.RuleProperty",
+		reflect.TypeOf((*CfnAlarmMuteRulePropsMixin_RuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmMuteRulePropsMixin.ScheduleProperty",
+		reflect.TypeOf((*CfnAlarmMuteRulePropsMixin_ScheduleProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_cloudwatch.mixins.CfnAlarmPropsMixin",
 		reflect.TypeOf((*CfnAlarmPropsMixin)(nil)).Elem(),
@@ -22,8 +54,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAlarmPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -58,8 +90,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnAnomalyDetectorPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -114,8 +146,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCompositeAlarmPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -134,8 +166,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDashboardPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -154,8 +186,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInsightRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -174,8 +206,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnMetricStreamPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

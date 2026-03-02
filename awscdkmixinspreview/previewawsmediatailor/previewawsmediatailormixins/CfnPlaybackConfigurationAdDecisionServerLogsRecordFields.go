@@ -1,0 +1,65 @@
+package previewawsmediatailormixins
+
+
+// Experimental.
+type CfnPlaybackConfigurationAdDecisionServerLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ORIGINID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ORIGINID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_CUSTOMERID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "CUSTOMERID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTTYPE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EVENTTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_SESSIONTYPE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "SESSIONTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_REQUESTID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "REQUESTID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTDESCRIPTION CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EVENTDESCRIPTION"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_SESSIONID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "SESSIONID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_VODVASTRESPONSETIMEOFFSET CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "VODVASTRESPONSETIMEOFFSET"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADSREQUESTURL CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ADSREQUESTURL"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADMARKERS CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ADMARKERS"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_SEGMENTATIONUPID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "SEGMENTATIONUPID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_SEGMENTATIONTYPEID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "SEGMENTATIONTYPEID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ORIGINALTARGETURL CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ORIGINALTARGETURL"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_UPDATEDTARGETURL CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "UPDATEDTARGETURL"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_RAWADSREQUEST CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "RAWADSREQUEST"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_RAWADSREQUESTINDEX CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "RAWADSREQUESTINDEX"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_RAWADSRESPONSE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "RAWADSRESPONSE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_RAWADSRESPONSEINDEX CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "RAWADSRESPONSEINDEX"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_AVAIL CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "AVAIL"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_VASTRESPONSE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "VASTRESPONSE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_VASTAD CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "VASTAD"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_VODCREATIVEOFFSETS CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "VODCREATIVEOFFSETS"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_REQUESTHEADERS CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "REQUESTHEADERS"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_BEACONINFO CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "BEACONINFO"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADBREAKCORRELATIONID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ADBREAKCORRELATIONID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_PREFETCHSCHEDULENAME CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "PREFETCHSCHEDULENAME"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EVENTTIMESTAMP"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_AWSACCOUNTID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "AWSACCOUNTID"
+)
+

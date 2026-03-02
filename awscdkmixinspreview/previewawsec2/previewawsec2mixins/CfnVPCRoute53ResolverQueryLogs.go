@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnVPCLogsMixin to generate ROUTE53_RESOLVER_QUERY_LOGS for CfnVPC.
@@ -27,11 +26,11 @@ type CfnVPCRoute53ResolverQueryLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnVPCLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnVPCLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVPCRoute53ResolverQueryLogsFirehoseProps) CfnVPCLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVPCLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnVPCRoute53ResolverQueryLogsLogGroupProps) CfnVPCLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVPCLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnVPCRoute53ResolverQueryLogsS3Props) CfnVPCLogsMixin
 }
 
 // The jsii proxy struct for CfnVPCRoute53ResolverQueryLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToDestination(destination int
 	return returns
 }
 
-func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnVPCLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVPCRoute53ResolverQueryLogsFirehoseProps) CfnVPCLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVPCLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToFirehose(deliveryStream int
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVPCLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnVPCRoute53ResolverQueryLogsLogGroupProps) CfnVPCLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVPCLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToLogGroup(logGroup interface
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVPCLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnVPCRoute53ResolverQueryLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnVPCRoute53ResolverQueryLogsS3Props) CfnVPCLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVPCLogsMixin

@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnMemoryLogsMixin to generate APPLICATION_LOGS for CfnMemory.
@@ -25,13 +24,13 @@ type CfnMemoryApplicationLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnMemoryLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnMemoryApplicationLogsDestProps) CfnMemoryLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnMemoryLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnMemoryApplicationLogsFirehoseProps) CfnMemoryLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnMemoryLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnMemoryApplicationLogsLogGroupProps) CfnMemoryLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnMemoryLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnMemoryApplicationLogsS3Props) CfnMemoryLogsMixin
 }
 
 // The jsii proxy struct for CfnMemoryApplicationLogs
@@ -65,8 +64,8 @@ func NewCfnMemoryApplicationLogs_Override(c CfnMemoryApplicationLogs) {
 	)
 }
 
-func (c *jsiiProxy_CfnMemoryApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnMemoryLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnMemoryApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnMemoryApplicationLogsDestProps) CfnMemoryLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnMemoryLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnMemoryApplicationLogs) ToDestination(destination interface
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnMemoryApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnMemoryLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnMemoryApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnMemoryApplicationLogsFirehoseProps) CfnMemoryLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnMemoryLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnMemoryApplicationLogs) ToFirehose(deliveryStream interface
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnMemoryApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnMemoryLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnMemoryApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnMemoryApplicationLogsLogGroupProps) CfnMemoryLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnMemoryLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnMemoryApplicationLogs) ToLogGroup(logGroup interfacesawslo
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnMemoryApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnMemoryLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnMemoryApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnMemoryApplicationLogsS3Props) CfnMemoryLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnMemoryLogsMixin

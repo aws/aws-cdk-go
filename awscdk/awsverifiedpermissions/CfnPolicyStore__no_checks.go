@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnPolicyStore) validateSetDeletionProtectionParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnPolicyStore) validateSetEncryptionSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPolicyStore) validateSetSchemaParameters(val interface{}) error {
 	return nil
 }

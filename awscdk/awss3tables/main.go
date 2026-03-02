@@ -129,8 +129,24 @@ func init() {
 		reflect.TypeOf((*CfnTable_IcebergMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergPartitionFieldProperty",
+		reflect.TypeOf((*CfnTable_IcebergPartitionFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergPartitionSpecProperty",
+		reflect.TypeOf((*CfnTable_IcebergPartitionSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergSchemaProperty",
 		reflect.TypeOf((*CfnTable_IcebergSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergSortFieldProperty",
+		reflect.TypeOf((*CfnTable_IcebergSortFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergSortOrderProperty",
+		reflect.TypeOf((*CfnTable_IcebergSortOrderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTable.SchemaFieldProperty",

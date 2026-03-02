@@ -18,6 +18,7 @@ package previewawsmedialivemixins
 //   videoCodecSettingsProperty := &VideoCodecSettingsProperty{
 //   	Av1Settings: &Av1SettingsProperty{
 //   		AfdSignaling: jsii.String("afdSignaling"),
+//   		BitDepth: jsii.String("bitDepth"),
 //   		Bitrate: jsii.Number(123),
 //   		BufSize: jsii.Number(123),
 //   		ColorSpaceSettings: &Av1ColorSpaceSettingsProperty{

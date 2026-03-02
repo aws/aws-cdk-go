@@ -8,7 +8,7 @@ func (f *jsiiProxy_FirehoseLogsDelivery) validateBindParameters(scope constructs
 	return nil
 }
 
-func validateNewFirehoseLogsDeliveryParameters(stream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func validateNewFirehoseLogsDeliveryParameters(stream interfacesawskinesisfirehose.IDeliveryStreamRef, props *DeliveryProps) error {
 	return nil
 }
 

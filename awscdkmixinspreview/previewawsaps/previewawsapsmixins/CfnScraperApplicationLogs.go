@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnScraperLogsMixin to generate APPLICATION_LOGS for CfnScraper.
@@ -27,11 +26,11 @@ type CfnScraperApplicationLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnScraperLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnScraperLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnScraperApplicationLogsFirehoseProps) CfnScraperLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnScraperLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnScraperApplicationLogsLogGroupProps) CfnScraperLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnScraperLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnScraperApplicationLogsS3Props) CfnScraperLogsMixin
 }
 
 // The jsii proxy struct for CfnScraperApplicationLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnScraperApplicationLogs) ToDestination(destination interfac
 	return returns
 }
 
-func (c *jsiiProxy_CfnScraperApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnScraperLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnScraperApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnScraperApplicationLogsFirehoseProps) CfnScraperLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnScraperLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnScraperApplicationLogs) ToFirehose(deliveryStream interfac
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnScraperApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnScraperLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnScraperApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnScraperApplicationLogsLogGroupProps) CfnScraperLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnScraperLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnScraperApplicationLogs) ToLogGroup(logGroup interfacesawsl
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnScraperApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnScraperLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnScraperApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnScraperApplicationLogsS3Props) CfnScraperLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnScraperLogsMixin

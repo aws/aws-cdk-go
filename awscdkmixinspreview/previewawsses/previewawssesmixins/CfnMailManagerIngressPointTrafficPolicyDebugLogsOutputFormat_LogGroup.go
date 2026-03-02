@@ -1,0 +1,13 @@
+package previewawssesmixins
+
+
+// Experimental.
+type CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_LogGroup string
+
+const (
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_LogGroup_PLAIN CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_LogGroup = "PLAIN"
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_LogGroup_JSON CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_LogGroup = "JSON"
+)
+

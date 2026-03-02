@@ -1,0 +1,15 @@
+package previewawsroute53profilesmixins
+
+
+// Experimental.
+type CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose_JSON CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose_PLAIN CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose_RAW CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_Firehose = "RAW"
+)
+

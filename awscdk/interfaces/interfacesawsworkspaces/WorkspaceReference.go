@@ -13,7 +13,7 @@ package interfacesawsworkspaces
 //   }
 //
 type WorkspaceReference struct {
-	// The Id of the Workspace resource.
+	// The WorkspaceId of the Workspace resource.
 	WorkspaceId *string `field:"required" json:"workspaceId" yaml:"workspaceId"`
 }
 

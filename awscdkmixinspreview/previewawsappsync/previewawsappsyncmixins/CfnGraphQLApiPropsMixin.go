@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsappsync/previewawsappsyncmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -95,8 +95,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
 //
 type CfnGraphQLApiPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnGraphQLApiMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -107,8 +107,8 @@ type CfnGraphQLApiPropsMixin interface {
 
 // The jsii proxy struct for CfnGraphQLApiPropsMixin
 type jsiiProxy_CfnGraphQLApiPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnGraphQLApiPropsMixin) Props() *CfnGraphQLApiMixinProps {
@@ -164,7 +164,6 @@ func NewCfnGraphQLApiPropsMixin_Override(c CfnGraphQLApiPropsMixin, props *CfnGr
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnGraphQLApiPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

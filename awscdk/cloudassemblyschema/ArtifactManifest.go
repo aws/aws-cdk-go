@@ -14,6 +14,7 @@ package cloudassemblyschema
 //   	Type: awscdk.Cloud_assembly_schema.ArtifactType_NONE,
 //
 //   	// the properties below are optional
+//   	AdditionalMetadataFile: jsii.String("additionalMetadataFile"),
 //   	Dependencies: []*string{
 //   		jsii.String("dependencies"),
 //   	},
@@ -74,6 +75,14 @@ package cloudassemblyschema
 type ArtifactManifest struct {
 	// The type of artifact.
 	Type ArtifactType `field:"required" json:"type" yaml:"type"`
+	// A file with additional metadata entries.
+	//
+	// The schema of this file is exactly the same as the type of the `metadata` field.
+	// In other words, that file contains an object mapping construct paths to arrays
+	// of metadata entries.
+	// Default: - no additional metadata.
+	//
+	AdditionalMetadataFile *string `field:"optional" json:"additionalMetadataFile" yaml:"additionalMetadataFile"`
 	// IDs of artifacts that must be deployed before this artifact.
 	// Default: - no dependencies.
 	//
@@ -92,6 +101,11 @@ type ArtifactManifest struct {
 	//
 	Environment *string `field:"optional" json:"environment" yaml:"environment"`
 	// Associated metadata.
+	//
+	// Metadata can be stored directly in the assembly manifest, as well as in a
+	// separate file (see `additionalMetadataFile`). It should prefer to be stored
+	// in the additional file, as that will reduce the size of the assembly
+	// manifest in cases of a lot of metdata (which CDK does emit by default).
 	// Default: - no metadata.
 	//
 	Metadata *map[string]*[]*MetadataEntry `field:"optional" json:"metadata" yaml:"metadata"`

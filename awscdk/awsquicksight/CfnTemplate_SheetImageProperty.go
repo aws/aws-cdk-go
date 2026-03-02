@@ -8,8 +8,6 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var visibility interface{}
-//
 //   sheetImageProperty := &SheetImageProperty{
 //   	SheetImageId: jsii.String("sheetImageId"),
 //   	Source: &SheetImageSourceProperty{
@@ -90,7 +88,7 @@ package awsquicksight
 //   		TooltipText: &SheetImageTooltipTextProperty{
 //   			PlainText: jsii.String("plainText"),
 //   		},
-//   		Visibility: visibility,
+//   		Visibility: jsii.String("visibility"),
 //   	},
 //   }
 //

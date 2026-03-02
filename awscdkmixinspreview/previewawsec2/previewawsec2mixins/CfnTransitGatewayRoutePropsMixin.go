@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsec2/previewawsec2mixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -30,8 +30,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html
 //
 type CfnTransitGatewayRoutePropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnTransitGatewayRouteMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -42,8 +42,8 @@ type CfnTransitGatewayRoutePropsMixin interface {
 
 // The jsii proxy struct for CfnTransitGatewayRoutePropsMixin
 type jsiiProxy_CfnTransitGatewayRoutePropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnTransitGatewayRoutePropsMixin) Props() *CfnTransitGatewayRouteMixinProps {
@@ -99,7 +99,6 @@ func NewCfnTransitGatewayRoutePropsMixin_Override(c CfnTransitGatewayRoutePropsM
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnTransitGatewayRoutePropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

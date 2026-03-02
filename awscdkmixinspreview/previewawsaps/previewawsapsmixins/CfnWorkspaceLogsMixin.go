@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsaps/previewawsapsmixins/internal"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -25,8 +25,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html
 //
 type CfnWorkspaceLogsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	LogDelivery() previewawslogs.ILogsDelivery
 	LogType() *string
 	// Apply vended logs configuration to the construct.
@@ -37,8 +37,8 @@ type CfnWorkspaceLogsMixin interface {
 
 // The jsii proxy struct for CfnWorkspaceLogsMixin
 type jsiiProxy_CfnWorkspaceLogsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnWorkspaceLogsMixin) LogDelivery() previewawslogs.ILogsDelivery {
@@ -94,7 +94,6 @@ func NewCfnWorkspaceLogsMixin_Override(c CfnWorkspaceLogsMixin, logType *string,
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnWorkspaceLogsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

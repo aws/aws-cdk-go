@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsarczonalshift/previewawsarczonalshiftmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -27,8 +27,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-autoshiftobservernotificationstatus.html
 //
 type CfnAutoshiftObserverNotificationStatusPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnAutoshiftObserverNotificationStatusMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -39,8 +39,8 @@ type CfnAutoshiftObserverNotificationStatusPropsMixin interface {
 
 // The jsii proxy struct for CfnAutoshiftObserverNotificationStatusPropsMixin
 type jsiiProxy_CfnAutoshiftObserverNotificationStatusPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnAutoshiftObserverNotificationStatusPropsMixin) Props() *CfnAutoshiftObserverNotificationStatusMixinProps {
@@ -96,7 +96,6 @@ func NewCfnAutoshiftObserverNotificationStatusPropsMixin_Override(c CfnAutoshift
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnAutoshiftObserverNotificationStatusPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

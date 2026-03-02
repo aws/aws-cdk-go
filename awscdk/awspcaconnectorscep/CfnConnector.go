@@ -33,6 +33,7 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	VpcEndpointId: jsii.String("vpcEndpointId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorscep-connector.html
@@ -105,6 +106,8 @@ type CfnConnector interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VpcEndpointId() *string
+	SetVpcEndpointId(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -236,8 +239,6 @@ type CfnConnector interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -449,6 +450,16 @@ func (j *jsiiProxy_CfnConnector) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) VpcEndpointId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcEndpointId",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::PCAConnectorSCEP::Connector`.
 func NewCfnConnector(scope constructs.Construct, id *string, props *CfnConnectorProps) CfnConnector {
@@ -505,6 +516,14 @@ func (j *jsiiProxy_CfnConnector)SetTags(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetVpcEndpointId(val *string) {
+	_jsii_.Set(
+		j,
+		"vpcEndpointId",
 		val,
 	)
 }

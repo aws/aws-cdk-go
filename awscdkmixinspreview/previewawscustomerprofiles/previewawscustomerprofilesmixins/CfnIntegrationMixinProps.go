@@ -91,6 +91,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Scope: jsii.String("scope"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -123,6 +124,10 @@ type CfnIntegrationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypenames
 	//
 	ObjectTypeNames interface{} `field:"optional" json:"objectTypeNames" yaml:"objectTypeNames"`
+	// Scope of the integration, such as 'PROFILE' or 'DOMAIN'.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-scope
+	//
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
 	//

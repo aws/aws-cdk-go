@@ -8,15 +8,15 @@ func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToDestinationParameters(d
 	return nil
 }
 
-func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVehicleIotFleetwiseLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnVehicleIotFleetwiseLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnVehicleIotFleetwiseLogsS3Props) error {
 	return nil
 }
 

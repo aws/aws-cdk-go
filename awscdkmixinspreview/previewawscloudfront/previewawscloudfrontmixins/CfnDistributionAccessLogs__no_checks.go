@@ -4,19 +4,19 @@ package previewawscloudfrontmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnDistributionAccessLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnDistributionAccessLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnDistributionAccessLogsDestProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDistributionAccessLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnDistributionAccessLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnDistributionAccessLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDistributionAccessLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnDistributionAccessLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnDistributionAccessLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnDistributionAccessLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnDistributionAccessLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnDistributionAccessLogsS3Props) error {
 	return nil
 }
 

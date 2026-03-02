@@ -54,6 +54,7 @@ import (
 //   	},
 //   	MaxProfileObjectCount: jsii.Number(123),
 //   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
+//   	SourcePriority: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -135,6 +136,9 @@ type CfnObjectType interface {
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat() *string
 	SetSourceLastUpdatedTimestampFormat(val *string)
+	// Defines the priority order of object types.
+	SourcePriority() *float64
+	SetSourcePriority(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -291,8 +295,6 @@ type CfnObjectType interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -524,6 +526,16 @@ func (j *jsiiProxy_CfnObjectType) SourceLastUpdatedTimestampFormat() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnObjectType) SourcePriority() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"sourcePriority",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnObjectType) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -708,6 +720,14 @@ func (j *jsiiProxy_CfnObjectType)SetSourceLastUpdatedTimestampFormat(val *string
 	_jsii_.Set(
 		j,
 		"sourceLastUpdatedTimestampFormat",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnObjectType)SetSourcePriority(val *float64) {
+	_jsii_.Set(
+		j,
+		"sourcePriority",
 		val,
 	)
 }

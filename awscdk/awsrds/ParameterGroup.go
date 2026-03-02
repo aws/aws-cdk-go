@@ -17,40 +17,25 @@ import (
 // and an instance parameter group.
 //
 // Example:
-//   var plan BackupPlan
 //   var vpc Vpc
 //
-//   myTable := dynamodb.Table_FromTableName(this, jsii.String("Table"), jsii.String("myTableName"))
-//   myDatabaseInstance := rds.NewDatabaseInstance(this, jsii.String("DatabaseInstance"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
-//   		Version: rds.MysqlEngineVersion_VER_8_0_26(),
-//   	}),
-//   	Vpc: Vpc,
-//   })
-//   myDatabaseCluster := rds.NewDatabaseCluster(this, jsii.String("DatabaseCluster"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
-//   		Version: rds.AuroraMysqlEngineVersion_VER_2_08_1(),
-//   	}),
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("clusteradmin")),
-//   	InstanceProps: &InstanceProps{
-//   		Vpc: *Vpc,
-//   	},
-//   })
-//   myServerlessCluster := rds.NewServerlessCluster(this, jsii.String("ServerlessCluster"), &ServerlessClusterProps{
+//
+//   cluster := rds.NewServerlessCluster(this, jsii.String("AnotherCluster"), &ServerlessClusterProps{
 //   	Engine: rds.DatabaseClusterEngine_AURORA_POSTGRESQL(),
+//   	CopyTagsToSnapshot: jsii.Boolean(true),
+//   	 // whether to save the cluster tags when creating the snapshot. Default is 'true'
 //   	ParameterGroup: rds.ParameterGroup_FromParameterGroupName(this, jsii.String("ParameterGroup"), jsii.String("default.aurora-postgresql11")),
 //   	Vpc: Vpc,
-//   })
-//   myCoolConstruct := constructs.NewConstruct(this, jsii.String("MyCoolConstruct"))
-//
-//   plan.AddSelection(jsii.String("Selection"), &BackupSelectionOptions{
-//   	Resources: []BackupResource{
-//   		backup.BackupResource_FromDynamoDbTable(myTable),
-//   		backup.BackupResource_FromRdsDatabaseInstance(myDatabaseInstance),
-//   		backup.BackupResource_FromRdsDatabaseCluster(myDatabaseCluster),
-//   		backup.BackupResource_FromRdsServerlessCluster(myServerlessCluster),
-//   		backup.BackupResource_FromTag(jsii.String("stage"), jsii.String("prod")),
-//   		backup.BackupResource_FromConstruct(myCoolConstruct),
+//   	Scaling: &ServerlessScalingOptions{
+//   		AutoPause: awscdk.Duration_Minutes(jsii.Number(10)),
+//   		 // default is to pause after 5 minutes of idle time
+//   		MinCapacity: rds.AuroraCapacityUnit_ACU_8,
+//   		 // default is 2 Aurora capacity units (ACUs)
+//   		MaxCapacity: rds.AuroraCapacityUnit_ACU_32,
+//   		 // default is 16 Aurora capacity units (ACUs)
+//   		Timeout: awscdk.Duration_Seconds(jsii.Number(100)),
+//   		 // default is 5 minutes
+//   		TimeoutAction: rds.TimeoutAction_FORCE_APPLY_CAPACITY_CHANGE,
 //   	},
 //   })
 //
@@ -121,8 +106,6 @@ type ParameterGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

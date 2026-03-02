@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsdevopsagent/previewawsdevopsagentmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -21,6 +21,20 @@ import (
 //   cfnAgentSpacePropsMixin := awscdkmixinspreview.Mixins.NewCfnAgentSpacePropsMixin(&CfnAgentSpaceMixinProps{
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
+//   	OperatorApp: &OperatorAppProperty{
+//   		Iam: &IamAuthConfigurationProperty{
+//   			CreatedAt: jsii.String("createdAt"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   		Idc: &IdcAuthConfigurationProperty{
+//   			CreatedAt: jsii.String("createdAt"),
+//   			IdcApplicationArn: jsii.String("idcApplicationArn"),
+//   			IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
 //   })
@@ -28,8 +42,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
 //
 type CfnAgentSpacePropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnAgentSpaceMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -40,8 +54,8 @@ type CfnAgentSpacePropsMixin interface {
 
 // The jsii proxy struct for CfnAgentSpacePropsMixin
 type jsiiProxy_CfnAgentSpacePropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnAgentSpacePropsMixin) Props() *CfnAgentSpaceMixinProps {
@@ -97,7 +111,6 @@ func NewCfnAgentSpacePropsMixin_Override(c CfnAgentSpacePropsMixin, props *CfnAg
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnAgentSpacePropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

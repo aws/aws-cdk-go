@@ -22,7 +22,14 @@ import (
 //
 //   s3LogsDelivery := awscdkmixinspreview.Aws_logs.NewS3LogsDelivery(bucketRef, &S3LogsDeliveryProps{
 //   	KmsKey: keyRef,
+//   	MandatoryFields: []*string{
+//   		jsii.String("mandatoryFields"),
+//   	},
+//   	OutputFormat: jsii.String("outputFormat"),
 //   	PermissionsVersion: awscdkmixinspreview.*Aws_logs.S3LogsDeliveryPermissionsVersion_V1,
+//   	ProvidedFields: []*string{
+//   		jsii.String("providedFields"),
+//   	},
 //   })
 //
 // Experimental.

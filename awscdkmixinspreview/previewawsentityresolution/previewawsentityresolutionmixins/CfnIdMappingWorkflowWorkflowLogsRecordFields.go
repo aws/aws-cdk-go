@@ -1,0 +1,37 @@
+package previewawsentityresolutionmixins
+
+
+// Experimental.
+type CfnIdMappingWorkflowWorkflowLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN CfnIdMappingWorkflowWorkflowLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TYPE CfnIdMappingWorkflowWorkflowLogsRecordFields = "EVENT_TYPE"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TIMESTAMP CfnIdMappingWorkflowWorkflowLogsRecordFields = "EVENT_TIMESTAMP"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_JOB_ID CfnIdMappingWorkflowWorkflowLogsRecordFields = "JOB_ID"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_NAME CfnIdMappingWorkflowWorkflowLogsRecordFields = "WORKFLOW_NAME"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_START_TIME CfnIdMappingWorkflowWorkflowLogsRecordFields = "WORKFLOW_START_TIME"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_COMPLETE_TIME CfnIdMappingWorkflowWorkflowLogsRecordFields = "WORKFLOW_COMPLETE_TIME"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION CfnIdMappingWorkflowWorkflowLogsRecordFields = "DATA_PROCESSING_PROGRESSION"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE CfnIdMappingWorkflowWorkflowLogsRecordFields = "ERROR_MESSAGE"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_RULE CfnIdMappingWorkflowWorkflowLogsRecordFields = "MATCH_RULE"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_COUNT CfnIdMappingWorkflowWorkflowLogsRecordFields = "MATCH_COUNT"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_PROCESSED CfnIdMappingWorkflowWorkflowLogsRecordFields = "TOTAL_RECORDS_PROCESSED"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED CfnIdMappingWorkflowWorkflowLogsRecordFields = "TOTAL_RECORDS_UNPROCESSED"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED CfnIdMappingWorkflowWorkflowLogsRecordFields = "INCREMENTAL_RECORDS_PROCESSED"
+)
+

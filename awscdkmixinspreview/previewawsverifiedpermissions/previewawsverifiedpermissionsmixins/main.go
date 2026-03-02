@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIdentitySourcePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -78,8 +78,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -114,14 +114,30 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyStorePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_verifiedpermissions.mixins.CfnPolicyStorePropsMixin.DeletionProtectionProperty",
 		reflect.TypeOf((*CfnPolicyStorePropsMixin_DeletionProtectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_verifiedpermissions.mixins.CfnPolicyStorePropsMixin.EncryptionSettingsProperty",
+		reflect.TypeOf((*CfnPolicyStorePropsMixin_EncryptionSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_verifiedpermissions.mixins.CfnPolicyStorePropsMixin.EncryptionStateProperty",
+		reflect.TypeOf((*CfnPolicyStorePropsMixin_EncryptionStateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_verifiedpermissions.mixins.CfnPolicyStorePropsMixin.KmsEncryptionSettingsProperty",
+		reflect.TypeOf((*CfnPolicyStorePropsMixin_KmsEncryptionSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_verifiedpermissions.mixins.CfnPolicyStorePropsMixin.KmsEncryptionStateProperty",
+		reflect.TypeOf((*CfnPolicyStorePropsMixin_KmsEncryptionStateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_verifiedpermissions.mixins.CfnPolicyStorePropsMixin.SchemaDefinitionProperty",
@@ -146,8 +162,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPolicyTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

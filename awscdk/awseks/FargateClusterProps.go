@@ -11,12 +11,12 @@ import (
 // Configuration props for EKS Fargate.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 //
 //
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_34(),
-//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_35(),
+//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 //   })
 //
 type FargateClusterProps struct {

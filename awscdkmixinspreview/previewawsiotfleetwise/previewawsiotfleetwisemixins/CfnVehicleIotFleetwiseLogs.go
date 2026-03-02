@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnVehicleLogsMixin to generate IOT_FLEETWISE_LOGS for CfnVehicle.
@@ -27,11 +26,11 @@ type CfnVehicleIotFleetwiseLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnVehicleLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnVehicleLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVehicleIotFleetwiseLogsFirehoseProps) CfnVehicleLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVehicleLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnVehicleIotFleetwiseLogsLogGroupProps) CfnVehicleLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVehicleLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnVehicleIotFleetwiseLogsS3Props) CfnVehicleLogsMixin
 }
 
 // The jsii proxy struct for CfnVehicleIotFleetwiseLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToDestination(destination interfa
 	return returns
 }
 
-func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnVehicleLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnVehicleIotFleetwiseLogsFirehoseProps) CfnVehicleLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVehicleLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToFirehose(deliveryStream interfa
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnVehicleLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnVehicleIotFleetwiseLogsLogGroupProps) CfnVehicleLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVehicleLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToLogGroup(logGroup interfacesaws
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnVehicleLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnVehicleIotFleetwiseLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnVehicleIotFleetwiseLogsS3Props) CfnVehicleLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnVehicleLogsMixin

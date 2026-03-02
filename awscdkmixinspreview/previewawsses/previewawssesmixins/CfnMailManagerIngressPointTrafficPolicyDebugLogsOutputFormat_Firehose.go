@@ -1,0 +1,15 @@
+package previewawssesmixins
+
+
+// Experimental.
+type CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_JSON CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_PLAIN CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_RAW CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose = "RAW"
+)
+

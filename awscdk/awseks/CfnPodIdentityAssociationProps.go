@@ -19,6 +19,7 @@ import (
 //
 //   	// the properties below are optional
 //   	DisableSessionTags: jsii.Boolean(false),
+//   	Policy: jsii.String("policy"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -57,6 +58,10 @@ type CfnPodIdentityAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-disablesessiontags
 	//
 	DisableSessionTags interface{} `field:"optional" json:"disableSessionTags" yaml:"disableSessionTags"`
+	// The policy of the pod identity association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-policy
+	//
+	Policy *string `field:"optional" json:"policy" yaml:"policy"`
 	// Metadata that assists with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or AWS resources.

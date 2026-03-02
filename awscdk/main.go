@@ -1843,6 +1843,14 @@ func init() {
 		reflect.TypeOf((*CliCredentialsStackSynthesizerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.ConstructSelector",
+		reflect.TypeOf((*ConstructSelector)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ConstructSelector{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.ContextProvider",
 		reflect.TypeOf((*ContextProvider)(nil)).Elem(),
 		nil, // no members
@@ -2308,6 +2316,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IConstructSelector",
+		reflect.TypeOf((*IConstructSelector)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "select", GoMethod: "Select"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IConstructSelector{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.IFragmentConcatenator",
 		reflect.TypeOf((*IFragmentConcatenator)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2717,6 +2735,45 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_MissingRemovalPolicies{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.Mixin",
+		reflect.TypeOf((*Mixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Mixin{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.MixinApplication",
+		reflect.TypeOf((*MixinApplication)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.MixinApplicator",
+		reflect.TypeOf((*MixinApplicator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "apply", GoMethod: "Apply"},
+			_jsii_.MemberProperty{JsiiProperty: "report", GoGetter: "Report"},
+			_jsii_.MemberMethod{JsiiMethod: "requireAll", GoMethod: "RequireAll"},
+			_jsii_.MemberMethod{JsiiMethod: "requireAny", GoMethod: "RequireAny"},
+			_jsii_.MemberProperty{JsiiProperty: "selectedConstructs", GoGetter: "SelectedConstructs"},
+		},
+		func() interface{} {
+			return &jsiiProxy_MixinApplicator{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.Mixins",
+		reflect.TypeOf((*Mixins)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Mixins{}
 		},
 	)
 	_jsii_.RegisterClass(

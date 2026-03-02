@@ -26,6 +26,7 @@ import (
 //
 //   	// the properties below are optional
 //   	DisableSessionTags: jsii.Boolean(false),
+//   	Policy: jsii.String("policy"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -89,6 +90,9 @@ type CfnPodIdentityAssociation interface {
 	Node() constructs.Node
 	// A reference to a PodIdentityAssociation resource.
 	PodIdentityAssociationRef() *interfacesawseks.PodIdentityAssociationReference
+	// The policy of the pod identity association.
+	Policy() *string
+	SetPolicy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -254,8 +258,6 @@ type CfnPodIdentityAssociation interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -417,6 +419,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) PodIdentityAssociationRef() *inter
 	return returns
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) Policy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"policy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPodIdentityAssociation) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -556,6 +568,14 @@ func (j *jsiiProxy_CfnPodIdentityAssociation)SetNamespace(val *string) {
 	_jsii_.Set(
 		j,
 		"namespace",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociation)SetPolicy(val *string) {
+	_jsii_.Set(
+		j,
+		"policy",
 		val,
 	)
 }

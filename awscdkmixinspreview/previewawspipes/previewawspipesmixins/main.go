@@ -20,6 +20,53 @@ func init() {
 			return &jsiiProxy_CfnPipeExecutionLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsFirehoseProps",
+		reflect.TypeOf((*CfnPipeExecutionLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsLogGroupProps",
+		reflect.TypeOf((*CfnPipeExecutionLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsOutputFormat",
+		reflect.TypeOf((*CfnPipeExecutionLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnPipeExecutionLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnPipeExecutionLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnPipeExecutionLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnPipeExecutionLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnPipeExecutionLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnPipeExecutionLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnPipeExecutionLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnPipeExecutionLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnPipeExecutionLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnPipeExecutionLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnPipeExecutionLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnPipeExecutionLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnPipeExecutionLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeExecutionLogsS3Props",
+		reflect.TypeOf((*CfnPipeExecutionLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_pipes.mixins.CfnPipeLogsMixin",
 		reflect.TypeOf((*CfnPipeLogsMixin)(nil)).Elem(),
@@ -31,8 +78,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPipeLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -51,8 +98,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPipePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawscognito/previewawscognitomixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -37,8 +37,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html
 //
 type CfnUserPoolResourceServerPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnUserPoolResourceServerMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -49,8 +49,8 @@ type CfnUserPoolResourceServerPropsMixin interface {
 
 // The jsii proxy struct for CfnUserPoolResourceServerPropsMixin
 type jsiiProxy_CfnUserPoolResourceServerPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnUserPoolResourceServerPropsMixin) Props() *CfnUserPoolResourceServerMixinProps {
@@ -106,7 +106,6 @@ func NewCfnUserPoolResourceServerPropsMixin_Override(c CfnUserPoolResourceServer
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnUserPoolResourceServerPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

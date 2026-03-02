@@ -22,9 +22,9 @@ type CfnGatewayTraces interface {
 	// Supported destinations are XRAY
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnGatewayLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnGatewayTracesDestProps) CfnGatewayLogsMixin
 	// Send traces to X-Ray.
-	ToXRay() CfnGatewayLogsMixin
+	ToXRay(props *CfnGatewayTracesXRayProps) CfnGatewayLogsMixin
 }
 
 // The jsii proxy struct for CfnGatewayTraces
@@ -58,8 +58,8 @@ func NewCfnGatewayTraces_Override(c CfnGatewayTraces) {
 	)
 }
 
-func (c *jsiiProxy_CfnGatewayTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnGatewayLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnGatewayTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnGatewayTracesDestProps) CfnGatewayLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnGatewayLogsMixin
@@ -67,20 +67,23 @@ func (c *jsiiProxy_CfnGatewayTraces) ToDestination(destination interfacesawslogs
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnGatewayTraces) ToXRay() CfnGatewayLogsMixin {
+func (c *jsiiProxy_CfnGatewayTraces) ToXRay(props *CfnGatewayTracesXRayProps) CfnGatewayLogsMixin {
+	if err := c.validateToXRayParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnGatewayLogsMixin
 
 	_jsii_.Invoke(
 		c,
 		"toXRay",
-		nil, // no parameters
+		[]interface{}{props},
 		&returns,
 	)
 

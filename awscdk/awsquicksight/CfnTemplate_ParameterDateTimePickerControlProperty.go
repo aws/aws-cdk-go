@@ -8,9 +8,6 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var dateIconVisibility interface{}
-//   var helperTextVisibility interface{}
-//
 //   parameterDateTimePickerControlProperty := &ParameterDateTimePickerControlProperty{
 //   	ParameterControlId: jsii.String("parameterControlId"),
 //   	SourceParameterName: jsii.String("sourceParameterName"),
@@ -18,9 +15,9 @@ package awsquicksight
 //
 //   	// the properties below are optional
 //   	DisplayOptions: &DateTimePickerControlDisplayOptionsProperty{
-//   		DateIconVisibility: dateIconVisibility,
+//   		DateIconVisibility: jsii.String("dateIconVisibility"),
 //   		DateTimeFormat: jsii.String("dateTimeFormat"),
-//   		HelperTextVisibility: helperTextVisibility,
+//   		HelperTextVisibility: jsii.String("helperTextVisibility"),
 //   		InfoIconLabelOptions: &SheetControlInfoIconLabelOptionsProperty{
 //   			InfoIconText: jsii.String("infoIconText"),
 //   			Visibility: jsii.String("visibility"),

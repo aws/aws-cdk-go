@@ -236,6 +236,30 @@ func (j *jsiiProxy_CfnAgentSpace) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgentSpace) validateSetOperatorAppParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAgentSpace_OperatorAppProperty:
+		val := val.(*CfnAgentSpace_OperatorAppProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAgentSpace_OperatorAppProperty:
+		val_ := val.(CfnAgentSpace_OperatorAppProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAgentSpace_OperatorAppProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnAgentSpaceParameters(scope constructs.Construct, id *string, props *CfnAgentSpaceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -37,7 +37,7 @@ type CfnContainerFleet_LocationCapacityProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-desiredec2instances
 	//
 	DesiredEc2Instances *float64 `field:"optional" json:"desiredEc2Instances" yaml:"desiredEc2Instances"`
-	// Configuration options for GameLift-managed capacity behavior.
+	// Configuration options for Amazon GameLift Servers managed capacity behavior.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-managedcapacityconfiguration
 	//
 	ManagedCapacityConfiguration interface{} `field:"optional" json:"managedCapacityConfiguration" yaml:"managedCapacityConfiguration"`

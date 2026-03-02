@@ -47,6 +47,7 @@ import (
 //   	},
 //   	MaxProfileObjectCount: jsii.Number(123),
 //   	SourceLastUpdatedTimestampFormat: jsii.String("sourceLastUpdatedTimestampFormat"),
+//   	SourcePriority: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -103,6 +104,12 @@ type CfnObjectTypeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat
 	//
 	SourceLastUpdatedTimestampFormat *string `field:"optional" json:"sourceLastUpdatedTimestampFormat" yaml:"sourceLastUpdatedTimestampFormat"`
+	// Defines the priority order of object types.
+	//
+	// Lower value indicates higher priority.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-sourcepriority
+	//
+	SourcePriority *float64 `field:"optional" json:"sourcePriority" yaml:"sourcePriority"`
 	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
 	//

@@ -15,19 +15,24 @@ import (
 //
 // Example:
 //   var vpc Vpc
+//   var securityGroup SecurityGroup
 //
-//   instance := rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+//
+//   rds.NewOptionGroup(this, jsii.String("Options"), &OptionGroupProps{
 //   	Engine: rds.DatabaseInstanceEngine_OracleSe2(&OracleSe2InstanceEngineProps{
-//   		Version: rds.OracleEngineVersion_VER_19_0_0_0_2020_04_R1(),
+//   		Version: rds.OracleEngineVersion_VER_19(),
 //   	}),
-//   	// optional, defaults to m5.large
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-//   	Credentials: rds.Credentials_FromGeneratedSecret(jsii.String("syscdk")),
-//   	 // Optional - will default to 'admin' username and generated password
-//   	Vpc: Vpc,
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	Configurations: []OptionConfiguration{
+//   		&OptionConfiguration{
+//   			Name: jsii.String("OEM"),
+//   			Port: jsii.Number(5500),
+//   			Vpc: *Vpc,
+//   			SecurityGroups: []ISecurityGroup{
+//   				securityGroup,
+//   			},
+//   		},
 //   	},
+//   	OptionGroupName: jsii.String("MyOptionGroup"),
 //   })
 //
 type OracleEngineVersion interface {

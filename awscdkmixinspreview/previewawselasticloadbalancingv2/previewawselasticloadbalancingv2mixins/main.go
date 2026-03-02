@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnListenerCertificatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -46,8 +46,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnListenerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -118,8 +118,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnListenerRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -218,8 +218,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLoadBalancerLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -240,6 +240,85 @@ func init() {
 			return &jsiiProxy_CfnLoadBalancerNlbAccessLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsDestProps",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsFirehoseProps",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsLogGroupProps",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsOutputFormat",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnLoadBalancerNlbAccessLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnLoadBalancerNlbAccessLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsRecordFields",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TYPE": CfnLoadBalancerNlbAccessLogsRecordFields_TYPE,
+			"VERSION": CfnLoadBalancerNlbAccessLogsRecordFields_VERSION,
+			"TIME": CfnLoadBalancerNlbAccessLogsRecordFields_TIME,
+			"ELB": CfnLoadBalancerNlbAccessLogsRecordFields_ELB,
+			"LISTENER": CfnLoadBalancerNlbAccessLogsRecordFields_LISTENER,
+			"CLIENT_PORT": CfnLoadBalancerNlbAccessLogsRecordFields_CLIENT_PORT,
+			"DESTINATION_PORT": CfnLoadBalancerNlbAccessLogsRecordFields_DESTINATION_PORT,
+			"CONNECTION_TIME": CfnLoadBalancerNlbAccessLogsRecordFields_CONNECTION_TIME,
+			"TLS_HANDSHAKE_TIME": CfnLoadBalancerNlbAccessLogsRecordFields_TLS_HANDSHAKE_TIME,
+			"RECEIVED_BYTES": CfnLoadBalancerNlbAccessLogsRecordFields_RECEIVED_BYTES,
+			"SENT_BYTES": CfnLoadBalancerNlbAccessLogsRecordFields_SENT_BYTES,
+			"INCOMING_TLS_ALERT": CfnLoadBalancerNlbAccessLogsRecordFields_INCOMING_TLS_ALERT,
+			"CHOSEN_CERT_ARN": CfnLoadBalancerNlbAccessLogsRecordFields_CHOSEN_CERT_ARN,
+			"CHOSEN_CERT_SERIAL": CfnLoadBalancerNlbAccessLogsRecordFields_CHOSEN_CERT_SERIAL,
+			"TLS_CIPHER": CfnLoadBalancerNlbAccessLogsRecordFields_TLS_CIPHER,
+			"TLS_PROTOCOL_VERSION": CfnLoadBalancerNlbAccessLogsRecordFields_TLS_PROTOCOL_VERSION,
+			"TLS_KEYEXCHANGE": CfnLoadBalancerNlbAccessLogsRecordFields_TLS_KEYEXCHANGE,
+			"DOMAIN_NAME": CfnLoadBalancerNlbAccessLogsRecordFields_DOMAIN_NAME,
+			"ALPN_FE_PROTOCOL": CfnLoadBalancerNlbAccessLogsRecordFields_ALPN_FE_PROTOCOL,
+			"ALPN_BE_PROTOCOL": CfnLoadBalancerNlbAccessLogsRecordFields_ALPN_BE_PROTOCOL,
+			"ALPN_CLIENT_PREFERENCE_LIST": CfnLoadBalancerNlbAccessLogsRecordFields_ALPN_CLIENT_PREFERENCE_LIST,
+			"TLS_CONNECTION_CREATION_TIME": CfnLoadBalancerNlbAccessLogsRecordFields_TLS_CONNECTION_CREATION_TIME,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsS3Props",
+		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerPropsMixin",
 		reflect.TypeOf((*CfnLoadBalancerPropsMixin)(nil)).Elem(),
@@ -251,8 +330,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLoadBalancerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -283,8 +362,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTargetGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -315,8 +394,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrustStorePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -335,8 +414,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrustStoreRevocationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

@@ -1,0 +1,13 @@
+package previewawsroute53profilesmixins
+
+
+// Experimental.
+type CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_LogGroup string
+
+const (
+	// Experimental.
+	CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_LogGroup_PLAIN CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_LogGroup = "PLAIN"
+	// Experimental.
+	CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_LogGroup_JSON CfnProfileRoute53ProfilesResolverQueryLogsOutputFormat_LogGroup = "JSON"
+)
+

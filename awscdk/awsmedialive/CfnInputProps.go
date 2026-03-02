@@ -104,6 +104,14 @@ package awsmedialive
 //   				StreamId: jsii.String("streamId"),
 //   			},
 //   		},
+//   		SrtListenerSettings: &SrtListenerSettingsRequestProperty{
+//   			Decryption: &SrtListenerDecryptionRequestProperty{
+//   				Algorithm: jsii.String("algorithm"),
+//   				PassphraseSecretArn: jsii.String("passphraseSecretArn"),
+//   			},
+//   			MinimumLatency: jsii.Number(123),
+//   			StreamId: jsii.String("streamId"),
+//   		},
 //   	},
 //   	Tags: tags,
 //   	Type: jsii.String("type"),

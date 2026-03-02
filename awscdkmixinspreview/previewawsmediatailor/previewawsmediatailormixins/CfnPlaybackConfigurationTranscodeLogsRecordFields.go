@@ -1,0 +1,31 @@
+package previewawsmediatailormixins
+
+
+// Experimental.
+type CfnPlaybackConfigurationTranscodeLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTYPE CfnPlaybackConfigurationTranscodeLogsRecordFields = "EVENTTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTDESCRIPTION CfnPlaybackConfigurationTranscodeLogsRecordFields = "EVENTDESCRIPTION"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_SESSIONID CfnPlaybackConfigurationTranscodeLogsRecordFields = "SESSIONID"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_CREATIVEUNIQUEID CfnPlaybackConfigurationTranscodeLogsRecordFields = "CREATIVEUNIQUEID"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_PROFILENAME CfnPlaybackConfigurationTranscodeLogsRecordFields = "PROFILENAME"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_ADURI CfnPlaybackConfigurationTranscodeLogsRecordFields = "ADURI"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_TRANSCODEREQUESTID CfnPlaybackConfigurationTranscodeLogsRecordFields = "TRANSCODEREQUESTID"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_CACHESTATUS CfnPlaybackConfigurationTranscodeLogsRecordFields = "CACHESTATUS"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationTranscodeLogsRecordFields = "EVENTTIMESTAMP"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_AWSACCOUNTID CfnPlaybackConfigurationTranscodeLogsRecordFields = "AWSACCOUNTID"
+	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_ORIGINID CfnPlaybackConfigurationTranscodeLogsRecordFields = "ORIGINID"
+)
+

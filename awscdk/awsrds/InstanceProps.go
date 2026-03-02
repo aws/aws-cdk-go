@@ -8,31 +8,20 @@ import (
 // Instance properties for database instances.
 //
 // Example:
-//   cluster := rds.NewDatabaseCluster(stack, jsii.String("Database"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AURORA(),
+//   var vpc Vpc
+//
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+//   	}),
+//   	Instances: jsii.Number(2),
 //   	InstanceProps: &InstanceProps{
 //   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+//   		VpcSubnets: &SubnetSelection{
+//   			SubnetType: ec2.SubnetType_PUBLIC,
+//   		},
 //   		Vpc: *Vpc,
 //   	},
-//   })
-//
-//   cluster.addRotationSingleUser()
-//
-//   clusterWithCustomRotationOptions := rds.NewDatabaseCluster(stack, jsii.String("CustomRotationOptions"), &DatabaseClusterProps{
-//   	Engine: rds.DatabaseClusterEngine_AURORA(),
-//   	InstanceProps: &InstanceProps{
-//   		InstanceType: ec2.InstanceType_*Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
-//   		Vpc: *Vpc,
-//   	},
-//   })
-//   clusterWithCustomRotationOptions.addRotationSingleUser(&RotationSingleUserOptions{
-//   	AutomaticallyAfter: cdk.Duration_Days(jsii.Number(7)),
-//   	ExcludeCharacters: jsii.String("!@#$%^&*"),
-//   	SecurityGroup: SecurityGroup,
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   	},
-//   	Endpoint: endpoint,
 //   })
 //
 type InstanceProps struct {

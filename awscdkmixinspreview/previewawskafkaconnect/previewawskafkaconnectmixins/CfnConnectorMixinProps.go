@@ -14,6 +14,7 @@ import (
 //   cfnConnectorMixinProps := &CfnConnectorMixinProps{
 //   	Capacity: &CapacityProperty{
 //   		AutoScaling: &AutoScalingProperty{
+//   			MaxAutoscalingTaskCount: jsii.Number(123),
 //   			MaxWorkerCount: jsii.Number(123),
 //   			McuCount: jsii.Number(123),
 //   			MinWorkerCount: jsii.Number(123),

@@ -25,7 +25,7 @@ package previewawsec2mixins
 //   	},
 //   	NoRemoveEndDate: jsii.Boolean(false),
 //   	RemoveEndDate: jsii.Boolean(false),
-//   	TagSpecifications: []TagSpecificationProperty{
+//   	TagSpecifications: []interface{}{
 //   		&TagSpecificationProperty{
 //   			ResourceType: jsii.String("resourceType"),
 //   			Tags: []CfnTag{
@@ -88,7 +88,7 @@ type CfnCapacityReservationFleetMixinProps struct {
 	// The tags are automatically assigned to the Capacity Reservations in the Fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html#cfn-ec2-capacityreservationfleet-tagspecifications
 	//
-	TagSpecifications *[]*CfnCapacityReservationFleetPropsMixin_TagSpecificationProperty `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
+	TagSpecifications interface{} `field:"optional" json:"tagSpecifications" yaml:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation Fleet.
 	//
 	// All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:

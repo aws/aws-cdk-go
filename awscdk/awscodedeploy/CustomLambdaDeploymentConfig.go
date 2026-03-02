@@ -108,8 +108,6 @@ type CustomLambdaDeploymentConfig interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	// Deprecated: CloudFormation now supports Lambda deployment configurations without custom resources. Use `LambdaDeploymentConfig`.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }

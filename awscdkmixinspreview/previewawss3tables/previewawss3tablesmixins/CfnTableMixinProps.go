@@ -17,14 +17,40 @@ import (
 //   		TargetFileSizeMb: jsii.Number(123),
 //   	},
 //   	IcebergMetadata: &IcebergMetadataProperty{
+//   		IcebergPartitionSpec: &IcebergPartitionSpecProperty{
+//   			Fields: []interface{}{
+//   				&IcebergPartitionFieldProperty{
+//   					FieldId: jsii.Number(123),
+//   					Name: jsii.String("name"),
+//   					SourceId: jsii.Number(123),
+//   					Transform: jsii.String("transform"),
+//   				},
+//   			},
+//   			SpecId: jsii.Number(123),
+//   		},
 //   		IcebergSchema: &IcebergSchemaProperty{
 //   			SchemaFieldList: []interface{}{
 //   				&SchemaFieldProperty{
+//   					Id: jsii.Number(123),
 //   					Name: jsii.String("name"),
 //   					Required: jsii.Boolean(false),
 //   					Type: jsii.String("type"),
 //   				},
 //   			},
+//   		},
+//   		IcebergSortOrder: &IcebergSortOrderProperty{
+//   			Fields: []interface{}{
+//   				&IcebergSortFieldProperty{
+//   					Direction: jsii.String("direction"),
+//   					NullOrder: jsii.String("nullOrder"),
+//   					SourceId: jsii.Number(123),
+//   					Transform: jsii.String("transform"),
+//   				},
+//   			},
+//   			OrderId: jsii.Number(123),
+//   		},
+//   		TableProperties: map[string]*string{
+//   			"tablePropertiesKey": jsii.String("tableProperties"),
 //   		},
 //   	},
 //   	Namespace: jsii.String("namespace"),

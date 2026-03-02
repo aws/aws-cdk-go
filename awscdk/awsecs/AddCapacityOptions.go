@@ -104,6 +104,12 @@ type AddCapacityOptions struct {
 	// Default: None.
 	//
 	DefaultInstanceWarmup awscdk.Duration `field:"optional" json:"defaultInstanceWarmup" yaml:"defaultInstanceWarmup"`
+	// Deletion protection for the Auto Scaling group.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/resource-deletion-protection.html#asg-deletion-protection
+	//
+	// Default: DeletionProtection.NONE
+	//
+	DeletionProtection awsautoscaling.DeletionProtection `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Initial amount of instances in the fleet.
 	//
 	// If this is set to a number, every deployment will reset the amount of

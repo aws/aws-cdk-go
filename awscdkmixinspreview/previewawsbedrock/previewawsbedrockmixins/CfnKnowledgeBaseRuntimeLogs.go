@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnKnowledgeBaseLogsMixin to generate RUNTIME_LOGS for CfnKnowledgeBase.
@@ -25,13 +24,13 @@ type CfnKnowledgeBaseRuntimeLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnKnowledgeBaseLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnKnowledgeBaseRuntimeLogsDestProps) CfnKnowledgeBaseLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnKnowledgeBaseLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnKnowledgeBaseRuntimeLogsFirehoseProps) CfnKnowledgeBaseLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnKnowledgeBaseLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnKnowledgeBaseRuntimeLogsLogGroupProps) CfnKnowledgeBaseLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnKnowledgeBaseLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnKnowledgeBaseRuntimeLogsS3Props) CfnKnowledgeBaseLogsMixin
 }
 
 // The jsii proxy struct for CfnKnowledgeBaseRuntimeLogs
@@ -65,8 +64,8 @@ func NewCfnKnowledgeBaseRuntimeLogs_Override(c CfnKnowledgeBaseRuntimeLogs) {
 	)
 }
 
-func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnKnowledgeBaseLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnKnowledgeBaseRuntimeLogsDestProps) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnKnowledgeBaseLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToDestination(destination interf
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnKnowledgeBaseLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnKnowledgeBaseRuntimeLogsFirehoseProps) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnKnowledgeBaseLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToFirehose(deliveryStream interf
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnKnowledgeBaseLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnKnowledgeBaseRuntimeLogsLogGroupProps) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnKnowledgeBaseLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToLogGroup(logGroup interfacesaw
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnKnowledgeBaseLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnKnowledgeBaseRuntimeLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnKnowledgeBaseRuntimeLogsS3Props) CfnKnowledgeBaseLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnKnowledgeBaseLogsMixin

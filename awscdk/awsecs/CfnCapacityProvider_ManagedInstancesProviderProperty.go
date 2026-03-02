@@ -25,6 +25,10 @@ package awsecs
 //
 //   		// the properties below are optional
 //   		CapacityOptionType: jsii.String("capacityOptionType"),
+//   		CapacityReservations: &CapacityReservationRequestProperty{
+//   			ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   			ReservationPreference: jsii.String("reservationPreference"),
+//   		},
 //   		FipsEnabled: jsii.Boolean(false),
 //   		InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   			MemoryMiB: &MemoryMiBRequestProperty{

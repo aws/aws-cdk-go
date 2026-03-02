@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsroute53recoveryreadiness/previewawsroute53recoveryreadinessmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -42,8 +42,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
 //
 type CfnRecoveryGroupPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnRecoveryGroupMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -54,8 +54,8 @@ type CfnRecoveryGroupPropsMixin interface {
 
 // The jsii proxy struct for CfnRecoveryGroupPropsMixin
 type jsiiProxy_CfnRecoveryGroupPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnRecoveryGroupPropsMixin) Props() *CfnRecoveryGroupMixinProps {
@@ -111,7 +111,6 @@ func NewCfnRecoveryGroupPropsMixin_Override(c CfnRecoveryGroupPropsMixin, props 
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnRecoveryGroupPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

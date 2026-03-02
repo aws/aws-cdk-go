@@ -418,6 +418,10 @@ func init() {
 		reflect.TypeOf((*CfnCapacityProvider_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.CapacityReservationRequestProperty",
+		reflect.TypeOf((*CfnCapacityProvider_CapacityReservationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.InfrastructureOptimizationProperty",
 		reflect.TypeOf((*CfnCapacityProvider_InfrastructureOptimizationProperty)(nil)).Elem(),
 	)

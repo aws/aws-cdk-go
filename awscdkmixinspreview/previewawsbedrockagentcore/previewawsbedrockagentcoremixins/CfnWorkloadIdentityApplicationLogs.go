@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnWorkloadIdentityLogsMixin to generate APPLICATION_LOGS for CfnWorkloadIdentity.
@@ -25,13 +24,13 @@ type CfnWorkloadIdentityApplicationLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnWorkloadIdentityLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnWorkloadIdentityApplicationLogsDestProps) CfnWorkloadIdentityLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnWorkloadIdentityLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnWorkloadIdentityApplicationLogsFirehoseProps) CfnWorkloadIdentityLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnWorkloadIdentityLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnWorkloadIdentityApplicationLogsLogGroupProps) CfnWorkloadIdentityLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnWorkloadIdentityLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnWorkloadIdentityApplicationLogsS3Props) CfnWorkloadIdentityLogsMixin
 }
 
 // The jsii proxy struct for CfnWorkloadIdentityApplicationLogs
@@ -65,8 +64,8 @@ func NewCfnWorkloadIdentityApplicationLogs_Override(c CfnWorkloadIdentityApplica
 	)
 }
 
-func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnWorkloadIdentityLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnWorkloadIdentityApplicationLogsDestProps) CfnWorkloadIdentityLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkloadIdentityLogsMixin
@@ -74,15 +73,15 @@ func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToDestination(destination
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnWorkloadIdentityLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnWorkloadIdentityApplicationLogsFirehoseProps) CfnWorkloadIdentityLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkloadIdentityLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToFirehose(deliveryStream
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnWorkloadIdentityLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnWorkloadIdentityApplicationLogsLogGroupProps) CfnWorkloadIdentityLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkloadIdentityLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToLogGroup(logGroup inter
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnWorkloadIdentityLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnWorkloadIdentityApplicationLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnWorkloadIdentityApplicationLogsS3Props) CfnWorkloadIdentityLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnWorkloadIdentityLogsMixin

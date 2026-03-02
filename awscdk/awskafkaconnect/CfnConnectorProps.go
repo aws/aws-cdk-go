@@ -23,6 +23,9 @@ import (
 //   			ScaleOutPolicy: &ScaleOutPolicyProperty{
 //   				CpuUtilizationPercentage: jsii.Number(123),
 //   			},
+//
+//   			// the properties below are optional
+//   			MaxAutoscalingTaskCount: jsii.Number(123),
 //   		},
 //   		ProvisionedCapacity: &ProvisionedCapacityProperty{
 //   			WorkerCount: jsii.Number(123),

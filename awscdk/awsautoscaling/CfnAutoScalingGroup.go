@@ -319,6 +319,7 @@ type CfnAutoScalingGroup interface {
 	// The amount of time, in seconds, until a new instance is considered to have finished initializing and resource consumption to become stable after it enters the `InService` state.
 	DefaultInstanceWarmup() *float64
 	SetDefaultInstanceWarmup(val *float64)
+	// The deletion protection setting for the Auto Scaling group.
 	DeletionProtection() *string
 	SetDeletionProtection(val *string)
 	// The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain.
@@ -571,8 +572,6 @@ type CfnAutoScalingGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

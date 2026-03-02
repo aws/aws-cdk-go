@@ -54,6 +54,8 @@ type CfnMaintenanceWindow interface {
 	AllowUnassociatedTargets() interface{}
 	SetAllowUnassociatedTargets(val interface{})
 	AttrId() *string
+	// The ID of the maintenance window.
+	AttrWindowId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -263,8 +265,6 @@ type CfnMaintenanceWindow interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -291,6 +291,16 @@ func (j *jsiiProxy_CfnMaintenanceWindow) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindow) AttrWindowId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrWindowId",
 		&returns,
 	)
 	return returns

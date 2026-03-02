@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsobservabilityadmin/previewawsobservabilityadminmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -124,8 +124,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryrule.html
 //
 type CfnTelemetryRulePropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnTelemetryRuleMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -136,8 +136,8 @@ type CfnTelemetryRulePropsMixin interface {
 
 // The jsii proxy struct for CfnTelemetryRulePropsMixin
 type jsiiProxy_CfnTelemetryRulePropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnTelemetryRulePropsMixin) Props() *CfnTelemetryRuleMixinProps {
@@ -193,7 +193,6 @@ func NewCfnTelemetryRulePropsMixin_Override(c CfnTelemetryRulePropsMixin, props 
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnTelemetryRulePropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

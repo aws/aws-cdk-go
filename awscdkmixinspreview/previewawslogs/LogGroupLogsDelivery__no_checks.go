@@ -8,7 +8,7 @@ func (l *jsiiProxy_LogGroupLogsDelivery) validateBindParameters(scope constructs
 	return nil
 }
 
-func validateNewLogGroupLogsDeliveryParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func validateNewLogGroupLogsDeliveryParameters(logGroup interfacesawslogs.ILogGroupRef, props *DeliveryProps) error {
 	return nil
 }
 

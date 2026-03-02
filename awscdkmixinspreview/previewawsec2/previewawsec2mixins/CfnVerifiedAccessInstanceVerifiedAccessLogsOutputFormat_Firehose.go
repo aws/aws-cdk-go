@@ -1,0 +1,15 @@
+package previewawsec2mixins
+
+
+// Experimental.
+type CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose_JSON CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose_PLAIN CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose_RAW CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose = "RAW"
+)
+

@@ -780,6 +780,15 @@ func init() {
 			"ABANDON": DefaultResult_ABANDON,
 		},
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_autoscaling.DeletionProtection",
+		reflect.TypeOf((*DeletionProtection)(nil)).Elem(),
+		map[string]interface{}{
+			"NONE": DeletionProtection_NONE,
+			"PREVENT_FORCE_DELETION": DeletionProtection_PREVENT_FORCE_DELETION,
+			"PREVENT_ALL_DELETION": DeletionProtection_PREVENT_ALL_DELETION,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.EbsDeviceOptions",
 		reflect.TypeOf((*EbsDeviceOptions)(nil)).Elem(),

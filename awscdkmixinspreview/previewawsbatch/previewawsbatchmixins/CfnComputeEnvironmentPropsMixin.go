@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsbatch/previewawsbatchmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -86,6 +86,9 @@ import (
 //   		MaxvCpus: jsii.Number(123),
 //   		MinvCpus: jsii.Number(123),
 //   		PlacementGroup: jsii.String("placementGroup"),
+//   		ScalingPolicy: &ComputeScalingPolicyProperty{
+//   			MinScaleDownDelayMinutes: jsii.Number(123),
+//   		},
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
@@ -123,8 +126,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html
 //
 type CfnComputeEnvironmentPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnComputeEnvironmentMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -135,8 +138,8 @@ type CfnComputeEnvironmentPropsMixin interface {
 
 // The jsii proxy struct for CfnComputeEnvironmentPropsMixin
 type jsiiProxy_CfnComputeEnvironmentPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnComputeEnvironmentPropsMixin) Props() *CfnComputeEnvironmentMixinProps {
@@ -192,7 +195,6 @@ func NewCfnComputeEnvironmentPropsMixin_Override(c CfnComputeEnvironmentPropsMix
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnComputeEnvironmentPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

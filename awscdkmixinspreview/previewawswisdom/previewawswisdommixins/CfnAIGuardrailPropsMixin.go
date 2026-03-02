@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawswisdom/previewawswisdommixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -91,8 +91,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiguardrail.html
 //
 type CfnAIGuardrailPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnAIGuardrailMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -103,8 +103,8 @@ type CfnAIGuardrailPropsMixin interface {
 
 // The jsii proxy struct for CfnAIGuardrailPropsMixin
 type jsiiProxy_CfnAIGuardrailPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnAIGuardrailPropsMixin) Props() *CfnAIGuardrailMixinProps {
@@ -160,7 +160,6 @@ func NewCfnAIGuardrailPropsMixin_Override(c CfnAIGuardrailPropsMixin, props *Cfn
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnAIGuardrailPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

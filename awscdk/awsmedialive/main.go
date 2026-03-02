@@ -30,6 +30,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "channelClass", GoGetter: "ChannelClass"},
 			_jsii_.MemberProperty{JsiiProperty: "channelEngineVersion", GoGetter: "ChannelEngineVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
+			_jsii_.MemberProperty{JsiiProperty: "channelSecurityGroups", GoGetter: "ChannelSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "destinations", GoGetter: "Destinations"},
 			_jsii_.MemberProperty{JsiiProperty: "dryRun", GoGetter: "DryRun"},
@@ -1341,6 +1342,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerSourceRequestProperty",
 		reflect.TypeOf((*CfnInput_SrtCallerSourceRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtListenerDecryptionRequestProperty",
+		reflect.TypeOf((*CfnInput_SrtListenerDecryptionRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtListenerSettingsRequestProperty",
+		reflect.TypeOf((*CfnInput_SrtListenerSettingsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtSettingsRequestProperty",

@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawssecurityhub/previewawssecurityhubmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -33,8 +33,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-aggregatorv2.html
 //
 type CfnAggregatorV2PropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnAggregatorV2MixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -45,8 +45,8 @@ type CfnAggregatorV2PropsMixin interface {
 
 // The jsii proxy struct for CfnAggregatorV2PropsMixin
 type jsiiProxy_CfnAggregatorV2PropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnAggregatorV2PropsMixin) Props() *CfnAggregatorV2MixinProps {
@@ -102,7 +102,6 @@ func NewCfnAggregatorV2PropsMixin_Override(c CfnAggregatorV2PropsMixin, props *C
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnAggregatorV2PropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

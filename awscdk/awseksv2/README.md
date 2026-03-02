@@ -127,13 +127,13 @@ be created by default. It will only be deployed when `kubectlProviderOptions`
 property is used.**
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -463,7 +463,7 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 To provide additional Helm chart values supported by `albController` in CDK, use the `additionalHelmChartValues` property. For example, the following code snippet shows how to set the `enableWafV2` flag:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
@@ -576,13 +576,13 @@ To create a `Kubectl Handler`, use `kubectlProviderOptions` when creating the cl
 `kubectlLayer` is the only required property in `kubectlProviderOptions`.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -611,13 +611,13 @@ cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("Cluster"), &Clus
 You can configure the environment of this function by specifying it at cluster instantiation. For example, this can be useful in order to configure an http proxy:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 		Environment: map[string]*string{
 			"http_proxy": jsii.String("http://proxy.myproxy.com"),
 		},
@@ -638,13 +638,13 @@ Depending on which version of kubernetes you're targeting, you will need to use 
 the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -654,12 +654,12 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 By default, the kubectl provider is configured with 1024MiB of memory. You can use the `memory` option to specify the memory size for the AWS Lambda function:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
 	},
 	Version: eks.KubernetesVersion_V1_34(),
@@ -747,7 +747,7 @@ When you create an Amazon EKS cluster, you can configure it to leverage the [EKS
 Once you have identified the on-premises node and pod (optional) CIDRs you will use for your hybrid nodes and the workloads running on them, you can specify them during cluster creation using the `remoteNodeNetworks` and `remotePodNetworks` (optional) properties:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 
 eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
@@ -809,7 +809,7 @@ eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &Acce
 Use `grantAccess()` to grant the AccessPolicy to an IAM principal:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 var vpc Vpc
 
 
@@ -826,7 +826,7 @@ cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	MastersRole: clusterAdminRole,
 	Version: eks.KubernetesVersion_V1_34(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
 	},
 })
@@ -960,7 +960,7 @@ import s3 "github.com/aws/aws-cdk-go/awscdk"
 // or create a new one using an existing issuer url
 var issuerUrl string
 
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 
 // you can import an existing provider
 provider := eks.OidcProviderNative_FromOidcProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
@@ -972,7 +972,7 @@ cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &Cl
 	ClusterName: jsii.String("Cluster"),
 	OpenIdConnectProvider: provider,
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 	},
 })
 

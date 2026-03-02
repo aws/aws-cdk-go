@@ -4,13 +4,13 @@ package awseks
 // The default capacity type for the cluster.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv34"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 //
 //
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_34(),
+//   	Version: eks.KubernetesVersion_V1_35(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_EC2,
-//   	KubectlLayer: kubectlv34.NewKubectlV34Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 //   })
 //
 type DefaultCapacityType string

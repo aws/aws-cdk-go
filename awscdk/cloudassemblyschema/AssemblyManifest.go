@@ -19,6 +19,7 @@ package cloudassemblyschema
 //   			"type": awscdk.cloud_assembly_schema.ArtifactType_NONE,
 //
 //   			// the properties below are optional
+//   			"additionalMetadataFile": jsii.String("additionalMetadataFile"),
 //   			"dependencies": []*string{
 //   				jsii.String("dependencies"),
 //   			},

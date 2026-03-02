@@ -1,0 +1,69 @@
+package previewawsmediatailormixins
+
+
+// Experimental.
+type CfnPlaybackConfigurationManifestServiceLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_CUSTOMERID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "CUSTOMERID"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTYPE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_SESSIONTYPE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "SESSIONTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTID"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTDESCRIPTION CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTDESCRIPTION"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_SESSIONID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "SESSIONID"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ORIGINREQUESTURL CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ORIGINREQUESTURL"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_MEDIATAILORPATH CfnPlaybackConfigurationManifestServiceLogsRecordFields = "MEDIATAILORPATH"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_RESPONSEBODY CfnPlaybackConfigurationManifestServiceLogsRecordFields = "RESPONSEBODY"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTNEXTTOKEN CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTNEXTTOKEN"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ASSETPATH CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ASSETPATH"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ORIGINFULLURL CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ORIGINFULLURL"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ORIGINPREFIXURL CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ORIGINPREFIXURL"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ADDITIONALINFO CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ADDITIONALINFO"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_CAUSE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "CAUSE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_RESPONSE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "RESPONSE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_HTTPCODE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "HTTPCODE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ERRORMESSAGE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ERRORMESSAGE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ADADSRESPONSE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ADADSRESPONSE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ADADSRAWRESPONSE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ADADSRAWRESPONSE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ADADSREQUEST CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ADADSREQUEST"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ADNUMNEWAVAILS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ADNUMNEWAVAILS"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_GENERATEDMEDIAPLAYLIST CfnPlaybackConfigurationManifestServiceLogsRecordFields = "GENERATEDMEDIAPLAYLIST"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTSTARTTIME CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTSTARTTIME"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTENDTIME CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTENDTIME"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTSTARTTIMEEPOCHMILLIS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTSTARTTIMEEPOCHMILLIS"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTENDTIMEEPOCHMILLIS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTENDTIMEEPOCHMILLIS"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTTIMESTAMP"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_AWSACCOUNTID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "AWSACCOUNTID"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ORIGINID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ORIGINID"
+)
+

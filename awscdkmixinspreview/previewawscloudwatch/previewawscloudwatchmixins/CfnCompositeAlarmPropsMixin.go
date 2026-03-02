@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/mixins"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawscloudwatch/previewawscloudwatchmixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -58,8 +58,8 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
 //
 type CfnCompositeAlarmPropsMixin interface {
-	core.Mixin
-	core.IMixin
+	awscdk.Mixin
+	constructs.IMixin
 	Props() *CfnCompositeAlarmMixinProps
 	Strategy() mixins.PropertyMergeStrategy
 	// Apply the mixin properties to the construct.
@@ -70,8 +70,8 @@ type CfnCompositeAlarmPropsMixin interface {
 
 // The jsii proxy struct for CfnCompositeAlarmPropsMixin
 type jsiiProxy_CfnCompositeAlarmPropsMixin struct {
-	internal.Type__coreMixin
-	internal.Type__coreIMixin
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
 }
 
 func (j *jsiiProxy_CfnCompositeAlarmPropsMixin) Props() *CfnCompositeAlarmMixinProps {
@@ -127,7 +127,6 @@ func NewCfnCompositeAlarmPropsMixin_Override(c CfnCompositeAlarmPropsMixin, prop
 // Checks if `x` is a Mixin.
 //
 // Returns: true if `x` is an object created from a class which extends `Mixin`.
-// Experimental.
 func CfnCompositeAlarmPropsMixin_IsMixin(x interface{}) *bool {
 	_init_.Initialize()
 

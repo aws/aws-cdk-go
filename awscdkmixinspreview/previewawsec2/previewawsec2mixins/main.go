@@ -22,8 +22,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCapacityManagerDataExportPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -42,8 +42,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCapacityReservationFleetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -70,8 +70,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCapacityReservationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -102,8 +102,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCarrierGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -122,8 +122,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClientVpnAuthorizationRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -142,8 +142,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClientVpnEndpointPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -198,8 +198,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClientVpnRoutePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -218,8 +218,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnClientVpnTargetNetworkAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -238,8 +238,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCustomerGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -258,8 +258,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDHCPOptionsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -278,8 +278,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEC2FleetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -402,8 +402,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEIPAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -422,8 +422,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEIPPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -442,8 +442,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEgressOnlyInternetGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -462,8 +462,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnEnclaveCertificateIamRoleAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -482,8 +482,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnFlowLogPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -506,8 +506,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnGatewayRouteTableAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -526,8 +526,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnHostPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -546,8 +546,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMAllocationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -570,8 +570,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMPoolCidrPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -590,8 +590,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMPoolPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -602,6 +602,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnIPAMPoolPropsMixin.SourceResourceProperty",
 		reflect.TypeOf((*CfnIPAMPoolPropsMixin_SourceResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnIPAMPrefixListResolverMixinProps",
+		reflect.TypeOf((*CfnIPAMPrefixListResolverMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnIPAMPrefixListResolverPropsMixin",
+		reflect.TypeOf((*CfnIPAMPrefixListResolverPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIPAMPrefixListResolverPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnIPAMPrefixListResolverPropsMixin.IpamPrefixListResolverRuleConditionProperty",
+		reflect.TypeOf((*CfnIPAMPrefixListResolverPropsMixin_IpamPrefixListResolverRuleConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnIPAMPrefixListResolverPropsMixin.IpamPrefixListResolverRuleProperty",
+		reflect.TypeOf((*CfnIPAMPrefixListResolverPropsMixin_IpamPrefixListResolverRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnIPAMPropsMixin",
@@ -614,8 +642,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -642,8 +670,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMResourceDiscoveryAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -662,8 +690,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMResourceDiscoveryPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -690,8 +718,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIPAMScopePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -714,8 +742,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInstanceConnectEndpointPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -734,8 +762,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInstancePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -842,8 +870,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnInternetGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -862,8 +890,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIpPoolRouteTableAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -882,8 +910,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnKeyPairPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -902,8 +930,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLaunchTemplatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1098,8 +1126,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLocalGatewayRoutePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1118,8 +1146,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLocalGatewayRouteTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1138,8 +1166,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLocalGatewayRouteTableVPCAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1158,8 +1186,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1178,8 +1206,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLocalGatewayVirtualInterfaceGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1198,8 +1226,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnLocalGatewayVirtualInterfacePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1218,8 +1246,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNatGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1242,8 +1270,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkAclEntryPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1270,8 +1298,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkAclPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1290,8 +1318,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInsightsAccessScopeAnalysisPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1310,8 +1338,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInsightsAccessScopePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1350,8 +1378,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInsightsAnalysisPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1422,8 +1450,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInsightsPathPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1450,8 +1478,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInterfaceAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1482,8 +1510,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInterfacePermissionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1498,8 +1526,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkInterfacePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1542,8 +1570,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnNetworkPerformanceMetricSubscriptionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1562,8 +1590,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPlacementGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1582,8 +1610,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnPrefixListPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1606,8 +1634,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRoutePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1626,8 +1654,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteServerAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1646,8 +1674,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteServerEndpointPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1668,6 +1696,68 @@ func init() {
 			return &jsiiProxy_CfnRouteServerPeerEventLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsDestProps",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsFirehoseProps",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsLogGroupProps",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsOutputFormat",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnRouteServerPeerEventLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnRouteServerPeerEventLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnRouteServerPeerEventLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnRouteServerPeerEventLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnRouteServerPeerEventLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnRouteServerPeerEventLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnRouteServerPeerEventLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnRouteServerPeerEventLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnRouteServerPeerEventLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnRouteServerPeerEventLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsRecordFields",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"STATUS": CfnRouteServerPeerEventLogsRecordFields_STATUS,
+			"MESSAGE": CfnRouteServerPeerEventLogsRecordFields_MESSAGE,
+			"RESOURCE_ARN": CfnRouteServerPeerEventLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnRouteServerPeerEventLogsRecordFields_EVENT_TIMESTAMP,
+			"TYPE": CfnRouteServerPeerEventLogsRecordFields_TYPE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogsS3Props",
+		reflect.TypeOf((*CfnRouteServerPeerEventLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerLogsMixin",
 		reflect.TypeOf((*CfnRouteServerPeerLogsMixin)(nil)).Elem(),
@@ -1679,8 +1769,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteServerPeerLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1699,8 +1789,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteServerPeerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1723,8 +1813,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteServerPropagationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1739,8 +1829,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteServerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1759,8 +1849,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnRouteTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1779,8 +1869,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityGroupEgressPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1799,8 +1889,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityGroupIngressPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1819,8 +1909,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1847,8 +1937,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSecurityGroupVpcAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1867,8 +1957,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSnapshotBlockPublicAccessPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -1887,8 +1977,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSpotFleetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2047,8 +2137,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSubnetCidrBlockPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2071,8 +2161,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSubnetNetworkAclAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2087,8 +2177,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSubnetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2115,8 +2205,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSubnetRouteTableAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2135,8 +2225,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrafficMirrorFilterPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2155,8 +2245,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrafficMirrorFilterRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2179,8 +2269,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrafficMirrorSessionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2199,8 +2289,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTrafficMirrorTargetPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2219,8 +2309,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2247,8 +2337,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayConnectPeerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2271,8 +2361,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayConnectPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2295,8 +2385,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayMeteringPolicyEntryPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2315,8 +2405,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayMeteringPolicyPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2339,8 +2429,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayMulticastDomainAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2359,8 +2449,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayMulticastDomainPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2383,8 +2473,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayMulticastGroupMemberPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2403,8 +2493,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayMulticastGroupSourcePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2423,8 +2513,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayPeeringAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2443,8 +2533,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2463,8 +2553,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayRoutePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2483,8 +2573,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayRouteTableAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2507,8 +2597,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayRouteTablePropagationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2523,8 +2613,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayRouteTablePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2543,8 +2633,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnTransitGatewayVpcAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2567,8 +2657,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCBlockPublicAccessExclusionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2587,8 +2677,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCBlockPublicAccessOptionsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2607,8 +2697,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCCidrBlockPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2627,8 +2717,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCDHCPOptionsAssociationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2647,8 +2737,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCEncryptionControlPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2675,8 +2765,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCEndpointConnectionNotificationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2695,8 +2785,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCEndpointPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2723,8 +2813,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2739,8 +2829,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCEndpointServicePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2759,8 +2849,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCGatewayAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2775,8 +2865,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2799,8 +2889,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCPeeringConnectionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2815,8 +2905,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPCPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2834,6 +2924,53 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsFirehoseProps",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsLogGroupProps",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsOutputFormat",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnVPCRoute53ResolverQueryLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVPCRoute53ResolverQueryLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnVPCRoute53ResolverQueryLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnVPCRoute53ResolverQueryLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnVPCRoute53ResolverQueryLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnVPCRoute53ResolverQueryLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVPCRoute53ResolverQueryLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnVPCRoute53ResolverQueryLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnVPCRoute53ResolverQueryLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnVPCRoute53ResolverQueryLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPCRoute53ResolverQueryLogsS3Props",
+		reflect.TypeOf((*CfnVPCRoute53ResolverQueryLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConcentratorMixinProps",
 		reflect.TypeOf((*CfnVPNConcentratorMixinProps)(nil)).Elem(),
 	)
@@ -2848,8 +2985,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPNConcentratorPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2866,6 +3003,70 @@ func init() {
 			return &jsiiProxy_CfnVPNConnectionConnectionLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsDestProps",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsFirehoseProps",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsLogGroupProps",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsOutputFormat",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnVPNConnectionConnectionLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVPNConnectionConnectionLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnVPNConnectionConnectionLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnVPNConnectionConnectionLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnVPNConnectionConnectionLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnVPNConnectionConnectionLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVPNConnectionConnectionLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnVPNConnectionConnectionLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnVPNConnectionConnectionLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnVPNConnectionConnectionLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsRecordFields",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnVPNConnectionConnectionLogsRecordFields_TIMESTAMP,
+			"DPD_ENABLED": CfnVPNConnectionConnectionLogsRecordFields_DPD_ENABLED,
+			"NAT_T_DETECTED": CfnVPNConnectionConnectionLogsRecordFields_NAT_T_DETECTED,
+			"IKE_PHASE1_STATE": CfnVPNConnectionConnectionLogsRecordFields_IKE_PHASE1_STATE,
+			"IKE_PHASE2_STATE": CfnVPNConnectionConnectionLogsRecordFields_IKE_PHASE2_STATE,
+			"EVENT_TIMESTAMP": CfnVPNConnectionConnectionLogsRecordFields_EVENT_TIMESTAMP,
+			"DETAILS": CfnVPNConnectionConnectionLogsRecordFields_DETAILS,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionConnectionLogsS3Props",
+		reflect.TypeOf((*CfnVPNConnectionConnectionLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogs",
 		reflect.TypeOf((*CfnVPNConnectionEventLogs)(nil)).Elem(),
@@ -2879,6 +3080,69 @@ func init() {
 			return &jsiiProxy_CfnVPNConnectionEventLogs{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsDestProps",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsFirehoseProps",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsLogGroupProps",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsOutputFormat",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnVPNConnectionEventLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVPNConnectionEventLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnVPNConnectionEventLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnVPNConnectionEventLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnVPNConnectionEventLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnVPNConnectionEventLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVPNConnectionEventLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnVPNConnectionEventLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnVPNConnectionEventLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnVPNConnectionEventLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsRecordFields",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnVPNConnectionEventLogsRecordFields_TIMESTAMP,
+			"TYPE": CfnVPNConnectionEventLogsRecordFields_TYPE,
+			"STATUS": CfnVPNConnectionEventLogsRecordFields_STATUS,
+			"MESSAGE": CfnVPNConnectionEventLogsRecordFields_MESSAGE,
+			"RESOURCE_ID": CfnVPNConnectionEventLogsRecordFields_RESOURCE_ID,
+			"EVENT_TIMESTAMP": CfnVPNConnectionEventLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionEventLogsS3Props",
+		reflect.TypeOf((*CfnVPNConnectionEventLogsS3Props)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVPNConnectionLogsMixin",
 		reflect.TypeOf((*CfnVPNConnectionLogsMixin)(nil)).Elem(),
@@ -2890,8 +3154,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPNConnectionLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2910,8 +3174,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPNConnectionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2970,8 +3234,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPNConnectionRoutePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -2990,8 +3254,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPNGatewayPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3010,8 +3274,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVPNGatewayRoutePropagationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3030,8 +3294,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVerifiedAccessEndpointPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3074,8 +3338,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVerifiedAccessGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3094,8 +3358,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVerifiedAccessInstanceLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3114,8 +3378,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVerifiedAccessInstancePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3153,6 +3417,53 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsFirehoseProps",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsLogGroupProps",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnVerifiedAccessInstanceVerifiedAccessLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessInstanceVerifiedAccessLogsS3Props",
+		reflect.TypeOf((*CfnVerifiedAccessInstanceVerifiedAccessLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnVerifiedAccessTrustProviderMixinProps",
 		reflect.TypeOf((*CfnVerifiedAccessTrustProviderMixinProps)(nil)).Elem(),
 	)
@@ -3167,8 +3478,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVerifiedAccessTrustProviderPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3203,8 +3514,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVolumeAttachmentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)
@@ -3223,8 +3534,8 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnVolumePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__coreMixin)
-			_jsii_.InitJsiiProxy(&j.Type__coreIMixin)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
 	)

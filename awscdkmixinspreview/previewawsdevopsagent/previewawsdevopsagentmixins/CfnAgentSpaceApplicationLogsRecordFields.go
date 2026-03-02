@@ -1,0 +1,49 @@
+package previewawsdevopsagentmixins
+
+
+// Experimental.
+type CfnAgentSpaceApplicationLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ACCOUNT_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_ACCOUNT_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_AGENT_SPACE_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_AGENT_SPACE_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_LEVEL CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_LEVEL"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ASSOCIATION_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_ASSOCIATION_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_STATUS CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_STATUS"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_WEBHOOK_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_WEBHOOK_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_MCP_ENDPOINT_URL CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_MCP_ENDPOINT_URL"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_SERVICE_TYPE CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_SERVICE_TYPE"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_SERVICE_ENDPOINT_URL CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_SERVICE_ENDPOINT_URL"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_SERVICE_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_SERVICE_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_REQUEST_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_REQUEST_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_OPERATION CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_OPERATION"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_TASK_TYPE CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_TASK_TYPE"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_TASK_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_TASK_ID"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_REFERENCE CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_REFERENCE"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ERROR_TYPE CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_ERROR_TYPE"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ERROR_MESSAGE CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_ERROR_MESSAGE"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_DETAILS CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_DETAILS"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_RESOURCE_ARN CfnAgentSpaceApplicationLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_EVENT_TIMESTAMP CfnAgentSpaceApplicationLogsRecordFields = "EVENT_TIMESTAMP"
+)
+

@@ -15,6 +15,7 @@ package awss3tables
 //   			Type: jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			Id: jsii.Number(123),
 //   			Required: jsii.Boolean(false),
 //   		},
 //   	},

@@ -1,0 +1,47 @@
+package previewawsbedrockagentcoremixins
+
+
+// Experimental.
+type CfnCodeInterpreterCustomApplicationLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_ACCOUNT_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "ACCOUNT_ID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_REQUEST_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "REQUEST_ID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_TOOL_SESSION_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "TOOL_SESSION_ID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_SPAN_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "SPAN_ID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_TRACE_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "TRACE_ID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_SERVICE_NAME CfnCodeInterpreterCustomApplicationLogsRecordFields = "SERVICE_NAME"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_OPERATION CfnCodeInterpreterCustomApplicationLogsRecordFields = "OPERATION"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_REQUEST_PAYLOAD CfnCodeInterpreterCustomApplicationLogsRecordFields = "REQUEST_PAYLOAD"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_RESPONSE_PAYLOAD CfnCodeInterpreterCustomApplicationLogsRecordFields = "RESPONSE_PAYLOAD"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_RESOURCE CfnCodeInterpreterCustomApplicationLogsRecordFields = "RESOURCE"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_ATTRIBUTES CfnCodeInterpreterCustomApplicationLogsRecordFields = "ATTRIBUTES"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_TIMEUNIXNANO CfnCodeInterpreterCustomApplicationLogsRecordFields = "TIMEUNIXNANO"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_SEVERITYNUMBER CfnCodeInterpreterCustomApplicationLogsRecordFields = "SEVERITYNUMBER"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_SEVERITYTEXT CfnCodeInterpreterCustomApplicationLogsRecordFields = "SEVERITYTEXT"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_BODY CfnCodeInterpreterCustomApplicationLogsRecordFields = "BODY"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_TRACEID CfnCodeInterpreterCustomApplicationLogsRecordFields = "TRACEID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_SPANID CfnCodeInterpreterCustomApplicationLogsRecordFields = "SPANID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_RESOURCE_ARN CfnCodeInterpreterCustomApplicationLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_EVENT_TIMESTAMP CfnCodeInterpreterCustomApplicationLogsRecordFields = "EVENT_TIMESTAMP"
+)
+

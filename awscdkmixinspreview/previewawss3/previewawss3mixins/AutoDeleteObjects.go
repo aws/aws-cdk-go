@@ -4,7 +4,6 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/core"
 	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawss3/previewawss3mixins/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -12,12 +11,12 @@ import (
 // S3-specific mixin for auto-deleting objects.
 //
 // Example:
-//   bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-//   awscdkmixinspreview.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewAutoDeleteObjects())
+//   myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
+//   awscdk.Mixins_Of(myBucket).Apply(awscdkmixinspreview.NewAutoDeleteObjects())
 //
 // Experimental.
 type AutoDeleteObjects interface {
-	core.IMixin
+	constructs.IMixin
 	// Applies the mixin functionality to the target construct.
 	// Experimental.
 	ApplyTo(construct constructs.IConstruct)
@@ -28,7 +27,7 @@ type AutoDeleteObjects interface {
 
 // The jsii proxy struct for AutoDeleteObjects
 type jsiiProxy_AutoDeleteObjects struct {
-	internal.Type__coreIMixin
+	internal.Type__constructsIMixin
 }
 
 // Experimental.

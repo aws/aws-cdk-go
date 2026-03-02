@@ -8,11 +8,11 @@ func (c *jsiiProxy_CfnWorkteamActivityLogs) validateToDestinationParameters(dest
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteamActivityLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnWorkteamActivityLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnWorkteamActivityLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnWorkteamActivityLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnWorkteamActivityLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnWorkteamActivityLogsS3Props) error {
 	return nil
 }
 

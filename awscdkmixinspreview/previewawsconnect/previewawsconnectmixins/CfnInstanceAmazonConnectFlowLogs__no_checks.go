@@ -4,19 +4,19 @@ package previewawsconnectmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnInstanceAmazonConnectFlowLogsDestProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) error {
+func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToFirehoseParameters(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnInstanceAmazonConnectFlowLogsFirehoseProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef) error {
+func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToLogGroupParameters(logGroup interfacesawslogs.ILogGroupRef, props *CfnInstanceAmazonConnectFlowLogsLogGroupProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef) error {
+func (c *jsiiProxy_CfnInstanceAmazonConnectFlowLogs) validateToS3Parameters(bucket interfacesawss3.IBucketRef, props *CfnInstanceAmazonConnectFlowLogsS3Props) error {
 	return nil
 }
 

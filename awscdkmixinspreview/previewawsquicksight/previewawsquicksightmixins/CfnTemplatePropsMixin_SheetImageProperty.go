@@ -8,8 +8,6 @@ package previewawsquicksightmixins
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
-//   var visibility interface{}
-//
 //   sheetImageProperty := &SheetImageProperty{
 //   	Actions: []interface{}{
 //   		&ImageCustomActionProperty{
@@ -84,7 +82,7 @@ package previewawsquicksightmixins
 //   		TooltipText: &SheetImageTooltipTextProperty{
 //   			PlainText: jsii.String("plainText"),
 //   		},
-//   		Visibility: visibility,
+//   		Visibility: jsii.String("visibility"),
 //   	},
 //   }
 //

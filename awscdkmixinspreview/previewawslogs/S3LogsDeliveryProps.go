@@ -16,11 +16,29 @@ import (
 //
 //   s3LogsDeliveryProps := &S3LogsDeliveryProps{
 //   	KmsKey: keyRef,
+//   	MandatoryFields: []*string{
+//   		jsii.String("mandatoryFields"),
+//   	},
+//   	OutputFormat: jsii.String("outputFormat"),
 //   	PermissionsVersion: awscdkmixinspreview.Aws_logs.S3LogsDeliveryPermissionsVersion_V1,
+//   	ProvidedFields: []*string{
+//   		jsii.String("providedFields"),
+//   	},
 //   }
 //
 // Experimental.
 type S3LogsDeliveryProps struct {
+	// Any recordFields that a mandatory to be included in a log delivery of a certain log type.
+	// Default: - log type has no mandatory fields.
+	//
+	// Experimental.
+	MandatoryFields *[]*string `field:"optional" json:"mandatoryFields" yaml:"mandatoryFields"`
+	// RecordFields the user has defined to be used in log delivery.
+	// Experimental.
+	ProvidedFields *[]*string `field:"optional" json:"providedFields" yaml:"providedFields"`
+	// Format of the logs that are sent to the delivery destination specified.
+	// Experimental.
+	OutputFormat *string `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// KMS key to use for encrypting logs in the S3 bucket.
 	//
 	// When provided, grants the logs delivery service permissions to use the key.

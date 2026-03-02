@@ -20,6 +20,7 @@ import (
 //   	Type: awscdk.Cloud_assembly_schema.ArtifactType_NONE,
 //
 //   	// the properties below are optional
+//   	AdditionalMetadataFile: jsii.String("additionalMetadataFile"),
 //   	Dependencies: []*string{
 //   		jsii.String("dependencies"),
 //   	},

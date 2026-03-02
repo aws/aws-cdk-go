@@ -1,0 +1,13 @@
+package previewawsmediatailormixins
+
+
+// Experimental.
+type CfnPlaybackConfigurationManifestServiceLogsOutputFormat_LogGroup string
+
+const (
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsOutputFormat_LogGroup_PLAIN CfnPlaybackConfigurationManifestServiceLogsOutputFormat_LogGroup = "PLAIN"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsOutputFormat_LogGroup_JSON CfnPlaybackConfigurationManifestServiceLogsOutputFormat_LogGroup = "JSON"
+)
+

@@ -257,8 +257,6 @@ type CfnWirelessDeviceImportTask interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -605,44 +603,6 @@ func CfnWirelessDeviceImportTask_ArnForWirelessDeviceImportTask(resource interfa
 		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
 		"arnForWirelessDeviceImportTask",
 		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IWirelessDeviceImportTaskRef from an ARN.
-func CfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArn(scope constructs.Construct, id *string, arn *string) interfacesawsiotwireless.IWirelessDeviceImportTaskRef {
-	_init_.Initialize()
-
-	if err := validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsiotwireless.IWirelessDeviceImportTaskRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
-		"fromWirelessDeviceImportTaskArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IWirelessDeviceImportTaskRef from a wirelessDeviceImportTaskId.
-func CfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskId(scope constructs.Construct, id *string, wirelessDeviceImportTaskId *string) interfacesawsiotwireless.IWirelessDeviceImportTaskRef {
-	_init_.Initialize()
-
-	if err := validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskIdParameters(scope, id, wirelessDeviceImportTaskId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsiotwireless.IWirelessDeviceImportTaskRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotwireless.CfnWirelessDeviceImportTask",
-		"fromWirelessDeviceImportTaskId",
-		[]interface{}{scope, id, wirelessDeviceImportTaskId},
 		&returns,
 	)
 

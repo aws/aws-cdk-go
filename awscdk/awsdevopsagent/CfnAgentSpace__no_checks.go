@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnAgentSpace) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgentSpace) validateSetOperatorAppParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnAgentSpaceParameters(scope constructs.Construct, id *string, props *CfnAgentSpaceProps) error {
 	return nil
 }

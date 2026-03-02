@@ -44,6 +44,7 @@ import (
 //   		IamIdentityCenterInstanceArn: jsii.String("iamIdentityCenterInstanceArn"),
 //   		IamRoleForIdentityCenterApplicationArn: jsii.String("iamRoleForIdentityCenterApplicationArn"),
 //   	},
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -91,6 +92,9 @@ type CfnApplication interface {
 	// Settings container for integrating IAM Identity Center with OpenSearch UI applications, which enables enabling secure user authentication and access control across multiple data sources.
 	IamIdentityCenterOptions() interface{}
 	SetIamIdentityCenterOptions(val interface{})
+	// The ARN of the KMS key used to encrypt the application.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -262,8 +266,6 @@ type CfnApplication interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
@@ -400,6 +402,16 @@ func (j *jsiiProxy_CfnApplication) IamIdentityCenterOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"iamIdentityCenterOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
 		&returns,
 	)
 	return returns
@@ -552,6 +564,14 @@ func (j *jsiiProxy_CfnApplication)SetIamIdentityCenterOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"iamIdentityCenterOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
 		val,
 	)
 }

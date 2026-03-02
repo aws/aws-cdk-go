@@ -51,6 +51,10 @@ import (
 //
 //   			// the properties below are optional
 //   			CapacityOptionType: jsii.String("capacityOptionType"),
+//   			CapacityReservations: &CapacityReservationRequestProperty{
+//   				ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   				ReservationPreference: jsii.String("reservationPreference"),
+//   			},
 //   			FipsEnabled: jsii.Boolean(false),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				MemoryMiB: &MemoryMiBRequestProperty{
@@ -349,8 +353,6 @@ type CfnCapacityProvider interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 

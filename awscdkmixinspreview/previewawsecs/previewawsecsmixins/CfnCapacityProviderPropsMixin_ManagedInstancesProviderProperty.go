@@ -17,6 +17,10 @@ package previewawsecsmixins
 //   	InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
 //   	InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
 //   		CapacityOptionType: jsii.String("capacityOptionType"),
+//   		CapacityReservations: &CapacityReservationRequestProperty{
+//   			ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   			ReservationPreference: jsii.String("reservationPreference"),
+//   		},
 //   		Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   		FipsEnabled: jsii.Boolean(false),
 //   		InstanceRequirements: &InstanceRequirementsRequestProperty{

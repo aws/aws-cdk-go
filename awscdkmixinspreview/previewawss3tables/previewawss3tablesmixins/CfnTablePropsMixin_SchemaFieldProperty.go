@@ -9,6 +9,7 @@ package previewawss3tablesmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   schemaFieldProperty := &SchemaFieldProperty{
+//   	Id: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Required: jsii.Boolean(false),
 //   	Type: jsii.String("type"),
@@ -17,6 +18,10 @@ package previewawss3tablesmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html
 //
 type CfnTablePropsMixin_SchemaFieldProperty struct {
+	// The unique identifier for the field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html#cfn-s3tables-table-schemafield-id
+	//
+	Id *float64 `field:"optional" json:"id" yaml:"id"`
 	// The name of the field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html#cfn-s3tables-table-schemafield-name
 	//

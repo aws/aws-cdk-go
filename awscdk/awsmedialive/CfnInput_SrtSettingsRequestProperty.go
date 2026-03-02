@@ -19,6 +19,14 @@ package awsmedialive
 //   			StreamId: jsii.String("streamId"),
 //   		},
 //   	},
+//   	SrtListenerSettings: &SrtListenerSettingsRequestProperty{
+//   		Decryption: &SrtListenerDecryptionRequestProperty{
+//   			Algorithm: jsii.String("algorithm"),
+//   			PassphraseSecretArn: jsii.String("passphraseSecretArn"),
+//   		},
+//   		MinimumLatency: jsii.Number(123),
+//   		StreamId: jsii.String("streamId"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html
@@ -27,5 +35,8 @@ type CfnInput_SrtSettingsRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html#cfn-medialive-input-srtsettingsrequest-srtcallersources
 	//
 	SrtCallerSources interface{} `field:"optional" json:"srtCallerSources" yaml:"srtCallerSources"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html#cfn-medialive-input-srtsettingsrequest-srtlistenersettings
+	//
+	SrtListenerSettings interface{} `field:"optional" json:"srtListenerSettings" yaml:"srtListenerSettings"`
 }
 

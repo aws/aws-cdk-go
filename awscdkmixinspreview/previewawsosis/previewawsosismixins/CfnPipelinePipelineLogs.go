@@ -7,7 +7,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
-	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
 )
 
 // Builder for CfnPipelineLogsMixin to generate PIPELINE_LOGS for CfnPipeline.
@@ -27,11 +26,11 @@ type CfnPipelinePipelineLogs interface {
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
 	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnPipelineLogsMixin
 	// Send logs to a Firehose Delivery Stream.
-	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnPipelineLogsMixin
+	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnPipelinePipelineLogsFirehoseProps) CfnPipelineLogsMixin
 	// Send logs to a CloudWatch Log Group.
-	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnPipelineLogsMixin
+	ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnPipelinePipelineLogsLogGroupProps) CfnPipelineLogsMixin
 	// Send logs to an S3 Bucket.
-	ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnPipelineLogsMixin
+	ToS3(bucket interfacesawss3.IBucketRef, props *CfnPipelinePipelineLogsS3Props) CfnPipelineLogsMixin
 }
 
 // The jsii proxy struct for CfnPipelinePipelineLogs
@@ -81,8 +80,8 @@ func (c *jsiiProxy_CfnPipelinePipelineLogs) ToDestination(destination interfaces
 	return returns
 }
 
-func (c *jsiiProxy_CfnPipelinePipelineLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef) CfnPipelineLogsMixin {
-	if err := c.validateToFirehoseParameters(deliveryStream); err != nil {
+func (c *jsiiProxy_CfnPipelinePipelineLogs) ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnPipelinePipelineLogsFirehoseProps) CfnPipelineLogsMixin {
+	if err := c.validateToFirehoseParameters(deliveryStream, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPipelineLogsMixin
@@ -90,15 +89,15 @@ func (c *jsiiProxy_CfnPipelinePipelineLogs) ToFirehose(deliveryStream interfaces
 	_jsii_.Invoke(
 		c,
 		"toFirehose",
-		[]interface{}{deliveryStream},
+		[]interface{}{deliveryStream, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnPipelinePipelineLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef) CfnPipelineLogsMixin {
-	if err := c.validateToLogGroupParameters(logGroup); err != nil {
+func (c *jsiiProxy_CfnPipelinePipelineLogs) ToLogGroup(logGroup interfacesawslogs.ILogGroupRef, props *CfnPipelinePipelineLogsLogGroupProps) CfnPipelineLogsMixin {
+	if err := c.validateToLogGroupParameters(logGroup, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPipelineLogsMixin
@@ -106,15 +105,15 @@ func (c *jsiiProxy_CfnPipelinePipelineLogs) ToLogGroup(logGroup interfacesawslog
 	_jsii_.Invoke(
 		c,
 		"toLogGroup",
-		[]interface{}{logGroup},
+		[]interface{}{logGroup, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnPipelinePipelineLogs) ToS3(bucket interfacesawss3.IBucketRef, props previewawslogs.IS3LogsDestinationProps) CfnPipelineLogsMixin {
-	if err := c.validateToS3Parameters(bucket); err != nil {
+func (c *jsiiProxy_CfnPipelinePipelineLogs) ToS3(bucket interfacesawss3.IBucketRef, props *CfnPipelinePipelineLogsS3Props) CfnPipelineLogsMixin {
+	if err := c.validateToS3Parameters(bucket, props); err != nil {
 		panic(err)
 	}
 	var returns CfnPipelineLogsMixin

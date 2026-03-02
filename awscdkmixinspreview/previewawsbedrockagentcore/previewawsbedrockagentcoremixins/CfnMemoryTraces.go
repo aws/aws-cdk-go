@@ -22,9 +22,9 @@ type CfnMemoryTraces interface {
 	// Supported destinations are XRAY
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnMemoryLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnMemoryTracesDestProps) CfnMemoryLogsMixin
 	// Send traces to X-Ray.
-	ToXRay() CfnMemoryLogsMixin
+	ToXRay(props *CfnMemoryTracesXRayProps) CfnMemoryLogsMixin
 }
 
 // The jsii proxy struct for CfnMemoryTraces
@@ -58,8 +58,8 @@ func NewCfnMemoryTraces_Override(c CfnMemoryTraces) {
 	)
 }
 
-func (c *jsiiProxy_CfnMemoryTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnMemoryLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnMemoryTraces) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnMemoryTracesDestProps) CfnMemoryLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnMemoryLogsMixin
@@ -67,20 +67,23 @@ func (c *jsiiProxy_CfnMemoryTraces) ToDestination(destination interfacesawslogs.
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 
 	return returns
 }
 
-func (c *jsiiProxy_CfnMemoryTraces) ToXRay() CfnMemoryLogsMixin {
+func (c *jsiiProxy_CfnMemoryTraces) ToXRay(props *CfnMemoryTracesXRayProps) CfnMemoryLogsMixin {
+	if err := c.validateToXRayParameters(props); err != nil {
+		panic(err)
+	}
 	var returns CfnMemoryLogsMixin
 
 	_jsii_.Invoke(
 		c,
 		"toXRay",
-		nil, // no parameters
+		[]interface{}{props},
 		&returns,
 	)
 

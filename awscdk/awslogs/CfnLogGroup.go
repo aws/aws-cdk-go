@@ -23,11 +23,11 @@ import (
 //
 // Example:
 //   // Works across different resource types
-//   bucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-//   awscdkmixinspreview.Mixins_Of(bucket).Apply(NewEncryptionAtRest())
+//   myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
+//   awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest())
 //
-//   logGroup := logs.NewCfnLogGroup(scope, jsii.String("LogGroup"))
-//   awscdkmixinspreview.Mixins_Of(logGroup).Apply(NewEncryptionAtRest())
+//   myLogGroup := logs.NewCfnLogGroup(scope, jsii.String("LogGroup"))
+//   awscdk.Mixins_Of(myLogGroup).Apply(NewEncryptionAtRest())
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 //
@@ -246,8 +246,6 @@ type CfnLogGroup interface {
 	// start of the call, so constructs added by a mixin will not be visited.
 	// Use multiple `with()` calls if subsequent mixins should apply to added
 	// constructs.
-	//
-	// Returns: This construct for chaining.
 	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
