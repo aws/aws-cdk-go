@@ -24,10 +24,10 @@ import (
 type ReferenceStoreEvents interface {
 	// EventBridge event pattern for ReferenceStore Reference Import Job Status Change.
 	// Experimental.
-	ReferenceImportJobStatusChangePattern(options *ReferenceStoreEvents_ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) *awsevents.EventPattern
+	ReferenceImportJobStatusChangePattern(options *ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for ReferenceStore Reference Status Change.
 	// Experimental.
-	ReferenceStatusChangePattern(options *ReferenceStoreEvents_ReferenceStatusChange_ReferenceStatusChangeProps) *awsevents.EventPattern
+	ReferenceStatusChangePattern(options *ReferenceStatusChange_ReferenceStatusChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ReferenceStoreEvents
@@ -55,7 +55,7 @@ func ReferenceStoreEvents_FromReferenceStore(referenceStoreRef interfacesawsomic
 	return returns
 }
 
-func (r *jsiiProxy_ReferenceStoreEvents) ReferenceImportJobStatusChangePattern(options *ReferenceStoreEvents_ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) *awsevents.EventPattern {
+func (r *jsiiProxy_ReferenceStoreEvents) ReferenceImportJobStatusChangePattern(options *ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) *awsevents.EventPattern {
 	if err := r.validateReferenceImportJobStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (r *jsiiProxy_ReferenceStoreEvents) ReferenceImportJobStatusChangePattern(o
 	return returns
 }
 
-func (r *jsiiProxy_ReferenceStoreEvents) ReferenceStatusChangePattern(options *ReferenceStoreEvents_ReferenceStatusChange_ReferenceStatusChangeProps) *awsevents.EventPattern {
+func (r *jsiiProxy_ReferenceStoreEvents) ReferenceStatusChangePattern(options *ReferenceStatusChange_ReferenceStatusChangeProps) *awsevents.EventPattern {
 	if err := r.validateReferenceStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}

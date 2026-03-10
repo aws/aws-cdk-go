@@ -29,6 +29,6 @@ type CfnDomainPropsMixin_EncryptionAtRestOptionsProperty struct {
 	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 

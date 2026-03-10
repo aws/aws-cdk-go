@@ -10,7 +10,7 @@ package previewawsopensearchserverlessmixins
 //
 //   cfnVpcEndpointMixinProps := &CfnVpcEndpointMixinProps{
 //   	Name: jsii.String("name"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SubnetIds: []*string{
@@ -29,7 +29,7 @@ type CfnVpcEndpointMixinProps struct {
 	// The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.html#cfn-opensearchserverless-vpcendpoint-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The ID of the subnets from which you access OpenSearch Serverless.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.html#cfn-opensearchserverless-vpcendpoint-subnetids
 	//

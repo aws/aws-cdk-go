@@ -19,10 +19,10 @@ type CfnVPCDHCPOptionsAssociationMixinProps struct {
 	// The ID of the DHCP options set, or `default` to associate no DHCP options with the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid
 	//
-	DhcpOptionsId *string `field:"optional" json:"dhcpOptionsId" yaml:"dhcpOptionsId"`
+	DhcpOptionsId interface{} `field:"optional" json:"dhcpOptionsId" yaml:"dhcpOptionsId"`
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcdhcpoptionsassociation.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

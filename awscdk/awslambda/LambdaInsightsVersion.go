@@ -10,7 +10,7 @@ import (
 // Example:
 //   layerArn := "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:14"
 //   lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	InsightsVersion: lambda.LambdaInsightsVersion_FromInsightVersionArn(layerArn),

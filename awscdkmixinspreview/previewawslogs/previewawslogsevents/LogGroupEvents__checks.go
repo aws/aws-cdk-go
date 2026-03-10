@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
-func (l *jsiiProxy_LogGroupEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *LogGroupEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (l *jsiiProxy_LogGroupEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

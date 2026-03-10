@@ -69,7 +69,7 @@ type CfnSecretMixinProps struct {
 	// If the secret is in a different AWS account from the credentials calling the API, then you can't use `aws/secretsmanager` to encrypt the secret, and you must create and use a customer managed AWS  key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The name of the new secret.
 	//
 	// The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-

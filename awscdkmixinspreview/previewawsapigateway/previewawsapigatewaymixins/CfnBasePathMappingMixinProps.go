@@ -26,17 +26,17 @@ type CfnBasePathMappingMixinProps struct {
 	// The domain name of the BasePathMapping resource to be described.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html#cfn-apigateway-basepathmapping-domainname
 	//
-	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	DomainName interface{} `field:"optional" json:"domainName" yaml:"domainName"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html#cfn-apigateway-basepathmapping-id
 	//
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html#cfn-apigateway-basepathmapping-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The name of the associated stage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html#cfn-apigateway-basepathmapping-stage
 	//
-	Stage *string `field:"optional" json:"stage" yaml:"stage"`
+	Stage interface{} `field:"optional" json:"stage" yaml:"stage"`
 }
 

@@ -20,7 +20,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAwsLogSourcePropsMixin := awscdkmixinspreview.Mixins.NewCfnAwsLogSourcePropsMixin(&CfnAwsLogSourceMixinProps{
 //   	Accounts: []*string{
@@ -30,7 +32,7 @@ import (
 //   	SourceName: jsii.String("sourceName"),
 //   	SourceVersion: jsii.String("sourceVersion"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-awslogsource.html
@@ -39,7 +41,7 @@ type CfnAwsLogSourcePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAwsLogSourceMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -62,8 +64,8 @@ func (j *jsiiProxy_CfnAwsLogSourcePropsMixin) Props() *CfnAwsLogSourceMixinProps
 	return returns
 }
 
-func (j *jsiiProxy_CfnAwsLogSourcePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAwsLogSourcePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -144,10 +144,6 @@ func (j *jsiiProxy_Bucket) validateSetAutoCreatePolicyParameters(val *bool) erro
 	return nil
 }
 
-func (j *jsiiProxy_Bucket) validateSetGrantsParameters(val BucketGrants) error {
-	return nil
-}
-
 func validateNewBucketParameters(scope constructs.Construct, id *string, props *BucketProps) error {
 	return nil
 }

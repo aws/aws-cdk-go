@@ -26,7 +26,7 @@ type CfnDataSetPropsMixin_RowLevelPermissionDataSetProperty struct {
 	// The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 	// The user or group rules associated with the dataset that contains permissions for RLS.
 	//
 	// By default, `FormatVersion` is `VERSION_1` . When `FormatVersion` is `VERSION_1` , `UserName` and `GroupName` are required. When `FormatVersion` is `VERSION_2` , `UserARN` and `GroupARN` are required, and `Namespace` must not exist.

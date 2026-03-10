@@ -20,7 +20,7 @@ type CfnAnomalySubscriptionPropsMixin_SubscriberProperty struct {
 	// The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-address
 	//
-	Address *string `field:"optional" json:"address" yaml:"address"`
+	Address interface{} `field:"optional" json:"address" yaml:"address"`
 	// Indicates if the subscriber accepts the notifications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-subscriber.html#cfn-ce-anomalysubscription-subscriber-status
 	//

@@ -37,11 +37,22 @@ import (
 //   			MountOptions: &SmbMountOptionsProperty{
 //   				Version: jsii.String("version"),
 //   			},
-//   			Password: jsii.String("password"),
 //   			User: jsii.String("user"),
 //
 //   			// the properties below are optional
+//   			CmkSecretConfig: &CmkSecretConfigProperty{
+//   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   			CustomSecretConfig: &CustomSecretConfigProperty{
+//   				SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
 //   			Domain: jsii.String("domain"),
+//   			ManagedSecretConfig: &ManagedSecretConfigProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   			Password: jsii.String("password"),
 //   		},
 //   	},
 //   	Subdirectory: jsii.String("subdirectory"),
@@ -66,6 +77,12 @@ type CfnLocationFSxONTAP interface {
 	AttrLocationArn() *string
 	// The URI of the specified location.
 	AttrLocationUri() *string
+	// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+	AttrProtocolSmbCmkSecretConfigSecretArn() *string
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location.
+	//
+	// DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+	AttrProtocolSmbManagedSecretConfig() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -296,6 +313,26 @@ func (j *jsiiProxy_CfnLocationFSxONTAP) AttrLocationUri() *string {
 	_jsii_.Get(
 		j,
 		"attrLocationUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationFSxONTAP) AttrProtocolSmbCmkSecretConfigSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrProtocolSmbCmkSecretConfigSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationFSxONTAP) AttrProtocolSmbManagedSecretConfig() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProtocolSmbManagedSecretConfig",
 		&returns,
 	)
 	return returns

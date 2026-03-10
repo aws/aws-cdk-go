@@ -25,6 +25,6 @@ type CfnExperimentTemplatePropsMixin_ExperimentTemplateStopConditionProperty str
 	// The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
 	//
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

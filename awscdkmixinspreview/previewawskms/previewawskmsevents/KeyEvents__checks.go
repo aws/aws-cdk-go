@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
-func (k *jsiiProxy_KeyEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *KeyEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (k *jsiiProxy_KeyEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (k *jsiiProxy_KeyEvents) validateAwsAPICallViaCloudTrailPatternParameters(o
 	return nil
 }
 
-func (k *jsiiProxy_KeyEvents) validateKMSCMKDeletionPatternParameters(options *KeyEvents_KMSCMKDeletion_KMSCMKDeletionProps) error {
+func (k *jsiiProxy_KeyEvents) validateKmsCMKDeletionPatternParameters(options *KMSCMKDeletion_KMSCMKDeletionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (k *jsiiProxy_KeyEvents) validateKMSCMKDeletionPatternParameters(options *K
 	return nil
 }
 
-func (k *jsiiProxy_KeyEvents) validateKMSCMKRotationPatternParameters(options *KeyEvents_KMSCMKRotation_KMSCMKRotationProps) error {
+func (k *jsiiProxy_KeyEvents) validateKmsCMKRotationPatternParameters(options *KMSCMKRotation_KMSCMKRotationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func (k *jsiiProxy_KeyEvents) validateKMSCMKRotationPatternParameters(options *K
 	return nil
 }
 
-func (k *jsiiProxy_KeyEvents) validateKMSImportedKeyMaterialExpirationPatternParameters(options *KeyEvents_KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) error {
+func (k *jsiiProxy_KeyEvents) validateKmsImportedKeyMaterialExpirationPatternParameters(options *KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

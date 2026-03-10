@@ -444,6 +444,28 @@ func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_1_V1_0() BedrockFoundationMo
 	return returns
 }
 
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_5_V1_0() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_OPUS_4_5_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_6_V1() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_OPUS_4_6_V1",
+		&returns,
+	)
+	return returns
+}
+
 func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_V1_0() BedrockFoundationModel {
 	_init_.Initialize()
 	var returns BedrockFoundationModel
@@ -472,6 +494,17 @@ func BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_4_5_V1_0() BedrockFoundation
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
 		"ANTHROPIC_CLAUDE_SONNET_4_5_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_SONNET_4_6() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_SONNET_4_6",
 		&returns,
 	)
 	return returns

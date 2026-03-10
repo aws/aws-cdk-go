@@ -11,7 +11,7 @@ package previewawsmskmixins
 //   cfnClusterMixinProps := &CfnClusterMixinProps{
 //   	BrokerNodeGroupInfo: &BrokerNodeGroupInfoProperty{
 //   		BrokerAzDistribution: jsii.String("brokerAzDistribution"),
-//   		ClientSubnets: []*string{
+//   		ClientSubnets: []interface{}{
 //   			jsii.String("clientSubnets"),
 //   		},
 //   		ConnectivityInfo: &ConnectivityInfoProperty{
@@ -36,7 +36,7 @@ package previewawsmskmixins
 //   			},
 //   		},
 //   		InstanceType: jsii.String("instanceType"),
-//   		SecurityGroups: []*string{
+//   		SecurityGroups: []interface{}{
 //   			jsii.String("securityGroups"),
 //   		},
 //   		StorageInfo: &StorageInfoProperty{
@@ -59,7 +59,7 @@ package previewawsmskmixins
 //   			},
 //   		},
 //   		Tls: &TlsProperty{
-//   			CertificateAuthorityArnList: []*string{
+//   			CertificateAuthorityArnList: []interface{}{
 //   				jsii.String("certificateAuthorityArnList"),
 //   			},
 //   			Enabled: jsii.Boolean(false),

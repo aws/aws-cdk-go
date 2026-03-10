@@ -404,6 +404,30 @@ func (j *jsiiProxy_CfnFleet) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetPlayerGatewayConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFleet_PlayerGatewayConfigurationProperty:
+		val := val.(*CfnFleet_PlayerGatewayConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFleet_PlayerGatewayConfigurationProperty:
+		val_ := val.(CfnFleet_PlayerGatewayConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFleet_PlayerGatewayConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetResourceCreationLimitPolicyParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

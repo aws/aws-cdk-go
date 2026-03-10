@@ -212,7 +212,7 @@ type CfnApplicationMixinProps struct {
 	// Specifies the IAM role that the application uses to access external resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
 	//
-	ServiceExecutionRole *string `field:"optional" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
+	ServiceExecutionRole interface{} `field:"optional" json:"serviceExecutionRole" yaml:"serviceExecutionRole"`
 	// A list of one or more tags to assign to the application.
 	//
 	// A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.

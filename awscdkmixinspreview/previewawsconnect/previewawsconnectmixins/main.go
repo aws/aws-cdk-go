@@ -976,6 +976,10 @@ func init() {
 		reflect.TypeOf((*CfnSecurityProfilePropsMixin_DataTableAccessControlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnSecurityProfilePropsMixin.FlowModuleProperty",
+		reflect.TypeOf((*CfnSecurityProfilePropsMixin_FlowModuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_connect.mixins.CfnSecurityProfilePropsMixin.GranularAccessControlConfigurationProperty",
 		reflect.TypeOf((*CfnSecurityProfilePropsMixin_GranularAccessControlConfigurationProperty)(nil)).Elem(),
 	)

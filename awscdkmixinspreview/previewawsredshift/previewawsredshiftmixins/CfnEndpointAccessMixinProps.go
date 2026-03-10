@@ -13,7 +13,7 @@ package previewawsredshiftmixins
 //   	EndpointName: jsii.String("endpointName"),
 //   	ResourceOwner: jsii.String("resourceOwner"),
 //   	SubnetGroupName: jsii.String("subnetGroupName"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
 //   }
@@ -36,10 +36,10 @@ type CfnEndpointAccessMixinProps struct {
 	// The subnet group name where Amazon Redshift chooses to deploy the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-subnetgroupname
 	//
-	SubnetGroupName *string `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
+	SubnetGroupName interface{} `field:"optional" json:"subnetGroupName" yaml:"subnetGroupName"`
 	// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html#cfn-redshift-endpointaccess-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 }
 

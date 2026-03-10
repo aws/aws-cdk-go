@@ -24,7 +24,7 @@ import (
 type StackEvents interface {
 	// EventBridge event pattern for Stack OpsWorks Deployment State Change.
 	// Experimental.
-	OpsWorksDeploymentStateChangePattern(options *StackEvents_OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) *awsevents.EventPattern
+	OpsWorksDeploymentStateChangePattern(options *OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for StackEvents
@@ -52,7 +52,7 @@ func StackEvents_FromStack(stackRef interfacesawsopsworks.IStackRef) StackEvents
 	return returns
 }
 
-func (s *jsiiProxy_StackEvents) OpsWorksDeploymentStateChangePattern(options *StackEvents_OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) *awsevents.EventPattern {
+func (s *jsiiProxy_StackEvents) OpsWorksDeploymentStateChangePattern(options *OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) *awsevents.EventPattern {
 	if err := s.validateOpsWorksDeploymentStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

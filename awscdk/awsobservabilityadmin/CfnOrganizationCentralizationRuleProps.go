@@ -25,6 +25,9 @@ import (
 //   					// the properties below are optional
 //   					KmsKeyArn: jsii.String("kmsKeyArn"),
 //   				},
+//   				LogGroupNameConfiguration: &LogGroupNameConfigurationProperty{
+//   					LogGroupNamePattern: jsii.String("logGroupNamePattern"),
+//   				},
 //   				LogsEncryptionConfiguration: &LogsEncryptionConfigurationProperty{
 //   					EncryptionStrategy: jsii.String("encryptionStrategy"),
 //

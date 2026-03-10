@@ -20,14 +20,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnStateMachineVersionPropsMixin := awscdkmixinspreview.Mixins.NewCfnStateMachineVersionPropsMixin(&CfnStateMachineVersionMixinProps{
 //   	Description: jsii.String("description"),
 //   	StateMachineArn: jsii.String("stateMachineArn"),
 //   	StateMachineRevisionId: jsii.String("stateMachineRevisionId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html
@@ -36,7 +38,7 @@ type CfnStateMachineVersionPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnStateMachineVersionMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -59,8 +61,8 @@ func (j *jsiiProxy_CfnStateMachineVersionPropsMixin) Props() *CfnStateMachineVer
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachineVersionPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnStateMachineVersionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -33,7 +33,7 @@ type CfnPipelinePropsMixin_ArtifactStoreProperty struct {
 	// You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-location
 	//
-	Location *string `field:"optional" json:"location" yaml:"location"`
+	Location interface{} `field:"optional" json:"location" yaml:"location"`
 	// The type of the artifact store, such as S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-type
 	//

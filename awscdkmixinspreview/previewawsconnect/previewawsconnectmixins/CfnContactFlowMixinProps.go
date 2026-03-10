@@ -42,7 +42,7 @@ type CfnContactFlowMixinProps struct {
 	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`
 	// The name of the flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-name
 	//

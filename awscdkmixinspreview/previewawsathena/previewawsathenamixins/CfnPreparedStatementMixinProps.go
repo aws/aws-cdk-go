@@ -33,6 +33,6 @@ type CfnPreparedStatementMixinProps struct {
 	// The workgroup to which the prepared statement belongs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
 	//
-	WorkGroup *string `field:"optional" json:"workGroup" yaml:"workGroup"`
+	WorkGroup interface{} `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

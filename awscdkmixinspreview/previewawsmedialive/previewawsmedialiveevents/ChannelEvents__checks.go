@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
 )
 
-func (c *jsiiProxy_ChannelEvents) validateMediaLiveChannelInputChangePatternParameters(options *ChannelEvents_MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) error {
+func (c *jsiiProxy_ChannelEvents) validateMediaLiveChannelInputChangePatternParameters(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

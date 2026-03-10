@@ -64,6 +64,6 @@ type CfnLoadBalancerPropsMixin_LoadBalancerAttributeProperty struct {
 	// The value of the attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattribute-value
 	//
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

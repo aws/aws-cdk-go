@@ -37,7 +37,7 @@ package previewawsssmmixins
 //   	Targets: []interface{}{
 //   		&TargetProperty{
 //   			Key: jsii.String("key"),
-//   			Values: []*string{
+//   			Values: []interface{}{
 //   				jsii.String("values"),
 //   			},
 //   		},
@@ -120,7 +120,7 @@ type CfnAssociationMixinProps struct {
 	// For AWS -predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, `AWS -ApplyPatchBaseline` or `My-Document` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
 	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name interface{} `field:"optional" json:"name" yaml:"name"`
 	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
 	//

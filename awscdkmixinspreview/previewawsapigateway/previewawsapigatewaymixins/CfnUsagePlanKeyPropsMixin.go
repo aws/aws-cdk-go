@@ -18,14 +18,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnUsagePlanKeyPropsMixin := awscdkmixinspreview.Mixins.NewCfnUsagePlanKeyPropsMixin(&CfnUsagePlanKeyMixinProps{
 //   	KeyId: jsii.String("keyId"),
 //   	KeyType: jsii.String("keyType"),
 //   	UsagePlanId: jsii.String("usagePlanId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
@@ -34,7 +36,7 @@ type CfnUsagePlanKeyPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnUsagePlanKeyMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -57,8 +59,8 @@ func (j *jsiiProxy_CfnUsagePlanKeyPropsMixin) Props() *CfnUsagePlanKeyMixinProps
 	return returns
 }
 
-func (j *jsiiProxy_CfnUsagePlanKeyPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnUsagePlanKeyPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

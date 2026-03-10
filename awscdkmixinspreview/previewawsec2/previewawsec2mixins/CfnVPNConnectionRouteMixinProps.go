@@ -23,6 +23,6 @@ type CfnVPNConnectionRouteMixinProps struct {
 	// The ID of the VPN connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnectionroute.html#cfn-ec2-vpnconnectionroute-vpnconnectionid
 	//
-	VpnConnectionId *string `field:"optional" json:"vpnConnectionId" yaml:"vpnConnectionId"`
+	VpnConnectionId interface{} `field:"optional" json:"vpnConnectionId" yaml:"vpnConnectionId"`
 }
 

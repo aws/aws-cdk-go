@@ -14,114 +14,26 @@
 ---
 <!--END STABILITY BANNER-->
 
-> **Note**: The core Mixins mechanism (`Mixins`, `Mixin`, `IMixin`, `MixinApplicator`, `ConstructSelector`) is now available in `constructs` and `aws-cdk-lib/core`. Please update your imports.
-> This package continues to provide additional preview features until they move to their final destinations.
-
-This package provides two main features:
-
-1. **Mixins** - Composable abstractions for adding functionality to constructs
-2. **EventBridge Event Patterns** - Type-safe event patterns for AWS resources
+> **Note**: The core Mixins mechanism (`Mixins`, `Mixin`, `IMixin`, `MixinApplicator`, `ConstructSelector`) is now available in `constructs` and `aws-cdk-lib`.
+> All service Mixins are now available in `aws-cdk-lib`.
+> Please update your imports.
+>
+> This package continues to provide **Logs Delivery Mixins** and **EventBridge Event Facades**.
 
 ---
 
 
 CDK Mixins provide a new, advanced way to add functionality through composable abstractions.
 Unlike traditional L2 constructs that bundle all features together, Mixins allow you to pick and choose exactly the capabilities you need for constructs.
-
-## Key Benefits
-
-CDK Mixins offer a well-defined way to build self-contained constructs features.
-Mixins are applied during or after construct construction.
-
-* **Universal Compatibility**: Apply the same abstractions to L1 constructs, L2 constructs, or custom constructs
-* **Composable Design**: Mix and match features without being locked into specific implementations
-* **Cross-Service Abstractions**: Use common patterns like encryption across different AWS services
-* **Escape Hatch Freedom**: Customize resources in a safe, typed way while keeping the abstractions you want
-
+Mixins can be applied during or after construct construction.
 Mixins are an *addition*, *not* a replacement for construct properties.
 By itself, they cannot change optionality of properties or change defaults.
 
-### Usage and documentation
+## Usage and documentation
 
-See the [documentation for `aws-cdk-lib`](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins).
+See the [documentation for CDK Mixins](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins) in  `aws-cdk-lib`.
 
 ### Built-in Mixins
-
-#### Cross-Service Mixins
-
-**EncryptionAtRest**: Applies encryption to supported AWS resources
-
-```go
-// Works across different resource types
-myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest())
-
-myLogGroup := logs.NewCfnLogGroup(scope, jsii.String("LogGroup"))
-awscdk.Mixins_Of(myLogGroup).Apply(NewEncryptionAtRest())
-```
-
-#### S3-Specific Mixins
-
-**AutoDeleteObjects**: Configures automatic object deletion for S3 buckets
-
-```go
-myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-awscdk.Mixins_Of(myBucket).Apply(awscdkmixinspreview.NewAutoDeleteObjects())
-```
-
-**BucketVersioning**: Enables versioning on S3 buckets
-
-```go
-myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-awscdk.Mixins_Of(myBucket).Apply(awscdkmixinspreview.NewBucketVersioning())
-```
-
-**BucketBlockPublicAccess**: Enables blocking public-access on S3 buckets
-
-```go
-myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-awscdk.Mixins_Of(myBucket).Apply(awscdkmixinspreview.NewBucketBlockPublicAccess())
-```
-
-**BucketPolicyStatementsMixin**: Adds IAM policy statements to a bucket policy
-
-```go
-bucketPolicy := s3.NewCfnBucketPolicy(scope, jsii.String("BucketPolicy"), &CfnBucketPolicyProps{
-	Bucket: bucket,
-	PolicyDocument: iam.NewPolicyDocument(),
-})
-awscdk.Mixins_Of(bucketPolicy).Apply(awscdkmixinspreview.NewBucketPolicyStatementsMixin([]PolicyStatement{
-	iam.NewPolicyStatement(&PolicyStatementProps{
-		Actions: []*string{
-			jsii.String("s3:GetObject"),
-		},
-		Resources: []*string{
-			jsii.String("*"),
-		},
-		Principals: []IPrincipal{
-			iam.NewAnyPrincipal(),
-		},
-	}),
-}))
-```
-
-#### ECS-Specific Mixins
-
-**ClusterSettings**: Applies one or more cluster settings to ECS clusters
-
-```go
-import ecs "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-
-
-cluster := ecs.NewCfnCluster(scope, jsii.String("Cluster"))
-awscdk.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
-	&ClusterSettingsProperty{
-		Name: jsii.String("containerInsights"),
-		Value: jsii.String("enhanced"),
-	},
-}))
-```
 
 ### Logs Delivery
 
@@ -157,7 +69,6 @@ distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().To
 Configures vended logs delivery for supported resources when a pre-created destination is provided:
 
 ```go
-import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 
 // Create CloudFront distribution
@@ -189,7 +100,6 @@ distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().To
 Vended Logs Configuration for Cross Account delivery (only supported for S3 and Firehose destinations)
 
 ```go
-import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 import logDestinations "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 
@@ -239,9 +149,6 @@ distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().To
 For every CloudFormation resource, CDK Mixins automatically generates type-safe property mixins. These allow you to apply L1 properties with full TypeScript support:
 
 ```go
-import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
-
-
 s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 	VersioningConfiguration: &VersioningConfigurationProperty{
 		Status: jsii.String("Enabled"),
@@ -253,16 +160,35 @@ s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucket
 }))
 ```
 
+Deeply nested properties support cross-service references, such as passing a KMS key for encryption:
+
+```go
+key := kms.NewKey(scope, jsii.String("Key"))
+
+s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
+	BucketEncryption: &BucketEncryptionProperty{
+		ServerSideEncryptionConfiguration: []interface{}{
+			&ServerSideEncryptionRuleProperty{
+				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
+					SseAlgorithm: jsii.String("aws:kms"),
+					KmsMasterKeyId: key,
+				},
+			},
+		},
+	},
+}))
+```
+
 Property mixins support two merge strategies:
 
 ```go
-// MERGE (default): Deep merges properties with existing values
+// COMBINE (default): Deep merges properties with existing values
 awscdk.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 	VersioningConfiguration: &VersioningConfigurationProperty{
 		Status: jsii.String("Enabled"),
 	},
 }, &CfnPropertyMixinOptions{
-	Strategy: awscdkmixinspreview.PropertyMergeStrategy_MERGE,
+	Strategy: awscdk.PropertyMergeStrategy_Combine(),
 }))
 
 // OVERRIDE: Replaces existing property values
@@ -271,7 +197,33 @@ awscdk.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBu
 		Status: jsii.String("Enabled"),
 	},
 }, &CfnPropertyMixinOptions{
-	Strategy: awscdkmixinspreview.PropertyMergeStrategy_OVERRIDE,
+	Strategy: awscdk.PropertyMergeStrategy_Override(),
+}))
+```
+
+You can also implement `IMergeStrategy` to define a custom strategy:
+
+```go
+type myCustomStrategy struct {
+}
+
+func (this *myCustomStrategy) apply(target object, source object, allowedKeys []*string) {
+	for _, key := range *allowedKeys {
+		if key in *source {
+			(*target)[key] = (*source)[key]
+		}
+	}
+}
+
+awscdk.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
+	Tags: []CfnTag{
+		&CfnTag{
+			Key: jsii.String("Extra"),
+			Value: jsii.String("Tag"),
+		},
+	},
+}, &CfnPropertyMixinOptions{
+	Strategy: NewMyCustomStrategy(),
 }))
 ```
 
@@ -281,18 +233,6 @@ Property mixins are available for all AWS services:
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-```
-
-### Error Handling
-
-Mixins provide comprehensive error handling:
-
-```go
-// Graceful handling of unsupported constructs
-awscdk.Mixins_Of(scope).Apply(NewEncryptionAtRest()) // Skips unsupported constructs
-
-// Strict application that requires all constructs to match
-awscdk.Mixins_Of(scope).RequireAll().Apply(NewEncryptionAtRest())
 ```
 
 ---

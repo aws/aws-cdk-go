@@ -26,7 +26,7 @@ type CfnListenerMixinProps struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
 	//
-	AcceleratorArn *string `field:"optional" json:"acceleratorArn" yaml:"acceleratorArn"`
+	AcceleratorArn interface{} `field:"optional" json:"acceleratorArn" yaml:"acceleratorArn"`
 	// Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request.
 	//
 	// Client affinity gives you control over whether to always route each client to the same specific endpoint.

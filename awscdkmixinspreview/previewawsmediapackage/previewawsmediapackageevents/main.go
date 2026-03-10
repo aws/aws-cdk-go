@@ -8,6 +8,50 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageHarvestJobNotification",
+		reflect.TypeOf((*MediaPackageHarvestJobNotification)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_MediaPackageHarvestJobNotification{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageHarvestJobNotification.HarvestJob",
+		reflect.TypeOf((*MediaPackageHarvestJobNotification_HarvestJob)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageHarvestJobNotification.MediaPackageHarvestJobNotificationProps",
+		reflect.TypeOf((*MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageHarvestJobNotification.S3Destination",
+		reflect.TypeOf((*MediaPackageHarvestJobNotification_S3Destination)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageInputNotification",
+		reflect.TypeOf((*MediaPackageInputNotification)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_MediaPackageInputNotification{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageInputNotification.MediaPackageInputNotificationProps",
+		reflect.TypeOf((*MediaPackageInputNotification_MediaPackageInputNotificationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageKeyProviderNotification",
+		reflect.TypeOf((*MediaPackageKeyProviderNotification)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_MediaPackageKeyProviderNotification{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_mediapackage.events.MediaPackageKeyProviderNotification.MediaPackageKeyProviderNotificationProps",
+		reflect.TypeOf((*MediaPackageKeyProviderNotification_MediaPackageKeyProviderNotificationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_mediapackage.events.OriginEndpointEvents",
 		reflect.TypeOf((*OriginEndpointEvents)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -16,25 +60,5 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_OriginEndpointEvents{}
 		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_mediapackage.events.OriginEndpointEvents.MediaPackageHarvestJobNotification",
-		reflect.TypeOf((*OriginEndpointEvents_MediaPackageHarvestJobNotification)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_OriginEndpointEvents_MediaPackageHarvestJobNotification{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_mediapackage.events.OriginEndpointEvents.MediaPackageHarvestJobNotification.HarvestJob",
-		reflect.TypeOf((*OriginEndpointEvents_MediaPackageHarvestJobNotification_HarvestJob)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_mediapackage.events.OriginEndpointEvents.MediaPackageHarvestJobNotification.MediaPackageHarvestJobNotificationProps",
-		reflect.TypeOf((*OriginEndpointEvents_MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_mediapackage.events.OriginEndpointEvents.MediaPackageHarvestJobNotification.S3Destination",
-		reflect.TypeOf((*OriginEndpointEvents_MediaPackageHarvestJobNotification_S3Destination)(nil)).Elem(),
 	)
 }

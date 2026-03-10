@@ -37,6 +37,6 @@ type CfnRepositoryPropsMixin_EncryptionConfigurationProperty struct {
 	// The alias, key ID, or full ARN of the AWS  key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed AWS  key for Amazon ECR will be used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
 	//
-	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interface{} `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

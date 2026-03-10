@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 )
 
-func (e *jsiiProxy_EndpointConfigEvents) validateSageMakerEndpointConfigStateChangePatternParameters(options *EndpointConfigEvents_SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) error {
+func (e *jsiiProxy_EndpointConfigEvents) validateSageMakerEndpointConfigStateChangePatternParameters(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

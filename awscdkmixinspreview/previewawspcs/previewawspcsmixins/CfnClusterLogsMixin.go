@@ -125,6 +125,17 @@ func CfnClusterLogsMixin_PCS_JOBCOMP_LOGS() CfnClusterPcsJobcompLogs {
 	return returns
 }
 
+func CfnClusterLogsMixin_PCS_SCHEDULER_AUDIT_LOGS() CfnClusterPcsSchedulerAuditLogs {
+	_init_.Initialize()
+	var returns CfnClusterPcsSchedulerAuditLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterLogsMixin",
+		"PCS_SCHEDULER_AUDIT_LOGS",
+		&returns,
+	)
+	return returns
+}
+
 func CfnClusterLogsMixin_PCS_SCHEDULER_LOGS() CfnClusterPcsSchedulerLogs {
 	_init_.Initialize()
 	var returns CfnClusterPcsSchedulerLogs

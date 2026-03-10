@@ -34,9 +34,9 @@ type CfnDirectConnectGatewayAssociationMixinProps struct {
 	AllowedPrefixesToDirectConnectGateway *[]*string `field:"optional" json:"allowedPrefixesToDirectConnectGateway" yaml:"allowedPrefixesToDirectConnectGateway"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-directconnectgatewayassociation.html#cfn-directconnect-directconnectgatewayassociation-associatedgatewayid
 	//
-	AssociatedGatewayId *string `field:"optional" json:"associatedGatewayId" yaml:"associatedGatewayId"`
+	AssociatedGatewayId interface{} `field:"optional" json:"associatedGatewayId" yaml:"associatedGatewayId"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-directconnectgatewayassociation.html#cfn-directconnect-directconnectgatewayassociation-directconnectgatewayid
 	//
-	DirectConnectGatewayId *string `field:"optional" json:"directConnectGatewayId" yaml:"directConnectGatewayId"`
+	DirectConnectGatewayId interface{} `field:"optional" json:"directConnectGatewayId" yaml:"directConnectGatewayId"`
 }
 

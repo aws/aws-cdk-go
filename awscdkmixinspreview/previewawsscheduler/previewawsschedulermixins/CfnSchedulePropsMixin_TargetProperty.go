@@ -91,7 +91,7 @@ type CfnSchedulePropsMixin_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 	// An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule.
 	//
 	// If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.
@@ -123,7 +123,7 @@ type CfnSchedulePropsMixin_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-target.html#cfn-scheduler-schedule-target-sagemakerpipelineparameters
 	//

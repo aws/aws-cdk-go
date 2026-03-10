@@ -37,6 +37,6 @@ type CfnAutoScalingGroupPropsMixin_NotificationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html#cfn-autoscaling-autoscalinggroup-notificationconfiguration-topicarn
 	//
-	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
+	TopicArn interface{} `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

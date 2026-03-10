@@ -22,7 +22,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnNetworkAclEntryPropsMixin := awscdkmixinspreview.Mixins.NewCfnNetworkAclEntryPropsMixin(&CfnNetworkAclEntryMixinProps{
 //   	CidrBlock: jsii.String("cidrBlock"),
@@ -41,7 +43,7 @@ import (
 //   	RuleAction: jsii.String("ruleAction"),
 //   	RuleNumber: jsii.Number(123),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html
@@ -50,7 +52,7 @@ type CfnNetworkAclEntryPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnNetworkAclEntryMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -73,8 +75,8 @@ func (j *jsiiProxy_CfnNetworkAclEntryPropsMixin) Props() *CfnNetworkAclEntryMixi
 	return returns
 }
 
-func (j *jsiiProxy_CfnNetworkAclEntryPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnNetworkAclEntryPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

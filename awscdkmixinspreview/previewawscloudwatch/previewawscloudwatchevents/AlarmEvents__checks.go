@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
 
-func (a *jsiiProxy_AlarmEvents) validateCloudWatchAlarmConfigurationChangePatternParameters(options *AlarmEvents_CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) error {
+func (a *jsiiProxy_AlarmEvents) validateCloudWatchAlarmConfigurationChangePatternParameters(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (a *jsiiProxy_AlarmEvents) validateCloudWatchAlarmConfigurationChangePatter
 	return nil
 }
 
-func (a *jsiiProxy_AlarmEvents) validateCloudWatchAlarmStateChangePatternParameters(options *AlarmEvents_CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps) error {
+func (a *jsiiProxy_AlarmEvents) validateCloudWatchAlarmStateChangePatternParameters(options *CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

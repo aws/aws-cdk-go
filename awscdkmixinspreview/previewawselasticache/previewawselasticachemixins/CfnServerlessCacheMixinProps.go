@@ -37,7 +37,7 @@ import (
 //   		Address: jsii.String("address"),
 //   		Port: jsii.String("port"),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	ServerlessCacheName: jsii.String("serverlessCacheName"),
@@ -45,7 +45,7 @@ import (
 //   		jsii.String("snapshotArnsToRestore"),
 //   	},
 //   	SnapshotRetentionLimit: jsii.Number(123),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -91,7 +91,7 @@ type CfnServerlessCacheMixinProps struct {
 	// The ID of the AWS Key Management Service (KMS) key that is used to encrypt data at rest in the serverless cache.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The version number of the engine the serverless cache is compatible with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-majorengineversion
 	//
@@ -105,7 +105,7 @@ type CfnServerlessCacheMixinProps struct {
 	// The IDs of the EC2 security groups associated with the serverless cache.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The unique identifier of the serverless cache.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-serverlesscachename
 	//
@@ -125,7 +125,7 @@ type CfnServerlessCacheMixinProps struct {
 	// For all other Regions, if no subnet IDs are given then ElastiCache will select 3 default subnets across AZs in your default VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// A list of tags to be added to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-tags
 	//
@@ -135,6 +135,6 @@ type CfnServerlessCacheMixinProps struct {
 	// Available for Valkey and Redis OSS only. Default is NULL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-usergroupid
 	//
-	UserGroupId *string `field:"optional" json:"userGroupId" yaml:"userGroupId"`
+	UserGroupId interface{} `field:"optional" json:"userGroupId" yaml:"userGroupId"`
 }
 

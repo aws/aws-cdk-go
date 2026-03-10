@@ -36,7 +36,7 @@ type CfnLoggingConfigurationMixinProps struct {
 	// You can't change the firewall specification after you create the logging configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
 	//
-	FirewallArn *string `field:"optional" json:"firewallArn" yaml:"firewallArn"`
+	FirewallArn interface{} `field:"optional" json:"firewallArn" yaml:"firewallArn"`
 	// The name of the firewall that the logging configuration is associated with.
 	//
 	// You can't change the firewall specification after you create the logging configuration.

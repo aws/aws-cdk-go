@@ -23,7 +23,7 @@ type CfnRestApiPropsMixin_S3LocationProperty struct {
 	// The name of the S3 bucket where the OpenAPI file is stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
 	//
-	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
+	Bucket interface{} `field:"optional" json:"bucket" yaml:"bucket"`
 	// The Amazon S3 ETag (a file checksum) of the OpenAPI file.
 	//
 	// If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.

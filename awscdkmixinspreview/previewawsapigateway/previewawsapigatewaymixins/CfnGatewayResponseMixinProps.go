@@ -38,7 +38,7 @@ type CfnGatewayResponseMixinProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html#cfn-apigateway-gatewayresponse-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The HTTP status code for this GatewayResponse.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html#cfn-apigateway-gatewayresponse-statuscode
 	//

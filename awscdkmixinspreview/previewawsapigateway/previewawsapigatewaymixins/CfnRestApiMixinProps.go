@@ -35,7 +35,7 @@ import (
 //   		Types: []*string{
 //   			jsii.String("types"),
 //   		},
-//   		VpcEndpointIds: []*string{
+//   		VpcEndpointIds: []interface{}{
 //   			jsii.String("vpcEndpointIds"),
 //   		},
 //   	},
@@ -84,7 +84,7 @@ type CfnRestApiMixinProps struct {
 	// The ID of the RestApi that you want to clone from.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom
 	//
-	CloneFrom *string `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
+	CloneFrom interface{} `field:"optional" json:"cloneFrom" yaml:"cloneFrom"`
 	// The description of the RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description
 	//

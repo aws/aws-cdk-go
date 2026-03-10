@@ -170,6 +170,14 @@ func init() {
 		reflect.TypeOf((*CfnPlan_ParallelExecutionBlockConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.RdsCreateCrossRegionReplicaConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_RdsCreateCrossRegionReplicaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.RdsPromoteReadReplicaConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_RdsPromoteReadReplicaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.RegionSwitchPlanConfigurationProperty",
 		reflect.TypeOf((*CfnPlan_RegionSwitchPlanConfigurationProperty)(nil)).Elem(),
 	)

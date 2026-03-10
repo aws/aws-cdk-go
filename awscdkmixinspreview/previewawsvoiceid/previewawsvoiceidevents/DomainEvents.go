@@ -24,28 +24,28 @@ import (
 type DomainEvents interface {
 	// EventBridge event pattern for Domain VoiceId Batch Fraudster Registration Action.
 	// Experimental.
-	VoiceIdBatchFraudsterRegistrationActionPattern(options *DomainEvents_VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps) *awsevents.EventPattern
+	VoiceIdBatchFraudsterRegistrationActionPattern(options *VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Batch Speaker Enrollment Action.
 	// Experimental.
-	VoiceIdBatchSpeakerEnrollmentActionPattern(options *DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps) *awsevents.EventPattern
+	VoiceIdBatchSpeakerEnrollmentActionPattern(options *VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Evaluate Session Action.
 	// Experimental.
-	VoiceIdEvaluateSessionActionPattern(options *DomainEvents_VoiceIdEvaluateSessionAction_VoiceIdEvaluateSessionActionProps) *awsevents.EventPattern
+	VoiceIdEvaluateSessionActionPattern(options *VoiceIdEvaluateSessionAction_VoiceIdEvaluateSessionActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Fraudster Action.
 	// Experimental.
-	VoiceIdFraudsterActionPattern(options *DomainEvents_VoiceIdFraudsterAction_VoiceIdFraudsterActionProps) *awsevents.EventPattern
+	VoiceIdFraudsterActionPattern(options *VoiceIdFraudsterAction_VoiceIdFraudsterActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Session Speaker Enrollment Action.
 	// Experimental.
-	VoiceIdSessionSpeakerEnrollmentActionPattern(options *DomainEvents_VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps) *awsevents.EventPattern
+	VoiceIdSessionSpeakerEnrollmentActionPattern(options *VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Speaker Action.
 	// Experimental.
-	VoiceIdSpeakerActionPattern(options *DomainEvents_VoiceIdSpeakerAction_VoiceIdSpeakerActionProps) *awsevents.EventPattern
+	VoiceIdSpeakerActionPattern(options *VoiceIdSpeakerAction_VoiceIdSpeakerActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Start Session Action.
 	// Experimental.
-	VoiceIdStartSessionActionPattern(options *DomainEvents_VoiceIdStartSessionAction_VoiceIdStartSessionActionProps) *awsevents.EventPattern
+	VoiceIdStartSessionActionPattern(options *VoiceIdStartSessionAction_VoiceIdStartSessionActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Domain VoiceId Update Session Action.
 	// Experimental.
-	VoiceIdUpdateSessionActionPattern(options *DomainEvents_VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) *awsevents.EventPattern
+	VoiceIdUpdateSessionActionPattern(options *VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for DomainEvents
@@ -73,7 +73,7 @@ func DomainEvents_FromDomain(domainRef interfacesawsvoiceid.IDomainRef) DomainEv
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdBatchFraudsterRegistrationActionPattern(options *DomainEvents_VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdBatchFraudsterRegistrationActionPattern(options *VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdBatchFraudsterRegistrationActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -89,7 +89,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdBatchFraudsterRegistrationActionPattern(
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdBatchSpeakerEnrollmentActionPattern(options *DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdBatchSpeakerEnrollmentActionPattern(options *VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdBatchSpeakerEnrollmentActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -105,7 +105,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdBatchSpeakerEnrollmentActionPattern(opti
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdEvaluateSessionActionPattern(options *DomainEvents_VoiceIdEvaluateSessionAction_VoiceIdEvaluateSessionActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdEvaluateSessionActionPattern(options *VoiceIdEvaluateSessionAction_VoiceIdEvaluateSessionActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdEvaluateSessionActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -121,7 +121,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdEvaluateSessionActionPattern(options *Do
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdFraudsterActionPattern(options *DomainEvents_VoiceIdFraudsterAction_VoiceIdFraudsterActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdFraudsterActionPattern(options *VoiceIdFraudsterAction_VoiceIdFraudsterActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdFraudsterActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -137,7 +137,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdFraudsterActionPattern(options *DomainEv
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdSessionSpeakerEnrollmentActionPattern(options *DomainEvents_VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdSessionSpeakerEnrollmentActionPattern(options *VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdSessionSpeakerEnrollmentActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -153,7 +153,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdSessionSpeakerEnrollmentActionPattern(op
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdSpeakerActionPattern(options *DomainEvents_VoiceIdSpeakerAction_VoiceIdSpeakerActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdSpeakerActionPattern(options *VoiceIdSpeakerAction_VoiceIdSpeakerActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdSpeakerActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -169,7 +169,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdSpeakerActionPattern(options *DomainEven
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdStartSessionActionPattern(options *DomainEvents_VoiceIdStartSessionAction_VoiceIdStartSessionActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdStartSessionActionPattern(options *VoiceIdStartSessionAction_VoiceIdStartSessionActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdStartSessionActionPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -185,7 +185,7 @@ func (d *jsiiProxy_DomainEvents) VoiceIdStartSessionActionPattern(options *Domai
 	return returns
 }
 
-func (d *jsiiProxy_DomainEvents) VoiceIdUpdateSessionActionPattern(options *DomainEvents_VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DomainEvents) VoiceIdUpdateSessionActionPattern(options *VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) *awsevents.EventPattern {
 	if err := d.validateVoiceIdUpdateSessionActionPatternParameters(options); err != nil {
 		panic(err)
 	}

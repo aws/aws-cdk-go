@@ -25,6 +25,6 @@ type CfnDeliveryStreamPropsMixin_ProcessorParameterProperty struct {
 	// The parameter value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
 	//
-	ParameterValue *string `field:"optional" json:"parameterValue" yaml:"parameterValue"`
+	ParameterValue interface{} `field:"optional" json:"parameterValue" yaml:"parameterValue"`
 }
 

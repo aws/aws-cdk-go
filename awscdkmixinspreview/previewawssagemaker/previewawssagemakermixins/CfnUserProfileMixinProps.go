@@ -138,7 +138,7 @@ import (
 //   			AccessStatus: jsii.String("accessStatus"),
 //   			UserGroup: jsii.String("userGroup"),
 //   		},
-//   		SecurityGroups: []*string{
+//   		SecurityGroups: []interface{}{
 //   			jsii.String("securityGroups"),
 //   		},
 //   		SharingSettings: &SharingSettingsProperty{
@@ -181,7 +181,7 @@ type CfnUserProfileMixinProps struct {
 	// The domain ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
 	//
-	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
+	DomainId interface{} `field:"optional" json:"domainId" yaml:"domainId"`
 	// A specifier for the type of value specified in SingleSignOnUserValue.
 	//
 	// Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO , this field is required. If the Domain's AuthMode is not SSO , this field cannot be specified.

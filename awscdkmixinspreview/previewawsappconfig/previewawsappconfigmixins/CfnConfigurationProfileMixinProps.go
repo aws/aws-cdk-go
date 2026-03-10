@@ -40,7 +40,7 @@ type CfnConfigurationProfileMixinProps struct {
 	// The application ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid
 	//
-	ApplicationId *string `field:"optional" json:"applicationId" yaml:"applicationId"`
+	ApplicationId interface{} `field:"optional" json:"applicationId" yaml:"applicationId"`
 	// A parameter to configure deletion protection.
 	//
 	// Deletion protection prevents a user from deleting a configuration profile if your application has called either [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) or [GetConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) for the configuration profile during the specified interval.
@@ -81,7 +81,7 @@ type CfnConfigurationProfileMixinProps struct {
 	// > A retrieval role ARN is not required for configurations stored in AWS CodePipeline or the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-retrievalrolearn
 	//
-	RetrievalRoleArn *string `field:"optional" json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
+	RetrievalRoleArn interface{} `field:"optional" json:"retrievalRoleArn" yaml:"retrievalRoleArn"`
 	// Metadata to assign to the configuration profile.
 	//
 	// Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.

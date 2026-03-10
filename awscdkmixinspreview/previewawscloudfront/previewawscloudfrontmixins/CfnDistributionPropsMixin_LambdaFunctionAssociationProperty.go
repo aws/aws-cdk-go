@@ -39,6 +39,6 @@ type CfnDistributionPropsMixin_LambdaFunctionAssociationProperty struct {
 	// You must specify the ARN of a function version; you can't specify an alias or $LATEST.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
 	//
-	LambdaFunctionArn *string `field:"optional" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
+	LambdaFunctionArn interface{} `field:"optional" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 

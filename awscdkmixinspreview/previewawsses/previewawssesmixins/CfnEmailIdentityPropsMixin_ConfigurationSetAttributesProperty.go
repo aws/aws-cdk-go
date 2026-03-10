@@ -18,6 +18,6 @@ type CfnEmailIdentityPropsMixin_ConfigurationSetAttributesProperty struct {
 	// The configuration set to associate with an email identity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-configurationsetattributes.html#cfn-ses-emailidentity-configurationsetattributes-configurationsetname
 	//
-	ConfigurationSetName *string `field:"optional" json:"configurationSetName" yaml:"configurationSetName"`
+	ConfigurationSetName interface{} `field:"optional" json:"configurationSetName" yaml:"configurationSetName"`
 }
 

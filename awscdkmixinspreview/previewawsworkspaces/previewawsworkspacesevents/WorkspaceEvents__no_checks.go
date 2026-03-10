@@ -4,7 +4,7 @@ package previewawsworkspacesevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (w *jsiiProxy_WorkspaceEvents) validateWorkSpacesAccessPatternParameters(options *WorkspaceEvents_WorkSpacesAccess_WorkSpacesAccessProps) error {
+func (w *jsiiProxy_WorkspaceEvents) validateWorkSpacesAccessPatternParameters(options *WorkSpacesAccess_WorkSpacesAccessProps) error {
 	return nil
 }
 

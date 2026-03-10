@@ -42,6 +42,6 @@ type CfnDBProxyPropsMixin_AuthFormatProperty struct {
 	// These secrets are stored within Amazon Secrets Manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
 	//
-	SecretArn *string `field:"optional" json:"secretArn" yaml:"secretArn"`
+	SecretArn interface{} `field:"optional" json:"secretArn" yaml:"secretArn"`
 }
 

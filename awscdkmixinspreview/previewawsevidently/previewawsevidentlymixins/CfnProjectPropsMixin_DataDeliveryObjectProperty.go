@@ -22,7 +22,7 @@ type CfnProjectPropsMixin_DataDeliveryObjectProperty struct {
 	// If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html#cfn-evidently-project-datadeliveryobject-loggroup
 	//
-	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interface{} `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html#cfn-evidently-project-datadeliveryobject-s3
 	//

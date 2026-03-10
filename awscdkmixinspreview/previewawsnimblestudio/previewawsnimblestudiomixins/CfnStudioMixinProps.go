@@ -28,7 +28,7 @@ type CfnStudioMixinProps struct {
 	// <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
 	//
-	AdminRoleArn *string `field:"optional" json:"adminRoleArn" yaml:"adminRoleArn"`
+	AdminRoleArn interface{} `field:"optional" json:"adminRoleArn" yaml:"adminRoleArn"`
 	// <p>A friendly name for the studio.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
 	//
@@ -47,6 +47,6 @@ type CfnStudioMixinProps struct {
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
 	//
-	UserRoleArn *string `field:"optional" json:"userRoleArn" yaml:"userRoleArn"`
+	UserRoleArn interface{} `field:"optional" json:"userRoleArn" yaml:"userRoleArn"`
 }
 

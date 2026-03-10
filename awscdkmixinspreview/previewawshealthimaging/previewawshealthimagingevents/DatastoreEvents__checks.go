@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawshealthimaging"
 )
 
-func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreatedPatternParameters(options *DatastoreEvents_DataStoreCreated_DataStoreCreatedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreatedPatternParameters(options *DataStoreCreated_DataStoreCreatedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreatedPatternParameters(op
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreatingPatternParameters(options *DatastoreEvents_DataStoreCreating_DataStoreCreatingProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreatingPatternParameters(options *DataStoreCreating_DataStoreCreatingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreatingPatternParameters(o
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreationFailedPatternParameters(options *DatastoreEvents_DataStoreCreationFailed_DataStoreCreationFailedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreationFailedPatternParameters(options *DataStoreCreationFailed_DataStoreCreationFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func (d *jsiiProxy_DatastoreEvents) validateDataStoreCreationFailedPatternParame
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateDataStoreDeletedPatternParameters(options *DatastoreEvents_DataStoreDeleted_DataStoreDeletedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateDataStoreDeletedPatternParameters(options *DataStoreDeleted_DataStoreDeletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -42,7 +42,7 @@ func (d *jsiiProxy_DatastoreEvents) validateDataStoreDeletedPatternParameters(op
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateDataStoreDeletingPatternParameters(options *DatastoreEvents_DataStoreDeleting_DataStoreDeletingProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateDataStoreDeletingPatternParameters(options *DataStoreDeleting_DataStoreDeletingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -50,7 +50,7 @@ func (d *jsiiProxy_DatastoreEvents) validateDataStoreDeletingPatternParameters(o
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetCopiedPatternParameters(options *DatastoreEvents_ImageSetCopied_ImageSetCopiedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetCopiedPatternParameters(options *ImageSetCopied_ImageSetCopiedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -58,7 +58,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetCopiedPatternParameters(opti
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyFailedPatternParameters(options *DatastoreEvents_ImageSetCopyFailed_ImageSetCopyFailedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyFailedPatternParameters(options *ImageSetCopyFailed_ImageSetCopyFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -66,7 +66,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyFailedPatternParameters(
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyingPatternParameters(options *DatastoreEvents_ImageSetCopying_ImageSetCopyingProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyingPatternParameters(options *ImageSetCopying_ImageSetCopyingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -74,7 +74,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyingPatternParameters(opt
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyingWithReadOnlyAccessPatternParameters(options *DatastoreEvents_ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyingWithReadOnlyAccessPatternParameters(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -82,7 +82,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetCopyingWithReadOnlyAccessPat
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetCreatedPatternParameters(options *DatastoreEvents_ImageSetCreated_ImageSetCreatedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetCreatedPatternParameters(options *ImageSetCreated_ImageSetCreatedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -90,7 +90,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetCreatedPatternParameters(opt
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetDeletedPatternParameters(options *DatastoreEvents_ImageSetDeleted_ImageSetDeletedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetDeletedPatternParameters(options *ImageSetDeleted_ImageSetDeletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -98,7 +98,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetDeletedPatternParameters(opt
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetDeletingPatternParameters(options *DatastoreEvents_ImageSetDeleting_ImageSetDeletingProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetDeletingPatternParameters(options *ImageSetDeleting_ImageSetDeletingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -106,7 +106,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetDeletingPatternParameters(op
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdatedPatternParameters(options *DatastoreEvents_ImageSetUpdated_ImageSetUpdatedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdatedPatternParameters(options *ImageSetUpdated_ImageSetUpdatedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -114,7 +114,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdatedPatternParameters(opt
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdateFailedPatternParameters(options *DatastoreEvents_ImageSetUpdateFailed_ImageSetUpdateFailedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdateFailedPatternParameters(options *ImageSetUpdateFailed_ImageSetUpdateFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -122,7 +122,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdateFailedPatternParameter
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdatingPatternParameters(options *DatastoreEvents_ImageSetUpdating_ImageSetUpdatingProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdatingPatternParameters(options *ImageSetUpdating_ImageSetUpdatingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -130,7 +130,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImageSetUpdatingPatternParameters(op
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImportJobCompletedPatternParameters(options *DatastoreEvents_ImportJobCompleted_ImportJobCompletedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImportJobCompletedPatternParameters(options *ImportJobCompleted_ImportJobCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -138,7 +138,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImportJobCompletedPatternParameters(
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImportJobFailedPatternParameters(options *DatastoreEvents_ImportJobFailed_ImportJobFailedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImportJobFailedPatternParameters(options *ImportJobFailed_ImportJobFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -146,7 +146,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImportJobFailedPatternParameters(opt
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImportJobInProgressPatternParameters(options *DatastoreEvents_ImportJobInProgress_ImportJobInProgressProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImportJobInProgressPatternParameters(options *ImportJobInProgress_ImportJobInProgressProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -154,7 +154,7 @@ func (d *jsiiProxy_DatastoreEvents) validateImportJobInProgressPatternParameters
 	return nil
 }
 
-func (d *jsiiProxy_DatastoreEvents) validateImportJobSubmittedPatternParameters(options *DatastoreEvents_ImportJobSubmitted_ImportJobSubmittedProps) error {
+func (d *jsiiProxy_DatastoreEvents) validateImportJobSubmittedPatternParameters(options *ImportJobSubmitted_ImportJobSubmittedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -10,10 +10,10 @@ package previewawskinesisfirehosemixins
 //
 //   vpcConfigurationProperty := &VpcConfigurationProperty{
 //   	RoleArn: jsii.String("roleArn"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   }
@@ -37,13 +37,13 @@ type CfnDeliveryStreamPropsMixin_VpcConfigurationProperty struct {
 	// If you revoke these permissions after you create the delivery stream, Kinesis Data Firehose can't scale out by creating more ENIs when necessary. You might therefore see a degradation in performance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The IDs of the security groups that you want Kinesis Data Firehose to use when it creates ENIs in the VPC of the Amazon ES destination.
 	//
 	// You can use the same security group that the Amazon ES domain uses or different ones. If you specify different security groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic from the security groups specified here. If you use the same security group for both your delivery stream and the Amazon ES domain, make sure the security group inbound rule allows HTTPS traffic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in the VPC of the Amazon ES destination.
 	//
 	// Make sure that the routing tables and inbound and outbound rules allow traffic to flow from the subnets whose IDs are specified here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in each of the subnets that are specified here. Do not delete or modify these ENIs.
@@ -51,6 +51,6 @@ type CfnDeliveryStreamPropsMixin_VpcConfigurationProperty struct {
 	// The number of ENIs that Kinesis Data Firehose creates in the subnets specified here scales up and down automatically based on throughput. To enable Kinesis Data Firehose to scale up the number of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate the quota you need, assume that Kinesis Data Firehose can create up to three ENIs for this delivery stream for each of the subnets specified here.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-vpcconfiguration.html#cfn-kinesisfirehose-deliverystream-vpcconfiguration-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 

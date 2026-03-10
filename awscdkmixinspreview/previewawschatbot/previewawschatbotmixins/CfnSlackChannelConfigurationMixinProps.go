@@ -23,7 +23,7 @@ import (
 //   	LoggingLevel: jsii.String("loggingLevel"),
 //   	SlackChannelId: jsii.String("slackChannelId"),
 //   	SlackWorkspaceId: jsii.String("slackWorkspaceId"),
-//   	SnsTopicArns: []*string{
+//   	SnsTopicArns: []interface{}{
 //   		jsii.String("snsTopicArns"),
 //   	},
 //   	Tags: []CfnTag{
@@ -57,7 +57,7 @@ type CfnSlackChannelConfigurationMixinProps struct {
 	// This is a user-defined role that  will assume. This is not the service-linked role. For more information, see [IAM Policies for  in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
 	//
-	IamRoleArn *string `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn interface{} `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// Specifies the logging level for this configuration. This property affects the log entries pushed to Amazon CloudWatch Logs.
 	//
 	// Logging levels include `ERROR` , `INFO` , or `NONE` .
@@ -81,7 +81,7 @@ type CfnSlackChannelConfigurationMixinProps struct {
 	// The ARNs of the SNS topics that deliver notifications to  .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
 	//
-	SnsTopicArns *[]*string `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
+	SnsTopicArns *[]interface{} `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`
 	// The tags to add to the configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-tags
 	//

@@ -23,7 +23,7 @@ type CfnJobQueuePropsMixin_ComputeEnvironmentOrderProperty struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-computeenvironment
 	//
-	ComputeEnvironment *string `field:"optional" json:"computeEnvironment" yaml:"computeEnvironment"`
+	ComputeEnvironment interface{} `field:"optional" json:"computeEnvironment" yaml:"computeEnvironment"`
 	// The order of the compute environment.
 	//
 	// Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower `order` integer value is tried for job placement first.

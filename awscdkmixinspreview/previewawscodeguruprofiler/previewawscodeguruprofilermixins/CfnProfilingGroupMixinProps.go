@@ -57,7 +57,7 @@ type CfnProfilingGroupMixinProps struct {
 	// The name of the profiling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 	//
-	ProfilingGroupName *string `field:"optional" json:"profilingGroupName" yaml:"profilingGroupName"`
+	ProfilingGroupName interface{} `field:"optional" json:"profilingGroupName" yaml:"profilingGroupName"`
 	// A list of tags to add to the created profiling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
 	//

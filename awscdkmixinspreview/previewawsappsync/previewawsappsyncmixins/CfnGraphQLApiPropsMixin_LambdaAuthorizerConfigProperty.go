@@ -32,7 +32,7 @@ type CfnGraphQLApiPropsMixin_LambdaAuthorizerConfigProperty struct {
 	// `aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig-authorizeruri
 	//
-	AuthorizerUri *string `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
+	AuthorizerUri interface{} `field:"optional" json:"authorizerUri" yaml:"authorizerUri"`
 	// A regular expression for validation of tokens before the Lambda function is called.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig-identityvalidationexpression
 	//

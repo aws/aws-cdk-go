@@ -35,7 +35,7 @@ type CfnDeliveryStreamMixinProps struct {
 	// The name of the Firehose stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
 	//
-	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName interface{} `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The Firehose stream type. This can be one of the following values:.
 	//
 	// - `DirectPut` : Provider applications access the Firehose stream directly.

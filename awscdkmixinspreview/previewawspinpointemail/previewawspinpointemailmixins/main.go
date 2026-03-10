@@ -84,6 +84,10 @@ func init() {
 		reflect.TypeOf((*CfnConfigurationSetPropsMixin_SendingOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pinpointemail.mixins.CfnConfigurationSetPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnConfigurationSetPropsMixin_TagsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_pinpointemail.mixins.CfnConfigurationSetPropsMixin.TrackingOptionsProperty",
 		reflect.TypeOf((*CfnConfigurationSetPropsMixin_TrackingOptionsProperty)(nil)).Elem(),
 	)
@@ -108,6 +112,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pinpointemail.mixins.CfnDedicatedIpPoolPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnDedicatedIpPoolPropsMixin_TagsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_pinpointemail.mixins.CfnIdentityMixinProps",
 		reflect.TypeOf((*CfnIdentityMixinProps)(nil)).Elem(),
 	)
@@ -130,5 +138,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_pinpointemail.mixins.CfnIdentityPropsMixin.MailFromAttributesProperty",
 		reflect.TypeOf((*CfnIdentityPropsMixin_MailFromAttributesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pinpointemail.mixins.CfnIdentityPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnIdentityPropsMixin_TagsProperty)(nil)).Elem(),
 	)
 }

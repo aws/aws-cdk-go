@@ -42,7 +42,7 @@ type CfnPermissionMixinProps struct {
 	// You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
 	//
-	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"optional" json:"functionName" yaml:"functionName"`
 	// The type of authentication that your function URL uses.
 	//
 	// Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
@@ -58,7 +58,7 @@ type CfnPermissionMixinProps struct {
 	// If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
 	//
-	Principal *string `field:"optional" json:"principal" yaml:"principal"`
+	Principal interface{} `field:"optional" json:"principal" yaml:"principal"`
 	// The identifier for your organization in AWS Organizations .
 	//
 	// Use this to grant permissions to all the AWS accounts under this organization.
@@ -78,6 +78,6 @@ type CfnPermissionMixinProps struct {
 	// Note that Lambda configures the comparison using the `StringLike` operator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn
 	//
-	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
+	SourceArn interface{} `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 }
 

@@ -34,6 +34,6 @@ type CfnServiceActionAssociationMixinProps struct {
 	// For example, `act-fs7abcd89wxyz` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
 	//
-	ServiceActionId *string `field:"optional" json:"serviceActionId" yaml:"serviceActionId"`
+	ServiceActionId interface{} `field:"optional" json:"serviceActionId" yaml:"serviceActionId"`
 }
 

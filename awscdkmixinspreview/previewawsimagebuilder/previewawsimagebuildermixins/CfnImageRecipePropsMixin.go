@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnImageRecipePropsMixin := awscdkmixinspreview.Mixins.NewCfnImageRecipePropsMixin(&CfnImageRecipeMixinProps{
 //   	AdditionalInstanceConfiguration: &AdditionalInstanceConfigurationProperty{
@@ -69,7 +71,7 @@ import (
 //   	Version: jsii.String("version"),
 //   	WorkingDirectory: jsii.String("workingDirectory"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
@@ -78,7 +80,7 @@ type CfnImageRecipePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnImageRecipeMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -101,8 +103,8 @@ func (j *jsiiProxy_CfnImageRecipePropsMixin) Props() *CfnImageRecipeMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnImageRecipePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnImageRecipePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

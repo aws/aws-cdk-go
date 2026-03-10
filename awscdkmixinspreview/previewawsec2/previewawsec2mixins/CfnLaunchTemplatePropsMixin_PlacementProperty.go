@@ -44,7 +44,7 @@ type CfnLaunchTemplatePropsMixin_PlacementProperty struct {
 	// The name of the placement group for the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-placement.html#cfn-ec2-launchtemplate-placement-groupname
 	//
-	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
+	GroupName interface{} `field:"optional" json:"groupName" yaml:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-placement.html#cfn-ec2-launchtemplate-placement-hostid
 	//

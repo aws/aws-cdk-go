@@ -52,7 +52,7 @@ type CfnAccessPointMixinProps struct {
 	// Accepts only the ID format for input when specifying a file system, for example `fs-0123456789abcedf2` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
 	//
-	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId interface{} `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 	// The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
 	//

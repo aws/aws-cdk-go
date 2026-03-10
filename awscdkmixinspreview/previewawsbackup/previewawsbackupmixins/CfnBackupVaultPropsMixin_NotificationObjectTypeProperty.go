@@ -29,6 +29,6 @@ type CfnBackupVaultPropsMixin_NotificationObjectTypeProperty struct {
 	// for example, `arn:aws:sns:us-west-2:111122223333:MyTopic` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
 	//
-	SnsTopicArn *string `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
+	SnsTopicArn interface{} `field:"optional" json:"snsTopicArn" yaml:"snsTopicArn"`
 }
 

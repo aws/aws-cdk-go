@@ -13,6 +13,9 @@ import (
 // If you need to use a runtime name that doesn't exist as a static member, you
 // can instantiate a `Runtime` object, e.g: `new Runtime('nodejs99.99')`.
 //
+// For NodeJS lambda functions, it is recommended to use the latest LTS NodeJS runtime available
+// (`Runtime.NODEJS_LATEST`) to keep the lambda function up-to-date.
+//
 // Example:
 //   myFunctionHandler := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 //   	Code: lambda.Code_FromAsset(jsii.String("resource/myfunction")),

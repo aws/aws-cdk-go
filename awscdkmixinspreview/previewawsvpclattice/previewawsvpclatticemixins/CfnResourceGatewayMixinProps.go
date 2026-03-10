@@ -15,10 +15,10 @@ import (
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
 //   	Name: jsii.String("name"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -48,11 +48,11 @@ type CfnResourceGatewayMixinProps struct {
 	// The IDs of the security groups applied to the resource gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html#cfn-vpclattice-resourcegateway-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The IDs of the VPC subnets for the resource gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html#cfn-vpclattice-resourcegateway-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The tags for the resource gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html#cfn-vpclattice-resourcegateway-tags
 	//

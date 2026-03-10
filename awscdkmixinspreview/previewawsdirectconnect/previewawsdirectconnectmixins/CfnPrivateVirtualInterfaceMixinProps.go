@@ -53,10 +53,10 @@ type CfnPrivateVirtualInterfaceMixinProps struct {
 	BgpPeers interface{} `field:"optional" json:"bgpPeers" yaml:"bgpPeers"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-privatevirtualinterface.html#cfn-directconnect-privatevirtualinterface-connectionid
 	//
-	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
+	ConnectionId interface{} `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-privatevirtualinterface.html#cfn-directconnect-privatevirtualinterface-directconnectgatewayid
 	//
-	DirectConnectGatewayId *string `field:"optional" json:"directConnectGatewayId" yaml:"directConnectGatewayId"`
+	DirectConnectGatewayId interface{} `field:"optional" json:"directConnectGatewayId" yaml:"directConnectGatewayId"`
 	// Indicates whether to enable or disable SiteLink.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-privatevirtualinterface.html#cfn-directconnect-privatevirtualinterface-enablesitelink
 	//

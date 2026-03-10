@@ -92,6 +92,14 @@ func (j *jsiiProxy_CfnLocationHDFS) validateSetAuthenticationTypeParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationHDFS) validateSetCmkSecretConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) validateSetCustomSecretConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationHDFS) validateSetNameNodesParameters(val interface{}) error {
 	return nil
 }

@@ -245,14 +245,6 @@ func (j *jsiiProxy_CfnAlarm) validateSetActionsEnabledParameters(val interface{}
 	return nil
 }
 
-func (j *jsiiProxy_CfnAlarm) validateSetComparisonOperatorParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnAlarm) validateSetDimensionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -308,14 +300,6 @@ func (j *jsiiProxy_CfnAlarm) validateSetDimensionsParameters(val interface{}) er
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnAlarm) validateSetEvaluationPeriodsParameters(val *float64) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil
@@ -400,9 +384,6 @@ func validateNewCfnAlarmParameters(scope constructs.Construct, id *string, props
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if props == nil {
-		return fmt.Errorf("parameter props is required, but nil was provided")
-	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

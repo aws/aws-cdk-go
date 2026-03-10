@@ -24,7 +24,7 @@ type CfnAnalysisPropsMixin_AnalysisSourceTemplateProperty struct {
 	// The Amazon Resource Name (ARN) of the source template of an analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 	// The dataset references of the source template of an analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
 	//

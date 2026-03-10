@@ -31,6 +31,6 @@ type CfnCarrierGatewayMixinProps struct {
 	// The ID of the VPC associated with the carrier gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

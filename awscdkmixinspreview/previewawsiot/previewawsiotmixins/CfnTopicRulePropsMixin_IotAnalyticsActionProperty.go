@@ -30,6 +30,6 @@ type CfnTopicRulePropsMixin_IotAnalyticsActionProperty struct {
 	// The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

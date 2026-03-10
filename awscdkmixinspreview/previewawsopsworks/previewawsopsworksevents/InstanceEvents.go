@@ -24,13 +24,13 @@ import (
 type InstanceEvents interface {
 	// EventBridge event pattern for Instance OpsWorks Alert.
 	// Experimental.
-	OpsWorksAlertPattern(options *InstanceEvents_OpsWorksAlert_OpsWorksAlertProps) *awsevents.EventPattern
+	OpsWorksAlertPattern(options *OpsWorksAlert_OpsWorksAlertProps) *awsevents.EventPattern
 	// EventBridge event pattern for Instance OpsWorks Command State Change.
 	// Experimental.
-	OpsWorksCommandStateChangePattern(options *InstanceEvents_OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) *awsevents.EventPattern
+	OpsWorksCommandStateChangePattern(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for Instance OpsWorks Instance State Change.
 	// Experimental.
-	OpsWorksInstanceStateChangePattern(options *InstanceEvents_OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) *awsevents.EventPattern
+	OpsWorksInstanceStateChangePattern(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for InstanceEvents
@@ -58,7 +58,7 @@ func InstanceEvents_FromInstance(instanceRef interfacesawsopsworks.IInstanceRef)
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) OpsWorksAlertPattern(options *InstanceEvents_OpsWorksAlert_OpsWorksAlertProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) OpsWorksAlertPattern(options *OpsWorksAlert_OpsWorksAlertProps) *awsevents.EventPattern {
 	if err := i.validateOpsWorksAlertPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -74,7 +74,7 @@ func (i *jsiiProxy_InstanceEvents) OpsWorksAlertPattern(options *InstanceEvents_
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) OpsWorksCommandStateChangePattern(options *InstanceEvents_OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) OpsWorksCommandStateChangePattern(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) *awsevents.EventPattern {
 	if err := i.validateOpsWorksCommandStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -90,7 +90,7 @@ func (i *jsiiProxy_InstanceEvents) OpsWorksCommandStateChangePattern(options *In
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) OpsWorksInstanceStateChangePattern(options *InstanceEvents_OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) OpsWorksInstanceStateChangePattern(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) *awsevents.EventPattern {
 	if err := i.validateOpsWorksInstanceStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

@@ -27,6 +27,6 @@ type CfnInstancePropsMixin_VolumeProperty struct {
 	// The volume and instance must be within the same Availability Zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html#cfn-ec2-instance-volume-volumeid
 	//
-	VolumeId *string `field:"optional" json:"volumeId" yaml:"volumeId"`
+	VolumeId interface{} `field:"optional" json:"volumeId" yaml:"volumeId"`
 }
 

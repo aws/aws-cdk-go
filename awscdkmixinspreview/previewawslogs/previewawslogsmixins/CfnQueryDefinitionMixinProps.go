@@ -9,7 +9,7 @@ package previewawslogsmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnQueryDefinitionMixinProps := &CfnQueryDefinitionMixinProps{
-//   	LogGroupNames: []*string{
+//   	LogGroupNames: []interface{}{
 //   		jsii.String("logGroupNames"),
 //   	},
 //   	Name: jsii.String("name"),
@@ -23,7 +23,7 @@ type CfnQueryDefinitionMixinProps struct {
 	// Use this parameter if you want the query to query only certain log groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
 	//
-	LogGroupNames *[]*string `field:"optional" json:"logGroupNames" yaml:"logGroupNames"`
+	LogGroupNames *[]interface{} `field:"optional" json:"logGroupNames" yaml:"logGroupNames"`
 	// A name for the query definition.
 	//
 	// > You can use the name to create a folder structure for your queries. To create a folder, use a forward slash (/) to prefix your desired query name with your desired folder name. For example, `*folder-name* / *query-name*` .

@@ -75,7 +75,7 @@ type CfnSecurityGroupPropsMixin_IngressProperty struct {
 	// The ID of the security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html#cfn-ec2-securitygroup-ingress-sourcesecuritygroupid
 	//
-	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
+	SourceSecurityGroupId interface{} `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
 	// [Default VPC] The name of the source security group.
 	//
 	// You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.
@@ -83,7 +83,7 @@ type CfnSecurityGroupPropsMixin_IngressProperty struct {
 	// For security groups in a nondefault VPC, you must specify the group ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html#cfn-ec2-securitygroup-ingress-sourcesecuritygroupname
 	//
-	SourceSecurityGroupName *string `field:"optional" json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
+	SourceSecurityGroupName interface{} `field:"optional" json:"sourceSecurityGroupName" yaml:"sourceSecurityGroupName"`
 	// [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account.
 	//
 	// You can't specify this property with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.

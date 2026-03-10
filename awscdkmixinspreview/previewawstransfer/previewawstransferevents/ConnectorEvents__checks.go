@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawstransfer"
 )
 
-func (c *jsiiProxy_ConnectorEvents) validateAS2MDNReceiveCompletedPatternParameters(options *ConnectorEvents_AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateAs2MDNReceiveCompletedPatternParameters(options *AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (c *jsiiProxy_ConnectorEvents) validateAS2MDNReceiveCompletedPatternParamet
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateAS2MDNReceiveFailedPatternParameters(options *ConnectorEvents_AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateAs2MDNReceiveFailedPatternParameters(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (c *jsiiProxy_ConnectorEvents) validateAS2MDNReceiveFailedPatternParameters
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateAS2PayloadSendCompletedPatternParameters(options *ConnectorEvents_AS2PayloadSendCompleted_AS2PayloadSendCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateAs2PayloadSendCompletedPatternParameters(options *AS2PayloadSendCompleted_AS2PayloadSendCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func (c *jsiiProxy_ConnectorEvents) validateAS2PayloadSendCompletedPatternParame
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateAS2PayloadSendFailedPatternParameters(options *ConnectorEvents_AS2PayloadSendFailed_AS2PayloadSendFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateAs2PayloadSendFailedPatternParameters(options *AS2PayloadSendFailed_AS2PayloadSendFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -42,7 +42,7 @@ func (c *jsiiProxy_ConnectorEvents) validateAS2PayloadSendFailedPatternParameter
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorDirectoryListingCompletedPatternParameters(options *ConnectorEvents_SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorDirectoryListingCompletedPatternParameters(options *SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -50,7 +50,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorDirectoryListingComplet
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorDirectoryListingFailedPatternParameters(options *ConnectorEvents_SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorDirectoryListingFailedPatternParameters(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -58,7 +58,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorDirectoryListingFailedP
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileRetrieveCompletedPatternParameters(options *ConnectorEvents_SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorFileRetrieveCompletedPatternParameters(options *SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -66,7 +66,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileRetrieveCompletedPa
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileRetrieveFailedPatternParameters(options *ConnectorEvents_SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorFileRetrieveFailedPatternParameters(options *SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -74,7 +74,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileRetrieveFailedPatte
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileSendCompletedPatternParameters(options *ConnectorEvents_SFTPConnectorFileSendCompleted_SFTPConnectorFileSendCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorFileSendCompletedPatternParameters(options *SFTPConnectorFileSendCompleted_SFTPConnectorFileSendCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -82,7 +82,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileSendCompletedPatter
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileSendFailedPatternParameters(options *ConnectorEvents_SFTPConnectorFileSendFailed_SFTPConnectorFileSendFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorFileSendFailedPatternParameters(options *SFTPConnectorFileSendFailed_SFTPConnectorFileSendFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -90,7 +90,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorFileSendFailedPatternPa
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteDeleteCompletedPatternParameters(options *ConnectorEvents_SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorRemoteDeleteCompletedPatternParameters(options *SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -98,7 +98,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteDeleteCompletedPa
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteDeleteFailedPatternParameters(options *ConnectorEvents_SFTPConnectorRemoteDeleteFailed_SFTPConnectorRemoteDeleteFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorRemoteDeleteFailedPatternParameters(options *SFTPConnectorRemoteDeleteFailed_SFTPConnectorRemoteDeleteFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -106,7 +106,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteDeleteFailedPatte
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteMoveCompletedPatternParameters(options *ConnectorEvents_SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorRemoteMoveCompletedPatternParameters(options *SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -114,7 +114,7 @@ func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteMoveCompletedPatt
 	return nil
 }
 
-func (c *jsiiProxy_ConnectorEvents) validateSFTPConnectorRemoteMoveFailedPatternParameters(options *ConnectorEvents_SFTPConnectorRemoteMoveFailed_SFTPConnectorRemoteMoveFailedProps) error {
+func (c *jsiiProxy_ConnectorEvents) validateSftPConnectorRemoteMoveFailedPatternParameters(options *SFTPConnectorRemoteMoveFailed_SFTPConnectorRemoteMoveFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

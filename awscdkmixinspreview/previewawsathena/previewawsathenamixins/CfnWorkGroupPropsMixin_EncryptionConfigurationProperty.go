@@ -25,6 +25,6 @@ type CfnWorkGroupPropsMixin_EncryptionConfigurationProperty struct {
 	// For `SSE_KMS` and `CSE_KMS` , this is the KMS key ARN or ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
 	//
-	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	KmsKey interface{} `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 }
 

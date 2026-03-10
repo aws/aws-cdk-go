@@ -48,7 +48,7 @@ type CfnAnomalyDetectorPropsMixin_S3SourceConfigProperty struct {
 	// The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// A list of templated paths to the source files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
 	//

@@ -22,6 +22,6 @@ type CfnDataSourcePropsMixin_EventBridgeConfigProperty struct {
 	// For more information about event buses, see [EventBridge event buses](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-eventbridgeconfig.html#cfn-appsync-datasource-eventbridgeconfig-eventbusarn
 	//
-	EventBusArn *string `field:"optional" json:"eventBusArn" yaml:"eventBusArn"`
+	EventBusArn interface{} `field:"optional" json:"eventBusArn" yaml:"eventBusArn"`
 }
 

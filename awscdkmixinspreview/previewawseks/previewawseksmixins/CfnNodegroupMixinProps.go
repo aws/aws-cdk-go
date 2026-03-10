@@ -54,7 +54,7 @@ package previewawseksmixins
 //   		MaxSize: jsii.Number(123),
 //   		MinSize: jsii.Number(123),
 //   	},
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   	Tags: map[string]*string{
@@ -91,7 +91,7 @@ type CfnNodegroupMixinProps struct {
 	// The name of your cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-clustername
 	//
-	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
+	ClusterName interface{} `field:"optional" json:"clusterName" yaml:"clusterName"`
 	// The root device disk size (in GiB) for your node group instances.
 	//
 	// The default disk size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows. If you specify `launchTemplate` , then don't specify `diskSize` , or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
@@ -139,7 +139,7 @@ type CfnNodegroupMixinProps struct {
 	// The Amazon EKS worker node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies. Before you can launch nodes and register them into a cluster, you must create an IAM role for those nodes to use when they are launched. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html) in the **Amazon EKS User Guide** . If you specify `launchTemplate` , then don't specify `[IamInstanceProfile](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html)` in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
 	//
-	NodeRole *string `field:"optional" json:"nodeRole" yaml:"nodeRole"`
+	NodeRole interface{} `field:"optional" json:"nodeRole" yaml:"nodeRole"`
 	// The AMI version of the Amazon EKS optimized AMI to use with your node group (for example, `1.14.7- *YYYYMMDD*` ). By default, the latest available AMI version for the node group's current Kubernetes version is used. For more information, see [Amazon EKS optimized Linux AMI Versions](https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html) in the *Amazon EKS User Guide* .
 	//
 	// > Changing this value triggers an update of the node group if one is available. You can't update other properties at the same time as updating `Release Version` .
@@ -161,7 +161,7 @@ type CfnNodegroupMixinProps struct {
 	// If you specify `launchTemplate` , then don't specify `[SubnetId](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html)` in your launch template, or the node group deployment will fail. For more information about using launch templates with Amazon EKS, see [Customizing managed nodes with launch templates](https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html) in the *Amazon EKS User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-subnets
 	//
-	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
+	Subnets *[]interface{} `field:"optional" json:"subnets" yaml:"subnets"`
 	// Metadata that assists with categorization and organization.
 	//
 	// Each tag consists of a key and an optional value. You define both. Tags don't propagate to any other cluster or AWS resources.

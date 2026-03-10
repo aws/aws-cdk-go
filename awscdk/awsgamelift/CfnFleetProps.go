@@ -56,6 +56,7 @@ import (
 //   				},
 //   				MinSize: jsii.Number(123),
 //   			},
+//   			PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   		},
 //   	},
 //   	LogPaths: []*string{
@@ -69,6 +70,10 @@ import (
 //   	NewGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
 //   	PeerVpcAwsAccountId: jsii.String("peerVpcAwsAccountId"),
 //   	PeerVpcId: jsii.String("peerVpcId"),
+//   	PlayerGatewayConfiguration: &PlayerGatewayConfigurationProperty{
+//   		GameServerIpProtocolSupported: jsii.String("gameServerIpProtocolSupported"),
+//   	},
+//   	PlayerGatewayMode: jsii.String("playerGatewayMode"),
 //   	ResourceCreationLimitPolicy: &ResourceCreationLimitPolicyProperty{
 //   		NewGameSessionsPerCreator: jsii.Number(123),
 //   		PolicyPeriodInMinutes: jsii.Number(123),
@@ -256,6 +261,14 @@ type CfnFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
 	//
 	PeerVpcId *string `field:"optional" json:"peerVpcId" yaml:"peerVpcId"`
+	// Configuration for player gateway.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-playergatewayconfiguration
+	//
+	PlayerGatewayConfiguration interface{} `field:"optional" json:"playerGatewayConfiguration" yaml:"playerGatewayConfiguration"`
+	// The player gateway mode for the fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-playergatewaymode
+	//
+	PlayerGatewayMode *string `field:"optional" json:"playerGatewayMode" yaml:"playerGatewayMode"`
 	// A policy that limits the number of game sessions that an individual player can create on instances in this fleet within a specified span of time.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
 	//

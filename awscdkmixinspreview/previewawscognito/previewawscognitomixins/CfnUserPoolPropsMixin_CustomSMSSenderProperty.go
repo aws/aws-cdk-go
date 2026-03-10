@@ -21,7 +21,7 @@ type CfnUserPoolPropsMixin_CustomSMSSenderProperty struct {
 	// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-customsmssender.html#cfn-cognito-userpool-customsmssender-lambdaarn
 	//
-	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn interface{} `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
 	// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function.
 	//
 	// Higher-numbered versions add fields that support new features.

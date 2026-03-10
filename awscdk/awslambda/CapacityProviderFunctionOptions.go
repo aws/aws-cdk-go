@@ -8,8 +8,8 @@ package awslambda
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	// Runtime must be equal to or newer than NODEJS_22_X
-//   	Runtime: lambda.Runtime_NODEJS_22_X(),
+//   	// Runtime must be equal to or newer than NODEJS_LATEST
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })

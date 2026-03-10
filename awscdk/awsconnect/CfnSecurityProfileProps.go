@@ -23,12 +23,21 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	AllowedFlowModules: []interface{}{
+//   		&FlowModuleProperty{
+//   			FlowModuleId: jsii.String("flowModuleId"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	Applications: []interface{}{
 //   		&ApplicationProperty{
 //   			ApplicationPermissions: []*string{
 //   				jsii.String("applicationPermissions"),
 //   			},
 //   			Namespace: jsii.String("namespace"),
+//
+//   			// the properties below are optional
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
@@ -83,6 +92,10 @@ type CfnSecurityProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedaccesscontroltags
 	//
 	AllowedAccessControlTags interface{} `field:"optional" json:"allowedAccessControlTags" yaml:"allowedAccessControlTags"`
+	// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedflowmodules
+	//
+	AllowedFlowModules interface{} `field:"optional" json:"allowedFlowModules" yaml:"allowedFlowModules"`
 	// A list of third-party applications that the security profile will give access to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-applications
 	//

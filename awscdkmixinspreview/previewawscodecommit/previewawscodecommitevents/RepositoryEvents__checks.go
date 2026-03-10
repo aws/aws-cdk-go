@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodecommit"
 )
 
-func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnCommitPatternParameters(options *RepositoryEvents_CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnCommitPatternParameters(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnCommitPatternPar
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnPullRequestPatternParameters(options *RepositoryEvents_CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnPullRequestPatternParameters(options *CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnPullRequestPatte
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateCodeCommitRepositoryStateChangePatternParameters(options *RepositoryEvents_CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateCodeCommitRepositoryStateChangePatternParameters(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

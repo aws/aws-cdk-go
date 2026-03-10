@@ -12,13 +12,15 @@ import (
 
 // Creates a theme.
 //
-// A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon Quick Suite](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
+// A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon Quick User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnThemePropsMixin := awscdkmixinspreview.Mixins.NewCfnThemePropsMixin(&CfnThemeMixinProps{
 //   	AwsAccountId: jsii.String("awsAccountId"),
@@ -93,7 +95,7 @@ import (
 //   	ThemeId: jsii.String("themeId"),
 //   	VersionDescription: jsii.String("versionDescription"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
@@ -102,7 +104,7 @@ type CfnThemePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnThemeMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -125,8 +127,8 @@ func (j *jsiiProxy_CfnThemePropsMixin) Props() *CfnThemeMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnThemePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnThemePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

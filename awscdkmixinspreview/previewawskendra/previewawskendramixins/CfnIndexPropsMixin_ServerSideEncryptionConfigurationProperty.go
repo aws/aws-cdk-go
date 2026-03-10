@@ -22,6 +22,6 @@ type CfnIndexPropsMixin_ServerSideEncryptionConfigurationProperty struct {
 	// Amazon Kendra doesn't support asymmetric keys.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-serversideencryptionconfiguration.html#cfn-kendra-index-serversideencryptionconfiguration-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 }
 

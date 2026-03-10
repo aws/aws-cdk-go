@@ -33,7 +33,7 @@ type CfnAutoScalingGroupPropsMixin_LaunchTemplateSpecificationProperty struct {
 	// You must specify the `LaunchTemplateID` or the `LaunchTemplateName` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplateid
 	//
-	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId interface{} `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
 	//
 	// You must specify the `LaunchTemplateName` or the `LaunchTemplateID` , but not both.

@@ -41,7 +41,7 @@ type CfnSubscriptionMixinProps struct {
 	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon  API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-endpoint
 	//
-	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The filter policy JSON assigned to the subscription.
 	//
 	// Enables the subscriber to filter out unwanted messages. For more information, see `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)` in the *Amazon  API Reference* and [Message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon  Developer Guide* .
@@ -102,10 +102,10 @@ type CfnSubscriptionMixinProps struct {
 	// Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see [Fanout to Amazon Data Firehose delivery streams](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html) in the *Amazon  Developer Guide.*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-subscriptionrolearn
 	//
-	SubscriptionRoleArn *string `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
+	SubscriptionRoleArn interface{} `field:"optional" json:"subscriptionRoleArn" yaml:"subscriptionRoleArn"`
 	// The ARN of the topic to subscribe to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-topicarn
 	//
-	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
+	TopicArn interface{} `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

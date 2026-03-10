@@ -21,7 +21,7 @@ type CfnDBClusterPropsMixin_MasterUserSecretProperty struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html#cfn-rds-dbcluster-masterusersecret-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The Amazon Resource Name (ARN) of the secret.
 	//
 	// This parameter is a return value that you can retrieve using the `Fn::GetAtt` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values) .

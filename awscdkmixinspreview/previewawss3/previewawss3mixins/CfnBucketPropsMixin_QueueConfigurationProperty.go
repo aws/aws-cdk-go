@@ -43,6 +43,6 @@ type CfnBucketPropsMixin_QueueConfigurationProperty struct {
 	// FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-queueconfiguration.html#cfn-s3-bucket-queueconfiguration-queue
 	//
-	Queue *string `field:"optional" json:"queue" yaml:"queue"`
+	Queue interface{} `field:"optional" json:"queue" yaml:"queue"`
 }
 

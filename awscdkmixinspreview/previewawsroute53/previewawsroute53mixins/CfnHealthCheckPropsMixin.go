@@ -32,7 +32,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnHealthCheckPropsMixin := awscdkmixinspreview.Mixins.NewCfnHealthCheckPropsMixin(&CfnHealthCheckMixinProps{
 //   	HealthCheckConfig: &HealthCheckConfigProperty{
@@ -40,7 +42,7 @@ import (
 //   			Name: jsii.String("name"),
 //   			Region: jsii.String("region"),
 //   		},
-//   		ChildHealthChecks: []*string{
+//   		ChildHealthChecks: []interface{}{
 //   			jsii.String("childHealthChecks"),
 //   		},
 //   		EnableSni: jsii.Boolean(false),
@@ -68,7 +70,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
@@ -77,7 +79,7 @@ type CfnHealthCheckPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnHealthCheckMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -100,8 +102,8 @@ func (j *jsiiProxy_CfnHealthCheckPropsMixin) Props() *CfnHealthCheckMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHealthCheckPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnHealthCheckPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

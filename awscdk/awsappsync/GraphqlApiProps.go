@@ -4,22 +4,17 @@ package awsappsync
 // Properties for an AppSync GraphQL API.
 //
 // Example:
-//   sourceApi := appsync.NewGraphqlApi(this, jsii.String("FirstSourceAPI"), &GraphqlApiProps{
-//   	Name: jsii.String("FirstSourceAPI"),
-//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.merged-api-1.graphql"))),
+//   schema := appsync.NewSchemaFile(&SchemaProps{
+//   	FilePath: jsii.String("mySchemaFile"),
 //   })
-//
-//   importedMergedApi := appsync.GraphqlApi_FromGraphqlApiAttributes(this, jsii.String("ImportedMergedApi"), &GraphqlApiAttributes{
-//   	GraphqlApiId: jsii.String("MyApiId"),
-//   	GraphqlApiArn: jsii.String("MyApiArn"),
-//   })
-//
-//   importedExecutionRole := iam.Role_FromRoleArn(this, jsii.String("ExecutionRole"), jsii.String("arn:aws:iam::ACCOUNT:role/MyExistingRole"))
-//   appsync.NewSourceApiAssociation(this, jsii.String("SourceApiAssociation2"), &SourceApiAssociationProps{
-//   	SourceApi: sourceApi,
-//   	MergedApi: importedMergedApi,
-//   	MergeType: appsync.MergeType_MANUAL_MERGE,
-//   	MergedApiExecutionRole: importedExecutionRole,
+//   appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+//   	Name: jsii.String("myApi"),
+//   	Definition: appsync.Definition_FromSchema(schema),
+//   	EnhancedMetricsConfig: &EnhancedMetricsConfig{
+//   		DataSourceLevelMetricsBehavior: appsync.DataSourceLevelMetricsBehavior_FULL_REQUEST_DATA_SOURCE_METRICS,
+//   		OperationLevelMetricsConfig: appsync.OperationLevelMetricsConfig_ENABLED,
+//   		ResolverLevelMetricsBehavior: appsync.ResolverLevelMetricsBehavior_FULL_REQUEST_RESOLVER_METRICS,
+//   	},
 //   })
 //
 type GraphqlApiProps struct {
@@ -38,6 +33,10 @@ type GraphqlApiProps struct {
 	// Default: - no domain name.
 	//
 	DomainName *DomainOptions `field:"optional" json:"domainName" yaml:"domainName"`
+	// Enables and controls the enhanced metrics feature.
+	// Default: - Enhanced metrics disabled.
+	//
+	EnhancedMetricsConfig *EnhancedMetricsConfig `field:"optional" json:"enhancedMetricsConfig" yaml:"enhancedMetricsConfig"`
 	// A map containing the list of resources with their properties and environment variables.
 	//
 	// There are a few rules you must follow when creating keys and values:

@@ -61,5 +61,7 @@ const (
 	CfnBucketS3ServerAccessLogsRecordFields_ACCESS_POINT_ARN CfnBucketS3ServerAccessLogsRecordFields = "ACCESS_POINT_ARN"
 	// Experimental.
 	CfnBucketS3ServerAccessLogsRecordFields_ACL_REQUIRED CfnBucketS3ServerAccessLogsRecordFields = "ACL_REQUIRED"
+	// Experimental.
+	CfnBucketS3ServerAccessLogsRecordFields_SOURCE_REGION CfnBucketS3ServerAccessLogsRecordFields = "SOURCE_REGION"
 )
 

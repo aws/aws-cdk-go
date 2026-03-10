@@ -4,7 +4,7 @@ package previewawsiotanalyticsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DatasetEvents) validateIoTAnalyticsDataSetLifeCycleNotificationPatternParameters(options *DatasetEvents_IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) error {
+func (d *jsiiProxy_DatasetEvents) validateIoTAnalyticsDataSetLifeCycleNotificationPatternParameters(options *IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) error {
 	return nil
 }
 

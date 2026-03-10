@@ -62,7 +62,7 @@ type CfnDatabasePropsMixin_DatabaseInputProperty struct {
 	// For Hive compatibility, this is folded to lowercase when it is stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
 	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name interface{} `field:"optional" json:"name" yaml:"name"`
 	// These key-value pairs define parameters and properties of the database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
 	//

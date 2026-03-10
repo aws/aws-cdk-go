@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 )
 
-func (s *jsiiProxy_SequenceStoreEvents) validateReadSetActivationJobStatusChangePatternParameters(options *SequenceStoreEvents_ReadSetActivationJobStatusChange_ReadSetActivationJobStatusChangeProps) error {
+func (s *jsiiProxy_SequenceStoreEvents) validateReadSetActivationJobStatusChangePatternParameters(options *ReadSetActivationJobStatusChange_ReadSetActivationJobStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (s *jsiiProxy_SequenceStoreEvents) validateReadSetActivationJobStatusChange
 	return nil
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) validateReadSetExportJobStatusChangePatternParameters(options *SequenceStoreEvents_ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) error {
+func (s *jsiiProxy_SequenceStoreEvents) validateReadSetExportJobStatusChangePatternParameters(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (s *jsiiProxy_SequenceStoreEvents) validateReadSetExportJobStatusChangePatt
 	return nil
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) validateReadSetImportJobStatusChangePatternParameters(options *SequenceStoreEvents_ReadSetImportJobStatusChange_ReadSetImportJobStatusChangeProps) error {
+func (s *jsiiProxy_SequenceStoreEvents) validateReadSetImportJobStatusChangePatternParameters(options *ReadSetImportJobStatusChange_ReadSetImportJobStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func (s *jsiiProxy_SequenceStoreEvents) validateReadSetImportJobStatusChangePatt
 	return nil
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) validateReadSetStatusChangePatternParameters(options *SequenceStoreEvents_ReadSetStatusChange_ReadSetStatusChangeProps) error {
+func (s *jsiiProxy_SequenceStoreEvents) validateReadSetStatusChangePatternParameters(options *ReadSetStatusChange_ReadSetStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

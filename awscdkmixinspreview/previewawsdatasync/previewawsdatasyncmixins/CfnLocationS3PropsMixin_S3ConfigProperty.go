@@ -20,6 +20,6 @@ type CfnLocationS3PropsMixin_S3ConfigProperty struct {
 	// Specifies the ARN of the IAM role that DataSync uses to access your S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
 	//
-	BucketAccessRoleArn *string `field:"optional" json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
+	BucketAccessRoleArn interface{} `field:"optional" json:"bucketAccessRoleArn" yaml:"bucketAccessRoleArn"`
 }
 

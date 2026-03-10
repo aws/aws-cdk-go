@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsorganizations"
 )
 
-func (a *jsiiProxy_AccountEvents) validateAwsServiceEventViaCloudTrailPatternParameters(options *AccountEvents_AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) error {
+func (a *jsiiProxy_AccountEvents) validateAwsServiceEventViaCloudTrailPatternParameters(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

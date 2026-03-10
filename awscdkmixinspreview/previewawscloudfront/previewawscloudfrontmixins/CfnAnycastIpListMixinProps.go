@@ -18,6 +18,14 @@ package previewawscloudfrontmixins
 //   	},
 //   	IpCount: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	Tags: &TagsProperty{
+//   		Items: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html
@@ -39,5 +47,9 @@ type CfnAnycastIpListMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// A complex type that contains zero or more `Tag` elements.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html#cfn-cloudfront-anycastiplist-tags
+	//
+	Tags *CfnAnycastIpListPropsMixin_TagsProperty `field:"optional" json:"tags" yaml:"tags"`
 }
 

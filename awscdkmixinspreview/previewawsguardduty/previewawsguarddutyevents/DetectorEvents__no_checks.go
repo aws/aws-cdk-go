@@ -4,7 +4,7 @@ package previewawsguarddutyevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DetectorEvents) validateGuardDutyFindingPatternParameters(options *DetectorEvents_GuardDutyFinding_GuardDutyFindingProps) error {
+func (d *jsiiProxy_DetectorEvents) validateGuardDutyFindingPatternParameters(options *GuardDutyFinding_GuardDutyFindingProps) error {
 	return nil
 }
 

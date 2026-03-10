@@ -35,7 +35,7 @@ type CfnFlowPropsMixin_SnowflakeDestinationPropertiesProperty struct {
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
 	//
-	IntermediateBucketName *string `field:"optional" json:"intermediateBucketName" yaml:"intermediateBucketName"`
+	IntermediateBucketName interface{} `field:"optional" json:"intermediateBucketName" yaml:"intermediateBucketName"`
 	// The object specified in the Snowflake flow destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
 	//

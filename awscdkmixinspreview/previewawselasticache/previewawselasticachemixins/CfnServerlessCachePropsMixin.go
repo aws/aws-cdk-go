@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnServerlessCachePropsMixin := awscdkmixinspreview.Mixins.NewCfnServerlessCachePropsMixin(&CfnServerlessCacheMixinProps{
 //   	CacheUsageLimits: &CacheUsageLimitsProperty{
@@ -44,7 +46,7 @@ import (
 //   		Address: jsii.String("address"),
 //   		Port: jsii.String("port"),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	ServerlessCacheName: jsii.String("serverlessCacheName"),
@@ -52,7 +54,7 @@ import (
 //   		jsii.String("snapshotArnsToRestore"),
 //   	},
 //   	SnapshotRetentionLimit: jsii.Number(123),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -63,7 +65,7 @@ import (
 //   	},
 //   	UserGroupId: jsii.String("userGroupId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html
@@ -72,7 +74,7 @@ type CfnServerlessCachePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnServerlessCacheMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -95,8 +97,8 @@ func (j *jsiiProxy_CfnServerlessCachePropsMixin) Props() *CfnServerlessCacheMixi
 	return returns
 }
 
-func (j *jsiiProxy_CfnServerlessCachePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnServerlessCachePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

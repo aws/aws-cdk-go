@@ -18,6 +18,6 @@ type CfnServicePropsMixin_LambdaEndpointInputProperty struct {
 	// The Amazon Resource Name (ARN) of the Lambda function or alias.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-service-lambdaendpointinput.html#cfn-refactorspaces-service-lambdaendpointinput-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 }
 

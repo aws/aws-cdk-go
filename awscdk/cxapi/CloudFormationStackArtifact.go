@@ -134,6 +134,8 @@ type CloudFormationStackArtifact interface {
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
 	Messages() *[]*SynthesisMessage
+	// Returns the metadata associated with this Cloud Artifact.
+	Metadata() *map[string]*[]*cloudassemblyschema.MetadataEntry
 	// SNS Topics that will receive stack events.
 	NotificationArns() *[]*string
 	// The original name as defined in the CDK app.
@@ -318,6 +320,16 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Messages() *[]*SynthesisMessage 
 	_jsii_.Get(
 		j,
 		"messages",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationStackArtifact) Metadata() *map[string]*[]*cloudassemblyschema.MetadataEntry {
+	var returns *map[string]*[]*cloudassemblyschema.MetadataEntry
+	_jsii_.Get(
+		j,
+		"metadata",
 		&returns,
 	)
 	return returns

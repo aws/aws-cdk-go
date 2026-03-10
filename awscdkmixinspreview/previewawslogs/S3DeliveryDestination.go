@@ -15,7 +15,6 @@ import (
 // Creates an S3 delivery destination for CloudWatch Logs.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //   import logDestinations "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //

@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnIntegrationPropsMixin := awscdkmixinspreview.Mixins.NewCfnIntegrationPropsMixin(&CfnIntegrationMixinProps{
 //   	AdditionalEncryptionContext: map[string]*string{
@@ -33,7 +35,7 @@ import (
 //   	},
 //   	TargetArn: jsii.String("targetArn"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html
@@ -42,7 +44,7 @@ type CfnIntegrationPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnIntegrationMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -65,8 +67,8 @@ func (j *jsiiProxy_CfnIntegrationPropsMixin) Props() *CfnIntegrationMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIntegrationPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnIntegrationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

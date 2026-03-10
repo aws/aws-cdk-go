@@ -461,6 +461,30 @@ domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 })
 ```
 
+## S3 Vectors Engine
+
+Amazon OpenSearch Service offers [the ability to use Amazon S3 as a vector engine for vector indexes](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/s3-vector-opensearch-integration-engine.html).
+This feature allows you to offload vector data to Amazon S3 while maintaining sub-second vector search capabilities at low cost.
+
+Requirements:
+
+* OpenSearch version 2.19 or later
+* OpenSearch Optimized instance types (OR1, OR2, OM2, OI2) for data nodes
+* Encryption at rest must be enabled
+
+```go
+domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
+	Version: awscdk.EngineVersion_OPENSEARCH_2_19(),
+	S3VectorsEngineEnabled: jsii.Boolean(true),
+	Capacity: &CapacityConfig{
+		DataNodeInstanceType: jsii.String("or1.medium.search"),
+	},
+	EncryptionAtRest: &EncryptionAtRestOptions{
+		Enabled: jsii.Boolean(true),
+	},
+})
+```
+
 ## Custom endpoint
 
 Custom endpoints can be configured to reach the domain under a custom domain name.

@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnPrivacyBudgetTemplatePropsMixin := awscdkmixinspreview.Mixins.NewCfnPrivacyBudgetTemplatePropsMixin(&CfnPrivacyBudgetTemplateMixinProps{
 //   	AutoRefresh: jsii.String("autoRefresh"),
@@ -41,7 +43,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html
@@ -50,7 +52,7 @@ type CfnPrivacyBudgetTemplatePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnPrivacyBudgetTemplateMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -73,8 +75,8 @@ func (j *jsiiProxy_CfnPrivacyBudgetTemplatePropsMixin) Props() *CfnPrivacyBudget
 	return returns
 }
 
-func (j *jsiiProxy_CfnPrivacyBudgetTemplatePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnPrivacyBudgetTemplatePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -20,14 +20,14 @@ type CfnUserPoolUserToGroupAttachmentMixinProps struct {
 	// The name of the group that you want to add your user to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-groupname
 	//
-	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
+	GroupName interface{} `field:"optional" json:"groupName" yaml:"groupName"`
 	// The user's username.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-username
 	//
-	Username *string `field:"optional" json:"username" yaml:"username"`
+	Username interface{} `field:"optional" json:"username" yaml:"username"`
 	// The ID of the user pool that contains the group that you want to add the user to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html#cfn-cognito-userpoolusertogroupattachment-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

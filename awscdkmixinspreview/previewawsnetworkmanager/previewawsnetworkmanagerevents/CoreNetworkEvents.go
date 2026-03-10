@@ -24,10 +24,10 @@ import (
 type CoreNetworkEvents interface {
 	// EventBridge event pattern for CoreNetwork Network Manager Policy Update.
 	// Experimental.
-	NetworkManagerPolicyUpdatePattern(options *CoreNetworkEvents_NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) *awsevents.EventPattern
+	NetworkManagerPolicyUpdatePattern(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) *awsevents.EventPattern
 	// EventBridge event pattern for CoreNetwork Network Manager Segment Update.
 	// Experimental.
-	NetworkManagerSegmentUpdatePattern(options *CoreNetworkEvents_NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) *awsevents.EventPattern
+	NetworkManagerSegmentUpdatePattern(options *NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for CoreNetworkEvents
@@ -55,7 +55,7 @@ func CoreNetworkEvents_FromCoreNetwork(coreNetworkRef interfacesawsnetworkmanage
 	return returns
 }
 
-func (c *jsiiProxy_CoreNetworkEvents) NetworkManagerPolicyUpdatePattern(options *CoreNetworkEvents_NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) *awsevents.EventPattern {
+func (c *jsiiProxy_CoreNetworkEvents) NetworkManagerPolicyUpdatePattern(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) *awsevents.EventPattern {
 	if err := c.validateNetworkManagerPolicyUpdatePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (c *jsiiProxy_CoreNetworkEvents) NetworkManagerPolicyUpdatePattern(options 
 	return returns
 }
 
-func (c *jsiiProxy_CoreNetworkEvents) NetworkManagerSegmentUpdatePattern(options *CoreNetworkEvents_NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) *awsevents.EventPattern {
+func (c *jsiiProxy_CoreNetworkEvents) NetworkManagerSegmentUpdatePattern(options *NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) *awsevents.EventPattern {
 	if err := c.validateNetworkManagerSegmentUpdatePatternParameters(options); err != nil {
 		panic(err)
 	}

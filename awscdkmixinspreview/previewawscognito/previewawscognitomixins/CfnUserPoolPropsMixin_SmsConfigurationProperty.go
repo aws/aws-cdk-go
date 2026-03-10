@@ -32,7 +32,7 @@ type CfnUserPoolPropsMixin_SmsConfigurationProperty struct {
 	// This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-snscallerarn
 	//
-	SnsCallerArn *string `field:"optional" json:"snsCallerArn" yaml:"snsCallerArn"`
+	SnsCallerArn interface{} `field:"optional" json:"snsCallerArn" yaml:"snsCallerArn"`
 	// The AWS Region to use with Amazon SNS integration.
 	//
 	// You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .

@@ -21,7 +21,7 @@ import (
 //   	DefaultIamRoleArn: jsii.String("defaultIamRoleArn"),
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	FinalSnapshotRetentionPeriod: jsii.Number(123),
-//   	IamRoles: []*string{
+//   	IamRoles: []interface{}{
 //   		jsii.String("iamRoles"),
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
@@ -71,7 +71,7 @@ type CfnNamespaceMixinProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-defaultiamrolearn
 	//
-	DefaultIamRoleArn *string `field:"optional" json:"defaultIamRoleArn" yaml:"defaultIamRoleArn"`
+	DefaultIamRoleArn interface{} `field:"optional" json:"defaultIamRoleArn" yaml:"defaultIamRoleArn"`
 	// The name of the snapshot to be created before the namespace is deleted.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-finalsnapshotname
 	//
@@ -83,11 +83,11 @@ type CfnNamespaceMixinProps struct {
 	// A list of IAM roles to associate with the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-iamroles
 	//
-	IamRoles *[]*string `field:"optional" json:"iamRoles" yaml:"iamRoles"`
+	IamRoles *[]interface{} `field:"optional" json:"iamRoles" yaml:"iamRoles"`
 	// The ID of the AWS Key Management Service key used to encrypt your data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#cfn-redshiftserverless-namespace-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The types of logs the namespace can export.
 	//
 	// Available export types are `userlog` , `connectionlog` , and `useractivitylog` .

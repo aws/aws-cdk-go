@@ -18,6 +18,6 @@ type CfnLoggingConfigurationPropsMixin_CloudWatchLogsDestinationConfigurationPro
 	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-cloudwatchlogsdestinationconfiguration.html#cfn-ivschat-loggingconfiguration-cloudwatchlogsdestinationconfiguration-loggroupname
 	//
-	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 }
 

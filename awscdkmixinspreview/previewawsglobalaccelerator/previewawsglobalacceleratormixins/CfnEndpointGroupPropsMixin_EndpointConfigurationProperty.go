@@ -43,7 +43,7 @@ type CfnEndpointGroupPropsMixin_EndpointConfigurationProperty struct {
 	// For cross-account endpoints, this must be the ARN of the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
 	//
-	EndpointId *string `field:"optional" json:"endpointId" yaml:"endpointId"`
+	EndpointId interface{} `field:"optional" json:"endpointId" yaml:"endpointId"`
 	// The weight associated with the endpoint.
 	//
 	// When you add weights to endpoints, you configure Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see [Endpoint Weights](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html) in the *AWS Global Accelerator Developer Guide* .

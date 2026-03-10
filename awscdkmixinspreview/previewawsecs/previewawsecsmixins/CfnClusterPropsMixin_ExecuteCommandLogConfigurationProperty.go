@@ -32,7 +32,7 @@ type CfnClusterPropsMixin_ExecuteCommandLogConfigurationProperty struct {
 	// > The CloudWatch log group must already be created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
 	//
-	CloudWatchLogGroupName *string `field:"optional" json:"cloudWatchLogGroupName" yaml:"cloudWatchLogGroupName"`
+	CloudWatchLogGroupName interface{} `field:"optional" json:"cloudWatchLogGroupName" yaml:"cloudWatchLogGroupName"`
 	// The name of the S3 bucket to send logs to.
 	//
 	// > The S3 bucket must already be created.

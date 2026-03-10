@@ -14,7 +14,7 @@ import (
 //   cfnDBSubnetGroupMixinProps := &CfnDBSubnetGroupMixinProps{
 //   	DbSubnetGroupDescription: jsii.String("dbSubnetGroupDescription"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -47,7 +47,7 @@ type CfnDBSubnetGroupMixinProps struct {
 	// The EC2 Subnet IDs for the DB subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html#cfn-rds-dbsubnetgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// Tags to assign to the DB subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html#cfn-rds-dbsubnetgroup-tags
 	//

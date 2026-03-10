@@ -73,7 +73,7 @@ type CfnInstancePropsMixin_EbsProperty struct {
 	// > After the instance is running, modifying this parameter results in instance [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ebs.html#cfn-ec2-instance-ebs-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// The ID of the snapshot.
 	//
 	// If you specify both `SnapshotId` and `VolumeSize` , `VolumeSize` must be equal or greater than the size of the snapshot.

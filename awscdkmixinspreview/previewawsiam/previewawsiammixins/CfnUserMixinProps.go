@@ -14,14 +14,14 @@ import (
 //   var policyDocument interface{}
 //
 //   cfnUserMixinProps := &CfnUserMixinProps{
-//   	Groups: []*string{
+//   	Groups: []interface{}{
 //   		jsii.String("groups"),
 //   	},
 //   	LoginProfile: &LoginProfileProperty{
 //   		Password: jsii.String("password"),
 //   		PasswordResetRequired: jsii.Boolean(false),
 //   	},
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	Path: jsii.String("path"),
@@ -47,7 +47,7 @@ type CfnUserMixinProps struct {
 	// A list of group names to which you want to add the user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-groups
 	//
-	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
+	Groups *[]interface{} `field:"optional" json:"groups" yaml:"groups"`
 	// Creates a password for the specified IAM user.
 	//
 	// A password allows an IAM user to access AWS services through the AWS Management Console .
@@ -63,7 +63,7 @@ type CfnUserMixinProps struct {
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-managedpolicyarns
 	//
-	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
+	ManagedPolicyArns *[]interface{} `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The path for the user name.
 	//
 	// For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
@@ -81,7 +81,7 @@ type CfnUserMixinProps struct {
 	// For more information about policy types, see [Policy types](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types) in the *IAM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html#cfn-iam-user-permissionsboundary
 	//
-	PermissionsBoundary *string `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary interface{} `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM user.
 	//
 	// To view AWS::IAM::User snippets, see [Declaring an IAM User Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-user) .

@@ -85,7 +85,7 @@ type CfnDeploymentMixinProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The description of the Stage resource for the Deployment resource to create.
 	//
 	// To specify a stage description, you must also provide a stage name.

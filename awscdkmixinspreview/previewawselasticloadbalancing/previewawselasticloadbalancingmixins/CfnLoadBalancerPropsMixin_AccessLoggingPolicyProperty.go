@@ -31,7 +31,7 @@ type CfnLoadBalancerPropsMixin_AccessLoggingPolicyProperty struct {
 	// The name of the Amazon S3 bucket where the access logs are stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-accessloggingpolicy.html#cfn-elasticloadbalancing-loadbalancer-accessloggingpolicy-s3bucketname
 	//
-	S3BucketName *string `field:"optional" json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName interface{} `field:"optional" json:"s3BucketName" yaml:"s3BucketName"`
 	// The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod` .
 	//
 	// If the prefix is not provided, the log is placed at the root level of the bucket.

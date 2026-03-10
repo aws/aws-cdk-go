@@ -24,22 +24,22 @@ import (
 type RepositoryEvents interface {
 	// EventBridge event pattern for Repository AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *RepositoryEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository ECR Image Action.
 	// Experimental.
-	ECRImageActionPattern(options *RepositoryEvents_ECRImageAction_ECRImageActionProps) *awsevents.EventPattern
+	EcrImageActionPattern(options *ECRImageAction_ECRImageActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository ECR Image Scan.
 	// Experimental.
-	ECRImageScanPattern(options *RepositoryEvents_ECRImageScan_ECRImageScanProps) *awsevents.EventPattern
+	EcrImageScanPattern(options *ECRImageScan_ECRImageScanProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository ECR Pull Through Cache Action.
 	// Experimental.
-	ECRPullThroughCacheActionPattern(options *RepositoryEvents_ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) *awsevents.EventPattern
+	EcrPullThroughCacheActionPattern(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository ECR Referrer Action.
 	// Experimental.
-	ECRReferrerActionPattern(options *RepositoryEvents_ECRReferrerAction_ECRReferrerActionProps) *awsevents.EventPattern
+	EcrReferrerActionPattern(options *ECRReferrerAction_ECRReferrerActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository ECR Replication Action.
 	// Experimental.
-	ECRReplicationActionPattern(options *RepositoryEvents_ECRReplicationAction_ECRReplicationActionProps) *awsevents.EventPattern
+	EcrReplicationActionPattern(options *ECRReplicationAction_ECRReplicationActionProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for RepositoryEvents
@@ -67,7 +67,7 @@ func RepositoryEvents_FromRepository(repositoryRef interfacesawsecr.IRepositoryR
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) AwsAPICallViaCloudTrailPattern(options *RepositoryEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (r *jsiiProxy_RepositoryEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := r.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -83,15 +83,15 @@ func (r *jsiiProxy_RepositoryEvents) AwsAPICallViaCloudTrailPattern(options *Rep
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) ECRImageActionPattern(options *RepositoryEvents_ECRImageAction_ECRImageActionProps) *awsevents.EventPattern {
-	if err := r.validateECRImageActionPatternParameters(options); err != nil {
+func (r *jsiiProxy_RepositoryEvents) EcrImageActionPattern(options *ECRImageAction_ECRImageActionProps) *awsevents.EventPattern {
+	if err := r.validateEcrImageActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		r,
-		"eCRImageActionPattern",
+		"ecrImageActionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -99,15 +99,15 @@ func (r *jsiiProxy_RepositoryEvents) ECRImageActionPattern(options *RepositoryEv
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) ECRImageScanPattern(options *RepositoryEvents_ECRImageScan_ECRImageScanProps) *awsevents.EventPattern {
-	if err := r.validateECRImageScanPatternParameters(options); err != nil {
+func (r *jsiiProxy_RepositoryEvents) EcrImageScanPattern(options *ECRImageScan_ECRImageScanProps) *awsevents.EventPattern {
+	if err := r.validateEcrImageScanPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		r,
-		"eCRImageScanPattern",
+		"ecrImageScanPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -115,15 +115,15 @@ func (r *jsiiProxy_RepositoryEvents) ECRImageScanPattern(options *RepositoryEven
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) ECRPullThroughCacheActionPattern(options *RepositoryEvents_ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) *awsevents.EventPattern {
-	if err := r.validateECRPullThroughCacheActionPatternParameters(options); err != nil {
+func (r *jsiiProxy_RepositoryEvents) EcrPullThroughCacheActionPattern(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) *awsevents.EventPattern {
+	if err := r.validateEcrPullThroughCacheActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		r,
-		"eCRPullThroughCacheActionPattern",
+		"ecrPullThroughCacheActionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -131,15 +131,15 @@ func (r *jsiiProxy_RepositoryEvents) ECRPullThroughCacheActionPattern(options *R
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) ECRReferrerActionPattern(options *RepositoryEvents_ECRReferrerAction_ECRReferrerActionProps) *awsevents.EventPattern {
-	if err := r.validateECRReferrerActionPatternParameters(options); err != nil {
+func (r *jsiiProxy_RepositoryEvents) EcrReferrerActionPattern(options *ECRReferrerAction_ECRReferrerActionProps) *awsevents.EventPattern {
+	if err := r.validateEcrReferrerActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		r,
-		"eCRReferrerActionPattern",
+		"ecrReferrerActionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -147,15 +147,15 @@ func (r *jsiiProxy_RepositoryEvents) ECRReferrerActionPattern(options *Repositor
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) ECRReplicationActionPattern(options *RepositoryEvents_ECRReplicationAction_ECRReplicationActionProps) *awsevents.EventPattern {
-	if err := r.validateECRReplicationActionPatternParameters(options); err != nil {
+func (r *jsiiProxy_RepositoryEvents) EcrReplicationActionPattern(options *ECRReplicationAction_ECRReplicationActionProps) *awsevents.EventPattern {
+	if err := r.validateEcrReplicationActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		r,
-		"eCRReplicationActionPattern",
+		"ecrReplicationActionPattern",
 		[]interface{}{options},
 		&returns,
 	)

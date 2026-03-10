@@ -37,6 +37,6 @@ type CfnGraphQLApiPropsMixin_UserPoolConfigProperty struct {
 	// The user pool ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-userpoolconfig.html#cfn-appsync-graphqlapi-userpoolconfig-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

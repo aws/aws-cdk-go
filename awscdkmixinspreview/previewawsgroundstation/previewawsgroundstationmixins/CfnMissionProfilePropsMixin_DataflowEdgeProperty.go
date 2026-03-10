@@ -21,12 +21,12 @@ type CfnMissionProfilePropsMixin_DataflowEdgeProperty struct {
 	// For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-destination
 	//
-	Destination *string `field:"optional" json:"destination" yaml:"destination"`
+	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
 	// The ARN of the source for this dataflow edge.
 	//
 	// For example, specify the ARN of an antenna downlink config for a downlink edge or a dataflow endpoint config for an uplink edge.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-dataflowedge.html#cfn-groundstation-missionprofile-dataflowedge-source
 	//
-	Source *string `field:"optional" json:"source" yaml:"source"`
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 }
 

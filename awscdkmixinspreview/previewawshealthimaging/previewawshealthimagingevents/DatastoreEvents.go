@@ -24,61 +24,61 @@ import (
 type DatastoreEvents interface {
 	// EventBridge event pattern for Datastore Data Store Created.
 	// Experimental.
-	DataStoreCreatedPattern(options *DatastoreEvents_DataStoreCreated_DataStoreCreatedProps) *awsevents.EventPattern
+	DataStoreCreatedPattern(options *DataStoreCreated_DataStoreCreatedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Data Store Creating.
 	// Experimental.
-	DataStoreCreatingPattern(options *DatastoreEvents_DataStoreCreating_DataStoreCreatingProps) *awsevents.EventPattern
+	DataStoreCreatingPattern(options *DataStoreCreating_DataStoreCreatingProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Data Store Creation Failed.
 	// Experimental.
-	DataStoreCreationFailedPattern(options *DatastoreEvents_DataStoreCreationFailed_DataStoreCreationFailedProps) *awsevents.EventPattern
+	DataStoreCreationFailedPattern(options *DataStoreCreationFailed_DataStoreCreationFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Data Store Deleted.
 	// Experimental.
-	DataStoreDeletedPattern(options *DatastoreEvents_DataStoreDeleted_DataStoreDeletedProps) *awsevents.EventPattern
+	DataStoreDeletedPattern(options *DataStoreDeleted_DataStoreDeletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Data Store Deleting.
 	// Experimental.
-	DataStoreDeletingPattern(options *DatastoreEvents_DataStoreDeleting_DataStoreDeletingProps) *awsevents.EventPattern
+	DataStoreDeletingPattern(options *DataStoreDeleting_DataStoreDeletingProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Copied.
 	// Experimental.
-	ImageSetCopiedPattern(options *DatastoreEvents_ImageSetCopied_ImageSetCopiedProps) *awsevents.EventPattern
+	ImageSetCopiedPattern(options *ImageSetCopied_ImageSetCopiedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Copy Failed.
 	// Experimental.
-	ImageSetCopyFailedPattern(options *DatastoreEvents_ImageSetCopyFailed_ImageSetCopyFailedProps) *awsevents.EventPattern
+	ImageSetCopyFailedPattern(options *ImageSetCopyFailed_ImageSetCopyFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Copying.
 	// Experimental.
-	ImageSetCopyingPattern(options *DatastoreEvents_ImageSetCopying_ImageSetCopyingProps) *awsevents.EventPattern
+	ImageSetCopyingPattern(options *ImageSetCopying_ImageSetCopyingProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Copying With Read Only Access.
 	// Experimental.
-	ImageSetCopyingWithReadOnlyAccessPattern(options *DatastoreEvents_ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern
+	ImageSetCopyingWithReadOnlyAccessPattern(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Created.
 	// Experimental.
-	ImageSetCreatedPattern(options *DatastoreEvents_ImageSetCreated_ImageSetCreatedProps) *awsevents.EventPattern
+	ImageSetCreatedPattern(options *ImageSetCreated_ImageSetCreatedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Deleted.
 	// Experimental.
-	ImageSetDeletedPattern(options *DatastoreEvents_ImageSetDeleted_ImageSetDeletedProps) *awsevents.EventPattern
+	ImageSetDeletedPattern(options *ImageSetDeleted_ImageSetDeletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Deleting.
 	// Experimental.
-	ImageSetDeletingPattern(options *DatastoreEvents_ImageSetDeleting_ImageSetDeletingProps) *awsevents.EventPattern
+	ImageSetDeletingPattern(options *ImageSetDeleting_ImageSetDeletingProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Updated.
 	// Experimental.
-	ImageSetUpdatedPattern(options *DatastoreEvents_ImageSetUpdated_ImageSetUpdatedProps) *awsevents.EventPattern
+	ImageSetUpdatedPattern(options *ImageSetUpdated_ImageSetUpdatedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Update Failed.
 	// Experimental.
-	ImageSetUpdateFailedPattern(options *DatastoreEvents_ImageSetUpdateFailed_ImageSetUpdateFailedProps) *awsevents.EventPattern
+	ImageSetUpdateFailedPattern(options *ImageSetUpdateFailed_ImageSetUpdateFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Image Set Updating.
 	// Experimental.
-	ImageSetUpdatingPattern(options *DatastoreEvents_ImageSetUpdating_ImageSetUpdatingProps) *awsevents.EventPattern
+	ImageSetUpdatingPattern(options *ImageSetUpdating_ImageSetUpdatingProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Import Job Completed.
 	// Experimental.
-	ImportJobCompletedPattern(options *DatastoreEvents_ImportJobCompleted_ImportJobCompletedProps) *awsevents.EventPattern
+	ImportJobCompletedPattern(options *ImportJobCompleted_ImportJobCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Import Job Failed.
 	// Experimental.
-	ImportJobFailedPattern(options *DatastoreEvents_ImportJobFailed_ImportJobFailedProps) *awsevents.EventPattern
+	ImportJobFailedPattern(options *ImportJobFailed_ImportJobFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Import Job In Progress.
 	// Experimental.
-	ImportJobInProgressPattern(options *DatastoreEvents_ImportJobInProgress_ImportJobInProgressProps) *awsevents.EventPattern
+	ImportJobInProgressPattern(options *ImportJobInProgress_ImportJobInProgressProps) *awsevents.EventPattern
 	// EventBridge event pattern for Datastore Import Job Submitted.
 	// Experimental.
-	ImportJobSubmittedPattern(options *DatastoreEvents_ImportJobSubmitted_ImportJobSubmittedProps) *awsevents.EventPattern
+	ImportJobSubmittedPattern(options *ImportJobSubmitted_ImportJobSubmittedProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for DatastoreEvents
@@ -106,7 +106,7 @@ func DatastoreEvents_FromDatastore(datastoreRef interfacesawshealthimaging.IData
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) DataStoreCreatedPattern(options *DatastoreEvents_DataStoreCreated_DataStoreCreatedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) DataStoreCreatedPattern(options *DataStoreCreated_DataStoreCreatedProps) *awsevents.EventPattern {
 	if err := d.validateDataStoreCreatedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -122,7 +122,7 @@ func (d *jsiiProxy_DatastoreEvents) DataStoreCreatedPattern(options *DatastoreEv
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) DataStoreCreatingPattern(options *DatastoreEvents_DataStoreCreating_DataStoreCreatingProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) DataStoreCreatingPattern(options *DataStoreCreating_DataStoreCreatingProps) *awsevents.EventPattern {
 	if err := d.validateDataStoreCreatingPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -138,7 +138,7 @@ func (d *jsiiProxy_DatastoreEvents) DataStoreCreatingPattern(options *DatastoreE
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) DataStoreCreationFailedPattern(options *DatastoreEvents_DataStoreCreationFailed_DataStoreCreationFailedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) DataStoreCreationFailedPattern(options *DataStoreCreationFailed_DataStoreCreationFailedProps) *awsevents.EventPattern {
 	if err := d.validateDataStoreCreationFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -154,7 +154,7 @@ func (d *jsiiProxy_DatastoreEvents) DataStoreCreationFailedPattern(options *Data
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) DataStoreDeletedPattern(options *DatastoreEvents_DataStoreDeleted_DataStoreDeletedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) DataStoreDeletedPattern(options *DataStoreDeleted_DataStoreDeletedProps) *awsevents.EventPattern {
 	if err := d.validateDataStoreDeletedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -170,7 +170,7 @@ func (d *jsiiProxy_DatastoreEvents) DataStoreDeletedPattern(options *DatastoreEv
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) DataStoreDeletingPattern(options *DatastoreEvents_DataStoreDeleting_DataStoreDeletingProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) DataStoreDeletingPattern(options *DataStoreDeleting_DataStoreDeletingProps) *awsevents.EventPattern {
 	if err := d.validateDataStoreDeletingPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -186,7 +186,7 @@ func (d *jsiiProxy_DatastoreEvents) DataStoreDeletingPattern(options *DatastoreE
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetCopiedPattern(options *DatastoreEvents_ImageSetCopied_ImageSetCopiedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetCopiedPattern(options *ImageSetCopied_ImageSetCopiedProps) *awsevents.EventPattern {
 	if err := d.validateImageSetCopiedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -202,7 +202,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetCopiedPattern(options *DatastoreEven
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetCopyFailedPattern(options *DatastoreEvents_ImageSetCopyFailed_ImageSetCopyFailedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetCopyFailedPattern(options *ImageSetCopyFailed_ImageSetCopyFailedProps) *awsevents.EventPattern {
 	if err := d.validateImageSetCopyFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -218,7 +218,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetCopyFailedPattern(options *Datastore
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetCopyingPattern(options *DatastoreEvents_ImageSetCopying_ImageSetCopyingProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetCopyingPattern(options *ImageSetCopying_ImageSetCopyingProps) *awsevents.EventPattern {
 	if err := d.validateImageSetCopyingPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -234,7 +234,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetCopyingPattern(options *DatastoreEve
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetCopyingWithReadOnlyAccessPattern(options *DatastoreEvents_ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetCopyingWithReadOnlyAccessPattern(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern {
 	if err := d.validateImageSetCopyingWithReadOnlyAccessPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -250,7 +250,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetCopyingWithReadOnlyAccessPattern(opt
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetCreatedPattern(options *DatastoreEvents_ImageSetCreated_ImageSetCreatedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetCreatedPattern(options *ImageSetCreated_ImageSetCreatedProps) *awsevents.EventPattern {
 	if err := d.validateImageSetCreatedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -266,7 +266,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetCreatedPattern(options *DatastoreEve
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetDeletedPattern(options *DatastoreEvents_ImageSetDeleted_ImageSetDeletedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetDeletedPattern(options *ImageSetDeleted_ImageSetDeletedProps) *awsevents.EventPattern {
 	if err := d.validateImageSetDeletedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -282,7 +282,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetDeletedPattern(options *DatastoreEve
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetDeletingPattern(options *DatastoreEvents_ImageSetDeleting_ImageSetDeletingProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetDeletingPattern(options *ImageSetDeleting_ImageSetDeletingProps) *awsevents.EventPattern {
 	if err := d.validateImageSetDeletingPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -298,7 +298,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetDeletingPattern(options *DatastoreEv
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetUpdatedPattern(options *DatastoreEvents_ImageSetUpdated_ImageSetUpdatedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetUpdatedPattern(options *ImageSetUpdated_ImageSetUpdatedProps) *awsevents.EventPattern {
 	if err := d.validateImageSetUpdatedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -314,7 +314,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetUpdatedPattern(options *DatastoreEve
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetUpdateFailedPattern(options *DatastoreEvents_ImageSetUpdateFailed_ImageSetUpdateFailedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetUpdateFailedPattern(options *ImageSetUpdateFailed_ImageSetUpdateFailedProps) *awsevents.EventPattern {
 	if err := d.validateImageSetUpdateFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -330,7 +330,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetUpdateFailedPattern(options *Datasto
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImageSetUpdatingPattern(options *DatastoreEvents_ImageSetUpdating_ImageSetUpdatingProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImageSetUpdatingPattern(options *ImageSetUpdating_ImageSetUpdatingProps) *awsevents.EventPattern {
 	if err := d.validateImageSetUpdatingPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -346,7 +346,7 @@ func (d *jsiiProxy_DatastoreEvents) ImageSetUpdatingPattern(options *DatastoreEv
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImportJobCompletedPattern(options *DatastoreEvents_ImportJobCompleted_ImportJobCompletedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImportJobCompletedPattern(options *ImportJobCompleted_ImportJobCompletedProps) *awsevents.EventPattern {
 	if err := d.validateImportJobCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -362,7 +362,7 @@ func (d *jsiiProxy_DatastoreEvents) ImportJobCompletedPattern(options *Datastore
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImportJobFailedPattern(options *DatastoreEvents_ImportJobFailed_ImportJobFailedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImportJobFailedPattern(options *ImportJobFailed_ImportJobFailedProps) *awsevents.EventPattern {
 	if err := d.validateImportJobFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -378,7 +378,7 @@ func (d *jsiiProxy_DatastoreEvents) ImportJobFailedPattern(options *DatastoreEve
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImportJobInProgressPattern(options *DatastoreEvents_ImportJobInProgress_ImportJobInProgressProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImportJobInProgressPattern(options *ImportJobInProgress_ImportJobInProgressProps) *awsevents.EventPattern {
 	if err := d.validateImportJobInProgressPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -394,7 +394,7 @@ func (d *jsiiProxy_DatastoreEvents) ImportJobInProgressPattern(options *Datastor
 	return returns
 }
 
-func (d *jsiiProxy_DatastoreEvents) ImportJobSubmittedPattern(options *DatastoreEvents_ImportJobSubmitted_ImportJobSubmittedProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatastoreEvents) ImportJobSubmittedPattern(options *ImportJobSubmitted_ImportJobSubmittedProps) *awsevents.EventPattern {
 	if err := d.validateImportJobSubmittedPatternParameters(options); err != nil {
 		panic(err)
 	}

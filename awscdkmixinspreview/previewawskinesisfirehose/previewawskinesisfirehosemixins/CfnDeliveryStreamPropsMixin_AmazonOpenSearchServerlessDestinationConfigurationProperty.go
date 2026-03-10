@@ -63,10 +63,10 @@ package previewawskinesisfirehosemixins
 //   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		RoleArn: jsii.String("roleArn"),
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   	},
@@ -104,7 +104,7 @@ type CfnDeliveryStreamPropsMixin_AmazonOpenSearchServerlessDestinationConfigurat
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.
 	//
 	// When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.

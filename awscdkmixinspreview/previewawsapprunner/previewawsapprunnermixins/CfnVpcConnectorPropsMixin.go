@@ -20,10 +20,12 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnVpcConnectorPropsMixin := awscdkmixinspreview.Mixins.NewCfnVpcConnectorPropsMixin(&CfnVpcConnectorMixinProps{
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	Subnets: []*string{
@@ -37,7 +39,7 @@ import (
 //   	},
 //   	VpcConnectorName: jsii.String("vpcConnectorName"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html
@@ -46,7 +48,7 @@ type CfnVpcConnectorPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnVpcConnectorMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -69,8 +71,8 @@ func (j *jsiiProxy_CfnVpcConnectorPropsMixin) Props() *CfnVpcConnectorMixinProps
 	return returns
 }
 
-func (j *jsiiProxy_CfnVpcConnectorPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnVpcConnectorPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -4,27 +4,27 @@ package previewawsautoscalingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceLaunchLifecycleActionPatternParameters(options *AutoScalingGroupEvents_EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) error {
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEc2InstanceLaunchLifecycleActionPatternParameters(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceLaunchSuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) error {
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEc2InstanceLaunchSuccessfulPatternParameters(options *EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceLaunchUnsuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) error {
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEc2InstanceLaunchUnsuccessfulPatternParameters(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceTerminateLifecycleActionPatternParameters(options *AutoScalingGroupEvents_EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) error {
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEc2InstanceTerminateLifecycleActionPatternParameters(options *EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceTerminateSuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) error {
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEc2InstanceTerminateSuccessfulPatternParameters(options *EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) validateEC2InstanceTerminateUnsuccessfulPatternParameters(options *AutoScalingGroupEvents_EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) error {
+func (a *jsiiProxy_AutoScalingGroupEvents) validateEc2InstanceTerminateUnsuccessfulPatternParameters(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) error {
 	return nil
 }
 

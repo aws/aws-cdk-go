@@ -24,16 +24,16 @@ import (
 type ClusterEvents interface {
 	// EventBridge event pattern for Cluster AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *ClusterEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 	// EventBridge event pattern for Cluster ECS Container Instance State Change.
 	// Experimental.
-	ECSContainerInstanceStateChangePattern(options *ClusterEvents_ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) *awsevents.EventPattern
+	EcsContainerInstanceStateChangePattern(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for Cluster ECS Service Action.
 	// Experimental.
-	ECSServiceActionPattern(options *ClusterEvents_ECSServiceAction_ECSServiceActionProps) *awsevents.EventPattern
+	EcsServiceActionPattern(options *ECSServiceAction_ECSServiceActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Cluster ECS Task State Change.
 	// Experimental.
-	ECSTaskStateChangePattern(options *ClusterEvents_ECSTaskStateChange_ECSTaskStateChangeProps) *awsevents.EventPattern
+	EcsTaskStateChangePattern(options *ECSTaskStateChange_ECSTaskStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ClusterEvents
@@ -61,7 +61,7 @@ func ClusterEvents_FromCluster(clusterRef interfacesawsecs.IClusterRef) ClusterE
 	return returns
 }
 
-func (c *jsiiProxy_ClusterEvents) AwsAPICallViaCloudTrailPattern(options *ClusterEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (c *jsiiProxy_ClusterEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := c.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -77,15 +77,15 @@ func (c *jsiiProxy_ClusterEvents) AwsAPICallViaCloudTrailPattern(options *Cluste
 	return returns
 }
 
-func (c *jsiiProxy_ClusterEvents) ECSContainerInstanceStateChangePattern(options *ClusterEvents_ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) *awsevents.EventPattern {
-	if err := c.validateECSContainerInstanceStateChangePatternParameters(options); err != nil {
+func (c *jsiiProxy_ClusterEvents) EcsContainerInstanceStateChangePattern(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) *awsevents.EventPattern {
+	if err := c.validateEcsContainerInstanceStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"eCSContainerInstanceStateChangePattern",
+		"ecsContainerInstanceStateChangePattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -93,15 +93,15 @@ func (c *jsiiProxy_ClusterEvents) ECSContainerInstanceStateChangePattern(options
 	return returns
 }
 
-func (c *jsiiProxy_ClusterEvents) ECSServiceActionPattern(options *ClusterEvents_ECSServiceAction_ECSServiceActionProps) *awsevents.EventPattern {
-	if err := c.validateECSServiceActionPatternParameters(options); err != nil {
+func (c *jsiiProxy_ClusterEvents) EcsServiceActionPattern(options *ECSServiceAction_ECSServiceActionProps) *awsevents.EventPattern {
+	if err := c.validateEcsServiceActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"eCSServiceActionPattern",
+		"ecsServiceActionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -109,15 +109,15 @@ func (c *jsiiProxy_ClusterEvents) ECSServiceActionPattern(options *ClusterEvents
 	return returns
 }
 
-func (c *jsiiProxy_ClusterEvents) ECSTaskStateChangePattern(options *ClusterEvents_ECSTaskStateChange_ECSTaskStateChangeProps) *awsevents.EventPattern {
-	if err := c.validateECSTaskStateChangePatternParameters(options); err != nil {
+func (c *jsiiProxy_ClusterEvents) EcsTaskStateChangePattern(options *ECSTaskStateChange_ECSTaskStateChangeProps) *awsevents.EventPattern {
+	if err := c.validateEcsTaskStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"eCSTaskStateChangePattern",
+		"ecsTaskStateChangePattern",
 		[]interface{}{options},
 		&returns,
 	)

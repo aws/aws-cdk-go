@@ -20,7 +20,7 @@ type CfnAssociationPropsMixin_S3OutputLocationProperty struct {
 	// The name of the S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
 	//
-	OutputS3BucketName *string `field:"optional" json:"outputS3BucketName" yaml:"outputS3BucketName"`
+	OutputS3BucketName interface{} `field:"optional" json:"outputS3BucketName" yaml:"outputS3BucketName"`
 	// The S3 bucket subfolder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
 	//

@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconnect"
 )
 
-func (i *jsiiProxy_InstanceEvents) validateCodeConnectContactPatternParameters(options *InstanceEvents_CodeConnectContact_CodeConnectContactProps) error {
+func (i *jsiiProxy_InstanceEvents) validateCodeConnectContactPatternParameters(options *CodeConnectContact_CodeConnectContactProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (i *jsiiProxy_InstanceEvents) validateCodeConnectContactPatternParameters(o
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateContactLensPostCallRulesMatchedPatternParameters(options *InstanceEvents_ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) error {
+func (i *jsiiProxy_InstanceEvents) validateContactLensPostCallRulesMatchedPatternParameters(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (i *jsiiProxy_InstanceEvents) validateContactLensPostCallRulesMatchedPatter
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateContactLensRealtimeRulesMatchedPatternParameters(options *InstanceEvents_ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) error {
+func (i *jsiiProxy_InstanceEvents) validateContactLensRealtimeRulesMatchedPatternParameters(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

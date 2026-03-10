@@ -32,7 +32,7 @@ type CfnLocationS3MixinProps struct {
 	// The ARN of the Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
 	//
-	S3BucketArn *string `field:"optional" json:"s3BucketArn" yaml:"s3BucketArn"`
+	S3BucketArn interface{} `field:"optional" json:"s3BucketArn" yaml:"s3BucketArn"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 	//
 	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .

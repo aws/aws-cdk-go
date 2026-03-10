@@ -11,10 +11,10 @@ package previewawsmwaamixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   networkConfigurationProperty := &NetworkConfigurationProperty{
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   }
@@ -27,12 +27,12 @@ type CfnEnvironmentPropsMixin_NetworkConfigurationProperty struct {
 	// Accepts up to 5 security group IDs. A security group must be attached to the same VPC as the subnets. To learn more, see [Security in your VPC on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// A list of subnet IDs.
 	//
 	// *Required* to create an environment. Must be private subnets in two different availability zones. A subnet must be attached to the same VPC as the security group. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 

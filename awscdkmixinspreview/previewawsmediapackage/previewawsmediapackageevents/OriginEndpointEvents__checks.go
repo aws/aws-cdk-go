@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediapackage"
 )
 
-func (o *jsiiProxy_OriginEndpointEvents) validateMediaPackageHarvestJobNotificationPatternParameters(options *OriginEndpointEvents_MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) error {
+func (o *jsiiProxy_OriginEndpointEvents) validateMediaPackageHarvestJobNotificationPatternParameters(options *MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

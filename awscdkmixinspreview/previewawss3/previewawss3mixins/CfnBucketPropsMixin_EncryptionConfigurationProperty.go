@@ -22,6 +22,6 @@ type CfnBucketPropsMixin_EncryptionConfigurationProperty struct {
 	// Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
 	//
-	ReplicaKmsKeyId *string `field:"optional" json:"replicaKmsKeyId" yaml:"replicaKmsKeyId"`
+	ReplicaKmsKeyId interface{} `field:"optional" json:"replicaKmsKeyId" yaml:"replicaKmsKeyId"`
 }
 

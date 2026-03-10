@@ -8,188 +8,188 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AWSAPICallViaCloudTrail{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.AWSAPICallViaCloudTrailProps",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.Attributes",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_Attributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.AwsvpcConfiguration",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_AwsvpcConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.NetworkConfiguration",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_NetworkConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.Overrides",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_Overrides)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.Overrides1",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_Overrides1)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.Overrides1Item",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_Overrides1Item)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.OverridesItem",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_OverridesItem)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.RequestParameters",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_RequestParameters)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.RequestParametersItem",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_RequestParametersItem)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.RequestParametersItem1",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_RequestParametersItem1)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.ResponseElements",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_ResponseElements)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.ResponseElementsItem",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_ResponseElementsItem)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.ResponseElementsItemItem",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_ResponseElementsItemItem)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.ResponseElementsItemItem1",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_ResponseElementsItemItem1)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.ResponseElementsItemItemItem",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_ResponseElementsItemItemItem)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.SessionContext",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_SessionContext)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.SessionIssuer",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_SessionIssuer)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ecs.events.AWSAPICallViaCloudTrail.UserIdentity",
+		reflect.TypeOf((*AWSAPICallViaCloudTrail_UserIdentity)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents",
 		reflect.TypeOf((*ClusterEvents)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "awsAPICallViaCloudTrailPattern", GoMethod: "AwsAPICallViaCloudTrailPattern"},
-			_jsii_.MemberMethod{JsiiMethod: "eCSContainerInstanceStateChangePattern", GoMethod: "ECSContainerInstanceStateChangePattern"},
-			_jsii_.MemberMethod{JsiiMethod: "eCSServiceActionPattern", GoMethod: "ECSServiceActionPattern"},
-			_jsii_.MemberMethod{JsiiMethod: "eCSTaskStateChangePattern", GoMethod: "ECSTaskStateChangePattern"},
+			_jsii_.MemberMethod{JsiiMethod: "ecsContainerInstanceStateChangePattern", GoMethod: "EcsContainerInstanceStateChangePattern"},
+			_jsii_.MemberMethod{JsiiMethod: "ecsServiceActionPattern", GoMethod: "EcsServiceActionPattern"},
+			_jsii_.MemberMethod{JsiiMethod: "ecsTaskStateChangePattern", GoMethod: "EcsTaskStateChangePattern"},
 		},
 		func() interface{} {
 			return &jsiiProxy_ClusterEvents{}
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange",
+		reflect.TypeOf((*ECSContainerInstanceStateChange)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_ClusterEvents_AWSAPICallViaCloudTrail{}
+			return &jsiiProxy_ECSContainerInstanceStateChange{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.AWSAPICallViaCloudTrailProps",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange.AttachmentDetails",
+		reflect.TypeOf((*ECSContainerInstanceStateChange_AttachmentDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.Attributes",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_Attributes)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange.AttributesDetails",
+		reflect.TypeOf((*ECSContainerInstanceStateChange_AttributesDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.AwsvpcConfiguration",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_AwsvpcConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange.DetailsItems",
+		reflect.TypeOf((*ECSContainerInstanceStateChange_DetailsItems)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.NetworkConfiguration",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_NetworkConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange.ECSContainerInstanceStateChangeProps",
+		reflect.TypeOf((*ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.Overrides",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_Overrides)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange.ResourceDetails",
+		reflect.TypeOf((*ECSContainerInstanceStateChange_ResourceDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.Overrides1",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_Overrides1)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.Overrides1Item",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_Overrides1Item)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.OverridesItem",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_OverridesItem)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.RequestParameters",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_RequestParameters)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.RequestParametersItem",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_RequestParametersItem)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.RequestParametersItem1",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_RequestParametersItem1)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.ResponseElements",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_ResponseElements)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.ResponseElementsItem",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_ResponseElementsItem)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.ResponseElementsItemItem",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_ResponseElementsItemItem)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.ResponseElementsItemItem1",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_ResponseElementsItemItem1)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.ResponseElementsItemItemItem",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_ResponseElementsItemItemItem)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.SessionContext",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_SessionContext)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.SessionIssuer",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_SessionIssuer)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.AWSAPICallViaCloudTrail.UserIdentity",
-		reflect.TypeOf((*ClusterEvents_AWSAPICallViaCloudTrail_UserIdentity)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange.VersionInfo",
+		reflect.TypeOf((*ECSContainerInstanceStateChange_VersionInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSServiceAction",
+		reflect.TypeOf((*ECSServiceAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_ClusterEvents_ECSContainerInstanceStateChange{}
+			return &jsiiProxy_ECSServiceAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange.AttachmentDetails",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange_AttachmentDetails)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange.AttributesDetails",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange_AttributesDetails)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange.DetailsItems",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange_DetailsItems)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange.ECSContainerInstanceStateChangeProps",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange.ResourceDetails",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange_ResourceDetails)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSContainerInstanceStateChange.VersionInfo",
-		reflect.TypeOf((*ClusterEvents_ECSContainerInstanceStateChange_VersionInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSServiceAction.ECSServiceActionProps",
+		reflect.TypeOf((*ECSServiceAction_ECSServiceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSServiceAction",
-		reflect.TypeOf((*ClusterEvents_ECSServiceAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange",
+		reflect.TypeOf((*ECSTaskStateChange)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_ClusterEvents_ECSServiceAction{}
+			return &jsiiProxy_ECSTaskStateChange{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSServiceAction.ECSServiceActionProps",
-		reflect.TypeOf((*ClusterEvents_ECSServiceAction_ECSServiceActionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_ClusterEvents_ECSTaskStateChange{}
-		},
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.AttachmentDetails",
+		reflect.TypeOf((*ECSTaskStateChange_AttachmentDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.AttachmentDetails",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_AttachmentDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.AttributesDetails",
+		reflect.TypeOf((*ECSTaskStateChange_AttributesDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.AttributesDetails",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_AttributesDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.ContainerDetails",
+		reflect.TypeOf((*ECSTaskStateChange_ContainerDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.ContainerDetails",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_ContainerDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.Details",
+		reflect.TypeOf((*ECSTaskStateChange_Details)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.Details",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_Details)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.ECSTaskStateChangeProps",
+		reflect.TypeOf((*ECSTaskStateChange_ECSTaskStateChangeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.ECSTaskStateChangeProps",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_ECSTaskStateChangeProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.NetworkBindingDetails",
+		reflect.TypeOf((*ECSTaskStateChange_NetworkBindingDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.NetworkBindingDetails",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_NetworkBindingDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.NetworkInterfaceDetails",
+		reflect.TypeOf((*ECSTaskStateChange_NetworkInterfaceDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.NetworkInterfaceDetails",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_NetworkInterfaceDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.Overrides",
+		reflect.TypeOf((*ECSTaskStateChange_Overrides)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.Overrides",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_Overrides)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_ecs.events.ClusterEvents.ECSTaskStateChange.OverridesItem",
-		reflect.TypeOf((*ClusterEvents_ECSTaskStateChange_OverridesItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange.OverridesItem",
+		reflect.TypeOf((*ECSTaskStateChange_OverridesItem)(nil)).Elem(),
 	)
 }

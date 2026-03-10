@@ -8,7 +8,7 @@ package awslambda
 //
 //
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromInline(jsii.String("exports.handler = function(event, ctx, cb) { return cb(null, \"hi\"); }")),
 //   	AdotInstrumentation: &AdotInstrumentationConfig{

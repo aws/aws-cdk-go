@@ -26,10 +26,10 @@ type CfnResolverRuleAssociationMixinProps struct {
 	// The ID of the Resolver rule that you associated with the VPC that is specified by `VPCId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-resolverruleid
 	//
-	ResolverRuleId *string `field:"optional" json:"resolverRuleId" yaml:"resolverRuleId"`
+	ResolverRuleId interface{} `field:"optional" json:"resolverRuleId" yaml:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#cfn-route53resolver-resolverruleassociation-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

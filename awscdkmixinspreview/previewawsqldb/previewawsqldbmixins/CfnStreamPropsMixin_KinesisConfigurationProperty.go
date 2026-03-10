@@ -27,6 +27,6 @@ type CfnStreamPropsMixin_KinesisConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qldb-stream-kinesisconfiguration.html#cfn-qldb-stream-kinesisconfiguration-streamarn
 	//
-	StreamArn *string `field:"optional" json:"streamArn" yaml:"streamArn"`
+	StreamArn interface{} `field:"optional" json:"streamArn" yaml:"streamArn"`
 }
 

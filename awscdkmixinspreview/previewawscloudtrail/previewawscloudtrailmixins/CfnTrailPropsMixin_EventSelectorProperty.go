@@ -18,7 +18,7 @@ package previewawscloudtrailmixins
 //   	DataResources: []interface{}{
 //   		&DataResourceProperty{
 //   			Type: jsii.String("type"),
-//   			Values: []*string{
+//   			Values: []interface{}{
 //   				jsii.String("values"),
 //   			},
 //   		},

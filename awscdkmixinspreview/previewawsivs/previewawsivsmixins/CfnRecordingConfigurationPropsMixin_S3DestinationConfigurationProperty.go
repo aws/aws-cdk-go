@@ -18,6 +18,6 @@ type CfnRecordingConfigurationPropsMixin_S3DestinationConfigurationProperty stru
 	// Location (S3 bucket name) where recorded videos will be stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
 	//
-	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	BucketName interface{} `field:"optional" json:"bucketName" yaml:"bucketName"`
 }
 

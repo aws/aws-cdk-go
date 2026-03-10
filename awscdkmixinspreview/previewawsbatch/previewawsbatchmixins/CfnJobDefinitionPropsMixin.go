@@ -23,7 +23,7 @@ type CfnJobDefinitionPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnJobDefinitionMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -46,8 +46,8 @@ func (j *jsiiProxy_CfnJobDefinitionPropsMixin) Props() *CfnJobDefinitionMixinPro
 	return returns
 }
 
-func (j *jsiiProxy_CfnJobDefinitionPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnJobDefinitionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

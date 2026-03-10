@@ -98,19 +98,19 @@ type CfnDistributionPropsMixin_OriginProperty struct {
 	// For more information, see [Origin Domain Name](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
 	//
-	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	DomainName interface{} `field:"optional" json:"domainName" yaml:"domainName"`
 	// A unique identifier for the origin. This value must be unique within the distribution.
 	//
 	// Use this value to specify the `TargetOriginId` in a `CacheBehavior` or `DefaultCacheBehavior` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
 	//
-	Id *string `field:"optional" json:"id" yaml:"id"`
+	Id interface{} `field:"optional" json:"id" yaml:"id"`
 	// The unique identifier of an origin access control for this origin.
 	//
 	// For more information, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originaccesscontrolid
 	//
-	OriginAccessControlId *string `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
+	OriginAccessControlId interface{} `field:"optional" json:"originAccessControlId" yaml:"originAccessControlId"`
 	// A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
 	//
 	// For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) in the *Amazon CloudFront Developer Guide* .

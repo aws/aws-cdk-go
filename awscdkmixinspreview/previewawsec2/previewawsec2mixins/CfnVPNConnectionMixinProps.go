@@ -103,7 +103,7 @@ type CfnVPNConnectionMixinProps struct {
 	// The ID of the customer gateway at your end of the VPN connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-customergatewayid
 	//
-	CustomerGatewayId *string `field:"optional" json:"customerGatewayId" yaml:"customerGatewayId"`
+	CustomerGatewayId interface{} `field:"optional" json:"customerGatewayId" yaml:"customerGatewayId"`
 	// Indicate whether to enable acceleration for the VPN connection.
 	//
 	// Default: `false`.
@@ -163,7 +163,7 @@ type CfnVPNConnectionMixinProps struct {
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-transitgatewayid
 	//
-	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
+	TransitGatewayId interface{} `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	//
 	// Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
@@ -197,7 +197,7 @@ type CfnVPNConnectionMixinProps struct {
 	// You must specify either `TransitGatewayId` or `VpnGatewayId` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpngatewayid
 	//
-	VpnGatewayId *string `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
+	VpnGatewayId interface{} `field:"optional" json:"vpnGatewayId" yaml:"vpnGatewayId"`
 	// The tunnel options for the VPN connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html#cfn-ec2-vpnconnection-vpntunneloptionsspecifications
 	//

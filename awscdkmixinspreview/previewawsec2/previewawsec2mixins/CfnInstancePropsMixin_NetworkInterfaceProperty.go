@@ -24,7 +24,7 @@ package previewawsec2mixins
 //   			EnaSrdUdpEnabled: jsii.Boolean(false),
 //   		},
 //   	},
-//   	GroupSet: []*string{
+//   	GroupSet: []interface{}{
 //   		jsii.String("groupSet"),
 //   	},
 //   	Ipv6AddressCount: jsii.Number(123),
@@ -91,7 +91,7 @@ type CfnInstancePropsMixin_NetworkInterfaceProperty struct {
 	// Applies only if creating a network interface when launching an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-groupset
 	//
-	GroupSet *[]*string `field:"optional" json:"groupSet" yaml:"groupSet"`
+	GroupSet *[]interface{} `field:"optional" json:"groupSet" yaml:"groupSet"`
 	// A number of IPv6 addresses to assign to the network interface.
 	//
 	// Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
@@ -107,7 +107,7 @@ type CfnInstancePropsMixin_NetworkInterfaceProperty struct {
 	// The ID of the network interface, when attaching an existing network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-networkinterfaceid
 	//
-	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId interface{} `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The private IPv4 address of the network interface.
 	//
 	// Applies only if creating a network interface when launching an instance.
@@ -129,6 +129,6 @@ type CfnInstancePropsMixin_NetworkInterfaceProperty struct {
 	// The ID of the subnet associated with the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

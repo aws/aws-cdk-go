@@ -12,10 +12,10 @@ package previewawsecsmixins
 //
 //   awsVpcConfigurationProperty := &AwsVpcConfigurationProperty{
 //   	AssignPublicIp: jsii.String("assignPublicIp"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   }
@@ -39,7 +39,7 @@ type CfnServicePropsMixin_AwsVpcConfigurationProperty struct {
 	// > All specified security groups must be from the same VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the subnets associated with the task or service.
 	//
 	// There's a limit of 16 subnets that can be specified.
@@ -47,6 +47,6 @@ type CfnServicePropsMixin_AwsVpcConfigurationProperty struct {
 	// > All specified subnets must be from the same VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
 	//
-	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
+	Subnets *[]interface{} `field:"optional" json:"subnets" yaml:"subnets"`
 }
 

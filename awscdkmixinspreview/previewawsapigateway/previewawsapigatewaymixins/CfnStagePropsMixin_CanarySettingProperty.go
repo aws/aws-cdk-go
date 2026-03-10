@@ -23,7 +23,7 @@ type CfnStagePropsMixin_CanarySettingProperty struct {
 	// The ID of the canary deployment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
 	//
-	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId interface{} `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// The percent (0-100) of traffic diverted to a canary deployment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
 	//

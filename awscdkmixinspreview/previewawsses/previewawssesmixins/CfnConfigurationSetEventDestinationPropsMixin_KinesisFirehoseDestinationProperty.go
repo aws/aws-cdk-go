@@ -21,10 +21,10 @@ type CfnConfigurationSetEventDestinationPropsMixin_KinesisFirehoseDestinationPro
 	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-deliverystreamarn
 	//
-	DeliveryStreamArn *string `field:"optional" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
+	DeliveryStreamArn interface{} `field:"optional" json:"deliveryStreamArn" yaml:"deliveryStreamArn"`
 	// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-iamrolearn
 	//
-	IamRoleArn *string `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn interface{} `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
 }
 

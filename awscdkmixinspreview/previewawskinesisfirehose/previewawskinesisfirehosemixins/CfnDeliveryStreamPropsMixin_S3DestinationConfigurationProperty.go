@@ -37,7 +37,7 @@ type CfnDeliveryStreamPropsMixin_S3DestinationConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bucketarn
 	//
-	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
+	BucketArn interface{} `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints
 	//
@@ -75,6 +75,6 @@ type CfnDeliveryStreamPropsMixin_S3DestinationConfigurationProperty struct {
 	// For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

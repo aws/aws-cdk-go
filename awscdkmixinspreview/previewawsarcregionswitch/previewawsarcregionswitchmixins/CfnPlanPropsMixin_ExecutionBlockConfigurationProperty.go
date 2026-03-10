@@ -142,6 +142,22 @@ package previewawsarcregionswitchmixins
 //   			},
 //   		},
 //   	},
+//   	RdsCreateCrossRegionReadReplicaConfig: &RdsCreateCrossRegionReplicaConfigurationProperty{
+//   		CrossAccountRole: jsii.String("crossAccountRole"),
+//   		DbInstanceArnMap: map[string]*string{
+//   			"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   		},
+//   		ExternalId: jsii.String("externalId"),
+//   		TimeoutMinutes: jsii.Number(123),
+//   	},
+//   	RdsPromoteReadReplicaConfig: &RdsPromoteReadReplicaConfigurationProperty{
+//   		CrossAccountRole: jsii.String("crossAccountRole"),
+//   		DbInstanceArnMap: map[string]*string{
+//   			"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   		},
+//   		ExternalId: jsii.String("externalId"),
+//   		TimeoutMinutes: jsii.Number(123),
+//   	},
 //   	RegionSwitchPlanConfig: &RegionSwitchPlanConfigurationProperty{
 //   		Arn: jsii.String("arn"),
 //   		CrossAccountRole: jsii.String("crossAccountRole"),
@@ -200,6 +216,12 @@ type CfnPlanPropsMixin_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-parallelconfig
 	//
 	ParallelConfig interface{} `field:"optional" json:"parallelConfig" yaml:"parallelConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-rdscreatecrossregionreadreplicaconfig
+	//
+	RdsCreateCrossRegionReadReplicaConfig interface{} `field:"optional" json:"rdsCreateCrossRegionReadReplicaConfig" yaml:"rdsCreateCrossRegionReadReplicaConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-rdspromotereadreplicaconfig
+	//
+	RdsPromoteReadReplicaConfig interface{} `field:"optional" json:"rdsPromoteReadReplicaConfig" yaml:"rdsPromoteReadReplicaConfig"`
 	// A Region switch plan execution block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-regionswitchplanconfig
 	//

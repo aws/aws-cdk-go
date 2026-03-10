@@ -18,9 +18,10 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var manifest interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnSkillPropsMixin := awscdkmixinspreview.Mixins.NewCfnSkillPropsMixin(&CfnSkillMixinProps{
 //   	AuthenticationConfiguration: &AuthenticationConfigurationProperty{
@@ -39,7 +40,7 @@ import (
 //   	},
 //   	VendorId: jsii.String("vendorId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
@@ -48,7 +49,7 @@ type CfnSkillPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnSkillMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -71,8 +72,8 @@ func (j *jsiiProxy_CfnSkillPropsMixin) Props() *CfnSkillMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSkillPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnSkillPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

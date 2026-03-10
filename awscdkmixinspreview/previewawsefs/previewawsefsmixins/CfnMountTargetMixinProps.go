@@ -13,7 +13,7 @@ package previewawsefsmixins
 //   	IpAddress: jsii.String("ipAddress"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv6Address: jsii.String("ipv6Address"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
@@ -25,7 +25,7 @@ type CfnMountTargetMixinProps struct {
 	// The ID of the file system for which to create the mount target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
 	//
-	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId interface{} `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 	// If the `IpAddressType` for the mount target is IPv4 ( `IPV4_ONLY` or `DUAL_STACK` ), then specify the IPv4 address to use.
 	//
 	// If you do not specify an `IpAddress` , then Amazon EFS selects an unused IP address from the subnet specified for `SubnetId` .
@@ -51,12 +51,12 @@ type CfnMountTargetMixinProps struct {
 	// These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table). If you don't specify a security group, then Amazon EFS uses the default security group for the subnet's VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The ID of the subnet to add the mount target in.
 	//
 	// For One Zone file systems, use the subnet that is associated with the file system's Availability Zone. The subnet type must be the same type as the `IpAddressType` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

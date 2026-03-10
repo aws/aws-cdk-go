@@ -13,7 +13,7 @@ import (
 //
 //   cfnSafetyRuleMixinProps := &CfnSafetyRuleMixinProps{
 //   	AssertionRule: &AssertionRuleProperty{
-//   		AssertedControls: []*string{
+//   		AssertedControls: []interface{}{
 //   			jsii.String("assertedControls"),
 //   		},
 //   		WaitPeriodMs: jsii.Number(123),
@@ -54,7 +54,7 @@ type CfnSafetyRuleMixinProps struct {
 	// The Amazon Resource Name (ARN) of the control panel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
 	//
-	ControlPanelArn *string `field:"optional" json:"controlPanelArn" yaml:"controlPanelArn"`
+	ControlPanelArn interface{} `field:"optional" json:"controlPanelArn" yaml:"controlPanelArn"`
 	// A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 	//
 	// For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.

@@ -44,6 +44,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_DestinationLogsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationCentralizationRulePropsMixin.LogGroupNameConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_LogGroupNameConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_observabilityadmin.mixins.CfnOrganizationCentralizationRulePropsMixin.LogsBackupConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_LogsBackupConfigurationProperty)(nil)).Elem(),
 	)

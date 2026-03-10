@@ -1,0 +1,73 @@
+package previewawshealthimagingevents
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+)
+
+// EventBridge event pattern for aws.healthimaging@ImageSetCopyingWithReadOnlyAccess.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   imageSetCopyingWithReadOnlyAccess := awscdkmixinspreview.Events.NewImageSetCopyingWithReadOnlyAccess()
+//
+// Experimental.
+type ImageSetCopyingWithReadOnlyAccess interface {
+}
+
+// The jsii proxy struct for ImageSetCopyingWithReadOnlyAccess
+type jsiiProxy_ImageSetCopyingWithReadOnlyAccess struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewImageSetCopyingWithReadOnlyAccess() ImageSetCopyingWithReadOnlyAccess {
+	_init_.Initialize()
+
+	j := jsiiProxy_ImageSetCopyingWithReadOnlyAccess{}
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyingWithReadOnlyAccess",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewImageSetCopyingWithReadOnlyAccess_Override(i ImageSetCopyingWithReadOnlyAccess) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyingWithReadOnlyAccess",
+		nil, // no parameters
+		i,
+	)
+}
+
+// EventBridge event pattern for Image Set Copying With Read Only Access.
+// Experimental.
+func ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessPattern(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern {
+	_init_.Initialize()
+
+	if err := validateImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessPatternParameters(options); err != nil {
+		panic(err)
+	}
+	var returns *awsevents.EventPattern
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyingWithReadOnlyAccess",
+		"imageSetCopyingWithReadOnlyAccessPattern",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+

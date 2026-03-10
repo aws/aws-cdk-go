@@ -11,7 +11,7 @@ package previewawscloudfrontmixins
 //   cfnKeyGroupMixinProps := &CfnKeyGroupMixinProps{
 //   	KeyGroupConfig: &KeyGroupConfigProperty{
 //   		Comment: jsii.String("comment"),
-//   		Items: []*string{
+//   		Items: []interface{}{
 //   			jsii.String("items"),
 //   		},
 //   		Name: jsii.String("name"),

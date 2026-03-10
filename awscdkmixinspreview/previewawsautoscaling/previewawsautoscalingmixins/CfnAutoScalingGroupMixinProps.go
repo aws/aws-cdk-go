@@ -213,7 +213,7 @@ package previewawsautoscalingmixins
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TargetGroupArns: []*string{
+//   	TargetGroupArns: []interface{}{
 //   		jsii.String("targetGroupArns"),
 //   	},
 //   	TerminationPolicies: []*string{
@@ -225,7 +225,7 @@ package previewawsautoscalingmixins
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
-//   	VpcZoneIdentifier: []*string{
+//   	VpcZoneIdentifier: []interface{}{
 //   		jsii.String("vpcZoneIdentifier"),
 //   	},
 //   }
@@ -350,7 +350,7 @@ type CfnAutoScalingGroupMixinProps struct {
 	// Required only if you don't specify `LaunchTemplate` , `MixedInstancesPolicy` , or `InstanceId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-launchconfigurationname
 	//
-	LaunchConfigurationName *string `field:"optional" json:"launchConfigurationName" yaml:"launchConfigurationName"`
+	LaunchConfigurationName interface{} `field:"optional" json:"launchConfigurationName" yaml:"launchConfigurationName"`
 	// Information used to specify the launch template and version to use to launch instances.
 	//
 	// You can alternatively associate a launch template to the Auto Scaling group by specifying a `MixedInstancesPolicy` . For more information about creating launch templates, see [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -427,7 +427,7 @@ type CfnAutoScalingGroupMixinProps struct {
 	// By default, Amazon EC2 Auto Scaling uses a service-linked role named `AWSServiceRoleForAutoScaling` , which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn
 	//
-	ServiceLinkedRoleArn *string `field:"optional" json:"serviceLinkedRoleArn" yaml:"serviceLinkedRoleArn"`
+	ServiceLinkedRoleArn interface{} `field:"optional" json:"serviceLinkedRoleArn" yaml:"serviceLinkedRoleArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-skipzonalshiftvalidation
 	//
 	SkipZonalShiftValidation interface{} `field:"optional" json:"skipZonalShiftValidation" yaml:"skipZonalShiftValidation"`
@@ -442,7 +442,7 @@ type CfnAutoScalingGroupMixinProps struct {
 	// Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-targetgrouparns
 	//
-	TargetGroupArns *[]*string `field:"optional" json:"targetGroupArns" yaml:"targetGroupArns"`
+	TargetGroupArns *[]interface{} `field:"optional" json:"targetGroupArns" yaml:"targetGroupArns"`
 	// A policy or a list of policies that are used to select the instance to terminate.
 	//
 	// These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -464,6 +464,6 @@ type CfnAutoScalingGroupMixinProps struct {
 	// Required to launch instances into a nondefault VPC. If you specify `VPCZoneIdentifier` with `AvailabilityZones` , the subnets that you specify for this property must reside in those Availability Zones.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-vpczoneidentifier
 	//
-	VpcZoneIdentifier *[]*string `field:"optional" json:"vpcZoneIdentifier" yaml:"vpcZoneIdentifier"`
+	VpcZoneIdentifier *[]interface{} `field:"optional" json:"vpcZoneIdentifier" yaml:"vpcZoneIdentifier"`
 }
 

@@ -46,7 +46,7 @@ package previewawsautoscalingmixins
 //   	},
 //   	PlacementTenancy: jsii.String("placementTenancy"),
 //   	RamDiskId: jsii.String("ramDiskId"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SpotPrice: jsii.String("spotPrice"),
@@ -93,7 +93,7 @@ type CfnLaunchConfigurationMixinProps struct {
 	// The instance profile contains the IAM role. For more information, see [IAM role for applications that run on Amazon EC2 instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-iaminstanceprofile
 	//
-	IamInstanceProfile *string `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The ID of the Amazon Machine Image (AMI) that was assigned during registration.
 	//
 	// For more information, see [Find a Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html) in the *Amazon EC2 User Guide* .
@@ -171,7 +171,7 @@ type CfnLaunchConfigurationMixinProps struct {
 	// For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html) in the *Amazon Virtual Private Cloud User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html#cfn-autoscaling-launchconfiguration-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The maximum hourly price to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see [Request Spot Instances for fault-tolerant and flexible applications](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html) in the *Amazon EC2 Auto Scaling User Guide* .

@@ -27,6 +27,6 @@ type CfnProvisioningTemplatePropsMixin_ProvisioningHookProperty struct {
 	// The ARN of the target function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
 	//
-	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
+	TargetArn interface{} `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 

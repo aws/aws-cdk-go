@@ -63,7 +63,7 @@ type CfnBotMixinProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Specifies configuration settings for the alias used to test the bot.
 	//
 	// If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.

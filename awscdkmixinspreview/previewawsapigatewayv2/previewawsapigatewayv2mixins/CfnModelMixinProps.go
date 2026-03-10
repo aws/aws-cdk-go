@@ -24,7 +24,7 @@ type CfnModelMixinProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// The content-type for the model, for example, "application/json".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html#cfn-apigatewayv2-model-contenttype
 	//

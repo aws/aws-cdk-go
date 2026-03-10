@@ -24,7 +24,7 @@ import (
 type EndpointConfigEvents interface {
 	// EventBridge event pattern for EndpointConfig SageMaker Endpoint Config State Change.
 	// Experimental.
-	SageMakerEndpointConfigStateChangePattern(options *EndpointConfigEvents_SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) *awsevents.EventPattern
+	SageMakerEndpointConfigStateChangePattern(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for EndpointConfigEvents
@@ -52,7 +52,7 @@ func EndpointConfigEvents_FromEndpointConfig(endpointConfigRef interfacesawssage
 	return returns
 }
 
-func (e *jsiiProxy_EndpointConfigEvents) SageMakerEndpointConfigStateChangePattern(options *EndpointConfigEvents_SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) *awsevents.EventPattern {
+func (e *jsiiProxy_EndpointConfigEvents) SageMakerEndpointConfigStateChangePattern(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) *awsevents.EventPattern {
 	if err := e.validateSageMakerEndpointConfigStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

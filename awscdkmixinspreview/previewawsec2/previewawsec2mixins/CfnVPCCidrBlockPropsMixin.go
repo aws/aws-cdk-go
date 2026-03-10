@@ -20,7 +20,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnVPCCidrBlockPropsMixin := awscdkmixinspreview.Mixins.NewCfnVPCCidrBlockPropsMixin(&CfnVPCCidrBlockMixinProps{
 //   	AmazonProvidedIpv6CidrBlock: jsii.Boolean(false),
@@ -34,7 +36,7 @@ import (
 //   	Ipv6Pool: jsii.String("ipv6Pool"),
 //   	VpcId: jsii.String("vpcId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
@@ -43,7 +45,7 @@ type CfnVPCCidrBlockPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnVPCCidrBlockMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -66,8 +68,8 @@ func (j *jsiiProxy_CfnVPCCidrBlockPropsMixin) Props() *CfnVPCCidrBlockMixinProps
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCCidrBlockPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnVPCCidrBlockPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

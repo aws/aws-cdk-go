@@ -27,11 +27,11 @@ type CfnTopicRulePropsMixin_FirehoseActionProperty struct {
 	// The delivery stream name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
 	//
-	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName interface{} `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 	// The IAM role that grants access to the Amazon Kinesis Firehose stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// A character separator that will be used to separate records written to the Firehose stream.
 	//
 	// Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).

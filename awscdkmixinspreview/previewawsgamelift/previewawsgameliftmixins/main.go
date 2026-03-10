@@ -216,6 +216,10 @@ func init() {
 		reflect.TypeOf((*CfnFleetPropsMixin_ManagedCapacityConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnFleetPropsMixin.PlayerGatewayConfigurationProperty",
+		reflect.TypeOf((*CfnFleetPropsMixin_PlayerGatewayConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_gamelift.mixins.CfnFleetPropsMixin.ResourceCreationLimitPolicyProperty",
 		reflect.TypeOf((*CfnFleetPropsMixin_ResourceCreationLimitPolicyProperty)(nil)).Elem(),
 	)

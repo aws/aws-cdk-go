@@ -21,10 +21,10 @@ type CfnRealtimeLogConfigPropsMixin_KinesisStreamConfigProperty struct {
 	// For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
 	//
-	StreamArn *string `field:"optional" json:"streamArn" yaml:"streamArn"`
+	StreamArn interface{} `field:"optional" json:"streamArn" yaml:"streamArn"`
 }
 

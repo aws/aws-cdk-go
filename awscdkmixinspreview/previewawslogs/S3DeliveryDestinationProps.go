@@ -8,7 +8,6 @@ import (
 // Properties for S3 delivery destination.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //   import logDestinations "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //

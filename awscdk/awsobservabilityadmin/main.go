@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_DestinationLogsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.LogGroupNameConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRule_LogGroupNameConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.LogsBackupConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_LogsBackupConfigurationProperty)(nil)).Elem(),
 	)

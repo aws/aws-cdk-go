@@ -28,7 +28,7 @@ type CfnViewVersionMixinProps struct {
 	// `arn:<partition>:connect:<region>:<accountId>:instance/00000000-0000-0000-0000-000000000000/view/00000000-0000-0000-0000-000000000000`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html#cfn-connect-viewversion-viewarn
 	//
-	ViewArn *string `field:"optional" json:"viewArn" yaml:"viewArn"`
+	ViewArn interface{} `field:"optional" json:"viewArn" yaml:"viewArn"`
 	// Indicates the checksum value of the latest published view content.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html#cfn-connect-viewversion-viewcontentsha256
 	//

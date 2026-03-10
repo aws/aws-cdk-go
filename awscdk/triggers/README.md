@@ -18,7 +18,7 @@ import triggers "github.com/aws/aws-cdk-go/awscdk"
 
 
 triggers.NewTriggerFunction(this, jsii.String("MyTrigger"), &TriggerFunctionProps{
-	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Handler: jsii.String("index.handler"),
 	Code: lambda.Code_FromAsset(jsii.String(__dirname + "/my-trigger")),
 })
@@ -35,7 +35,7 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 func := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 	Code: lambda.Code_FromInline(jsii.String("foo")),
 })
 

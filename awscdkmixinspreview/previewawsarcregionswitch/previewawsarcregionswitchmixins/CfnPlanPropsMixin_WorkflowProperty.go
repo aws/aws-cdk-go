@@ -141,6 +141,22 @@ package previewawsarcregionswitchmixins
 //   						stepProperty_,
 //   					},
 //   				},
+//   				RdsCreateCrossRegionReadReplicaConfig: &RdsCreateCrossRegionReplicaConfigurationProperty{
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					DbInstanceArnMap: map[string]*string{
+//   						"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   					},
+//   					ExternalId: jsii.String("externalId"),
+//   					TimeoutMinutes: jsii.Number(123),
+//   				},
+//   				RdsPromoteReadReplicaConfig: &RdsPromoteReadReplicaConfigurationProperty{
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					DbInstanceArnMap: map[string]*string{
+//   						"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   					},
+//   					ExternalId: jsii.String("externalId"),
+//   					TimeoutMinutes: jsii.Number(123),
+//   				},
 //   				RegionSwitchPlanConfig: &RegionSwitchPlanConfigurationProperty{
 //   					Arn: jsii.String("arn"),
 //   					CrossAccountRole: jsii.String("crossAccountRole"),

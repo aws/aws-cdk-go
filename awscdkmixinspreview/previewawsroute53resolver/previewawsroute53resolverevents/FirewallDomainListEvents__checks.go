@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53resolver"
 )
 
-func (f *jsiiProxy_FirewallDomainListEvents) validateDNSFirewallAlertPatternParameters(options *FirewallDomainListEvents_DNSFirewallAlert_DNSFirewallAlertProps) error {
+func (f *jsiiProxy_FirewallDomainListEvents) validateDnsFirewallAlertPatternParameters(options *DNSFirewallAlert_DNSFirewallAlertProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (f *jsiiProxy_FirewallDomainListEvents) validateDNSFirewallAlertPatternPara
 	return nil
 }
 
-func (f *jsiiProxy_FirewallDomainListEvents) validateDNSFirewallBlockPatternParameters(options *FirewallDomainListEvents_DNSFirewallBlock_DNSFirewallBlockProps) error {
+func (f *jsiiProxy_FirewallDomainListEvents) validateDnsFirewallBlockPatternParameters(options *DNSFirewallBlock_DNSFirewallBlockProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

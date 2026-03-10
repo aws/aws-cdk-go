@@ -28,7 +28,7 @@ type CfnControlPanelMixinProps struct {
 	// The Amazon Resource Name (ARN) of the cluster for the control panel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
 	//
-	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
+	ClusterArn interface{} `field:"optional" json:"clusterArn" yaml:"clusterArn"`
 	// The name of the control panel.
 	//
 	// You can use any non-white space character in the name.

@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnUserPoolGroupPropsMixin := awscdkmixinspreview.Mixins.NewCfnUserPoolGroupPropsMixin(&CfnUserPoolGroupMixinProps{
 //   	Description: jsii.String("description"),
@@ -27,7 +29,7 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   	UserPoolId: jsii.String("userPoolId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
@@ -36,7 +38,7 @@ type CfnUserPoolGroupPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnUserPoolGroupMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -59,8 +61,8 @@ func (j *jsiiProxy_CfnUserPoolGroupPropsMixin) Props() *CfnUserPoolGroupMixinPro
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolGroupPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnUserPoolGroupPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

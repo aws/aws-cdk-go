@@ -50,11 +50,11 @@ package previewawsbatchmixins
 //   		ScalingPolicy: &ComputeScalingPolicyProperty{
 //   			MinScaleDownDelayMinutes: jsii.Number(123),
 //   		},
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
 //   		SpotIamFleetRole: jsii.String("spotIamFleetRole"),
-//   		Subnets: []*string{
+//   		Subnets: []interface{}{
 //   			jsii.String("subnets"),
 //   		},
 //   		Tags: map[string]*string{
@@ -130,7 +130,7 @@ type CfnComputeEnvironmentMixinProps struct {
 	// > Depending on how you created your AWS Batch service role, its ARN might contain the `service-role` path prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN doesn't use the `service-role` path prefix. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-servicerole
 	//
-	ServiceRole *string `field:"optional" json:"serviceRole" yaml:"serviceRole"`
+	ServiceRole interface{} `field:"optional" json:"serviceRole" yaml:"serviceRole"`
 	// The state of the compute environment.
 	//
 	// If the state is `ENABLED` , then the compute environment accepts jobs from a queue and can scale out automatically based on queues.

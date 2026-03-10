@@ -59,6 +59,6 @@ type CfnConfigRulePropsMixin_SourceProperty struct {
 	// For AWS Config Custom Policy rules, this field will be ignored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
 	//
-	SourceIdentifier *string `field:"optional" json:"sourceIdentifier" yaml:"sourceIdentifier"`
+	SourceIdentifier interface{} `field:"optional" json:"sourceIdentifier" yaml:"sourceIdentifier"`
 }
 

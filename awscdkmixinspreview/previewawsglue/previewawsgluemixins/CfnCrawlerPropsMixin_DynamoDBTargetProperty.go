@@ -20,7 +20,7 @@ type CfnCrawlerPropsMixin_DynamoDBTargetProperty struct {
 	// The name of the DynamoDB table to crawl.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
 	//
-	Path *string `field:"optional" json:"path" yaml:"path"`
+	Path interface{} `field:"optional" json:"path" yaml:"path"`
 	// Indicates whether to scan all the records, or to sample rows from the table.
 	//
 	// Scanning all the records can take a long time when the table is not a high throughput table.

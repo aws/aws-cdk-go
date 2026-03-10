@@ -14,11 +14,22 @@ package awsdatasync
 //   	MountOptions: &SmbMountOptionsProperty{
 //   		Version: jsii.String("version"),
 //   	},
-//   	Password: jsii.String("password"),
 //   	User: jsii.String("user"),
 //
 //   	// the properties below are optional
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	Domain: jsii.String("domain"),
+//   	ManagedSecretConfig: &ManagedSecretConfigProperty{
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	Password: jsii.String("password"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html
@@ -28,10 +39,6 @@ type CfnLocationFSxONTAP_SMBProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-mountoptions
 	//
 	MountOptions interface{} `field:"required" json:"mountOptions" yaml:"mountOptions"`
-	// Specifies the password of a user who has permission to access your SVM.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-password
-	//
-	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies a user name that can mount the location and access the files, folders, and metadata that you need in the SVM.
 	//
 	// If you provide a user in your Active Directory, note the following:
@@ -46,6 +53,14 @@ type CfnLocationFSxONTAP_SMBProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-cmksecretconfig
+	//
+	CmkSecretConfig interface{} `field:"optional" json:"cmkSecretConfig" yaml:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-customsecretconfig
+	//
+	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
 	// Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.
 	//
 	// If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SVM.
@@ -54,5 +69,15 @@ type CfnLocationFSxONTAP_SMBProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location.
+	//
+	// DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-managedsecretconfig
+	//
+	ManagedSecretConfig interface{} `field:"optional" json:"managedSecretConfig" yaml:"managedSecretConfig"`
+	// Specifies the password of a user who has permission to access your SVM.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-password
+	//
+	Password *string `field:"optional" json:"password" yaml:"password"`
 }
 

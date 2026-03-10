@@ -22,6 +22,6 @@ type CfnNotificationChannelPropsMixin_SnsChannelConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
 	//
-	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
+	TopicArn interface{} `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

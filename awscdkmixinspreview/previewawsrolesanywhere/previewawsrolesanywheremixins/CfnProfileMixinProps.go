@@ -30,7 +30,7 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RequireInstanceProperties: jsii.Boolean(false),
-//   	RoleArns: []*string{
+//   	RoleArns: []interface{}{
 //   		jsii.String("roleArns"),
 //   	},
 //   	SessionPolicy: jsii.String("sessionPolicy"),
@@ -78,7 +78,7 @@ type CfnProfileMixinProps struct {
 	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-rolearns
 	//
-	RoleArns *[]*string `field:"optional" json:"roleArns" yaml:"roleArns"`
+	RoleArns *[]interface{} `field:"optional" json:"roleArns" yaml:"roleArns"`
 	// A session policy that will applied to the trust boundary of the vended session credentials.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-sessionpolicy
 	//

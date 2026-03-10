@@ -25,7 +25,7 @@ type CfnBackupPlanPropsMixin_CopyActionResourceTypeProperty struct {
 	// For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
 	//
-	DestinationBackupVaultArn *string `field:"optional" json:"destinationBackupVaultArn" yaml:"destinationBackupVaultArn"`
+	DestinationBackupVaultArn interface{} `field:"optional" json:"destinationBackupVaultArn" yaml:"destinationBackupVaultArn"`
 	// Defines when a protected resource is transitioned to cold storage and when it expires.
 	//
 	// AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.

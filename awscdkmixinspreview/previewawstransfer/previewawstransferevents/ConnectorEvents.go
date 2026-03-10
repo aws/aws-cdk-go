@@ -24,46 +24,46 @@ import (
 type ConnectorEvents interface {
 	// EventBridge event pattern for Connector AS2 MDN Receive Completed.
 	// Experimental.
-	AS2MDNReceiveCompletedPattern(options *ConnectorEvents_AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) *awsevents.EventPattern
+	As2MDNReceiveCompletedPattern(options *AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector AS2 MDN Receive Failed.
 	// Experimental.
-	AS2MDNReceiveFailedPattern(options *ConnectorEvents_AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) *awsevents.EventPattern
+	As2MDNReceiveFailedPattern(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector AS2 Payload Send Completed.
 	// Experimental.
-	AS2PayloadSendCompletedPattern(options *ConnectorEvents_AS2PayloadSendCompleted_AS2PayloadSendCompletedProps) *awsevents.EventPattern
+	As2PayloadSendCompletedPattern(options *AS2PayloadSendCompleted_AS2PayloadSendCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector AS2 Payload Send Failed.
 	// Experimental.
-	AS2PayloadSendFailedPattern(options *ConnectorEvents_AS2PayloadSendFailed_AS2PayloadSendFailedProps) *awsevents.EventPattern
+	As2PayloadSendFailedPattern(options *AS2PayloadSendFailed_AS2PayloadSendFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector Directory Listing Completed.
 	// Experimental.
-	SFTPConnectorDirectoryListingCompletedPattern(options *ConnectorEvents_SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) *awsevents.EventPattern
+	SftPConnectorDirectoryListingCompletedPattern(options *SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector Directory Listing Failed.
 	// Experimental.
-	SFTPConnectorDirectoryListingFailedPattern(options *ConnectorEvents_SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) *awsevents.EventPattern
+	SftPConnectorDirectoryListingFailedPattern(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector File Retrieve Completed.
 	// Experimental.
-	SFTPConnectorFileRetrieveCompletedPattern(options *ConnectorEvents_SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) *awsevents.EventPattern
+	SftPConnectorFileRetrieveCompletedPattern(options *SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector File Retrieve Failed.
 	// Experimental.
-	SFTPConnectorFileRetrieveFailedPattern(options *ConnectorEvents_SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) *awsevents.EventPattern
+	SftPConnectorFileRetrieveFailedPattern(options *SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector File Send Completed.
 	// Experimental.
-	SFTPConnectorFileSendCompletedPattern(options *ConnectorEvents_SFTPConnectorFileSendCompleted_SFTPConnectorFileSendCompletedProps) *awsevents.EventPattern
+	SftPConnectorFileSendCompletedPattern(options *SFTPConnectorFileSendCompleted_SFTPConnectorFileSendCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector File Send Failed.
 	// Experimental.
-	SFTPConnectorFileSendFailedPattern(options *ConnectorEvents_SFTPConnectorFileSendFailed_SFTPConnectorFileSendFailedProps) *awsevents.EventPattern
+	SftPConnectorFileSendFailedPattern(options *SFTPConnectorFileSendFailed_SFTPConnectorFileSendFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector Remote Delete Completed.
 	// Experimental.
-	SFTPConnectorRemoteDeleteCompletedPattern(options *ConnectorEvents_SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) *awsevents.EventPattern
+	SftPConnectorRemoteDeleteCompletedPattern(options *SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector Remote Delete Failed.
 	// Experimental.
-	SFTPConnectorRemoteDeleteFailedPattern(options *ConnectorEvents_SFTPConnectorRemoteDeleteFailed_SFTPConnectorRemoteDeleteFailedProps) *awsevents.EventPattern
+	SftPConnectorRemoteDeleteFailedPattern(options *SFTPConnectorRemoteDeleteFailed_SFTPConnectorRemoteDeleteFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector Remote Move Completed.
 	// Experimental.
-	SFTPConnectorRemoteMoveCompletedPattern(options *ConnectorEvents_SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) *awsevents.EventPattern
+	SftPConnectorRemoteMoveCompletedPattern(options *SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Connector SFTP Connector Remote Move Failed.
 	// Experimental.
-	SFTPConnectorRemoteMoveFailedPattern(options *ConnectorEvents_SFTPConnectorRemoteMoveFailed_SFTPConnectorRemoteMoveFailedProps) *awsevents.EventPattern
+	SftPConnectorRemoteMoveFailedPattern(options *SFTPConnectorRemoteMoveFailed_SFTPConnectorRemoteMoveFailedProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ConnectorEvents
@@ -91,15 +91,15 @@ func ConnectorEvents_FromConnector(connectorRef interfacesawstransfer.IConnector
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) AS2MDNReceiveCompletedPattern(options *ConnectorEvents_AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) *awsevents.EventPattern {
-	if err := c.validateAS2MDNReceiveCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) As2MDNReceiveCompletedPattern(options *AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) *awsevents.EventPattern {
+	if err := c.validateAs2MDNReceiveCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"aS2MDNReceiveCompletedPattern",
+		"as2MDNReceiveCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -107,15 +107,15 @@ func (c *jsiiProxy_ConnectorEvents) AS2MDNReceiveCompletedPattern(options *Conne
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) AS2MDNReceiveFailedPattern(options *ConnectorEvents_AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) *awsevents.EventPattern {
-	if err := c.validateAS2MDNReceiveFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) As2MDNReceiveFailedPattern(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) *awsevents.EventPattern {
+	if err := c.validateAs2MDNReceiveFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"aS2MDNReceiveFailedPattern",
+		"as2MDNReceiveFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -123,15 +123,15 @@ func (c *jsiiProxy_ConnectorEvents) AS2MDNReceiveFailedPattern(options *Connecto
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) AS2PayloadSendCompletedPattern(options *ConnectorEvents_AS2PayloadSendCompleted_AS2PayloadSendCompletedProps) *awsevents.EventPattern {
-	if err := c.validateAS2PayloadSendCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) As2PayloadSendCompletedPattern(options *AS2PayloadSendCompleted_AS2PayloadSendCompletedProps) *awsevents.EventPattern {
+	if err := c.validateAs2PayloadSendCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"aS2PayloadSendCompletedPattern",
+		"as2PayloadSendCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -139,15 +139,15 @@ func (c *jsiiProxy_ConnectorEvents) AS2PayloadSendCompletedPattern(options *Conn
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) AS2PayloadSendFailedPattern(options *ConnectorEvents_AS2PayloadSendFailed_AS2PayloadSendFailedProps) *awsevents.EventPattern {
-	if err := c.validateAS2PayloadSendFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) As2PayloadSendFailedPattern(options *AS2PayloadSendFailed_AS2PayloadSendFailedProps) *awsevents.EventPattern {
+	if err := c.validateAs2PayloadSendFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"aS2PayloadSendFailedPattern",
+		"as2PayloadSendFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -155,15 +155,15 @@ func (c *jsiiProxy_ConnectorEvents) AS2PayloadSendFailedPattern(options *Connect
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorDirectoryListingCompletedPattern(options *ConnectorEvents_SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorDirectoryListingCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorDirectoryListingCompletedPattern(options *SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorDirectoryListingCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorDirectoryListingCompletedPattern",
+		"sftPConnectorDirectoryListingCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -171,15 +171,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorDirectoryListingCompletedPatter
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorDirectoryListingFailedPattern(options *ConnectorEvents_SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorDirectoryListingFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorDirectoryListingFailedPattern(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorDirectoryListingFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorDirectoryListingFailedPattern",
+		"sftPConnectorDirectoryListingFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -187,15 +187,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorDirectoryListingFailedPattern(o
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileRetrieveCompletedPattern(options *ConnectorEvents_SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorFileRetrieveCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorFileRetrieveCompletedPattern(options *SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorFileRetrieveCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorFileRetrieveCompletedPattern",
+		"sftPConnectorFileRetrieveCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -203,15 +203,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileRetrieveCompletedPattern(op
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileRetrieveFailedPattern(options *ConnectorEvents_SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorFileRetrieveFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorFileRetrieveFailedPattern(options *SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorFileRetrieveFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorFileRetrieveFailedPattern",
+		"sftPConnectorFileRetrieveFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -219,15 +219,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileRetrieveFailedPattern(optio
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileSendCompletedPattern(options *ConnectorEvents_SFTPConnectorFileSendCompleted_SFTPConnectorFileSendCompletedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorFileSendCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorFileSendCompletedPattern(options *SFTPConnectorFileSendCompleted_SFTPConnectorFileSendCompletedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorFileSendCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorFileSendCompletedPattern",
+		"sftPConnectorFileSendCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -235,15 +235,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileSendCompletedPattern(option
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileSendFailedPattern(options *ConnectorEvents_SFTPConnectorFileSendFailed_SFTPConnectorFileSendFailedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorFileSendFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorFileSendFailedPattern(options *SFTPConnectorFileSendFailed_SFTPConnectorFileSendFailedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorFileSendFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorFileSendFailedPattern",
+		"sftPConnectorFileSendFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -251,15 +251,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorFileSendFailedPattern(options *
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteDeleteCompletedPattern(options *ConnectorEvents_SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorRemoteDeleteCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorRemoteDeleteCompletedPattern(options *SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorRemoteDeleteCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorRemoteDeleteCompletedPattern",
+		"sftPConnectorRemoteDeleteCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -267,15 +267,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteDeleteCompletedPattern(op
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteDeleteFailedPattern(options *ConnectorEvents_SFTPConnectorRemoteDeleteFailed_SFTPConnectorRemoteDeleteFailedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorRemoteDeleteFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorRemoteDeleteFailedPattern(options *SFTPConnectorRemoteDeleteFailed_SFTPConnectorRemoteDeleteFailedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorRemoteDeleteFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorRemoteDeleteFailedPattern",
+		"sftPConnectorRemoteDeleteFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -283,15 +283,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteDeleteFailedPattern(optio
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteMoveCompletedPattern(options *ConnectorEvents_SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorRemoteMoveCompletedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorRemoteMoveCompletedPattern(options *SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorRemoteMoveCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorRemoteMoveCompletedPattern",
+		"sftPConnectorRemoteMoveCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -299,15 +299,15 @@ func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteMoveCompletedPattern(opti
 	return returns
 }
 
-func (c *jsiiProxy_ConnectorEvents) SFTPConnectorRemoteMoveFailedPattern(options *ConnectorEvents_SFTPConnectorRemoteMoveFailed_SFTPConnectorRemoteMoveFailedProps) *awsevents.EventPattern {
-	if err := c.validateSFTPConnectorRemoteMoveFailedPatternParameters(options); err != nil {
+func (c *jsiiProxy_ConnectorEvents) SftPConnectorRemoteMoveFailedPattern(options *SFTPConnectorRemoteMoveFailed_SFTPConnectorRemoteMoveFailedProps) *awsevents.EventPattern {
+	if err := c.validateSftPConnectorRemoteMoveFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		c,
-		"sFTPConnectorRemoteMoveFailedPattern",
+		"sftPConnectorRemoteMoveFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)

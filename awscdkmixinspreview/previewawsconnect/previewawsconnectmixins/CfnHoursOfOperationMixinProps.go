@@ -109,7 +109,7 @@ type CfnHoursOfOperationMixinProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`
 	// The name for the hours of operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-name
 	//

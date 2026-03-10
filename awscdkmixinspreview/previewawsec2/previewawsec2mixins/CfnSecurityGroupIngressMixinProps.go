@@ -61,13 +61,13 @@ type CfnSecurityGroupIngressMixinProps struct {
 	// The ID of the security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-groupid
 	//
-	GroupId *string `field:"optional" json:"groupId" yaml:"groupId"`
+	GroupId interface{} `field:"optional" json:"groupId" yaml:"groupId"`
 	// [Default VPC] The name of the security group.
 	//
 	// For security groups for a default VPC you can specify either the ID or the name of the security group. For security groups for a nondefault VPC, you must specify the ID of the security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-groupname
 	//
-	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
+	GroupName interface{} `field:"optional" json:"groupName" yaml:"groupName"`
 	// The IP protocol name ( `tcp` , `udp` , `icmp` , `icmpv6` ) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) ).
 	//
 	// Use `-1` to specify all protocols. When authorizing security group rules, specifying `-1` or a protocol number other than `tcp` , `udp` , `icmp` , or `icmpv6` allows traffic on all ports, regardless of any port range you specify. For `tcp` , `udp` , and `icmp` , you must specify a port range. For `icmpv6` , the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
@@ -77,13 +77,13 @@ type CfnSecurityGroupIngressMixinProps struct {
 	// The ID of a prefix list.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-sourceprefixlistid
 	//
-	SourcePrefixListId *string `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
+	SourcePrefixListId interface{} `field:"optional" json:"sourcePrefixListId" yaml:"sourcePrefixListId"`
 	// The ID of the security group.
 	//
 	// You must specify either the security group ID or the security group name. For security groups in a nondefault VPC, you must specify the security group ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html#cfn-ec2-securitygroupingress-sourcesecuritygroupid
 	//
-	SourceSecurityGroupId *string `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
+	SourceSecurityGroupId interface{} `field:"optional" json:"sourceSecurityGroupId" yaml:"sourceSecurityGroupId"`
 	// [Default VPC] The name of the source security group.
 	//
 	// You must specify either the security group ID or the security group name. You can't specify the group name in combination with an IP address range. Creates rules that grant full ICMP, UDP, and TCP access.

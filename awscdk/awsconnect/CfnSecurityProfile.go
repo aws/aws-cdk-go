@@ -32,12 +32,21 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	AllowedFlowModules: []interface{}{
+//   		&FlowModuleProperty{
+//   			FlowModuleId: jsii.String("flowModuleId"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	Applications: []interface{}{
 //   		&ApplicationProperty{
 //   			ApplicationPermissions: []*string{
 //   				jsii.String("applicationPermissions"),
 //   			},
 //   			Namespace: jsii.String("namespace"),
+//
+//   			// the properties below are optional
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
@@ -86,6 +95,9 @@ type CfnSecurityProfile interface {
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags() interface{}
 	SetAllowedAccessControlTags(val interface{})
+	// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+	AllowedFlowModules() interface{}
+	SetAllowedFlowModules(val interface{})
 	// A list of third-party applications that the security profile will give access to.
 	Applications() interface{}
 	SetApplications(val interface{})
@@ -324,6 +336,16 @@ func (j *jsiiProxy_CfnSecurityProfile) AllowedAccessControlTags() interface{} {
 	_jsii_.Get(
 		j,
 		"allowedAccessControlTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityProfile) AllowedFlowModules() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"allowedFlowModules",
 		&returns,
 	)
 	return returns
@@ -624,6 +646,17 @@ func (j *jsiiProxy_CfnSecurityProfile)SetAllowedAccessControlTags(val interface{
 	_jsii_.Set(
 		j,
 		"allowedAccessControlTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSecurityProfile)SetAllowedFlowModules(val interface{}) {
+	if err := j.validateSetAllowedFlowModulesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"allowedFlowModules",
 		val,
 	)
 }

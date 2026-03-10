@@ -24,7 +24,7 @@ type CfnSchemaVersionMetadataMixinProps struct {
 	// The version number of the schema.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
 	//
-	SchemaVersionId *string `field:"optional" json:"schemaVersionId" yaml:"schemaVersionId"`
+	SchemaVersionId interface{} `field:"optional" json:"schemaVersionId" yaml:"schemaVersionId"`
 	// A metadata key's corresponding value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
 	//

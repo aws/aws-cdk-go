@@ -12,7 +12,7 @@ package previewawsiammixins
 //
 //   cfnGroupMixinProps := &CfnGroupMixinProps{
 //   	GroupName: jsii.String("groupName"),
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	Path: jsii.String("path"),
@@ -44,7 +44,7 @@ type CfnGroupMixinProps struct {
 	// For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html#cfn-iam-group-managedpolicyarns
 	//
-	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
+	ManagedPolicyArns *[]interface{} `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The path to the group. For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide* .
 	//
 	// This parameter is optional. If it is not included, it defaults to a slash (/).

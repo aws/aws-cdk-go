@@ -36,6 +36,6 @@ type CfnResourcePolicyMixinProps struct {
 	// For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
 	//
-	SecretId *string `field:"optional" json:"secretId" yaml:"secretId"`
+	SecretId interface{} `field:"optional" json:"secretId" yaml:"secretId"`
 }
 

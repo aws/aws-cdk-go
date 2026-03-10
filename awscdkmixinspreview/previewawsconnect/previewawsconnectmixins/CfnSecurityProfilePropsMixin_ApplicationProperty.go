@@ -15,6 +15,7 @@ package previewawsconnectmixins
 //   		jsii.String("applicationPermissions"),
 //   	},
 //   	Namespace: jsii.String("namespace"),
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html
@@ -30,5 +31,9 @@ type CfnSecurityProfilePropsMixin_ApplicationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-namespace
 	//
 	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
+	// The type of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-type
+	//
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

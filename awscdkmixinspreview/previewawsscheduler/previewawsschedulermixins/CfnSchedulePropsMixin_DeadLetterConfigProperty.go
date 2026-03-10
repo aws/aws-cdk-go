@@ -20,6 +20,6 @@ type CfnSchedulePropsMixin_DeadLetterConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the SQS queue specified as the destination for the dead-letter queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-scheduler-schedule-deadletterconfig.html#cfn-scheduler-schedule-deadletterconfig-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 }
 

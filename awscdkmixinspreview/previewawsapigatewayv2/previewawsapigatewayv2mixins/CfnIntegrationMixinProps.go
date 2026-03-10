@@ -41,7 +41,7 @@ type CfnIntegrationMixinProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
@@ -109,7 +109,7 @@ type CfnIntegrationMixinProps struct {
 	// For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses `DiscoverInstances` to identify resources. You can use query parameters to target specific resources. To learn more, see [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) . For private integrations, all resources must be owned by the same AWS account .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationuri
 	//
-	IntegrationUri *string `field:"optional" json:"integrationUri" yaml:"integrationUri"`
+	IntegrationUri interface{} `field:"optional" json:"integrationUri" yaml:"integrationUri"`
 	// Specifies the pass-through behavior for incoming requests based on the `Content-Type` header in the request, and the available mapping templates specified as the `requestTemplates` property on the `Integration` resource.
 	//
 	// There are three valid values: `WHEN_NO_MATCH` , `WHEN_NO_TEMPLATES` , and `NEVER` . Supported only for WebSocket APIs.

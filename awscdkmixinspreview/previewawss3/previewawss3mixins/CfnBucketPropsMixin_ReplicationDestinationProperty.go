@@ -52,7 +52,7 @@ type CfnBucketPropsMixin_ReplicationDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-bucket
 	//
-	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
+	Bucket interface{} `field:"optional" json:"bucket" yaml:"bucket"`
 	// Specifies encryption-related information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration
 	//

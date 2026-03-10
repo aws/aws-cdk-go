@@ -2,18 +2,15 @@ package awsapigateway
 
 
 // Example:
-//   var someEndpoint IVpcEndpoint
+//   var acmCertificateForExampleCom interface{}
 //
 //
-//   api := apigateway.NewRestApi(this, jsii.String("api"), &RestApiProps{
-//   	EndpointConfiguration: &EndpointConfiguration{
-//   		Types: []EndpointType{
-//   			apigateway.EndpointType_PRIVATE,
-//   		},
-//   		VpcEndpoints: []IVpcEndpoint{
-//   			someEndpoint,
-//   		},
-//   	},
+//   apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
+//   	DomainName: jsii.String("example.com"),
+//   	Certificate: acmCertificateForExampleCom,
+//   	EndpointType: apigateway.EndpointType_EDGE,
+//   	 // default is REGIONAL
+//   	SecurityPolicy: apigateway.SecurityPolicy_TLS_1_2,
 //   })
 //
 type EndpointType string

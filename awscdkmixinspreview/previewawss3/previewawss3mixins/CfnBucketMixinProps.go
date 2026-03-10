@@ -7,16 +7,18 @@ import (
 // Properties for CfnBucketPropsMixin.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
-//
+//   key := kms.NewKey(scope, jsii.String("Key"))
 //
 //   s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
-//   	VersioningConfiguration: &VersioningConfigurationProperty{
-//   		Status: jsii.String("Enabled"),
-//   	},
-//   	PublicAccessBlockConfiguration: &PublicAccessBlockConfigurationProperty{
-//   		BlockPublicAcls: jsii.Boolean(true),
-//   		BlockPublicPolicy: jsii.Boolean(true),
+//   	BucketEncryption: &BucketEncryptionProperty{
+//   		ServerSideEncryptionConfiguration: []interface{}{
+//   			&ServerSideEncryptionRuleProperty{
+//   				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
+//   					SseAlgorithm: jsii.String("aws:kms"),
+//   					KmsMasterKeyId: key,
+//   				},
+//   			},
+//   		},
 //   	},
 //   }))
 //

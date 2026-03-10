@@ -20,40 +20,52 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents.OpsWorksAlert",
-		reflect.TypeOf((*InstanceEvents_OpsWorksAlert)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksAlert",
+		reflect.TypeOf((*OpsWorksAlert)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_InstanceEvents_OpsWorksAlert{}
+			return &jsiiProxy_OpsWorksAlert{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents.OpsWorksAlert.OpsWorksAlertProps",
-		reflect.TypeOf((*InstanceEvents_OpsWorksAlert_OpsWorksAlertProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksAlert.OpsWorksAlertProps",
+		reflect.TypeOf((*OpsWorksAlert_OpsWorksAlertProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents.OpsWorksCommandStateChange",
-		reflect.TypeOf((*InstanceEvents_OpsWorksCommandStateChange)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksCommandStateChange",
+		reflect.TypeOf((*OpsWorksCommandStateChange)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_InstanceEvents_OpsWorksCommandStateChange{}
+			return &jsiiProxy_OpsWorksCommandStateChange{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents.OpsWorksCommandStateChange.OpsWorksCommandStateChangeProps",
-		reflect.TypeOf((*InstanceEvents_OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksCommandStateChange.OpsWorksCommandStateChangeProps",
+		reflect.TypeOf((*OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents.OpsWorksInstanceStateChange",
-		reflect.TypeOf((*InstanceEvents_OpsWorksInstanceStateChange)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksDeploymentStateChange",
+		reflect.TypeOf((*OpsWorksDeploymentStateChange)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_InstanceEvents_OpsWorksInstanceStateChange{}
+			return &jsiiProxy_OpsWorksDeploymentStateChange{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents.OpsWorksInstanceStateChange.OpsWorksInstanceStateChangeProps",
-		reflect.TypeOf((*InstanceEvents_OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksDeploymentStateChange.OpsWorksDeploymentStateChangeProps",
+		reflect.TypeOf((*OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksInstanceStateChange",
+		reflect.TypeOf((*OpsWorksInstanceStateChange)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_OpsWorksInstanceStateChange{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksInstanceStateChange.OpsWorksInstanceStateChangeProps",
+		reflect.TypeOf((*OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.StackEvents",
@@ -64,17 +76,5 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_StackEvents{}
 		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.StackEvents.OpsWorksDeploymentStateChange",
-		reflect.TypeOf((*StackEvents_OpsWorksDeploymentStateChange)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_StackEvents_OpsWorksDeploymentStateChange{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.StackEvents.OpsWorksDeploymentStateChange.OpsWorksDeploymentStateChangeProps",
-		reflect.TypeOf((*StackEvents_OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps)(nil)).Elem(),
 	)
 }

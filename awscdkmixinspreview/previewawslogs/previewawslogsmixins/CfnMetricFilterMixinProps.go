@@ -70,7 +70,7 @@ type CfnMetricFilterMixinProps struct {
 	// The name of an existing log group that you want to associate with this metric filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-loggroupname
 	//
-	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The metric transformations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-logs-metricfilter-metrictransformations
 	//

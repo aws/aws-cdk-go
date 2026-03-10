@@ -19,7 +19,7 @@ type CfnDataSourcePropsMixin_S3PathProperty struct {
 	// The name of the S3 bucket that contains the file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-bucket
 	//
-	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
+	Bucket interface{} `field:"optional" json:"bucket" yaml:"bucket"`
 	// The name of the file.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3path.html#cfn-kendra-datasource-s3path-key
 	//

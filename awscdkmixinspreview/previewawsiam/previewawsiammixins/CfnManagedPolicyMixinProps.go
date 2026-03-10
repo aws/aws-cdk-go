@@ -12,16 +12,16 @@ package previewawsiammixins
 //
 //   cfnManagedPolicyMixinProps := &CfnManagedPolicyMixinProps{
 //   	Description: jsii.String("description"),
-//   	Groups: []*string{
+//   	Groups: []interface{}{
 //   		jsii.String("groups"),
 //   	},
 //   	ManagedPolicyName: jsii.String("managedPolicyName"),
 //   	Path: jsii.String("path"),
 //   	PolicyDocument: policyDocument,
-//   	Roles: []*string{
+//   	Roles: []interface{}{
 //   		jsii.String("roles"),
 //   	},
-//   	Users: []*string{
+//   	Users: []interface{}{
 //   		jsii.String("users"),
 //   	},
 //   }
@@ -42,7 +42,7 @@ type CfnManagedPolicyMixinProps struct {
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups
 	//
-	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
+	Groups *[]interface{} `field:"optional" json:"groups" yaml:"groups"`
 	// The friendly name of the policy.
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -90,12 +90,12 @@ type CfnManagedPolicyMixinProps struct {
 	// > If an external policy (such as `AWS::IAM::Policy` or `AWS::IAM::ManagedPolicy` ) has a `Ref` to a role and if a resource (such as `AWS::ECS::Service` ) also has a `Ref` to the same role, add a `DependsOn` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an `AWS::ECS::Service` resource, the `DependsOn` attribute ensures that CloudFormation deletes the `AWS::ECS::Service` resource before deleting its role's policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles
 	//
-	Roles *[]*string `field:"optional" json:"roles" yaml:"roles"`
+	Roles *[]interface{} `field:"optional" json:"roles" yaml:"roles"`
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
 	//
 	// This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users
 	//
-	Users *[]*string `field:"optional" json:"users" yaml:"users"`
+	Users *[]interface{} `field:"optional" json:"users" yaml:"users"`
 }
 

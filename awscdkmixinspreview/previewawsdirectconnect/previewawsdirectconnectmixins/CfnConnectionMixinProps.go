@@ -39,7 +39,7 @@ type CfnConnectionMixinProps struct {
 	ConnectionName *string `field:"optional" json:"connectionName" yaml:"connectionName"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-connection.html#cfn-directconnect-connection-lagid
 	//
-	LagId *string `field:"optional" json:"lagId" yaml:"lagId"`
+	LagId interface{} `field:"optional" json:"lagId" yaml:"lagId"`
 	// The location of the connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-connection.html#cfn-directconnect-connection-location
 	//

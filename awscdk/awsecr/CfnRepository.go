@@ -16,43 +16,7 @@ import (
 // For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide* .
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var repositoryPolicyText interface{}
-//
-//   cfnRepository := awscdk.Aws_ecr.NewCfnRepository(this, jsii.String("MyCfnRepository"), &CfnRepositoryProps{
-//   	EmptyOnDelete: jsii.Boolean(false),
-//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
-//   		EncryptionType: jsii.String("encryptionType"),
-//
-//   		// the properties below are optional
-//   		KmsKey: jsii.String("kmsKey"),
-//   	},
-//   	ImageScanningConfiguration: &ImageScanningConfigurationProperty{
-//   		ScanOnPush: jsii.Boolean(false),
-//   	},
-//   	ImageTagMutability: jsii.String("imageTagMutability"),
-//   	ImageTagMutabilityExclusionFilters: []interface{}{
-//   		&ImageTagMutabilityExclusionFilterProperty{
-//   			ImageTagMutabilityExclusionFilterType: jsii.String("imageTagMutabilityExclusionFilterType"),
-//   			ImageTagMutabilityExclusionFilterValue: jsii.String("imageTagMutabilityExclusionFilterValue"),
-//   		},
-//   	},
-//   	LifecyclePolicy: &LifecyclePolicyProperty{
-//   		LifecyclePolicyText: jsii.String("lifecyclePolicyText"),
-//   		RegistryId: jsii.String("registryId"),
-//   	},
-//   	RepositoryName: jsii.String("repositoryName"),
-//   	RepositoryPolicyText: repositoryPolicyText,
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   })
+//   ecr.NewCfnRepository(this, jsii.String("Repo")).With(mixins.NewRepositoryAutoDeleteImages())
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 //

@@ -15,7 +15,7 @@ package previewawsapigatewaymixins
 //   	Types: []*string{
 //   		jsii.String("types"),
 //   	},
-//   	VpcEndpointIds: []*string{
+//   	VpcEndpointIds: []interface{}{
 //   		jsii.String("vpcEndpointIds"),
 //   	},
 //   }
@@ -40,6 +40,6 @@ type CfnRestApiPropsMixin_EndpointConfigurationProperty struct {
 	// It is only supported for `PRIVATE` endpoint type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
 	//
-	VpcEndpointIds *[]*string `field:"optional" json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
+	VpcEndpointIds *[]interface{} `field:"optional" json:"vpcEndpointIds" yaml:"vpcEndpointIds"`
 }
 

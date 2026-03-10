@@ -199,7 +199,7 @@ package previewawsec2mixins
 //   					EnaSrdUdpEnabled: jsii.Boolean(false),
 //   				},
 //   			},
-//   			Groups: []*string{
+//   			Groups: []interface{}{
 //   				jsii.String("groups"),
 //   			},
 //   			InterfaceType: jsii.String("interfaceType"),
@@ -255,7 +255,7 @@ package previewawsec2mixins
 //   		HostnameType: jsii.String("hostnameType"),
 //   	},
 //   	RamDiskId: jsii.String("ramDiskId"),
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SecurityGroups: []*string{
@@ -457,7 +457,7 @@ type CfnLaunchTemplatePropsMixin_LaunchTemplateDataProperty struct {
 	// If you specify a network interface, you must specify any security groups as part of the network interface instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
 	//
 	// If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.

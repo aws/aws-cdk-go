@@ -43,7 +43,7 @@ type CfnServicePropsMixin_CapacityProviderStrategyItemProperty struct {
 	// This can be either an AWS managed capacity provider ( `FARGATE` or `FARGATE_SPOT` ) or the name of a custom capacity provider that you created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-capacityprovider
 	//
-	CapacityProvider *string `field:"optional" json:"capacityProvider" yaml:"capacityProvider"`
+	CapacityProvider interface{} `field:"optional" json:"capacityProvider" yaml:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The `weight` value is taken into consideration after the `base` value, if defined, is satisfied.

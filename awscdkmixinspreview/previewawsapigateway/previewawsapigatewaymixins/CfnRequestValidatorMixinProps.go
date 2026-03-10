@@ -25,7 +25,7 @@ type CfnRequestValidatorMixinProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
 	//

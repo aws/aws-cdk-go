@@ -44,6 +44,6 @@ type CfnUserPoolResourceServerMixinProps struct {
 	// The ID of the user pool where you want to create a resource server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#cfn-cognito-userpoolresourceserver-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

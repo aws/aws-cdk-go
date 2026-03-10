@@ -16,7 +16,7 @@ import (
 //   		Version: jsii.String("version"),
 //   	},
 //   	OnPremConfig: &OnPremConfigProperty{
-//   		AgentArns: []*string{
+//   		AgentArns: []interface{}{
 //   			jsii.String("agentArns"),
 //   		},
 //   	},

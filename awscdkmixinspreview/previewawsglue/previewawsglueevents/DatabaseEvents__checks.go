@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 )
 
-func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogDatabaseStateChangePatternParameters(options *DatabaseEvents_GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) error {
+func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogDatabaseStateChangePatternParameters(options *GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogDatabaseStateChangePat
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogTableStateChangePatternParameters(options *DatabaseEvents_GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) error {
+func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogTableStateChangePatternParameters(options *GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

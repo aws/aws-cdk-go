@@ -20,7 +20,7 @@ type CfnIdentityPoolPropsMixin_CognitoIdentityProviderProperty struct {
 	// The client ID for the Amazon Cognito user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-clientid
 	//
-	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`
+	ClientId interface{} `field:"optional" json:"clientId" yaml:"clientId"`
 	// The provider name for an Amazon Cognito user pool.
 	//
 	// For example: `cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789` .

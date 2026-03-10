@@ -89,6 +89,6 @@ type CfnUserPoolRiskConfigurationAttachmentMixinProps struct {
 	// The ID of the user pool that has the risk configuration applied.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#cfn-cognito-userpoolriskconfigurationattachment-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

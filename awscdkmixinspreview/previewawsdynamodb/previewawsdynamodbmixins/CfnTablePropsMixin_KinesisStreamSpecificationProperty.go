@@ -25,6 +25,6 @@ type CfnTablePropsMixin_KinesisStreamSpecificationProperty struct {
 	// Length Constraints: Minimum length of 37. Maximum length of 1024.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html#cfn-dynamodb-table-kinesisstreamspecification-streamarn
 	//
-	StreamArn *string `field:"optional" json:"streamArn" yaml:"streamArn"`
+	StreamArn interface{} `field:"optional" json:"streamArn" yaml:"streamArn"`
 }
 

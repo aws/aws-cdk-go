@@ -88,10 +88,10 @@ import (
 //   		PublicAccessCidrs: []*string{
 //   			jsii.String("publicAccessCidrs"),
 //   		},
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   	},
@@ -196,7 +196,7 @@ type CfnClusterMixinProps struct {
 	// For more information, see [Amazon EKS Service IAM Role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) in the **Amazon EKS User Guide** .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster.
 	//
 	// For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .

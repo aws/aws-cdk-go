@@ -50,11 +50,11 @@ package previewawsbatchmixins
 //   	ScalingPolicy: &ComputeScalingPolicyProperty{
 //   		MinScaleDownDelayMinutes: jsii.Number(123),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SpotIamFleetRole: jsii.String("spotIamFleetRole"),
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   	Tags: map[string]*string{
@@ -147,7 +147,7 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-instancerole
 	//
-	InstanceRole *string `field:"optional" json:"instanceRole" yaml:"instanceRole"`
+	InstanceRole interface{} `field:"optional" json:"instanceRole" yaml:"instanceRole"`
 	// The instances types that can be launched.
 	//
 	// You can specify instance families to launch any instance type within those families (for example, `c5` or `p3` ), or you can specify specific sizes within a family (such as `c5.8xlarge` ).
@@ -197,7 +197,7 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
 	//
-	PlacementGroup *string `field:"optional" json:"placementGroup" yaml:"placementGroup"`
+	PlacementGroup interface{} `field:"optional" json:"placementGroup" yaml:"placementGroup"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-scalingpolicy
 	//
 	ScalingPolicy interface{} `field:"optional" json:"scalingPolicy" yaml:"scalingPolicy"`
@@ -208,7 +208,7 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a `SPOT` compute environment.
 	//
 	// This role is required if the allocation strategy set to `BEST_FIT` or if the allocation strategy isn't specified. For more information, see [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide* .
@@ -216,7 +216,7 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer *AmazonEC2SpotFleetTaggingRole* managed policy. The previously recommended *AmazonEC2SpotFleetRole* managed policy doesn't have the required permissions to tag Spot Instances. For more information, see [Spot instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-spotiamfleetrole
 	//
-	SpotIamFleetRole *string `field:"optional" json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
+	SpotIamFleetRole interface{} `field:"optional" json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
 	// The VPC subnets where the compute resources are launched.
 	//
 	// Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
@@ -228,7 +228,7 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// > AWS Batch on Fargate doesn't currently support Local Zones.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-subnets
 	//
-	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
+	Subnets *[]interface{} `field:"optional" json:"subnets" yaml:"subnets"`
 	// Key-value pair tags to be applied to Amazon EC2 resources that are launched in the compute environment.
 	//
 	// For AWS Batch , these take the form of `"String1": "String2"` , where `String1` is the tag key and `String2` is the tag value (for example, `{ "Name": "Batch Instance - C4OnDemand" }` ). This is helpful for recognizing your Batch instances in the Amazon EC2 console. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation.

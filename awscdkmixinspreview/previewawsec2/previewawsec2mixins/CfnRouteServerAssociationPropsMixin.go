@@ -18,13 +18,15 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnRouteServerAssociationPropsMixin := awscdkmixinspreview.Mixins.NewCfnRouteServerAssociationPropsMixin(&CfnRouteServerAssociationMixinProps{
 //   	RouteServerId: jsii.String("routeServerId"),
 //   	VpcId: jsii.String("vpcId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverassociation.html
@@ -33,7 +35,7 @@ type CfnRouteServerAssociationPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnRouteServerAssociationMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -56,8 +58,8 @@ func (j *jsiiProxy_CfnRouteServerAssociationPropsMixin) Props() *CfnRouteServerA
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouteServerAssociationPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnRouteServerAssociationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

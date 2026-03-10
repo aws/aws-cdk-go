@@ -223,7 +223,7 @@ With the above default policy, future permissions can be added to either the key
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.Grants.Encrypt(user)
+key.grants.Encrypt(user)
 ```
 
 Adopting the default KMS key policy (and so trusting account identities)
@@ -248,7 +248,7 @@ key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
 })
 
 secondKey := kms.NewKey(this, jsii.String("MyKey2"))
-secondKey.Grants.Admin(myTrustedAdminRole)
+secondKey.grants.Admin(myTrustedAdminRole)
 ```
 
 Alternatively, a custom key policy can be specified, which will replace the default key policy.
@@ -297,8 +297,8 @@ The respective policies can be attached to a principal via the `key.grants.sign`
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.Grants.Sign(user) // Adds 'kms:Sign' to the principal's policy
-key.Grants.Verify(user)
+key.grants.Sign(user) // Adds 'kms:Sign' to the principal's policy
+key.grants.Verify(user)
 ```
 
 If both sign and verify permissions are required, they can be applied with one method in `KeyGrants` called `signVerify`.
@@ -306,7 +306,7 @@ If both sign and verify permissions are required, they can be applied with one m
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.Grants.SignVerify(user)
+key.grants.SignVerify(user)
 ```
 
 ### HMAC specific key policies
@@ -317,8 +317,8 @@ The respective policies can be attached to a principal via the `generateMac` and
 ```go
 key := kms.NewKey(this, jsii.String("MyKey"))
 user := iam.NewUser(this, jsii.String("MyUser"))
-key.Grants.GenerateMac(user) // Adds 'kms:GenerateMac' to the principal's policy
-key.Grants.VerifyMac(user)
+key.grants.GenerateMac(user) // Adds 'kms:GenerateMac' to the principal's policy
+key.grants.VerifyMac(user)
 ```
 
 ### Granting permissions for L1s

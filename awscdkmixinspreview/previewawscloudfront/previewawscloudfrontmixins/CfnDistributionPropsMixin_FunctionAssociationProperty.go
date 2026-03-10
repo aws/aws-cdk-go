@@ -25,6 +25,6 @@ type CfnDistributionPropsMixin_FunctionAssociationProperty struct {
 	// The Amazon Resource Name (ARN) of the function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
 	//
-	FunctionArn *string `field:"optional" json:"functionArn" yaml:"functionArn"`
+	FunctionArn interface{} `field:"optional" json:"functionArn" yaml:"functionArn"`
 }
 

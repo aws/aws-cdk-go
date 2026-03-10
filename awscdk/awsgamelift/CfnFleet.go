@@ -65,6 +65,7 @@ import (
 //   				},
 //   				MinSize: jsii.Number(123),
 //   			},
+//   			PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   		},
 //   	},
 //   	LogPaths: []*string{
@@ -78,6 +79,10 @@ import (
 //   	NewGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
 //   	PeerVpcAwsAccountId: jsii.String("peerVpcAwsAccountId"),
 //   	PeerVpcId: jsii.String("peerVpcId"),
+//   	PlayerGatewayConfiguration: &PlayerGatewayConfigurationProperty{
+//   		GameServerIpProtocolSupported: jsii.String("gameServerIpProtocolSupported"),
+//   	},
+//   	PlayerGatewayMode: jsii.String("playerGatewayMode"),
 //   	ResourceCreationLimitPolicy: &ResourceCreationLimitPolicyProperty{
 //   		NewGameSessionsPerCreator: jsii.Number(123),
 //   		PolicyPeriodInMinutes: jsii.Number(123),
@@ -234,6 +239,12 @@ type CfnFleet interface {
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift Servers fleet.
 	PeerVpcId() *string
 	SetPeerVpcId(val *string)
+	// Configuration for player gateway.
+	PlayerGatewayConfiguration() interface{}
+	SetPlayerGatewayConfiguration(val interface{})
+	// The player gateway mode for the fleet.
+	PlayerGatewayMode() *string
+	SetPlayerGatewayMode(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -743,6 +754,26 @@ func (j *jsiiProxy_CfnFleet) PeerVpcId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFleet) PlayerGatewayConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"playerGatewayConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) PlayerGatewayMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"playerGatewayMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFleet) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1062,6 +1093,25 @@ func (j *jsiiProxy_CfnFleet)SetPeerVpcId(val *string) {
 	_jsii_.Set(
 		j,
 		"peerVpcId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetPlayerGatewayConfiguration(val interface{}) {
+	if err := j.validateSetPlayerGatewayConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"playerGatewayConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetPlayerGatewayMode(val *string) {
+	_jsii_.Set(
+		j,
+		"playerGatewayMode",
 		val,
 	)
 }

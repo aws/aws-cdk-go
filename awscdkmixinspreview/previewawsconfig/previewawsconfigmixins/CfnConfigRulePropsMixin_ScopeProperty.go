@@ -27,7 +27,7 @@ type CfnConfigRulePropsMixin_ScopeProperty struct {
 	// If you specify a resource ID, you must specify one resource type for `ComplianceResourceTypes` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
 	//
-	ComplianceResourceId *string `field:"optional" json:"complianceResourceId" yaml:"complianceResourceId"`
+	ComplianceResourceId interface{} `field:"optional" json:"complianceResourceId" yaml:"complianceResourceId"`
 	// The resource types of only those AWS resources that you want to trigger an evaluation for the rule.
 	//
 	// You can only specify one type if you also specify a resource ID for `ComplianceResourceId` .

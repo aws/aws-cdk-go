@@ -24,13 +24,13 @@ import (
 type InstanceEvents interface {
 	// EventBridge event pattern for Instance Amazon Connect Contact Event.
 	// Experimental.
-	CodeConnectContactPattern(options *InstanceEvents_CodeConnectContact_CodeConnectContactProps) *awsevents.EventPattern
+	CodeConnectContactPattern(options *CodeConnectContact_CodeConnectContactProps) *awsevents.EventPattern
 	// EventBridge event pattern for Instance Contact Lens Post Call Rules Matched.
 	// Experimental.
-	ContactLensPostCallRulesMatchedPattern(options *InstanceEvents_ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) *awsevents.EventPattern
+	ContactLensPostCallRulesMatchedPattern(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Instance Contact Lens Realtime Rules Matched.
 	// Experimental.
-	ContactLensRealtimeRulesMatchedPattern(options *InstanceEvents_ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) *awsevents.EventPattern
+	ContactLensRealtimeRulesMatchedPattern(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for InstanceEvents
@@ -58,7 +58,7 @@ func InstanceEvents_FromInstance(instanceRef interfacesawsconnect.IInstanceRef) 
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) CodeConnectContactPattern(options *InstanceEvents_CodeConnectContact_CodeConnectContactProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) CodeConnectContactPattern(options *CodeConnectContact_CodeConnectContactProps) *awsevents.EventPattern {
 	if err := i.validateCodeConnectContactPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -74,7 +74,7 @@ func (i *jsiiProxy_InstanceEvents) CodeConnectContactPattern(options *InstanceEv
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) ContactLensPostCallRulesMatchedPattern(options *InstanceEvents_ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) ContactLensPostCallRulesMatchedPattern(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) *awsevents.EventPattern {
 	if err := i.validateContactLensPostCallRulesMatchedPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -90,7 +90,7 @@ func (i *jsiiProxy_InstanceEvents) ContactLensPostCallRulesMatchedPattern(option
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) ContactLensRealtimeRulesMatchedPattern(options *InstanceEvents_ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) ContactLensRealtimeRulesMatchedPattern(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) *awsevents.EventPattern {
 	if err := i.validateContactLensRealtimeRulesMatchedPatternParameters(options); err != nil {
 		panic(err)
 	}

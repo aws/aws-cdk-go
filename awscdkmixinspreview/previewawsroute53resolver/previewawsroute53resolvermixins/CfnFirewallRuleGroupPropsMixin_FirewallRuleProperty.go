@@ -86,7 +86,7 @@ type CfnFirewallRuleGroupPropsMixin_FirewallRuleProperty struct {
 	// The ID of the domain list that's used in the rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
 	//
-	FirewallDomainListId *string `field:"optional" json:"firewallDomainListId" yaml:"firewallDomainListId"`
+	FirewallDomainListId interface{} `field:"optional" json:"firewallDomainListId" yaml:"firewallDomainListId"`
 	// How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME, or DNAME.
 	//
 	// `Inspect_Redirection_Domain` (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be added to the domain list.

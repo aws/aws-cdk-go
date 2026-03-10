@@ -18,6 +18,6 @@ type CfnAccessPointPropsMixin_VpcConfigurationProperty struct {
 	// If this field is specified, the access point will only allow connections from the specified VPC ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

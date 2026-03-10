@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnVariablePropsMixin := awscdkmixinspreview.Mixins.NewCfnVariablePropsMixin(&CfnVariableMixinProps{
 //   	DataSource: jsii.String("dataSource"),
@@ -32,7 +34,7 @@ import (
 //   	},
 //   	VariableType: jsii.String("variableType"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html
@@ -41,7 +43,7 @@ type CfnVariablePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnVariableMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -64,8 +66,8 @@ func (j *jsiiProxy_CfnVariablePropsMixin) Props() *CfnVariableMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVariablePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnVariablePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

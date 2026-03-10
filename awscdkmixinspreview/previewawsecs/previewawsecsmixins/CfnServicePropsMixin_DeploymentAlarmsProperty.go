@@ -15,7 +15,7 @@ package previewawsecsmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   deploymentAlarmsProperty := &DeploymentAlarmsProperty{
-//   	AlarmNames: []*string{
+//   	AlarmNames: []interface{}{
 //   		jsii.String("alarmNames"),
 //   	},
 //   	Enable: jsii.Boolean(false),
@@ -30,7 +30,7 @@ type CfnServicePropsMixin_DeploymentAlarmsProperty struct {
 	// Use a "," to separate the alarms.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html#cfn-ecs-service-deploymentalarms-alarmnames
 	//
-	AlarmNames *[]*string `field:"optional" json:"alarmNames" yaml:"alarmNames"`
+	AlarmNames *[]interface{} `field:"optional" json:"alarmNames" yaml:"alarmNames"`
 	// Determines whether to use the CloudWatch alarm option in the service deployment process.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html#cfn-ecs-service-deploymentalarms-enable
 	//

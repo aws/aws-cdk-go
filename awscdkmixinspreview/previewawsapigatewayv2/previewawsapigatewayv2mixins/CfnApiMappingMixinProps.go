@@ -21,7 +21,7 @@ type CfnApiMappingMixinProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// The API mapping key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-apimappingkey
 	//
@@ -29,7 +29,7 @@ type CfnApiMappingMixinProps struct {
 	// The domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-domainname
 	//
-	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	DomainName interface{} `field:"optional" json:"domainName" yaml:"domainName"`
 	// The API stage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html#cfn-apigatewayv2-apimapping-stage
 	//

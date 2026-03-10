@@ -63,6 +63,6 @@ type CfnServicePropsMixin_LoadBalancerProperty struct {
 	// > If your service's task definition uses the `awsvpc` network mode, you must choose `ip` as the target type, not `instance` . Do this when creating your target groups because tasks that use the `awsvpc` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
 	//
-	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn interface{} `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 }
 

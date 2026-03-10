@@ -16,9 +16,10 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var contentTransformation interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAccessPointPropsMixin := awscdkmixinspreview.Mixins.NewCfnAccessPointPropsMixin(&CfnAccessPointMixinProps{
 //   	Name: jsii.String("name"),
@@ -38,7 +39,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
@@ -47,7 +48,7 @@ type CfnAccessPointPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAccessPointMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -70,8 +71,8 @@ func (j *jsiiProxy_CfnAccessPointPropsMixin) Props() *CfnAccessPointMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPointPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAccessPointPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

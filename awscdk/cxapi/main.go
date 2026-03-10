@@ -25,6 +25,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
 			_jsii_.MemberProperty{JsiiProperty: "requiresBootstrapStackVersion", GoGetter: "RequiresBootstrapStackVersion"},
 		},
 		func() interface{} {
@@ -48,6 +49,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
 		},
 		func() interface{} {
 			return &jsiiProxy_CloudArtifact{}
@@ -118,6 +120,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "lookupRole", GoGetter: "LookupRole"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationArns", GoGetter: "NotificationArns"},
 			_jsii_.MemberProperty{JsiiProperty: "originalName", GoGetter: "OriginalName"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
@@ -216,6 +219,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
 			_jsii_.MemberProperty{JsiiProperty: "nestedAssembly", GoGetter: "NestedAssembly"},
 		},
 		func() interface{} {
@@ -253,6 +257,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
 		},
 		func() interface{} {
 			j := jsiiProxy_TreeCloudArtifact{}

@@ -12,16 +12,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnAlarmProps := &CfnAlarmProps{
-//   	ComparisonOperator: jsii.String("comparisonOperator"),
-//   	EvaluationPeriods: jsii.Number(123),
-//
-//   	// the properties below are optional
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
 //   	AlarmName: jsii.String("alarmName"),
+//   	ComparisonOperator: jsii.String("comparisonOperator"),
 //   	DatapointsToAlarm: jsii.Number(123),
 //   	Dimensions: []interface{}{
 //   		&DimensionProperty{
@@ -30,6 +27,7 @@ import (
 //   		},
 //   	},
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
+//   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),
@@ -85,20 +83,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html
 //
 type CfnAlarmProps struct {
-	// The arithmetic operation to use when comparing the specified statistic and threshold.
-	//
-	// The specified statistic value is used as the first operand.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-comparisonoperator
-	//
-	ComparisonOperator *string `field:"required" json:"comparisonOperator" yaml:"comparisonOperator"`
-	// The number of periods over which data is compared to the specified threshold.
-	//
-	// If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and `DatapointsToAlarm` is the M.
-	//
-	// For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationperiods
-	//
-	EvaluationPeriods *float64 `field:"required" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Indicates whether actions should be executed during any changes to the alarm state.
 	//
 	// The default is TRUE.
@@ -125,6 +109,12 @@ type CfnAlarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-alarmname
 	//
 	AlarmName *string `field:"optional" json:"alarmName" yaml:"alarmName"`
+	// The arithmetic operation to use when comparing the specified statistic and threshold.
+	//
+	// The specified statistic value is used as the first operand.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-comparisonoperator
+	//
+	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
 	// This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for `EvaluationPeriods` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
@@ -145,6 +135,14 @@ type CfnAlarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluatelowsamplecountpercentile
 	//
 	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
+	// The number of periods over which data is compared to the specified threshold.
+	//
+	// If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and `DatapointsToAlarm` is the M.
+	//
+	// For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationperiods
+	//
+	EvaluationPeriods *float64 `field:"optional" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//
 	// For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.

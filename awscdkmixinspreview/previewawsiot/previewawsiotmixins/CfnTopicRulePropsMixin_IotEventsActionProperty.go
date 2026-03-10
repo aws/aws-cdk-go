@@ -29,7 +29,7 @@ type CfnTopicRulePropsMixin_IotEventsActionProperty struct {
 	// The name of the AWS IoT Events input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
 	//
-	InputName *string `field:"optional" json:"inputName" yaml:"inputName"`
+	InputName interface{} `field:"optional" json:"inputName" yaml:"inputName"`
 	// The ID of the message. The default `messageId` is a new UUID value.
 	//
 	// When `batchMode` is `true` , you can't specify a `messageId` --a new UUID value will be assigned.
@@ -43,6 +43,6 @@ type CfnTopicRulePropsMixin_IotEventsActionProperty struct {
 	// ("Action":"iotevents:BatchPutMessage").
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

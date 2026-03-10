@@ -4,7 +4,7 @@ package previewawsorganizationsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AccountEvents) validateAwsServiceEventViaCloudTrailPatternParameters(options *AccountEvents_AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) error {
+func (a *jsiiProxy_AccountEvents) validateAwsServiceEventViaCloudTrailPatternParameters(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) error {
 	return nil
 }
 

@@ -7,10 +7,10 @@ package previewawsmskmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   vpcConfigProperty := &VpcConfigProperty{
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   }
@@ -20,9 +20,9 @@ package previewawsmskmixins
 type CfnServerlessClusterPropsMixin_VpcConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html#cfn-msk-serverlesscluster-vpcconfig-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html#cfn-msk-serverlesscluster-vpcconfig-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 }
 

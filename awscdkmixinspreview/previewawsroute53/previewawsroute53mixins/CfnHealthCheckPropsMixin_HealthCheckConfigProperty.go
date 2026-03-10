@@ -13,7 +13,7 @@ package previewawsroute53mixins
 //   		Name: jsii.String("name"),
 //   		Region: jsii.String("region"),
 //   	},
-//   	ChildHealthChecks: []*string{
+//   	ChildHealthChecks: []interface{}{
 //   		jsii.String("childHealthChecks"),
 //   	},
 //   	EnableSni: jsii.Boolean(false),
@@ -45,7 +45,7 @@ type CfnHealthCheckPropsMixin_HealthCheckConfigProperty struct {
 	// (CALCULATED Health Checks Only) A complex type that contains one `ChildHealthCheck` element for each health check that you want to associate with a `CALCULATED` health check.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
 	//
-	ChildHealthChecks *[]*string `field:"optional" json:"childHealthChecks" yaml:"childHealthChecks"`
+	ChildHealthChecks *[]interface{} `field:"optional" json:"childHealthChecks" yaml:"childHealthChecks"`
 	// Specify whether you want Amazon Route 53 to send the value of `FullyQualifiedDomainName` to the endpoint in the `client_hello` message during TLS negotiation.
 	//
 	// This allows the endpoint to respond to `HTTPS` health check requests with the applicable SSL/TLS certificate.
@@ -138,7 +138,7 @@ type CfnHealthCheckPropsMixin_HealthCheckConfigProperty struct {
 	// When the value of `Type` is `CALCULATED` or `CLOUDWATCH_METRIC` , omit `IPAddress` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
 	//
-	IpAddress *string `field:"optional" json:"ipAddress" yaml:"ipAddress"`
+	IpAddress interface{} `field:"optional" json:"ipAddress" yaml:"ipAddress"`
 	// Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 	//
 	// `MeasureLatency` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
@@ -184,7 +184,7 @@ type CfnHealthCheckPropsMixin_HealthCheckConfigProperty struct {
 	// For more information about Route 53 Application Recovery Controller, see [Route 53 Application Recovery Controller Developer Guide.](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-routingcontrolarn
 	//
-	RoutingControlArn *string `field:"optional" json:"routingControlArn" yaml:"routingControlArn"`
+	RoutingControlArn interface{} `field:"optional" json:"routingControlArn" yaml:"routingControlArn"`
 	// If the value of Type is `HTTP_STR_MATCH` or `HTTPS_STR_MATCH` , the string that you want Amazon Route 53 to search for in the response body from the specified resource.
 	//
 	// If the string appears in the response body, Route 53 considers the resource healthy.

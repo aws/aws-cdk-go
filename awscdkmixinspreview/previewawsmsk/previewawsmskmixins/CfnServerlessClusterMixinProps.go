@@ -22,10 +22,10 @@ package previewawsmskmixins
 //   	},
 //   	VpcConfigs: []interface{}{
 //   		&VpcConfigProperty{
-//   			SecurityGroups: []*string{
+//   			SecurityGroups: []interface{}{
 //   				jsii.String("securityGroups"),
 //   			},
-//   			SubnetIds: []*string{
+//   			SubnetIds: []interface{}{
 //   				jsii.String("subnetIds"),
 //   			},
 //   		},

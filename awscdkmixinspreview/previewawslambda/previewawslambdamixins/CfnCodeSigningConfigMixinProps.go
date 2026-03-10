@@ -13,7 +13,7 @@ import (
 //
 //   cfnCodeSigningConfigMixinProps := &CfnCodeSigningConfigMixinProps{
 //   	AllowedPublishers: &AllowedPublishersProperty{
-//   		SigningProfileVersionArns: []*string{
+//   		SigningProfileVersionArns: []interface{}{
 //   			jsii.String("signingProfileVersionArns"),
 //   		},
 //   	},

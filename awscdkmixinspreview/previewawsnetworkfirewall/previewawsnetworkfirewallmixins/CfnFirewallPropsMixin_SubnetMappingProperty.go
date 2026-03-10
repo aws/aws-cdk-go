@@ -27,6 +27,6 @@ type CfnFirewallPropsMixin_SubnetMappingProperty struct {
 	// The unique identifier for the subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html#cfn-networkfirewall-firewall-subnetmapping-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

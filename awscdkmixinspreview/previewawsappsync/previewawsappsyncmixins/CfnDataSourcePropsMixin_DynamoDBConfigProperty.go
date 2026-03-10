@@ -36,7 +36,7 @@ type CfnDataSourcePropsMixin_DynamoDBConfigProperty struct {
 	// The table name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-tablename
 	//
-	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	TableName interface{} `field:"optional" json:"tableName" yaml:"tableName"`
 	// Set to `TRUE` to use AWS Identity and Access Management with this data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-usecallercredentials
 	//

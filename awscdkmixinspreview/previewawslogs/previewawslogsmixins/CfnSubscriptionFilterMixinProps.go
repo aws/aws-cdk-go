@@ -36,7 +36,7 @@ type CfnSubscriptionFilterMixinProps struct {
 	// The Amazon Resource Name (ARN) of the destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-destinationarn
 	//
-	DestinationArn *string `field:"optional" json:"destinationArn" yaml:"destinationArn"`
+	DestinationArn interface{} `field:"optional" json:"destinationArn" yaml:"destinationArn"`
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-distribution
 	//
@@ -68,12 +68,12 @@ type CfnSubscriptionFilterMixinProps struct {
 	// All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-loggroupname
 	//
-	LogGroupName *string `field:"optional" json:"logGroupName" yaml:"logGroupName"`
+	LogGroupName interface{} `field:"optional" json:"logGroupName" yaml:"logGroupName"`
 	// The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream.
 	//
 	// You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

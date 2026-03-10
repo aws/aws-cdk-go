@@ -177,6 +177,6 @@ type CfnTargetGroupMixinProps struct {
 	// If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

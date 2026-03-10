@@ -18,6 +18,6 @@ type CfnAnomalyDetectorPropsMixin_CloudwatchConfigProperty struct {
 	// An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

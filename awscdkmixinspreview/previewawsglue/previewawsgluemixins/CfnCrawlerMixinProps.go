@@ -142,7 +142,7 @@ type CfnCrawlerMixinProps struct {
 	// The name of the database in which the crawler's output is stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
 	//
-	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	DatabaseName interface{} `field:"optional" json:"databaseName" yaml:"databaseName"`
 	// A description of the crawler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-description
 	//
@@ -162,7 +162,7 @@ type CfnCrawlerMixinProps struct {
 	// The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-role
 	//
-	Role *string `field:"optional" json:"role" yaml:"role"`
+	Role interface{} `field:"optional" json:"role" yaml:"role"`
 	// For scheduled crawlers, the schedule when the crawler runs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-schedule
 	//

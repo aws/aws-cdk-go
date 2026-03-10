@@ -23,7 +23,7 @@ type CfnSecurityKeyMixinProps struct {
 	// *Maximum* : `100`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html#cfn-connect-securitykey-instanceid
 	//
-	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	InstanceId interface{} `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// A valid security key in PEM format. For example:.
 	//
 	// `"-----BEGIN PUBLIC KEY-----\ [a lot of characters] ----END PUBLIC KEY-----"`

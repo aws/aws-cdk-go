@@ -22,7 +22,7 @@ type CfnConfigPropsMixin_S3RecordingConfigProperty struct {
 	// The name of the S3 Bucket provided must begin with `aws-groundstation` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-bucketarn
 	//
-	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
+	BucketArn interface{} `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// The prefix of the S3 data object.
 	//
 	// If you choose to use any optional keys for substitution, these values will be replaced with the corresponding information from your contact details. For example, a prefix of `{satellite_id}/{year}/{month}/{day}/` will replaced with `fake_satellite_id/2021/01/10/`
@@ -34,6 +34,6 @@ type CfnConfigPropsMixin_S3RecordingConfigProperty struct {
 	// Defines the ARN of the role assumed for putting archives to S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html#cfn-groundstation-config-s3recordingconfig-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

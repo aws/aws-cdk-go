@@ -23,6 +23,6 @@ type CfnBotAliasPropsMixin_LambdaCodeHookProperty struct {
 	// The Amazon Resource Name (ARN) of the Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-lambdacodehook.html#cfn-lex-botalias-lambdacodehook-lambdaarn
 	//
-	LambdaArn *string `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
+	LambdaArn interface{} `field:"optional" json:"lambdaArn" yaml:"lambdaArn"`
 }
 

@@ -51,7 +51,7 @@ type CfnNatGatewayMixinProps struct {
 	// This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
 	//
-	AllocationId *string `field:"optional" json:"allocationId" yaml:"allocationId"`
+	AllocationId interface{} `field:"optional" json:"allocationId" yaml:"allocationId"`
 	// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
 	//
 	// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
@@ -113,7 +113,7 @@ type CfnNatGatewayMixinProps struct {
 	// The ID of the subnet in which the NAT gateway is located.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags for the NAT gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags
 	//

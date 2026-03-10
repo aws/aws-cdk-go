@@ -28,7 +28,7 @@ type CfnClusterPropsMixin_LoggingPropertiesProperty struct {
 	// - The cluster must have read bucket and put object permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname
 	//
-	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	BucketName interface{} `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The log destination type.
 	//
 	// An enum with possible values of `s3` and `cloudwatch` .

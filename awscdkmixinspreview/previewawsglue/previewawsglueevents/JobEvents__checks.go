@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 )
 
-func (j *jsiiProxy_JobEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *JobEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (j *jsiiProxy_JobEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (j *jsiiProxy_JobEvents) validateAwsAPICallViaCloudTrailPatternParameters(o
 	return nil
 }
 
-func (j *jsiiProxy_JobEvents) validateGlueJobRunStatusPatternParameters(options *JobEvents_GlueJobRunStatus_GlueJobRunStatusProps) error {
+func (j *jsiiProxy_JobEvents) validateGlueJobRunStatusPatternParameters(options *GlueJobRunStatus_GlueJobRunStatusProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (j *jsiiProxy_JobEvents) validateGlueJobRunStatusPatternParameters(options 
 	return nil
 }
 
-func (j *jsiiProxy_JobEvents) validateGlueJobStateChangePatternParameters(options *JobEvents_GlueJobStateChange_GlueJobStateChangeProps) error {
+func (j *jsiiProxy_JobEvents) validateGlueJobStateChangePatternParameters(options *GlueJobStateChange_GlueJobStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

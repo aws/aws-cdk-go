@@ -128,6 +128,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxONTAPPropsMixin.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxONTAPPropsMixin_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxONTAPPropsMixin.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxONTAPPropsMixin_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxONTAPPropsMixin.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxONTAPPropsMixin_ManagedSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxONTAPPropsMixin.NFSProperty",
 		reflect.TypeOf((*CfnLocationFSxONTAPPropsMixin_NFSProperty)(nil)).Elem(),
 	)
@@ -200,6 +212,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxWindowsPropsMixin.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxWindowsPropsMixin_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxWindowsPropsMixin.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxWindowsPropsMixin_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationFSxWindowsPropsMixin.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxWindowsPropsMixin_ManagedSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationHDFSMixinProps",
 		reflect.TypeOf((*CfnLocationHDFSMixinProps)(nil)).Elem(),
 	)
@@ -218,6 +242,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationHDFSPropsMixin.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationHDFSPropsMixin_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationHDFSPropsMixin.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationHDFSPropsMixin_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationHDFSPropsMixin.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationHDFSPropsMixin_ManagedSecretConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_datasync.mixins.CfnLocationHDFSPropsMixin.NameNodeProperty",

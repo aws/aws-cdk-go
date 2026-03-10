@@ -20,7 +20,7 @@ type CfnDeploymentMixinProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// The description for the deployment resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html#cfn-apigatewayv2-deployment-description
 	//

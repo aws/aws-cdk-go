@@ -50,7 +50,7 @@ type CfnProvisioningTemplateMixinProps struct {
 	// This IoT role grants permission to provision a device.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
 	//
-	ProvisioningRoleArn *string `field:"optional" json:"provisioningRoleArn" yaml:"provisioningRoleArn"`
+	ProvisioningRoleArn interface{} `field:"optional" json:"provisioningRoleArn" yaml:"provisioningRoleArn"`
 	// Metadata that can be used to manage the fleet provisioning template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
 	//

@@ -140,6 +140,19 @@ type DomainProps struct {
 	// Default: RemovalPolicy.RETAIN
 	//
 	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
+	// Whether to enable S3 vectors engine.
+	//
+	// This feature allows you to offload vector data to Amazon S3 while maintaining sub-second vector search capabilities at low cost.
+	//
+	// Requirements:
+	// - OpenSearch version 2.19 or later
+	// - OpenSearch Optimized instance types (OR*, OM*, OI*) for data nodes
+	// - Encryption at rest must be enabled.
+	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/s3-vector-opensearch-integration-engine.html
+	//
+	// Default: undefined - AWS OpenSearch Service default is false.
+	//
+	S3VectorsEngineEnabled *bool `field:"optional" json:"s3VectorsEngineEnabled" yaml:"s3VectorsEngineEnabled"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.
 	//
 	// Only used if `vpc` is specified.

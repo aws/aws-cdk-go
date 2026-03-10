@@ -15,6 +15,9 @@ package previewawsobservabilityadminmixins
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
 //   			Region: jsii.String("region"),
 //   		},
+//   		LogGroupNameConfiguration: &LogGroupNameConfigurationProperty{
+//   			LogGroupNamePattern: jsii.String("logGroupNamePattern"),
+//   		},
 //   		LogsEncryptionConfiguration: &LogsEncryptionConfigurationProperty{
 //   			EncryptionConflictResolutionStrategy: jsii.String("encryptionConflictResolutionStrategy"),
 //   			EncryptionStrategy: jsii.String("encryptionStrategy"),

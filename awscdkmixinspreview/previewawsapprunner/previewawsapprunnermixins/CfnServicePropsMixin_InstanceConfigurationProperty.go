@@ -28,7 +28,7 @@ type CfnServicePropsMixin_InstanceConfigurationProperty struct {
 	// These are permissions that your code needs when it calls any AWS APIs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
 	//
-	InstanceRoleArn *string `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`
+	InstanceRoleArn interface{} `field:"optional" json:"instanceRoleArn" yaml:"instanceRoleArn"`
 	// The amount of memory, in MB or GB, reserved for each instance of your App Runner service.
 	//
 	// Default: `2 GB`.

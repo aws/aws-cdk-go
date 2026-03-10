@@ -7,7 +7,6 @@ import (
 // Properties for defining a `CfnDeliveryDestination`.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   // Create CloudFront distribution

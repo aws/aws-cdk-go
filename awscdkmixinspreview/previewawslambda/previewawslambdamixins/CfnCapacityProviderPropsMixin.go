@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnCapacityProviderPropsMixin := awscdkmixinspreview.Mixins.NewCfnCapacityProviderPropsMixin(&CfnCapacityProviderMixinProps{
 //   	CapacityProviderName: jsii.String("capacityProviderName"),
@@ -60,7 +62,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html
@@ -69,7 +71,7 @@ type CfnCapacityProviderPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnCapacityProviderMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -92,8 +94,8 @@ func (j *jsiiProxy_CfnCapacityProviderPropsMixin) Props() *CfnCapacityProviderMi
 	return returns
 }
 
-func (j *jsiiProxy_CfnCapacityProviderPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnCapacityProviderPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

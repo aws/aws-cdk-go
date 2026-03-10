@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssagemaker"
 )
 
-func (m *jsiiProxy_ModelEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *ModelEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (m *jsiiProxy_ModelEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (m *jsiiProxy_ModelEvents) validateAwsAPICallViaCloudTrailPatternParameters
 	return nil
 }
 
-func (m *jsiiProxy_ModelEvents) validateSageMakerTransformJobStateChangePatternParameters(options *ModelEvents_SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) error {
+func (m *jsiiProxy_ModelEvents) validateSageMakerTransformJobStateChangePatternParameters(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

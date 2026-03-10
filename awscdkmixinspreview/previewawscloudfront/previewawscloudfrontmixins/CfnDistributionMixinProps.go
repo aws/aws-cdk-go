@@ -68,7 +68,7 @@ import (
 //   				ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
 //   				SmoothStreaming: jsii.Boolean(false),
 //   				TargetOriginId: jsii.String("targetOriginId"),
-//   				TrustedKeyGroups: []*string{
+//   				TrustedKeyGroups: []interface{}{
 //   					jsii.String("trustedKeyGroups"),
 //   				},
 //   				TrustedSigners: []*string{
@@ -152,7 +152,7 @@ import (
 //   			ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
 //   			SmoothStreaming: jsii.Boolean(false),
 //   			TargetOriginId: jsii.String("targetOriginId"),
-//   			TrustedKeyGroups: []*string{
+//   			TrustedKeyGroups: []interface{}{
 //   				jsii.String("trustedKeyGroups"),
 //   			},
 //   			TrustedSigners: []*string{

@@ -28,6 +28,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnApplicationPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnApplicationPropsMixin_TagsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnConfigurationProfileMixinProps",
 		reflect.TypeOf((*CfnConfigurationProfileMixinProps)(nil)).Elem(),
 	)
@@ -46,6 +50,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnConfigurationProfilePropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnConfigurationProfilePropsMixin_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnConfigurationProfilePropsMixin.ValidatorsProperty",
@@ -76,6 +84,10 @@ func init() {
 		reflect.TypeOf((*CfnDeploymentPropsMixin_DynamicExtensionParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnDeploymentPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnDeploymentPropsMixin_TagsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnDeploymentStrategyMixinProps",
 		reflect.TypeOf((*CfnDeploymentStrategyMixinProps)(nil)).Elem(),
 	)
@@ -94,6 +106,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnDeploymentStrategyPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnDeploymentStrategyPropsMixin_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnEnvironmentMixinProps",
@@ -122,6 +138,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnEnvironmentPropsMixin.MonitorsProperty",
 		reflect.TypeOf((*CfnEnvironmentPropsMixin_MonitorsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnEnvironmentPropsMixin.TagsProperty",
+		reflect.TypeOf((*CfnEnvironmentPropsMixin_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_appconfig.mixins.CfnExtensionAssociationMixinProps",

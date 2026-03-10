@@ -187,6 +187,54 @@ func validateCfnLocationFSxWindows_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationFSxWindows) validateSetCmkSecretConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationFSxWindows_CmkSecretConfigProperty:
+		val := val.(*CfnLocationFSxWindows_CmkSecretConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationFSxWindows_CmkSecretConfigProperty:
+		val_ := val.(CfnLocationFSxWindows_CmkSecretConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationFSxWindows_CmkSecretConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows) validateSetCustomSecretConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationFSxWindows_CustomSecretConfigProperty:
+		val := val.(*CfnLocationFSxWindows_CustomSecretConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationFSxWindows_CustomSecretConfigProperty:
+		val_ := val.(CfnLocationFSxWindows_CustomSecretConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationFSxWindows_CustomSecretConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationFSxWindows) validateSetSecurityGroupArnsParameters(val *[]*string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

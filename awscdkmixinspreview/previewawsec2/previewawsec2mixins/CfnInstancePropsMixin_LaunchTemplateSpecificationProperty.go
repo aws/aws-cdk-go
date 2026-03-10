@@ -29,7 +29,7 @@ type CfnInstancePropsMixin_LaunchTemplateSpecificationProperty struct {
 	// You must specify either the launch template ID or the launch template name, but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid
 	//
-	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId interface{} `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
 	//
 	// You must specify either the launch template ID or the launch template name, but not both.

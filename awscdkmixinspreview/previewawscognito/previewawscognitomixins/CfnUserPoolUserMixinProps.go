@@ -104,7 +104,7 @@ type CfnUserPoolUserMixinProps struct {
 	// The ID of the user pool where you want to create a user.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger.
 	//
 	// This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.

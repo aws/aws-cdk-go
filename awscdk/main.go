@@ -2366,6 +2366,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IMergeStrategy",
+		reflect.TypeOf((*IMergeStrategy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "apply", GoMethod: "Apply"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IMergeStrategy{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.INumberProducer",
 		reflect.TypeOf((*INumberProducer)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2917,6 +2927,14 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_PropertyInjectors{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.PropertyMergeStrategy",
+		reflect.TypeOf((*PropertyMergeStrategy)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_PropertyMergeStrategy{}
 		},
 	)
 	_jsii_.RegisterClass(

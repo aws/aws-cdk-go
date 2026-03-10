@@ -19,7 +19,7 @@ type CfnTransitGatewayRegistrationMixinProps struct {
 	// The ID of the global network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
 	//
-	GlobalNetworkId *string `field:"optional" json:"globalNetworkId" yaml:"globalNetworkId"`
+	GlobalNetworkId interface{} `field:"optional" json:"globalNetworkId" yaml:"globalNetworkId"`
 	// The Amazon Resource Name (ARN) of the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
 	//

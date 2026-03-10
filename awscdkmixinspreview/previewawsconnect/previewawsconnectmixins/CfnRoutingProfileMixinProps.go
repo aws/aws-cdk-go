@@ -70,7 +70,7 @@ type CfnRoutingProfileMixinProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`
 	// Contains information about the queue and channel for manual assignment behaviour can be enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-manualassignmentqueueconfigs
 	//

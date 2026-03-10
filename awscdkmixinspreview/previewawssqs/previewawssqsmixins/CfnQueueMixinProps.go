@@ -93,7 +93,7 @@ type CfnQueueMixinProps struct {
 	// - The Key Management Service (KMS) section of the [Security best practices for AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html) in the *AWS Key Management Service Developer Guide*
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html#cfn-sqs-queue-kmsmasterkeyid
 	//
-	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	KmsMasterKeyId interface{} `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
 	// You can specify an integer from 1,024 bytes (1 KiB) to 1,048,576 bytes (1 MiB).

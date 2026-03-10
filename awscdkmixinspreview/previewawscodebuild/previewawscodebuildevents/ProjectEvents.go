@@ -24,10 +24,10 @@ import (
 type ProjectEvents interface {
 	// EventBridge event pattern for Project CodeBuild Build Phase Change.
 	// Experimental.
-	CodeBuildBuildPhaseChangePattern(options *ProjectEvents_CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) *awsevents.EventPattern
+	CodeBuildBuildPhaseChangePattern(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for Project CodeBuild Build State Change.
 	// Experimental.
-	CodeBuildBuildStateChangePattern(options *ProjectEvents_CodeBuildBuildStateChange_CodeBuildBuildStateChangeProps) *awsevents.EventPattern
+	CodeBuildBuildStateChangePattern(options *CodeBuildBuildStateChange_CodeBuildBuildStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ProjectEvents
@@ -55,7 +55,7 @@ func ProjectEvents_FromProject(projectRef interfacesawscodebuild.IProjectRef) Pr
 	return returns
 }
 
-func (p *jsiiProxy_ProjectEvents) CodeBuildBuildPhaseChangePattern(options *ProjectEvents_CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) *awsevents.EventPattern {
+func (p *jsiiProxy_ProjectEvents) CodeBuildBuildPhaseChangePattern(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) *awsevents.EventPattern {
 	if err := p.validateCodeBuildBuildPhaseChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (p *jsiiProxy_ProjectEvents) CodeBuildBuildPhaseChangePattern(options *Proj
 	return returns
 }
 
-func (p *jsiiProxy_ProjectEvents) CodeBuildBuildStateChangePattern(options *ProjectEvents_CodeBuildBuildStateChange_CodeBuildBuildStateChangeProps) *awsevents.EventPattern {
+func (p *jsiiProxy_ProjectEvents) CodeBuildBuildStateChangePattern(options *CodeBuildBuildStateChange_CodeBuildBuildStateChangeProps) *awsevents.EventPattern {
 	if err := p.validateCodeBuildBuildStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

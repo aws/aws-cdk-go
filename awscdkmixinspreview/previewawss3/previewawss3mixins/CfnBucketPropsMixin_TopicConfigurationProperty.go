@@ -41,6 +41,6 @@ type CfnBucketPropsMixin_TopicConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-topicconfiguration.html#cfn-s3-bucket-topicconfiguration-topic
 	//
-	Topic *string `field:"optional" json:"topic" yaml:"topic"`
+	Topic interface{} `field:"optional" json:"topic" yaml:"topic"`
 }
 

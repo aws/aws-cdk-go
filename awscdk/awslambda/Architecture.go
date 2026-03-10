@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Architecture: lambda.Architecture_ARM_64(),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),

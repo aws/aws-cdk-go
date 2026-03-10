@@ -11,19 +11,27 @@ import (
 // An AppSync dummy datasource.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   schema := appsync.NewSchemaFile(&SchemaProps{
+//   	FilePath: jsii.String("mySchemaFile"),
+//   })
+//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+//   	Name: jsii.String("myApi"),
+//   	Definition: appsync.Definition_FromSchema(schema),
+//   	EnhancedMetricsConfig: &EnhancedMetricsConfig{
+//   		DataSourceLevelMetricsBehavior: appsync.DataSourceLevelMetricsBehavior_PER_DATA_SOURCE_METRICS,
+//   		OperationLevelMetricsConfig: appsync.OperationLevelMetricsConfig_ENABLED,
+//   		ResolverLevelMetricsBehavior: appsync.ResolverLevelMetricsBehavior_PER_RESOLVER_METRICS,
+//   	},
+//   })
 //
-//   var graphQLApiRef IGraphQLApiRef
+//   noneDS := api.AddNoneDataSource(jsii.String("none"), &DataSourceOptions{
+//   	MetricsConfig: appsync.DataSourceMetricsConfig_ENABLED,
+//   })
 //
-//   noneDataSource := awscdk.Aws_appsync.NewNoneDataSource(this, jsii.String("MyNoneDataSource"), &NoneDataSourceProps{
-//   	Api: graphQLApiRef,
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
-//   	Name: jsii.String("name"),
+//   noneDS.CreateResolver(jsii.String("noneResolver"), &BaseResolverProps{
+//   	TypeName: jsii.String("Mutation"),
+//   	FieldName: jsii.String("addDemoMetricsConfig"),
+//   	MetricsConfig: appsync.ResolverMetricsConfig_ENABLED,
 //   })
 //
 type NoneDataSource interface {

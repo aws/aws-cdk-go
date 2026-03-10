@@ -274,6 +274,7 @@ type CfnEvaluationForm interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Configuration settings for evaluation reviews.
 	ReviewConfiguration() interface{}
 	SetReviewConfiguration(val interface{})
 	// A scoring strategy of the evaluation form.

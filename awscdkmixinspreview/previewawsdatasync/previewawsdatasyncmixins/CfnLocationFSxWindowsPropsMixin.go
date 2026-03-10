@@ -16,9 +16,19 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnLocationFSxWindowsPropsMixin := awscdkmixinspreview.Mixins.NewCfnLocationFSxWindowsPropsMixin(&CfnLocationFSxWindowsMixinProps{
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	Domain: jsii.String("domain"),
 //   	FsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	Password: jsii.String("password"),
@@ -34,7 +44,7 @@ import (
 //   	},
 //   	User: jsii.String("user"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html
@@ -43,7 +53,7 @@ type CfnLocationFSxWindowsPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnLocationFSxWindowsMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -66,8 +76,8 @@ func (j *jsiiProxy_CfnLocationFSxWindowsPropsMixin) Props() *CfnLocationFSxWindo
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationFSxWindowsPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnLocationFSxWindowsPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

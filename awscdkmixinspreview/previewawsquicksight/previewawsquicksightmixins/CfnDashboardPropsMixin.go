@@ -12,7 +12,7 @@ import (
 
 // Creates a dashboard from a template. To first create a template, see the `CreateTemplate` API operation.
 //
-// A dashboard is an entity in Quick Suite that identifies Quick Suite reports, created from analyses. You can share Quick Suite dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
+// A dashboard is an entity in Quick that identifies Quick reports, created from analyses. You can share Quick dashboards. With the right permissions, you can create scheduled email reports from them. If you have the correct permissions, you can create a dashboard from a template that exists in a different AWS account .
 //
 // Example:
 //
@@ -23,7 +23,7 @@ type CfnDashboardPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnDashboardMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -46,8 +46,8 @@ func (j *jsiiProxy_CfnDashboardPropsMixin) Props() *CfnDashboardMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboardPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnDashboardPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

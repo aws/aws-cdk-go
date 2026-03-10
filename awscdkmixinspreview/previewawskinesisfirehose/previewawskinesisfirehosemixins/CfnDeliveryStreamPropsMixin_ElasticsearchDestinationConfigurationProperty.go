@@ -69,10 +69,10 @@ package previewawskinesisfirehosemixins
 //   	TypeName: jsii.String("typeName"),
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		RoleArn: jsii.String("roleArn"),
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   	},
@@ -108,7 +108,7 @@ type CfnDeliveryStreamPropsMixin_ElasticsearchDestinationConfigurationProperty s
 	// Specify either `ClusterEndpoint` or `DomainARN` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-domainarn
 	//
-	DomainArn *string `field:"optional" json:"domainArn" yaml:"domainArn"`
+	DomainArn interface{} `field:"optional" json:"domainArn" yaml:"domainArn"`
 	// The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-indexname
 	//
@@ -132,7 +132,7 @@ type CfnDeliveryStreamPropsMixin_ElasticsearchDestinationConfigurationProperty s
 	// For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3).
 	//
 	// You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .

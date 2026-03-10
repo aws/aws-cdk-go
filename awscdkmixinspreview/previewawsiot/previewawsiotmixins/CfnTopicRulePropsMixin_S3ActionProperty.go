@@ -21,7 +21,7 @@ type CfnTopicRulePropsMixin_S3ActionProperty struct {
 	// The Amazon S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
 	//
-	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	BucketName interface{} `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The Amazon S3 canned ACL that controls access to the object identified by the object key.
 	//
 	// For more information, see [S3 canned ACLs](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) .
@@ -37,6 +37,6 @@ type CfnTopicRulePropsMixin_S3ActionProperty struct {
 	// The ARN of the IAM role that grants access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

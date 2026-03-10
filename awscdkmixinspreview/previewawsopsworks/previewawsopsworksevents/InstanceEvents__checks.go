@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 )
 
-func (i *jsiiProxy_InstanceEvents) validateOpsWorksAlertPatternParameters(options *InstanceEvents_OpsWorksAlert_OpsWorksAlertProps) error {
+func (i *jsiiProxy_InstanceEvents) validateOpsWorksAlertPatternParameters(options *OpsWorksAlert_OpsWorksAlertProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (i *jsiiProxy_InstanceEvents) validateOpsWorksAlertPatternParameters(option
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateOpsWorksCommandStateChangePatternParameters(options *InstanceEvents_OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) error {
+func (i *jsiiProxy_InstanceEvents) validateOpsWorksCommandStateChangePatternParameters(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (i *jsiiProxy_InstanceEvents) validateOpsWorksCommandStateChangePatternPara
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateOpsWorksInstanceStateChangePatternParameters(options *InstanceEvents_OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) error {
+func (i *jsiiProxy_InstanceEvents) validateOpsWorksInstanceStateChangePatternParameters(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

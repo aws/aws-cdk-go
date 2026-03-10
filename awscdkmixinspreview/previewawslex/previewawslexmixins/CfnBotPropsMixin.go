@@ -25,7 +25,7 @@ type CfnBotPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnBotMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -48,8 +48,8 @@ func (j *jsiiProxy_CfnBotPropsMixin) Props() *CfnBotMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBotPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnBotPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

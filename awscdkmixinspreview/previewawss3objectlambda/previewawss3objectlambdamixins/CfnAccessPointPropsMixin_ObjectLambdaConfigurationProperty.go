@@ -42,7 +42,7 @@ type CfnAccessPointPropsMixin_ObjectLambdaConfigurationProperty struct {
 	// Standard access point associated with the Object Lambda Access Point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
 	//
-	SupportingAccessPoint *string `field:"optional" json:"supportingAccessPoint" yaml:"supportingAccessPoint"`
+	SupportingAccessPoint interface{} `field:"optional" json:"supportingAccessPoint" yaml:"supportingAccessPoint"`
 	// A container for transformation configurations for an Object Lambda Access Point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
 	//

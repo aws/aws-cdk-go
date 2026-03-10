@@ -47,7 +47,7 @@ type CfnEventInvokeConfigMixinProps struct {
 	// *Pattern* : `([a-zA-Z0-9-_]+)`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-functionname
 	//
-	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"optional" json:"functionName" yaml:"functionName"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html#cfn-lambda-eventinvokeconfig-maximumeventageinseconds
 	//

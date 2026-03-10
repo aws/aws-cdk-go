@@ -11,7 +11,7 @@ package previewawsiammixins
 //   cfnInstanceProfileMixinProps := &CfnInstanceProfileMixinProps{
 //   	InstanceProfileName: jsii.String("instanceProfileName"),
 //   	Path: jsii.String("path"),
-//   	Roles: []*string{
+//   	Roles: []interface{}{
 //   		jsii.String("roles"),
 //   	},
 //   }
@@ -40,6 +40,6 @@ type CfnInstanceProfileMixinProps struct {
 	// Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
 	//
-	Roles *[]*string `field:"optional" json:"roles" yaml:"roles"`
+	Roles *[]interface{} `field:"optional" json:"roles" yaml:"roles"`
 }
 

@@ -18,11 +18,22 @@ package awsdatasync
 //   		MountOptions: &SmbMountOptionsProperty{
 //   			Version: jsii.String("version"),
 //   		},
-//   		Password: jsii.String("password"),
 //   		User: jsii.String("user"),
 //
 //   		// the properties below are optional
+//   		CmkSecretConfig: &CmkSecretConfigProperty{
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   		CustomSecretConfig: &CustomSecretConfigProperty{
+//   			SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
 //   		Domain: jsii.String("domain"),
+//   		ManagedSecretConfig: &ManagedSecretConfigProperty{
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   		Password: jsii.String("password"),
 //   	},
 //   }
 //

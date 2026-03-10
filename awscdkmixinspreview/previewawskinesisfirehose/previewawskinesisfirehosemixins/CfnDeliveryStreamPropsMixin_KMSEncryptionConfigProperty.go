@@ -20,6 +20,6 @@ type CfnDeliveryStreamPropsMixin_KMSEncryptionConfigProperty struct {
 	// The key must belong to the same region as the destination S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
 	//
-	AwskmsKeyArn *string `field:"optional" json:"awskmsKeyArn" yaml:"awskmsKeyArn"`
+	AwskmsKeyArn interface{} `field:"optional" json:"awskmsKeyArn" yaml:"awskmsKeyArn"`
 }
 

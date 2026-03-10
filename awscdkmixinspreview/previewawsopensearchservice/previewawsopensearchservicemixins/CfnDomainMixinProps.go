@@ -156,10 +156,10 @@ import (
 //   		},
 //   	},
 //   	VpcOptions: &VPCOptionsProperty{
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   	},

@@ -100,7 +100,7 @@ type CfnChannelMixinProps struct {
 	//
 	// Default: - "".
 	//
-	RecordingConfigurationArn *string `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
+	RecordingConfigurationArn interface{} `field:"optional" json:"recordingConfigurationArn" yaml:"recordingConfigurationArn"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-channel-tag.html) .

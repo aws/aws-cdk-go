@@ -52,7 +52,7 @@ type CfnPublicVirtualInterfaceMixinProps struct {
 	BgpPeers interface{} `field:"optional" json:"bgpPeers" yaml:"bgpPeers"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-publicvirtualinterface.html#cfn-directconnect-publicvirtualinterface-connectionid
 	//
-	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
+	ConnectionId interface{} `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// The routes to be advertised to the AWS network in this region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-publicvirtualinterface.html#cfn-directconnect-publicvirtualinterface-routefilterprefixes
 	//

@@ -24,10 +24,10 @@ import (
 type DatabaseEvents interface {
 	// EventBridge event pattern for Database Glue Data Catalog Database State Change.
 	// Experimental.
-	GlueDataCatalogDatabaseStateChangePattern(options *DatabaseEvents_GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) *awsevents.EventPattern
+	GlueDataCatalogDatabaseStateChangePattern(options *GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for Database Glue Data Catalog Table State Change.
 	// Experimental.
-	GlueDataCatalogTableStateChangePattern(options *DatabaseEvents_GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) *awsevents.EventPattern
+	GlueDataCatalogTableStateChangePattern(options *GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for DatabaseEvents
@@ -55,7 +55,7 @@ func DatabaseEvents_FromDatabase(databaseRef interfacesawsglue.IDatabaseRef) Dat
 	return returns
 }
 
-func (d *jsiiProxy_DatabaseEvents) GlueDataCatalogDatabaseStateChangePattern(options *DatabaseEvents_GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatabaseEvents) GlueDataCatalogDatabaseStateChangePattern(options *GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) *awsevents.EventPattern {
 	if err := d.validateGlueDataCatalogDatabaseStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (d *jsiiProxy_DatabaseEvents) GlueDataCatalogDatabaseStateChangePattern(opt
 	return returns
 }
 
-func (d *jsiiProxy_DatabaseEvents) GlueDataCatalogTableStateChangePattern(options *DatabaseEvents_GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatabaseEvents) GlueDataCatalogTableStateChangePattern(options *GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) *awsevents.EventPattern {
 	if err := d.validateGlueDataCatalogTableStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

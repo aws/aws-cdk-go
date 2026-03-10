@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnDataTablePropsMixin := awscdkmixinspreview.Mixins.NewCfnDataTablePropsMixin(&CfnDataTableMixinProps{
 //   	Description: jsii.String("description"),
@@ -34,7 +36,7 @@ import (
 //   	TimeZone: jsii.String("timeZone"),
 //   	ValueLockLevel: jsii.String("valueLockLevel"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html
@@ -43,7 +45,7 @@ type CfnDataTablePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnDataTableMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -66,8 +68,8 @@ func (j *jsiiProxy_CfnDataTablePropsMixin) Props() *CfnDataTableMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataTablePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnDataTablePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -68,7 +68,7 @@ type CfnImagePipelineMixinProps struct {
 	// The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
 	//
-	ContainerRecipeArn *string `field:"optional" json:"containerRecipeArn" yaml:"containerRecipeArn"`
+	ContainerRecipeArn interface{} `field:"optional" json:"containerRecipeArn" yaml:"containerRecipeArn"`
 	// The description of this image pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
 	//
@@ -76,7 +76,7 @@ type CfnImagePipelineMixinProps struct {
 	// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
 	//
-	DistributionConfigurationArn *string `field:"optional" json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
+	DistributionConfigurationArn interface{} `field:"optional" json:"distributionConfigurationArn" yaml:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	//
 	// This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default.
@@ -90,7 +90,7 @@ type CfnImagePipelineMixinProps struct {
 	// The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
 	//
-	ImageRecipeArn *string `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
+	ImageRecipeArn interface{} `field:"optional" json:"imageRecipeArn" yaml:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagescanningconfiguration
 	//
@@ -102,7 +102,7 @@ type CfnImagePipelineMixinProps struct {
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
 	//
-	InfrastructureConfigurationArn *string `field:"optional" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
+	InfrastructureConfigurationArn interface{} `field:"optional" json:"infrastructureConfigurationArn" yaml:"infrastructureConfigurationArn"`
 	// Defines logging configuration for the output image.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-loggingconfiguration
 	//

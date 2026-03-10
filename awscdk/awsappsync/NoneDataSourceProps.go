@@ -19,6 +19,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	MetricsConfig: awscdk.Aws_appsync.DataSourceMetricsConfig_ENABLED,
 //   	Name: jsii.String("name"),
 //   }
 //
@@ -29,6 +30,10 @@ type NoneDataSourceProps struct {
 	// Default: - None.
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Whether to enable enhanced metrics of the data source Value will be ignored, if `enhancedMetricsConfig.dataSourceLevelMetricsBehavior` on AppSync GraphqlApi construct is set to `FULL_REQUEST_DATA_SOURCE_METRICS`.
+	// Default: - no metrics configuration.
+	//
+	MetricsConfig DataSourceMetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// The name of the data source.
 	// Default: - id of data source.
 	//

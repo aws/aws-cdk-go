@@ -198,7 +198,7 @@ package previewawsec2mixins
 //   						EnaSrdUdpEnabled: jsii.Boolean(false),
 //   					},
 //   				},
-//   				Groups: []*string{
+//   				Groups: []interface{}{
 //   					jsii.String("groups"),
 //   				},
 //   				InterfaceType: jsii.String("interfaceType"),
@@ -254,7 +254,7 @@ package previewawsec2mixins
 //   			HostnameType: jsii.String("hostnameType"),
 //   		},
 //   		RamDiskId: jsii.String("ramDiskId"),
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
 //   		SecurityGroups: []*string{

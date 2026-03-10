@@ -24,10 +24,10 @@ import (
 type AlarmEvents interface {
 	// EventBridge event pattern for Alarm CloudWatch Alarm Configuration Change.
 	// Experimental.
-	CloudWatchAlarmConfigurationChangePattern(options *AlarmEvents_CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) *awsevents.EventPattern
+	CloudWatchAlarmConfigurationChangePattern(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for Alarm CloudWatch Alarm State Change.
 	// Experimental.
-	CloudWatchAlarmStateChangePattern(options *AlarmEvents_CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps) *awsevents.EventPattern
+	CloudWatchAlarmStateChangePattern(options *CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for AlarmEvents
@@ -55,7 +55,7 @@ func AlarmEvents_FromAlarm(alarmRef interfacesawscloudwatch.IAlarmRef) AlarmEven
 	return returns
 }
 
-func (a *jsiiProxy_AlarmEvents) CloudWatchAlarmConfigurationChangePattern(options *AlarmEvents_CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) *awsevents.EventPattern {
+func (a *jsiiProxy_AlarmEvents) CloudWatchAlarmConfigurationChangePattern(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) *awsevents.EventPattern {
 	if err := a.validateCloudWatchAlarmConfigurationChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (a *jsiiProxy_AlarmEvents) CloudWatchAlarmConfigurationChangePattern(option
 	return returns
 }
 
-func (a *jsiiProxy_AlarmEvents) CloudWatchAlarmStateChangePattern(options *AlarmEvents_CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps) *awsevents.EventPattern {
+func (a *jsiiProxy_AlarmEvents) CloudWatchAlarmStateChangePattern(options *CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps) *awsevents.EventPattern {
 	if err := a.validateCloudWatchAlarmStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

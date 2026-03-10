@@ -56,7 +56,7 @@ type CfnVPCPeeringConnectionMixinProps struct {
 	// You must specify this parameter in the request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid
 	//
-	PeerVpcId *string `field:"optional" json:"peerVpcId" yaml:"peerVpcId"`
+	PeerVpcId interface{} `field:"optional" json:"peerVpcId" yaml:"peerVpcId"`
 	// Any tags assigned to the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-tags
 	//
@@ -64,6 +64,6 @@ type CfnVPCPeeringConnectionMixinProps struct {
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

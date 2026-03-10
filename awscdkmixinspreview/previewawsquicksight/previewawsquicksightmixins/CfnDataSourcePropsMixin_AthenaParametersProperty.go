@@ -34,6 +34,6 @@ type CfnDataSourcePropsMixin_AthenaParametersProperty struct {
 	// The workgroup that Amazon Athena uses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
 	//
-	WorkGroup *string `field:"optional" json:"workGroup" yaml:"workGroup"`
+	WorkGroup interface{} `field:"optional" json:"workGroup" yaml:"workGroup"`
 }
 

@@ -1832,6 +1832,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "allowedAccessControlHierarchyGroupId", GoGetter: "AllowedAccessControlHierarchyGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "allowedAccessControlTags", GoGetter: "AllowedAccessControlTags"},
+			_jsii_.MemberProperty{JsiiProperty: "allowedFlowModules", GoGetter: "AllowedFlowModules"},
 			_jsii_.MemberProperty{JsiiProperty: "applications", GoGetter: "Applications"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedRegion", GoGetter: "AttrLastModifiedRegion"},
@@ -1888,6 +1889,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnSecurityProfile.DataTableAccessControlConfigurationProperty",
 		reflect.TypeOf((*CfnSecurityProfile_DataTableAccessControlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnSecurityProfile.FlowModuleProperty",
+		reflect.TypeOf((*CfnSecurityProfile_FlowModuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnSecurityProfile.GranularAccessControlConfigurationProperty",

@@ -24,16 +24,16 @@ import (
 type KeyEvents interface {
 	// EventBridge event pattern for Key AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *KeyEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 	// EventBridge event pattern for Key KMS CMK Deletion.
 	// Experimental.
-	KMSCMKDeletionPattern(options *KeyEvents_KMSCMKDeletion_KMSCMKDeletionProps) *awsevents.EventPattern
+	KmsCMKDeletionPattern(options *KMSCMKDeletion_KMSCMKDeletionProps) *awsevents.EventPattern
 	// EventBridge event pattern for Key KMS CMK Rotation.
 	// Experimental.
-	KMSCMKRotationPattern(options *KeyEvents_KMSCMKRotation_KMSCMKRotationProps) *awsevents.EventPattern
+	KmsCMKRotationPattern(options *KMSCMKRotation_KMSCMKRotationProps) *awsevents.EventPattern
 	// EventBridge event pattern for Key KMS Imported Key Material Expiration.
 	// Experimental.
-	KMSImportedKeyMaterialExpirationPattern(options *KeyEvents_KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) *awsevents.EventPattern
+	KmsImportedKeyMaterialExpirationPattern(options *KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for KeyEvents
@@ -61,7 +61,7 @@ func KeyEvents_FromKey(keyRef interfacesawskms.IKeyRef) KeyEvents {
 	return returns
 }
 
-func (k *jsiiProxy_KeyEvents) AwsAPICallViaCloudTrailPattern(options *KeyEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (k *jsiiProxy_KeyEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := k.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -77,15 +77,15 @@ func (k *jsiiProxy_KeyEvents) AwsAPICallViaCloudTrailPattern(options *KeyEvents_
 	return returns
 }
 
-func (k *jsiiProxy_KeyEvents) KMSCMKDeletionPattern(options *KeyEvents_KMSCMKDeletion_KMSCMKDeletionProps) *awsevents.EventPattern {
-	if err := k.validateKMSCMKDeletionPatternParameters(options); err != nil {
+func (k *jsiiProxy_KeyEvents) KmsCMKDeletionPattern(options *KMSCMKDeletion_KMSCMKDeletionProps) *awsevents.EventPattern {
+	if err := k.validateKmsCMKDeletionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		k,
-		"kMSCMKDeletionPattern",
+		"kmsCMKDeletionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -93,15 +93,15 @@ func (k *jsiiProxy_KeyEvents) KMSCMKDeletionPattern(options *KeyEvents_KMSCMKDel
 	return returns
 }
 
-func (k *jsiiProxy_KeyEvents) KMSCMKRotationPattern(options *KeyEvents_KMSCMKRotation_KMSCMKRotationProps) *awsevents.EventPattern {
-	if err := k.validateKMSCMKRotationPatternParameters(options); err != nil {
+func (k *jsiiProxy_KeyEvents) KmsCMKRotationPattern(options *KMSCMKRotation_KMSCMKRotationProps) *awsevents.EventPattern {
+	if err := k.validateKmsCMKRotationPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		k,
-		"kMSCMKRotationPattern",
+		"kmsCMKRotationPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -109,15 +109,15 @@ func (k *jsiiProxy_KeyEvents) KMSCMKRotationPattern(options *KeyEvents_KMSCMKRot
 	return returns
 }
 
-func (k *jsiiProxy_KeyEvents) KMSImportedKeyMaterialExpirationPattern(options *KeyEvents_KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) *awsevents.EventPattern {
-	if err := k.validateKMSImportedKeyMaterialExpirationPatternParameters(options); err != nil {
+func (k *jsiiProxy_KeyEvents) KmsImportedKeyMaterialExpirationPattern(options *KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) *awsevents.EventPattern {
+	if err := k.validateKmsImportedKeyMaterialExpirationPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		k,
-		"kMSImportedKeyMaterialExpirationPattern",
+		"kmsImportedKeyMaterialExpirationPattern",
 		[]interface{}{options},
 		&returns,
 	)

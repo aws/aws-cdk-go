@@ -112,7 +112,7 @@ type CfnBackupPlanPropsMixin_BackupRuleResourceTypeProperty struct {
 	// Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
 	//
-	TargetBackupVault *string `field:"optional" json:"targetBackupVault" yaml:"targetBackupVault"`
+	TargetBackupVault interface{} `field:"optional" json:"targetBackupVault" yaml:"targetBackupVault"`
 	// The ARN of a logically air-gapped vault.
 	//
 	// ARN must be in the same account and Region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.

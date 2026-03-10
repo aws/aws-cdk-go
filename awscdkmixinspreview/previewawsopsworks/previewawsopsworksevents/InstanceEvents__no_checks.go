@@ -4,15 +4,15 @@ package previewawsopsworksevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_InstanceEvents) validateOpsWorksAlertPatternParameters(options *InstanceEvents_OpsWorksAlert_OpsWorksAlertProps) error {
+func (i *jsiiProxy_InstanceEvents) validateOpsWorksAlertPatternParameters(options *OpsWorksAlert_OpsWorksAlertProps) error {
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateOpsWorksCommandStateChangePatternParameters(options *InstanceEvents_OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) error {
+func (i *jsiiProxy_InstanceEvents) validateOpsWorksCommandStateChangePatternParameters(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) error {
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateOpsWorksInstanceStateChangePatternParameters(options *InstanceEvents_OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) error {
+func (i *jsiiProxy_InstanceEvents) validateOpsWorksInstanceStateChangePatternParameters(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) error {
 	return nil
 }
 

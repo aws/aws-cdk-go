@@ -4,15 +4,15 @@ package previewawscodecommitevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnCommitPatternParameters(options *RepositoryEvents_CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnCommitPatternParameters(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnPullRequestPatternParameters(options *RepositoryEvents_CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateCodeCommitCommentOnPullRequestPatternParameters(options *CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateCodeCommitRepositoryStateChangePatternParameters(options *RepositoryEvents_CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateCodeCommitRepositoryStateChangePatternParameters(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) error {
 	return nil
 }
 

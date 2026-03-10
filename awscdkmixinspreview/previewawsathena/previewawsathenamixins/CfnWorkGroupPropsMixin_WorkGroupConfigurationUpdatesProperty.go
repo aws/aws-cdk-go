@@ -121,7 +121,7 @@ type CfnWorkGroupPropsMixin_WorkGroupConfigurationUpdatesProperty struct {
 	// This property applies only to Spark enabled workgroups and Identity Center enabled workgroups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-executionrole
 	//
-	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	ExecutionRole interface{} `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The configuration for the managed query results and encryption option.
 	//
 	// ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time.

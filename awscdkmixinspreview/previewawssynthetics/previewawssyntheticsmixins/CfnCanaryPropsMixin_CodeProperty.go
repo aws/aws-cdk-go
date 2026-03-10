@@ -56,7 +56,7 @@ type CfnCanaryPropsMixin_CodeProperty struct {
 	// The bucket must already exist.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
 	//
-	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket interface{} `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of your script.
 	//
 	// For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .

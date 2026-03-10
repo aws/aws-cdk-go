@@ -16,14 +16,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnLocationNFSPropsMixin := awscdkmixinspreview.Mixins.NewCfnLocationNFSPropsMixin(&CfnLocationNFSMixinProps{
 //   	MountOptions: &MountOptionsProperty{
 //   		Version: jsii.String("version"),
 //   	},
 //   	OnPremConfig: &OnPremConfigProperty{
-//   		AgentArns: []*string{
+//   		AgentArns: []interface{}{
 //   			jsii.String("agentArns"),
 //   		},
 //   	},
@@ -36,7 +38,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
@@ -45,7 +47,7 @@ type CfnLocationNFSPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnLocationNFSMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -68,8 +70,8 @@ func (j *jsiiProxy_CfnLocationNFSPropsMixin) Props() *CfnLocationNFSMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationNFSPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnLocationNFSPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

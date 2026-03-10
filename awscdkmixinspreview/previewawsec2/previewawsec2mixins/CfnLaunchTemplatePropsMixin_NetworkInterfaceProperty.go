@@ -28,7 +28,7 @@ package previewawsec2mixins
 //   			EnaSrdUdpEnabled: jsii.Boolean(false),
 //   		},
 //   	},
-//   	Groups: []*string{
+//   	Groups: []interface{}{
 //   		jsii.String("groups"),
 //   	},
 //   	InterfaceType: jsii.String("interfaceType"),
@@ -110,7 +110,7 @@ type CfnLaunchTemplatePropsMixin_NetworkInterfaceProperty struct {
 	// The IDs of one or more security groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
 	//
-	Groups *[]*string `field:"optional" json:"groups" yaml:"groups"`
+	Groups *[]interface{} `field:"optional" json:"groups" yaml:"groups"`
 	// The type of network interface.
 	//
 	// To create an Elastic Fabric Adapter (EFA), specify `efa` or `efa` . For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide* .
@@ -168,7 +168,7 @@ type CfnLaunchTemplatePropsMixin_NetworkInterfaceProperty struct {
 	// The ID of the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
 	//
-	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	NetworkInterfaceId interface{} `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
 	// The primary IPv6 address of the network interface.
 	//
 	// When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) .
@@ -190,6 +190,6 @@ type CfnLaunchTemplatePropsMixin_NetworkInterfaceProperty struct {
 	// The ID of the subnet for the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

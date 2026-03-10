@@ -23,6 +23,6 @@ type CfnClusterPropsMixin_CloudWatchLogsProperty struct {
 	// The CloudWatch log group that is the destination for broker logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-cloudwatchlogs.html#cfn-msk-cluster-cloudwatchlogs-loggroup
 	//
-	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interface{} `field:"optional" json:"logGroup" yaml:"logGroup"`
 }
 

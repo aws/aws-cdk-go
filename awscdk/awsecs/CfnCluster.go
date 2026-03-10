@@ -14,12 +14,7 @@ import (
 // The `AWS::ECS::Cluster` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
 //
 // Example:
-//   import ecs "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//
-//
-//   cluster := ecs.NewCfnCluster(scope, jsii.String("Cluster"))
-//   awscdk.Mixins_Of(cluster).Apply(awscdkmixinspreview.NewClusterSettings([]ClusterSettingsProperty{
+//   ecs.NewCfnCluster(this, jsii.String("Cluster")).With(mixins.NewClusterSettings([]ClusterSettingsProperty{
 //   	&ClusterSettingsProperty{
 //   		Name: jsii.String("containerInsights"),
 //   		Value: jsii.String("enhanced"),

@@ -177,7 +177,7 @@ type CfnEventSourceMappingMixinProps struct {
 	// - *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
 	//
-	EventSourceArn *string `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
+	EventSourceArn interface{} `field:"optional" json:"eventSourceArn" yaml:"eventSourceArn"`
 	// An object that defines the filter criteria that determine whether Lambda should process an event.
 	//
 	// For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) .
@@ -194,7 +194,7 @@ type CfnEventSourceMappingMixinProps struct {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 	//
-	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"optional" json:"functionName" yaml:"functionName"`
 	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 	//
 	// Valid Values: `ReportBatchItemFailures`.

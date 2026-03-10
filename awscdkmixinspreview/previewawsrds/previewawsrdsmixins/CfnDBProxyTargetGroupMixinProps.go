@@ -18,7 +18,7 @@ package previewawsrdsmixins
 //   			jsii.String("sessionPinningFilters"),
 //   		},
 //   	},
-//   	DbClusterIdentifiers: []*string{
+//   	DbClusterIdentifiers: []interface{}{
 //   		jsii.String("dbClusterIdentifiers"),
 //   	},
 //   	DbInstanceIdentifiers: []*string{
@@ -38,7 +38,7 @@ type CfnDBProxyTargetGroupMixinProps struct {
 	// One or more DB cluster identifiers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
 	//
-	DbClusterIdentifiers *[]*string `field:"optional" json:"dbClusterIdentifiers" yaml:"dbClusterIdentifiers"`
+	DbClusterIdentifiers *[]interface{} `field:"optional" json:"dbClusterIdentifiers" yaml:"dbClusterIdentifiers"`
 	// One or more DB instance identifiers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
 	//
@@ -46,7 +46,7 @@ type CfnDBProxyTargetGroupMixinProps struct {
 	// The identifier of the `DBProxy` that is associated with the `DBProxyTargetGroup` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
 	//
-	DbProxyName *string `field:"optional" json:"dbProxyName" yaml:"dbProxyName"`
+	DbProxyName interface{} `field:"optional" json:"dbProxyName" yaml:"dbProxyName"`
 	// The identifier for the target group.
 	//
 	// > Currently, this property must be set to `default` .

@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodebuild"
 )
 
-func (p *jsiiProxy_ProjectEvents) validateCodeBuildBuildPhaseChangePatternParameters(options *ProjectEvents_CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) error {
+func (p *jsiiProxy_ProjectEvents) validateCodeBuildBuildPhaseChangePatternParameters(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (p *jsiiProxy_ProjectEvents) validateCodeBuildBuildPhaseChangePatternParame
 	return nil
 }
 
-func (p *jsiiProxy_ProjectEvents) validateCodeBuildBuildStateChangePatternParameters(options *ProjectEvents_CodeBuildBuildStateChange_CodeBuildBuildStateChangeProps) error {
+func (p *jsiiProxy_ProjectEvents) validateCodeBuildBuildStateChangePatternParameters(options *CodeBuildBuildStateChange_CodeBuildBuildStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

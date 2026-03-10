@@ -101,6 +101,8 @@ type NestedCloudAssemblyArtifact interface {
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	// The set of messages extracted from the artifact's metadata.
 	Messages() *[]*SynthesisMessage
+	// Returns the metadata associated with this Cloud Artifact.
+	Metadata() *map[string]*[]*cloudassemblyschema.MetadataEntry
 	// The nested Assembly.
 	NestedAssembly() CloudAssembly
 	// Returns: all the metadata entries of a specific type in this artifact.
@@ -197,6 +199,16 @@ func (j *jsiiProxy_NestedCloudAssemblyArtifact) Messages() *[]*SynthesisMessage 
 	_jsii_.Get(
 		j,
 		"messages",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_NestedCloudAssemblyArtifact) Metadata() *map[string]*[]*cloudassemblyschema.MetadataEntry {
+	var returns *map[string]*[]*cloudassemblyschema.MetadataEntry
+	_jsii_.Get(
+		j,
+		"metadata",
 		&returns,
 	)
 	return returns

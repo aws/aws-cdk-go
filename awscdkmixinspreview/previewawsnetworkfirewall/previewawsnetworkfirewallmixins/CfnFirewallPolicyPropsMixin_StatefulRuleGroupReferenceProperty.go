@@ -45,6 +45,6 @@ type CfnFirewallPolicyPropsMixin_StatefulRuleGroupReferenceProperty struct {
 	// The Amazon Resource Name (ARN) of the stateful rule group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-resourcearn
 	//
-	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`
+	ResourceArn interface{} `field:"optional" json:"resourceArn" yaml:"resourceArn"`
 }
 

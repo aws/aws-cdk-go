@@ -53,7 +53,6 @@ type CfnMaintenanceWindow interface {
 	// Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets.
 	AllowUnassociatedTargets() interface{}
 	SetAllowUnassociatedTargets(val interface{})
-	AttrId() *string
 	// The ID of the maintenance window.
 	AttrWindowId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -281,16 +280,6 @@ func (j *jsiiProxy_CfnMaintenanceWindow) AllowUnassociatedTargets() interface{} 
 	_jsii_.Get(
 		j,
 		"allowUnassociatedTargets",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnMaintenanceWindow) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

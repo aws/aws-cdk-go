@@ -38,7 +38,7 @@ type CfnDestinationMixinProps struct {
 	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The tags that have been assigned to this delivery destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-tags
 	//
@@ -46,6 +46,6 @@ type CfnDestinationMixinProps struct {
 	// The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-targetarn
 	//
-	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
+	TargetArn interface{} `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 

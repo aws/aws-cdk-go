@@ -16,9 +16,10 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var customJson interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnLayerPropsMixin := awscdkmixinspreview.Mixins.NewCfnLayerPropsMixin(&CfnLayerMixinProps{
 //   	Attributes: map[string]*string{
@@ -101,7 +102,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
@@ -110,7 +111,7 @@ type CfnLayerPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnLayerMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -133,8 +134,8 @@ func (j *jsiiProxy_CfnLayerPropsMixin) Props() *CfnLayerMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLayerPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnLayerPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

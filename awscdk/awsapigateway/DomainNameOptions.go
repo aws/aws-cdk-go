@@ -29,6 +29,16 @@ type DomainNameOptions struct {
 	// Default: - map requests from the domain root (e.g. `example.com`).
 	//
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
+	// The endpoint access mode for this domain name.
+	//
+	// When using enhanced security policies (those starting with `SecurityPolicy_`),
+	// you must specify this property. STRICT is recommended for production workloads,
+	// but BASIC may be needed during migration or for certain application architectures.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-security-policies.html#apigateway-security-policies-endpoint-access-mode
+	//
+	// Default: - No endpoint access mode is configured. Required for enhanced security policies.
+	//
+	EndpointAccessMode EndpointAccessMode `field:"optional" json:"endpointAccessMode" yaml:"endpointAccessMode"`
 	// The type of endpoint for this DomainName.
 	// Default: REGIONAL.
 	//

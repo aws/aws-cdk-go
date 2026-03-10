@@ -23,7 +23,7 @@ type CfnServicePropsMixin_AuthenticationConfigurationProperty struct {
 	// It's required for ECR image repositories (but not for ECR Public repositories).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
 	//
-	AccessRoleArn *string `field:"optional" json:"accessRoleArn" yaml:"accessRoleArn"`
+	AccessRoleArn interface{} `field:"optional" json:"accessRoleArn" yaml:"accessRoleArn"`
 	// The Amazon Resource Name (ARN) of the App Runner connection that enables the App Runner service to connect to a source repository.
 	//
 	// It's required for GitHub code repositories.

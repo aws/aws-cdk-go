@@ -75,11 +75,11 @@ type CfnAppMonitorPropsMixin_AppMonitorConfigurationProperty struct {
 	// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-guestrolearn
 	//
-	GuestRoleArn *string `field:"optional" json:"guestRoleArn" yaml:"guestRoleArn"`
+	GuestRoleArn interface{} `field:"optional" json:"guestRoleArn" yaml:"guestRoleArn"`
 	// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html#cfn-rum-appmonitor-appmonitorconfiguration-identitypoolid
 	//
-	IdentityPoolId *string `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
+	IdentityPoolId interface{} `field:"optional" json:"identityPoolId" yaml:"identityPoolId"`
 	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
 	//
 	// You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.

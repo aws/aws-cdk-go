@@ -84,11 +84,11 @@ type CfnStageMixinProps struct {
 	// The identifier of a client certificate for an API stage.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-clientcertificateid
 	//
-	ClientCertificateId *string `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
+	ClientCertificateId interface{} `field:"optional" json:"clientCertificateId" yaml:"clientCertificateId"`
 	// The identifier of the Deployment that the stage points to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-deploymentid
 	//
-	DeploymentId *string `field:"optional" json:"deploymentId" yaml:"deploymentId"`
+	DeploymentId interface{} `field:"optional" json:"deploymentId" yaml:"deploymentId"`
 	// The stage's description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-description
 	//
@@ -106,7 +106,7 @@ type CfnStageMixinProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway.
 	//
 	// Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.

@@ -41,7 +41,7 @@ type CfnAccessPointMixinProps struct {
 	// The name of the bucket associated with this access point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
 	//
-	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
+	Bucket interface{} `field:"optional" json:"bucket" yaml:"bucket"`
 	// The AWS account ID associated with the S3 bucket associated with this access point.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucketaccountid
 	//

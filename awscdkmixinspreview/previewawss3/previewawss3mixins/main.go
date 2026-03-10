@@ -7,58 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_s3.mixins.AutoDeleteObjects",
-		reflect.TypeOf((*AutoDeleteObjects)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_AutoDeleteObjects{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketBlockPublicAccess",
-		reflect.TypeOf((*BucketBlockPublicAccess)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_BucketBlockPublicAccess{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketPolicyStatementsMixin",
-		reflect.TypeOf((*BucketPolicyStatementsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_BucketPolicyStatementsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_s3.mixins.BucketVersioning",
-		reflect.TypeOf((*BucketVersioning)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_BucketVersioning{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnAccessGrantMixinProps",
 		reflect.TypeOf((*CfnAccessGrantMixinProps)(nil)).Elem(),
@@ -566,6 +514,7 @@ func init() {
 			"TLS_VERSION": CfnBucketS3ServerAccessLogsRecordFields_TLS_VERSION,
 			"ACCESS_POINT_ARN": CfnBucketS3ServerAccessLogsRecordFields_ACCESS_POINT_ARN,
 			"ACL_REQUIRED": CfnBucketS3ServerAccessLogsRecordFields_ACL_REQUIRED,
+			"SOURCE_REGION": CfnBucketS3ServerAccessLogsRecordFields_SOURCE_REGION,
 		},
 	)
 	_jsii_.RegisterStruct(

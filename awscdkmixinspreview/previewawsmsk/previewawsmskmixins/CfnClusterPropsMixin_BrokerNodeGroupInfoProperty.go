@@ -10,7 +10,7 @@ package previewawsmskmixins
 //
 //   brokerNodeGroupInfoProperty := &BrokerNodeGroupInfoProperty{
 //   	BrokerAzDistribution: jsii.String("brokerAzDistribution"),
-//   	ClientSubnets: []*string{
+//   	ClientSubnets: []interface{}{
 //   		jsii.String("clientSubnets"),
 //   	},
 //   	ConnectivityInfo: &ConnectivityInfoProperty{
@@ -35,7 +35,7 @@ package previewawsmskmixins
 //   		},
 //   	},
 //   	InstanceType: jsii.String("instanceType"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	StorageInfo: &StorageInfoProperty{
@@ -65,7 +65,7 @@ type CfnClusterPropsMixin_BrokerNodeGroupInfoProperty struct {
 	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-clientsubnets
 	//
-	ClientSubnets *[]*string `field:"optional" json:"clientSubnets" yaml:"clientSubnets"`
+	ClientSubnets *[]interface{} `field:"optional" json:"clientSubnets" yaml:"clientSubnets"`
 	// Information about the cluster's connectivity setting.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-connectivityinfo
 	//
@@ -95,7 +95,7 @@ type CfnClusterPropsMixin_BrokerNodeGroupInfoProperty struct {
 	// If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Contains information about storage volumes attached to Amazon MSK broker nodes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-storageinfo
 	//

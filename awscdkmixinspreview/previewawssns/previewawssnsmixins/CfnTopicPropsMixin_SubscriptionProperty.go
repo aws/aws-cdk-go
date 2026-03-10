@@ -23,7 +23,7 @@ type CfnTopicPropsMixin_SubscriptionProperty struct {
 	// The endpoint value depends on the protocol that you specify. For more information, see the `Endpoint` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon  API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-subscription.html#cfn-sns-topic-subscription-endpoint
 	//
-	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 	// The subscription's protocol.
 	//
 	// For more information, see the `Protocol` parameter of the `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)` action in the *Amazon  API Reference* .

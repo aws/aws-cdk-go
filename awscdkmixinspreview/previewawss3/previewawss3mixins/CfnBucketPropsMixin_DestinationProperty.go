@@ -29,7 +29,7 @@ type CfnBucketPropsMixin_DestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
 	//
-	BucketArn *string `field:"optional" json:"bucketArn" yaml:"bucketArn"`
+	BucketArn interface{} `field:"optional" json:"bucketArn" yaml:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
 	//
 	// *Allowed values* : `CSV` | `ORC` | `Parquet`.

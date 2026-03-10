@@ -24,10 +24,10 @@ import (
 type FirewallDomainListEvents interface {
 	// EventBridge event pattern for FirewallDomainList DNS Firewall Alert.
 	// Experimental.
-	DNSFirewallAlertPattern(options *FirewallDomainListEvents_DNSFirewallAlert_DNSFirewallAlertProps) *awsevents.EventPattern
+	DnsFirewallAlertPattern(options *DNSFirewallAlert_DNSFirewallAlertProps) *awsevents.EventPattern
 	// EventBridge event pattern for FirewallDomainList DNS Firewall Block.
 	// Experimental.
-	DNSFirewallBlockPattern(options *FirewallDomainListEvents_DNSFirewallBlock_DNSFirewallBlockProps) *awsevents.EventPattern
+	DnsFirewallBlockPattern(options *DNSFirewallBlock_DNSFirewallBlockProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for FirewallDomainListEvents
@@ -55,15 +55,15 @@ func FirewallDomainListEvents_FromFirewallDomainList(firewallDomainListRef inter
 	return returns
 }
 
-func (f *jsiiProxy_FirewallDomainListEvents) DNSFirewallAlertPattern(options *FirewallDomainListEvents_DNSFirewallAlert_DNSFirewallAlertProps) *awsevents.EventPattern {
-	if err := f.validateDNSFirewallAlertPatternParameters(options); err != nil {
+func (f *jsiiProxy_FirewallDomainListEvents) DnsFirewallAlertPattern(options *DNSFirewallAlert_DNSFirewallAlertProps) *awsevents.EventPattern {
+	if err := f.validateDnsFirewallAlertPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		f,
-		"dNSFirewallAlertPattern",
+		"dnsFirewallAlertPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -71,15 +71,15 @@ func (f *jsiiProxy_FirewallDomainListEvents) DNSFirewallAlertPattern(options *Fi
 	return returns
 }
 
-func (f *jsiiProxy_FirewallDomainListEvents) DNSFirewallBlockPattern(options *FirewallDomainListEvents_DNSFirewallBlock_DNSFirewallBlockProps) *awsevents.EventPattern {
-	if err := f.validateDNSFirewallBlockPatternParameters(options); err != nil {
+func (f *jsiiProxy_FirewallDomainListEvents) DnsFirewallBlockPattern(options *DNSFirewallBlock_DNSFirewallBlockProps) *awsevents.EventPattern {
+	if err := f.validateDnsFirewallBlockPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		f,
-		"dNSFirewallBlockPattern",
+		"dnsFirewallBlockPattern",
 		[]interface{}{options},
 		&returns,
 	)

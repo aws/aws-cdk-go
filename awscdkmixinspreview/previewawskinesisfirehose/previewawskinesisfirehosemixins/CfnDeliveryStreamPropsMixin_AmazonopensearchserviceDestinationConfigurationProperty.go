@@ -69,10 +69,10 @@ package previewawskinesisfirehosemixins
 //   	TypeName: jsii.String("typeName"),
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		RoleArn: jsii.String("roleArn"),
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   	},
@@ -106,7 +106,7 @@ type CfnDeliveryStreamPropsMixin_AmazonopensearchserviceDestinationConfiguration
 	// The ARN of the Amazon OpenSearch Service domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-domainarn
 	//
-	DomainArn *string `field:"optional" json:"domainArn" yaml:"domainArn"`
+	DomainArn interface{} `field:"optional" json:"domainArn" yaml:"domainArn"`
 	// The Amazon OpenSearch Service index name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-indexname
 	//
@@ -130,7 +130,7 @@ type CfnDeliveryStreamPropsMixin_AmazonopensearchserviceDestinationConfiguration
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration-s3backupmode
 	//

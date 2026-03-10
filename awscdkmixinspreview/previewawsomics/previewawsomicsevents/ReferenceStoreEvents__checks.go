@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsomics"
 )
 
-func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceImportJobStatusChangePatternParameters(options *ReferenceStoreEvents_ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) error {
+func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceImportJobStatusChangePatternParameters(options *ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceImportJobStatusChangeP
 	return nil
 }
 
-func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceStatusChangePatternParameters(options *ReferenceStoreEvents_ReferenceStatusChange_ReferenceStatusChangeProps) error {
+func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceStatusChangePatternParameters(options *ReferenceStatusChange_ReferenceStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

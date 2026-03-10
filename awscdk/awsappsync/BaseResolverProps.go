@@ -85,6 +85,10 @@ type BaseResolverProps struct {
 	// Default: - No max batch size.
 	//
 	MaxBatchSize *float64 `field:"optional" json:"maxBatchSize" yaml:"maxBatchSize"`
+	// Whether to enable enhanced metrics Value will be ignored, if `enhancedMetricsConfig.resolverLevelMetricsBehavior` on AppSync GraphqlApi construct is set to `FULL_REQUEST_RESOLVER_METRICS`.
+	// Default: - no metrics configuration.
+	//
+	MetricsConfig ResolverMetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// configuration of the pipeline resolver.
 	// Default: - no pipeline resolver configuration
 	// An empty array | undefined sets resolver to be of kind, unit.

@@ -28,6 +28,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	MetricsConfig: awscdk.*Aws_appsync.DataSourceMetricsConfig_ENABLED,
 //   	Name: jsii.String("name"),
 //   	ServiceRole: role,
 //   })

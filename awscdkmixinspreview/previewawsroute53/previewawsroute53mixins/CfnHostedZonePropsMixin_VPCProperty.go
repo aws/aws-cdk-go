@@ -25,7 +25,7 @@ type CfnHostedZonePropsMixin_VPCProperty struct {
 	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 	// *Private hosted zones only:* The region that an Amazon VPC was created in.
 	//
 	// > For public hosted zones, omit `VPCs` , `VPCId` , and `VPCRegion` .

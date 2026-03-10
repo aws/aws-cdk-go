@@ -24,7 +24,7 @@ type CfnDatasetPropsMixin_S3DestinationConfigurationProperty struct {
 	// The name of the S3 bucket to which dataset contents are delivered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-bucket
 	//
-	Bucket *string `field:"optional" json:"bucket" yaml:"bucket"`
+	Bucket interface{} `field:"optional" json:"bucket" yaml:"bucket"`
 	// Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-glueconfiguration
 	//
@@ -48,6 +48,6 @@ type CfnDatasetPropsMixin_S3DestinationConfigurationProperty struct {
 	// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-s3destinationconfiguration.html#cfn-iotanalytics-dataset-s3destinationconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

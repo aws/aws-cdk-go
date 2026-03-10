@@ -39,7 +39,7 @@ type CfnBucketPropsMixin_ServerSideEncryptionByDefaultProperty struct {
 	// > - *Directory buckets* - When you specify an [AWS  customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported. > Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid
 	//
-	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	KmsMasterKeyId interface{} `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 	// Server-side encryption algorithm to use for the default encryption.
 	//
 	// > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .

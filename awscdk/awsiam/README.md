@@ -218,7 +218,7 @@ fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 })
 
 bucket := s3.NewBucket(this, jsii.String("Bucket"))
-bucket.Grants.Read(fn)
+bucket.grants.Read(fn)
 ```
 
 The following report will be generated.

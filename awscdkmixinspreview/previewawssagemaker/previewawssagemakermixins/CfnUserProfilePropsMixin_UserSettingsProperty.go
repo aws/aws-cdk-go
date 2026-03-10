@@ -128,7 +128,7 @@ package previewawssagemakermixins
 //   		AccessStatus: jsii.String("accessStatus"),
 //   		UserGroup: jsii.String("userGroup"),
 //   	},
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	SharingSettings: &SharingSettingsProperty{
@@ -207,7 +207,7 @@ type CfnUserProfilePropsMixin_UserSettingsProperty struct {
 	// SageMaker applies this setting only to private spaces that the user creates in the domain. SageMaker doesn't apply this setting to shared spaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
 	//
-	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	ExecutionRole interface{} `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The settings for the JupyterLab application.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
@@ -237,7 +237,7 @@ type CfnUserProfilePropsMixin_UserSettingsProperty struct {
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Specifies options for sharing Amazon SageMaker AI Studio notebooks.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
 	//

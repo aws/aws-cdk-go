@@ -33,7 +33,7 @@ package previewawscloudtrailmixins
 //
 //   dataResourceProperty := &DataResourceProperty{
 //   	Type: jsii.String("type"),
-//   	Values: []*string{
+//   	Values: []interface{}{
 //   		jsii.String("values"),
 //   	},
 //   }
@@ -69,6 +69,6 @@ type CfnTrailPropsMixin_DataResourceProperty struct {
 	// - To log data events for all DynamoDB tables in your AWS account , specify the prefix as `arn:aws:dynamodb` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
 	//
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

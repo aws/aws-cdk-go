@@ -21,7 +21,7 @@ type CfnConfigurationProfilePropsMixin_ValidatorsProperty struct {
 	// Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html#cfn-appconfig-configurationprofile-validators-content
 	//
-	Content *string `field:"optional" json:"content" yaml:"content"`
+	Content interface{} `field:"optional" json:"content" yaml:"content"`
 	// AWS AppConfig supports validators of type `JSON_SCHEMA` and `LAMBDA`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-configurationprofile-validators.html#cfn-appconfig-configurationprofile-validators-type
 	//

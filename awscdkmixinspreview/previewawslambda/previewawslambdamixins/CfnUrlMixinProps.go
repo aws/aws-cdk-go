@@ -64,6 +64,6 @@ type CfnUrlMixinProps struct {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html#cfn-lambda-url-targetfunctionarn
 	//
-	TargetFunctionArn *string `field:"optional" json:"targetFunctionArn" yaml:"targetFunctionArn"`
+	TargetFunctionArn interface{} `field:"optional" json:"targetFunctionArn" yaml:"targetFunctionArn"`
 }
 

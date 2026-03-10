@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnStorageLensGroupPropsMixin := awscdkmixinspreview.Mixins.NewCfnStorageLensGroupPropsMixin(&CfnStorageLensGroupMixinProps{
 //   	Filter: &FilterProperty{
@@ -95,7 +97,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html
@@ -104,7 +106,7 @@ type CfnStorageLensGroupPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnStorageLensGroupMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -127,8 +129,8 @@ func (j *jsiiProxy_CfnStorageLensGroupPropsMixin) Props() *CfnStorageLensGroupMi
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLensGroupPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnStorageLensGroupPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

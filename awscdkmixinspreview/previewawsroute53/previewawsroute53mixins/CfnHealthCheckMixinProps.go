@@ -14,7 +14,7 @@ package previewawsroute53mixins
 //   			Name: jsii.String("name"),
 //   			Region: jsii.String("region"),
 //   		},
-//   		ChildHealthChecks: []*string{
+//   		ChildHealthChecks: []interface{}{
 //   			jsii.String("childHealthChecks"),
 //   		},
 //   		EnableSni: jsii.Boolean(false),

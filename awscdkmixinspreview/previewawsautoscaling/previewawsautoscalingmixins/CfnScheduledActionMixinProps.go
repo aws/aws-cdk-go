@@ -25,7 +25,7 @@ type CfnScheduledActionMixinProps struct {
 	// The name of the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scheduledaction.html#cfn-autoscaling-scheduledaction-autoscalinggroupname
 	//
-	AutoScalingGroupName *string `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	AutoScalingGroupName interface{} `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
 	//
 	// It can scale beyond this capacity if you add more scaling conditions.

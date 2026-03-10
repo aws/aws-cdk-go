@@ -123,7 +123,7 @@ type CfnWorkGroupPropsMixin_WorkGroupConfigurationProperty struct {
 	// This property applies only to Spark-enabled workgroups in Athena.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-executionrole
 	//
-	ExecutionRole *string `field:"optional" json:"executionRole" yaml:"executionRole"`
+	ExecutionRole interface{} `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled;
 	//
 	// whether encryption configuration, if any, is used for encrypting query results.

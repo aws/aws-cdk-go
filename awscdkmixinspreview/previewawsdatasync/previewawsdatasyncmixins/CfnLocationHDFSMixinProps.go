@@ -17,6 +17,14 @@ import (
 //   	},
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	BlockSize: jsii.Number(123),
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	KerberosKeytab: jsii.String("kerberosKeytab"),
 //   	KerberosKrb5Conf: jsii.String("kerberosKrb5Conf"),
 //   	KerberosPrincipal: jsii.String("kerberosPrincipal"),
@@ -59,6 +67,14 @@ type CfnLocationHDFSMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-blocksize
 	//
 	BlockSize *float64 `field:"optional" json:"blockSize" yaml:"blockSize"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-cmksecretconfig
+	//
+	CmkSecretConfig interface{} `field:"optional" json:"cmkSecretConfig" yaml:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html#cfn-datasync-locationhdfs-customsecretconfig
+	//
+	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	//
 	// Provide the base64-encoded file text. If `KERBEROS` is specified for `AuthType` , this value is required.

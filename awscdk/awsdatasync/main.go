@@ -287,6 +287,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrFsxFilesystemArn", GoGetter: "AttrFsxFilesystemArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationArn", GoGetter: "AttrLocationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationUri", GoGetter: "AttrLocationUri"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProtocolSmbCmkSecretConfigSecretArn", GoGetter: "AttrProtocolSmbCmkSecretConfigSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProtocolSmbManagedSecretConfig", GoGetter: "AttrProtocolSmbManagedSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -327,6 +329,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxONTAP.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxONTAP_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxONTAP.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxONTAP_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxONTAP.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxONTAP_ManagedSecretConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationFSxONTAP.NFSProperty",
@@ -435,12 +449,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCmkSecretConfigSecretArn", GoGetter: "AttrCmkSecretConfigSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationArn", GoGetter: "AttrLocationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationUri", GoGetter: "AttrLocationUri"},
+			_jsii_.MemberProperty{JsiiProperty: "attrManagedSecretConfig", GoGetter: "AttrManagedSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "cmkSecretConfig", GoGetter: "CmkSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customSecretConfig", GoGetter: "CustomSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "domain", GoGetter: "Domain"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "fsxFilesystemArn", GoGetter: "FsxFilesystemArn"},
@@ -481,6 +499,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxWindows_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxWindows_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationFSxWindows_ManagedSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindowsProps",
 		reflect.TypeOf((*CfnLocationFSxWindowsProps)(nil)).Elem(),
 	)
@@ -497,14 +527,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "agentArns", GoGetter: "AgentArns"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCmkSecretConfigSecretArn", GoGetter: "AttrCmkSecretConfigSecretArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationArn", GoGetter: "AttrLocationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLocationUri", GoGetter: "AttrLocationUri"},
+			_jsii_.MemberProperty{JsiiProperty: "attrManagedSecretConfig", GoGetter: "AttrManagedSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "authenticationType", GoGetter: "AuthenticationType"},
 			_jsii_.MemberProperty{JsiiProperty: "blockSize", GoGetter: "BlockSize"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "cmkSecretConfig", GoGetter: "CmkSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customSecretConfig", GoGetter: "CustomSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -546,6 +580,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS.CmkSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationHDFS_CmkSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS.CustomSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationHDFS_CustomSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationHDFS.ManagedSecretConfigProperty",
+		reflect.TypeOf((*CfnLocationHDFS_ManagedSecretConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationHDFS.NameNodeProperty",

@@ -25,6 +25,6 @@ type CfnDBClusterPropsMixin_DBClusterRoleProperty struct {
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsnetworkmanager"
 )
 
-func (c *jsiiProxy_CoreNetworkEvents) validateNetworkManagerPolicyUpdatePatternParameters(options *CoreNetworkEvents_NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) error {
+func (c *jsiiProxy_CoreNetworkEvents) validateNetworkManagerPolicyUpdatePatternParameters(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (c *jsiiProxy_CoreNetworkEvents) validateNetworkManagerPolicyUpdatePatternP
 	return nil
 }
 
-func (c *jsiiProxy_CoreNetworkEvents) validateNetworkManagerSegmentUpdatePatternParameters(options *CoreNetworkEvents_NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) error {
+func (c *jsiiProxy_CoreNetworkEvents) validateNetworkManagerSegmentUpdatePatternParameters(options *NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -25,7 +25,7 @@ type CfnPipelinePropsMixin_EncryptionKeyProperty struct {
 	// > Aliases are recognized only in the account that created the AWS  key. For cross-account actions, you can only use the key ID or key ARN to identify the key. Cross-account actions involve using the role from the other account (AccountB), so specifying the key ID will use the key from the other account (AccountB).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html#cfn-codepipeline-pipeline-encryptionkey-id
 	//
-	Id *string `field:"optional" json:"id" yaml:"id"`
+	Id interface{} `field:"optional" json:"id" yaml:"id"`
 	// The type of encryption key, such as an AWS KMS key.
 	//
 	// When creating or updating a pipeline, the value must be set to 'KMS'.

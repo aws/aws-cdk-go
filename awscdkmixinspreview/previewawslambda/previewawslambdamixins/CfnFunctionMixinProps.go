@@ -69,7 +69,7 @@ import (
 //   		WorkingDirectory: jsii.String("workingDirectory"),
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
-//   	Layers: []*string{
+//   	Layers: []interface{}{
 //   		jsii.String("layers"),
 //   	},
 //   	LoggingConfig: &LoggingConfigProperty{
@@ -107,10 +107,10 @@ import (
 //   	},
 //   	VpcConfig: &VpcConfigProperty{
 //   		Ipv6AllowedForDualStack: jsii.Boolean(false),
-//   		SecurityGroupIds: []*string{
+//   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   	},
@@ -143,7 +143,7 @@ type CfnFunctionMixinProps struct {
 	// includes a set of signing profiles, which define the trusted publishers for this function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
 	//
-	CodeSigningConfigArn *string `field:"optional" json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
+	CodeSigningConfigArn interface{} `field:"optional" json:"codeSigningConfigArn" yaml:"codeSigningConfigArn"`
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
 	//
 	// For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq) .
@@ -210,11 +210,11 @@ type CfnFunctionMixinProps struct {
 	// If you don't provide a customer managed key, Lambda uses an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [AWS managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
 	//
-	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn interface{} `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
 	//
-	Layers *[]*string `field:"optional" json:"layers" yaml:"layers"`
+	Layers *[]interface{} `field:"optional" json:"layers" yaml:"layers"`
 	// The function's Amazon CloudWatch Logs configuration settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-loggingconfig
 	//
@@ -247,7 +247,7 @@ type CfnFunctionMixinProps struct {
 	// The Amazon Resource Name (ARN) of the function's execution role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
 	//
-	Role *string `field:"optional" json:"role" yaml:"role"`
+	Role interface{} `field:"optional" json:"role" yaml:"role"`
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
 	//
 	// The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels) .

@@ -16,11 +16,12 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataValueProperty_ DataValueProperty
 //   var definition interface{}
 //   var error interface{}
+//   var mergeStrategy IMergeStrategy
 //   var relationshipValue interface{}
 //
 //   cfnEntityPropsMixin := awscdkmixinspreview.Mixins.NewCfnEntityPropsMixin(&CfnEntityMixinProps{
@@ -113,7 +114,7 @@ import (
 //   	},
 //   	WorkspaceId: jsii.String("workspaceId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html
@@ -122,7 +123,7 @@ type CfnEntityPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnEntityMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -145,8 +146,8 @@ func (j *jsiiProxy_CfnEntityPropsMixin) Props() *CfnEntityMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEntityPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnEntityPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

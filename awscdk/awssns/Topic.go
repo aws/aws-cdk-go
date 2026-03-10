@@ -22,7 +22,7 @@ import (
 //
 //   dlt := sns.NewTopic(this, jsii.String("DLQ"))
 //   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromInline(jsii.String("// your code here")),
 //   	DeadLetterTopic: dlt,

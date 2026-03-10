@@ -30,7 +30,7 @@ type CfnSchemaVersionPropsMixin_SchemaProperty struct {
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
 	//
-	SchemaArn *string `field:"optional" json:"schemaArn" yaml:"schemaArn"`
+	SchemaArn interface{} `field:"optional" json:"schemaArn" yaml:"schemaArn"`
 	// The name of the schema.
 	//
 	// Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.

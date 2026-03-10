@@ -18,9 +18,10 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var allRowsWildcard interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnDataCellsFilterPropsMixin := awscdkmixinspreview.Mixins.NewCfnDataCellsFilterPropsMixin(&CfnDataCellsFilterMixinProps{
 //   	ColumnNames: []*string{
@@ -40,7 +41,7 @@ import (
 //   	TableCatalogId: jsii.String("tableCatalogId"),
 //   	TableName: jsii.String("tableName"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html
@@ -49,7 +50,7 @@ type CfnDataCellsFilterPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnDataCellsFilterMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -72,8 +73,8 @@ func (j *jsiiProxy_CfnDataCellsFilterPropsMixin) Props() *CfnDataCellsFilterMixi
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataCellsFilterPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnDataCellsFilterPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

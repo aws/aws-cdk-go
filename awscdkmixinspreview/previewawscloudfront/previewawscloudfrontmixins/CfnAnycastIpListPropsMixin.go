@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAnycastIpListPropsMixin := awscdkmixinspreview.Mixins.NewCfnAnycastIpListPropsMixin(&CfnAnycastIpListMixinProps{
 //   	IpAddressType: jsii.String("ipAddressType"),
@@ -30,8 +32,16 @@ import (
 //   	},
 //   	IpCount: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	Tags: &TagsProperty{
+//   		Items: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html
@@ -40,7 +50,7 @@ type CfnAnycastIpListPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAnycastIpListMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -63,8 +73,8 @@ func (j *jsiiProxy_CfnAnycastIpListPropsMixin) Props() *CfnAnycastIpListMixinPro
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnycastIpListPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAnycastIpListPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

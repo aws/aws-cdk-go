@@ -154,6 +154,26 @@ package awsarcregionswitch
 //   					},
 //   				},
 //   				ParallelConfig: parallelExecutionBlockConfigurationProperty_,
+//   				RdsCreateCrossRegionReadReplicaConfig: &RdsCreateCrossRegionReplicaConfigurationProperty{
+//   					DbInstanceArnMap: map[string]*string{
+//   						"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   					},
+//
+//   					// the properties below are optional
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					ExternalId: jsii.String("externalId"),
+//   					TimeoutMinutes: jsii.Number(123),
+//   				},
+//   				RdsPromoteReadReplicaConfig: &RdsPromoteReadReplicaConfigurationProperty{
+//   					DbInstanceArnMap: map[string]*string{
+//   						"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   					},
+//
+//   					// the properties below are optional
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					ExternalId: jsii.String("externalId"),
+//   					TimeoutMinutes: jsii.Number(123),
+//   				},
 //   				RegionSwitchPlanConfig: &RegionSwitchPlanConfigurationProperty{
 //   					Arn: jsii.String("arn"),
 //

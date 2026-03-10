@@ -39,7 +39,7 @@ type CfnDataSourcePropsMixin_S3DataSourceConfigurationProperty struct {
 	// The name of the bucket that contains the documents.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-bucketname
 	//
-	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	BucketName interface{} `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes.
 	//
 	// Each metadata file contains metadata about a single document.

@@ -24,16 +24,16 @@ import (
 type AgreementEvents interface {
 	// EventBridge event pattern for Agreement AS2 MDN Send Completed.
 	// Experimental.
-	AS2MDNSendCompletedPattern(options *AgreementEvents_AS2MDNSendCompleted_AS2MDNSendCompletedProps) *awsevents.EventPattern
+	As2MDNSendCompletedPattern(options *AS2MDNSendCompleted_AS2MDNSendCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Agreement AS2 MDN Send Failed.
 	// Experimental.
-	AS2MDNSendFailedPattern(options *AgreementEvents_AS2MDNSendFailed_AS2MDNSendFailedProps) *awsevents.EventPattern
+	As2MDNSendFailedPattern(options *AS2MDNSendFailed_AS2MDNSendFailedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Agreement AS2 Payload Receive Completed.
 	// Experimental.
-	AS2PayloadReceiveCompletedPattern(options *AgreementEvents_AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) *awsevents.EventPattern
+	As2PayloadReceiveCompletedPattern(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) *awsevents.EventPattern
 	// EventBridge event pattern for Agreement AS2 Payload Receive Failed.
 	// Experimental.
-	AS2PayloadReceiveFailedPattern(options *AgreementEvents_AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) *awsevents.EventPattern
+	As2PayloadReceiveFailedPattern(options *AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for AgreementEvents
@@ -61,15 +61,15 @@ func AgreementEvents_FromAgreement(agreementRef interfacesawstransfer.IAgreement
 	return returns
 }
 
-func (a *jsiiProxy_AgreementEvents) AS2MDNSendCompletedPattern(options *AgreementEvents_AS2MDNSendCompleted_AS2MDNSendCompletedProps) *awsevents.EventPattern {
-	if err := a.validateAS2MDNSendCompletedPatternParameters(options); err != nil {
+func (a *jsiiProxy_AgreementEvents) As2MDNSendCompletedPattern(options *AS2MDNSendCompleted_AS2MDNSendCompletedProps) *awsevents.EventPattern {
+	if err := a.validateAs2MDNSendCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"aS2MDNSendCompletedPattern",
+		"as2MDNSendCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -77,15 +77,15 @@ func (a *jsiiProxy_AgreementEvents) AS2MDNSendCompletedPattern(options *Agreemen
 	return returns
 }
 
-func (a *jsiiProxy_AgreementEvents) AS2MDNSendFailedPattern(options *AgreementEvents_AS2MDNSendFailed_AS2MDNSendFailedProps) *awsevents.EventPattern {
-	if err := a.validateAS2MDNSendFailedPatternParameters(options); err != nil {
+func (a *jsiiProxy_AgreementEvents) As2MDNSendFailedPattern(options *AS2MDNSendFailed_AS2MDNSendFailedProps) *awsevents.EventPattern {
+	if err := a.validateAs2MDNSendFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"aS2MDNSendFailedPattern",
+		"as2MDNSendFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -93,15 +93,15 @@ func (a *jsiiProxy_AgreementEvents) AS2MDNSendFailedPattern(options *AgreementEv
 	return returns
 }
 
-func (a *jsiiProxy_AgreementEvents) AS2PayloadReceiveCompletedPattern(options *AgreementEvents_AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) *awsevents.EventPattern {
-	if err := a.validateAS2PayloadReceiveCompletedPatternParameters(options); err != nil {
+func (a *jsiiProxy_AgreementEvents) As2PayloadReceiveCompletedPattern(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) *awsevents.EventPattern {
+	if err := a.validateAs2PayloadReceiveCompletedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"aS2PayloadReceiveCompletedPattern",
+		"as2PayloadReceiveCompletedPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -109,15 +109,15 @@ func (a *jsiiProxy_AgreementEvents) AS2PayloadReceiveCompletedPattern(options *A
 	return returns
 }
 
-func (a *jsiiProxy_AgreementEvents) AS2PayloadReceiveFailedPattern(options *AgreementEvents_AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) *awsevents.EventPattern {
-	if err := a.validateAS2PayloadReceiveFailedPatternParameters(options); err != nil {
+func (a *jsiiProxy_AgreementEvents) As2PayloadReceiveFailedPattern(options *AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) *awsevents.EventPattern {
+	if err := a.validateAs2PayloadReceiveFailedPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"aS2PayloadReceiveFailedPattern",
+		"as2PayloadReceiveFailedPattern",
 		[]interface{}{options},
 		&returns,
 	)

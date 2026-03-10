@@ -27,7 +27,7 @@ type CfnCapacityProviderPropsMixin_AutoScalingGroupProviderProperty struct {
 	// The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
 	//
-	AutoScalingGroupArn *string `field:"optional" json:"autoScalingGroupArn" yaml:"autoScalingGroupArn"`
+	AutoScalingGroupArn interface{} `field:"optional" json:"autoScalingGroupArn" yaml:"autoScalingGroupArn"`
 	// The managed draining option for the Auto Scaling group capacity provider.
 	//
 	// When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.

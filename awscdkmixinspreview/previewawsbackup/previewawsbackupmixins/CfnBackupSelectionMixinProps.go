@@ -25,7 +25,7 @@ package previewawsbackupmixins
 //   		NotResources: []*string{
 //   			jsii.String("notResources"),
 //   		},
-//   		Resources: []*string{
+//   		Resources: []interface{}{
 //   			jsii.String("resources"),
 //   		},
 //   		SelectionName: jsii.String("selectionName"),
@@ -38,7 +38,7 @@ type CfnBackupSelectionMixinProps struct {
 	// Uniquely identifies a backup plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
 	//
-	BackupPlanId *string `field:"optional" json:"backupPlanId" yaml:"backupPlanId"`
+	BackupPlanId interface{} `field:"optional" json:"backupPlanId" yaml:"backupPlanId"`
 	// Specifies the body of a request to assign a set of resources to a backup plan.
 	//
 	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.

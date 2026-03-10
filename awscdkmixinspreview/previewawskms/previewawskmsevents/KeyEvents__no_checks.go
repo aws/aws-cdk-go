@@ -4,19 +4,19 @@ package previewawskmsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (k *jsiiProxy_KeyEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *KeyEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (k *jsiiProxy_KeyEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	return nil
 }
 
-func (k *jsiiProxy_KeyEvents) validateKMSCMKDeletionPatternParameters(options *KeyEvents_KMSCMKDeletion_KMSCMKDeletionProps) error {
+func (k *jsiiProxy_KeyEvents) validateKmsCMKDeletionPatternParameters(options *KMSCMKDeletion_KMSCMKDeletionProps) error {
 	return nil
 }
 
-func (k *jsiiProxy_KeyEvents) validateKMSCMKRotationPatternParameters(options *KeyEvents_KMSCMKRotation_KMSCMKRotationProps) error {
+func (k *jsiiProxy_KeyEvents) validateKmsCMKRotationPatternParameters(options *KMSCMKRotation_KMSCMKRotationProps) error {
 	return nil
 }
 
-func (k *jsiiProxy_KeyEvents) validateKMSImportedKeyMaterialExpirationPatternParameters(options *KeyEvents_KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) error {
+func (k *jsiiProxy_KeyEvents) validateKmsImportedKeyMaterialExpirationPatternParameters(options *KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) error {
 	return nil
 }
 

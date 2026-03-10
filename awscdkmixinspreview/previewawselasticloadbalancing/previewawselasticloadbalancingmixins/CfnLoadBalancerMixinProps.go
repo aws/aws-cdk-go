@@ -44,7 +44,7 @@ import (
 //   		Timeout: jsii.String("timeout"),
 //   		UnhealthyThreshold: jsii.String("unhealthyThreshold"),
 //   	},
-//   	Instances: []*string{
+//   	Instances: []interface{}{
 //   		jsii.String("instances"),
 //   	},
 //   	LbCookieStickinessPolicy: []interface{}{
@@ -82,10 +82,10 @@ import (
 //   		},
 //   	},
 //   	Scheme: jsii.String("scheme"),
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
-//   	Subnets: []*string{
+//   	Subnets: []interface{}{
 //   		jsii.String("subnets"),
 //   	},
 //   	Tags: []CfnTag{
@@ -142,7 +142,7 @@ type CfnLoadBalancerMixinProps struct {
 	// The IDs of the instances for the load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-instances
 	//
-	Instances *[]*string `field:"optional" json:"instances" yaml:"instances"`
+	Instances *[]interface{} `field:"optional" json:"instances" yaml:"instances"`
 	// Information about a policy for duration-based session stickiness.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-lbcookiestickinesspolicy
 	//
@@ -180,13 +180,13 @@ type CfnLoadBalancerMixinProps struct {
 	// Valid only for load balancers in a VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
 	//
 	// Update requires replacement if you did not previously specify a subnet or if you are removing all subnets. Otherwise, update requires no interruption. To update to a different subnet in the current Availability Zone, you must first update to a subnet in a different Availability Zone, then update to the new subnet in the original Availability Zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-subnets
 	//
-	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
+	Subnets *[]interface{} `field:"optional" json:"subnets" yaml:"subnets"`
 	// The tags associated with a load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html#cfn-elasticloadbalancing-loadbalancer-tags
 	//

@@ -61,7 +61,7 @@ package previewawscloudfrontmixins
 //   	ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
 //   	SmoothStreaming: jsii.Boolean(false),
 //   	TargetOriginId: jsii.String("targetOriginId"),
-//   	TrustedKeyGroups: []*string{
+//   	TrustedKeyGroups: []interface{}{
 //   		jsii.String("trustedKeyGroups"),
 //   	},
 //   	TrustedSigners: []*string{
@@ -105,7 +105,7 @@ type CfnDistributionPropsMixin_DefaultCacheBehaviorProperty struct {
 	//
 	// Default: - "".
 	//
-	CachePolicyId *string `field:"optional" json:"cachePolicyId" yaml:"cachePolicyId"`
+	CachePolicyId interface{} `field:"optional" json:"cachePolicyId" yaml:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress certain files for this cache behavior.
 	//
 	// If so, specify `true` ; if not, specify `false` . For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide* .
@@ -193,7 +193,7 @@ type CfnDistributionPropsMixin_DefaultCacheBehaviorProperty struct {
 	//
 	// Default: - "".
 	//
-	OriginRequestPolicyId *string `field:"optional" json:"originRequestPolicyId" yaml:"originRequestPolicyId"`
+	OriginRequestPolicyId interface{} `field:"optional" json:"originRequestPolicyId" yaml:"originRequestPolicyId"`
 	// The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior.
 	//
 	// For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide* .
@@ -201,13 +201,13 @@ type CfnDistributionPropsMixin_DefaultCacheBehaviorProperty struct {
 	//
 	// Default: - "".
 	//
-	RealtimeLogConfigArn *string `field:"optional" json:"realtimeLogConfigArn" yaml:"realtimeLogConfigArn"`
+	RealtimeLogConfigArn interface{} `field:"optional" json:"realtimeLogConfigArn" yaml:"realtimeLogConfigArn"`
 	// The identifier for a response headers policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-responseheaderspolicyid
 	//
 	// Default: - "".
 	//
-	ResponseHeadersPolicyId *string `field:"optional" json:"responseHeadersPolicyId" yaml:"responseHeadersPolicyId"`
+	ResponseHeadersPolicyId interface{} `field:"optional" json:"responseHeadersPolicyId" yaml:"responseHeadersPolicyId"`
 	// > This field only supports standard distributions.
 	//
 	// You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .
@@ -221,13 +221,13 @@ type CfnDistributionPropsMixin_DefaultCacheBehaviorProperty struct {
 	// The value of `ID` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 	//
-	TargetOriginId *string `field:"optional" json:"targetOriginId" yaml:"targetOriginId"`
+	TargetOriginId interface{} `field:"optional" json:"targetOriginId" yaml:"targetOriginId"`
 	// A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
 	//
 	// When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
 	//
-	TrustedKeyGroups *[]*string `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
+	TrustedKeyGroups *[]interface{} `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// > We recommend using `TrustedKeyGroups` instead of `TrustedSigners` .
 	//
 	// > This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide* .

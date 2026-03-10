@@ -59,6 +59,7 @@ import (
 //   				},
 //   				MinSize: jsii.Number(123),
 //   			},
+//   			PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   			StoppedActions: []*string{
 //   				jsii.String("stoppedActions"),
 //   			},
@@ -74,6 +75,7 @@ import (
 //   	},
 //   	NewGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
 //   	PerInstanceContainerGroupDefinitionName: jsii.String("perInstanceContainerGroupDefinitionName"),
+//   	PlayerGatewayMode: jsii.String("playerGatewayMode"),
 //   	ScalingPolicies: []interface{}{
 //   		&ScalingPolicyProperty{
 //   			MetricName: jsii.String("metricName"),
@@ -186,6 +188,10 @@ type CfnContainerFleetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-perinstancecontainergroupdefinitionname
 	//
 	PerInstanceContainerGroupDefinitionName *string `field:"optional" json:"perInstanceContainerGroupDefinitionName" yaml:"perInstanceContainerGroupDefinitionName"`
+	// The player gateway mode for the container fleet.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-playergatewaymode
+	//
+	PlayerGatewayMode *string `field:"optional" json:"playerGatewayMode" yaml:"playerGatewayMode"`
 	// A list of rules that control how a fleet is scaled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html#cfn-gamelift-containerfleet-scalingpolicies
 	//

@@ -63,7 +63,7 @@ type CfnMethodPropsMixin_IntegrationProperty struct {
 	// The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-connectionid
 	//
-	ConnectionId *string `field:"optional" json:"connectionId" yaml:"connectionId"`
+	ConnectionId interface{} `field:"optional" json:"connectionId" yaml:"connectionId"`
 	// The type of the network connection to the integration endpoint.
 	//
 	// The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
@@ -83,7 +83,7 @@ type CfnMethodPropsMixin_IntegrationProperty struct {
 	// For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*` . To use resource-based permissions on supported AWS services, specify null.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-credentials
 	//
-	Credentials *string `field:"optional" json:"credentials" yaml:"credentials"`
+	Credentials interface{} `field:"optional" json:"credentials" yaml:"credentials"`
 	// Specifies the integration's HTTP method type.
 	//
 	// For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
@@ -143,6 +143,6 @@ type CfnMethodPropsMixin_IntegrationProperty struct {
 	// For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-uri
 	//
-	Uri *string `field:"optional" json:"uri" yaml:"uri"`
+	Uri interface{} `field:"optional" json:"uri" yaml:"uri"`
 }
 

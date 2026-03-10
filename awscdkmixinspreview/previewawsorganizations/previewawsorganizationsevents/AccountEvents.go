@@ -24,7 +24,7 @@ import (
 type AccountEvents interface {
 	// EventBridge event pattern for Account AWS Service Event via CloudTrail.
 	// Experimental.
-	AwsServiceEventViaCloudTrailPattern(options *AccountEvents_AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) *awsevents.EventPattern
+	AwsServiceEventViaCloudTrailPattern(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for AccountEvents
@@ -52,7 +52,7 @@ func AccountEvents_FromAccount(accountRef interfacesawsorganizations.IAccountRef
 	return returns
 }
 
-func (a *jsiiProxy_AccountEvents) AwsServiceEventViaCloudTrailPattern(options *AccountEvents_AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) *awsevents.EventPattern {
+func (a *jsiiProxy_AccountEvents) AwsServiceEventViaCloudTrailPattern(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) *awsevents.EventPattern {
 	if err := a.validateAwsServiceEventViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}

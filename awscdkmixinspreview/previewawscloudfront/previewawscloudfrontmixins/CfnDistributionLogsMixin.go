@@ -13,7 +13,6 @@ import (
 // A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   // Create CloudFront distribution

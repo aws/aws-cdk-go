@@ -25,6 +25,7 @@ package awsgamelift
 //   		},
 //   		MinSize: jsii.Number(123),
 //   	},
+//   	PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   	StoppedActions: []*string{
 //   		jsii.String("stoppedActions"),
 //   	},
@@ -45,6 +46,10 @@ type CfnContainerFleet_LocationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-locationcapacity
 	//
 	LocationCapacity interface{} `field:"optional" json:"locationCapacity" yaml:"locationCapacity"`
+	// The player gateway status for the location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-playergatewaystatus
+	//
+	PlayerGatewayStatus *string `field:"optional" json:"playerGatewayStatus" yaml:"playerGatewayStatus"`
 	// A list of fleet actions that have been suspended in the fleet location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-stoppedactions
 	//

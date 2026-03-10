@@ -23,7 +23,7 @@ type CfnReplicationConfigurationPropsMixin_RepositoryFilterProperty struct {
 	// When the `PREFIX_MATCH` filter type is specified, this value is required and should be the repository name prefix to configure replication for.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html#cfn-ecr-replicationconfiguration-repositoryfilter-filter
 	//
-	Filter *string `field:"optional" json:"filter" yaml:"filter"`
+	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 	// The repository filter type.
 	//
 	// The only supported value is `PREFIX_MATCH` , which is a repository name prefix specified with the `filter` parameter.

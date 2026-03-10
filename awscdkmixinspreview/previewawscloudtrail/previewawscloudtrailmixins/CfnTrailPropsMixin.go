@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnTrailPropsMixin := awscdkmixinspreview.Mixins.NewCfnTrailPropsMixin(&CfnTrailMixinProps{
 //   	AdvancedEventSelectors: []interface{}{
@@ -63,7 +65,7 @@ import (
 //   			DataResources: []interface{}{
 //   				&DataResourceProperty{
 //   					Type: jsii.String("type"),
-//   					Values: []*string{
+//   					Values: []interface{}{
 //   						jsii.String("values"),
 //   					},
 //   				},
@@ -99,7 +101,7 @@ import (
 //   	},
 //   	TrailName: jsii.String("trailName"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html
@@ -108,7 +110,7 @@ type CfnTrailPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnTrailMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -131,8 +133,8 @@ func (j *jsiiProxy_CfnTrailPropsMixin) Props() *CfnTrailMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTrailPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnTrailPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -6,14 +6,14 @@ import (
 
 // Example:
 //   var acmCertificateForExampleCom interface{}
-//   var restApi RestApi
 //
 //
 //   apigateway.NewDomainName(this, jsii.String("custom-domain"), &DomainNameProps{
 //   	DomainName: jsii.String("example.com"),
 //   	Certificate: acmCertificateForExampleCom,
-//   	Mapping: restApi,
-//   	BasePath: jsii.String("orders/v1/api"),
+//   	EndpointType: apigateway.EndpointType_EDGE,
+//   	 // default is REGIONAL
+//   	SecurityPolicy: apigateway.SecurityPolicy_TLS_1_2,
 //   })
 //
 type DomainNameProps struct {
@@ -30,6 +30,16 @@ type DomainNameProps struct {
 	// Default: - map requests from the domain root (e.g. `example.com`).
 	//
 	BasePath *string `field:"optional" json:"basePath" yaml:"basePath"`
+	// The endpoint access mode for this domain name.
+	//
+	// When using enhanced security policies (those starting with `SecurityPolicy_`),
+	// you must specify this property. STRICT is recommended for production workloads,
+	// but BASIC may be needed during migration or for certain application architectures.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-security-policies.html#apigateway-security-policies-endpoint-access-mode
+	//
+	// Default: - No endpoint access mode is configured. Required for enhanced security policies.
+	//
+	EndpointAccessMode EndpointAccessMode `field:"optional" json:"endpointAccessMode" yaml:"endpointAccessMode"`
 	// The type of endpoint for this DomainName.
 	// Default: REGIONAL.
 	//

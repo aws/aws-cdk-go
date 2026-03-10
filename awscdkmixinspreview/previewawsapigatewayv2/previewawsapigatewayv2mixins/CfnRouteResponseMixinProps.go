@@ -29,7 +29,7 @@ type CfnRouteResponseMixinProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// The model selection expression for the route response.
 	//
 	// Supported only for WebSocket APIs.
@@ -47,7 +47,7 @@ type CfnRouteResponseMixinProps struct {
 	// The route ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeid
 	//
-	RouteId *string `field:"optional" json:"routeId" yaml:"routeId"`
+	RouteId interface{} `field:"optional" json:"routeId" yaml:"routeId"`
 	// The route response key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html#cfn-apigatewayv2-routeresponse-routeresponsekey
 	//

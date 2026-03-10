@@ -33,10 +33,10 @@ package previewawsrdsmixins
 //   		},
 //   	},
 //   	TargetConnectionNetworkType: jsii.String("targetConnectionNetworkType"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
-//   	VpcSubnetIds: []*string{
+//   	VpcSubnetIds: []interface{}{
 //   		jsii.String("vpcSubnetIds"),
 //   	},
 //   }
@@ -99,7 +99,7 @@ type CfnDBProxyMixinProps struct {
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
 	//
@@ -120,10 +120,10 @@ type CfnDBProxyMixinProps struct {
 	// If you plan to update the resource, don't specify VPC security groups in a shared VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 	// One or more VPC subnet IDs to associate with the new proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
 	//
-	VpcSubnetIds *[]*string `field:"optional" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
+	VpcSubnetIds *[]interface{} `field:"optional" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 }
 

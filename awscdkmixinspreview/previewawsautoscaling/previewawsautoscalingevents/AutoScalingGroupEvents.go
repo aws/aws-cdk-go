@@ -24,22 +24,22 @@ import (
 type AutoScalingGroupEvents interface {
 	// EventBridge event pattern for AutoScalingGroup EC2 Instance-launch Lifecycle Action.
 	// Experimental.
-	EC2InstanceLaunchLifecycleActionPattern(options *AutoScalingGroupEvents_EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) *awsevents.EventPattern
+	Ec2InstanceLaunchLifecycleActionPattern(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for AutoScalingGroup EC2 Instance Launch Successful.
 	// Experimental.
-	EC2InstanceLaunchSuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) *awsevents.EventPattern
+	Ec2InstanceLaunchSuccessfulPattern(options *EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) *awsevents.EventPattern
 	// EventBridge event pattern for AutoScalingGroup EC2 Instance Launch Unsuccessful.
 	// Experimental.
-	EC2InstanceLaunchUnsuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) *awsevents.EventPattern
+	Ec2InstanceLaunchUnsuccessfulPattern(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) *awsevents.EventPattern
 	// EventBridge event pattern for AutoScalingGroup EC2 Instance-terminate Lifecycle Action.
 	// Experimental.
-	EC2InstanceTerminateLifecycleActionPattern(options *AutoScalingGroupEvents_EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) *awsevents.EventPattern
+	Ec2InstanceTerminateLifecycleActionPattern(options *EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) *awsevents.EventPattern
 	// EventBridge event pattern for AutoScalingGroup EC2 Instance Terminate Successful.
 	// Experimental.
-	EC2InstanceTerminateSuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) *awsevents.EventPattern
+	Ec2InstanceTerminateSuccessfulPattern(options *EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) *awsevents.EventPattern
 	// EventBridge event pattern for AutoScalingGroup EC2 Instance Terminate Unsuccessful.
 	// Experimental.
-	EC2InstanceTerminateUnsuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) *awsevents.EventPattern
+	Ec2InstanceTerminateUnsuccessfulPattern(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for AutoScalingGroupEvents
@@ -67,15 +67,15 @@ func AutoScalingGroupEvents_FromAutoScalingGroup(autoScalingGroupRef interfacesa
 	return returns
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceLaunchLifecycleActionPattern(options *AutoScalingGroupEvents_EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) *awsevents.EventPattern {
-	if err := a.validateEC2InstanceLaunchLifecycleActionPatternParameters(options); err != nil {
+func (a *jsiiProxy_AutoScalingGroupEvents) Ec2InstanceLaunchLifecycleActionPattern(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) *awsevents.EventPattern {
+	if err := a.validateEc2InstanceLaunchLifecycleActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"eC2InstanceLaunchLifecycleActionPattern",
+		"ec2InstanceLaunchLifecycleActionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -83,15 +83,15 @@ func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceLaunchLifecycleActionPatte
 	return returns
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceLaunchSuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) *awsevents.EventPattern {
-	if err := a.validateEC2InstanceLaunchSuccessfulPatternParameters(options); err != nil {
+func (a *jsiiProxy_AutoScalingGroupEvents) Ec2InstanceLaunchSuccessfulPattern(options *EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) *awsevents.EventPattern {
+	if err := a.validateEc2InstanceLaunchSuccessfulPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"eC2InstanceLaunchSuccessfulPattern",
+		"ec2InstanceLaunchSuccessfulPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -99,15 +99,15 @@ func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceLaunchSuccessfulPattern(op
 	return returns
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceLaunchUnsuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) *awsevents.EventPattern {
-	if err := a.validateEC2InstanceLaunchUnsuccessfulPatternParameters(options); err != nil {
+func (a *jsiiProxy_AutoScalingGroupEvents) Ec2InstanceLaunchUnsuccessfulPattern(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) *awsevents.EventPattern {
+	if err := a.validateEc2InstanceLaunchUnsuccessfulPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"eC2InstanceLaunchUnsuccessfulPattern",
+		"ec2InstanceLaunchUnsuccessfulPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -115,15 +115,15 @@ func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceLaunchUnsuccessfulPattern(
 	return returns
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceTerminateLifecycleActionPattern(options *AutoScalingGroupEvents_EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) *awsevents.EventPattern {
-	if err := a.validateEC2InstanceTerminateLifecycleActionPatternParameters(options); err != nil {
+func (a *jsiiProxy_AutoScalingGroupEvents) Ec2InstanceTerminateLifecycleActionPattern(options *EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) *awsevents.EventPattern {
+	if err := a.validateEc2InstanceTerminateLifecycleActionPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"eC2InstanceTerminateLifecycleActionPattern",
+		"ec2InstanceTerminateLifecycleActionPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -131,15 +131,15 @@ func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceTerminateLifecycleActionPa
 	return returns
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceTerminateSuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) *awsevents.EventPattern {
-	if err := a.validateEC2InstanceTerminateSuccessfulPatternParameters(options); err != nil {
+func (a *jsiiProxy_AutoScalingGroupEvents) Ec2InstanceTerminateSuccessfulPattern(options *EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) *awsevents.EventPattern {
+	if err := a.validateEc2InstanceTerminateSuccessfulPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"eC2InstanceTerminateSuccessfulPattern",
+		"ec2InstanceTerminateSuccessfulPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -147,15 +147,15 @@ func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceTerminateSuccessfulPattern
 	return returns
 }
 
-func (a *jsiiProxy_AutoScalingGroupEvents) EC2InstanceTerminateUnsuccessfulPattern(options *AutoScalingGroupEvents_EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) *awsevents.EventPattern {
-	if err := a.validateEC2InstanceTerminateUnsuccessfulPatternParameters(options); err != nil {
+func (a *jsiiProxy_AutoScalingGroupEvents) Ec2InstanceTerminateUnsuccessfulPattern(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) *awsevents.EventPattern {
+	if err := a.validateEc2InstanceTerminateUnsuccessfulPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		a,
-		"eC2InstanceTerminateUnsuccessfulPattern",
+		"ec2InstanceTerminateUnsuccessfulPattern",
 		[]interface{}{options},
 		&returns,
 	)

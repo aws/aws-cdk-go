@@ -104,7 +104,7 @@ type CfnScheduledQueryMixinProps struct {
 	// If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html#cfn-timestream-scheduledquery-kmskeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Notification configuration for the scheduled query.
 	//
 	// A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
@@ -126,7 +126,7 @@ type CfnScheduledQueryMixinProps struct {
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html#cfn-timestream-scheduledquery-scheduledqueryexecutionrolearn
 	//
-	ScheduledQueryExecutionRoleArn *string `field:"optional" json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
+	ScheduledQueryExecutionRoleArn interface{} `field:"optional" json:"scheduledQueryExecutionRoleArn" yaml:"scheduledQueryExecutionRoleArn"`
 	// A name for the query.
 	//
 	// Scheduled query names must be unique within each Region.

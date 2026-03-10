@@ -27,6 +27,6 @@ type CfnVPCEndpointServicePermissionsMixinProps struct {
 	// The ID of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid
 	//
-	ServiceId *string `field:"optional" json:"serviceId" yaml:"serviceId"`
+	ServiceId interface{} `field:"optional" json:"serviceId" yaml:"serviceId"`
 }
 

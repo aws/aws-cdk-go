@@ -40,6 +40,6 @@ type CfnTransitGatewayConnectMixinProps struct {
 	// The ID of the attachment from which the Connect attachment was created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
 	//
-	TransportTransitGatewayAttachmentId *string `field:"optional" json:"transportTransitGatewayAttachmentId" yaml:"transportTransitGatewayAttachmentId"`
+	TransportTransitGatewayAttachmentId interface{} `field:"optional" json:"transportTransitGatewayAttachmentId" yaml:"transportTransitGatewayAttachmentId"`
 }
 

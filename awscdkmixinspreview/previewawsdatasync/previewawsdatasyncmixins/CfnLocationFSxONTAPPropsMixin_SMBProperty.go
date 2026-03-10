@@ -11,7 +11,18 @@ package previewawsdatasyncmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   sMBProperty := &SMBProperty{
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	Domain: jsii.String("domain"),
+//   	ManagedSecretConfig: &ManagedSecretConfigProperty{
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	MountOptions: &SmbMountOptionsProperty{
 //   		Version: jsii.String("version"),
 //   	},
@@ -22,6 +33,14 @@ package previewawsdatasyncmixins
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html
 //
 type CfnLocationFSxONTAPPropsMixin_SMBProperty struct {
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-cmksecretconfig
+	//
+	CmkSecretConfig interface{} `field:"optional" json:"cmkSecretConfig" yaml:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-customsecretconfig
+	//
+	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
 	// Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.
 	//
 	// If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SVM.
@@ -30,6 +49,12 @@ type CfnLocationFSxONTAPPropsMixin_SMBProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-domain
 	//
 	Domain *string `field:"optional" json:"domain" yaml:"domain"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location.
+	//
+	// DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-managedsecretconfig
+	//
+	ManagedSecretConfig interface{} `field:"optional" json:"managedSecretConfig" yaml:"managedSecretConfig"`
 	// Specifies how DataSync can access a location using the SMB protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html#cfn-datasync-locationfsxontap-smb-mountoptions
 	//

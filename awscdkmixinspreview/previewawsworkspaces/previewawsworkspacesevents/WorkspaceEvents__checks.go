@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsworkspaces"
 )
 
-func (w *jsiiProxy_WorkspaceEvents) validateWorkSpacesAccessPatternParameters(options *WorkspaceEvents_WorkSpacesAccess_WorkSpacesAccessProps) error {
+func (w *jsiiProxy_WorkspaceEvents) validateWorkSpacesAccessPatternParameters(options *WorkSpacesAccess_WorkSpacesAccessProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -106,7 +106,7 @@ import (
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   		VpcId: jsii.String("vpcId"),
@@ -170,7 +170,7 @@ type CfnCanaryMixinProps struct {
 	// - `logs:PutLogEvents`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
 	//
-	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
+	ExecutionRoleArn interface{} `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The number of days to retain data about failed runs of this canary.
 	//
 	// If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.

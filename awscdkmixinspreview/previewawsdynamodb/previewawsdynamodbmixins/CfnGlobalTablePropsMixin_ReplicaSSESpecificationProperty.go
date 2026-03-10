@@ -22,6 +22,6 @@ type CfnGlobalTablePropsMixin_ReplicaSSESpecificationProperty struct {
 	// To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
 	//
-	KmsMasterKeyId *string `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	KmsMasterKeyId interface{} `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
 }
 

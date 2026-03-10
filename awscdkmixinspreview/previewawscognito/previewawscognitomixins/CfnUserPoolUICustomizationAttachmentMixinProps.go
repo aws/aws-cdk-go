@@ -32,6 +32,6 @@ type CfnUserPoolUICustomizationAttachmentMixinProps struct {
 	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#cfn-cognito-userpooluicustomizationattachment-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 }
 

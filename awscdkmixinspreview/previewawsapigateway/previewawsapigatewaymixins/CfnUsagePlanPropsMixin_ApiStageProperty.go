@@ -25,11 +25,11 @@ type CfnUsagePlanPropsMixin_ApiStageProperty struct {
 	// API Id of the associated API stage in a usage plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// API stage name of the associated API stage in a usage plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
 	//
-	Stage *string `field:"optional" json:"stage" yaml:"stage"`
+	Stage interface{} `field:"optional" json:"stage" yaml:"stage"`
 	// Map containing method level throttling information for API stage in a usage plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
 	//

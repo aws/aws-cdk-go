@@ -20,7 +20,7 @@ type CfnResourceMixinProps struct {
 	// The parent resource's identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
 	//
-	ParentId *string `field:"optional" json:"parentId" yaml:"parentId"`
+	ParentId interface{} `field:"optional" json:"parentId" yaml:"parentId"`
 	// The last path segment for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
 	//
@@ -28,6 +28,6 @@ type CfnResourceMixinProps struct {
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
 

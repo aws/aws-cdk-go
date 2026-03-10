@@ -70,7 +70,7 @@ type CfnMetricStreamMixinProps struct {
 	// This Amazon Kinesis Firehose delivery stream must already exist and must be in the same account as the metric stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
 	//
-	FirehoseArn *string `field:"optional" json:"firehoseArn" yaml:"firehoseArn"`
+	FirehoseArn interface{} `field:"optional" json:"firehoseArn" yaml:"firehoseArn"`
 	// If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here.
 	//
 	// You cannot specify both `IncludeFilters` and `ExcludeFilters` in the same metric stream.
@@ -108,7 +108,7 @@ type CfnMetricStreamMixinProps struct {
 	// This IAM role must already exist and must be in the same account as the metric stream. This IAM role must include the `firehose:PutRecord` and `firehose:PutRecordBatch` permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed.
 	//
 	// You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.

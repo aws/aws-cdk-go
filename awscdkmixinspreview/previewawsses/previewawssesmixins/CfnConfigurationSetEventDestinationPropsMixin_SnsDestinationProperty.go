@@ -24,6 +24,6 @@ type CfnConfigurationSetEventDestinationPropsMixin_SnsDestinationProperty struct
 	// For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html#cfn-ses-configurationseteventdestination-snsdestination-topicarn
 	//
-	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
+	TopicArn interface{} `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

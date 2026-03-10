@@ -1,6 +1,8 @@
 package previewawsconnectmixins
 
 
+// Information about a recipient who should be notified when an evaluation review is requested.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -20,6 +22,7 @@ type CfnEvaluationFormPropsMixin_EvaluationReviewNotificationRecipientProperty s
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewnotificationrecipient.html#cfn-connect-evaluationform-evaluationreviewnotificationrecipient-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// The value information for an evaluation review notification recipient.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewnotificationrecipient.html#cfn-connect-evaluationform-evaluationreviewnotificationrecipient-value
 	//
 	Value interface{} `field:"optional" json:"value" yaml:"value"`

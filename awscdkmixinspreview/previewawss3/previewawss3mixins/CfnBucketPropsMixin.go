@@ -17,16 +17,18 @@ import (
 // > You can only delete empty buckets. Deletion fails for buckets that have contents.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
-//
+//   key := kms.NewKey(scope, jsii.String("Key"))
 //
 //   s3.NewBucket(scope, jsii.String("Bucket")).With(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
-//   	VersioningConfiguration: &VersioningConfigurationProperty{
-//   		Status: jsii.String("Enabled"),
-//   	},
-//   	PublicAccessBlockConfiguration: &PublicAccessBlockConfigurationProperty{
-//   		BlockPublicAcls: jsii.Boolean(true),
-//   		BlockPublicPolicy: jsii.Boolean(true),
+//   	BucketEncryption: &BucketEncryptionProperty{
+//   		ServerSideEncryptionConfiguration: []interface{}{
+//   			&ServerSideEncryptionRuleProperty{
+//   				ServerSideEncryptionByDefault: &ServerSideEncryptionByDefaultProperty{
+//   					SseAlgorithm: jsii.String("aws:kms"),
+//   					KmsMasterKeyId: key,
+//   				},
+//   			},
+//   		},
 //   	},
 //   }))
 //
@@ -36,7 +38,7 @@ type CfnBucketPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnBucketMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -59,8 +61,8 @@ func (j *jsiiProxy_CfnBucketPropsMixin) Props() *CfnBucketMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucketPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnBucketPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

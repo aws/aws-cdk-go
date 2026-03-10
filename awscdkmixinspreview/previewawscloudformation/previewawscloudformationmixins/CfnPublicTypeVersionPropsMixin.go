@@ -29,7 +29,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnPublicTypeVersionPropsMixin := awscdkmixinspreview.Mixins.NewCfnPublicTypeVersionPropsMixin(&CfnPublicTypeVersionMixinProps{
 //   	Arn: jsii.String("arn"),
@@ -38,7 +40,7 @@ import (
 //   	Type: jsii.String("type"),
 //   	TypeName: jsii.String("typeName"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
@@ -47,7 +49,7 @@ type CfnPublicTypeVersionPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnPublicTypeVersionMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -70,8 +72,8 @@ func (j *jsiiProxy_CfnPublicTypeVersionPropsMixin) Props() *CfnPublicTypeVersion
 	return returns
 }
 
-func (j *jsiiProxy_CfnPublicTypeVersionPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnPublicTypeVersionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

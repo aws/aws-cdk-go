@@ -19,7 +19,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	EnablePrimaryIpv6: jsii.Boolean(false),
-//   	GroupSet: []*string{
+//   	GroupSet: []interface{}{
 //   		jsii.String("groupSet"),
 //   	},
 //   	InterfaceType: jsii.String("interfaceType"),
@@ -80,7 +80,7 @@ type CfnNetworkInterfaceMixinProps struct {
 	// The IDs of the security groups associated with this network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-groupset
 	//
-	GroupSet *[]*string `field:"optional" json:"groupSet" yaml:"groupSet"`
+	GroupSet *[]interface{} `field:"optional" json:"groupSet" yaml:"groupSet"`
 	// The type of network interface.
 	//
 	// The default is `interface` . The supported values are `efa` and `trunk` .
@@ -162,7 +162,7 @@ type CfnNetworkInterfaceMixinProps struct {
 	// The ID of the subnet to associate with the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-subnetid
 	//
-	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	SubnetId interface{} `field:"optional" json:"subnetId" yaml:"subnetId"`
 	// The tags to apply to the network interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html#cfn-ec2-networkinterface-tags
 	//

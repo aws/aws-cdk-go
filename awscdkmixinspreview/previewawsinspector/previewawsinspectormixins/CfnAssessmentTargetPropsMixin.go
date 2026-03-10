@@ -16,13 +16,15 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAssessmentTargetPropsMixin := awscdkmixinspreview.Mixins.NewCfnAssessmentTargetPropsMixin(&CfnAssessmentTargetMixinProps{
 //   	AssessmentTargetName: jsii.String("assessmentTargetName"),
 //   	ResourceGroupArn: jsii.String("resourceGroupArn"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html
@@ -31,7 +33,7 @@ type CfnAssessmentTargetPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAssessmentTargetMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -54,8 +56,8 @@ func (j *jsiiProxy_CfnAssessmentTargetPropsMixin) Props() *CfnAssessmentTargetMi
 	return returns
 }
 
-func (j *jsiiProxy_CfnAssessmentTargetPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAssessmentTargetPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

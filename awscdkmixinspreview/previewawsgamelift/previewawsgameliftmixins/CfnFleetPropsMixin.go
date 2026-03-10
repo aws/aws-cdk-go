@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnFleetPropsMixin := awscdkmixinspreview.Mixins.NewCfnFleetPropsMixin(&CfnFleetMixinProps{
 //   	AnywhereConfiguration: &AnywhereConfigurationProperty{
@@ -56,6 +58,7 @@ import (
 //   				MaxSize: jsii.Number(123),
 //   				MinSize: jsii.Number(123),
 //   			},
+//   			PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   		},
 //   	},
 //   	LogPaths: []*string{
@@ -70,6 +73,10 @@ import (
 //   	NewGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
 //   	PeerVpcAwsAccountId: jsii.String("peerVpcAwsAccountId"),
 //   	PeerVpcId: jsii.String("peerVpcId"),
+//   	PlayerGatewayConfiguration: &PlayerGatewayConfigurationProperty{
+//   		GameServerIpProtocolSupported: jsii.String("gameServerIpProtocolSupported"),
+//   	},
+//   	PlayerGatewayMode: jsii.String("playerGatewayMode"),
 //   	ResourceCreationLimitPolicy: &ResourceCreationLimitPolicyProperty{
 //   		NewGameSessionsPerCreator: jsii.Number(123),
 //   		PolicyPeriodInMinutes: jsii.Number(123),
@@ -113,7 +120,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
@@ -122,7 +129,7 @@ type CfnFleetPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnFleetMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -145,8 +152,8 @@ func (j *jsiiProxy_CfnFleetPropsMixin) Props() *CfnFleetMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFleetPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnFleetPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

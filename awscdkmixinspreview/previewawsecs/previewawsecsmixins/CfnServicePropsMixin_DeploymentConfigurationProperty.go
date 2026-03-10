@@ -12,7 +12,7 @@ package previewawsecsmixins
 //
 //   deploymentConfigurationProperty := &DeploymentConfigurationProperty{
 //   	Alarms: &DeploymentAlarmsProperty{
-//   		AlarmNames: []*string{
+//   		AlarmNames: []interface{}{
 //   			jsii.String("alarmNames"),
 //   		},
 //   		Enable: jsii.Boolean(false),

@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnVPCEConfigurationPropsMixin := awscdkmixinspreview.Mixins.NewCfnVPCEConfigurationPropsMixin(&CfnVPCEConfigurationMixinProps{
 //   	ServiceDnsName: jsii.String("serviceDnsName"),
@@ -30,7 +32,7 @@ import (
 //   	VpceConfigurationName: jsii.String("vpceConfigurationName"),
 //   	VpceServiceName: jsii.String("vpceServiceName"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devicefarm-vpceconfiguration.html
@@ -39,7 +41,7 @@ type CfnVPCEConfigurationPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnVPCEConfigurationMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -62,8 +64,8 @@ func (j *jsiiProxy_CfnVPCEConfigurationPropsMixin) Props() *CfnVPCEConfiguration
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEConfigurationPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnVPCEConfigurationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

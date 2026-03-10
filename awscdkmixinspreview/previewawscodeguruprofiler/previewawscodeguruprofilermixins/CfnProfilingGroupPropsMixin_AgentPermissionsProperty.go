@@ -9,7 +9,7 @@ package previewawscodeguruprofilermixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   agentPermissionsProperty := &AgentPermissionsProperty{
-//   	Principals: []*string{
+//   	Principals: []interface{}{
 //   		jsii.String("principals"),
 //   	},
 //   }
@@ -20,6 +20,6 @@ type CfnProfilingGroupPropsMixin_AgentPermissionsProperty struct {
 	// The principals for the agent permissions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-agentpermissions.html#cfn-codeguruprofiler-profilinggroup-agentpermissions-principals
 	//
-	Principals *[]*string `field:"optional" json:"principals" yaml:"principals"`
+	Principals *[]interface{} `field:"optional" json:"principals" yaml:"principals"`
 }
 

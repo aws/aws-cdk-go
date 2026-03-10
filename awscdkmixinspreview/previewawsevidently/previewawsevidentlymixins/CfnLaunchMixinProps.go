@@ -101,7 +101,7 @@ type CfnLaunchMixinProps struct {
 	// The name or ARN of the project that you want to create the launch in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html#cfn-evidently-launch-project
 	//
-	Project *string `field:"optional" json:"project" yaml:"project"`
+	Project interface{} `field:"optional" json:"project" yaml:"project"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served.
 	//
 	// This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .

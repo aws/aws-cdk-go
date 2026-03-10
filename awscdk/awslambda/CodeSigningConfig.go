@@ -29,7 +29,7 @@ import (
 //
 //   lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	CodeSigningConfig: CodeSigningConfig,
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   })

@@ -26,7 +26,7 @@ type CfnNodegroupPropsMixin_LaunchTemplateSpecificationProperty struct {
 	// You must specify either the launch template ID or the launch template name in the request, but not both. After node group creation, you cannot use a different ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html#cfn-eks-nodegroup-launchtemplatespecification-id
 	//
-	Id *string `field:"optional" json:"id" yaml:"id"`
+	Id interface{} `field:"optional" json:"id" yaml:"id"`
 	// The name of the launch template.
 	//
 	// You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.

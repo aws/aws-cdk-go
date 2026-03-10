@@ -24,13 +24,13 @@ import (
 type JobEvents interface {
 	// EventBridge event pattern for Job AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *JobEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 	// EventBridge event pattern for Job Glue Job Run Status.
 	// Experimental.
-	GlueJobRunStatusPattern(options *JobEvents_GlueJobRunStatus_GlueJobRunStatusProps) *awsevents.EventPattern
+	GlueJobRunStatusPattern(options *GlueJobRunStatus_GlueJobRunStatusProps) *awsevents.EventPattern
 	// EventBridge event pattern for Job Glue Job State Change.
 	// Experimental.
-	GlueJobStateChangePattern(options *JobEvents_GlueJobStateChange_GlueJobStateChangeProps) *awsevents.EventPattern
+	GlueJobStateChangePattern(options *GlueJobStateChange_GlueJobStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for JobEvents
@@ -58,7 +58,7 @@ func JobEvents_FromJob(jobRef interfacesawsglue.IJobRef) JobEvents {
 	return returns
 }
 
-func (j *jsiiProxy_JobEvents) AwsAPICallViaCloudTrailPattern(options *JobEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (j *jsiiProxy_JobEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := j.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -74,7 +74,7 @@ func (j *jsiiProxy_JobEvents) AwsAPICallViaCloudTrailPattern(options *JobEvents_
 	return returns
 }
 
-func (j *jsiiProxy_JobEvents) GlueJobRunStatusPattern(options *JobEvents_GlueJobRunStatus_GlueJobRunStatusProps) *awsevents.EventPattern {
+func (j *jsiiProxy_JobEvents) GlueJobRunStatusPattern(options *GlueJobRunStatus_GlueJobRunStatusProps) *awsevents.EventPattern {
 	if err := j.validateGlueJobRunStatusPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -90,7 +90,7 @@ func (j *jsiiProxy_JobEvents) GlueJobRunStatusPattern(options *JobEvents_GlueJob
 	return returns
 }
 
-func (j *jsiiProxy_JobEvents) GlueJobStateChangePattern(options *JobEvents_GlueJobStateChange_GlueJobStateChangeProps) *awsevents.EventPattern {
+func (j *jsiiProxy_JobEvents) GlueJobStateChangePattern(options *GlueJobStateChange_GlueJobStateChangeProps) *awsevents.EventPattern {
 	if err := j.validateGlueJobStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

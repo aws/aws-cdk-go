@@ -25,259 +25,259 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdBatchFraudsterRegistrationAction{}
+			return &jsiiProxy_VoiceIdBatchFraudsterRegistrationAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction.Data",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction_Data)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction.Data",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction_Data)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction.InputDataConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction_InputDataConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction.InputDataConfig",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction_InputDataConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction.OutputDataConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction_OutputDataConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction.OutputDataConfig",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction_OutputDataConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction.RegistrationConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction_RegistrationConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction.RegistrationConfig",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction_RegistrationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchFraudsterRegistrationAction.VoiceIdBatchFraudsterRegistrationActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchFraudsterRegistrationAction.VoiceIdBatchFraudsterRegistrationActionProps",
+		reflect.TypeOf((*VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdBatchSpeakerEnrollmentAction{}
+			return &jsiiProxy_VoiceIdBatchSpeakerEnrollmentAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.Data",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_Data)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.Data",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_Data)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.EnrollmentConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_EnrollmentConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.EnrollmentConfig",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_EnrollmentConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.FraudDetectionConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_FraudDetectionConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.FraudDetectionConfig",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_FraudDetectionConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.InputDataConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_InputDataConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.InputDataConfig",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_InputDataConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.OutputDataConfig",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_OutputDataConfig)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.OutputDataConfig",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_OutputDataConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdBatchSpeakerEnrollmentAction.VoiceIdBatchSpeakerEnrollmentActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction.VoiceIdBatchSpeakerEnrollmentActionProps",
+		reflect.TypeOf((*VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdEvaluateSessionAction{}
+			return &jsiiProxy_VoiceIdEvaluateSessionAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.AuthenticationResult",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_AuthenticationResult)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.AuthenticationResult",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_AuthenticationResult)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.ConfigurationAuthentication",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_ConfigurationAuthentication)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.ConfigurationAuthentication",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_ConfigurationAuthentication)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.ConfigurationFraud",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_ConfigurationFraud)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.ConfigurationFraud",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_ConfigurationFraud)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.FraudDetectionResult",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_FraudDetectionResult)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.FraudDetectionResult",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_FraudDetectionResult)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.KnownFraudsterRisk",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_KnownFraudsterRisk)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.KnownFraudsterRisk",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_KnownFraudsterRisk)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.RiskDetails",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_RiskDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.RiskDetails",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_RiskDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.Session",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_Session)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.Session",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_Session)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.SystemAttributes",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_SystemAttributes)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.SystemAttributes",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_SystemAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.VoiceIdEvaluateSessionActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_VoiceIdEvaluateSessionActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.VoiceIdEvaluateSessionActionProps",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_VoiceIdEvaluateSessionActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdEvaluateSessionAction.VoiceSpoofingRisk",
-		reflect.TypeOf((*DomainEvents_VoiceIdEvaluateSessionAction_VoiceSpoofingRisk)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdEvaluateSessionAction.VoiceSpoofingRisk",
+		reflect.TypeOf((*VoiceIdEvaluateSessionAction_VoiceSpoofingRisk)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdFraudsterAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdFraudsterAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdFraudsterAction",
+		reflect.TypeOf((*VoiceIdFraudsterAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdFraudsterAction{}
+			return &jsiiProxy_VoiceIdFraudsterAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdFraudsterAction.Data",
-		reflect.TypeOf((*DomainEvents_VoiceIdFraudsterAction_Data)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdFraudsterAction.Data",
+		reflect.TypeOf((*VoiceIdFraudsterAction_Data)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdFraudsterAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdFraudsterAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdFraudsterAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdFraudsterAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdFraudsterAction.VoiceIdFraudsterActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdFraudsterAction_VoiceIdFraudsterActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdFraudsterAction.VoiceIdFraudsterActionProps",
+		reflect.TypeOf((*VoiceIdFraudsterAction_VoiceIdFraudsterActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSessionSpeakerEnrollmentAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdSessionSpeakerEnrollmentAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSessionSpeakerEnrollmentAction",
+		reflect.TypeOf((*VoiceIdSessionSpeakerEnrollmentAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdSessionSpeakerEnrollmentAction{}
+			return &jsiiProxy_VoiceIdSessionSpeakerEnrollmentAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSessionSpeakerEnrollmentAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdSessionSpeakerEnrollmentAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSessionSpeakerEnrollmentAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdSessionSpeakerEnrollmentAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSessionSpeakerEnrollmentAction.SystemAttributes",
-		reflect.TypeOf((*DomainEvents_VoiceIdSessionSpeakerEnrollmentAction_SystemAttributes)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSessionSpeakerEnrollmentAction.SystemAttributes",
+		reflect.TypeOf((*VoiceIdSessionSpeakerEnrollmentAction_SystemAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSessionSpeakerEnrollmentAction.VoiceIdSessionSpeakerEnrollmentActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSessionSpeakerEnrollmentAction.VoiceIdSessionSpeakerEnrollmentActionProps",
+		reflect.TypeOf((*VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSpeakerAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdSpeakerAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSpeakerAction",
+		reflect.TypeOf((*VoiceIdSpeakerAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdSpeakerAction{}
+			return &jsiiProxy_VoiceIdSpeakerAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSpeakerAction.Data",
-		reflect.TypeOf((*DomainEvents_VoiceIdSpeakerAction_Data)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSpeakerAction.Data",
+		reflect.TypeOf((*VoiceIdSpeakerAction_Data)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSpeakerAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdSpeakerAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSpeakerAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdSpeakerAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSpeakerAction.SystemAttributes",
-		reflect.TypeOf((*DomainEvents_VoiceIdSpeakerAction_SystemAttributes)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSpeakerAction.SystemAttributes",
+		reflect.TypeOf((*VoiceIdSpeakerAction_SystemAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdSpeakerAction.VoiceIdSpeakerActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdSpeakerAction_VoiceIdSpeakerActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSpeakerAction.VoiceIdSpeakerActionProps",
+		reflect.TypeOf((*VoiceIdSpeakerAction_VoiceIdSpeakerActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction",
+		reflect.TypeOf((*VoiceIdStartSessionAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdStartSessionAction{}
+			return &jsiiProxy_VoiceIdStartSessionAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.AuthenticationAudioProgress",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_AuthenticationAudioProgress)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.AuthenticationAudioProgress",
+		reflect.TypeOf((*VoiceIdStartSessionAction_AuthenticationAudioProgress)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.AuthenticationConfiguration",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_AuthenticationConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.AuthenticationConfiguration",
+		reflect.TypeOf((*VoiceIdStartSessionAction_AuthenticationConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.EnrollmentAudioProgress",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_EnrollmentAudioProgress)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.EnrollmentAudioProgress",
+		reflect.TypeOf((*VoiceIdStartSessionAction_EnrollmentAudioProgress)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdStartSessionAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.FraudDetectionConfiguration",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_FraudDetectionConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.FraudDetectionConfiguration",
+		reflect.TypeOf((*VoiceIdStartSessionAction_FraudDetectionConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.Session",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_Session)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.Session",
+		reflect.TypeOf((*VoiceIdStartSessionAction_Session)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.StreamingConfiguration",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_StreamingConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.StreamingConfiguration",
+		reflect.TypeOf((*VoiceIdStartSessionAction_StreamingConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.SystemAttributes",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_SystemAttributes)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.SystemAttributes",
+		reflect.TypeOf((*VoiceIdStartSessionAction_SystemAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdStartSessionAction.VoiceIdStartSessionActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdStartSessionAction_VoiceIdStartSessionActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdStartSessionAction.VoiceIdStartSessionActionProps",
+		reflect.TypeOf((*VoiceIdStartSessionAction_VoiceIdStartSessionActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdUpdateSessionAction",
-		reflect.TypeOf((*DomainEvents_VoiceIdUpdateSessionAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction",
+		reflect.TypeOf((*VoiceIdUpdateSessionAction)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DomainEvents_VoiceIdUpdateSessionAction{}
+			return &jsiiProxy_VoiceIdUpdateSessionAction{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdUpdateSessionAction.AuthenticationConfiguration",
-		reflect.TypeOf((*DomainEvents_VoiceIdUpdateSessionAction_AuthenticationConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction.AuthenticationConfiguration",
+		reflect.TypeOf((*VoiceIdUpdateSessionAction_AuthenticationConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdUpdateSessionAction.ErrorInfo",
-		reflect.TypeOf((*DomainEvents_VoiceIdUpdateSessionAction_ErrorInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction.ErrorInfo",
+		reflect.TypeOf((*VoiceIdUpdateSessionAction_ErrorInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdUpdateSessionAction.FraudDetectionConfiguration",
-		reflect.TypeOf((*DomainEvents_VoiceIdUpdateSessionAction_FraudDetectionConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction.FraudDetectionConfiguration",
+		reflect.TypeOf((*VoiceIdUpdateSessionAction_FraudDetectionConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdUpdateSessionAction.Session",
-		reflect.TypeOf((*DomainEvents_VoiceIdUpdateSessionAction_Session)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction.Session",
+		reflect.TypeOf((*VoiceIdUpdateSessionAction_Session)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_voiceid.events.DomainEvents.VoiceIdUpdateSessionAction.VoiceIdUpdateSessionActionProps",
-		reflect.TypeOf((*DomainEvents_VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction.VoiceIdUpdateSessionActionProps",
+		reflect.TypeOf((*VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps)(nil)).Elem(),
 	)
 }

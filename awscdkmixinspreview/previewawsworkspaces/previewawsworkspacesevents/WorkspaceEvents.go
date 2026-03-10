@@ -24,7 +24,7 @@ import (
 type WorkspaceEvents interface {
 	// EventBridge event pattern for Workspace WorkSpaces Access.
 	// Experimental.
-	WorkSpacesAccessPattern(options *WorkspaceEvents_WorkSpacesAccess_WorkSpacesAccessProps) *awsevents.EventPattern
+	WorkSpacesAccessPattern(options *WorkSpacesAccess_WorkSpacesAccessProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for WorkspaceEvents
@@ -52,7 +52,7 @@ func WorkspaceEvents_FromWorkspace(workspaceRef interfacesawsworkspaces.IWorkspa
 	return returns
 }
 
-func (w *jsiiProxy_WorkspaceEvents) WorkSpacesAccessPattern(options *WorkspaceEvents_WorkSpacesAccess_WorkSpacesAccessProps) *awsevents.EventPattern {
+func (w *jsiiProxy_WorkspaceEvents) WorkSpacesAccessPattern(options *WorkSpacesAccess_WorkSpacesAccessProps) *awsevents.EventPattern {
 	if err := w.validateWorkSpacesAccessPatternParameters(options); err != nil {
 		panic(err)
 	}

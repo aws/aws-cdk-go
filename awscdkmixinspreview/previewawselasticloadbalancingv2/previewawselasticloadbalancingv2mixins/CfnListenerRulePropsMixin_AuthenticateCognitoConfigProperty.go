@@ -57,11 +57,11 @@ type CfnListenerRulePropsMixin_AuthenticateCognitoConfigProperty struct {
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpoolarn
 	//
-	UserPoolArn *string `field:"optional" json:"userPoolArn" yaml:"userPoolArn"`
+	UserPoolArn interface{} `field:"optional" json:"userPoolArn" yaml:"userPoolArn"`
 	// The ID of the Amazon Cognito user pool client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpoolclientid
 	//
-	UserPoolClientId *string `field:"optional" json:"userPoolClientId" yaml:"userPoolClientId"`
+	UserPoolClientId interface{} `field:"optional" json:"userPoolClientId" yaml:"userPoolClientId"`
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpooldomain
 	//

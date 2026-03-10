@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAutomationRuleV2PropsMixin := awscdkmixinspreview.Mixins.NewCfnAutomationRuleV2PropsMixin(&CfnAutomationRuleV2MixinProps{
 //   	Actions: []interface{}{
@@ -100,7 +102,7 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrulev2.html
@@ -109,7 +111,7 @@ type CfnAutomationRuleV2PropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAutomationRuleV2MixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -132,8 +134,8 @@ func (j *jsiiProxy_CfnAutomationRuleV2PropsMixin) Props() *CfnAutomationRuleV2Mi
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutomationRuleV2PropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAutomationRuleV2PropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

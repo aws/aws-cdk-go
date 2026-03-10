@@ -18,7 +18,7 @@ package awslambda
 //   lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 //   	Code: lambda.NewInlineCode(jsii.String("foo")),
 //   	Handler: jsii.String("index.handler"),
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	LoggingFormat: lambda.LoggingFormat_JSON,
 //   	SystemLogLevelV2: lambda.SystemLogLevel_INFO,
 //   	ApplicationLogLevelV2: lambda.ApplicationLogLevel_INFO,

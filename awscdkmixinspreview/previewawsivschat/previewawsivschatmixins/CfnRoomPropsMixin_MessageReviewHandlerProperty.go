@@ -31,6 +31,6 @@ type CfnRoomPropsMixin_MessageReviewHandlerProperty struct {
 	// Currently this must be an ARN of a lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-room-messagereviewhandler.html#cfn-ivschat-room-messagereviewhandler-uri
 	//
-	Uri *string `field:"optional" json:"uri" yaml:"uri"`
+	Uri interface{} `field:"optional" json:"uri" yaml:"uri"`
 }
 

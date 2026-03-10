@@ -66,6 +66,7 @@ import (
 //   				},
 //   				MinSize: jsii.Number(123),
 //   			},
+//   			PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   			StoppedActions: []*string{
 //   				jsii.String("stoppedActions"),
 //   			},
@@ -81,6 +82,7 @@ import (
 //   	},
 //   	NewGameSessionProtectionPolicy: jsii.String("newGameSessionProtectionPolicy"),
 //   	PerInstanceContainerGroupDefinitionName: jsii.String("perInstanceContainerGroupDefinitionName"),
+//   	PlayerGatewayMode: jsii.String("playerGatewayMode"),
 //   	ScalingPolicies: []interface{}{
 //   		&ScalingPolicyProperty{
 //   			MetricName: jsii.String("metricName"),
@@ -210,6 +212,9 @@ type CfnContainerFleet interface {
 	// The name of the fleet's per-instance container group definition.
 	PerInstanceContainerGroupDefinitionName() *string
 	SetPerInstanceContainerGroupDefinitionName(val *string)
+	// The player gateway mode for the container fleet.
+	PlayerGatewayMode() *string
+	SetPlayerGatewayMode(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -700,6 +705,16 @@ func (j *jsiiProxy_CfnContainerFleet) PerInstanceContainerGroupDefinitionName() 
 	return returns
 }
 
+func (j *jsiiProxy_CfnContainerFleet) PlayerGatewayMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"playerGatewayMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnContainerFleet) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -927,6 +942,14 @@ func (j *jsiiProxy_CfnContainerFleet)SetPerInstanceContainerGroupDefinitionName(
 	_jsii_.Set(
 		j,
 		"perInstanceContainerGroupDefinitionName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnContainerFleet)SetPlayerGatewayMode(val *string) {
+	_jsii_.Set(
+		j,
+		"playerGatewayMode",
 		val,
 	)
 }

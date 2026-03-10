@@ -18,6 +18,6 @@ type CfnLoggingConfigurationPropsMixin_FirehoseDestinationConfigurationProperty 
 	// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivschat-loggingconfiguration-firehosedestinationconfiguration.html#cfn-ivschat-loggingconfiguration-firehosedestinationconfiguration-deliverystreamname
 	//
-	DeliveryStreamName *string `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
+	DeliveryStreamName interface{} `field:"optional" json:"deliveryStreamName" yaml:"deliveryStreamName"`
 }
 

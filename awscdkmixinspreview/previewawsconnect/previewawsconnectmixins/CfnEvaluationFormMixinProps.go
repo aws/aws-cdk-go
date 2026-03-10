@@ -202,7 +202,7 @@ type CfnEvaluationFormMixinProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`
 	// Items that are part of the evaluation form.
 	//
 	// The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
@@ -217,6 +217,7 @@ type CfnEvaluationFormMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-languageconfiguration
 	//
 	LanguageConfiguration interface{} `field:"optional" json:"languageConfiguration" yaml:"languageConfiguration"`
+	// Configuration settings for evaluation reviews.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-reviewconfiguration
 	//
 	ReviewConfiguration interface{} `field:"optional" json:"reviewConfiguration" yaml:"reviewConfiguration"`

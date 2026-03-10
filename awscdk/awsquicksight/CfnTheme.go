@@ -13,7 +13,7 @@ import (
 
 // Creates a theme.
 //
-// A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon Quick Suite](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
+// A *theme* is set of configuration options for color and layout. Themes apply to analyses and dashboards. For more information, see [Using Themes in Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html) in the *Amazon Quick User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -28,6 +28,6 @@ type CfnBotAliasPropsMixin_S3BucketLogDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-s3bucketlogdestination.html#cfn-lex-botalias-s3bucketlogdestination-s3bucketarn
 	//
-	S3BucketArn *string `field:"optional" json:"s3BucketArn" yaml:"s3BucketArn"`
+	S3BucketArn interface{} `field:"optional" json:"s3BucketArn" yaml:"s3BucketArn"`
 }
 

@@ -22,26 +22,27 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var mergeStrategy IMergeStrategy
 //   var policyDocument interface{}
 //
 //   cfnManagedPolicyPropsMixin := awscdkmixinspreview.Mixins.NewCfnManagedPolicyPropsMixin(&CfnManagedPolicyMixinProps{
 //   	Description: jsii.String("description"),
-//   	Groups: []*string{
+//   	Groups: []interface{}{
 //   		jsii.String("groups"),
 //   	},
 //   	ManagedPolicyName: jsii.String("managedPolicyName"),
 //   	Path: jsii.String("path"),
 //   	PolicyDocument: policyDocument,
-//   	Roles: []*string{
+//   	Roles: []interface{}{
 //   		jsii.String("roles"),
 //   	},
-//   	Users: []*string{
+//   	Users: []interface{}{
 //   		jsii.String("users"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
@@ -50,7 +51,7 @@ type CfnManagedPolicyPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnManagedPolicyMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -73,8 +74,8 @@ func (j *jsiiProxy_CfnManagedPolicyPropsMixin) Props() *CfnManagedPolicyMixinPro
 	return returns
 }
 
-func (j *jsiiProxy_CfnManagedPolicyPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnManagedPolicyPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

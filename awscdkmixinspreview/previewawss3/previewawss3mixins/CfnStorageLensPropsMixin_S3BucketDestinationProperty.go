@@ -34,7 +34,7 @@ type CfnStorageLensPropsMixin_S3BucketDestinationProperty struct {
 	// This property contains the details of the ARN of the bucket destination of the S3 Storage Lens export.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
 	//
-	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	Arn interface{} `field:"optional" json:"arn" yaml:"arn"`
 	// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
 	//

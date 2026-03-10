@@ -4,7 +4,7 @@ package previewawsroute53recoveryreadinessevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CellEvents) validateRoute53ApplicationRecoveryControllerCellReadinessStatusChangePatternParameters(options *CellEvents_Route53ApplicationRecoveryControllerCellReadinessStatusChange_Route53ApplicationRecoveryControllerCellReadinessStatusChangeProps) error {
+func (c *jsiiProxy_CellEvents) validateRoute53ApplicationRecoveryControllerCellReadinessStatusChangePatternParameters(options *Route53ApplicationRecoveryControllerCellReadinessStatusChange_Route53ApplicationRecoveryControllerCellReadinessStatusChangeProps) error {
 	return nil
 }
 

@@ -24,16 +24,16 @@ import (
 type SequenceStoreEvents interface {
 	// EventBridge event pattern for SequenceStore Read Set Activation Job Status Change.
 	// Experimental.
-	ReadSetActivationJobStatusChangePattern(options *SequenceStoreEvents_ReadSetActivationJobStatusChange_ReadSetActivationJobStatusChangeProps) *awsevents.EventPattern
+	ReadSetActivationJobStatusChangePattern(options *ReadSetActivationJobStatusChange_ReadSetActivationJobStatusChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for SequenceStore Read Set Export Job Status Change.
 	// Experimental.
-	ReadSetExportJobStatusChangePattern(options *SequenceStoreEvents_ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) *awsevents.EventPattern
+	ReadSetExportJobStatusChangePattern(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for SequenceStore Read Set Import Job Status Change.
 	// Experimental.
-	ReadSetImportJobStatusChangePattern(options *SequenceStoreEvents_ReadSetImportJobStatusChange_ReadSetImportJobStatusChangeProps) *awsevents.EventPattern
+	ReadSetImportJobStatusChangePattern(options *ReadSetImportJobStatusChange_ReadSetImportJobStatusChangeProps) *awsevents.EventPattern
 	// EventBridge event pattern for SequenceStore Read Set Status Change.
 	// Experimental.
-	ReadSetStatusChangePattern(options *SequenceStoreEvents_ReadSetStatusChange_ReadSetStatusChangeProps) *awsevents.EventPattern
+	ReadSetStatusChangePattern(options *ReadSetStatusChange_ReadSetStatusChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for SequenceStoreEvents
@@ -61,7 +61,7 @@ func SequenceStoreEvents_FromSequenceStore(sequenceStoreRef interfacesawsomics.I
 	return returns
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) ReadSetActivationJobStatusChangePattern(options *SequenceStoreEvents_ReadSetActivationJobStatusChange_ReadSetActivationJobStatusChangeProps) *awsevents.EventPattern {
+func (s *jsiiProxy_SequenceStoreEvents) ReadSetActivationJobStatusChangePattern(options *ReadSetActivationJobStatusChange_ReadSetActivationJobStatusChangeProps) *awsevents.EventPattern {
 	if err := s.validateReadSetActivationJobStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -77,7 +77,7 @@ func (s *jsiiProxy_SequenceStoreEvents) ReadSetActivationJobStatusChangePattern(
 	return returns
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) ReadSetExportJobStatusChangePattern(options *SequenceStoreEvents_ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) *awsevents.EventPattern {
+func (s *jsiiProxy_SequenceStoreEvents) ReadSetExportJobStatusChangePattern(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) *awsevents.EventPattern {
 	if err := s.validateReadSetExportJobStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -93,7 +93,7 @@ func (s *jsiiProxy_SequenceStoreEvents) ReadSetExportJobStatusChangePattern(opti
 	return returns
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) ReadSetImportJobStatusChangePattern(options *SequenceStoreEvents_ReadSetImportJobStatusChange_ReadSetImportJobStatusChangeProps) *awsevents.EventPattern {
+func (s *jsiiProxy_SequenceStoreEvents) ReadSetImportJobStatusChangePattern(options *ReadSetImportJobStatusChange_ReadSetImportJobStatusChangeProps) *awsevents.EventPattern {
 	if err := s.validateReadSetImportJobStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -109,7 +109,7 @@ func (s *jsiiProxy_SequenceStoreEvents) ReadSetImportJobStatusChangePattern(opti
 	return returns
 }
 
-func (s *jsiiProxy_SequenceStoreEvents) ReadSetStatusChangePattern(options *SequenceStoreEvents_ReadSetStatusChange_ReadSetStatusChangeProps) *awsevents.EventPattern {
+func (s *jsiiProxy_SequenceStoreEvents) ReadSetStatusChangePattern(options *ReadSetStatusChange_ReadSetStatusChangeProps) *awsevents.EventPattern {
 	if err := s.validateReadSetStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}

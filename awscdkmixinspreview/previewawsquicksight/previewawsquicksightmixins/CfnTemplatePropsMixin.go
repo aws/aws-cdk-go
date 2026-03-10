@@ -10,11 +10,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a template from an existing Quick Suite analysis or template.
+// Creates a template from an existing Quick analysis or template.
 //
 // You can use the resulting template to create a dashboard.
 //
-// A *template* is an entity in Quick Suite that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template.
+// A *template* is an entity in Quick that encapsulates the metadata required to create an analysis and that you can use to create s dashboard. A template adds a layer of abstraction by using placeholders to replace the dataset associated with the analysis. You can use templates to create dashboards by replacing dataset placeholders with datasets that follow the same schema that was used to create the source analysis and template.
 //
 // Example:
 //
@@ -25,7 +25,7 @@ type CfnTemplatePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnTemplateMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -48,8 +48,8 @@ func (j *jsiiProxy_CfnTemplatePropsMixin) Props() *CfnTemplateMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplatePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnTemplatePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

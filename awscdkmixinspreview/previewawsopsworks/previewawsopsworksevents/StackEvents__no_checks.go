@@ -4,7 +4,7 @@ package previewawsopsworksevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (s *jsiiProxy_StackEvents) validateOpsWorksDeploymentStateChangePatternParameters(options *StackEvents_OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) error {
+func (s *jsiiProxy_StackEvents) validateOpsWorksDeploymentStateChangePatternParameters(options *OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) error {
 	return nil
 }
 

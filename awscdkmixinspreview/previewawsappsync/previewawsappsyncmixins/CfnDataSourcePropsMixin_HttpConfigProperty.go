@@ -31,6 +31,6 @@ type CfnDataSourcePropsMixin_HttpConfigProperty struct {
 	// The endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-endpoint
 	//
-	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	Endpoint interface{} `field:"optional" json:"endpoint" yaml:"endpoint"`
 }
 

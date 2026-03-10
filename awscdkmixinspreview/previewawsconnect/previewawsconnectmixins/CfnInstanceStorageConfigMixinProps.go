@@ -42,7 +42,7 @@ type CfnInstanceStorageConfigMixinProps struct {
 	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`
 	// The configuration of the Kinesis Firehose delivery stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html#cfn-connect-instancestorageconfig-kinesisfirehoseconfig
 	//

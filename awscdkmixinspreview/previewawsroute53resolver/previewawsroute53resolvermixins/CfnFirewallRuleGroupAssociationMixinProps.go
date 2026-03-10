@@ -31,7 +31,7 @@ type CfnFirewallRuleGroupAssociationMixinProps struct {
 	// The unique identifier of the firewall rule group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
 	//
-	FirewallRuleGroupId *string `field:"optional" json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
+	FirewallRuleGroupId interface{} `field:"optional" json:"firewallRuleGroupId" yaml:"firewallRuleGroupId"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
 	//
@@ -57,6 +57,6 @@ type CfnFirewallRuleGroupAssociationMixinProps struct {
 	// The unique identifier of the VPC that is associated with the rule group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

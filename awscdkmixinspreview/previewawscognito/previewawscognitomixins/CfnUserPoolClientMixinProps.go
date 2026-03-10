@@ -264,7 +264,7 @@ type CfnUserPoolClientMixinProps struct {
 	// The ID of the user pool where you want to create an app client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
 	//
-	UserPoolId *string `field:"optional" json:"userPoolId" yaml:"userPoolId"`
+	UserPoolId interface{} `field:"optional" json:"userPoolId" yaml:"userPoolId"`
 	// The list of user attributes that you want your app client to have write access to.
 	//
 	// After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.

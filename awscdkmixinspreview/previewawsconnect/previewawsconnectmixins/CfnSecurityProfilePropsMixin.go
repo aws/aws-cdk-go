@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnSecurityProfilePropsMixin := awscdkmixinspreview.Mixins.NewCfnSecurityProfilePropsMixin(&CfnSecurityProfileMixinProps{
 //   	AllowedAccessControlHierarchyGroupId: jsii.String("allowedAccessControlHierarchyGroupId"),
@@ -28,12 +30,19 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	AllowedFlowModules: []interface{}{
+//   		&FlowModuleProperty{
+//   			FlowModuleId: jsii.String("flowModuleId"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	Applications: []interface{}{
 //   		&ApplicationProperty{
 //   			ApplicationPermissions: []*string{
 //   				jsii.String("applicationPermissions"),
 //   			},
 //   			Namespace: jsii.String("namespace"),
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
@@ -70,7 +79,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html
@@ -79,7 +88,7 @@ type CfnSecurityProfilePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnSecurityProfileMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -102,8 +111,8 @@ func (j *jsiiProxy_CfnSecurityProfilePropsMixin) Props() *CfnSecurityProfileMixi
 	return returns
 }
 
-func (j *jsiiProxy_CfnSecurityProfilePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnSecurityProfilePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

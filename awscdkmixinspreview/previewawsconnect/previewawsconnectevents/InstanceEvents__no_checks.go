@@ -4,15 +4,15 @@ package previewawsconnectevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_InstanceEvents) validateCodeConnectContactPatternParameters(options *InstanceEvents_CodeConnectContact_CodeConnectContactProps) error {
+func (i *jsiiProxy_InstanceEvents) validateCodeConnectContactPatternParameters(options *CodeConnectContact_CodeConnectContactProps) error {
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateContactLensPostCallRulesMatchedPatternParameters(options *InstanceEvents_ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) error {
+func (i *jsiiProxy_InstanceEvents) validateContactLensPostCallRulesMatchedPatternParameters(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) error {
 	return nil
 }
 
-func (i *jsiiProxy_InstanceEvents) validateContactLensRealtimeRulesMatchedPatternParameters(options *InstanceEvents_ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) error {
+func (i *jsiiProxy_InstanceEvents) validateContactLensRealtimeRulesMatchedPatternParameters(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) error {
 	return nil
 }
 

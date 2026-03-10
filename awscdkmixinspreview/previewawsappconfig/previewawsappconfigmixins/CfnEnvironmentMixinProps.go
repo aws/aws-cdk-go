@@ -36,7 +36,7 @@ type CfnEnvironmentMixinProps struct {
 	// The application ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-applicationid
 	//
-	ApplicationId *string `field:"optional" json:"applicationId" yaml:"applicationId"`
+	ApplicationId interface{} `field:"optional" json:"applicationId" yaml:"applicationId"`
 	// A parameter to configure deletion protection.
 	//
 	// Deletion protection prevents a user from deleting an environment if your application called either [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) or [GetConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) in the environment during the specified interval.

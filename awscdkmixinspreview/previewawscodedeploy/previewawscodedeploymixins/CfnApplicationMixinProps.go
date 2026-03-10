@@ -32,7 +32,7 @@ type CfnApplicationMixinProps struct {
 	// > Updates to `ApplicationName` are not supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname
 	//
-	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
+	ApplicationName interface{} `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// The compute platform that CodeDeploy deploys the application to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html#cfn-codedeploy-application-computeplatform
 	//

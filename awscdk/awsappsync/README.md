@@ -960,6 +960,52 @@ api := appsync.NewGraphqlApi(this, jsii.String("OwnerContact"), &GraphqlApiProps
 })
 ```
 
+### Enhanced Metrics
+
+Enables and controls the enhanced metrics feature. Enhanced metrics emit granular data on API usage and performance such as AppSync request and error counts, latency, and cache hits/misses. All enhanced metric data is sent to your CloudWatch account, and you can configure the types of data that will be sent.
+
+```go
+schema := appsync.NewSchemaFile(&SchemaProps{
+	FilePath: jsii.String("mySchemaFile"),
+})
+appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("myApi"),
+	Definition: appsync.Definition_FromSchema(schema),
+	EnhancedMetricsConfig: &EnhancedMetricsConfig{
+		DataSourceLevelMetricsBehavior: appsync.DataSourceLevelMetricsBehavior_FULL_REQUEST_DATA_SOURCE_METRICS,
+		OperationLevelMetricsConfig: appsync.OperationLevelMetricsConfig_ENABLED,
+		ResolverLevelMetricsBehavior: appsync.ResolverLevelMetricsBehavior_FULL_REQUEST_RESOLVER_METRICS,
+	},
+})
+```
+
+If you wish to enable enhanced metrics only for subset of data sources or resolvers you can use the following configuration.
+
+```go
+schema := appsync.NewSchemaFile(&SchemaProps{
+	FilePath: jsii.String("mySchemaFile"),
+})
+api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+	Name: jsii.String("myApi"),
+	Definition: appsync.Definition_FromSchema(schema),
+	EnhancedMetricsConfig: &EnhancedMetricsConfig{
+		DataSourceLevelMetricsBehavior: appsync.DataSourceLevelMetricsBehavior_PER_DATA_SOURCE_METRICS,
+		OperationLevelMetricsConfig: appsync.OperationLevelMetricsConfig_ENABLED,
+		ResolverLevelMetricsBehavior: appsync.ResolverLevelMetricsBehavior_PER_RESOLVER_METRICS,
+	},
+})
+
+noneDS := api.AddNoneDataSource(jsii.String("none"), &DataSourceOptions{
+	MetricsConfig: appsync.DataSourceMetricsConfig_ENABLED,
+})
+
+noneDS.CreateResolver(jsii.String("noneResolver"), &BaseResolverProps{
+	TypeName: jsii.String("Mutation"),
+	FieldName: jsii.String("addDemoMetricsConfig"),
+	MetricsConfig: appsync.ResolverMetricsConfig_ENABLED,
+})
+```
+
 ## Events
 
 ### Example

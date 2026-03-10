@@ -84,6 +84,6 @@ type CfnMissionProfileMixinProps struct {
 	// The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
 	//
-	TrackingConfigArn *string `field:"optional" json:"trackingConfigArn" yaml:"trackingConfigArn"`
+	TrackingConfigArn interface{} `field:"optional" json:"trackingConfigArn" yaml:"trackingConfigArn"`
 }
 

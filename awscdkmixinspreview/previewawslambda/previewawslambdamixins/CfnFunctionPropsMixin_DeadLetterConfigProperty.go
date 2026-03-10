@@ -18,6 +18,6 @@ type CfnFunctionPropsMixin_DeadLetterConfigProperty struct {
 	// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
 	//
-	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
+	TargetArn interface{} `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 

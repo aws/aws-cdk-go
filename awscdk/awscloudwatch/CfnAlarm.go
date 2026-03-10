@@ -23,16 +23,13 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnAlarm := awscdk.Aws_cloudwatch.NewCfnAlarm(this, jsii.String("MyCfnAlarm"), &CfnAlarmProps{
-//   	ComparisonOperator: jsii.String("comparisonOperator"),
-//   	EvaluationPeriods: jsii.Number(123),
-//
-//   	// the properties below are optional
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
 //   	AlarmName: jsii.String("alarmName"),
+//   	ComparisonOperator: jsii.String("comparisonOperator"),
 //   	DatapointsToAlarm: jsii.Number(123),
 //   	Dimensions: []interface{}{
 //   		&DimensionProperty{
@@ -41,6 +38,7 @@ import (
 //   		},
 //   	},
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
+//   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),
@@ -788,9 +786,6 @@ func (j *jsiiProxy_CfnAlarm)SetAlarmName(val *string) {
 }
 
 func (j *jsiiProxy_CfnAlarm)SetComparisonOperator(val *string) {
-	if err := j.validateSetComparisonOperatorParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"comparisonOperator",
@@ -826,9 +821,6 @@ func (j *jsiiProxy_CfnAlarm)SetEvaluateLowSampleCountPercentile(val *string) {
 }
 
 func (j *jsiiProxy_CfnAlarm)SetEvaluationPeriods(val *float64) {
-	if err := j.validateSetEvaluationPeriodsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"evaluationPeriods",

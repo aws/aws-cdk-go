@@ -12,7 +12,7 @@ package previewawscloudfrontmixins
 //
 //   keyGroupConfigProperty := &KeyGroupConfigProperty{
 //   	Comment: jsii.String("comment"),
-//   	Items: []*string{
+//   	Items: []interface{}{
 //   		jsii.String("items"),
 //   	},
 //   	Name: jsii.String("name"),
@@ -30,7 +30,7 @@ type CfnKeyGroupPropsMixin_KeyGroupConfigProperty struct {
 	// A list of the identifiers of the public keys in the key group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
 	//
-	Items *[]*string `field:"optional" json:"items" yaml:"items"`
+	Items *[]interface{} `field:"optional" json:"items" yaml:"items"`
 	// A name to identify the key group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
 	//

@@ -24,7 +24,7 @@ import (
 type RecoveryGroupEvents interface {
 	// EventBridge event pattern for RecoveryGroup Route 53 Application Recovery Controller recovery group readiness status change.
 	// Experimental.
-	Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePattern(options *RecoveryGroupEvents_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) *awsevents.EventPattern
+	Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePattern(options *Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for RecoveryGroupEvents
@@ -52,7 +52,7 @@ func RecoveryGroupEvents_FromRecoveryGroup(recoveryGroupRef interfacesawsroute53
 	return returns
 }
 
-func (r *jsiiProxy_RecoveryGroupEvents) Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePattern(options *RecoveryGroupEvents_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) *awsevents.EventPattern {
+func (r *jsiiProxy_RecoveryGroupEvents) Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePattern(options *Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) *awsevents.EventPattern {
 	if err := r.validateRoute53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}

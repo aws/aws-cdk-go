@@ -90,7 +90,7 @@ type KubectlProvider interface {
 	HandlerRole() awsiam.IRole
 	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
 	Nested() *bool
-	// If this is a nested stack, returns it's parent stack.
+	// If this is a nested stack, returns its parent stack.
 	NestedStackParent() awscdk.Stack
 	// If this is a nested stack, this represents its `AWS::CloudFormation::Stack` resource.
 	//
@@ -782,6 +782,8 @@ func KubectlProvider_IsStack(x interface{}) *bool {
 // Looks up the first stack scope in which `construct` is defined.
 //
 // Fails if there is no stack up the tree.
+//
+// Will return the closest containing `Stack` or `NestedStack`.
 func KubectlProvider_Of(construct constructs.IConstruct) awscdk.Stack {
 	_init_.Initialize()
 

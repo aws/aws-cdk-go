@@ -21,7 +21,7 @@ type CfnContainerRecipePropsMixin_TargetContainerRepositoryProperty struct {
 	// This name is prefixed by the repository location. For example, `<repository location url>/repository_name` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
 	//
-	RepositoryName *string `field:"optional" json:"repositoryName" yaml:"repositoryName"`
+	RepositoryName interface{} `field:"optional" json:"repositoryName" yaml:"repositoryName"`
 	// Specifies the service in which this image was registered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
 	//

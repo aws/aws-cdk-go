@@ -1,16 +1,19 @@
 package mixins
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Options for applying CfnProperty mixins.
 //
 // Example:
-//   // MERGE (default): Deep merges properties with existing values
+//   // COMBINE (default): Deep merges properties with existing values
 //   awscdk.Mixins_Of(bucket).Apply(awscdkmixinspreview.NewCfnBucketPropsMixin(&CfnBucketMixinProps{
 //   	VersioningConfiguration: &VersioningConfigurationProperty{
 //   		Status: jsii.String("Enabled"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.PropertyMergeStrategy_MERGE,
+//   	Strategy: awscdk.PropertyMergeStrategy_Combine(),
 //   }))
 //
 //   // OVERRIDE: Replaces existing property values
@@ -19,15 +22,15 @@ package mixins
 //   		Status: jsii.String("Enabled"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: awscdk.PropertyMergeStrategy_Override(),
 //   }))
 //
 // Experimental.
 type CfnPropertyMixinOptions struct {
 	// Strategy for merging nested properties.
-	// Default: - PropertyMergeStrategy.MERGE
+	// Default: - PropertyMergeStrategy.combine()
 	//
 	// Experimental.
-	Strategy PropertyMergeStrategy `field:"optional" json:"strategy" yaml:"strategy"`
+	Strategy awscdk.IMergeStrategy `field:"optional" json:"strategy" yaml:"strategy"`
 }
 

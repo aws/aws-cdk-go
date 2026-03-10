@@ -19,7 +19,7 @@ type CfnListenerRulePropsMixin_TargetGroupTupleProperty struct {
 	// The Amazon Resource Name (ARN) of the target group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-targetgrouptuple.html#cfn-elasticloadbalancingv2-listenerrule-targetgrouptuple-targetgrouparn
 	//
-	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn interface{} `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 	// The weight.
 	//
 	// The range is 0 to 999.

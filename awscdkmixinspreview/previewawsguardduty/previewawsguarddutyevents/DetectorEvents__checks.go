@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsguardduty"
 )
 
-func (d *jsiiProxy_DetectorEvents) validateGuardDutyFindingPatternParameters(options *DetectorEvents_GuardDutyFinding_GuardDutyFindingProps) error {
+func (d *jsiiProxy_DetectorEvents) validateGuardDutyFindingPatternParameters(options *GuardDutyFinding_GuardDutyFindingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

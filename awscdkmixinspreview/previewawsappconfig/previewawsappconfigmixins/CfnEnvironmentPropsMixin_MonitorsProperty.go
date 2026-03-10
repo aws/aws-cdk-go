@@ -16,9 +16,9 @@ package previewawsappconfigmixins
 type CfnEnvironmentPropsMixin_MonitorsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmarn
 	//
-	AlarmArn *string `field:"optional" json:"alarmArn" yaml:"alarmArn"`
+	AlarmArn interface{} `field:"optional" json:"alarmArn" yaml:"alarmArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html#cfn-appconfig-environment-monitors-alarmrolearn
 	//
-	AlarmRoleArn *string `field:"optional" json:"alarmRoleArn" yaml:"alarmRoleArn"`
+	AlarmRoleArn interface{} `field:"optional" json:"alarmRoleArn" yaml:"alarmRoleArn"`
 }
 

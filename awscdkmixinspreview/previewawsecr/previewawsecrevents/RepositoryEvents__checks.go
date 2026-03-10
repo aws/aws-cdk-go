@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsecr"
 )
 
-func (r *jsiiProxy_RepositoryEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *RepositoryEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func (r *jsiiProxy_RepositoryEvents) validateAwsAPICallViaCloudTrailPatternParam
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRImageActionPatternParameters(options *RepositoryEvents_ECRImageAction_ECRImageActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrImageActionPatternParameters(options *ECRImageAction_ECRImageActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func (r *jsiiProxy_RepositoryEvents) validateECRImageActionPatternParameters(opt
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRImageScanPatternParameters(options *RepositoryEvents_ECRImageScan_ECRImageScanProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrImageScanPatternParameters(options *ECRImageScan_ECRImageScanProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func (r *jsiiProxy_RepositoryEvents) validateECRImageScanPatternParameters(optio
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRPullThroughCacheActionPatternParameters(options *RepositoryEvents_ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrPullThroughCacheActionPatternParameters(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -42,7 +42,7 @@ func (r *jsiiProxy_RepositoryEvents) validateECRPullThroughCacheActionPatternPar
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRReferrerActionPatternParameters(options *RepositoryEvents_ECRReferrerAction_ECRReferrerActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrReferrerActionPatternParameters(options *ECRReferrerAction_ECRReferrerActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}
@@ -50,7 +50,7 @@ func (r *jsiiProxy_RepositoryEvents) validateECRReferrerActionPatternParameters(
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRReplicationActionPatternParameters(options *RepositoryEvents_ECRReplicationAction_ECRReplicationActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrReplicationActionPatternParameters(options *ECRReplicationAction_ECRReplicationActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

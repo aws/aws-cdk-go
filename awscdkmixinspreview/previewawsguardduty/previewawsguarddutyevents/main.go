@@ -18,363 +18,463 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding",
+		reflect.TypeOf((*GuardDutyFinding)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DetectorEvents_GuardDutyFinding{}
+			return &jsiiProxy_GuardDutyFinding{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AccessControlList",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AccessControlList)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AccessControlList",
+		reflect.TypeOf((*GuardDutyFinding_AccessControlList)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AccessKeyDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AccessKeyDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AccessKeyDetails",
+		reflect.TypeOf((*GuardDutyFinding_AccessKeyDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AccountLevelPermissions",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AccountLevelPermissions)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AccountLevelPermissions",
+		reflect.TypeOf((*GuardDutyFinding_AccountLevelPermissions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Action",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Action)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Action",
+		reflect.TypeOf((*GuardDutyFinding_Action)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AdditionalInfo",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AdditionalInfo)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AdditionalInfo",
+		reflect.TypeOf((*GuardDutyFinding_AdditionalInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AdditionalInfoItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AdditionalInfoItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AdditionalInfoItem",
+		reflect.TypeOf((*GuardDutyFinding_AdditionalInfoItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AdditionalInfoItem1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AdditionalInfoItem1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AdditionalInfoItem1",
+		reflect.TypeOf((*GuardDutyFinding_AdditionalInfoItem1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AffectedResources1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AffectedResources1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AffectedResources1",
+		reflect.TypeOf((*GuardDutyFinding_AffectedResources1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Anomalies",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Anomalies)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Anomalies",
+		reflect.TypeOf((*GuardDutyFinding_Anomalies)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AwsApiCallAction",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AwsApiCallAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AwsApiCallAction",
+		reflect.TypeOf((*GuardDutyFinding_AwsApiCallAction)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.AwsApiCallAction1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_AwsApiCallAction1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.AwsApiCallAction1",
+		reflect.TypeOf((*GuardDutyFinding_AwsApiCallAction1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.BlockPublicAccess",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_BlockPublicAccess)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.BlockPublicAccess",
+		reflect.TypeOf((*GuardDutyFinding_BlockPublicAccess)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.BucketLevelPermissions",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_BucketLevelPermissions)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.BucketLevelPermissions",
+		reflect.TypeOf((*GuardDutyFinding_BucketLevelPermissions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.City",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_City)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.City",
+		reflect.TypeOf((*GuardDutyFinding_City)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.City1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_City1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.City1",
+		reflect.TypeOf((*GuardDutyFinding_City1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.City2",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_City2)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.City2",
+		reflect.TypeOf((*GuardDutyFinding_City2)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.City3",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_City3)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.City3",
+		reflect.TypeOf((*GuardDutyFinding_City3)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.City4",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_City4)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.City4",
+		reflect.TypeOf((*GuardDutyFinding_City4)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ContainerDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ContainerDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ContainerDetails",
+		reflect.TypeOf((*GuardDutyFinding_ContainerDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Country",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Country)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Country",
+		reflect.TypeOf((*GuardDutyFinding_Country)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Country1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Country1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Country1",
+		reflect.TypeOf((*GuardDutyFinding_Country1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Country2",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Country2)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Country2",
+		reflect.TypeOf((*GuardDutyFinding_Country2)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Country3",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Country3)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Country3",
+		reflect.TypeOf((*GuardDutyFinding_Country3)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Country4",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Country4)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Country4",
+		reflect.TypeOf((*GuardDutyFinding_Country4)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.DefaultServerSideEncryption",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_DefaultServerSideEncryption)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.DefaultServerSideEncryption",
+		reflect.TypeOf((*GuardDutyFinding_DefaultServerSideEncryption)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.DnsRequestAction",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_DnsRequestAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.DnsRequestAction",
+		reflect.TypeOf((*GuardDutyFinding_DnsRequestAction)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EbsVolumeDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EbsVolumeDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EbsVolumeDetails",
+		reflect.TypeOf((*GuardDutyFinding_EbsVolumeDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EbsVolumeDetailsItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EbsVolumeDetailsItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EbsVolumeDetailsItem",
+		reflect.TypeOf((*GuardDutyFinding_EbsVolumeDetailsItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EbsVolumeScanDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EbsVolumeScanDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EbsVolumeScanDetails",
+		reflect.TypeOf((*GuardDutyFinding_EbsVolumeScanDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EcsClusterDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EcsClusterDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EcsClusterDetails",
+		reflect.TypeOf((*GuardDutyFinding_EcsClusterDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EcsClusterDetailsItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EcsClusterDetailsItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EcsClusterDetailsItem",
+		reflect.TypeOf((*GuardDutyFinding_EcsClusterDetailsItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EksClusterDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EksClusterDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EksClusterDetails",
+		reflect.TypeOf((*GuardDutyFinding_EksClusterDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Evidence",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Evidence)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Evidence",
+		reflect.TypeOf((*GuardDutyFinding_Evidence)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.EvidenceItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_EvidenceItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.EvidenceItem",
+		reflect.TypeOf((*GuardDutyFinding_EvidenceItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.GeoLocation",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_GeoLocation)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.GeoLocation",
+		reflect.TypeOf((*GuardDutyFinding_GeoLocation)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.GeoLocation1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_GeoLocation1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.GeoLocation1",
+		reflect.TypeOf((*GuardDutyFinding_GeoLocation1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.GuardDutyFindingProps",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_GuardDutyFindingProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.GuardDutyFindingProps",
+		reflect.TypeOf((*GuardDutyFinding_GuardDutyFindingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.HighestSeverityThreatDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_HighestSeverityThreatDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.HighestSeverityThreatDetails",
+		reflect.TypeOf((*GuardDutyFinding_HighestSeverityThreatDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.IamInstanceProfile",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_IamInstanceProfile)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.IamInstanceProfile",
+		reflect.TypeOf((*GuardDutyFinding_IamInstanceProfile)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.InstanceDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_InstanceDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.InstanceDetails",
+		reflect.TypeOf((*GuardDutyFinding_InstanceDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.InstanceDetailsItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_InstanceDetailsItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.InstanceDetailsItem",
+		reflect.TypeOf((*GuardDutyFinding_InstanceDetailsItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.InstanceDetailsItem1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_InstanceDetailsItem1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.InstanceDetailsItem1",
+		reflect.TypeOf((*GuardDutyFinding_InstanceDetailsItem1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.InstanceDetailsItemItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_InstanceDetailsItemItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.InstanceDetailsItemItem",
+		reflect.TypeOf((*GuardDutyFinding_InstanceDetailsItemItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.InstanceDetailsItemItem1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_InstanceDetailsItemItem1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.InstanceDetailsItemItem1",
+		reflect.TypeOf((*GuardDutyFinding_InstanceDetailsItemItem1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.KubernetesApiCallAction",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_KubernetesApiCallAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.KubernetesApiCallAction",
+		reflect.TypeOf((*GuardDutyFinding_KubernetesApiCallAction)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.KubernetesDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_KubernetesDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.KubernetesDetails",
+		reflect.TypeOf((*GuardDutyFinding_KubernetesDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.KubernetesUserDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_KubernetesUserDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.KubernetesUserDetails",
+		reflect.TypeOf((*GuardDutyFinding_KubernetesUserDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.KubernetesWorkloadDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_KubernetesWorkloadDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.KubernetesWorkloadDetails",
+		reflect.TypeOf((*GuardDutyFinding_KubernetesWorkloadDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.KubernetesWorkloadDetailsItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_KubernetesWorkloadDetailsItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.KubernetesWorkloadDetailsItem",
+		reflect.TypeOf((*GuardDutyFinding_KubernetesWorkloadDetailsItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.LocalIpDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_LocalIpDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.LocalIpDetails",
+		reflect.TypeOf((*GuardDutyFinding_LocalIpDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.LocalIpDetails1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_LocalIpDetails1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.LocalIpDetails1",
+		reflect.TypeOf((*GuardDutyFinding_LocalIpDetails1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.LocalPortDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_LocalPortDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.LocalPortDetails",
+		reflect.TypeOf((*GuardDutyFinding_LocalPortDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.LocalPortDetails1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_LocalPortDetails1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.LocalPortDetails1",
+		reflect.TypeOf((*GuardDutyFinding_LocalPortDetails1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.NetworkConnectionAction",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_NetworkConnectionAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.NetworkConnectionAction",
+		reflect.TypeOf((*GuardDutyFinding_NetworkConnectionAction)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.NewPolicy",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_NewPolicy)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.NewPolicy",
+		reflect.TypeOf((*GuardDutyFinding_NewPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.OldPolicy",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_OldPolicy)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.OldPolicy",
+		reflect.TypeOf((*GuardDutyFinding_OldPolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Organization",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Organization)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Organization",
+		reflect.TypeOf((*GuardDutyFinding_Organization)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Organization1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Organization1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Organization1",
+		reflect.TypeOf((*GuardDutyFinding_Organization1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Organization2",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Organization2)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Organization2",
+		reflect.TypeOf((*GuardDutyFinding_Organization2)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Organization3",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Organization3)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Organization3",
+		reflect.TypeOf((*GuardDutyFinding_Organization3)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Organization4",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Organization4)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Organization4",
+		reflect.TypeOf((*GuardDutyFinding_Organization4)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Owner",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Owner)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Owner",
+		reflect.TypeOf((*GuardDutyFinding_Owner)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.PermissionConfiguration",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_PermissionConfiguration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.PermissionConfiguration",
+		reflect.TypeOf((*GuardDutyFinding_PermissionConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.PortProbeAction",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_PortProbeAction)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.PortProbeAction",
+		reflect.TypeOf((*GuardDutyFinding_PortProbeAction)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.PortProbeActionItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_PortProbeActionItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.PortProbeActionItem",
+		reflect.TypeOf((*GuardDutyFinding_PortProbeActionItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ProfiledBehavior",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ProfiledBehavior)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ProfiledBehavior",
+		reflect.TypeOf((*GuardDutyFinding_ProfiledBehavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.PublicAccess",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_PublicAccess)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.PublicAccess",
+		reflect.TypeOf((*GuardDutyFinding_PublicAccess)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemoteAccountDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemoteAccountDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemoteAccountDetails",
+		reflect.TypeOf((*GuardDutyFinding_RemoteAccountDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemoteIpDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemoteIpDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemoteIpDetails",
+		reflect.TypeOf((*GuardDutyFinding_RemoteIpDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemoteIpDetails1",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemoteIpDetails1)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemoteIpDetails1",
+		reflect.TypeOf((*GuardDutyFinding_RemoteIpDetails1)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemoteIpDetails2",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemoteIpDetails2)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemoteIpDetails2",
+		reflect.TypeOf((*GuardDutyFinding_RemoteIpDetails2)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemoteIpDetails3",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemoteIpDetails3)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemoteIpDetails3",
+		reflect.TypeOf((*GuardDutyFinding_RemoteIpDetails3)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemoteIpDetails4",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemoteIpDetails4)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemoteIpDetails4",
+		reflect.TypeOf((*GuardDutyFinding_RemoteIpDetails4)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.RemotePortDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_RemotePortDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.RemotePortDetails",
+		reflect.TypeOf((*GuardDutyFinding_RemotePortDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Resource",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Resource)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Resource",
+		reflect.TypeOf((*GuardDutyFinding_Resource)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ResourceItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ResourceItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ResourceItem",
+		reflect.TypeOf((*GuardDutyFinding_ResourceItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ScanDetections",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ScanDetections)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ScanDetections",
+		reflect.TypeOf((*GuardDutyFinding_ScanDetections)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ScannedItemCount",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ScannedItemCount)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ScannedItemCount",
+		reflect.TypeOf((*GuardDutyFinding_ScannedItemCount)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.SecurityContext",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_SecurityContext)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.SecurityContext",
+		reflect.TypeOf((*GuardDutyFinding_SecurityContext)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.Service",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_Service)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.Service",
+		reflect.TypeOf((*GuardDutyFinding_Service)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.TaskDetails",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_TaskDetails)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.TaskDetails",
+		reflect.TypeOf((*GuardDutyFinding_TaskDetails)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.TaskDetailsItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_TaskDetailsItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.TaskDetailsItem",
+		reflect.TypeOf((*GuardDutyFinding_TaskDetailsItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ThreatDetectedByName",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ThreatDetectedByName)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ThreatDetectedByName",
+		reflect.TypeOf((*GuardDutyFinding_ThreatDetectedByName)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ThreatDetectedByNameItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ThreatDetectedByNameItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ThreatDetectedByNameItem",
+		reflect.TypeOf((*GuardDutyFinding_ThreatDetectedByNameItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ThreatDetectedByNameItemItem",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ThreatDetectedByNameItemItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ThreatDetectedByNameItemItem",
+		reflect.TypeOf((*GuardDutyFinding_ThreatDetectedByNameItemItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.ThreatsDetectedItemCount",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_ThreatsDetectedItemCount)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.ThreatsDetectedItemCount",
+		reflect.TypeOf((*GuardDutyFinding_ThreatsDetectedItemCount)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.UnusualBehavior",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_UnusualBehavior)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.UnusualBehavior",
+		reflect.TypeOf((*GuardDutyFinding_UnusualBehavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_guardduty.events.DetectorEvents.GuardDutyFinding.UserAgent",
-		reflect.TypeOf((*DetectorEvents_GuardDutyFinding_UserAgent)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding.UserAgent",
+		reflect.TypeOf((*GuardDutyFinding_UserAgent)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionObjectScanResult",
+		reflect.TypeOf((*GuardDutyMalwareProtectionObjectScanResult)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GuardDutyMalwareProtectionObjectScanResult{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionObjectScanResult.GuardDutyMalwareProtectionObjectScanResultProps",
+		reflect.TypeOf((*GuardDutyMalwareProtectionObjectScanResult_GuardDutyMalwareProtectionObjectScanResultProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionObjectScanResult.S3ObjectDetails",
+		reflect.TypeOf((*GuardDutyMalwareProtectionObjectScanResult_S3ObjectDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionObjectScanResult.ScanResultDetails",
+		reflect.TypeOf((*GuardDutyMalwareProtectionObjectScanResult_ScanResultDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionObjectScanResult.Threat",
+		reflect.TypeOf((*GuardDutyMalwareProtectionObjectScanResult_Threat)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionPostScanActionFailed",
+		reflect.TypeOf((*GuardDutyMalwareProtectionPostScanActionFailed)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GuardDutyMalwareProtectionPostScanActionFailed{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionPostScanActionFailed.GuardDutyMalwareProtectionPostScanActionFailedProps",
+		reflect.TypeOf((*GuardDutyMalwareProtectionPostScanActionFailed_GuardDutyMalwareProtectionPostScanActionFailedProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionPostScanActionFailed.PostScanAction",
+		reflect.TypeOf((*GuardDutyMalwareProtectionPostScanActionFailed_PostScanAction)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionPostScanActionFailed.S3ObjectDetails",
+		reflect.TypeOf((*GuardDutyMalwareProtectionPostScanActionFailed_S3ObjectDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusActive",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusActive)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GuardDutyMalwareProtectionResourceStatusActive{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusActive.GuardDutyMalwareProtectionResourceStatusActiveProps",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusActive_GuardDutyMalwareProtectionResourceStatusActiveProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusActive.S3BucketDetails",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusActive_S3BucketDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusError",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusError)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GuardDutyMalwareProtectionResourceStatusError{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusError.GuardDutyMalwareProtectionResourceStatusErrorProps",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusError_GuardDutyMalwareProtectionResourceStatusErrorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusError.S3BucketDetails",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusError_S3BucketDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusError.StatusReason",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusError_StatusReason)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusWarning",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusWarning)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_GuardDutyMalwareProtectionResourceStatusWarning{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusWarning.GuardDutyMalwareProtectionResourceStatusWarningProps",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusWarning_GuardDutyMalwareProtectionResourceStatusWarningProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusWarning.S3BucketDetails",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusWarning_S3BucketDetails)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyMalwareProtectionResourceStatusWarning.StatusReason",
+		reflect.TypeOf((*GuardDutyMalwareProtectionResourceStatusWarning_StatusReason)(nil)).Elem(),
 	)
 }

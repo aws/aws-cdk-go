@@ -4,11 +4,11 @@ package previewawsglueevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogDatabaseStateChangePatternParameters(options *DatabaseEvents_GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) error {
+func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogDatabaseStateChangePatternParameters(options *GlueDataCatalogDatabaseStateChange_GlueDataCatalogDatabaseStateChangeProps) error {
 	return nil
 }
 
-func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogTableStateChangePatternParameters(options *DatabaseEvents_GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) error {
+func (d *jsiiProxy_DatabaseEvents) validateGlueDataCatalogTableStateChangePatternParameters(options *GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) error {
 	return nil
 }
 

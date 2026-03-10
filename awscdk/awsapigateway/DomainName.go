@@ -63,8 +63,10 @@ type DomainName interface {
 	//
 	// This uses the ApiMapping from ApiGatewayV2 which supports multi-level paths, but
 	// also only supports:
-	// - SecurityPolicy.TLS_1_2
+	// - SecurityPolicy TLS 1.2 or higher for multi-level base paths (TLS 1.0 is not supported for multi-level paths)
 	// - EndpointType.REGIONAL
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html
+	//
 	AddApiMapping(targetStage interfacesawsapigateway.IStageRef, options *ApiMappingOptions)
 	// Maps this domain to an API endpoint.
 	//

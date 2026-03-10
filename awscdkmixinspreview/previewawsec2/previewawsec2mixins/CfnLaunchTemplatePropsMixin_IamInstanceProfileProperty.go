@@ -29,6 +29,6 @@ type CfnLaunchTemplatePropsMixin_IamInstanceProfileProperty struct {
 	// The name of the instance profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html#cfn-ec2-launchtemplate-iaminstanceprofile-name
 	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name interface{} `field:"optional" json:"name" yaml:"name"`
 }
 

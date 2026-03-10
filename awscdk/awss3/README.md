@@ -1188,3 +1188,54 @@ if sourceBucket.ReplicationRoleArn {
 	destinationBucket.AddReplicationPolicy(sourceBucket.ReplicationRoleArn, jsii.Boolean(true), jsii.String("111111111111"))
 }
 ```
+
+## Mixins
+
+S3 provides several [mixins](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins) that can be applied to L1 and L2 constructs.
+
+### BucketAutoDeleteObjects
+
+Automatically deletes all objects from a bucket when the bucket is removed from the stack or when the stack is deleted. Requires the bucket's removal policy to be set to `DESTROY`:
+
+```go
+s3.NewCfnBucket(this, jsii.String("Bucket")).With(#error#.NewBucketAutoDeleteObjects())
+```
+
+### BucketVersioning
+
+Enables or suspends versioning on an S3 bucket:
+
+```go
+s3.NewCfnBucket(this, jsii.String("Bucket")).With(#error#.NewBucketVersioning())
+```
+
+### BucketBlockPublicAccess
+
+Blocks public access on an S3 bucket. Defaults to blocking all public access:
+
+```go
+s3.NewCfnBucket(this, jsii.String("Bucket")).With(#error#.NewBucketBlockPublicAccess())
+```
+
+### BucketPolicyStatements
+
+Adds IAM policy statements to a bucket policy:
+
+```go
+s3.NewCfnBucketPolicy(this, jsii.String("Policy"), &CfnBucketPolicyProps{
+	Bucket: s3.NewCfnBucket(this, jsii.String("Bucket")).ref,
+	PolicyDocument: iam.NewPolicyDocument(),
+}).With(#error#.NewBucketPolicyStatements([]PolicyStatement{
+	iam.NewPolicyStatement(&PolicyStatementProps{
+		Actions: []*string{
+			jsii.String("s3:GetObject"),
+		},
+		Resources: []*string{
+			jsii.String("*"),
+		},
+		Principals: []IPrincipal{
+			iam.NewAnyPrincipal(),
+		},
+	}),
+}))
+```

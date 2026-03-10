@@ -24,7 +24,7 @@ type CfnIntegrationAssociationMixinProps struct {
 	// *Maximum* : `100`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-instanceid
 	//
-	InstanceId *string `field:"optional" json:"instanceId" yaml:"instanceId"`
+	InstanceId interface{} `field:"optional" json:"instanceId" yaml:"instanceId"`
 	// ARN of the integration being associated with the instance.
 	//
 	// *Minimum* : `1`

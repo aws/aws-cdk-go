@@ -122,7 +122,7 @@ type CfnDataSourceMixinProps struct {
 	// Required if `Type` is specified as `AWS_LAMBDA` , `AMAZON_DYNAMODB` , `AMAZON_ELASTICSEARCH` , `AMAZON_EVENTBRIDGE` , `AMAZON_OPENSEARCH_SERVICE` , `RELATIONAL_DATABASE` , or `AMAZON_BEDROCK_RUNTIME` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn
 	//
-	ServiceRoleArn *string `field:"optional" json:"serviceRoleArn" yaml:"serviceRoleArn"`
+	ServiceRoleArn interface{} `field:"optional" json:"serviceRoleArn" yaml:"serviceRoleArn"`
 	// The type of the data source.
 	//
 	// - *AWS_LAMBDA* : The data source is an AWS Lambda function.

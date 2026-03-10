@@ -24,7 +24,7 @@ import (
 type OriginEndpointEvents interface {
 	// EventBridge event pattern for OriginEndpoint MediaPackage HarvestJob Notification.
 	// Experimental.
-	MediaPackageHarvestJobNotificationPattern(options *OriginEndpointEvents_MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) *awsevents.EventPattern
+	MediaPackageHarvestJobNotificationPattern(options *MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for OriginEndpointEvents
@@ -52,7 +52,7 @@ func OriginEndpointEvents_FromOriginEndpoint(originEndpointRef interfacesawsmedi
 	return returns
 }
 
-func (o *jsiiProxy_OriginEndpointEvents) MediaPackageHarvestJobNotificationPattern(options *OriginEndpointEvents_MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) *awsevents.EventPattern {
+func (o *jsiiProxy_OriginEndpointEvents) MediaPackageHarvestJobNotificationPattern(options *MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) *awsevents.EventPattern {
 	if err := o.validateMediaPackageHarvestJobNotificationPatternParameters(options); err != nil {
 		panic(err)
 	}

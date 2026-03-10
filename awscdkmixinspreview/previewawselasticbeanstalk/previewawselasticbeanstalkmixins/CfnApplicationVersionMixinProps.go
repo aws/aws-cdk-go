@@ -23,7 +23,7 @@ type CfnApplicationVersionMixinProps struct {
 	// The name of the Elastic Beanstalk application that is associated with this application version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-applicationname
 	//
-	ApplicationName *string `field:"optional" json:"applicationName" yaml:"applicationName"`
+	ApplicationName interface{} `field:"optional" json:"applicationName" yaml:"applicationName"`
 	// A description of this application version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html#cfn-elasticbeanstalk-applicationversion-description
 	//

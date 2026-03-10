@@ -268,14 +268,6 @@ func (j *jsiiProxy_BucketBase) validateSetAutoCreatePolicyParameters(val *bool) 
 	return nil
 }
 
-func (j *jsiiProxy_BucketBase) validateSetGrantsParameters(val BucketGrants) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewBucketBaseParameters(scope constructs.Construct, id *string, props *awscdk.ResourceProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

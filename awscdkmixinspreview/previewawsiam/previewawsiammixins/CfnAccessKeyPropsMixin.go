@@ -22,14 +22,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAccessKeyPropsMixin := awscdkmixinspreview.Mixins.NewCfnAccessKeyPropsMixin(&CfnAccessKeyMixinProps{
 //   	Serial: jsii.Number(123),
 //   	Status: jsii.String("status"),
 //   	UserName: jsii.String("userName"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html
@@ -38,7 +40,7 @@ type CfnAccessKeyPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAccessKeyMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -61,8 +63,8 @@ func (j *jsiiProxy_CfnAccessKeyPropsMixin) Props() *CfnAccessKeyMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessKeyPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAccessKeyPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

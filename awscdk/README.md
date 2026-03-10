@@ -774,7 +774,7 @@ currently only supports Node.js-based user handlers, represents permissions as r
 JSON blobs instead of `iam.PolicyStatement` objects, and it does not have
 support for asynchronous waiting (handler cannot exceed the 15min lambda
 timeout). The `CustomResourceProviderRuntime` supports runtime `nodejs12.x`,
-`nodejs14.x`, `nodejs16.x`, `nodejs18.x`.
+`nodejs14.x`, `nodejs16.x`, `nodejs18.x`, `nodejs20.x`, and `nodejs22.x`.
 
 > **As an application builder, we do not recommend you use this provider type.** This provider exists purely for custom resources that are part of the AWS Construct Library.
 >
@@ -786,7 +786,7 @@ stack-unique identifier and returns the service token:
 ```go
 serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_22_X,
 	Description: jsii.String("Lambda function created by the custom resource provider"),
 })
 
@@ -879,7 +879,7 @@ func NewSum(scope Construct, id *string, props SumProps) *Sum {
 	resourceType := "Custom::Sum"
 	serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, resourceType, &CustomResourceProviderProps{
 		CodeDirectory: fmt.Sprintf("%v/sum-handler", __dirname),
-		Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
+		Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_22_X,
 	})
 
 	resource := awscdk.NewCustomResource(this, jsii.String("Resource"), &CustomResourceProps{
@@ -914,7 +914,7 @@ built-in singleton method:
 ```go
 provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_22_X,
 })
 
 roleArn := provider.roleArn
@@ -927,7 +927,7 @@ To add IAM policy statements to this role, use `addToRolePolicy()`:
 ```go
 provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_22_X,
 })
 provider.AddToRolePolicy(map[string]*string{
 	"Effect": jsii.String("Allow"),
@@ -1822,18 +1822,18 @@ They are applied during or after construct construction using the `.with()` meth
 ```go
 // Apply mixins fluently with .with()
 // Apply mixins fluently with .with()
-s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(NewEncryptionAtRest()).With(NewAutoDeleteObjects())
+s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(awscdk.NewBucketBlockPublicAccess()).With(awscdk.NewBucketAutoDeleteObjects())
 
 // Apply multiple mixins to the same construct
 // Apply multiple mixins to the same construct
-s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(NewEncryptionAtRest(), NewAutoDeleteObjects())
+s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(awscdk.NewBucketBlockPublicAccess(), awscdk.NewBucketAutoDeleteObjects())
 
 // Mixins work with all types of constructs:
 // L1, L2 and even custom constructs
 // Mixins work with all types of constructs:
 // L1, L2 and even custom constructs
-s3.NewBucket(stack, jsii.String("MyL2Bucket")).With(NewEncryptionAtRest())
-NewCustomBucket(stack, jsii.String("MyCustomBucket")).With(NewEncryptionAtRest())
+s3.NewBucket(stack, jsii.String("MyL2Bucket")).With(awscdk.NewBucketBlockPublicAccess())
+NewCustomBucket(stack, jsii.String("MyCustomBucket")).With(awscdk.NewBucketBlockPublicAccess())
 ```
 
 There is an alternative form available that allows additional, advanced configuration of Mixin application: `Mixins.of()`.
@@ -1844,16 +1844,16 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 // Basic: Apply mixins to any construct, calls can be chained
 myBucket := s3.NewCfnBucket(scope, jsii.String("MyBucket"))
-awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest()).Apply(NewAutoDeleteObjects())
+awscdk.Mixins_Of(myBucket).Apply(awscdk.NewBucketBlockPublicAccess()).Apply(awscdk.NewBucketAutoDeleteObjects())
 
 // Basic: Or multiple Mixins passed to apply
-awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest(), NewAutoDeleteObjects())
+awscdk.Mixins_Of(myBucket).Apply(awscdk.NewBucketBlockPublicAccess(), awscdk.NewBucketAutoDeleteObjects())
 
 // Advanced: Apply to constructs matching a selector, e.g. match by ID
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewProductionSecurityMixin())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewCustomProdSecurityConfig())
 
 // Advanced: Require a mixin to be applied to every node in the construct tree
-awscdk.Mixins_Of(stack).Apply(NewProductionSecurityMixin()).RequireAll()
+awscdk.Mixins_Of(stack).Apply(NewCustomProdSecurityConfig()).RequireAll()
 ```
 
 ### How Mixins are applied
@@ -1873,7 +1873,7 @@ By default, Mixins are applied to all supported constructs in the tree:
 
 ```go
 // Apply to all constructs in a scope
-awscdk.Mixins_Of(scope).Apply(NewEncryptionAtRest())
+awscdk.Mixins_Of(scope).Apply(awscdk.NewBucketBlockPublicAccess())
 ```
 
 Optionally, you may select specific constructs:
@@ -1883,19 +1883,19 @@ import "github.com/aws/aws-cdk-go/awscdk"
 
 
 // Apply to a given L1 resource or L2 resource construct
-awscdk.Mixins_Of(bucket, awscdk.ConstructSelector_CfnResource()).Apply(NewEncryptionAtRest())
+awscdk.Mixins_Of(bucket, awscdk.ConstructSelector_CfnResource()).Apply(awscdk.NewBucketBlockPublicAccess())
 
 // Apply to all resources of a specific type
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(s3.CfnBucket_CFN_RESOURCE_TYPE_NAME())).Apply(NewEncryptionAtRest())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(s3.CfnBucket_CFN_RESOURCE_TYPE_NAME())).Apply(awscdk.NewBucketBlockPublicAccess())
 
 // Alternative: select by CloudFormation resource type name
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(jsii.String("AWS::S3::Bucket"))).Apply(NewEncryptionAtRest())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(jsii.String("AWS::S3::Bucket"))).Apply(awscdk.NewBucketBlockPublicAccess())
 
 // Apply to constructs matching a pattern
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewProductionSecurityMixin())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewCustomProdSecurityConfig())
 
 // The default is to apply to all constructs in the scope
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_All()).Apply(NewProductionSecurityMixin())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_All()).Apply(NewCustomProdSecurityConfig())
 ```
 
 #### Mixins that must be used
@@ -1913,10 +1913,10 @@ Both helpers will only check future calls of `apply()`.
 Set them before calling `apply()` to take effect.
 
 ```go
-awscdk.Mixins_Of(scope, selector).RequireAll().Apply(NewEncryptionAtRest())
+awscdk.Mixins_Of(scope, selector).RequireAll().Apply(awscdk.NewBucketBlockPublicAccess())
 
 // Get an application report for manual assertions
-report := awscdk.Mixins_Of(scope).Apply(NewEncryptionAtRest()).report
+report := awscdk.Mixins_Of(scope).Apply(awscdk.NewBucketBlockPublicAccess()).report
 ```
 
 ### Creating Custom Mixins

@@ -140,7 +140,7 @@ type CfnListenerMixinProps struct {
 	// The Amazon Resource Name (ARN) of the load balancer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
 	//
-	LoadBalancerArn *string `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
+	LoadBalancerArn interface{} `field:"optional" json:"loadBalancerArn" yaml:"loadBalancerArn"`
 	// The mutual authentication configuration information.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-mutualauthentication
 	//

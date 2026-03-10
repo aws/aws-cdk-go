@@ -60,6 +60,7 @@ type CfnDistributionPropsMixin_CustomOriginConfigProperty struct {
 	// Default: - 5.
 	//
 	OriginKeepaliveTimeout *float64 `field:"optional" json:"originKeepaliveTimeout" yaml:"originKeepaliveTimeout"`
+	// Configures mutual TLS authentication between CloudFront and your origin server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originmtlsconfig
 	//
 	OriginMtlsConfig interface{} `field:"optional" json:"originMtlsConfig" yaml:"originMtlsConfig"`

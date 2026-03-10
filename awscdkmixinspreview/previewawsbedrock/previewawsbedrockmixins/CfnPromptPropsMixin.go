@@ -18,12 +18,13 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var additionalModelRequestFields interface{}
 //   var any interface{}
 //   var auto interface{}
 //   var json interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnPromptPropsMixin := awscdkmixinspreview.Mixins.NewCfnPromptPropsMixin(&CfnPromptMixinProps{
 //   	CustomerEncryptionKeyArn: jsii.String("customerEncryptionKeyArn"),
@@ -132,7 +133,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html
@@ -141,7 +142,7 @@ type CfnPromptPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnPromptMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -164,8 +165,8 @@ func (j *jsiiProxy_CfnPromptPropsMixin) Props() *CfnPromptMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPromptPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnPromptPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

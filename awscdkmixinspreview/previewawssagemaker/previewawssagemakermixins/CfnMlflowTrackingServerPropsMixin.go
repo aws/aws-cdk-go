@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnMlflowTrackingServerPropsMixin := awscdkmixinspreview.Mixins.NewCfnMlflowTrackingServerPropsMixin(&CfnMlflowTrackingServerMixinProps{
 //   	ArtifactStoreUri: jsii.String("artifactStoreUri"),
@@ -35,7 +37,7 @@ import (
 //   	TrackingServerSize: jsii.String("trackingServerSize"),
 //   	WeeklyMaintenanceWindowStart: jsii.String("weeklyMaintenanceWindowStart"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html
@@ -44,7 +46,7 @@ type CfnMlflowTrackingServerPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnMlflowTrackingServerMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -67,8 +69,8 @@ func (j *jsiiProxy_CfnMlflowTrackingServerPropsMixin) Props() *CfnMlflowTracking
 	return returns
 }
 
-func (j *jsiiProxy_CfnMlflowTrackingServerPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnMlflowTrackingServerPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

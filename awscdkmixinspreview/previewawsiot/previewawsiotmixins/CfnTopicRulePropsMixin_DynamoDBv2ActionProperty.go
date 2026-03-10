@@ -31,6 +31,6 @@ type CfnTopicRulePropsMixin_DynamoDBv2ActionProperty struct {
 	// The ARN of the IAM role that grants access to the DynamoDB table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

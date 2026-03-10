@@ -19,10 +19,10 @@ type CfnDeliveryStreamPropsMixin_KinesisStreamSourceConfigurationProperty struct
 	// The ARN of the source Kinesis data stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration-kinesisstreamarn
 	//
-	KinesisStreamArn *string `field:"optional" json:"kinesisStreamArn" yaml:"kinesisStreamArn"`
+	KinesisStreamArn interface{} `field:"optional" json:"kinesisStreamArn" yaml:"kinesisStreamArn"`
 	// The ARN of the role that provides access to the source Kinesis data stream.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

@@ -23,6 +23,6 @@ type CfnPipelinePropsMixin_ParameterValueProperty struct {
 	// The field value, expressed as a String.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalue.html#cfn-datapipeline-pipeline-parametervalue-stringvalue
 	//
-	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
+	StringValue interface{} `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 

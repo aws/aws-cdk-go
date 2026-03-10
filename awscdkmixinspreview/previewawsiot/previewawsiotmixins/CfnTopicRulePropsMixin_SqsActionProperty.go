@@ -20,11 +20,11 @@ type CfnTopicRulePropsMixin_SqsActionProperty struct {
 	// The URL of the Amazon SQS queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
 	//
-	QueueUrl *string `field:"optional" json:"queueUrl" yaml:"queueUrl"`
+	QueueUrl interface{} `field:"optional" json:"queueUrl" yaml:"queueUrl"`
 	// The ARN of the IAM role that grants access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Specifies whether to use Base64 encoding.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
 	//

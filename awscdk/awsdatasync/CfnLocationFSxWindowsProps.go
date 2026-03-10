@@ -18,6 +18,14 @@ import (
 //   	User: jsii.String("user"),
 //
 //   	// the properties below are optional
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	Domain: jsii.String("domain"),
 //   	FsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	Password: jsii.String("password"),
@@ -47,6 +55,14 @@ type CfnLocationFSxWindowsProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
 	//
 	User *string `field:"required" json:"user" yaml:"user"`
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-cmksecretconfig
+	//
+	CmkSecretConfig interface{} `field:"optional" json:"cmkSecretConfig" yaml:"cmkSecretConfig"`
+	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-customsecretconfig
+	//
+	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
 	// Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.
 	//
 	// If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right file system.

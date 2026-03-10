@@ -16,14 +16,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnHubV2PropsMixin := awscdkmixinspreview.Mixins.NewCfnHubV2PropsMixin(&CfnHubV2MixinProps{
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hubv2.html
@@ -32,7 +34,7 @@ type CfnHubV2PropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnHubV2MixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -55,8 +57,8 @@ func (j *jsiiProxy_CfnHubV2PropsMixin) Props() *CfnHubV2MixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnHubV2PropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnHubV2PropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

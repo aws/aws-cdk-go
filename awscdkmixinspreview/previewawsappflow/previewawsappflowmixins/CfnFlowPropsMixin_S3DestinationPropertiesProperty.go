@@ -34,7 +34,7 @@ type CfnFlowPropsMixin_S3DestinationPropertiesProperty struct {
 	// The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
 	//
-	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	BucketName interface{} `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
 	//

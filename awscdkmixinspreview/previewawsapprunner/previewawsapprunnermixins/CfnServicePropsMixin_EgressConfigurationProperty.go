@@ -29,6 +29,6 @@ type CfnServicePropsMixin_EgressConfigurationProperty struct {
 	// Only valid when `EgressType = VPC` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html#cfn-apprunner-service-egressconfiguration-vpcconnectorarn
 	//
-	VpcConnectorArn *string `field:"optional" json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
+	VpcConnectorArn interface{} `field:"optional" json:"vpcConnectorArn" yaml:"vpcConnectorArn"`
 }
 

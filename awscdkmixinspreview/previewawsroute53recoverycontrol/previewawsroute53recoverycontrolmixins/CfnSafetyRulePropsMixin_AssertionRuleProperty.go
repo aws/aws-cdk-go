@@ -11,7 +11,7 @@ package previewawsroute53recoverycontrolmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   assertionRuleProperty := &AssertionRuleProperty{
-//   	AssertedControls: []*string{
+//   	AssertedControls: []interface{}{
 //   		jsii.String("assertedControls"),
 //   	},
 //   	WaitPeriodMs: jsii.Number(123),
@@ -25,7 +25,7 @@ type CfnSafetyRulePropsMixin_AssertionRuleProperty struct {
 	// For example, you might include three routing controls, one for each of three AWS Regions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
 	//
-	AssertedControls *[]*string `field:"optional" json:"assertedControls" yaml:"assertedControls"`
+	AssertedControls *[]interface{} `field:"optional" json:"assertedControls" yaml:"assertedControls"`
 	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 	//
 	// This helps prevent flapping of state. The wait period is 5000 ms by default, but you can choose a custom value.

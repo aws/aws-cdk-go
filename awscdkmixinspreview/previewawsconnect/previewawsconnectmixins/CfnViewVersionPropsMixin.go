@@ -16,14 +16,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnViewVersionPropsMixin := awscdkmixinspreview.Mixins.NewCfnViewVersionPropsMixin(&CfnViewVersionMixinProps{
 //   	VersionDescription: jsii.String("versionDescription"),
 //   	ViewArn: jsii.String("viewArn"),
 //   	ViewContentSha256: jsii.String("viewContentSha256"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html
@@ -32,7 +34,7 @@ type CfnViewVersionPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnViewVersionMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -55,8 +57,8 @@ func (j *jsiiProxy_CfnViewVersionPropsMixin) Props() *CfnViewVersionMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnViewVersionPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnViewVersionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

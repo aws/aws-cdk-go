@@ -27,7 +27,7 @@ type CfnLayerVersionPermissionMixinProps struct {
 	// The name or Amazon Resource Name (ARN) of the layer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-layerversionarn
 	//
-	LayerVersionArn *string `field:"optional" json:"layerVersionArn" yaml:"layerVersionArn"`
+	LayerVersionArn interface{} `field:"optional" json:"layerVersionArn" yaml:"layerVersionArn"`
 	// With the principal set to `*` , grant permission to all accounts in the specified organization.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html#cfn-lambda-layerversionpermission-organizationid
 	//

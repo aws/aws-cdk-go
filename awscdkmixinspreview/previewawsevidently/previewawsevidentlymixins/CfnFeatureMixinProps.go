@@ -78,7 +78,7 @@ type CfnFeatureMixinProps struct {
 	// The name or ARN of the project that is to contain the new feature.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html#cfn-evidently-feature-project
 	//
-	Project *string `field:"optional" json:"project" yaml:"project"`
+	Project interface{} `field:"optional" json:"project" yaml:"project"`
 	// Assigns one or more tags (key-value pairs) to the feature.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.

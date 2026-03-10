@@ -36,7 +36,7 @@ type CfnDiscovererMixinProps struct {
 	// The ARN of the event bus.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-sourcearn
 	//
-	SourceArn *string `field:"optional" json:"sourceArn" yaml:"sourceArn"`
+	SourceArn interface{} `field:"optional" json:"sourceArn" yaml:"sourceArn"`
 	// Tags associated with the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html#cfn-eventschemas-discoverer-tags
 	//

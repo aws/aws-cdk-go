@@ -25,9 +25,9 @@ type CfnAnalysisPropsMixin_ResourcePermissionProperty struct {
 	Actions *[]*string `field:"optional" json:"actions" yaml:"actions"`
 	// The Amazon Resource Name (ARN) of the principal. This can be one of the following:.
 	//
-	// - The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)
-	// - The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
-	// - The ARN of an AWS account root: This is an IAM ARN rather than a Quick Suite ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
+	// - The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)
+	// - The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)
+	// - The ARN of an AWS account root: This is an IAM ARN rather than a Quick ARN. Use this option only to share resources (templates) across AWS accounts . (This is less common.)
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-principal
 	//
 	Principal *string `field:"optional" json:"principal" yaml:"principal"`

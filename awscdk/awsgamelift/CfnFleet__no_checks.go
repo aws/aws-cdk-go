@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnFleet) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetPlayerGatewayConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetResourceCreationLimitPolicyParameters(val interface{}) error {
 	return nil
 }

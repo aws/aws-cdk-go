@@ -22,24 +22,17 @@ import (
 // An AppSync GraphQL API.
 //
 // Example:
-//   import events "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   api := appsync.NewGraphqlApi(this, jsii.String("EventBridgeApi"), &GraphqlApiProps{
-//   	Name: jsii.String("EventBridgeApi"),
-//   	Definition: appsync.Definition_FromFile(path.join(__dirname, jsii.String("appsync.eventbridge.graphql"))),
+//   schema := appsync.NewSchemaFile(&SchemaProps{
+//   	FilePath: jsii.String("mySchemaFile"),
 //   })
-//
-//   bus := events.NewEventBus(this, jsii.String("DestinationEventBus"), &EventBusProps{
-//   })
-//
-//   dataSource := api.AddEventBridgeDataSource(jsii.String("NoneDS"), bus)
-//
-//   dataSource.CreateResolver(jsii.String("EventResolver"), &BaseResolverProps{
-//   	TypeName: jsii.String("Mutation"),
-//   	FieldName: jsii.String("emitEvent"),
-//   	RequestMappingTemplate: appsync.MappingTemplate_FromFile(jsii.String("request.vtl")),
-//   	ResponseMappingTemplate: appsync.MappingTemplate_*FromFile(jsii.String("response.vtl")),
+//   appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
+//   	Name: jsii.String("myApi"),
+//   	Definition: appsync.Definition_FromSchema(schema),
+//   	EnhancedMetricsConfig: &EnhancedMetricsConfig{
+//   		DataSourceLevelMetricsBehavior: appsync.DataSourceLevelMetricsBehavior_FULL_REQUEST_DATA_SOURCE_METRICS,
+//   		OperationLevelMetricsConfig: appsync.OperationLevelMetricsConfig_ENABLED,
+//   		ResolverLevelMetricsBehavior: appsync.ResolverLevelMetricsBehavior_FULL_REQUEST_RESOLVER_METRICS,
+//   	},
 //   })
 //
 type GraphqlApi interface {

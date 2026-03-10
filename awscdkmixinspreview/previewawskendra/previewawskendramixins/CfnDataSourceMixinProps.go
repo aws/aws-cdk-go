@@ -508,7 +508,7 @@ type CfnDataSourceMixinProps struct {
 	// The identifier of the index you want to use with the data source connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-indexid
 	//
-	IndexId *string `field:"optional" json:"indexId" yaml:"indexId"`
+	IndexId interface{} `field:"optional" json:"indexId" yaml:"indexId"`
 	// The code for a language.
 	//
 	// This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
@@ -526,7 +526,7 @@ type CfnDataSourceMixinProps struct {
 	// The `RoleArn` parameter is required for all other data sources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// Sets the frequency that Amazon Kendra checks the documents in your data source and updates the index.
 	//
 	// If you don't set a schedule, Amazon Kendra doesn't periodically update the index.

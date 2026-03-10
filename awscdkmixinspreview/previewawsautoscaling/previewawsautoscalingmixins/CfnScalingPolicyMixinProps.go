@@ -180,7 +180,7 @@ type CfnScalingPolicyMixinProps struct {
 	// The name of the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html#cfn-autoscaling-scalingpolicy-autoscalinggroupname
 	//
-	AutoScalingGroupName *string `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	AutoScalingGroupName interface{} `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// A cooldown period, in seconds, that applies to a specific simple scaling policy.
 	//
 	// When a cooldown period is specified here, it overrides the default cooldown.

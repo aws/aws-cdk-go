@@ -41,6 +41,6 @@ type CfnConfigurationTemplatePropsMixin_ConfigurationOptionSettingProperty struc
 	// The current value for the configuration option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-value
 	//
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

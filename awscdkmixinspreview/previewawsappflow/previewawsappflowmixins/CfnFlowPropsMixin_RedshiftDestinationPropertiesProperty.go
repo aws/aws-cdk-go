@@ -35,7 +35,7 @@ type CfnFlowPropsMixin_RedshiftDestinationPropertiesProperty struct {
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
 	//
-	IntermediateBucketName *string `field:"optional" json:"intermediateBucketName" yaml:"intermediateBucketName"`
+	IntermediateBucketName interface{} `field:"optional" json:"intermediateBucketName" yaml:"intermediateBucketName"`
 	// The object specified in the Amazon Redshift flow destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
 	//

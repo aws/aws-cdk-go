@@ -16,7 +16,7 @@ package previewawsmskmixins
 //   		},
 //   	},
 //   	Tls: &TlsProperty{
-//   		CertificateAuthorityArnList: []*string{
+//   		CertificateAuthorityArnList: []interface{}{
 //   			jsii.String("certificateAuthorityArnList"),
 //   		},
 //   		Enabled: jsii.Boolean(false),

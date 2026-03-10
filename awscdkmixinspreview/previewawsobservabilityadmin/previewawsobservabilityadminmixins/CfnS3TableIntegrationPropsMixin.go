@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnS3TableIntegrationPropsMixin := awscdkmixinspreview.Mixins.NewCfnS3TableIntegrationPropsMixin(&CfnS3TableIntegrationMixinProps{
 //   	Encryption: &EncryptionConfigProperty{
@@ -40,7 +42,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-s3tableintegration.html
@@ -49,7 +51,7 @@ type CfnS3TableIntegrationPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnS3TableIntegrationMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -72,8 +74,8 @@ func (j *jsiiProxy_CfnS3TableIntegrationPropsMixin) Props() *CfnS3TableIntegrati
 	return returns
 }
 
-func (j *jsiiProxy_CfnS3TableIntegrationPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnS3TableIntegrationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

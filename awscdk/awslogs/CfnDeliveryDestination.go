@@ -25,7 +25,6 @@ import (
 // You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.
 //
 // Example:
-//   import _ "github.com/aws-samples/dummy/awscdkmixinspreview/with"
 //   import cloudfrontMixins "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   // Create CloudFront distribution

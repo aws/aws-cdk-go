@@ -4,11 +4,11 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceImportJobStatusChangePatternParameters(options *ReferenceStoreEvents_ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) error {
+func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceImportJobStatusChangePatternParameters(options *ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceStatusChangePatternParameters(options *ReferenceStoreEvents_ReferenceStatusChange_ReferenceStatusChangeProps) error {
+func (r *jsiiProxy_ReferenceStoreEvents) validateReferenceStatusChangePatternParameters(options *ReferenceStatusChange_ReferenceStatusChangeProps) error {
 	return nil
 }
 

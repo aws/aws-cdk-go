@@ -8,6 +8,66 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreated",
+		reflect.TypeOf((*DataStoreCreated)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_DataStoreCreated{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreated.DataStoreCreatedProps",
+		reflect.TypeOf((*DataStoreCreated_DataStoreCreatedProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreating",
+		reflect.TypeOf((*DataStoreCreating)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_DataStoreCreating{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreating.DataStoreCreatingProps",
+		reflect.TypeOf((*DataStoreCreating_DataStoreCreatingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreationFailed",
+		reflect.TypeOf((*DataStoreCreationFailed)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_DataStoreCreationFailed{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreationFailed.DataStoreCreationFailedProps",
+		reflect.TypeOf((*DataStoreCreationFailed_DataStoreCreationFailedProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreDeleted",
+		reflect.TypeOf((*DataStoreDeleted)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_DataStoreDeleted{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreDeleted.DataStoreDeletedProps",
+		reflect.TypeOf((*DataStoreDeleted_DataStoreDeletedProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreDeleting",
+		reflect.TypeOf((*DataStoreDeleting)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_DataStoreDeleting{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreDeleting.DataStoreDeletingProps",
+		reflect.TypeOf((*DataStoreDeleting_DataStoreDeletingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents",
 		reflect.TypeOf((*DatastoreEvents)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -36,231 +96,171 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreCreated",
-		reflect.TypeOf((*DatastoreEvents_DataStoreCreated)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopied",
+		reflect.TypeOf((*ImageSetCopied)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_DataStoreCreated{}
+			return &jsiiProxy_ImageSetCopied{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreCreated.DataStoreCreatedProps",
-		reflect.TypeOf((*DatastoreEvents_DataStoreCreated_DataStoreCreatedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopied.ImageSetCopiedProps",
+		reflect.TypeOf((*ImageSetCopied_ImageSetCopiedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreCreating",
-		reflect.TypeOf((*DatastoreEvents_DataStoreCreating)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyFailed",
+		reflect.TypeOf((*ImageSetCopyFailed)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_DataStoreCreating{}
+			return &jsiiProxy_ImageSetCopyFailed{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreCreating.DataStoreCreatingProps",
-		reflect.TypeOf((*DatastoreEvents_DataStoreCreating_DataStoreCreatingProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyFailed.ImageSetCopyFailedProps",
+		reflect.TypeOf((*ImageSetCopyFailed_ImageSetCopyFailedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreCreationFailed",
-		reflect.TypeOf((*DatastoreEvents_DataStoreCreationFailed)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopying",
+		reflect.TypeOf((*ImageSetCopying)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_DataStoreCreationFailed{}
+			return &jsiiProxy_ImageSetCopying{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreCreationFailed.DataStoreCreationFailedProps",
-		reflect.TypeOf((*DatastoreEvents_DataStoreCreationFailed_DataStoreCreationFailedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopying.ImageSetCopyingProps",
+		reflect.TypeOf((*ImageSetCopying_ImageSetCopyingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreDeleted",
-		reflect.TypeOf((*DatastoreEvents_DataStoreDeleted)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyingWithReadOnlyAccess",
+		reflect.TypeOf((*ImageSetCopyingWithReadOnlyAccess)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_DataStoreDeleted{}
+			return &jsiiProxy_ImageSetCopyingWithReadOnlyAccess{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreDeleted.DataStoreDeletedProps",
-		reflect.TypeOf((*DatastoreEvents_DataStoreDeleted_DataStoreDeletedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyingWithReadOnlyAccess.ImageSetCopyingWithReadOnlyAccessProps",
+		reflect.TypeOf((*ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreDeleting",
-		reflect.TypeOf((*DatastoreEvents_DataStoreDeleting)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCreated",
+		reflect.TypeOf((*ImageSetCreated)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_DataStoreDeleting{}
+			return &jsiiProxy_ImageSetCreated{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.DataStoreDeleting.DataStoreDeletingProps",
-		reflect.TypeOf((*DatastoreEvents_DataStoreDeleting_DataStoreDeletingProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCreated.ImageSetCreatedProps",
+		reflect.TypeOf((*ImageSetCreated_ImageSetCreatedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopied",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopied)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetDeleted",
+		reflect.TypeOf((*ImageSetDeleted)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetCopied{}
+			return &jsiiProxy_ImageSetDeleted{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopied.ImageSetCopiedProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopied_ImageSetCopiedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetDeleted.ImageSetDeletedProps",
+		reflect.TypeOf((*ImageSetDeleted_ImageSetDeletedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopyFailed",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopyFailed)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetDeleting",
+		reflect.TypeOf((*ImageSetDeleting)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetCopyFailed{}
+			return &jsiiProxy_ImageSetDeleting{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopyFailed.ImageSetCopyFailedProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopyFailed_ImageSetCopyFailedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetDeleting.ImageSetDeletingProps",
+		reflect.TypeOf((*ImageSetDeleting_ImageSetDeletingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopying",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopying)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdateFailed",
+		reflect.TypeOf((*ImageSetUpdateFailed)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetCopying{}
+			return &jsiiProxy_ImageSetUpdateFailed{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopying.ImageSetCopyingProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopying_ImageSetCopyingProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdateFailed.ImageSetUpdateFailedProps",
+		reflect.TypeOf((*ImageSetUpdateFailed_ImageSetUpdateFailedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopyingWithReadOnlyAccess",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopyingWithReadOnlyAccess)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdated",
+		reflect.TypeOf((*ImageSetUpdated)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetCopyingWithReadOnlyAccess{}
+			return &jsiiProxy_ImageSetUpdated{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCopyingWithReadOnlyAccess.ImageSetCopyingWithReadOnlyAccessProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdated.ImageSetUpdatedProps",
+		reflect.TypeOf((*ImageSetUpdated_ImageSetUpdatedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCreated",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCreated)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdating",
+		reflect.TypeOf((*ImageSetUpdating)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetCreated{}
+			return &jsiiProxy_ImageSetUpdating{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetCreated.ImageSetCreatedProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetCreated_ImageSetCreatedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdating.ImageSetUpdatingProps",
+		reflect.TypeOf((*ImageSetUpdating_ImageSetUpdatingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetDeleted",
-		reflect.TypeOf((*DatastoreEvents_ImageSetDeleted)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobCompleted",
+		reflect.TypeOf((*ImportJobCompleted)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetDeleted{}
+			return &jsiiProxy_ImportJobCompleted{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetDeleted.ImageSetDeletedProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetDeleted_ImageSetDeletedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobCompleted.ImportJobCompletedProps",
+		reflect.TypeOf((*ImportJobCompleted_ImportJobCompletedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetDeleting",
-		reflect.TypeOf((*DatastoreEvents_ImageSetDeleting)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobFailed",
+		reflect.TypeOf((*ImportJobFailed)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetDeleting{}
+			return &jsiiProxy_ImportJobFailed{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetDeleting.ImageSetDeletingProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetDeleting_ImageSetDeletingProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobFailed.ImportJobFailedProps",
+		reflect.TypeOf((*ImportJobFailed_ImportJobFailedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetUpdateFailed",
-		reflect.TypeOf((*DatastoreEvents_ImageSetUpdateFailed)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobInProgress",
+		reflect.TypeOf((*ImportJobInProgress)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetUpdateFailed{}
+			return &jsiiProxy_ImportJobInProgress{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetUpdateFailed.ImageSetUpdateFailedProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetUpdateFailed_ImageSetUpdateFailedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobInProgress.ImportJobInProgressProps",
+		reflect.TypeOf((*ImportJobInProgress_ImportJobInProgressProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetUpdated",
-		reflect.TypeOf((*DatastoreEvents_ImageSetUpdated)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobSubmitted",
+		reflect.TypeOf((*ImportJobSubmitted)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetUpdated{}
+			return &jsiiProxy_ImportJobSubmitted{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetUpdated.ImageSetUpdatedProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetUpdated_ImageSetUpdatedProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetUpdating",
-		reflect.TypeOf((*DatastoreEvents_ImageSetUpdating)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImageSetUpdating{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImageSetUpdating.ImageSetUpdatingProps",
-		reflect.TypeOf((*DatastoreEvents_ImageSetUpdating_ImageSetUpdatingProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobCompleted",
-		reflect.TypeOf((*DatastoreEvents_ImportJobCompleted)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImportJobCompleted{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobCompleted.ImportJobCompletedProps",
-		reflect.TypeOf((*DatastoreEvents_ImportJobCompleted_ImportJobCompletedProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobFailed",
-		reflect.TypeOf((*DatastoreEvents_ImportJobFailed)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImportJobFailed{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobFailed.ImportJobFailedProps",
-		reflect.TypeOf((*DatastoreEvents_ImportJobFailed_ImportJobFailedProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobInProgress",
-		reflect.TypeOf((*DatastoreEvents_ImportJobInProgress)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImportJobInProgress{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobInProgress.ImportJobInProgressProps",
-		reflect.TypeOf((*DatastoreEvents_ImportJobInProgress_ImportJobInProgressProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobSubmitted",
-		reflect.TypeOf((*DatastoreEvents_ImportJobSubmitted)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_DatastoreEvents_ImportJobSubmitted{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_healthimaging.events.DatastoreEvents.ImportJobSubmitted.ImportJobSubmittedProps",
-		reflect.TypeOf((*DatastoreEvents_ImportJobSubmitted_ImportJobSubmittedProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobSubmitted.ImportJobSubmittedProps",
+		reflect.TypeOf((*ImportJobSubmitted_ImportJobSubmittedProps)(nil)).Elem(),
 	)
 }

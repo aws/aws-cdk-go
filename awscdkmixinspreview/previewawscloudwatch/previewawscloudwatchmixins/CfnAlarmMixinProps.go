@@ -13,7 +13,7 @@ import (
 //
 //   cfnAlarmMixinProps := &CfnAlarmMixinProps{
 //   	ActionsEnabled: jsii.Boolean(false),
-//   	AlarmActions: []*string{
+//   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
@@ -29,7 +29,7 @@ import (
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
-//   	InsufficientDataActions: []*string{
+//   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),
 //   	},
 //   	MetricName: jsii.String("metricName"),
@@ -59,7 +59,7 @@ import (
 //   		},
 //   	},
 //   	Namespace: jsii.String("namespace"),
-//   	OkActions: []*string{
+//   	OkActions: []interface{}{
 //   		jsii.String("okActions"),
 //   	},
 //   	Period: jsii.Number(123),
@@ -92,7 +92,7 @@ type CfnAlarmMixinProps struct {
 	// Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *Amazon CloudWatch API Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-alarmactions
 	//
-	AlarmActions *[]*string `field:"optional" json:"alarmActions" yaml:"alarmActions"`
+	AlarmActions *[]interface{} `field:"optional" json:"alarmActions" yaml:"alarmActions"`
 	// The description of the alarm.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-alarmdescription
 	//
@@ -152,7 +152,7 @@ type CfnAlarmMixinProps struct {
 	// Each action is specified as an Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-insufficientdataactions
 	//
-	InsufficientDataActions *[]*string `field:"optional" json:"insufficientDataActions" yaml:"insufficientDataActions"`
+	InsufficientDataActions *[]interface{} `field:"optional" json:"insufficientDataActions" yaml:"insufficientDataActions"`
 	// The name of the metric associated with the alarm.
 	//
 	// This is required for an alarm based on a metric. For an alarm based on a math expression, you use `Metrics` instead and you can't specify `MetricName` .
@@ -180,7 +180,7 @@ type CfnAlarmMixinProps struct {
 	// Each action is specified as an Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-okactions
 	//
-	OkActions *[]*string `field:"optional" json:"okActions" yaml:"okActions"`
+	OkActions *[]interface{} `field:"optional" json:"okActions" yaml:"okActions"`
 	// The period, in seconds, over which the statistic is applied.
 	//
 	// This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.

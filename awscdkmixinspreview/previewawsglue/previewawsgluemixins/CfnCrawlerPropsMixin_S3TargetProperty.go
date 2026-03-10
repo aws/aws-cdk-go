@@ -31,13 +31,13 @@ type CfnCrawlerPropsMixin_S3TargetProperty struct {
 	// For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-dlqeventqueuearn
 	//
-	DlqEventQueueArn *string `field:"optional" json:"dlqEventQueueArn" yaml:"dlqEventQueueArn"`
+	DlqEventQueueArn interface{} `field:"optional" json:"dlqEventQueueArn" yaml:"dlqEventQueueArn"`
 	// A valid Amazon SQS ARN.
 	//
 	// For example, `arn:aws:sqs:region:account:sqs` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-eventqueuearn
 	//
-	EventQueueArn *string `field:"optional" json:"eventQueueArn" yaml:"eventQueueArn"`
+	EventQueueArn interface{} `field:"optional" json:"eventQueueArn" yaml:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	//
 	// For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
@@ -47,7 +47,7 @@ type CfnCrawlerPropsMixin_S3TargetProperty struct {
 	// The path to the Amazon S3 target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
 	//
-	Path *string `field:"optional" json:"path" yaml:"path"`
+	Path interface{} `field:"optional" json:"path" yaml:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset.
 	//
 	// If not set, all the files are crawled. A valid value is an integer between 1 and 249.

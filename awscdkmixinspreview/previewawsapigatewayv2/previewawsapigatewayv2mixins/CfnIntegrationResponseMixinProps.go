@@ -27,7 +27,7 @@ type CfnIntegrationResponseMixinProps struct {
 	// The API identifier.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-apiid
 	//
-	ApiId *string `field:"optional" json:"apiId" yaml:"apiId"`
+	ApiId interface{} `field:"optional" json:"apiId" yaml:"apiId"`
 	// Supported only for WebSocket APIs.
 	//
 	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
@@ -43,7 +43,7 @@ type CfnIntegrationResponseMixinProps struct {
 	// The integration ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationid
 	//
-	IntegrationId *string `field:"optional" json:"integrationId" yaml:"integrationId"`
+	IntegrationId interface{} `field:"optional" json:"integrationId" yaml:"integrationId"`
 	// The integration response key.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html#cfn-apigatewayv2-integrationresponse-integrationresponsekey
 	//

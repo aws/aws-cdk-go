@@ -20,6 +20,6 @@ type CfnDataSourcePropsMixin_LambdaConfigProperty struct {
 	// The ARN for the Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html#cfn-appsync-datasource-lambdaconfig-lambdafunctionarn
 	//
-	LambdaFunctionArn *string `field:"optional" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
+	LambdaFunctionArn interface{} `field:"optional" json:"lambdaFunctionArn" yaml:"lambdaFunctionArn"`
 }
 

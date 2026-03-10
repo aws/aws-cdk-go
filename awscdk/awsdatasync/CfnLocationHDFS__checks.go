@@ -203,6 +203,54 @@ func (j *jsiiProxy_CfnLocationHDFS) validateSetAuthenticationTypeParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationHDFS) validateSetCmkSecretConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationHDFS_CmkSecretConfigProperty:
+		val := val.(*CfnLocationHDFS_CmkSecretConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationHDFS_CmkSecretConfigProperty:
+		val_ := val.(CfnLocationHDFS_CmkSecretConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationHDFS_CmkSecretConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) validateSetCustomSecretConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationHDFS_CustomSecretConfigProperty:
+		val := val.(*CfnLocationHDFS_CustomSecretConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationHDFS_CustomSecretConfigProperty:
+		val_ := val.(CfnLocationHDFS_CustomSecretConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationHDFS_CustomSecretConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationHDFS) validateSetNameNodesParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

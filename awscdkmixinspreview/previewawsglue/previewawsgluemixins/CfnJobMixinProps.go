@@ -174,7 +174,7 @@ type CfnJobMixinProps struct {
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-role
 	//
-	Role *string `field:"optional" json:"role" yaml:"role"`
+	Role interface{} `field:"optional" json:"role" yaml:"role"`
 	// The name of the `SecurityConfiguration` structure to be used with this job.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-securityconfiguration
 	//

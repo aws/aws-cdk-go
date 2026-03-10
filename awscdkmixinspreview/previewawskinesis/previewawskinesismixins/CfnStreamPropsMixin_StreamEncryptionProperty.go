@@ -41,6 +41,6 @@ type CfnStreamPropsMixin_StreamEncryptionProperty struct {
 	// - Master key owned by Kinesis Data Streams: `alias/aws/kinesis`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
 	//
-	KeyId *string `field:"optional" json:"keyId" yaml:"keyId"`
+	KeyId interface{} `field:"optional" json:"keyId" yaml:"keyId"`
 }
 

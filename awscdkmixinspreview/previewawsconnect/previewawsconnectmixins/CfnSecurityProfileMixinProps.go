@@ -19,12 +19,19 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	AllowedFlowModules: []interface{}{
+//   		&FlowModuleProperty{
+//   			FlowModuleId: jsii.String("flowModuleId"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	Applications: []interface{}{
 //   		&ApplicationProperty{
 //   			ApplicationPermissions: []*string{
 //   				jsii.String("applicationPermissions"),
 //   			},
 //   			Namespace: jsii.String("namespace"),
+//   			Type: jsii.String("type"),
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
@@ -73,6 +80,10 @@ type CfnSecurityProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedaccesscontroltags
 	//
 	AllowedAccessControlTags interface{} `field:"optional" json:"allowedAccessControlTags" yaml:"allowedAccessControlTags"`
+	// The list of flow-module resources to be linked to a security profile in Amazon Connect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-allowedflowmodules
+	//
+	AllowedFlowModules interface{} `field:"optional" json:"allowedFlowModules" yaml:"allowedFlowModules"`
 	// A list of third-party applications that the security profile will give access to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-applications
 	//
@@ -94,7 +105,7 @@ type CfnSecurityProfileMixinProps struct {
 	// The identifier of the Amazon Connect instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`
 	// Permissions assigned to the security profile.
 	//
 	// For a list of valid permissions, see [List of security profile permissions](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html) .

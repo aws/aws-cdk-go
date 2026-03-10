@@ -126,7 +126,7 @@ type CfnAnomalyDetectorMixinProps struct {
 	// The ARN of the KMS key to use to encrypt your data.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
 	//
-	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsKeyArn interface{} `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The detector's dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
 	//

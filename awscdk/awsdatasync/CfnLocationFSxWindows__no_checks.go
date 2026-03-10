@@ -84,6 +84,14 @@ func validateCfnLocationFSxWindows_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationFSxWindows) validateSetCmkSecretConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows) validateSetCustomSecretConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationFSxWindows) validateSetSecurityGroupArnsParameters(val *[]*string) error {
 	return nil
 }

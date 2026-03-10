@@ -19,10 +19,10 @@ type CfnEnvironmentPropsMixin_MonitorProperty struct {
 	// Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html#cfn-appconfig-environment-monitor-alarmarn
 	//
-	AlarmArn *string `field:"optional" json:"alarmArn" yaml:"alarmArn"`
+	AlarmArn interface{} `field:"optional" json:"alarmArn" yaml:"alarmArn"`
 	// ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor `AlarmArn` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html#cfn-appconfig-environment-monitor-alarmrolearn
 	//
-	AlarmRoleArn *string `field:"optional" json:"alarmRoleArn" yaml:"alarmRoleArn"`
+	AlarmRoleArn interface{} `field:"optional" json:"alarmRoleArn" yaml:"alarmRoleArn"`
 }
 

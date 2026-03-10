@@ -26,16 +26,16 @@ import (
 //   	PolicyDocument: policyDocument,
 //   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
-//   	RouteTableIds: []*string{
+//   	RouteTableIds: []interface{}{
 //   		jsii.String("routeTableIds"),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
 //   	ServiceNetworkArn: jsii.String("serviceNetworkArn"),
 //   	ServiceRegion: jsii.String("serviceRegion"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -90,13 +90,13 @@ type CfnVPCEndpointMixinProps struct {
 	// Routing is supported only for gateway endpoints.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
 	//
-	RouteTableIds *[]*string `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
+	RouteTableIds *[]interface{} `field:"optional" json:"routeTableIds" yaml:"routeTableIds"`
 	// The IDs of the security groups to associate with the endpoint network interfaces.
 	//
 	// If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
 	//
-	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	SecurityGroupIds *[]interface{} `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// The name of the endpoint service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
 	//
@@ -114,7 +114,7 @@ type CfnVPCEndpointMixinProps struct {
 	// You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The tags to associate with the endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-tags
 	//
@@ -128,6 +128,6 @@ type CfnVPCEndpointMixinProps struct {
 	// The ID of the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

@@ -42,7 +42,7 @@ type CfnAliasMixinProps struct {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionname
 	//
-	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"optional" json:"functionName" yaml:"functionName"`
 	// The function version that the alias invokes.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion
 	//

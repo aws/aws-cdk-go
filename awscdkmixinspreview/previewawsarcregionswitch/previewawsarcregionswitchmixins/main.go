@@ -124,6 +124,14 @@ func init() {
 		reflect.TypeOf((*CfnPlanPropsMixin_ParallelExecutionBlockConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.RdsCreateCrossRegionReplicaConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_RdsCreateCrossRegionReplicaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.RdsPromoteReadReplicaConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_RdsPromoteReadReplicaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_arcregionswitch.mixins.CfnPlanPropsMixin.RegionSwitchPlanConfigurationProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_RegionSwitchPlanConfigurationProperty)(nil)).Elem(),
 	)

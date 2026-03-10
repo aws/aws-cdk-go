@@ -65,7 +65,7 @@ type CfnSecurityGroupPropsMixin_EgressProperty struct {
 	// You must specify exactly one of the following: `CidrIp` , `CidrIpv6` , `DestinationPrefixListId` , or `DestinationSecurityGroupId` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-egress.html#cfn-ec2-securitygroup-egress-destinationsecuritygroupid
 	//
-	DestinationSecurityGroupId *string `field:"optional" json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
+	DestinationSecurityGroupId interface{} `field:"optional" json:"destinationSecurityGroupId" yaml:"destinationSecurityGroupId"`
 	// If the protocol is TCP or UDP, this is the start of the port range.
 	//
 	// If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).

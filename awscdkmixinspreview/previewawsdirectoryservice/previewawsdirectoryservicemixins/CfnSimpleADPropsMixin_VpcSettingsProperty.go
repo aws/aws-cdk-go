@@ -9,7 +9,7 @@ package previewawsdirectoryservicemixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   vpcSettingsProperty := &VpcSettingsProperty{
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	VpcId: jsii.String("vpcId"),
@@ -23,10 +23,10 @@ type CfnSimpleADPropsMixin_VpcSettingsProperty struct {
 	// The two subnets must be in different Availability Zones. Directory Service specifies a directory server and a DNS server in each of these subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html#cfn-directoryservice-simplead-vpcsettings-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// The identifier of the VPC in which to create the directory.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html#cfn-directoryservice-simplead-vpcsettings-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

@@ -28,7 +28,7 @@ type CfnDataSourcePropsMixin_RdsHttpEndpointConfigProperty struct {
 	// The ARN for database credentials stored in AWS Secrets Manager .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awssecretstorearn
 	//
-	AwsSecretStoreArn *string `field:"optional" json:"awsSecretStoreArn" yaml:"awsSecretStoreArn"`
+	AwsSecretStoreArn interface{} `field:"optional" json:"awsSecretStoreArn" yaml:"awsSecretStoreArn"`
 	// Logical database name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-databasename
 	//
@@ -36,7 +36,7 @@ type CfnDataSourcePropsMixin_RdsHttpEndpointConfigProperty struct {
 	// Amazon RDS cluster Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-dbclusteridentifier
 	//
-	DbClusterIdentifier *string `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
+	DbClusterIdentifier interface{} `field:"optional" json:"dbClusterIdentifier" yaml:"dbClusterIdentifier"`
 	// Logical schema name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-schema
 	//

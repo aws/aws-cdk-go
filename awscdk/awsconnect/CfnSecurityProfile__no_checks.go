@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnSecurityProfile) validateSetAllowedAccessControlTagsParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnSecurityProfile) validateSetAllowedFlowModulesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSecurityProfile) validateSetApplicationsParameters(val interface{}) error {
 	return nil
 }

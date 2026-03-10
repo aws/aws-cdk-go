@@ -21,7 +21,7 @@ type CfnDeliveryStreamPropsMixin_DeliveryStreamEncryptionConfigurationInputPrope
 	// If you set `KeyType` to `AWS _OWNED_CMK` , Firehose uses a service-account CMK.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput-keyarn
 	//
-	KeyArn *string `field:"optional" json:"keyArn" yaml:"keyArn"`
+	KeyArn interface{} `field:"optional" json:"keyArn" yaml:"keyArn"`
 	// Indicates the type of customer master key (CMK) to use for encryption.
 	//
 	// The default setting is `AWS_OWNED_CMK` . For more information about CMKs, see [Customer Master Keys (CMKs)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) .

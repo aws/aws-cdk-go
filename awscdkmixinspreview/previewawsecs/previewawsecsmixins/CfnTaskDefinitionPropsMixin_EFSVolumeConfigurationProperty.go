@@ -31,7 +31,7 @@ type CfnTaskDefinitionPropsMixin_EFSVolumeConfigurationProperty struct {
 	// The Amazon EFS file system ID to use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
 	//
-	FilesystemId *string `field:"optional" json:"filesystemId" yaml:"filesystemId"`
+	FilesystemId interface{} `field:"optional" json:"filesystemId" yaml:"filesystemId"`
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
 	//
 	// If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying `/` will have the same effect as omitting this parameter.

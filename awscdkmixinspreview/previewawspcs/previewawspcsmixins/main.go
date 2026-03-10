@@ -104,6 +104,87 @@ func init() {
 		reflect.TypeOf((*CfnClusterPcsJobcompLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogs",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnClusterPcsSchedulerAuditLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsDestProps",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterPcsSchedulerAuditLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterPcsSchedulerAuditLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsRecordFields",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ID": CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_ID,
+			"RESOURCE_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_TYPE,
+			"EVENT_TIMESTAMP": CfnClusterPcsSchedulerAuditLogsRecordFields_EVENT_TIMESTAMP,
+			"LOG_LEVEL": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_LEVEL,
+			"SCHEDULER_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_TYPE,
+			"SCHEDULER_PATCH_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_PATCH_VERSION,
+			"NODE_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_NODE_TYPE,
+			"LOG_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_TYPE,
+			"MESSAGE": CfnClusterPcsSchedulerAuditLogsRecordFields_MESSAGE,
+			"LOG_NAME": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_NAME,
+			"SCHEDULER_MAJOR_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_MAJOR_VERSION,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsS3Props",
+		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogs",
 		reflect.TypeOf((*CfnClusterPcsSchedulerLogs)(nil)).Elem(),
 		[]_jsii_.Member{

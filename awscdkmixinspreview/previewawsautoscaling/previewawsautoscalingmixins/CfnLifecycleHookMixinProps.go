@@ -25,7 +25,7 @@ type CfnLifecycleHookMixinProps struct {
 	// The name of the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-autoscalinggroupname
 	//
-	AutoScalingGroupName *string `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
+	AutoScalingGroupName interface{} `field:"optional" json:"autoScalingGroupName" yaml:"autoScalingGroupName"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	//
 	// The default value is `ABANDON` .
@@ -60,7 +60,7 @@ type CfnLifecycleHookMixinProps struct {
 	// You can specify an Amazon SNS topic or an Amazon SQS queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-notificationtargetarn
 	//
-	NotificationTargetArn *string `field:"optional" json:"notificationTargetArn" yaml:"notificationTargetArn"`
+	NotificationTargetArn interface{} `field:"optional" json:"notificationTargetArn" yaml:"notificationTargetArn"`
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 	//
 	// For information about creating this role, see [Prepare to add a lifecycle hook to your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
@@ -68,6 +68,6 @@ type CfnLifecycleHookMixinProps struct {
 	// Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-lifecyclehook.html#cfn-autoscaling-lifecyclehook-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

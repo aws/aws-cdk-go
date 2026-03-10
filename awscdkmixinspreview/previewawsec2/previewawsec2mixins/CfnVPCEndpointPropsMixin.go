@@ -24,8 +24,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var mergeStrategy IMergeStrategy
 //   var policyDocument interface{}
 //
 //   cfnVPCEndpointPropsMixin := awscdkmixinspreview.Mixins.NewCfnVPCEndpointPropsMixin(&CfnVPCEndpointMixinProps{
@@ -41,16 +42,16 @@ import (
 //   	PolicyDocument: policyDocument,
 //   	PrivateDnsEnabled: jsii.Boolean(false),
 //   	ResourceConfigurationArn: jsii.String("resourceConfigurationArn"),
-//   	RouteTableIds: []*string{
+//   	RouteTableIds: []interface{}{
 //   		jsii.String("routeTableIds"),
 //   	},
-//   	SecurityGroupIds: []*string{
+//   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	ServiceName: jsii.String("serviceName"),
 //   	ServiceNetworkArn: jsii.String("serviceNetworkArn"),
 //   	ServiceRegion: jsii.String("serviceRegion"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -62,7 +63,7 @@ import (
 //   	VpcEndpointType: jsii.String("vpcEndpointType"),
 //   	VpcId: jsii.String("vpcId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
@@ -71,7 +72,7 @@ type CfnVPCEndpointPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnVPCEndpointMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -94,8 +95,8 @@ func (j *jsiiProxy_CfnVPCEndpointPropsMixin) Props() *CfnVPCEndpointMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnVPCEndpointPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnVPCEndpointPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

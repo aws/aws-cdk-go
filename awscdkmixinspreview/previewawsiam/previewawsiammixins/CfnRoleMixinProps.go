@@ -17,7 +17,7 @@ import (
 //   cfnRoleMixinProps := &CfnRoleMixinProps{
 //   	AssumeRolePolicyDocument: assumeRolePolicyDocument,
 //   	Description: jsii.String("description"),
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	MaxSessionDuration: jsii.Number(123),
@@ -56,7 +56,7 @@ type CfnRoleMixinProps struct {
 	// For more information about ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managedpolicyarns
 	//
-	ManagedPolicyArns *[]*string `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
+	ManagedPolicyArns *[]interface{} `field:"optional" json:"managedPolicyArns" yaml:"managedPolicyArns"`
 	// The maximum session duration (in seconds) that you want to set for the specified role.
 	//
 	// If you do not specify a value for this setting, the default value of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -80,7 +80,7 @@ type CfnRoleMixinProps struct {
 	// For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-permissionsboundary
 	//
-	PermissionsBoundary *string `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
+	PermissionsBoundary interface{} `field:"optional" json:"permissionsBoundary" yaml:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
 	//
 	// When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role. You can update a role's trust policy later. For more information about IAM roles, go to [Using Roles to Delegate Permissions and Federate Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) .

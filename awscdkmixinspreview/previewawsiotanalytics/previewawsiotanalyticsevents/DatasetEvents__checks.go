@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotanalytics"
 )
 
-func (d *jsiiProxy_DatasetEvents) validateIoTAnalyticsDataSetLifeCycleNotificationPatternParameters(options *DatasetEvents_IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) error {
+func (d *jsiiProxy_DatasetEvents) validateIoTAnalyticsDataSetLifeCycleNotificationPatternParameters(options *IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

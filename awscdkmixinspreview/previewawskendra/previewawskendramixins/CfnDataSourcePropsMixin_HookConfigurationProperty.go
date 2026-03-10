@@ -49,6 +49,6 @@ type CfnDataSourcePropsMixin_HookConfigurationProperty struct {
 	// For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html#cfn-kendra-datasource-hookconfiguration-s3bucket
 	//
-	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket interface{} `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 }
 

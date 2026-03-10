@@ -42,7 +42,7 @@ type CfnRouteMixinProps struct {
 	// The unique identifier of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-applicationidentifier
 	//
-	ApplicationIdentifier *string `field:"optional" json:"applicationIdentifier" yaml:"applicationIdentifier"`
+	ApplicationIdentifier interface{} `field:"optional" json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// Configuration for the default route type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-defaultroute
 	//
@@ -50,7 +50,7 @@ type CfnRouteMixinProps struct {
 	// The unique identifier of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-environmentidentifier
 	//
-	EnvironmentIdentifier *string `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier interface{} `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The route type of the route.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-routetype
 	//
@@ -58,7 +58,7 @@ type CfnRouteMixinProps struct {
 	// The unique identifier of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-serviceidentifier
 	//
-	ServiceIdentifier *string `field:"optional" json:"serviceIdentifier" yaml:"serviceIdentifier"`
+	ServiceIdentifier interface{} `field:"optional" json:"serviceIdentifier" yaml:"serviceIdentifier"`
 	// The tags assigned to the route.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html#cfn-refactorspaces-route-tags
 	//

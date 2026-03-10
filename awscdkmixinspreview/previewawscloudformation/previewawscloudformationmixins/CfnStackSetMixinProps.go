@@ -93,7 +93,7 @@ type CfnStackSetMixinProps struct {
 	// Valid only if the permissions model is `SELF_MANAGED` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
 	//
-	AdministrationRoleArn *string `field:"optional" json:"administrationRoleArn" yaml:"administrationRoleArn"`
+	AdministrationRoleArn interface{} `field:"optional" json:"administrationRoleArn" yaml:"administrationRoleArn"`
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
 	//
 	// For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html) in the *CloudFormation User Guide* .
@@ -136,7 +136,7 @@ type CfnStackSetMixinProps struct {
 	// *Pattern* : `[a-zA-Z_0-9+=,.@-]+`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
 	//
-	ExecutionRoleName *string `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
+	ExecutionRoleName interface{} `field:"optional" json:"executionRoleName" yaml:"executionRoleName"`
 	// Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
 	//
 	// When active, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order.

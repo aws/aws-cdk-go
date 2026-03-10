@@ -21,7 +21,7 @@ type CfnBotAliasPropsMixin_CloudWatchLogGroupLogDestinationProperty struct {
 	// The Amazon Resource Name (ARN) of the log group where text and metadata logs are delivered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html#cfn-lex-botalias-cloudwatchloggrouplogdestination-cloudwatchloggrouparn
 	//
-	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn interface{} `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// The prefix of the log stream name within the log group that you specified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-cloudwatchloggrouplogdestination.html#cfn-lex-botalias-cloudwatchloggrouplogdestination-logprefix
 	//

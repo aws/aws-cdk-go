@@ -39,7 +39,7 @@ type CfnServiceMixinProps struct {
 	// The unique identifier of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-applicationidentifier
 	//
-	ApplicationIdentifier *string `field:"optional" json:"applicationIdentifier" yaml:"applicationIdentifier"`
+	ApplicationIdentifier interface{} `field:"optional" json:"applicationIdentifier" yaml:"applicationIdentifier"`
 	// A description of the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-description
 	//
@@ -51,7 +51,7 @@ type CfnServiceMixinProps struct {
 	// The unique identifier of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-environmentidentifier
 	//
-	EnvironmentIdentifier *string `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier interface{} `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// A summary of the configuration for the AWS Lambda endpoint type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-lambdaendpoint
 	//
@@ -71,6 +71,6 @@ type CfnServiceMixinProps struct {
 	// The ID of the virtual private cloud (VPC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-service.html#cfn-refactorspaces-service-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

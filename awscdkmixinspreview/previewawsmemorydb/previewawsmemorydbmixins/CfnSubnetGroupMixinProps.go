@@ -14,7 +14,7 @@ import (
 //   cfnSubnetGroupMixinProps := &CfnSubnetGroupMixinProps{
 //   	Description: jsii.String("description"),
 //   	SubnetGroupName: jsii.String("subnetGroupName"),
-//   	SubnetIds: []*string{
+//   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
 //   	},
 //   	Tags: []CfnTag{
@@ -39,7 +39,7 @@ type CfnSubnetGroupMixinProps struct {
 	// A list of Amazon VPC subnet IDs for the subnet group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html#cfn-memorydb-subnetgroup-subnetids
 	//
-	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	SubnetIds *[]interface{} `field:"optional" json:"subnetIds" yaml:"subnetIds"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

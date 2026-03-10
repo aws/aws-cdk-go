@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopsworks"
 )
 
-func (s *jsiiProxy_StackEvents) validateOpsWorksDeploymentStateChangePatternParameters(options *StackEvents_OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) error {
+func (s *jsiiProxy_StackEvents) validateOpsWorksDeploymentStateChangePatternParameters(options *OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

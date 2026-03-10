@@ -18,6 +18,6 @@ type CfnScheduledQueryPropsMixin_SnsConfigurationProperty struct {
 	// SNS topic ARN that the scheduled query status notifications will be sent to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html#cfn-timestream-scheduledquery-snsconfiguration-topicarn
 	//
-	TopicArn *string `field:"optional" json:"topicArn" yaml:"topicArn"`
+	TopicArn interface{} `field:"optional" json:"topicArn" yaml:"topicArn"`
 }
 

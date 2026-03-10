@@ -19,10 +19,10 @@ package previewawsrdsmixins
 //   		},
 //   	},
 //   	TargetRole: jsii.String("targetRole"),
-//   	VpcSecurityGroupIds: []*string{
+//   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
-//   	VpcSubnetIds: []*string{
+//   	VpcSubnetIds: []interface{}{
 //   		jsii.String("vpcSubnetIds"),
 //   	},
 //   }
@@ -63,12 +63,12 @@ type CfnDBProxyEndpointMixinProps struct {
 	// You can specify a different set of security group IDs than for the original DB proxy. The default is the default security group for the VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
 	//
-	VpcSecurityGroupIds *[]*string `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
+	VpcSecurityGroupIds *[]interface{} `field:"optional" json:"vpcSecurityGroupIds" yaml:"vpcSecurityGroupIds"`
 	// The VPC subnet IDs for the DB proxy endpoint that you create.
 	//
 	// You can specify a different set of subnet IDs than for the original DB proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
 	//
-	VpcSubnetIds *[]*string `field:"optional" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
+	VpcSubnetIds *[]interface{} `field:"optional" json:"vpcSubnetIds" yaml:"vpcSubnetIds"`
 }
 

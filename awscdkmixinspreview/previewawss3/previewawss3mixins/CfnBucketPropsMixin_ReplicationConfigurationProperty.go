@@ -80,7 +80,7 @@ type CfnBucketPropsMixin_ReplicationConfigurationProperty struct {
 	// For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role
 	//
-	Role *string `field:"optional" json:"role" yaml:"role"`
+	Role interface{} `field:"optional" json:"role" yaml:"role"`
 	// A container for one or more replication rules.
 	//
 	// A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.

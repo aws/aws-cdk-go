@@ -36,7 +36,7 @@ package awsefs
 //   fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 //   	// mount the access point to /mnt/msg in the lambda runtime environment
 //   	Filesystem: lambda.FileSystem_FromEfsAccessPoint(accessPoint, jsii.String("/mnt/msg")),
-//   	Runtime: lambda.Runtime_NODEJS_18_X(),
+//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
 //   	Handler: jsii.String("index.handler"),
 //   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 //   	Vpc: Vpc,

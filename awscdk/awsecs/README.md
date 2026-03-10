@@ -2676,3 +2676,20 @@ ecs.NewExternalService(this, jsii.String("ExternalService"), &ExternalServicePro
 	Daemon: jsii.Boolean(true),
 })
 ```
+
+## Mixins
+
+ECS provides [mixins](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins) that can be applied to L1 and L2 constructs.
+
+### ClusterSettings
+
+Applies one or more cluster settings to an ECS cluster. If a setting with the same name already exists, its value is replaced:
+
+```go
+ecs.NewCfnCluster(this, jsii.String("Cluster")).With(mixins.NewClusterSettings([]ClusterSettingsProperty{
+	&ClusterSettingsProperty{
+		Name: jsii.String("containerInsights"),
+		Value: jsii.String("enhanced"),
+	},
+}))
+```

@@ -33,7 +33,7 @@ type CfnSpotFleetPropsMixin_FleetLaunchTemplateSpecificationProperty struct {
 	// You must specify the `LaunchTemplateId` or the `LaunchTemplateName` , but not both.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplateid
 	//
-	LaunchTemplateId *string `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
+	LaunchTemplateId interface{} `field:"optional" json:"launchTemplateId" yaml:"launchTemplateId"`
 	// The name of the launch template.
 	//
 	// You must specify the `LaunchTemplateName` or the `LaunchTemplateId` , but not both.

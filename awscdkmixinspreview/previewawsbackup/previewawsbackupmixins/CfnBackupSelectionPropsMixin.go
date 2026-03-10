@@ -18,9 +18,10 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var conditions interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnBackupSelectionPropsMixin := awscdkmixinspreview.Mixins.NewCfnBackupSelectionPropsMixin(&CfnBackupSelectionMixinProps{
 //   	BackupPlanId: jsii.String("backupPlanId"),
@@ -37,13 +38,13 @@ import (
 //   		NotResources: []*string{
 //   			jsii.String("notResources"),
 //   		},
-//   		Resources: []*string{
+//   		Resources: []interface{}{
 //   			jsii.String("resources"),
 //   		},
 //   		SelectionName: jsii.String("selectionName"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
@@ -52,7 +53,7 @@ type CfnBackupSelectionPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnBackupSelectionMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -75,8 +76,8 @@ func (j *jsiiProxy_CfnBackupSelectionPropsMixin) Props() *CfnBackupSelectionMixi
 	return returns
 }
 
-func (j *jsiiProxy_CfnBackupSelectionPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnBackupSelectionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

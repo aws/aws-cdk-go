@@ -39,7 +39,7 @@ type CfnSlackChannelConfigurationMixinProps struct {
 	// The  App uses this role to perform  and Service Quotas actions on your behalf.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html#cfn-supportapp-slackchannelconfiguration-channelrolearn
 	//
-	ChannelRoleArn *string `field:"optional" json:"channelRoleArn" yaml:"channelRoleArn"`
+	ChannelRoleArn interface{} `field:"optional" json:"channelRoleArn" yaml:"channelRoleArn"`
 	// Whether to get notified when a correspondence is added to your support cases.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html#cfn-supportapp-slackchannelconfiguration-notifyonaddcorrespondencetocase
 	//

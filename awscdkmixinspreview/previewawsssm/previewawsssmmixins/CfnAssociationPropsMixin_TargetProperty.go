@@ -10,7 +10,7 @@ package previewawsssmmixins
 //
 //   targetProperty := &TargetProperty{
 //   	Key: jsii.String("key"),
-//   	Values: []*string{
+//   	Values: []interface{}{
 //   		jsii.String("values"),
 //   	},
 //   }
@@ -29,6 +29,6 @@ type CfnAssociationPropsMixin_TargetProperty struct {
 	// Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
 	//
-	Values *[]*string `field:"optional" json:"values" yaml:"values"`
+	Values *[]interface{} `field:"optional" json:"values" yaml:"values"`
 }
 

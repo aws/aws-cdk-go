@@ -68,7 +68,6 @@ type Bucket interface {
 	Env() *interfaces.ResourceEnvironment
 	// Collection of grant methods for a Bucket.
 	Grants() BucketGrants
-	SetGrants(val BucketGrants)
 	// If this bucket has been configured for static website hosting.
 	IsWebsite() *bool
 	// The tree node.
@@ -268,6 +267,8 @@ type Bucket interface {
 	//
 	// [disable-awslint:no-grants].
 	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}, allowedActionPatterns *[]*string) awsiam.Grant
+	// Ensures a bucket policy exists on the L2 if `autoCreatePolicy` is set.
+	MaybeAutoCreatePolicy()
 	// Define a CloudWatch event that triggers when something happens to this repository.
 	//
 	// Requires that there exists at least one CloudTrail Trail in your account
@@ -607,17 +608,6 @@ func (j *jsiiProxy_Bucket)SetDisallowPublicAccess(val *bool) {
 	_jsii_.Set(
 		j,
 		"disallowPublicAccess",
-		val,
-	)
-}
-
-func (j *jsiiProxy_Bucket)SetGrants(val BucketGrants) {
-	if err := j.validateSetGrantsParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"grants",
 		val,
 	)
 }
@@ -1182,6 +1172,14 @@ func (b *jsiiProxy_Bucket) GrantWrite(identity awsiam.IGrantable, objectsKeyPatt
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_Bucket) MaybeAutoCreatePolicy() {
+	_jsii_.InvokeVoid(
+		b,
+		"maybeAutoCreatePolicy",
+		nil, // no parameters
+	)
 }
 
 func (b *jsiiProxy_Bucket) OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {

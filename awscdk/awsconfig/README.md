@@ -112,7 +112,7 @@ Lambda function which contains the logic that evaluates whether your AWS resourc
 evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
 	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 })
 
 // A custom rule that runs on configuration changes of EC2 instances
@@ -283,7 +283,7 @@ Compliance events are published to an SNS topic.
 evalComplianceFn := lambda.NewFunction(this, jsii.String("CustomFunction"), &FunctionProps{
 	Code: lambda.AssetCode_FromInline(jsii.String("exports.handler = (event) => console.log(event);")),
 	Handler: jsii.String("index.handler"),
-	Runtime: lambda.Runtime_NODEJS_18_X(),
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
 })
 
 // A custom rule that runs on configuration changes of EC2 instances

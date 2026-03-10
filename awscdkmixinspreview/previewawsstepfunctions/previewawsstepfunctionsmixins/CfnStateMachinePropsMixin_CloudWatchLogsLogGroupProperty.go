@@ -22,6 +22,6 @@ type CfnStateMachinePropsMixin_CloudWatchLogsLogGroupProperty struct {
 	// The ARN must end with `:*`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
 	//
-	LogGroupArn *string `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
+	LogGroupArn interface{} `field:"optional" json:"logGroupArn" yaml:"logGroupArn"`
 }
 

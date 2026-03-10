@@ -24,13 +24,13 @@ import (
 type InstanceEvents interface {
 	// EventBridge event pattern for Instance AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *InstanceEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 	// EventBridge event pattern for Instance EC2 Instance State-change Notification.
 	// Experimental.
-	EC2InstanceStateChangeNotificationPattern(options *InstanceEvents_EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) *awsevents.EventPattern
+	Ec2InstanceStateChangeNotificationPattern(options *EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) *awsevents.EventPattern
 	// EventBridge event pattern for Instance EC2 Spot Instance Interruption Warning.
 	// Experimental.
-	EC2SpotInstanceInterruptionWarningPattern(options *InstanceEvents_EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) *awsevents.EventPattern
+	Ec2SpotInstanceInterruptionWarningPattern(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for InstanceEvents
@@ -58,7 +58,7 @@ func InstanceEvents_FromInstance(instanceRef interfacesawsec2.IInstanceRef) Inst
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) AwsAPICallViaCloudTrailPattern(options *InstanceEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (i *jsiiProxy_InstanceEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := i.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -74,15 +74,15 @@ func (i *jsiiProxy_InstanceEvents) AwsAPICallViaCloudTrailPattern(options *Insta
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) EC2InstanceStateChangeNotificationPattern(options *InstanceEvents_EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) *awsevents.EventPattern {
-	if err := i.validateEC2InstanceStateChangeNotificationPatternParameters(options); err != nil {
+func (i *jsiiProxy_InstanceEvents) Ec2InstanceStateChangeNotificationPattern(options *EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) *awsevents.EventPattern {
+	if err := i.validateEc2InstanceStateChangeNotificationPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		i,
-		"eC2InstanceStateChangeNotificationPattern",
+		"ec2InstanceStateChangeNotificationPattern",
 		[]interface{}{options},
 		&returns,
 	)
@@ -90,15 +90,15 @@ func (i *jsiiProxy_InstanceEvents) EC2InstanceStateChangeNotificationPattern(opt
 	return returns
 }
 
-func (i *jsiiProxy_InstanceEvents) EC2SpotInstanceInterruptionWarningPattern(options *InstanceEvents_EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) *awsevents.EventPattern {
-	if err := i.validateEC2SpotInstanceInterruptionWarningPatternParameters(options); err != nil {
+func (i *jsiiProxy_InstanceEvents) Ec2SpotInstanceInterruptionWarningPattern(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) *awsevents.EventPattern {
+	if err := i.validateEc2SpotInstanceInterruptionWarningPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.Invoke(
 		i,
-		"eC2SpotInstanceInterruptionWarningPattern",
+		"ec2SpotInstanceInterruptionWarningPattern",
 		[]interface{}{options},
 		&returns,
 	)

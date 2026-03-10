@@ -64,7 +64,7 @@ package previewawscloudfrontmixins
 //   			ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
 //   			SmoothStreaming: jsii.Boolean(false),
 //   			TargetOriginId: jsii.String("targetOriginId"),
-//   			TrustedKeyGroups: []*string{
+//   			TrustedKeyGroups: []interface{}{
 //   				jsii.String("trustedKeyGroups"),
 //   			},
 //   			TrustedSigners: []*string{
@@ -148,7 +148,7 @@ package previewawscloudfrontmixins
 //   		ResponseHeadersPolicyId: jsii.String("responseHeadersPolicyId"),
 //   		SmoothStreaming: jsii.Boolean(false),
 //   		TargetOriginId: jsii.String("targetOriginId"),
-//   		TrustedKeyGroups: []*string{
+//   		TrustedKeyGroups: []interface{}{
 //   			jsii.String("trustedKeyGroups"),
 //   		},
 //   		TrustedSigners: []*string{
@@ -483,6 +483,6 @@ type CfnDistributionPropsMixin_DistributionConfigProperty struct {
 	//
 	// Default: - "".
 	//
-	WebAclId *string `field:"optional" json:"webAclId" yaml:"webAclId"`
+	WebAclId interface{} `field:"optional" json:"webAclId" yaml:"webAclId"`
 }
 

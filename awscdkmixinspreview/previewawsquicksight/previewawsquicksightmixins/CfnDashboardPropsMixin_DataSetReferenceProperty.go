@@ -19,7 +19,7 @@ type CfnDashboardPropsMixin_DataSetReferenceProperty struct {
 	// Dataset Amazon Resource Name (ARN).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
 	//
-	DataSetArn *string `field:"optional" json:"dataSetArn" yaml:"dataSetArn"`
+	DataSetArn interface{} `field:"optional" json:"dataSetArn" yaml:"dataSetArn"`
 	// Dataset placeholder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
 	//

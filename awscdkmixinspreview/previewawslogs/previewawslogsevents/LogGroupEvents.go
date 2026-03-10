@@ -24,7 +24,7 @@ import (
 type LogGroupEvents interface {
 	// EventBridge event pattern for LogGroup AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *LogGroupEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for LogGroupEvents
@@ -52,7 +52,7 @@ func LogGroupEvents_FromLogGroup(logGroupRef interfacesawslogs.ILogGroupRef) Log
 	return returns
 }
 
-func (l *jsiiProxy_LogGroupEvents) AwsAPICallViaCloudTrailPattern(options *LogGroupEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (l *jsiiProxy_LogGroupEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := l.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}

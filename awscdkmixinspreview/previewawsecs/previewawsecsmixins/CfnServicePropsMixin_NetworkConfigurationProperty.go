@@ -11,10 +11,10 @@ package previewawsecsmixins
 //   networkConfigurationProperty := &NetworkConfigurationProperty{
 //   	AwsvpcConfiguration: &AwsVpcConfigurationProperty{
 //   		AssignPublicIp: jsii.String("assignPublicIp"),
-//   		SecurityGroups: []*string{
+//   		SecurityGroups: []interface{}{
 //   			jsii.String("securityGroups"),
 //   		},
-//   		Subnets: []*string{
+//   		Subnets: []interface{}{
 //   			jsii.String("subnets"),
 //   		},
 //   	},

@@ -4,19 +4,19 @@ package previewawstransferevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (a *jsiiProxy_AgreementEvents) validateAS2MDNSendCompletedPatternParameters(options *AgreementEvents_AS2MDNSendCompleted_AS2MDNSendCompletedProps) error {
+func (a *jsiiProxy_AgreementEvents) validateAs2MDNSendCompletedPatternParameters(options *AS2MDNSendCompleted_AS2MDNSendCompletedProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AgreementEvents) validateAS2MDNSendFailedPatternParameters(options *AgreementEvents_AS2MDNSendFailed_AS2MDNSendFailedProps) error {
+func (a *jsiiProxy_AgreementEvents) validateAs2MDNSendFailedPatternParameters(options *AS2MDNSendFailed_AS2MDNSendFailedProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AgreementEvents) validateAS2PayloadReceiveCompletedPatternParameters(options *AgreementEvents_AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) error {
+func (a *jsiiProxy_AgreementEvents) validateAs2PayloadReceiveCompletedPatternParameters(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) error {
 	return nil
 }
 
-func (a *jsiiProxy_AgreementEvents) validateAS2PayloadReceiveFailedPatternParameters(options *AgreementEvents_AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) error {
+func (a *jsiiProxy_AgreementEvents) validateAs2PayloadReceiveFailedPatternParameters(options *AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) error {
 	return nil
 }
 

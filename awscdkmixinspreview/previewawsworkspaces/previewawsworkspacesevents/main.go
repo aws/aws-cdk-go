@@ -8,6 +8,18 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_workspaces.events.WorkSpacesAccess",
+		reflect.TypeOf((*WorkSpacesAccess)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_WorkSpacesAccess{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_workspaces.events.WorkSpacesAccess.WorkSpacesAccessProps",
+		reflect.TypeOf((*WorkSpacesAccess_WorkSpacesAccessProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_workspaces.events.WorkspaceEvents",
 		reflect.TypeOf((*WorkspaceEvents)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -16,17 +28,5 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_WorkspaceEvents{}
 		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_workspaces.events.WorkspaceEvents.WorkSpacesAccess",
-		reflect.TypeOf((*WorkspaceEvents_WorkSpacesAccess)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_WorkspaceEvents_WorkSpacesAccess{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_workspaces.events.WorkspaceEvents.WorkSpacesAccess.WorkSpacesAccessProps",
-		reflect.TypeOf((*WorkspaceEvents_WorkSpacesAccess_WorkSpacesAccessProps)(nil)).Elem(),
 	)
 }

@@ -106,11 +106,11 @@ type CfnTaskMixinProps struct {
 	// For more information, see [Monitoring data transfers with CloudWatch Logs](https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
 	//
-	CloudWatchLogGroupArn *string `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
+	CloudWatchLogGroupArn interface{} `field:"optional" json:"cloudWatchLogGroupArn" yaml:"cloudWatchLogGroupArn"`
 	// The Amazon Resource Name (ARN) of an AWS storage resource's location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
 	//
-	DestinationLocationArn *string `field:"optional" json:"destinationLocationArn" yaml:"destinationLocationArn"`
+	DestinationLocationArn interface{} `field:"optional" json:"destinationLocationArn" yaml:"destinationLocationArn"`
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer.
 	//
 	// For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
@@ -146,7 +146,7 @@ type CfnTaskMixinProps struct {
 	// Specifies the ARN of your transfer's source location.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
 	//
-	SourceLocationArn *string `field:"optional" json:"sourceLocationArn" yaml:"sourceLocationArn"`
+	SourceLocationArn interface{} `field:"optional" json:"sourceLocationArn" yaml:"sourceLocationArn"`
 	// Specifies the tags that you want to apply to your task.
 	//
 	// *Tags* are key-value pairs that help you manage, filter, and search for your DataSync resources.

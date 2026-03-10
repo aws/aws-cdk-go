@@ -70,6 +70,7 @@ import (
 //
 //   		// the properties below are optional
 //   		BasePath: jsii.String("basePath"),
+//   		EndpointAccessMode: awscdk.*Aws_apigateway.EndpointAccessMode_STRICT,
 //   		EndpointType: awscdk.*Aws_apigateway.EndpointType_EDGE,
 //   		Mtls: &MTLSConfig{
 //   			Bucket: bucket,

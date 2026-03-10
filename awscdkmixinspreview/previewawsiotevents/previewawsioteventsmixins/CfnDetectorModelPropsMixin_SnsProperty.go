@@ -26,6 +26,6 @@ type CfnDetectorModelPropsMixin_SnsProperty struct {
 	// The ARN of the Amazon SNS target where the message is sent.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
 	//
-	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`
+	TargetArn interface{} `field:"optional" json:"targetArn" yaml:"targetArn"`
 }
 

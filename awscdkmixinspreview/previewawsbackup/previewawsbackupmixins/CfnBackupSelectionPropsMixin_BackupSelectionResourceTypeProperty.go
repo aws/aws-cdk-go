@@ -23,7 +23,7 @@ package previewawsbackupmixins
 //   	NotResources: []*string{
 //   		jsii.String("notResources"),
 //   	},
-//   	Resources: []*string{
+//   	Resources: []interface{}{
 //   		jsii.String("resources"),
 //   	},
 //   	SelectionName: jsii.String("selectionName"),
@@ -48,7 +48,7 @@ type CfnBackupSelectionPropsMixin_BackupSelectionResourceTypeProperty struct {
 	// for example, `arn:aws:iam::123456789012:role/S3Access` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
 	//
-	IamRoleArn *string `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
+	IamRoleArn interface{} `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
 	// A list of conditions that you define to assign resources to your backup plans using tags.
 	//
 	// For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
@@ -71,7 +71,7 @@ type CfnBackupSelectionPropsMixin_BackupSelectionResourceTypeProperty struct {
 	// An array of strings that contain Amazon Resource Names (ARNs) of resources to assign to a backup plan.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
 	//
-	Resources *[]*string `field:"optional" json:"resources" yaml:"resources"`
+	Resources *[]interface{} `field:"optional" json:"resources" yaml:"resources"`
 	// The display name of a resource selection document.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
 	//

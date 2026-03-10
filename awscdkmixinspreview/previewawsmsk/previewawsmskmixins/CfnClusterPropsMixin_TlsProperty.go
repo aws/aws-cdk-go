@@ -9,7 +9,7 @@ package previewawsmskmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   tlsProperty := &TlsProperty{
-//   	CertificateAuthorityArnList: []*string{
+//   	CertificateAuthorityArnList: []interface{}{
 //   		jsii.String("certificateAuthorityArnList"),
 //   	},
 //   	Enabled: jsii.Boolean(false),
@@ -21,7 +21,7 @@ type CfnClusterPropsMixin_TlsProperty struct {
 	// List of AWS Private CA ARNs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-certificateauthorityarnlist
 	//
-	CertificateAuthorityArnList *[]*string `field:"optional" json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
+	CertificateAuthorityArnList *[]interface{} `field:"optional" json:"certificateAuthorityArnList" yaml:"certificateAuthorityArnList"`
 	// TLS authentication is enabled or not.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html#cfn-msk-cluster-tls-enabled
 	//

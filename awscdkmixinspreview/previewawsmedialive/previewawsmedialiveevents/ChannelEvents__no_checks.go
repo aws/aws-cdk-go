@@ -4,7 +4,7 @@ package previewawsmedialiveevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_ChannelEvents) validateMediaLiveChannelInputChangePatternParameters(options *ChannelEvents_MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) error {
+func (c *jsiiProxy_ChannelEvents) validateMediaLiveChannelInputChangePatternParameters(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) error {
 	return nil
 }
 

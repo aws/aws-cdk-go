@@ -20,7 +20,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnClientVpnRoutePropsMixin := awscdkmixinspreview.Mixins.NewCfnClientVpnRoutePropsMixin(&CfnClientVpnRouteMixinProps{
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
@@ -28,7 +30,7 @@ import (
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
 //   	TargetVpcSubnetId: jsii.String("targetVpcSubnetId"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html
@@ -37,7 +39,7 @@ type CfnClientVpnRoutePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnClientVpnRouteMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -60,8 +62,8 @@ func (j *jsiiProxy_CfnClientVpnRoutePropsMixin) Props() *CfnClientVpnRouteMixinP
 	return returns
 }
 
-func (j *jsiiProxy_CfnClientVpnRoutePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnClientVpnRoutePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

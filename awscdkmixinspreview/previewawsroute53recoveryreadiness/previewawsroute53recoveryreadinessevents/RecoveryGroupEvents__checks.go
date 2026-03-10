@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53recoveryreadiness"
 )
 
-func (r *jsiiProxy_RecoveryGroupEvents) validateRoute53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePatternParameters(options *RecoveryGroupEvents_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) error {
+func (r *jsiiProxy_RecoveryGroupEvents) validateRoute53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePatternParameters(options *Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

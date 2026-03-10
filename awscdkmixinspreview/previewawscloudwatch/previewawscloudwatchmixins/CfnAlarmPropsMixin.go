@@ -20,11 +20,13 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnAlarmPropsMixin := awscdkmixinspreview.Mixins.NewCfnAlarmPropsMixin(&CfnAlarmMixinProps{
 //   	ActionsEnabled: jsii.Boolean(false),
-//   	AlarmActions: []*string{
+//   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
 //   	},
 //   	AlarmDescription: jsii.String("alarmDescription"),
@@ -40,7 +42,7 @@ import (
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
-//   	InsufficientDataActions: []*string{
+//   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),
 //   	},
 //   	MetricName: jsii.String("metricName"),
@@ -70,7 +72,7 @@ import (
 //   		},
 //   	},
 //   	Namespace: jsii.String("namespace"),
-//   	OkActions: []*string{
+//   	OkActions: []interface{}{
 //   		jsii.String("okActions"),
 //   	},
 //   	Period: jsii.Number(123),
@@ -86,7 +88,7 @@ import (
 //   	TreatMissingData: jsii.String("treatMissingData"),
 //   	Unit: jsii.String("unit"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html
@@ -95,7 +97,7 @@ type CfnAlarmPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnAlarmMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -118,8 +120,8 @@ func (j *jsiiProxy_CfnAlarmPropsMixin) Props() *CfnAlarmMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAlarmPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnAlarmPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

@@ -27,7 +27,7 @@ type CfnPipelinePropsMixin_LambdaProperty struct {
 	// The name of the Lambda function that is run on the message.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-lambdaname
 	//
-	LambdaName *string `field:"optional" json:"lambdaName" yaml:"lambdaName"`
+	LambdaName interface{} `field:"optional" json:"lambdaName" yaml:"lambdaName"`
 	// The name of the 'lambda' activity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-pipeline-lambda.html#cfn-iotanalytics-pipeline-lambda-name
 	//

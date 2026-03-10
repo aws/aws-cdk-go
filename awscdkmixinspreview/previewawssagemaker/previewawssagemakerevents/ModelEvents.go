@@ -24,10 +24,10 @@ import (
 type ModelEvents interface {
 	// EventBridge event pattern for Model AWS API Call via CloudTrail.
 	// Experimental.
-	AwsAPICallViaCloudTrailPattern(options *ModelEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
+	AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern
 	// EventBridge event pattern for Model SageMaker Transform Job State Change.
 	// Experimental.
-	SageMakerTransformJobStateChangePattern(options *ModelEvents_SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) *awsevents.EventPattern
+	SageMakerTransformJobStateChangePattern(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ModelEvents
@@ -55,7 +55,7 @@ func ModelEvents_FromModel(modelRef interfacesawssagemaker.IModelRef) ModelEvent
 	return returns
 }
 
-func (m *jsiiProxy_ModelEvents) AwsAPICallViaCloudTrailPattern(options *ModelEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func (m *jsiiProxy_ModelEvents) AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	if err := m.validateAwsAPICallViaCloudTrailPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -71,7 +71,7 @@ func (m *jsiiProxy_ModelEvents) AwsAPICallViaCloudTrailPattern(options *ModelEve
 	return returns
 }
 
-func (m *jsiiProxy_ModelEvents) SageMakerTransformJobStateChangePattern(options *ModelEvents_SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) *awsevents.EventPattern {
+func (m *jsiiProxy_ModelEvents) SageMakerTransformJobStateChangePattern(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) *awsevents.EventPattern {
 	if err := m.validateSageMakerTransformJobStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

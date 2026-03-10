@@ -12,7 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnVpcConnectorMixinProps := &CfnVpcConnectorMixinProps{
-//   	SecurityGroups: []*string{
+//   	SecurityGroups: []interface{}{
 //   		jsii.String("securityGroups"),
 //   	},
 //   	Subnets: []*string{
@@ -35,7 +35,7 @@ type CfnVpcConnectorMixinProps struct {
 	// If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html#cfn-apprunner-vpcconnector-securitygroups
 	//
-	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	SecurityGroups *[]interface{} `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC.
 	//
 	// Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.

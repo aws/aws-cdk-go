@@ -4,19 +4,19 @@ package previewawsecsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_ClusterEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *ClusterEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (c *jsiiProxy_ClusterEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_ClusterEvents) validateECSContainerInstanceStateChangePatternParameters(options *ClusterEvents_ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) error {
+func (c *jsiiProxy_ClusterEvents) validateEcsContainerInstanceStateChangePatternParameters(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_ClusterEvents) validateECSServiceActionPatternParameters(options *ClusterEvents_ECSServiceAction_ECSServiceActionProps) error {
+func (c *jsiiProxy_ClusterEvents) validateEcsServiceActionPatternParameters(options *ECSServiceAction_ECSServiceActionProps) error {
 	return nil
 }
 
-func (c *jsiiProxy_ClusterEvents) validateECSTaskStateChangePatternParameters(options *ClusterEvents_ECSTaskStateChange_ECSTaskStateChangeProps) error {
+func (c *jsiiProxy_ClusterEvents) validateEcsTaskStateChangePatternParameters(options *ECSTaskStateChange_ECSTaskStateChangeProps) error {
 	return nil
 }
 

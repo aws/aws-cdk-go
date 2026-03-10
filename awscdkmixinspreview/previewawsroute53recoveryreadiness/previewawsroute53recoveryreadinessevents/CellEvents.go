@@ -24,7 +24,7 @@ import (
 type CellEvents interface {
 	// EventBridge event pattern for Cell Route 53 Application Recovery Controller cell readiness status change.
 	// Experimental.
-	Route53ApplicationRecoveryControllerCellReadinessStatusChangePattern(options *CellEvents_Route53ApplicationRecoveryControllerCellReadinessStatusChange_Route53ApplicationRecoveryControllerCellReadinessStatusChangeProps) *awsevents.EventPattern
+	Route53ApplicationRecoveryControllerCellReadinessStatusChangePattern(options *Route53ApplicationRecoveryControllerCellReadinessStatusChange_Route53ApplicationRecoveryControllerCellReadinessStatusChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for CellEvents
@@ -52,7 +52,7 @@ func CellEvents_FromCell(cellRef interfacesawsroute53recoveryreadiness.ICellRef)
 	return returns
 }
 
-func (c *jsiiProxy_CellEvents) Route53ApplicationRecoveryControllerCellReadinessStatusChangePattern(options *CellEvents_Route53ApplicationRecoveryControllerCellReadinessStatusChange_Route53ApplicationRecoveryControllerCellReadinessStatusChangeProps) *awsevents.EventPattern {
+func (c *jsiiProxy_CellEvents) Route53ApplicationRecoveryControllerCellReadinessStatusChangePattern(options *Route53ApplicationRecoveryControllerCellReadinessStatusChange_Route53ApplicationRecoveryControllerCellReadinessStatusChangeProps) *awsevents.EventPattern {
 	if err := c.validateRoute53ApplicationRecoveryControllerCellReadinessStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}

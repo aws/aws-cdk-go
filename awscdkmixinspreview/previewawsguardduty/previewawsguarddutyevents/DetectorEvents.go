@@ -24,7 +24,7 @@ import (
 type DetectorEvents interface {
 	// EventBridge event pattern for Detector GuardDuty Finding.
 	// Experimental.
-	GuardDutyFindingPattern(options *DetectorEvents_GuardDutyFinding_GuardDutyFindingProps) *awsevents.EventPattern
+	GuardDutyFindingPattern(options *GuardDutyFinding_GuardDutyFindingProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for DetectorEvents
@@ -52,7 +52,7 @@ func DetectorEvents_FromDetector(detectorRef interfacesawsguardduty.IDetectorRef
 	return returns
 }
 
-func (d *jsiiProxy_DetectorEvents) GuardDutyFindingPattern(options *DetectorEvents_GuardDutyFinding_GuardDutyFindingProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DetectorEvents) GuardDutyFindingPattern(options *GuardDutyFinding_GuardDutyFindingProps) *awsevents.EventPattern {
 	if err := d.validateGuardDutyFindingPatternParameters(options); err != nil {
 		panic(err)
 	}

@@ -9,7 +9,7 @@ package previewawsdatasyncmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   onPremConfigProperty := &OnPremConfigProperty{
-//   	AgentArns: []*string{
+//   	AgentArns: []interface{}{
 //   		jsii.String("agentArns"),
 //   	},
 //   }
@@ -22,6 +22,6 @@ type CfnLocationNFSPropsMixin_OnPremConfigProperty struct {
 	// You can specify more than one agent. For more information, see [Using multiple DataSync agents](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
 	//
-	AgentArns *[]*string `field:"optional" json:"agentArns" yaml:"agentArns"`
+	AgentArns *[]interface{} `field:"optional" json:"agentArns" yaml:"agentArns"`
 }
 

@@ -24,7 +24,7 @@ import (
 type DatasetEvents interface {
 	// EventBridge event pattern for Dataset IoT Analytics DataSet Lifecycle Notification.
 	// Experimental.
-	IoTAnalyticsDataSetLifeCycleNotificationPattern(options *DatasetEvents_IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) *awsevents.EventPattern
+	IoTAnalyticsDataSetLifeCycleNotificationPattern(options *IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for DatasetEvents
@@ -52,7 +52,7 @@ func DatasetEvents_FromDataset(datasetRef interfacesawsiotanalytics.IDatasetRef)
 	return returns
 }
 
-func (d *jsiiProxy_DatasetEvents) IoTAnalyticsDataSetLifeCycleNotificationPattern(options *DatasetEvents_IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) *awsevents.EventPattern {
+func (d *jsiiProxy_DatasetEvents) IoTAnalyticsDataSetLifeCycleNotificationPattern(options *IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) *awsevents.EventPattern {
 	if err := d.validateIoTAnalyticsDataSetLifeCycleNotificationPatternParameters(options); err != nil {
 		panic(err)
 	}

@@ -20,7 +20,7 @@ type CfnLayerVersionPropsMixin_ContentProperty struct {
 	// The Amazon S3 bucket of the layer archive.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3bucket
 	//
-	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
+	S3Bucket interface{} `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
 	// The Amazon S3 key of the layer archive.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3key
 	//

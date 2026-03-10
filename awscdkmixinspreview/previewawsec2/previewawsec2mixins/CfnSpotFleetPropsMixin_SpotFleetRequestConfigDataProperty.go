@@ -360,7 +360,7 @@ type CfnSpotFleetPropsMixin_SpotFleetRequestConfigDataProperty struct {
 	// For more information, see [Spot Fleet Prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites) in the *Amazon EC2 User Guide* . Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request or when the Spot Fleet request expires, if you set `TerminateInstancesWithExpiration` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-iamfleetrole
 	//
-	IamFleetRole *string `field:"optional" json:"iamFleetRole" yaml:"iamFleetRole"`
+	IamFleetRole interface{} `field:"optional" json:"iamFleetRole" yaml:"iamFleetRole"`
 	// The behavior when a Spot Instance is interrupted.
 	//
 	// The default is `terminate` .

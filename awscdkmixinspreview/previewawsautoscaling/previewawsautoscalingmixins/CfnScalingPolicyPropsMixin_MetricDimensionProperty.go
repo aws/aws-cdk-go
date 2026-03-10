@@ -23,6 +23,6 @@ type CfnScalingPolicyPropsMixin_MetricDimensionProperty struct {
 	// The value of the dimension.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-value
 	//
-	Value *string `field:"optional" json:"value" yaml:"value"`
+	Value interface{} `field:"optional" json:"value" yaml:"value"`
 }
 

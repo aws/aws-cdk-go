@@ -9,7 +9,7 @@ package awscdk
 // Example:
 //   provider := awscdk.CustomResourceProvider_GetOrCreateProvider(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 //   	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_18_X,
+//   	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_22_X,
 //   })
 //   provider.AddToRolePolicy(map[string]*string{
 //   	"Effect": jsii.String("Allow"),
@@ -30,6 +30,7 @@ const (
 	// Deprecated: Use latest version.
 	CustomResourceProviderRuntime_NODEJS_16_X CustomResourceProviderRuntime = "NODEJS_16_X"
 	// Node.js 18.x.
+	// Deprecated: Use latest version.
 	CustomResourceProviderRuntime_NODEJS_18_X CustomResourceProviderRuntime = "NODEJS_18_X"
 	// Node.js 20.x.
 	CustomResourceProviderRuntime_NODEJS_20_X CustomResourceProviderRuntime = "NODEJS_20_X"

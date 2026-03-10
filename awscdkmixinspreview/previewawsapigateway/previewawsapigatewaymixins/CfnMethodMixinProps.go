@@ -101,7 +101,7 @@ type CfnMethodMixinProps struct {
 	// The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid
 	//
-	AuthorizerId *string `field:"optional" json:"authorizerId" yaml:"authorizerId"`
+	AuthorizerId interface{} `field:"optional" json:"authorizerId" yaml:"authorizerId"`
 	// The method's HTTP verb.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod
 	//
@@ -133,14 +133,14 @@ type CfnMethodMixinProps struct {
 	// The identifier of a RequestValidator for request validation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestvalidatorid
 	//
-	RequestValidatorId *string `field:"optional" json:"requestValidatorId" yaml:"requestValidatorId"`
+	RequestValidatorId interface{} `field:"optional" json:"requestValidatorId" yaml:"requestValidatorId"`
 	// The Resource identifier for the MethodResponse resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid
 	//
-	ResourceId *string `field:"optional" json:"resourceId" yaml:"resourceId"`
+	ResourceId interface{} `field:"optional" json:"resourceId" yaml:"resourceId"`
 	// The string identifier of the associated RestApi.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid
 	//
-	RestApiId *string `field:"optional" json:"restApiId" yaml:"restApiId"`
+	RestApiId interface{} `field:"optional" json:"restApiId" yaml:"restApiId"`
 }
 

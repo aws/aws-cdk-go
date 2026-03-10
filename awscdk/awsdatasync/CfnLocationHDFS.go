@@ -32,6 +32,14 @@ import (
 //
 //   	// the properties below are optional
 //   	BlockSize: jsii.Number(123),
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	KerberosKeytab: jsii.String("kerberosKeytab"),
 //   	KerberosKrb5Conf: jsii.String("kerberosKrb5Conf"),
 //   	KerberosPrincipal: jsii.String("kerberosPrincipal"),
@@ -61,10 +69,16 @@ type CfnLocationHDFS interface {
 	// The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS cluster.
 	AgentArns() *[]*string
 	SetAgentArns(val *[]*string)
+	// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+	AttrCmkSecretConfigSecretArn() *string
 	// The Amazon Resource Name (ARN) of the HDFS cluster location to describe.
 	AttrLocationArn() *string
 	// The URI of the HDFS cluster location.
 	AttrLocationUri() *string
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location.
+	//
+	// DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+	AttrManagedSecretConfig() awscdk.IResolvable
 	// The authentication mode used to determine identity of user.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
@@ -76,10 +90,16 @@ type CfnLocationHDFS interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	CmkSecretConfig() interface{}
+	SetCmkSecretConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	CustomSecretConfig() interface{}
+	SetCustomSecretConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys.
 	KerberosKeytab() *string
@@ -301,6 +321,16 @@ func (j *jsiiProxy_CfnLocationHDFS) AgentArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationHDFS) AttrCmkSecretConfigSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCmkSecretConfigSecretArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationHDFS) AttrLocationArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -316,6 +346,16 @@ func (j *jsiiProxy_CfnLocationHDFS) AttrLocationUri() *string {
 	_jsii_.Get(
 		j,
 		"attrLocationUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) AttrManagedSecretConfig() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrManagedSecretConfig",
 		&returns,
 	)
 	return returns
@@ -371,11 +411,31 @@ func (j *jsiiProxy_CfnLocationHDFS) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationHDFS) CmkSecretConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cmkSecretConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationHDFS) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) CustomSecretConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customSecretConfig",
 		&returns,
 	)
 	return returns
@@ -627,6 +687,28 @@ func (j *jsiiProxy_CfnLocationHDFS)SetBlockSize(val *float64) {
 	_jsii_.Set(
 		j,
 		"blockSize",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS)SetCmkSecretConfig(val interface{}) {
+	if err := j.validateSetCmkSecretConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cmkSecretConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS)SetCustomSecretConfig(val interface{}) {
+	if err := j.validateSetCustomSecretConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customSecretConfig",
 		val,
 	)
 }

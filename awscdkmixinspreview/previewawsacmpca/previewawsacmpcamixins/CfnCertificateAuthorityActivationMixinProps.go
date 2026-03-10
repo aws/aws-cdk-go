@@ -25,7 +25,7 @@ type CfnCertificateAuthorityActivationMixinProps struct {
 	// The Amazon Resource Name (ARN) of your private CA.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
 	//
-	CertificateAuthorityArn *string `field:"optional" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
+	CertificateAuthorityArn interface{} `field:"optional" json:"certificateAuthorityArn" yaml:"certificateAuthorityArn"`
 	// The Base64 PEM-encoded certificate chain that chains up to the root CA certificate that you used to sign your private CA certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
 	//

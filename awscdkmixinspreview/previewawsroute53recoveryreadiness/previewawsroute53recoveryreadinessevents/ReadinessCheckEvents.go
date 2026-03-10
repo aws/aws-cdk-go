@@ -24,7 +24,7 @@ import (
 type ReadinessCheckEvents interface {
 	// EventBridge event pattern for ReadinessCheck Route 53 Application Recovery Controller readiness check status change.
 	// Experimental.
-	Route53ApplicationRecoveryControllerReadinessCheckStatusChangePattern(options *ReadinessCheckEvents_Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) *awsevents.EventPattern
+	Route53ApplicationRecoveryControllerReadinessCheckStatusChangePattern(options *Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ReadinessCheckEvents
@@ -52,7 +52,7 @@ func ReadinessCheckEvents_FromReadinessCheck(readinessCheckRef interfacesawsrout
 	return returns
 }
 
-func (r *jsiiProxy_ReadinessCheckEvents) Route53ApplicationRecoveryControllerReadinessCheckStatusChangePattern(options *ReadinessCheckEvents_Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) *awsevents.EventPattern {
+func (r *jsiiProxy_ReadinessCheckEvents) Route53ApplicationRecoveryControllerReadinessCheckStatusChangePattern(options *Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) *awsevents.EventPattern {
 	if err := r.validateRoute53ApplicationRecoveryControllerReadinessCheckStatusChangePatternParameters(options); err != nil {
 		panic(err)
 	}

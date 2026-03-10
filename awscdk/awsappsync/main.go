@@ -1439,6 +1439,22 @@ func init() {
 		"aws-cdk-lib.aws_appsync.CodeConfig",
 		reflect.TypeOf((*CodeConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.DataSourceLevelMetricsBehavior",
+		reflect.TypeOf((*DataSourceLevelMetricsBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"FULL_REQUEST_DATA_SOURCE_METRICS": DataSourceLevelMetricsBehavior_FULL_REQUEST_DATA_SOURCE_METRICS,
+			"PER_DATA_SOURCE_METRICS": DataSourceLevelMetricsBehavior_PER_DATA_SOURCE_METRICS,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.DataSourceMetricsConfig",
+		reflect.TypeOf((*DataSourceMetricsConfig)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": DataSourceMetricsConfig_ENABLED,
+			"DISABLED": DataSourceMetricsConfig_DISABLED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.DataSourceOptions",
 		reflect.TypeOf((*DataSourceOptions)(nil)).Elem(),
@@ -1507,6 +1523,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appsync.ElasticsearchDataSourceProps",
 		reflect.TypeOf((*ElasticsearchDataSourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appsync.EnhancedMetricsConfig",
+		reflect.TypeOf((*EnhancedMetricsConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.EventApi",
@@ -2154,6 +2174,14 @@ func init() {
 		"aws-cdk-lib.aws_appsync.OpenSearchDataSourceProps",
 		reflect.TypeOf((*OpenSearchDataSourceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.OperationLevelMetricsConfig",
+		reflect.TypeOf((*OperationLevelMetricsConfig)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": OperationLevelMetricsConfig_ENABLED,
+			"DISABLED": OperationLevelMetricsConfig_DISABLED,
+		},
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appsync.PartitionKey",
 		reflect.TypeOf((*PartitionKey)(nil)).Elem(),
@@ -2232,6 +2260,22 @@ func init() {
 			j := jsiiProxy_Resolver{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
 			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.ResolverLevelMetricsBehavior",
+		reflect.TypeOf((*ResolverLevelMetricsBehavior)(nil)).Elem(),
+		map[string]interface{}{
+			"FULL_REQUEST_RESOLVER_METRICS": ResolverLevelMetricsBehavior_FULL_REQUEST_RESOLVER_METRICS,
+			"PER_RESOLVER_METRICS": ResolverLevelMetricsBehavior_PER_RESOLVER_METRICS,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_appsync.ResolverMetricsConfig",
+		reflect.TypeOf((*ResolverMetricsConfig)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": ResolverMetricsConfig_ENABLED,
+			"DISABLED": ResolverMetricsConfig_DISABLED,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -1694,6 +1694,14 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.DomainNameProps",
 		reflect.TypeOf((*DomainNameProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_apigateway.EndpointAccessMode",
+		reflect.TypeOf((*EndpointAccessMode)(nil)).Elem(),
+		map[string]interface{}{
+			"STRICT": EndpointAccessMode_STRICT,
+			"BASIC": EndpointAccessMode_BASIC,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.EndpointConfiguration",
 		reflect.TypeOf((*EndpointConfiguration)(nil)).Elem(),
@@ -2709,6 +2717,13 @@ func init() {
 		map[string]interface{}{
 			"TLS_1_0": SecurityPolicy_TLS_1_0,
 			"TLS_1_2": SecurityPolicy_TLS_1_2,
+			"TLS13_1_3_2025_09": SecurityPolicy_TLS13_1_3_2025_09,
+			"TLS13_1_3_FIPS_2025_09": SecurityPolicy_TLS13_1_3_FIPS_2025_09,
+			"TLS13_1_2_PQ_2025_09": SecurityPolicy_TLS13_1_2_PQ_2025_09,
+			"TLS13_1_2_PFS_PQ_2025_09": SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09,
+			"TLS13_2025_EDGE": SecurityPolicy_TLS13_2025_EDGE,
+			"TLS12_PFS_2025_EDGE": SecurityPolicy_TLS12_PFS_2025_EDGE,
+			"TLS12_2018_EDGE": SecurityPolicy_TLS12_2018_EDGE,
 		},
 	)
 	_jsii_.RegisterClass(

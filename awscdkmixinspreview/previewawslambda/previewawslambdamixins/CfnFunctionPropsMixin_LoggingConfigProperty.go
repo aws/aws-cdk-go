@@ -35,7 +35,7 @@ type CfnFunctionPropsMixin_LoggingConfigProperty struct {
 	// By default, Lambda functions send logs to a default log group named `/aws/lambda/<function name>` . To use a different log group, enter an existing log group or enter a new log group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-loggingconfig.html#cfn-lambda-function-loggingconfig-loggroup
 	//
-	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
+	LogGroup interface{} `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch.
 	//
 	// Lambda only sends system logs at the selected level of detail and lower, where `DEBUG` is the highest level and `WARN` is the lowest.

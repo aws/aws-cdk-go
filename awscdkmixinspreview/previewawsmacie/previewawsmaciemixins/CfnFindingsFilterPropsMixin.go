@@ -20,7 +20,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnFindingsFilterPropsMixin := awscdkmixinspreview.Mixins.NewCfnFindingsFilterPropsMixin(&CfnFindingsFilterMixinProps{
 //   	Action: jsii.String("action"),
@@ -50,7 +52,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
@@ -59,7 +61,7 @@ type CfnFindingsFilterPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnFindingsFilterMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -82,8 +84,8 @@ func (j *jsiiProxy_CfnFindingsFilterPropsMixin) Props() *CfnFindingsFilterMixinP
 	return returns
 }
 
-func (j *jsiiProxy_CfnFindingsFilterPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnFindingsFilterPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

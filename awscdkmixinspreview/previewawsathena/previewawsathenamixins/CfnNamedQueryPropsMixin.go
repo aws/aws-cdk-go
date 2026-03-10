@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnNamedQueryPropsMixin := awscdkmixinspreview.Mixins.NewCfnNamedQueryPropsMixin(&CfnNamedQueryMixinProps{
 //   	Database: jsii.String("database"),
@@ -25,7 +27,7 @@ import (
 //   	QueryString: jsii.String("queryString"),
 //   	WorkGroup: jsii.String("workGroup"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
@@ -34,7 +36,7 @@ type CfnNamedQueryPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnNamedQueryMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -57,8 +59,8 @@ func (j *jsiiProxy_CfnNamedQueryPropsMixin) Props() *CfnNamedQueryMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNamedQueryPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnNamedQueryPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

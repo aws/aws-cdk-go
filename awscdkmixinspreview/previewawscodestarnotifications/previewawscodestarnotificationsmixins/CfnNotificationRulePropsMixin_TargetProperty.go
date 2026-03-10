@@ -19,7 +19,7 @@ type CfnNotificationRulePropsMixin_TargetProperty struct {
 	// The Amazon Resource Name (ARN) of the  topic or  client.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
 	//
-	TargetAddress *string `field:"optional" json:"targetAddress" yaml:"targetAddress"`
+	TargetAddress interface{} `field:"optional" json:"targetAddress" yaml:"targetAddress"`
 	// The target type. Can be an Amazon Simple Notification Service topic or  client.
 	//
 	// - Amazon Simple Notification Service topics are specified as `SNS` .

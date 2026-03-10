@@ -18,7 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnRunGroupPropsMixin := awscdkmixinspreview.Mixins.NewCfnRunGroupPropsMixin(&CfnRunGroupMixinProps{
 //   	MaxCpus: jsii.Number(123),
@@ -30,7 +32,7 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-rungroup.html
@@ -39,7 +41,7 @@ type CfnRunGroupPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnRunGroupMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -62,8 +64,8 @@ func (j *jsiiProxy_CfnRunGroupPropsMixin) Props() *CfnRunGroupMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRunGroupPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnRunGroupPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

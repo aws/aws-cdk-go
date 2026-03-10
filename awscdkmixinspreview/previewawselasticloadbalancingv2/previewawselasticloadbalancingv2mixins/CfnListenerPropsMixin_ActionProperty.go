@@ -130,7 +130,7 @@ type CfnListenerPropsMixin_ActionProperty struct {
 	// Specify only when `Type` is `forward` and you want to route to a single target group. To route to multiple target groups, you must use `ForwardConfig` instead.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-targetgrouparn
 	//
-	TargetGroupArn *string `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
+	TargetGroupArn interface{} `field:"optional" json:"targetGroupArn" yaml:"targetGroupArn"`
 	// The type of action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-action.html#cfn-elasticloadbalancingv2-listener-action-type
 	//

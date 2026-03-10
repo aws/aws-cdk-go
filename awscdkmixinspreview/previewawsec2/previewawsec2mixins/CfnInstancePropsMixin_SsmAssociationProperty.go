@@ -32,6 +32,6 @@ type CfnInstancePropsMixin_SsmAssociationProperty struct {
 	// The name of an SSM document to associate with the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html#cfn-ec2-instance-ssmassociation-documentname
 	//
-	DocumentName *string `field:"optional" json:"documentName" yaml:"documentName"`
+	DocumentName interface{} `field:"optional" json:"documentName" yaml:"documentName"`
 }
 

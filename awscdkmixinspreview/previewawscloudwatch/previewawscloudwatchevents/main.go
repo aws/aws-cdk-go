@@ -19,67 +19,67 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_AlarmEvents_CloudWatchAlarmConfigurationChange{}
+			return &jsiiProxy_CloudWatchAlarmConfigurationChange{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange.CloudWatchAlarmConfigurationChangeProps",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange.CloudWatchAlarmConfigurationChangeProps",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange.Configuration",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange_Configuration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange.Configuration",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange_Configuration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange.ConfigurationItem",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange_ConfigurationItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange.ConfigurationItem",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange_ConfigurationItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange.Metric",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange_Metric)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange.Metric",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange_Metric)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange.MetricStat",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange_MetricStat)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange.MetricStat",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange_MetricStat)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmConfigurationChange.State",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmConfigurationChange_State)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange.State",
+		reflect.TypeOf((*CloudWatchAlarmConfigurationChange_State)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange",
+		reflect.TypeOf((*CloudWatchAlarmStateChange)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_AlarmEvents_CloudWatchAlarmStateChange{}
+			return &jsiiProxy_CloudWatchAlarmStateChange{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange.CloudWatchAlarmStateChangeProps",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange.CloudWatchAlarmStateChangeProps",
+		reflect.TypeOf((*CloudWatchAlarmStateChange_CloudWatchAlarmStateChangeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange.Configuration",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange_Configuration)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange.Configuration",
+		reflect.TypeOf((*CloudWatchAlarmStateChange_Configuration)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange.ConfigurationItem",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange_ConfigurationItem)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange.ConfigurationItem",
+		reflect.TypeOf((*CloudWatchAlarmStateChange_ConfigurationItem)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange.Metric",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange_Metric)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange.Metric",
+		reflect.TypeOf((*CloudWatchAlarmStateChange_Metric)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange.MetricStat",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange_MetricStat)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange.MetricStat",
+		reflect.TypeOf((*CloudWatchAlarmStateChange_MetricStat)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_cloudwatch.events.AlarmEvents.CloudWatchAlarmStateChange.State",
-		reflect.TypeOf((*AlarmEvents_CloudWatchAlarmStateChange_State)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmStateChange.State",
+		reflect.TypeOf((*CloudWatchAlarmStateChange_State)(nil)).Elem(),
 	)
 }

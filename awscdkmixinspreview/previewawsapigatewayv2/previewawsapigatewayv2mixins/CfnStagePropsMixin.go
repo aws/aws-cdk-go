@@ -18,8 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var mergeStrategy IMergeStrategy
 //   var routeSettings interface{}
 //   var stageVariables interface{}
 //   var tags interface{}
@@ -47,7 +48,7 @@ import (
 //   	StageVariables: stageVariables,
 //   	Tags: tags,
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html
@@ -56,7 +57,7 @@ type CfnStagePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnStageMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -79,8 +80,8 @@ func (j *jsiiProxy_CfnStagePropsMixin) Props() *CfnStageMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStagePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnStagePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

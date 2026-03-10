@@ -4,11 +4,11 @@ package previewawssagemakerevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (m *jsiiProxy_ModelEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *ModelEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (m *jsiiProxy_ModelEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	return nil
 }
 
-func (m *jsiiProxy_ModelEvents) validateSageMakerTransformJobStateChangePatternParameters(options *ModelEvents_SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) error {
+func (m *jsiiProxy_ModelEvents) validateSageMakerTransformJobStateChangePatternParameters(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) error {
 	return nil
 }
 

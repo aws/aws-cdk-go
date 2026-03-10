@@ -18,6 +18,6 @@ type CfnListenerPropsMixin_CertificateProperty struct {
 	// The Amazon Resource Name (ARN) of the certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
 	//
-	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	CertificateArn interface{} `field:"optional" json:"certificateArn" yaml:"certificateArn"`
 }
 

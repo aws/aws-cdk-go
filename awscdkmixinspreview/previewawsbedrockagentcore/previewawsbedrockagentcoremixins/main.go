@@ -138,6 +138,26 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomUsageLogsS3Props",
 		reflect.TypeOf((*CfnBrowserCustomUsageLogsS3Props)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserProfileMixinProps",
+		reflect.TypeOf((*CfnBrowserProfileMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserProfilePropsMixin",
+		reflect.TypeOf((*CfnBrowserProfilePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnBrowserProfilePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomApplicationLogs",
 		reflect.TypeOf((*CfnCodeInterpreterCustomApplicationLogs)(nil)).Elem(),
@@ -345,6 +365,58 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomUsageLogsS3Props",
 		reflect.TypeOf((*CfnCodeInterpreterCustomUsageLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorMixinProps",
+		reflect.TypeOf((*CfnEvaluatorMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnEvaluatorPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.BedrockEvaluatorModelConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_BedrockEvaluatorModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.CategoricalScaleDefinitionProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_CategoricalScaleDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.EvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_EvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.EvaluatorModelConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_EvaluatorModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.InferenceConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_InferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.LlmAsAJudgeEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_LlmAsAJudgeEvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.NumericalScaleDefinitionProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_NumericalScaleDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnEvaluatorPropsMixin.RatingScaleProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_RatingScaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayApplicationLogs",
@@ -898,6 +970,114 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryTracesXRayProps",
 		reflect.TypeOf((*CfnMemoryTracesXRayProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigMixinProps",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnOnlineEvaluationConfigPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.CloudWatchLogsInputConfigProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_CloudWatchLogsInputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.CloudWatchOutputConfigProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_CloudWatchOutputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.DataSourceConfigProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_DataSourceConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.EvaluatorReferenceProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_EvaluatorReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.FilterProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.FilterValueProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_FilterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.OutputConfigProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_OutputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.RuleProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_RuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.SamplingConfigProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_SamplingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnOnlineEvaluationConfigPropsMixin.SessionConfigProperty",
+		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_SessionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnPolicyEngineMixinProps",
+		reflect.TypeOf((*CfnPolicyEngineMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnPolicyEnginePropsMixin",
+		reflect.TypeOf((*CfnPolicyEnginePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPolicyEnginePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnPolicyMixinProps",
+		reflect.TypeOf((*CfnPolicyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnPolicyPropsMixin",
+		reflect.TypeOf((*CfnPolicyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPolicyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnPolicyPropsMixin.CedarPolicyProperty",
+		reflect.TypeOf((*CfnPolicyPropsMixin_CedarPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnPolicyPropsMixin.PolicyDefinitionProperty",
+		reflect.TypeOf((*CfnPolicyPropsMixin_PolicyDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeApplicationLogs",

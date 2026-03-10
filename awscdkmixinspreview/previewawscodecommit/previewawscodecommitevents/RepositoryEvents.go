@@ -24,13 +24,13 @@ import (
 type RepositoryEvents interface {
 	// EventBridge event pattern for Repository CodeCommit Comment on Commit.
 	// Experimental.
-	CodeCommitCommentOnCommitPattern(options *RepositoryEvents_CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) *awsevents.EventPattern
+	CodeCommitCommentOnCommitPattern(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository CodeCommit Comment on Pull Request.
 	// Experimental.
-	CodeCommitCommentOnPullRequestPattern(options *RepositoryEvents_CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) *awsevents.EventPattern
+	CodeCommitCommentOnPullRequestPattern(options *CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) *awsevents.EventPattern
 	// EventBridge event pattern for Repository CodeCommit Repository State Change.
 	// Experimental.
-	CodeCommitRepositoryStateChangePattern(options *RepositoryEvents_CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) *awsevents.EventPattern
+	CodeCommitRepositoryStateChangePattern(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for RepositoryEvents
@@ -58,7 +58,7 @@ func RepositoryEvents_FromRepository(repositoryRef interfacesawscodecommit.IRepo
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) CodeCommitCommentOnCommitPattern(options *RepositoryEvents_CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) *awsevents.EventPattern {
+func (r *jsiiProxy_RepositoryEvents) CodeCommitCommentOnCommitPattern(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) *awsevents.EventPattern {
 	if err := r.validateCodeCommitCommentOnCommitPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -74,7 +74,7 @@ func (r *jsiiProxy_RepositoryEvents) CodeCommitCommentOnCommitPattern(options *R
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) CodeCommitCommentOnPullRequestPattern(options *RepositoryEvents_CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) *awsevents.EventPattern {
+func (r *jsiiProxy_RepositoryEvents) CodeCommitCommentOnPullRequestPattern(options *CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) *awsevents.EventPattern {
 	if err := r.validateCodeCommitCommentOnPullRequestPatternParameters(options); err != nil {
 		panic(err)
 	}
@@ -90,7 +90,7 @@ func (r *jsiiProxy_RepositoryEvents) CodeCommitCommentOnPullRequestPattern(optio
 	return returns
 }
 
-func (r *jsiiProxy_RepositoryEvents) CodeCommitRepositoryStateChangePattern(options *RepositoryEvents_CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) *awsevents.EventPattern {
+func (r *jsiiProxy_RepositoryEvents) CodeCommitRepositoryStateChangePattern(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) *awsevents.EventPattern {
 	if err := r.validateCodeCommitRepositoryStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

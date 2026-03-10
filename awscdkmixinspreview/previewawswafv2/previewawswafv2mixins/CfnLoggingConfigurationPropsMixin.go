@@ -35,17 +35,18 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var jsonBody interface{}
 //   var loggingFilter interface{}
+//   var mergeStrategy IMergeStrategy
 //   var method interface{}
 //   var queryString interface{}
 //   var singleHeader interface{}
 //   var uriPath interface{}
 //
 //   cfnLoggingConfigurationPropsMixin := awscdkmixinspreview.Mixins.NewCfnLoggingConfigurationPropsMixin(&CfnLoggingConfigurationMixinProps{
-//   	LogDestinationConfigs: []*string{
+//   	LogDestinationConfigs: []interface{}{
 //   		jsii.String("logDestinationConfigs"),
 //   	},
 //   	LoggingFilter: loggingFilter,
@@ -60,7 +61,7 @@ import (
 //   	},
 //   	ResourceArn: jsii.String("resourceArn"),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html
@@ -69,7 +70,7 @@ type CfnLoggingConfigurationPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnLoggingConfigurationMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -92,8 +93,8 @@ func (j *jsiiProxy_CfnLoggingConfigurationPropsMixin) Props() *CfnLoggingConfigu
 	return returns
 }
 
-func (j *jsiiProxy_CfnLoggingConfigurationPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnLoggingConfigurationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

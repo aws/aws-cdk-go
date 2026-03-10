@@ -38,7 +38,7 @@ type CfnApplicationMixinProps struct {
 	// The unique identifier of the environment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html#cfn-refactorspaces-application-environmentidentifier
 	//
-	EnvironmentIdentifier *string `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
+	EnvironmentIdentifier interface{} `field:"optional" json:"environmentIdentifier" yaml:"environmentIdentifier"`
 	// The name of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html#cfn-refactorspaces-application-name
 	//
@@ -54,6 +54,6 @@ type CfnApplicationMixinProps struct {
 	// The ID of the virtual private cloud (VPC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html#cfn-refactorspaces-application-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

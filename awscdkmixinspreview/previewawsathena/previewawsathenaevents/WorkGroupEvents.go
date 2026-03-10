@@ -24,7 +24,7 @@ import (
 type WorkGroupEvents interface {
 	// EventBridge event pattern for WorkGroup Athena Query State Change.
 	// Experimental.
-	AthenaQueryStateChangePattern(options *WorkGroupEvents_AthenaQueryStateChange_AthenaQueryStateChangeProps) *awsevents.EventPattern
+	AthenaQueryStateChangePattern(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for WorkGroupEvents
@@ -52,7 +52,7 @@ func WorkGroupEvents_FromWorkGroup(workGroupRef interfacesawsathena.IWorkGroupRe
 	return returns
 }
 
-func (w *jsiiProxy_WorkGroupEvents) AthenaQueryStateChangePattern(options *WorkGroupEvents_AthenaQueryStateChange_AthenaQueryStateChangeProps) *awsevents.EventPattern {
+func (w *jsiiProxy_WorkGroupEvents) AthenaQueryStateChangePattern(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) *awsevents.EventPattern {
 	if err := w.validateAthenaQueryStateChangePatternParameters(options); err != nil {
 		panic(err)
 	}

@@ -24,7 +24,7 @@ import (
 type ChannelEvents interface {
 	// EventBridge event pattern for Channel MediaLive Channel Input Change.
 	// Experimental.
-	MediaLiveChannelInputChangePattern(options *ChannelEvents_MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) *awsevents.EventPattern
+	MediaLiveChannelInputChangePattern(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) *awsevents.EventPattern
 }
 
 // The jsii proxy struct for ChannelEvents
@@ -52,7 +52,7 @@ func ChannelEvents_FromChannel(channelRef interfacesawsmedialive.IChannelRef) Ch
 	return returns
 }
 
-func (c *jsiiProxy_ChannelEvents) MediaLiveChannelInputChangePattern(options *ChannelEvents_MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) *awsevents.EventPattern {
+func (c *jsiiProxy_ChannelEvents) MediaLiveChannelInputChangePattern(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) *awsevents.EventPattern {
 	if err := c.validateMediaLiveChannelInputChangePatternParameters(options); err != nil {
 		panic(err)
 	}

@@ -18,8 +18,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var mergeStrategy IMergeStrategy
 //   var stepProperty_ StepProperty
 //
 //   cfnPlanPropsMixin := awscdkmixinspreview.Mixins.NewCfnPlanPropsMixin(&CfnPlanMixinProps{
@@ -197,6 +198,22 @@ import (
 //   								stepProperty_,
 //   							},
 //   						},
+//   						RdsCreateCrossRegionReadReplicaConfig: &RdsCreateCrossRegionReplicaConfigurationProperty{
+//   							CrossAccountRole: jsii.String("crossAccountRole"),
+//   							DbInstanceArnMap: map[string]*string{
+//   								"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   							},
+//   							ExternalId: jsii.String("externalId"),
+//   							TimeoutMinutes: jsii.Number(123),
+//   						},
+//   						RdsPromoteReadReplicaConfig: &RdsPromoteReadReplicaConfigurationProperty{
+//   							CrossAccountRole: jsii.String("crossAccountRole"),
+//   							DbInstanceArnMap: map[string]*string{
+//   								"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   							},
+//   							ExternalId: jsii.String("externalId"),
+//   							TimeoutMinutes: jsii.Number(123),
+//   						},
 //   						RegionSwitchPlanConfig: &RegionSwitchPlanConfigurationProperty{
 //   							Arn: jsii.String("arn"),
 //   							CrossAccountRole: jsii.String("crossAccountRole"),
@@ -226,7 +243,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html
@@ -235,7 +252,7 @@ type CfnPlanPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnPlanMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -258,8 +275,8 @@ func (j *jsiiProxy_CfnPlanPropsMixin) Props() *CfnPlanMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlanPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnPlanPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

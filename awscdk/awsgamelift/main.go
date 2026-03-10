@@ -183,6 +183,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "perInstanceContainerGroupDefinitionName", GoGetter: "PerInstanceContainerGroupDefinitionName"},
+			_jsii_.MemberProperty{JsiiProperty: "playerGatewayMode", GoGetter: "PlayerGatewayMode"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -403,6 +404,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerVpcAwsAccountId", GoGetter: "PeerVpcAwsAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerVpcId", GoGetter: "PeerVpcId"},
+			_jsii_.MemberProperty{JsiiProperty: "playerGatewayConfiguration", GoGetter: "PlayerGatewayConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "playerGatewayMode", GoGetter: "PlayerGatewayMode"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -454,6 +457,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnFleet.ManagedCapacityConfigurationProperty",
 		reflect.TypeOf((*CfnFleet_ManagedCapacityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnFleet.PlayerGatewayConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_PlayerGatewayConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnFleet.ResourceCreationLimitPolicyProperty",

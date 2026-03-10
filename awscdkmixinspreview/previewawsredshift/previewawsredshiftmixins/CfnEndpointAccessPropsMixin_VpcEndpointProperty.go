@@ -33,7 +33,7 @@ type CfnEndpointAccessPropsMixin_VpcEndpointProperty struct {
 	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcendpoint.html#cfn-redshift-endpointaccess-vpcendpoint-vpcendpointid
 	//
-	VpcEndpointId *string `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
+	VpcEndpointId interface{} `field:"optional" json:"vpcEndpointId" yaml:"vpcEndpointId"`
 	// The VPC identifier that the endpoint is associated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcendpoint.html#cfn-redshift-endpointaccess-vpcendpoint-vpcid
 	//

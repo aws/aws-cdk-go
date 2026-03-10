@@ -9,7 +9,7 @@ package previewawslambdamixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   allowedPublishersProperty := &AllowedPublishersProperty{
-//   	SigningProfileVersionArns: []*string{
+//   	SigningProfileVersionArns: []interface{}{
 //   		jsii.String("signingProfileVersionArns"),
 //   	},
 //   }
@@ -22,6 +22,6 @@ type CfnCodeSigningConfigPropsMixin_AllowedPublishersProperty struct {
 	// A signing profile defines a trusted user who can sign a code package.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
 	//
-	SigningProfileVersionArns *[]*string `field:"optional" json:"signingProfileVersionArns" yaml:"signingProfileVersionArns"`
+	SigningProfileVersionArns *[]interface{} `field:"optional" json:"signingProfileVersionArns" yaml:"signingProfileVersionArns"`
 }
 

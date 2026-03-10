@@ -15,6 +15,9 @@ package awsobservabilityadmin
 //   		// the properties below are optional
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	},
+//   	LogGroupNameConfiguration: &LogGroupNameConfigurationProperty{
+//   		LogGroupNamePattern: jsii.String("logGroupNamePattern"),
+//   	},
 //   	LogsEncryptionConfiguration: &LogsEncryptionConfigurationProperty{
 //   		EncryptionStrategy: jsii.String("encryptionStrategy"),
 //
@@ -31,6 +34,9 @@ type CfnOrganizationCentralizationRule_DestinationLogsConfigurationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration-backupconfiguration
 	//
 	BackupConfiguration interface{} `field:"optional" json:"backupConfiguration" yaml:"backupConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration-loggroupnameconfiguration
+	//
+	LogGroupNameConfiguration interface{} `field:"optional" json:"logGroupNameConfiguration" yaml:"logGroupNameConfiguration"`
 	// The encryption configuration for centralization destination log groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration-logsencryptionconfiguration
 	//

@@ -107,7 +107,7 @@ type CfnCertificateAuthorityPropsMixin_CrlConfigurationProperty struct {
 	// > The `S3BucketName` parameter must conform to the [S3 bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
 	//
-	S3BucketName *string `field:"optional" json:"s3BucketName" yaml:"s3BucketName"`
+	S3BucketName interface{} `field:"optional" json:"s3BucketName" yaml:"s3BucketName"`
 	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket.
 	//
 	// If you choose PUBLIC_READ, the CRL will be accessible over the public internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can access the CRL, and your PKI clients may need an alternative method of access.

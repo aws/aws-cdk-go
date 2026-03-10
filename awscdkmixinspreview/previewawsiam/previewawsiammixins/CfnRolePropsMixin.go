@@ -18,15 +18,16 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var assumeRolePolicyDocument interface{}
+//   var mergeStrategy IMergeStrategy
 //   var policyDocument interface{}
 //
 //   cfnRolePropsMixin := awscdkmixinspreview.Mixins.NewCfnRolePropsMixin(&CfnRoleMixinProps{
 //   	AssumeRolePolicyDocument: assumeRolePolicyDocument,
 //   	Description: jsii.String("description"),
-//   	ManagedPolicyArns: []*string{
+//   	ManagedPolicyArns: []interface{}{
 //   		jsii.String("managedPolicyArns"),
 //   	},
 //   	MaxSessionDuration: jsii.Number(123),
@@ -46,7 +47,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
@@ -55,7 +56,7 @@ type CfnRolePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnRoleMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -78,8 +79,8 @@ func (j *jsiiProxy_CfnRolePropsMixin) Props() *CfnRoleMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRolePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnRolePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

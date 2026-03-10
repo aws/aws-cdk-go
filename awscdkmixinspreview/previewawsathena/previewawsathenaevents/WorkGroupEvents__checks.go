@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsathena"
 )
 
-func (w *jsiiProxy_WorkGroupEvents) validateAthenaQueryStateChangePatternParameters(options *WorkGroupEvents_AthenaQueryStateChange_AthenaQueryStateChangeProps) error {
+func (w *jsiiProxy_WorkGroupEvents) validateAthenaQueryStateChangePatternParameters(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

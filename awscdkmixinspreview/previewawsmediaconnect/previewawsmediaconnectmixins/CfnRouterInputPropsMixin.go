@@ -16,10 +16,11 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var automatic interface{}
 //   var default_ interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnRouterInputPropsMixin := awscdkmixinspreview.Mixins.NewCfnRouterInputPropsMixin(&CfnRouterInputMixinProps{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
@@ -159,7 +160,7 @@ import (
 //   		EncryptionKeyType: jsii.String("encryptionKeyType"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html
@@ -168,7 +169,7 @@ type CfnRouterInputPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnRouterInputMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -191,8 +192,8 @@ func (j *jsiiProxy_CfnRouterInputPropsMixin) Props() *CfnRouterInputMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRouterInputPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnRouterInputPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

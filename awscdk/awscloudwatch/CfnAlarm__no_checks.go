@@ -100,15 +100,7 @@ func (j *jsiiProxy_CfnAlarm) validateSetActionsEnabledParameters(val interface{}
 	return nil
 }
 
-func (j *jsiiProxy_CfnAlarm) validateSetComparisonOperatorParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnAlarm) validateSetDimensionsParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnAlarm) validateSetEvaluationPeriodsParameters(val *float64) error {
 	return nil
 }
 

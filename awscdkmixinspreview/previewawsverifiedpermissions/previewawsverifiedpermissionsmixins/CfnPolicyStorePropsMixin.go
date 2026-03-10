@@ -18,9 +18,10 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var default_ interface{}
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnPolicyStorePropsMixin := awscdkmixinspreview.Mixins.NewCfnPolicyStorePropsMixin(&CfnPolicyStoreMixinProps{
 //   	DeletionProtection: &DeletionProtectionProperty{
@@ -50,7 +51,7 @@ import (
 //   		Mode: jsii.String("mode"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html
@@ -59,7 +60,7 @@ type CfnPolicyStorePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnPolicyStoreMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -82,8 +83,8 @@ func (j *jsiiProxy_CfnPolicyStorePropsMixin) Props() *CfnPolicyStoreMixinProps {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPolicyStorePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnPolicyStorePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

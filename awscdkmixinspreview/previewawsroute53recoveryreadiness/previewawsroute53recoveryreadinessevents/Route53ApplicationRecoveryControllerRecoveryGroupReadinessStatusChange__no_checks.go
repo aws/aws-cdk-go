@@ -1,0 +1,10 @@
+//go:build no_runtime_type_checking
+
+package previewawsroute53recoveryreadinessevents
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func validateRoute53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangePatternParameters(options *Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChange_Route53ApplicationRecoveryControllerRecoveryGroupReadinessStatusChangeProps) error {
+	return nil
+}
+

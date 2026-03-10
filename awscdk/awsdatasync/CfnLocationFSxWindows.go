@@ -25,6 +25,14 @@ import (
 //   	User: jsii.String("user"),
 //
 //   	// the properties below are optional
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	Domain: jsii.String("domain"),
 //   	FsxFilesystemArn: jsii.String("fsxFilesystemArn"),
 //   	Password: jsii.String("password"),
@@ -44,19 +52,31 @@ type CfnLocationFSxWindows interface {
 	awscdk.IInspectable
 	interfacesawsdatasync.ILocationFSxWindowsRef
 	awscdk.ITaggable
+	// Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+	AttrCmkSecretConfigSecretArn() *string
 	// The ARN of the specified FSx for Windows Server file system location.
 	AttrLocationArn() *string
 	// The URI of the specified FSx for Windows Server file system location.
 	AttrLocationUri() *string
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location.
+	//
+	// DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+	AttrManagedSecretConfig() awscdk.IResolvable
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+	CmkSecretConfig() interface{}
+	SetCmkSecretConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+	CustomSecretConfig() interface{}
+	SetCustomSecretConfig(val interface{})
 	// Specifies the name of the Windows domain that the FSx for Windows File Server file system belongs to.
 	Domain() *string
 	SetDomain(val *string)
@@ -259,6 +279,16 @@ type jsiiProxy_CfnLocationFSxWindows struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnLocationFSxWindows) AttrCmkSecretConfigSecretArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCmkSecretConfigSecretArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationFSxWindows) AttrLocationArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -274,6 +304,16 @@ func (j *jsiiProxy_CfnLocationFSxWindows) AttrLocationUri() *string {
 	_jsii_.Get(
 		j,
 		"attrLocationUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows) AttrManagedSecretConfig() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrManagedSecretConfig",
 		&returns,
 	)
 	return returns
@@ -309,11 +349,31 @@ func (j *jsiiProxy_CfnLocationFSxWindows) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationFSxWindows) CmkSecretConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cmkSecretConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationFSxWindows) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows) CustomSecretConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customSecretConfig",
 		&returns,
 	)
 	return returns
@@ -506,6 +566,28 @@ func NewCfnLocationFSxWindows_Override(c CfnLocationFSxWindows, scope constructs
 		"aws-cdk-lib.aws_datasync.CfnLocationFSxWindows",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows)SetCmkSecretConfig(val interface{}) {
+	if err := j.validateSetCmkSecretConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cmkSecretConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationFSxWindows)SetCustomSecretConfig(val interface{}) {
+	if err := j.validateSetCustomSecretConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customSecretConfig",
+		val,
 	)
 }
 

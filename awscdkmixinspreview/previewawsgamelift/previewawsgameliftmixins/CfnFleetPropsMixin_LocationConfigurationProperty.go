@@ -19,6 +19,7 @@ package previewawsgameliftmixins
 //   		MaxSize: jsii.Number(123),
 //   		MinSize: jsii.Number(123),
 //   	},
+//   	PlayerGatewayStatus: jsii.String("playerGatewayStatus"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
@@ -38,5 +39,9 @@ type CfnFleetPropsMixin_LocationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
 	//
 	LocationCapacity interface{} `field:"optional" json:"locationCapacity" yaml:"locationCapacity"`
+	// The player gateway status for the location.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-playergatewaystatus
+	//
+	PlayerGatewayStatus *string `field:"optional" json:"playerGatewayStatus" yaml:"playerGatewayStatus"`
 }
 

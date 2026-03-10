@@ -41,6 +41,6 @@ type CfnBucketPropsMixin_LambdaConfigurationProperty struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lambdaconfiguration.html#cfn-s3-bucket-lambdaconfiguration-function
 	//
-	Function *string `field:"optional" json:"function" yaml:"function"`
+	Function interface{} `field:"optional" json:"function" yaml:"function"`
 }
 

@@ -85,6 +85,6 @@ type CfnSecurityGroupMixinProps struct {
 	// If you do not specify a VPC, the default is to use the default VPC for the Region. If there's no specified VPC and no default VPC, security group creation fails.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#cfn-ec2-securitygroup-vpcid
 	//
-	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
+	VpcId interface{} `field:"optional" json:"vpcId" yaml:"vpcId"`
 }
 

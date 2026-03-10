@@ -378,7 +378,7 @@ type CfnPipeMixinProps struct {
 	// The ARN of the enrichment resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichment
 	//
-	Enrichment *string `field:"optional" json:"enrichment" yaml:"enrichment"`
+	Enrichment interface{} `field:"optional" json:"enrichment" yaml:"enrichment"`
 	// The parameters required to set up enrichment on your pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-enrichmentparameters
 	//
@@ -406,11 +406,11 @@ type CfnPipeMixinProps struct {
 	// The ARN of the role that allows the pipe to send data to the target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 	// The ARN of the source resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-source
 	//
-	Source *string `field:"optional" json:"source" yaml:"source"`
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 	// The parameters required to set up a source for your pipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-sourceparameters
 	//
@@ -422,7 +422,7 @@ type CfnPipeMixinProps struct {
 	// The ARN of the target resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html#cfn-pipes-pipe-target
 	//
-	Target *string `field:"optional" json:"target" yaml:"target"`
+	Target interface{} `field:"optional" json:"target" yaml:"target"`
 	// The parameters required to set up a target for your pipe.
 	//
 	// For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .

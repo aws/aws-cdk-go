@@ -22,12 +22,32 @@ import (
 // - Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
 //
 // Example:
-//   // Works across different resource types
-//   myBucket := s3.NewCfnBucket(scope, jsii.String("Bucket"))
-//   awscdk.Mixins_Of(myBucket).Apply(NewEncryptionAtRest())
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   myLogGroup := logs.NewCfnLogGroup(scope, jsii.String("LogGroup"))
-//   awscdk.Mixins_Of(myLogGroup).Apply(NewEncryptionAtRest())
+//   var dataProtectionPolicy interface{}
+//   var fieldIndexPolicies interface{}
+//   var resourcePolicyDocument interface{}
+//
+//   cfnLogGroup := awscdk.Aws_logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &CfnLogGroupProps{
+//   	DataProtectionPolicy: dataProtectionPolicy,
+//   	DeletionProtectionEnabled: jsii.Boolean(false),
+//   	FieldIndexPolicies: []interface{}{
+//   		fieldIndexPolicies,
+//   	},
+//   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	LogGroupClass: jsii.String("logGroupClass"),
+//   	LogGroupName: jsii.String("logGroupName"),
+//   	ResourcePolicyDocument: resourcePolicyDocument,
+//   	RetentionInDays: jsii.Number(123),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 //

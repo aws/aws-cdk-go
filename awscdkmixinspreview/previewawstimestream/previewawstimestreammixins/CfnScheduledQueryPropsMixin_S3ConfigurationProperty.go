@@ -20,7 +20,7 @@ type CfnScheduledQueryPropsMixin_S3ConfigurationProperty struct {
 	// Name of the S3 bucket under which error reports will be created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html#cfn-timestream-scheduledquery-s3configuration-bucketname
 	//
-	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	BucketName interface{} `field:"optional" json:"bucketName" yaml:"bucketName"`
 	// Encryption at rest options for the error reports.
 	//
 	// If no encryption option is specified, Timestream will choose SSE_S3 as default.

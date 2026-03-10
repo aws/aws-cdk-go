@@ -23,6 +23,6 @@ type CfnAnomalyDetectorPropsMixin_AppFlowConfigProperty struct {
 	// An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
 	//
-	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

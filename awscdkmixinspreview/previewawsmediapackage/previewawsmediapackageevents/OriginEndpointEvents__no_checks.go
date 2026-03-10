@@ -4,7 +4,7 @@ package previewawsmediapackageevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (o *jsiiProxy_OriginEndpointEvents) validateMediaPackageHarvestJobNotificationPatternParameters(options *OriginEndpointEvents_MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) error {
+func (o *jsiiProxy_OriginEndpointEvents) validateMediaPackageHarvestJobNotificationPatternParameters(options *MediaPackageHarvestJobNotification_MediaPackageHarvestJobNotificationProps) error {
 	return nil
 }
 

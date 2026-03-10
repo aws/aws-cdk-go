@@ -26,7 +26,7 @@ import (
 //   		},
 //   	},
 //   	VpcSettings: &VpcSettingsProperty{
-//   		SubnetIds: []*string{
+//   		SubnetIds: []interface{}{
 //   			jsii.String("subnetIds"),
 //   		},
 //   		VpcId: jsii.String("vpcId"),

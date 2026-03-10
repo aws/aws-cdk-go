@@ -49,7 +49,7 @@ type CfnVersionMixinProps struct {
 	// The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname
 	//
-	FunctionName *string `field:"optional" json:"functionName" yaml:"functionName"`
+	FunctionName interface{} `field:"optional" json:"functionName" yaml:"functionName"`
 	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionscalingconfig
 	//

@@ -4,27 +4,27 @@ package previewawsecrevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (r *jsiiProxy_RepositoryEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *RepositoryEvents_AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateAwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRImageActionPatternParameters(options *RepositoryEvents_ECRImageAction_ECRImageActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrImageActionPatternParameters(options *ECRImageAction_ECRImageActionProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRImageScanPatternParameters(options *RepositoryEvents_ECRImageScan_ECRImageScanProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrImageScanPatternParameters(options *ECRImageScan_ECRImageScanProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRPullThroughCacheActionPatternParameters(options *RepositoryEvents_ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrPullThroughCacheActionPatternParameters(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRReferrerActionPatternParameters(options *RepositoryEvents_ECRReferrerAction_ECRReferrerActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrReferrerActionPatternParameters(options *ECRReferrerAction_ECRReferrerActionProps) error {
 	return nil
 }
 
-func (r *jsiiProxy_RepositoryEvents) validateECRReplicationActionPatternParameters(options *RepositoryEvents_ECRReplicationAction_ECRReplicationActionProps) error {
+func (r *jsiiProxy_RepositoryEvents) validateEcrReplicationActionPatternParameters(options *ECRReplicationAction_ECRReplicationActionProps) error {
 	return nil
 }
 

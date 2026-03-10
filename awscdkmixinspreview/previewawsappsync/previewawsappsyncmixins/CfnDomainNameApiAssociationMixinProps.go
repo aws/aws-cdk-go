@@ -23,6 +23,6 @@ type CfnDomainNameApiAssociationMixinProps struct {
 	// The domain name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-domainname
 	//
-	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	DomainName interface{} `field:"optional" json:"domainName" yaml:"domainName"`
 }
 

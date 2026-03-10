@@ -16,7 +16,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnLocationHDFSPropsMixin := awscdkmixinspreview.Mixins.NewCfnLocationHDFSPropsMixin(&CfnLocationHDFSMixinProps{
 //   	AgentArns: []*string{
@@ -24,6 +26,14 @@ import (
 //   	},
 //   	AuthenticationType: jsii.String("authenticationType"),
 //   	BlockSize: jsii.Number(123),
+//   	CmkSecretConfig: &CmkSecretConfigProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	CustomSecretConfig: &CustomSecretConfigProperty{
+//   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	KerberosKeytab: jsii.String("kerberosKeytab"),
 //   	KerberosKrb5Conf: jsii.String("kerberosKrb5Conf"),
 //   	KerberosPrincipal: jsii.String("kerberosPrincipal"),
@@ -48,7 +58,7 @@ import (
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdfs.html
@@ -57,7 +67,7 @@ type CfnLocationHDFSPropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnLocationHDFSMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -80,8 +90,8 @@ func (j *jsiiProxy_CfnLocationHDFSPropsMixin) Props() *CfnLocationHDFSMixinProps
 	return returns
 }
 
-func (j *jsiiProxy_CfnLocationHDFSPropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnLocationHDFSPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

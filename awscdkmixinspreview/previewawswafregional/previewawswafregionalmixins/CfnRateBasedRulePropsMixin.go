@@ -31,7 +31,9 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
-//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
 //
 //   cfnRateBasedRulePropsMixin := awscdkmixinspreview.Mixins.NewCfnRateBasedRulePropsMixin(&CfnRateBasedRuleMixinProps{
 //   	MatchPredicates: []interface{}{
@@ -46,7 +48,7 @@ import (
 //   	RateKey: jsii.String("rateKey"),
 //   	RateLimit: jsii.Number(123),
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: awscdkmixinspreview.Mixins.PropertyMergeStrategy_OVERRIDE,
+//   	Strategy: mergeStrategy,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html
@@ -55,7 +57,7 @@ type CfnRateBasedRulePropsMixin interface {
 	awscdk.Mixin
 	constructs.IMixin
 	Props() *CfnRateBasedRuleMixinProps
-	Strategy() mixins.PropertyMergeStrategy
+	Strategy() awscdk.IMergeStrategy
 	// Apply the mixin properties to the construct.
 	ApplyTo(construct constructs.IConstruct)
 	// Check if this mixin supports the given construct.
@@ -78,8 +80,8 @@ func (j *jsiiProxy_CfnRateBasedRulePropsMixin) Props() *CfnRateBasedRuleMixinPro
 	return returns
 }
 
-func (j *jsiiProxy_CfnRateBasedRulePropsMixin) Strategy() mixins.PropertyMergeStrategy {
-	var returns mixins.PropertyMergeStrategy
+func (j *jsiiProxy_CfnRateBasedRulePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
 	_jsii_.Get(
 		j,
 		"strategy",

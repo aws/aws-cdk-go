@@ -10,7 +10,7 @@ package previewawscemixins
 //
 //   cfnAnomalySubscriptionMixinProps := &CfnAnomalySubscriptionMixinProps{
 //   	Frequency: jsii.String("frequency"),
-//   	MonitorArnList: []*string{
+//   	MonitorArnList: []interface{}{
 //   		jsii.String("monitorArnList"),
 //   	},
 //   	ResourceTags: []ResourceTagProperty{
@@ -43,7 +43,7 @@ type CfnAnomalySubscriptionMixinProps struct {
 	// A list of cost anomaly monitors.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-monitorarnlist
 	//
-	MonitorArnList *[]*string `field:"optional" json:"monitorArnList" yaml:"monitorArnList"`
+	MonitorArnList *[]interface{} `field:"optional" json:"monitorArnList" yaml:"monitorArnList"`
 	// Tags to assign to subscription.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalysubscription.html#cfn-ce-anomalysubscription-resourcetags
 	//

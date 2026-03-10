@@ -79,7 +79,7 @@ type CfnEndpointGroupMixinProps struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
 	//
-	ListenerArn *string `field:"optional" json:"listenerArn" yaml:"listenerArn"`
+	ListenerArn interface{} `field:"optional" json:"listenerArn" yaml:"listenerArn"`
 	// Allows you to override the destination ports used to route traffic to an endpoint.
 	//
 	// Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.

@@ -18,6 +18,6 @@ type CfnTopicRulePropsMixin_PutItemInputProperty struct {
 	// The table where the message data will be written.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
 	//
-	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	TableName interface{} `field:"optional" json:"tableName" yaml:"tableName"`
 }
 

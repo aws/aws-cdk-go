@@ -29,10 +29,10 @@ type CfnTransitGatewayRouteMixinProps struct {
 	// The ID of the attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayattachmentid
 	//
-	TransitGatewayAttachmentId *string `field:"optional" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
+	TransitGatewayAttachmentId interface{} `field:"optional" json:"transitGatewayAttachmentId" yaml:"transitGatewayAttachmentId"`
 	// The ID of the transit gateway route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayroutetableid
 	//
-	TransitGatewayRouteTableId *string `field:"optional" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
+	TransitGatewayRouteTableId interface{} `field:"optional" json:"transitGatewayRouteTableId" yaml:"transitGatewayRouteTableId"`
 }
 

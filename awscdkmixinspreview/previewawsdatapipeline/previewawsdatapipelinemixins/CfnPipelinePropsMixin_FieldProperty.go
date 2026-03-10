@@ -42,6 +42,6 @@ type CfnPipelinePropsMixin_FieldProperty struct {
 	// Required if the key that you are using requires it.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-field.html#cfn-datapipeline-pipeline-field-stringvalue
 	//
-	StringValue *string `field:"optional" json:"stringValue" yaml:"stringValue"`
+	StringValue interface{} `field:"optional" json:"stringValue" yaml:"stringValue"`
 }
 
