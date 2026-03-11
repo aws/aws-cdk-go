@@ -1,0 +1,42 @@
+package awsaiops
+
+import (
+	"reflect"
+
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aiops.CfnInvestigationGroupMixinProps",
+		reflect.TypeOf((*CfnInvestigationGroupMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_aiops.CfnInvestigationGroupPropsMixin",
+		reflect.TypeOf((*CfnInvestigationGroupPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnInvestigationGroupPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aiops.CfnInvestigationGroupPropsMixin.ChatbotNotificationChannelProperty",
+		reflect.TypeOf((*CfnInvestigationGroupPropsMixin_ChatbotNotificationChannelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aiops.CfnInvestigationGroupPropsMixin.CrossAccountConfigurationProperty",
+		reflect.TypeOf((*CfnInvestigationGroupPropsMixin_CrossAccountConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aiops.CfnInvestigationGroupPropsMixin.EncryptionConfigMapProperty",
+		reflect.TypeOf((*CfnInvestigationGroupPropsMixin_EncryptionConfigMapProperty)(nil)).Elem(),
+	)
+}

@@ -1,0 +1,176 @@
+package awspinpointemail
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awspinpointemail/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Create a configuration set.
+//
+// *Configuration sets* are groups of rules that you can apply to the emails you send using Amazon Pinpoint. You apply a configuration set to an email by including a reference to the configuration set in the headers of the email. When you apply a configuration set to an email, all of the rules in that configuration set are applied to the email.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnConfigurationSetPropsMixin := awscdkcfnpropertymixins.Aws_pinpointemail.NewCfnConfigurationSetPropsMixin(&CfnConfigurationSetMixinProps{
+//   	DeliveryOptions: &DeliveryOptionsProperty{
+//   		SendingPoolName: jsii.String("sendingPoolName"),
+//   	},
+//   	Name: jsii.String("name"),
+//   	ReputationOptions: &ReputationOptionsProperty{
+//   		ReputationMetricsEnabled: jsii.Boolean(false),
+//   	},
+//   	SendingOptions: &SendingOptionsProperty{
+//   		SendingEnabled: jsii.Boolean(false),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	TrackingOptions: &TrackingOptionsProperty{
+//   		CustomRedirectDomain: jsii.String("customRedirectDomain"),
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html
+//
+type CfnConfigurationSetPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnConfigurationSetMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnConfigurationSetPropsMixin
+type jsiiProxy_CfnConfigurationSetPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnConfigurationSetPropsMixin) Props() *CfnConfigurationSetMixinProps {
+	var returns *CfnConfigurationSetMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConfigurationSetPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::PinpointEmail::ConfigurationSet`.
+func NewCfnConfigurationSetPropsMixin(props *CfnConfigurationSetMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnConfigurationSetPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnConfigurationSetPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnConfigurationSetPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_pinpointemail.CfnConfigurationSetPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::PinpointEmail::ConfigurationSet`.
+func NewCfnConfigurationSetPropsMixin_Override(c CfnConfigurationSetPropsMixin, props *CfnConfigurationSetMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_pinpointemail.CfnConfigurationSetPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnConfigurationSetPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnConfigurationSetPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_pinpointemail.CfnConfigurationSetPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnConfigurationSetPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_pinpointemail.CfnConfigurationSetPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnConfigurationSetPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnConfigurationSetPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

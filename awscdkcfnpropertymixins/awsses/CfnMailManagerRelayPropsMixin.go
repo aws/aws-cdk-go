@@ -1,0 +1,169 @@
+package awsses
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsses/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Resource to create an SMTP relay, which can be used within a Mail Manager rule set to forward incoming emails to defined relay destinations.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//   var noAuthentication interface{}
+//
+//   cfnMailManagerRelayPropsMixin := awscdkcfnpropertymixins.Aws_ses.NewCfnMailManagerRelayPropsMixin(&CfnMailManagerRelayMixinProps{
+//   	Authentication: &RelayAuthenticationProperty{
+//   		NoAuthentication: noAuthentication,
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
+//   	RelayName: jsii.String("relayName"),
+//   	ServerName: jsii.String("serverName"),
+//   	ServerPort: jsii.Number(123),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerrelay.html
+//
+type CfnMailManagerRelayPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnMailManagerRelayMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnMailManagerRelayPropsMixin
+type jsiiProxy_CfnMailManagerRelayPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnMailManagerRelayPropsMixin) Props() *CfnMailManagerRelayMixinProps {
+	var returns *CfnMailManagerRelayMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMailManagerRelayPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::SES::MailManagerRelay`.
+func NewCfnMailManagerRelayPropsMixin(props *CfnMailManagerRelayMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnMailManagerRelayPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnMailManagerRelayPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnMailManagerRelayPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRelayPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::SES::MailManagerRelay`.
+func NewCfnMailManagerRelayPropsMixin_Override(c CfnMailManagerRelayPropsMixin, props *CfnMailManagerRelayMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRelayPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnMailManagerRelayPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMailManagerRelayPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRelayPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnMailManagerRelayPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRelayPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnMailManagerRelayPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnMailManagerRelayPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

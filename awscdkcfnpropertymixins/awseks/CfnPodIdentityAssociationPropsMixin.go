@@ -1,0 +1,168 @@
+package awseks
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awseks/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnPodIdentityAssociationPropsMixin := awscdkcfnpropertymixins.Aws_eks.NewCfnPodIdentityAssociationPropsMixin(&CfnPodIdentityAssociationMixinProps{
+//   	ClusterName: jsii.String("clusterName"),
+//   	DisableSessionTags: jsii.Boolean(false),
+//   	Namespace: jsii.String("namespace"),
+//   	Policy: jsii.String("policy"),
+//   	RoleArn: jsii.String("roleArn"),
+//   	ServiceAccount: jsii.String("serviceAccount"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	TargetRoleArn: jsii.String("targetRoleArn"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html
+//
+type CfnPodIdentityAssociationPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnPodIdentityAssociationMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnPodIdentityAssociationPropsMixin
+type jsiiProxy_CfnPodIdentityAssociationPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociationPropsMixin) Props() *CfnPodIdentityAssociationMixinProps {
+	var returns *CfnPodIdentityAssociationMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EKS::PodIdentityAssociation`.
+func NewCfnPodIdentityAssociationPropsMixin(props *CfnPodIdentityAssociationMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnPodIdentityAssociationPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnPodIdentityAssociationPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnPodIdentityAssociationPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnPodIdentityAssociationPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EKS::PodIdentityAssociation`.
+func NewCfnPodIdentityAssociationPropsMixin_Override(c CfnPodIdentityAssociationPropsMixin, props *CfnPodIdentityAssociationMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnPodIdentityAssociationPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnPodIdentityAssociationPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPodIdentityAssociationPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnPodIdentityAssociationPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnPodIdentityAssociationPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnPodIdentityAssociationPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnPodIdentityAssociationPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnPodIdentityAssociationPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

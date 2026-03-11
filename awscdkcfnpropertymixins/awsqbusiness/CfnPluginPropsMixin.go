@@ -1,0 +1,191 @@
+package awsqbusiness
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsqbusiness/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Information about an Amazon Q Business plugin and its configuration.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//   var noAuthConfiguration interface{}
+//
+//   cfnPluginPropsMixin := awscdkcfnpropertymixins.Aws_qbusiness.NewCfnPluginPropsMixin(&CfnPluginMixinProps{
+//   	ApplicationId: jsii.String("applicationId"),
+//   	AuthConfiguration: &PluginAuthConfigurationProperty{
+//   		BasicAuthConfiguration: &BasicAuthConfigurationProperty{
+//   			RoleArn: jsii.String("roleArn"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   		NoAuthConfiguration: noAuthConfiguration,
+//   		OAuth2ClientCredentialConfiguration: &OAuth2ClientCredentialConfigurationProperty{
+//   			AuthorizationUrl: jsii.String("authorizationUrl"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			SecretArn: jsii.String("secretArn"),
+//   			TokenUrl: jsii.String("tokenUrl"),
+//   		},
+//   	},
+//   	CustomPluginConfiguration: &CustomPluginConfigurationProperty{
+//   		ApiSchema: &APISchemaProperty{
+//   			Payload: jsii.String("payload"),
+//   			S3: &S3Property{
+//   				Bucket: jsii.String("bucket"),
+//   				Key: jsii.String("key"),
+//   			},
+//   		},
+//   		ApiSchemaType: jsii.String("apiSchemaType"),
+//   		Description: jsii.String("description"),
+//   	},
+//   	DisplayName: jsii.String("displayName"),
+//   	ServerUrl: jsii.String("serverUrl"),
+//   	State: jsii.String("state"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Type: jsii.String("type"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html
+//
+type CfnPluginPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnPluginMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnPluginPropsMixin
+type jsiiProxy_CfnPluginPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnPluginPropsMixin) Props() *CfnPluginMixinProps {
+	var returns *CfnPluginMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPluginPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::QBusiness::Plugin`.
+func NewCfnPluginPropsMixin(props *CfnPluginMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnPluginPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnPluginPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnPluginPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_qbusiness.CfnPluginPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::QBusiness::Plugin`.
+func NewCfnPluginPropsMixin_Override(c CfnPluginPropsMixin, props *CfnPluginMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_qbusiness.CfnPluginPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnPluginPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPluginPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_qbusiness.CfnPluginPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnPluginPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_qbusiness.CfnPluginPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnPluginPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnPluginPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

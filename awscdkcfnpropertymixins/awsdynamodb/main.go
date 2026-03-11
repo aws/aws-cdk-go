@@ -1,0 +1,226 @@
+package awsdynamodb
+
+import (
+	"reflect"
+
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+)
+
+func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTableMixinProps",
+		reflect.TypeOf((*CfnGlobalTableMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnGlobalTablePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.AttributeDefinitionProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_AttributeDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.CapacityAutoScalingSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_CapacityAutoScalingSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ContributorInsightsSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ContributorInsightsSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.GlobalReadProvisionedThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_GlobalReadProvisionedThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.GlobalSecondaryIndexProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_GlobalSecondaryIndexProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.GlobalTableWitnessProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_GlobalTableWitnessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.KeySchemaProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_KeySchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.KinesisStreamSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_KinesisStreamSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.LocalSecondaryIndexProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_LocalSecondaryIndexProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.PointInTimeRecoverySpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_PointInTimeRecoverySpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ProjectionProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ProjectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ReadOnDemandThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ReadOnDemandThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ReadProvisionedThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ReadProvisionedThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ReplicaGlobalSecondaryIndexSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ReplicaGlobalSecondaryIndexSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ReplicaSSESpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ReplicaSSESpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ReplicaSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ReplicaSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ReplicaStreamSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ReplicaStreamSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.ResourcePolicyProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_ResourcePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.SSESpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_SSESpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.StreamSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_StreamSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.TargetTrackingScalingPolicyConfigurationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_TargetTrackingScalingPolicyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.TimeToLiveSpecificationProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_TimeToLiveSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.WarmThroughputProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_WarmThroughputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.WriteOnDemandThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_WriteOnDemandThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.WriteProvisionedThroughputSettingsProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_WriteProvisionedThroughputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTableMixinProps",
+		reflect.TypeOf((*CfnTableMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin",
+		reflect.TypeOf((*CfnTablePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTablePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.AttributeDefinitionProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_AttributeDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.ContributorInsightsSpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ContributorInsightsSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.CsvProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_CsvProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.GlobalSecondaryIndexProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_GlobalSecondaryIndexProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.ImportSourceSpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ImportSourceSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.InputFormatOptionsProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_InputFormatOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.KeySchemaProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_KeySchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.KinesisStreamSpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_KinesisStreamSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.LocalSecondaryIndexProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_LocalSecondaryIndexProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.OnDemandThroughputProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_OnDemandThroughputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.PointInTimeRecoverySpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_PointInTimeRecoverySpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.ProjectionProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ProjectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.ProvisionedThroughputProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ProvisionedThroughputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.ResourcePolicyProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ResourcePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.S3BucketSourceProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_S3BucketSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.SSESpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_SSESpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.StreamSpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_StreamSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.TimeToLiveSpecificationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_TimeToLiveSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.WarmThroughputProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_WarmThroughputProperty)(nil)).Elem(),
+	)
+}

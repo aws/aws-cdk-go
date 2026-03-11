@@ -1,0 +1,213 @@
+package awsemrcontainers
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsemrcontainers/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Resource Schema of AWS::EMRContainers::SecurityConfiguration Type.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnSecurityConfigurationPropsMixin := awscdkcfnpropertymixins.Aws_emrcontainers.NewCfnSecurityConfigurationPropsMixin(&CfnSecurityConfigurationMixinProps{
+//   	ContainerProvider: &ContainerProviderProperty{
+//   		Id: jsii.String("id"),
+//   		Info: &ContainerInfoProperty{
+//   			EksInfo: &EksInfoProperty{
+//   				Namespace: jsii.String("namespace"),
+//   			},
+//   		},
+//   		Type: jsii.String("type"),
+//   	},
+//   	Name: jsii.String("name"),
+//   	SecurityConfigurationData: &SecurityConfigurationDataProperty{
+//   		AuthenticationConfiguration: &AuthenticationConfigurationProperty{
+//   			IamConfiguration: map[string]*string{
+//   				"systemRole": jsii.String("systemRole"),
+//   			},
+//   			IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
+//   				EnableIdentityCenter: jsii.Boolean(false),
+//   				IdentityCenterApplicationAssignmentRequired: jsii.Boolean(false),
+//   				IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   			},
+//   		},
+//   		AuthorizationConfiguration: &AuthorizationConfigurationProperty{
+//   			LakeFormationConfiguration: &LakeFormationConfigurationProperty{
+//   				AuthorizedSessionTagValue: jsii.String("authorizedSessionTagValue"),
+//   				QueryAccessControlEnabled: jsii.Boolean(false),
+//   				QueryEngineRoleArn: jsii.String("queryEngineRoleArn"),
+//   				SecureNamespaceInfo: &SecureNamespaceInfoProperty{
+//   					ClusterId: jsii.String("clusterId"),
+//   					Namespace: jsii.String("namespace"),
+//   				},
+//   			},
+//   		},
+//   		EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   			AtRestEncryptionConfiguration: &AtRestEncryptionConfigurationProperty{
+//   				LocalDiskEncryptionConfiguration: &LocalDiskEncryptionConfigurationProperty{
+//   					AwsKmsKeyId: jsii.String("awsKmsKeyId"),
+//   					EncryptionKeyProviderType: jsii.String("encryptionKeyProviderType"),
+//   				},
+//   				S3EncryptionConfiguration: &S3EncryptionConfigurationProperty{
+//   					EncryptionOption: jsii.String("encryptionOption"),
+//   					KmsKeyId: jsii.String("kmsKeyId"),
+//   				},
+//   			},
+//   			InTransitEncryptionConfiguration: &InTransitEncryptionConfigurationProperty{
+//   				TlsCertificateConfiguration: &TLSCertificateConfigurationProperty{
+//   					CertificateProviderType: jsii.String("certificateProviderType"),
+//   					PrivateKeySecretArn: jsii.String("privateKeySecretArn"),
+//   					PublicKeySecretArn: jsii.String("publicKeySecretArn"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-securityconfiguration.html
+//
+type CfnSecurityConfigurationPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnSecurityConfigurationMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnSecurityConfigurationPropsMixin
+type jsiiProxy_CfnSecurityConfigurationPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnSecurityConfigurationPropsMixin) Props() *CfnSecurityConfigurationMixinProps {
+	var returns *CfnSecurityConfigurationMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSecurityConfigurationPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EMRContainers::SecurityConfiguration`.
+func NewCfnSecurityConfigurationPropsMixin(props *CfnSecurityConfigurationMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnSecurityConfigurationPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnSecurityConfigurationPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnSecurityConfigurationPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnSecurityConfigurationPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EMRContainers::SecurityConfiguration`.
+func NewCfnSecurityConfigurationPropsMixin_Override(c CfnSecurityConfigurationPropsMixin, props *CfnSecurityConfigurationMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnSecurityConfigurationPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnSecurityConfigurationPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnSecurityConfigurationPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnSecurityConfigurationPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnSecurityConfigurationPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnSecurityConfigurationPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnSecurityConfigurationPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnSecurityConfigurationPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

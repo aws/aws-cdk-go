@@ -1,0 +1,174 @@
+package awsworkspacesweb
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsworkspacesweb/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// This resource specifies network settings that can be associated with a web portal.
+//
+// Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC.
+//
+// The VPC must have default tenancy. VPCs with dedicated tenancy are not supported.
+//
+// For availability consideration, you must have at least two subnets created in two different Availability Zones. WorkSpaces Secure Browser is available in a subset of the Availability Zones for each supported Region. For more information, see [Supported Availability Zones](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/availability-zones.html) .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnNetworkSettingsPropsMixin := awscdkcfnpropertymixins.Aws_workspacesweb.NewCfnNetworkSettingsPropsMixin(&CfnNetworkSettingsMixinProps{
+//   	SecurityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
+//   	SubnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcId: jsii.String("vpcId"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-networksettings.html
+//
+type CfnNetworkSettingsPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnNetworkSettingsMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnNetworkSettingsPropsMixin
+type jsiiProxy_CfnNetworkSettingsPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnNetworkSettingsPropsMixin) Props() *CfnNetworkSettingsMixinProps {
+	var returns *CfnNetworkSettingsMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkSettingsPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::WorkSpacesWeb::NetworkSettings`.
+func NewCfnNetworkSettingsPropsMixin(props *CfnNetworkSettingsMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnNetworkSettingsPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnNetworkSettingsPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnNetworkSettingsPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_workspacesweb.CfnNetworkSettingsPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::WorkSpacesWeb::NetworkSettings`.
+func NewCfnNetworkSettingsPropsMixin_Override(c CfnNetworkSettingsPropsMixin, props *CfnNetworkSettingsMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_workspacesweb.CfnNetworkSettingsPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnNetworkSettingsPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnNetworkSettingsPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_workspacesweb.CfnNetworkSettingsPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnNetworkSettingsPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_workspacesweb.CfnNetworkSettingsPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnNetworkSettingsPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnNetworkSettingsPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

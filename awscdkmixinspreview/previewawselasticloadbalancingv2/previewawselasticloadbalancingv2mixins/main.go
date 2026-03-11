@@ -7,205 +7,274 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerCertificateMixinProps",
-		reflect.TypeOf((*CfnListenerCertificateMixinProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerCertificatePropsMixin",
-		reflect.TypeOf((*CfnListenerCertificatePropsMixin)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogs",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogs)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnListenerCertificatePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
+			return &jsiiProxy_CfnLoadBalancerAlbAccessLogs{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerCertificatePropsMixin.CertificateProperty",
-		reflect.TypeOf((*CfnListenerCertificatePropsMixin_CertificateProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsDestProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsDestProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerMixinProps",
-		reflect.TypeOf((*CfnListenerMixinProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsFirehoseProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsLogGroupProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsLogGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin",
-		reflect.TypeOf((*CfnListenerPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsOutputFormat",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
 		func() interface{} {
-			j := jsiiProxy_CfnListenerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
+			return &jsiiProxy_CfnLoadBalancerAlbAccessLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnLoadBalancerAlbAccessLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsRecordFields",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TYPE": CfnLoadBalancerAlbAccessLogsRecordFields_TYPE,
+			"TIME": CfnLoadBalancerAlbAccessLogsRecordFields_TIME,
+			"ELB": CfnLoadBalancerAlbAccessLogsRecordFields_ELB,
+			"CLIENT_PORT": CfnLoadBalancerAlbAccessLogsRecordFields_CLIENT_PORT,
+			"TARGET_PORT": CfnLoadBalancerAlbAccessLogsRecordFields_TARGET_PORT,
+			"REQUEST_PROCESSING_TIME": CfnLoadBalancerAlbAccessLogsRecordFields_REQUEST_PROCESSING_TIME,
+			"TARGET_PROCESSING_TIME": CfnLoadBalancerAlbAccessLogsRecordFields_TARGET_PROCESSING_TIME,
+			"RESPONSE_PROCESSING_TIME": CfnLoadBalancerAlbAccessLogsRecordFields_RESPONSE_PROCESSING_TIME,
+			"ELB_STATUS_CODE": CfnLoadBalancerAlbAccessLogsRecordFields_ELB_STATUS_CODE,
+			"TARGET_STATUS_CODE": CfnLoadBalancerAlbAccessLogsRecordFields_TARGET_STATUS_CODE,
+			"RECEIVED_BYTES": CfnLoadBalancerAlbAccessLogsRecordFields_RECEIVED_BYTES,
+			"SENT_BYTES": CfnLoadBalancerAlbAccessLogsRecordFields_SENT_BYTES,
+			"REQUEST_LINE": CfnLoadBalancerAlbAccessLogsRecordFields_REQUEST_LINE,
+			"USER_AGENT": CfnLoadBalancerAlbAccessLogsRecordFields_USER_AGENT,
+			"SSL_CIPHER": CfnLoadBalancerAlbAccessLogsRecordFields_SSL_CIPHER,
+			"SSL_PROTOCOL": CfnLoadBalancerAlbAccessLogsRecordFields_SSL_PROTOCOL,
+			"TARGET_GROUP_ARN": CfnLoadBalancerAlbAccessLogsRecordFields_TARGET_GROUP_ARN,
+			"TRACE_ID": CfnLoadBalancerAlbAccessLogsRecordFields_TRACE_ID,
+			"DOMAIN_NAME": CfnLoadBalancerAlbAccessLogsRecordFields_DOMAIN_NAME,
+			"CHOSEN_CERT_ARN": CfnLoadBalancerAlbAccessLogsRecordFields_CHOSEN_CERT_ARN,
+			"MATCHED_RULE_PRIORITY": CfnLoadBalancerAlbAccessLogsRecordFields_MATCHED_RULE_PRIORITY,
+			"REQUEST_CREATION_TIME": CfnLoadBalancerAlbAccessLogsRecordFields_REQUEST_CREATION_TIME,
+			"ACTIONS_EXECUTED": CfnLoadBalancerAlbAccessLogsRecordFields_ACTIONS_EXECUTED,
+			"REDIRECT_URL": CfnLoadBalancerAlbAccessLogsRecordFields_REDIRECT_URL,
+			"ERROR_REASON": CfnLoadBalancerAlbAccessLogsRecordFields_ERROR_REASON,
+			"TARGET_PORT_LIST": CfnLoadBalancerAlbAccessLogsRecordFields_TARGET_PORT_LIST,
+			"TARGET_STATUS_CODE_LIST": CfnLoadBalancerAlbAccessLogsRecordFields_TARGET_STATUS_CODE_LIST,
+			"CLASSIFICATION": CfnLoadBalancerAlbAccessLogsRecordFields_CLASSIFICATION,
+			"CLASSIFICATION_REASON": CfnLoadBalancerAlbAccessLogsRecordFields_CLASSIFICATION_REASON,
+			"CONN_TRACE_ID": CfnLoadBalancerAlbAccessLogsRecordFields_CONN_TRACE_ID,
+			"TRANSFORMED_HOST": CfnLoadBalancerAlbAccessLogsRecordFields_TRANSFORMED_HOST,
+			"TRANSFORMED_URI": CfnLoadBalancerAlbAccessLogsRecordFields_TRANSFORMED_URI,
+			"REQUEST_TRANSFORM_STATUS": CfnLoadBalancerAlbAccessLogsRecordFields_REQUEST_TRANSFORM_STATUS,
+			"IP_ADDRESS": CfnLoadBalancerAlbAccessLogsRecordFields_IP_ADDRESS,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.ActionProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_ActionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.AuthenticateCognitoConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_AuthenticateCognitoConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.AuthenticateOidcConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_AuthenticateOidcConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.CertificateProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_CertificateProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.FixedResponseConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_FixedResponseConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.ForwardConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_ForwardConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.JwtValidationActionAdditionalClaimProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_JwtValidationActionAdditionalClaimProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.JwtValidationConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_JwtValidationConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.ListenerAttributeProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_ListenerAttributeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.MutualAuthenticationProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_MutualAuthenticationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.RedirectConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_RedirectConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.TargetGroupStickinessConfigProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_TargetGroupStickinessConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerPropsMixin.TargetGroupTupleProperty",
-		reflect.TypeOf((*CfnListenerPropsMixin_TargetGroupTupleProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRuleMixinProps",
-		reflect.TypeOf((*CfnListenerRuleMixinProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsS3Props",
+		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin",
-		reflect.TypeOf((*CfnListenerRulePropsMixin)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogs",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogs)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnListenerRulePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
+			return &jsiiProxy_CfnLoadBalancerAlbConnectionLogs{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.ActionProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_ActionProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsDestProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsDestProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.AuthenticateCognitoConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_AuthenticateCognitoConfigProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsFirehoseProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsFirehoseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.AuthenticateOidcConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_AuthenticateOidcConfigProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsLogGroupProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsOutputFormat",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnLoadBalancerAlbConnectionLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnLoadBalancerAlbConnectionLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsRecordFields",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIME": CfnLoadBalancerAlbConnectionLogsRecordFields_TIME,
+			"CLIENT_IP": CfnLoadBalancerAlbConnectionLogsRecordFields_CLIENT_IP,
+			"CLIENT_PORT": CfnLoadBalancerAlbConnectionLogsRecordFields_CLIENT_PORT,
+			"LISTENER_PORT": CfnLoadBalancerAlbConnectionLogsRecordFields_LISTENER_PORT,
+			"TLS_PROTOCOL": CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_PROTOCOL,
+			"TLS_CIPHER": CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_CIPHER,
+			"TLS_HANDSHAKE_LATENCY": CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_HANDSHAKE_LATENCY,
+			"LEAF_CLIENT_CERT_SUBJECT": CfnLoadBalancerAlbConnectionLogsRecordFields_LEAF_CLIENT_CERT_SUBJECT,
+			"LEAF_CLIENT_CERT_VALIDITY": CfnLoadBalancerAlbConnectionLogsRecordFields_LEAF_CLIENT_CERT_VALIDITY,
+			"LEAF_CLIENT_CERT_SERIAL_NUMBER": CfnLoadBalancerAlbConnectionLogsRecordFields_LEAF_CLIENT_CERT_SERIAL_NUMBER,
+			"TLS_VERIFY_STATUS": CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_VERIFY_STATUS,
+			"CONN_TRACE_ID": CfnLoadBalancerAlbConnectionLogsRecordFields_CONN_TRACE_ID,
+			"TLS_KEYEXCHANGE": CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_KEYEXCHANGE,
+			"ELB": CfnLoadBalancerAlbConnectionLogsRecordFields_ELB,
+			"IP_ADDRESS": CfnLoadBalancerAlbConnectionLogsRecordFields_IP_ADDRESS,
+		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.FixedResponseConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_FixedResponseConfigProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsS3Props",
+		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogs",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnLoadBalancerAlbHealthCheckLogs{}
+		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.ForwardConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_ForwardConfigProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsDestProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsDestProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.HostHeaderConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_HostHeaderConfigProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsFirehoseProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsFirehoseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.HttpHeaderConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_HttpHeaderConfigProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsLogGroupProps",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnLoadBalancerAlbHealthCheckLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsRecordFields",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TYPE": CfnLoadBalancerAlbHealthCheckLogsRecordFields_TYPE,
+			"TIME": CfnLoadBalancerAlbHealthCheckLogsRecordFields_TIME,
+			"LATENCY": CfnLoadBalancerAlbHealthCheckLogsRecordFields_LATENCY,
+			"TARGET_ADDR": CfnLoadBalancerAlbHealthCheckLogsRecordFields_TARGET_ADDR,
+			"TARGET_GROUP_ID": CfnLoadBalancerAlbHealthCheckLogsRecordFields_TARGET_GROUP_ID,
+			"STATUS": CfnLoadBalancerAlbHealthCheckLogsRecordFields_STATUS,
+			"STATUS_CODE": CfnLoadBalancerAlbHealthCheckLogsRecordFields_STATUS_CODE,
+			"REASON_CODE": CfnLoadBalancerAlbHealthCheckLogsRecordFields_REASON_CODE,
+			"ELB": CfnLoadBalancerAlbHealthCheckLogsRecordFields_ELB,
+			"IP_ADDRESS": CfnLoadBalancerAlbHealthCheckLogsRecordFields_IP_ADDRESS,
+		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.HttpRequestMethodConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_HttpRequestMethodConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.JwtValidationActionAdditionalClaimProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_JwtValidationActionAdditionalClaimProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.JwtValidationConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_JwtValidationConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.PathPatternConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_PathPatternConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.QueryStringConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_QueryStringConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.QueryStringKeyValueProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_QueryStringKeyValueProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.RedirectConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_RedirectConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.RewriteConfigObjectProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_RewriteConfigObjectProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.RewriteConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_RewriteConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.RuleConditionProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_RuleConditionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.SourceIpConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_SourceIpConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.TargetGroupStickinessConfigProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_TargetGroupStickinessConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.TargetGroupTupleProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_TargetGroupTupleProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnListenerRulePropsMixin.TransformProperty",
-		reflect.TypeOf((*CfnListenerRulePropsMixin_TransformProperty)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsS3Props",
+		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerLogsMixin",
@@ -222,10 +291,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerMixinProps",
-		reflect.TypeOf((*CfnLoadBalancerMixinProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogs",
@@ -318,113 +383,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsS3Props",
 		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsS3Props)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerPropsMixin",
-		reflect.TypeOf((*CfnLoadBalancerPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnLoadBalancerPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerPropsMixin.LoadBalancerAttributeProperty",
-		reflect.TypeOf((*CfnLoadBalancerPropsMixin_LoadBalancerAttributeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerPropsMixin.MinimumLoadBalancerCapacityProperty",
-		reflect.TypeOf((*CfnLoadBalancerPropsMixin_MinimumLoadBalancerCapacityProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerPropsMixin.SubnetMappingProperty",
-		reflect.TypeOf((*CfnLoadBalancerPropsMixin_SubnetMappingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTargetGroupMixinProps",
-		reflect.TypeOf((*CfnTargetGroupMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTargetGroupPropsMixin",
-		reflect.TypeOf((*CfnTargetGroupPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnTargetGroupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTargetGroupPropsMixin.MatcherProperty",
-		reflect.TypeOf((*CfnTargetGroupPropsMixin_MatcherProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTargetGroupPropsMixin.TargetDescriptionProperty",
-		reflect.TypeOf((*CfnTargetGroupPropsMixin_TargetDescriptionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTargetGroupPropsMixin.TargetGroupAttributeProperty",
-		reflect.TypeOf((*CfnTargetGroupPropsMixin_TargetGroupAttributeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTrustStoreMixinProps",
-		reflect.TypeOf((*CfnTrustStoreMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTrustStorePropsMixin",
-		reflect.TypeOf((*CfnTrustStorePropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnTrustStorePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTrustStoreRevocationMixinProps",
-		reflect.TypeOf((*CfnTrustStoreRevocationMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTrustStoreRevocationPropsMixin",
-		reflect.TypeOf((*CfnTrustStoreRevocationPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnTrustStoreRevocationPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTrustStoreRevocationPropsMixin.RevocationContentProperty",
-		reflect.TypeOf((*CfnTrustStoreRevocationPropsMixin_RevocationContentProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnTrustStoreRevocationPropsMixin.TrustStoreRevocationProperty",
-		reflect.TypeOf((*CfnTrustStoreRevocationPropsMixin_TrustStoreRevocationProperty)(nil)).Elem(),
 	)
 }

@@ -1,0 +1,168 @@
+package awscloudfront
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awscloudfront/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a new origin access control in CloudFront.
+//
+// After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+//
+// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+//
+// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnOriginAccessControlPropsMixin := awscdkcfnpropertymixins.Aws_cloudfront.NewCfnOriginAccessControlPropsMixin(&CfnOriginAccessControlMixinProps{
+//   	OriginAccessControlConfig: &OriginAccessControlConfigProperty{
+//   		Description: jsii.String("description"),
+//   		Name: jsii.String("name"),
+//   		OriginAccessControlOriginType: jsii.String("originAccessControlOriginType"),
+//   		SigningBehavior: jsii.String("signingBehavior"),
+//   		SigningProtocol: jsii.String("signingProtocol"),
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html
+//
+type CfnOriginAccessControlPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnOriginAccessControlMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnOriginAccessControlPropsMixin
+type jsiiProxy_CfnOriginAccessControlPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnOriginAccessControlPropsMixin) Props() *CfnOriginAccessControlMixinProps {
+	var returns *CfnOriginAccessControlMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOriginAccessControlPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::CloudFront::OriginAccessControl`.
+func NewCfnOriginAccessControlPropsMixin(props *CfnOriginAccessControlMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnOriginAccessControlPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnOriginAccessControlPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnOriginAccessControlPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnOriginAccessControlPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::CloudFront::OriginAccessControl`.
+func NewCfnOriginAccessControlPropsMixin_Override(c CfnOriginAccessControlPropsMixin, props *CfnOriginAccessControlMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnOriginAccessControlPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnOriginAccessControlPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnOriginAccessControlPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnOriginAccessControlPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnOriginAccessControlPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnOriginAccessControlPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnOriginAccessControlPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnOriginAccessControlPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

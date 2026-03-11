@@ -1,0 +1,174 @@
+package awsbillingconductor
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsbillingconductor/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a billing group that resembles a consolidated billing family that AWS charges, based off of the predefined pricing plan computation.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnBillingGroupPropsMixin := awscdkcfnpropertymixins.Aws_billingconductor.NewCfnBillingGroupPropsMixin(&CfnBillingGroupMixinProps{
+//   	AccountGrouping: &AccountGroupingProperty{
+//   		AutoAssociate: jsii.Boolean(false),
+//   		LinkedAccountIds: []*string{
+//   			jsii.String("linkedAccountIds"),
+//   		},
+//   		ResponsibilityTransferArn: jsii.String("responsibilityTransferArn"),
+//   	},
+//   	ComputationPreference: &ComputationPreferenceProperty{
+//   		PricingPlanArn: jsii.String("pricingPlanArn"),
+//   	},
+//   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
+//   	PrimaryAccountId: jsii.String("primaryAccountId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-billinggroup.html
+//
+type CfnBillingGroupPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnBillingGroupMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnBillingGroupPropsMixin
+type jsiiProxy_CfnBillingGroupPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnBillingGroupPropsMixin) Props() *CfnBillingGroupMixinProps {
+	var returns *CfnBillingGroupMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBillingGroupPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::BillingConductor::BillingGroup`.
+func NewCfnBillingGroupPropsMixin(props *CfnBillingGroupMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnBillingGroupPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnBillingGroupPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnBillingGroupPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_billingconductor.CfnBillingGroupPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::BillingConductor::BillingGroup`.
+func NewCfnBillingGroupPropsMixin_Override(c CfnBillingGroupPropsMixin, props *CfnBillingGroupMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_billingconductor.CfnBillingGroupPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnBillingGroupPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBillingGroupPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_billingconductor.CfnBillingGroupPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnBillingGroupPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_billingconductor.CfnBillingGroupPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnBillingGroupPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnBillingGroupPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

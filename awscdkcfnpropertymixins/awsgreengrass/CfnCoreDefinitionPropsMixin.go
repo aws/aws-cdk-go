@@ -1,0 +1,176 @@
+package awsgreengrass
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsgreengrass/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::Greengrass::CoreDefinition` resource represents a core definition for AWS IoT Greengrass .
+//
+// Core definitions are used to organize your core definition versions.
+//
+// Core definitions can reference multiple core definition versions. All core definition versions must be associated with a core definition. Each core definition version can contain one Greengrass core.
+//
+// > When you create a core definition, you can optionally include an initial core definition version. To associate a core definition version later, create an [`AWS::Greengrass::CoreDefinitionVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html) resource and specify the ID of this core definition.
+// >
+// > After you create the core definition version that contains the core you want to deploy, you must add it to your group version. For more information, see [`AWS::Greengrass::Group`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html) .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//   var tags interface{}
+//
+//   cfnCoreDefinitionPropsMixin := awscdkcfnpropertymixins.Aws_greengrass.NewCfnCoreDefinitionPropsMixin(&CfnCoreDefinitionMixinProps{
+//   	InitialVersion: &CoreDefinitionVersionProperty{
+//   		Cores: []interface{}{
+//   			&CoreProperty{
+//   				CertificateArn: jsii.String("certificateArn"),
+//   				Id: jsii.String("id"),
+//   				SyncShadow: jsii.Boolean(false),
+//   				ThingArn: jsii.String("thingArn"),
+//   			},
+//   		},
+//   	},
+//   	Name: jsii.String("name"),
+//   	Tags: tags,
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html
+//
+type CfnCoreDefinitionPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnCoreDefinitionMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnCoreDefinitionPropsMixin
+type jsiiProxy_CfnCoreDefinitionPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnCoreDefinitionPropsMixin) Props() *CfnCoreDefinitionMixinProps {
+	var returns *CfnCoreDefinitionMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCoreDefinitionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Greengrass::CoreDefinition`.
+func NewCfnCoreDefinitionPropsMixin(props *CfnCoreDefinitionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnCoreDefinitionPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnCoreDefinitionPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnCoreDefinitionPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_greengrass.CfnCoreDefinitionPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Greengrass::CoreDefinition`.
+func NewCfnCoreDefinitionPropsMixin_Override(c CfnCoreDefinitionPropsMixin, props *CfnCoreDefinitionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_greengrass.CfnCoreDefinitionPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnCoreDefinitionPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCoreDefinitionPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_greengrass.CfnCoreDefinitionPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnCoreDefinitionPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_greengrass.CfnCoreDefinitionPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnCoreDefinitionPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnCoreDefinitionPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

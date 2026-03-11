@@ -1,0 +1,238 @@
+package awselasticloadbalancing
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awselasticloadbalancing/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Specifies a Classic Load Balancer.
+//
+// If this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the VPC-gateway attachment.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var attributes interface{}
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnLoadBalancerPropsMixin := awscdkcfnpropertymixins.Aws_elasticloadbalancing.NewCfnLoadBalancerPropsMixin(&CfnLoadBalancerMixinProps{
+//   	AccessLoggingPolicy: &AccessLoggingPolicyProperty{
+//   		EmitInterval: jsii.Number(123),
+//   		Enabled: jsii.Boolean(false),
+//   		S3BucketName: jsii.String("s3BucketName"),
+//   		S3BucketPrefix: jsii.String("s3BucketPrefix"),
+//   	},
+//   	AppCookieStickinessPolicy: []interface{}{
+//   		&AppCookieStickinessPolicyProperty{
+//   			CookieName: jsii.String("cookieName"),
+//   			PolicyName: jsii.String("policyName"),
+//   		},
+//   	},
+//   	AvailabilityZones: []*string{
+//   		jsii.String("availabilityZones"),
+//   	},
+//   	ConnectionDrainingPolicy: &ConnectionDrainingPolicyProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		Timeout: jsii.Number(123),
+//   	},
+//   	ConnectionSettings: &ConnectionSettingsProperty{
+//   		IdleTimeout: jsii.Number(123),
+//   	},
+//   	CrossZone: jsii.Boolean(false),
+//   	HealthCheck: &HealthCheckProperty{
+//   		HealthyThreshold: jsii.String("healthyThreshold"),
+//   		Interval: jsii.String("interval"),
+//   		Target: jsii.String("target"),
+//   		Timeout: jsii.String("timeout"),
+//   		UnhealthyThreshold: jsii.String("unhealthyThreshold"),
+//   	},
+//   	Instances: []interface{}{
+//   		jsii.String("instances"),
+//   	},
+//   	LbCookieStickinessPolicy: []interface{}{
+//   		&LBCookieStickinessPolicyProperty{
+//   			CookieExpirationPeriod: jsii.String("cookieExpirationPeriod"),
+//   			PolicyName: jsii.String("policyName"),
+//   		},
+//   	},
+//   	Listeners: []interface{}{
+//   		&ListenersProperty{
+//   			InstancePort: jsii.String("instancePort"),
+//   			InstanceProtocol: jsii.String("instanceProtocol"),
+//   			LoadBalancerPort: jsii.String("loadBalancerPort"),
+//   			PolicyNames: []*string{
+//   				jsii.String("policyNames"),
+//   			},
+//   			Protocol: jsii.String("protocol"),
+//   			SslCertificateId: jsii.String("sslCertificateId"),
+//   		},
+//   	},
+//   	LoadBalancerName: jsii.String("loadBalancerName"),
+//   	Policies: []interface{}{
+//   		&PoliciesProperty{
+//   			Attributes: []interface{}{
+//   				attributes,
+//   			},
+//   			InstancePorts: []*string{
+//   				jsii.String("instancePorts"),
+//   			},
+//   			LoadBalancerPorts: []*string{
+//   				jsii.String("loadBalancerPorts"),
+//   			},
+//   			PolicyName: jsii.String("policyName"),
+//   			PolicyType: jsii.String("policyType"),
+//   		},
+//   	},
+//   	Scheme: jsii.String("scheme"),
+//   	SecurityGroups: []interface{}{
+//   		jsii.String("securityGroups"),
+//   	},
+//   	Subnets: []interface{}{
+//   		jsii.String("subnets"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html
+//
+type CfnLoadBalancerPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnLoadBalancerMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnLoadBalancerPropsMixin
+type jsiiProxy_CfnLoadBalancerPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnLoadBalancerPropsMixin) Props() *CfnLoadBalancerMixinProps {
+	var returns *CfnLoadBalancerMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancerPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::ElasticLoadBalancing::LoadBalancer`.
+func NewCfnLoadBalancerPropsMixin(props *CfnLoadBalancerMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnLoadBalancerPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnLoadBalancerPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnLoadBalancerPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_elasticloadbalancing.CfnLoadBalancerPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::ElasticLoadBalancing::LoadBalancer`.
+func NewCfnLoadBalancerPropsMixin_Override(c CfnLoadBalancerPropsMixin, props *CfnLoadBalancerMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_elasticloadbalancing.CfnLoadBalancerPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnLoadBalancerPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLoadBalancerPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_elasticloadbalancing.CfnLoadBalancerPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnLoadBalancerPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_elasticloadbalancing.CfnLoadBalancerPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnLoadBalancerPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnLoadBalancerPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

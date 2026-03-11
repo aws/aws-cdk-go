@@ -1,0 +1,187 @@
+package awsmanagedblockchain
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsmanagedblockchain/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a member within a Managed Blockchain network.
+//
+// Applies only to Hyperledger Fabric.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnMemberPropsMixin := awscdkcfnpropertymixins.Aws_managedblockchain.NewCfnMemberPropsMixin(&CfnMemberMixinProps{
+//   	InvitationId: jsii.String("invitationId"),
+//   	MemberConfiguration: &MemberConfigurationProperty{
+//   		Description: jsii.String("description"),
+//   		MemberFrameworkConfiguration: &MemberFrameworkConfigurationProperty{
+//   			MemberFabricConfiguration: &MemberFabricConfigurationProperty{
+//   				AdminPassword: jsii.String("adminPassword"),
+//   				AdminUsername: jsii.String("adminUsername"),
+//   			},
+//   		},
+//   		Name: jsii.String("name"),
+//   	},
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		Description: jsii.String("description"),
+//   		Framework: jsii.String("framework"),
+//   		FrameworkVersion: jsii.String("frameworkVersion"),
+//   		Name: jsii.String("name"),
+//   		NetworkFrameworkConfiguration: &NetworkFrameworkConfigurationProperty{
+//   			NetworkFabricConfiguration: &NetworkFabricConfigurationProperty{
+//   				Edition: jsii.String("edition"),
+//   			},
+//   		},
+//   		VotingPolicy: &VotingPolicyProperty{
+//   			ApprovalThresholdPolicy: &ApprovalThresholdPolicyProperty{
+//   				ProposalDurationInHours: jsii.Number(123),
+//   				ThresholdComparator: jsii.String("thresholdComparator"),
+//   				ThresholdPercentage: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	NetworkId: jsii.String("networkId"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html
+//
+type CfnMemberPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnMemberMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnMemberPropsMixin
+type jsiiProxy_CfnMemberPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnMemberPropsMixin) Props() *CfnMemberMixinProps {
+	var returns *CfnMemberMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMemberPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::ManagedBlockchain::Member`.
+func NewCfnMemberPropsMixin(props *CfnMemberMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnMemberPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnMemberPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnMemberPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_managedblockchain.CfnMemberPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::ManagedBlockchain::Member`.
+func NewCfnMemberPropsMixin_Override(c CfnMemberPropsMixin, props *CfnMemberMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_managedblockchain.CfnMemberPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnMemberPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnMemberPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_managedblockchain.CfnMemberPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnMemberPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_managedblockchain.CfnMemberPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnMemberPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnMemberPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

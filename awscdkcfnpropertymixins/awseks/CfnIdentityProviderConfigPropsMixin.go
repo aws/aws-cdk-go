@@ -1,0 +1,180 @@
+package awseks
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awseks/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Associates an identity provider configuration to a cluster.
+//
+// If you want to authenticate identities using an identity provider, you can create an identity provider configuration and associate it to your cluster. After configuring authentication to your cluster you can create Kubernetes `Role` and `ClusterRole` objects, assign permissions to them, and then bind them to the identities using Kubernetes `RoleBinding` and `ClusterRoleBinding` objects. For more information see [Using RBAC Authorization](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/access-authn-authz/rbac/) in the Kubernetes documentation.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnIdentityProviderConfigPropsMixin := awscdkcfnpropertymixins.Aws_eks.NewCfnIdentityProviderConfigPropsMixin(&CfnIdentityProviderConfigMixinProps{
+//   	ClusterName: jsii.String("clusterName"),
+//   	IdentityProviderConfigName: jsii.String("identityProviderConfigName"),
+//   	Oidc: &OidcIdentityProviderConfigProperty{
+//   		ClientId: jsii.String("clientId"),
+//   		GroupsClaim: jsii.String("groupsClaim"),
+//   		GroupsPrefix: jsii.String("groupsPrefix"),
+//   		IssuerUrl: jsii.String("issuerUrl"),
+//   		RequiredClaims: []interface{}{
+//   			&RequiredClaimProperty{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		UsernameClaim: jsii.String("usernameClaim"),
+//   		UsernamePrefix: jsii.String("usernamePrefix"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Type: jsii.String("type"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html
+//
+type CfnIdentityProviderConfigPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnIdentityProviderConfigMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnIdentityProviderConfigPropsMixin
+type jsiiProxy_CfnIdentityProviderConfigPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnIdentityProviderConfigPropsMixin) Props() *CfnIdentityProviderConfigMixinProps {
+	var returns *CfnIdentityProviderConfigMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIdentityProviderConfigPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EKS::IdentityProviderConfig`.
+func NewCfnIdentityProviderConfigPropsMixin(props *CfnIdentityProviderConfigMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnIdentityProviderConfigPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnIdentityProviderConfigPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnIdentityProviderConfigPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnIdentityProviderConfigPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EKS::IdentityProviderConfig`.
+func NewCfnIdentityProviderConfigPropsMixin_Override(c CfnIdentityProviderConfigPropsMixin, props *CfnIdentityProviderConfigMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnIdentityProviderConfigPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnIdentityProviderConfigPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIdentityProviderConfigPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnIdentityProviderConfigPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnIdentityProviderConfigPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnIdentityProviderConfigPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnIdentityProviderConfigPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnIdentityProviderConfigPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

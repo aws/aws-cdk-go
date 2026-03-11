@@ -1,0 +1,249 @@
+package awsiotanalytics
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsiotanalytics/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The AWS::IoTAnalytics::Dataset resource stores data retrieved from a data store by applying a `queryAction` (an SQL query) or a `containerAction` (executing a containerized application).
+//
+// The data set can be populated manually by calling `CreateDatasetContent` or automatically according to a `trigger` you specify. For more information, see [How to Use](https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how) in the *User Guide* .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnDatasetPropsMixin := awscdkcfnpropertymixins.Aws_iotanalytics.NewCfnDatasetPropsMixin(&CfnDatasetMixinProps{
+//   	Actions: []interface{}{
+//   		&ActionProperty{
+//   			ActionName: jsii.String("actionName"),
+//   			ContainerAction: &ContainerActionProperty{
+//   				ExecutionRoleArn: jsii.String("executionRoleArn"),
+//   				Image: jsii.String("image"),
+//   				ResourceConfiguration: &ResourceConfigurationProperty{
+//   					ComputeType: jsii.String("computeType"),
+//   					VolumeSizeInGb: jsii.Number(123),
+//   				},
+//   				Variables: []interface{}{
+//   					&VariableProperty{
+//   						DatasetContentVersionValue: &DatasetContentVersionValueProperty{
+//   							DatasetName: jsii.String("datasetName"),
+//   						},
+//   						DoubleValue: jsii.Number(123),
+//   						OutputFileUriValue: &OutputFileUriValueProperty{
+//   							FileName: jsii.String("fileName"),
+//   						},
+//   						StringValue: jsii.String("stringValue"),
+//   						VariableName: jsii.String("variableName"),
+//   					},
+//   				},
+//   			},
+//   			QueryAction: &QueryActionProperty{
+//   				Filters: []interface{}{
+//   					&FilterProperty{
+//   						DeltaTime: &DeltaTimeProperty{
+//   							OffsetSeconds: jsii.Number(123),
+//   							TimeExpression: jsii.String("timeExpression"),
+//   						},
+//   					},
+//   				},
+//   				SqlQuery: jsii.String("sqlQuery"),
+//   			},
+//   		},
+//   	},
+//   	ContentDeliveryRules: []interface{}{
+//   		&DatasetContentDeliveryRuleProperty{
+//   			Destination: &DatasetContentDeliveryRuleDestinationProperty{
+//   				IotEventsDestinationConfiguration: &IotEventsDestinationConfigurationProperty{
+//   					InputName: jsii.String("inputName"),
+//   					RoleArn: jsii.String("roleArn"),
+//   				},
+//   				S3DestinationConfiguration: &S3DestinationConfigurationProperty{
+//   					Bucket: jsii.String("bucket"),
+//   					GlueConfiguration: &GlueConfigurationProperty{
+//   						DatabaseName: jsii.String("databaseName"),
+//   						TableName: jsii.String("tableName"),
+//   					},
+//   					Key: jsii.String("key"),
+//   					RoleArn: jsii.String("roleArn"),
+//   				},
+//   			},
+//   			EntryName: jsii.String("entryName"),
+//   		},
+//   	},
+//   	DatasetName: jsii.String("datasetName"),
+//   	LateDataRules: []interface{}{
+//   		&LateDataRuleProperty{
+//   			RuleConfiguration: &LateDataRuleConfigurationProperty{
+//   				DeltaTimeSessionWindowConfiguration: &DeltaTimeSessionWindowConfigurationProperty{
+//   					TimeoutInMinutes: jsii.Number(123),
+//   				},
+//   			},
+//   			RuleName: jsii.String("ruleName"),
+//   		},
+//   	},
+//   	RetentionPeriod: &RetentionPeriodProperty{
+//   		NumberOfDays: jsii.Number(123),
+//   		Unlimited: jsii.Boolean(false),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	Triggers: []interface{}{
+//   		&TriggerProperty{
+//   			Schedule: &ScheduleProperty{
+//   				ScheduleExpression: jsii.String("scheduleExpression"),
+//   			},
+//   			TriggeringDataset: &TriggeringDatasetProperty{
+//   				DatasetName: jsii.String("datasetName"),
+//   			},
+//   		},
+//   	},
+//   	VersioningConfiguration: &VersioningConfigurationProperty{
+//   		MaxVersions: jsii.Number(123),
+//   		Unlimited: jsii.Boolean(false),
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html
+//
+type CfnDatasetPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnDatasetMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnDatasetPropsMixin
+type jsiiProxy_CfnDatasetPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnDatasetPropsMixin) Props() *CfnDatasetMixinProps {
+	var returns *CfnDatasetMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDatasetPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::IoTAnalytics::Dataset`.
+func NewCfnDatasetPropsMixin(props *CfnDatasetMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnDatasetPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnDatasetPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnDatasetPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_iotanalytics.CfnDatasetPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::IoTAnalytics::Dataset`.
+func NewCfnDatasetPropsMixin_Override(c CfnDatasetPropsMixin, props *CfnDatasetMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_iotanalytics.CfnDatasetPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnDatasetPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDatasetPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_iotanalytics.CfnDatasetPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnDatasetPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_iotanalytics.CfnDatasetPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnDatasetPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnDatasetPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

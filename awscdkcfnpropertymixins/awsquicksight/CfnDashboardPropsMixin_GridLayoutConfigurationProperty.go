@@ -1,0 +1,62 @@
+package awsquicksight
+
+
+// The configuration for a grid layout. Also called a tiled layout.
+//
+// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   gridLayoutConfigurationProperty := &GridLayoutConfigurationProperty{
+//   	CanvasSizeOptions: &GridLayoutCanvasSizeOptionsProperty{
+//   		ScreenCanvasSizeOptions: &GridLayoutScreenCanvasSizeOptionsProperty{
+//   			OptimizedViewPortWidth: jsii.String("optimizedViewPortWidth"),
+//   			ResizeOption: jsii.String("resizeOption"),
+//   		},
+//   	},
+//   	Elements: []interface{}{
+//   		&GridLayoutElementProperty{
+//   			BackgroundStyle: &GridLayoutElementBackgroundStyleProperty{
+//   				Color: jsii.String("color"),
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			BorderRadius: jsii.String("borderRadius"),
+//   			BorderStyle: &GridLayoutElementBorderStyleProperty{
+//   				Color: jsii.String("color"),
+//   				Visibility: jsii.String("visibility"),
+//   				Width: jsii.String("width"),
+//   			},
+//   			ColumnIndex: jsii.Number(123),
+//   			ColumnSpan: jsii.Number(123),
+//   			ElementId: jsii.String("elementId"),
+//   			ElementType: jsii.String("elementType"),
+//   			LoadingAnimation: &LoadingAnimationProperty{
+//   				Visibility: jsii.String("visibility"),
+//   			},
+//   			Padding: jsii.String("padding"),
+//   			RowIndex: jsii.Number(123),
+//   			RowSpan: jsii.Number(123),
+//   			SelectedBorderStyle: &GridLayoutElementBorderStyleProperty{
+//   				Color: jsii.String("color"),
+//   				Visibility: jsii.String("visibility"),
+//   				Width: jsii.String("width"),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutconfiguration.html
+//
+type CfnDashboardPropsMixin_GridLayoutConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutconfiguration.html#cfn-quicksight-dashboard-gridlayoutconfiguration-canvassizeoptions
+	//
+	CanvasSizeOptions interface{} `field:"optional" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`
+	// The elements that are included in a grid layout.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutconfiguration.html#cfn-quicksight-dashboard-gridlayoutconfiguration-elements
+	//
+	Elements interface{} `field:"optional" json:"elements" yaml:"elements"`
+}
+

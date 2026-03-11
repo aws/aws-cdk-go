@@ -1,0 +1,223 @@
+package awsamplify
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsamplify/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The AWS::Amplify::App resource specifies Apps in Amplify Hosting.
+//
+// An App is a collection of branches.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnAppPropsMixin := awscdkcfnpropertymixins.Aws_amplify.NewCfnAppPropsMixin(&CfnAppMixinProps{
+//   	AccessToken: jsii.String("accessToken"),
+//   	AutoBranchCreationConfig: &AutoBranchCreationConfigProperty{
+//   		AutoBranchCreationPatterns: []*string{
+//   			jsii.String("autoBranchCreationPatterns"),
+//   		},
+//   		BasicAuthConfig: &BasicAuthConfigProperty{
+//   			EnableBasicAuth: jsii.Boolean(false),
+//   			Password: jsii.String("password"),
+//   			Username: jsii.String("username"),
+//   		},
+//   		BuildSpec: jsii.String("buildSpec"),
+//   		EnableAutoBranchCreation: jsii.Boolean(false),
+//   		EnableAutoBuild: jsii.Boolean(false),
+//   		EnablePerformanceMode: jsii.Boolean(false),
+//   		EnablePullRequestPreview: jsii.Boolean(false),
+//   		EnvironmentVariables: []interface{}{
+//   			&EnvironmentVariableProperty{
+//   				Name: jsii.String("name"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		Framework: jsii.String("framework"),
+//   		PullRequestEnvironmentName: jsii.String("pullRequestEnvironmentName"),
+//   		Stage: jsii.String("stage"),
+//   	},
+//   	BasicAuthConfig: &BasicAuthConfigProperty{
+//   		EnableBasicAuth: jsii.Boolean(false),
+//   		Password: jsii.String("password"),
+//   		Username: jsii.String("username"),
+//   	},
+//   	BuildSpec: jsii.String("buildSpec"),
+//   	CacheConfig: &CacheConfigProperty{
+//   		Type: jsii.String("type"),
+//   	},
+//   	ComputeRoleArn: jsii.String("computeRoleArn"),
+//   	CustomHeaders: jsii.String("customHeaders"),
+//   	CustomRules: []interface{}{
+//   		&CustomRuleProperty{
+//   			Condition: jsii.String("condition"),
+//   			Source: jsii.String("source"),
+//   			Status: jsii.String("status"),
+//   			Target: jsii.String("target"),
+//   		},
+//   	},
+//   	Description: jsii.String("description"),
+//   	EnableBranchAutoDeletion: jsii.Boolean(false),
+//   	EnvironmentVariables: []interface{}{
+//   		&EnvironmentVariableProperty{
+//   			Name: jsii.String("name"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	IamServiceRole: jsii.String("iamServiceRole"),
+//   	JobConfig: &JobConfigProperty{
+//   		BuildComputeType: jsii.String("buildComputeType"),
+//   	},
+//   	Name: jsii.String("name"),
+//   	OauthToken: jsii.String("oauthToken"),
+//   	Platform: jsii.String("platform"),
+//   	Repository: jsii.String("repository"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
+//
+type CfnAppPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnAppMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnAppPropsMixin
+type jsiiProxy_CfnAppPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnAppPropsMixin) Props() *CfnAppMixinProps {
+	var returns *CfnAppMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAppPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Amplify::App`.
+func NewCfnAppPropsMixin(props *CfnAppMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnAppPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnAppPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnAppPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_amplify.CfnAppPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Amplify::App`.
+func NewCfnAppPropsMixin_Override(c CfnAppPropsMixin, props *CfnAppMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_amplify.CfnAppPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnAppPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAppPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_amplify.CfnAppPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnAppPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_amplify.CfnAppPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnAppPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnAppPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

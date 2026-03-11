@@ -1,0 +1,53 @@
+package awssecurityhub
+
+
+// Properties for CfnConnectorV2PropsMixin.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   cfnConnectorV2MixinProps := &CfnConnectorV2MixinProps{
+//   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Name: jsii.String("name"),
+//   	Provider: &ProviderProperty{
+//   		JiraCloud: &JiraCloudProviderConfigurationProperty{
+//   			ProjectKey: jsii.String("projectKey"),
+//   		},
+//   		ServiceNow: &ServiceNowProviderConfigurationProperty{
+//   			InstanceName: jsii.String("instanceName"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html
+//
+type CfnConnectorV2MixinProps struct {
+	// The description of the connectorV2.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The Amazon Resource Name (ARN) of KMS key used to encrypt secrets for the connectorV2.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The unique name of the connectorV2.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The third-party provider detail for a service configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-provider
+	//
+	Provider interface{} `field:"optional" json:"provider" yaml:"provider"`
+	// The tags to add to the connectorV2 when you create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-connectorv2.html#cfn-securityhub-connectorv2-tags
+	//
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+}
+

@@ -1,0 +1,28 @@
+package awsappconfig
+
+
+// Amazon CloudWatch alarms to monitor during the deployment process.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   monitorProperty := &MonitorProperty{
+//   	AlarmArn: jsii.String("alarmArn"),
+//   	AlarmRoleArn: jsii.String("alarmRoleArn"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html
+//
+type CfnEnvironmentPropsMixin_MonitorProperty struct {
+	// Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html#cfn-appconfig-environment-monitor-alarmarn
+	//
+	AlarmArn interface{} `field:"optional" json:"alarmArn" yaml:"alarmArn"`
+	// ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor `AlarmArn` .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html#cfn-appconfig-environment-monitor-alarmrolearn
+	//
+	AlarmRoleArn interface{} `field:"optional" json:"alarmRoleArn" yaml:"alarmRoleArn"`
+}
+

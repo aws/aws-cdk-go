@@ -112,6 +112,39 @@ func CfnLoadBalancerLogsMixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
+func CfnLoadBalancerLogsMixin_ALB_ACCESS_LOGS() CfnLoadBalancerAlbAccessLogs {
+	_init_.Initialize()
+	var returns CfnLoadBalancerAlbAccessLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerLogsMixin",
+		"ALB_ACCESS_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnLoadBalancerLogsMixin_ALB_CONNECTION_LOGS() CfnLoadBalancerAlbConnectionLogs {
+	_init_.Initialize()
+	var returns CfnLoadBalancerAlbConnectionLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerLogsMixin",
+		"ALB_CONNECTION_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnLoadBalancerLogsMixin_ALB_HEALTH_CHECK_LOGS() CfnLoadBalancerAlbHealthCheckLogs {
+	_init_.Initialize()
+	var returns CfnLoadBalancerAlbHealthCheckLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerLogsMixin",
+		"ALB_HEALTH_CHECK_LOGS",
+		&returns,
+	)
+	return returns
+}
+
 func CfnLoadBalancerLogsMixin_NLB_ACCESS_LOGS() CfnLoadBalancerNlbAccessLogs {
 	_init_.Initialize()
 	var returns CfnLoadBalancerNlbAccessLogs

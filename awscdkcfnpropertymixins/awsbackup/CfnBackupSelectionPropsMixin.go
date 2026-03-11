@@ -1,0 +1,177 @@
+package awsbackup
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsbackup/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Specifies a set of resources to assign to a backup plan.
+//
+// For a sample CloudFormation template, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-cfn) .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var conditions interface{}
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnBackupSelectionPropsMixin := awscdkcfnpropertymixins.Aws_backup.NewCfnBackupSelectionPropsMixin(&CfnBackupSelectionMixinProps{
+//   	BackupPlanId: jsii.String("backupPlanId"),
+//   	BackupSelection: &BackupSelectionResourceTypeProperty{
+//   		Conditions: conditions,
+//   		IamRoleArn: jsii.String("iamRoleArn"),
+//   		ListOfTags: []interface{}{
+//   			&ConditionResourceTypeProperty{
+//   				ConditionKey: jsii.String("conditionKey"),
+//   				ConditionType: jsii.String("conditionType"),
+//   				ConditionValue: jsii.String("conditionValue"),
+//   			},
+//   		},
+//   		NotResources: []*string{
+//   			jsii.String("notResources"),
+//   		},
+//   		Resources: []interface{}{
+//   			jsii.String("resources"),
+//   		},
+//   		SelectionName: jsii.String("selectionName"),
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+//
+type CfnBackupSelectionPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnBackupSelectionMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnBackupSelectionPropsMixin
+type jsiiProxy_CfnBackupSelectionPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnBackupSelectionPropsMixin) Props() *CfnBackupSelectionMixinProps {
+	var returns *CfnBackupSelectionMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBackupSelectionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Backup::BackupSelection`.
+func NewCfnBackupSelectionPropsMixin(props *CfnBackupSelectionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnBackupSelectionPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnBackupSelectionPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnBackupSelectionPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnBackupSelectionPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Backup::BackupSelection`.
+func NewCfnBackupSelectionPropsMixin_Override(c CfnBackupSelectionPropsMixin, props *CfnBackupSelectionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnBackupSelectionPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnBackupSelectionPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnBackupSelectionPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnBackupSelectionPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnBackupSelectionPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnBackupSelectionPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnBackupSelectionPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnBackupSelectionPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

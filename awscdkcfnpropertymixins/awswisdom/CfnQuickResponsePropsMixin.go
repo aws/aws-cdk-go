@@ -1,0 +1,180 @@
+package awswisdom
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awswisdom/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates an Amazon Q in Connect quick response.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnQuickResponsePropsMixin := awscdkcfnpropertymixins.Aws_wisdom.NewCfnQuickResponsePropsMixin(&CfnQuickResponseMixinProps{
+//   	Channels: []*string{
+//   		jsii.String("channels"),
+//   	},
+//   	Content: &QuickResponseContentProviderProperty{
+//   		Content: jsii.String("content"),
+//   	},
+//   	ContentType: jsii.String("contentType"),
+//   	Description: jsii.String("description"),
+//   	GroupingConfiguration: &GroupingConfigurationProperty{
+//   		Criteria: jsii.String("criteria"),
+//   		Values: []*string{
+//   			jsii.String("values"),
+//   		},
+//   	},
+//   	IsActive: jsii.Boolean(false),
+//   	KnowledgeBaseArn: jsii.String("knowledgeBaseArn"),
+//   	Language: jsii.String("language"),
+//   	Name: jsii.String("name"),
+//   	ShortcutKey: jsii.String("shortcutKey"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-quickresponse.html
+//
+type CfnQuickResponsePropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnQuickResponseMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnQuickResponsePropsMixin
+type jsiiProxy_CfnQuickResponsePropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnQuickResponsePropsMixin) Props() *CfnQuickResponseMixinProps {
+	var returns *CfnQuickResponseMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQuickResponsePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Wisdom::QuickResponse`.
+func NewCfnQuickResponsePropsMixin(props *CfnQuickResponseMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnQuickResponsePropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnQuickResponsePropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnQuickResponsePropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnQuickResponsePropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Wisdom::QuickResponse`.
+func NewCfnQuickResponsePropsMixin_Override(c CfnQuickResponsePropsMixin, props *CfnQuickResponseMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnQuickResponsePropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnQuickResponsePropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnQuickResponsePropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnQuickResponsePropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnQuickResponsePropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnQuickResponsePropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnQuickResponsePropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnQuickResponsePropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

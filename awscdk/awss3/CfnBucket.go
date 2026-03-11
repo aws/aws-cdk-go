@@ -18,21 +18,16 @@ import (
 // > You can only delete empty buckets. Deletion fails for buckets that have contents.
 //
 // Example:
-//   var childTemplate CfnInclude
+//   var cfnTemplate CfnInclude
 //
+//   cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
 //
-//   cfnBucket := childTemplate.GetResource(jsii.String("MyBucket")).(CfnBucket)
-//   cfnBucket.BucketName = "amzn-s3-demo-bucket1"
-//
-//   role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
-//   	AssumedBy: iam.NewAccountRootPrincipal(),
+//   role := iam.NewRole(this, jsii.String("Role"), &RoleProps{
+//   	AssumedBy: iam.NewAnyPrincipal(),
 //   })
-//
 //   role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
 //   	Actions: []*string{
-//   		jsii.String("s3:GetObject*"),
-//   		jsii.String("s3:GetBucket*"),
-//   		jsii.String("s3:List*"),
+//   		jsii.String("s3:*"),
 //   	},
 //   	Resources: []*string{
 //   		cfnBucket.attrArn,

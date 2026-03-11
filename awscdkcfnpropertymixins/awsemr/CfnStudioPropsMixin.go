@@ -1,0 +1,181 @@
+package awsemr
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsemr/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::EMR::Studio` resource specifies an Amazon EMR Studio.
+//
+// An EMR Studio is a web-based, integrated development environment for fully managed Jupyter notebooks that run on Amazon EMR clusters. For more information, see the [*Amazon EMR Management Guide*](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio.html) .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnStudioPropsMixin := awscdkcfnpropertymixins.Aws_emr.NewCfnStudioPropsMixin(&CfnStudioMixinProps{
+//   	AuthMode: jsii.String("authMode"),
+//   	DefaultS3Location: jsii.String("defaultS3Location"),
+//   	Description: jsii.String("description"),
+//   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	EngineSecurityGroupId: jsii.String("engineSecurityGroupId"),
+//   	IdcInstanceArn: jsii.String("idcInstanceArn"),
+//   	IdcUserAssignment: jsii.String("idcUserAssignment"),
+//   	IdpAuthUrl: jsii.String("idpAuthUrl"),
+//   	IdpRelayStateParameterName: jsii.String("idpRelayStateParameterName"),
+//   	Name: jsii.String("name"),
+//   	ServiceRole: jsii.String("serviceRole"),
+//   	SubnetIds: []interface{}{
+//   		jsii.String("subnetIds"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	TrustedIdentityPropagationEnabled: jsii.Boolean(false),
+//   	UserRole: jsii.String("userRole"),
+//   	VpcId: jsii.String("vpcId"),
+//   	WorkspaceSecurityGroupId: jsii.String("workspaceSecurityGroupId"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html
+//
+type CfnStudioPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnStudioMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnStudioPropsMixin
+type jsiiProxy_CfnStudioPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnStudioPropsMixin) Props() *CfnStudioMixinProps {
+	var returns *CfnStudioMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudioPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EMR::Studio`.
+func NewCfnStudioPropsMixin(props *CfnStudioMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnStudioPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnStudioPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnStudioPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_emr.CfnStudioPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EMR::Studio`.
+func NewCfnStudioPropsMixin_Override(c CfnStudioPropsMixin, props *CfnStudioMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_emr.CfnStudioPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnStudioPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStudioPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_emr.CfnStudioPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnStudioPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_emr.CfnStudioPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnStudioPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnStudioPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

@@ -1,0 +1,39 @@
+package previewawselasticloadbalancingv2mixins
+
+
+// Experimental.
+type CfnLoadBalancerAlbConnectionLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_TIME CfnLoadBalancerAlbConnectionLogsRecordFields = "TIME"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_CLIENT_IP CfnLoadBalancerAlbConnectionLogsRecordFields = "CLIENT_IP"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_CLIENT_PORT CfnLoadBalancerAlbConnectionLogsRecordFields = "CLIENT_PORT"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_LISTENER_PORT CfnLoadBalancerAlbConnectionLogsRecordFields = "LISTENER_PORT"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_PROTOCOL CfnLoadBalancerAlbConnectionLogsRecordFields = "TLS_PROTOCOL"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_CIPHER CfnLoadBalancerAlbConnectionLogsRecordFields = "TLS_CIPHER"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_HANDSHAKE_LATENCY CfnLoadBalancerAlbConnectionLogsRecordFields = "TLS_HANDSHAKE_LATENCY"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_LEAF_CLIENT_CERT_SUBJECT CfnLoadBalancerAlbConnectionLogsRecordFields = "LEAF_CLIENT_CERT_SUBJECT"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_LEAF_CLIENT_CERT_VALIDITY CfnLoadBalancerAlbConnectionLogsRecordFields = "LEAF_CLIENT_CERT_VALIDITY"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_LEAF_CLIENT_CERT_SERIAL_NUMBER CfnLoadBalancerAlbConnectionLogsRecordFields = "LEAF_CLIENT_CERT_SERIAL_NUMBER"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_VERIFY_STATUS CfnLoadBalancerAlbConnectionLogsRecordFields = "TLS_VERIFY_STATUS"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_CONN_TRACE_ID CfnLoadBalancerAlbConnectionLogsRecordFields = "CONN_TRACE_ID"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_TLS_KEYEXCHANGE CfnLoadBalancerAlbConnectionLogsRecordFields = "TLS_KEYEXCHANGE"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_ELB CfnLoadBalancerAlbConnectionLogsRecordFields = "ELB"
+	// Experimental.
+	CfnLoadBalancerAlbConnectionLogsRecordFields_IP_ADDRESS CfnLoadBalancerAlbConnectionLogsRecordFields = "IP_ADDRESS"
+)
+

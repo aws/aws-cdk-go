@@ -1,0 +1,192 @@
+package awsec2
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// In IPAM, a pool is a collection of contiguous IP addresses CIDRs.
+//
+// Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnIPAMPoolPropsMixin := awscdkcfnpropertymixins.Aws_ec2.NewCfnIPAMPoolPropsMixin(&CfnIPAMPoolMixinProps{
+//   	AddressFamily: jsii.String("addressFamily"),
+//   	AllocationDefaultNetmaskLength: jsii.Number(123),
+//   	AllocationMaxNetmaskLength: jsii.Number(123),
+//   	AllocationMinNetmaskLength: jsii.Number(123),
+//   	AllocationResourceTags: []interface{}{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	AutoImport: jsii.Boolean(false),
+//   	AwsService: jsii.String("awsService"),
+//   	Description: jsii.String("description"),
+//   	IpamScopeId: jsii.String("ipamScopeId"),
+//   	Locale: jsii.String("locale"),
+//   	ProvisionedCidrs: []interface{}{
+//   		&ProvisionedCidrProperty{
+//   			Cidr: jsii.String("cidr"),
+//   		},
+//   	},
+//   	PublicIpSource: jsii.String("publicIpSource"),
+//   	PubliclyAdvertisable: jsii.Boolean(false),
+//   	SourceIpamPoolId: jsii.String("sourceIpamPoolId"),
+//   	SourceResource: &SourceResourceProperty{
+//   		ResourceId: jsii.String("resourceId"),
+//   		ResourceOwner: jsii.String("resourceOwner"),
+//   		ResourceRegion: jsii.String("resourceRegion"),
+//   		ResourceType: jsii.String("resourceType"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html
+//
+type CfnIPAMPoolPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnIPAMPoolMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnIPAMPoolPropsMixin
+type jsiiProxy_CfnIPAMPoolPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnIPAMPoolPropsMixin) Props() *CfnIPAMPoolMixinProps {
+	var returns *CfnIPAMPoolMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIPAMPoolPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EC2::IPAMPool`.
+func NewCfnIPAMPoolPropsMixin(props *CfnIPAMPoolMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnIPAMPoolPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnIPAMPoolPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnIPAMPoolPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIPAMPoolPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EC2::IPAMPool`.
+func NewCfnIPAMPoolPropsMixin_Override(c CfnIPAMPoolPropsMixin, props *CfnIPAMPoolMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIPAMPoolPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnIPAMPoolPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMPoolPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIPAMPoolPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnIPAMPoolPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIPAMPoolPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnIPAMPoolPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnIPAMPoolPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

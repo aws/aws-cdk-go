@@ -1,0 +1,175 @@
+package awsapigatewayv2
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsapigatewayv2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::ApiGatewayV2::Authorizer` resource creates an authorizer for a WebSocket API or an HTTP API.
+//
+// To learn more, see [Controlling and managing access to a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) and [Controlling and managing access to an HTTP API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-access-control.html) in the *API Gateway Developer Guide* .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnAuthorizerPropsMixin := awscdkcfnpropertymixins.Aws_apigatewayv2.NewCfnAuthorizerPropsMixin(&CfnAuthorizerMixinProps{
+//   	ApiId: jsii.String("apiId"),
+//   	AuthorizerCredentialsArn: jsii.String("authorizerCredentialsArn"),
+//   	AuthorizerPayloadFormatVersion: jsii.String("authorizerPayloadFormatVersion"),
+//   	AuthorizerResultTtlInSeconds: jsii.Number(123),
+//   	AuthorizerType: jsii.String("authorizerType"),
+//   	AuthorizerUri: jsii.String("authorizerUri"),
+//   	EnableSimpleResponses: jsii.Boolean(false),
+//   	IdentitySource: []*string{
+//   		jsii.String("identitySource"),
+//   	},
+//   	IdentityValidationExpression: jsii.String("identityValidationExpression"),
+//   	JwtConfiguration: &JWTConfigurationProperty{
+//   		Audience: []*string{
+//   			jsii.String("audience"),
+//   		},
+//   		Issuer: jsii.String("issuer"),
+//   	},
+//   	Name: jsii.String("name"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html
+//
+type CfnAuthorizerPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnAuthorizerMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnAuthorizerPropsMixin
+type jsiiProxy_CfnAuthorizerPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnAuthorizerPropsMixin) Props() *CfnAuthorizerMixinProps {
+	var returns *CfnAuthorizerMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAuthorizerPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::ApiGatewayV2::Authorizer`.
+func NewCfnAuthorizerPropsMixin(props *CfnAuthorizerMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnAuthorizerPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnAuthorizerPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnAuthorizerPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_apigatewayv2.CfnAuthorizerPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::ApiGatewayV2::Authorizer`.
+func NewCfnAuthorizerPropsMixin_Override(c CfnAuthorizerPropsMixin, props *CfnAuthorizerMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_apigatewayv2.CfnAuthorizerPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnAuthorizerPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnAuthorizerPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_apigatewayv2.CfnAuthorizerPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnAuthorizerPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_apigatewayv2.CfnAuthorizerPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnAuthorizerPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnAuthorizerPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

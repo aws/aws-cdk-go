@@ -1,0 +1,206 @@
+package awsnimblestudio
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsnimblestudio/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnStudioComponentPropsMixin := awscdkcfnpropertymixins.Aws_nimblestudio.NewCfnStudioComponentPropsMixin(&CfnStudioComponentMixinProps{
+//   	Configuration: &StudioComponentConfigurationProperty{
+//   		ActiveDirectoryConfiguration: &ActiveDirectoryConfigurationProperty{
+//   			ComputerAttributes: []interface{}{
+//   				&ActiveDirectoryComputerAttributeProperty{
+//   					Name: jsii.String("name"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			DirectoryId: jsii.String("directoryId"),
+//   			OrganizationalUnitDistinguishedName: jsii.String("organizationalUnitDistinguishedName"),
+//   		},
+//   		ComputeFarmConfiguration: &ComputeFarmConfigurationProperty{
+//   			ActiveDirectoryUser: jsii.String("activeDirectoryUser"),
+//   			Endpoint: jsii.String("endpoint"),
+//   		},
+//   		LicenseServiceConfiguration: &LicenseServiceConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//   		},
+//   		SharedFileSystemConfiguration: &SharedFileSystemConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//   			FileSystemId: jsii.String("fileSystemId"),
+//   			LinuxMountPoint: jsii.String("linuxMountPoint"),
+//   			ShareName: jsii.String("shareName"),
+//   			WindowsMountDrive: jsii.String("windowsMountDrive"),
+//   		},
+//   	},
+//   	Description: jsii.String("description"),
+//   	Ec2SecurityGroupIds: []*string{
+//   		jsii.String("ec2SecurityGroupIds"),
+//   	},
+//   	InitializationScripts: []interface{}{
+//   		&StudioComponentInitializationScriptProperty{
+//   			LaunchProfileProtocolVersion: jsii.String("launchProfileProtocolVersion"),
+//   			Platform: jsii.String("platform"),
+//   			RunContext: jsii.String("runContext"),
+//   			Script: jsii.String("script"),
+//   		},
+//   	},
+//   	Name: jsii.String("name"),
+//   	ScriptParameters: []interface{}{
+//   		&ScriptParameterKeyValueProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	StudioId: jsii.String("studioId"),
+//   	Subtype: jsii.String("subtype"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	Type: jsii.String("type"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html
+//
+type CfnStudioComponentPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnStudioComponentMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnStudioComponentPropsMixin
+type jsiiProxy_CfnStudioComponentPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnStudioComponentPropsMixin) Props() *CfnStudioComponentMixinProps {
+	var returns *CfnStudioComponentMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudioComponentPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::NimbleStudio::StudioComponent`.
+func NewCfnStudioComponentPropsMixin(props *CfnStudioComponentMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnStudioComponentPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnStudioComponentPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnStudioComponentPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_nimblestudio.CfnStudioComponentPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::NimbleStudio::StudioComponent`.
+func NewCfnStudioComponentPropsMixin_Override(c CfnStudioComponentPropsMixin, props *CfnStudioComponentMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_nimblestudio.CfnStudioComponentPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnStudioComponentPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnStudioComponentPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_nimblestudio.CfnStudioComponentPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnStudioComponentPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_nimblestudio.CfnStudioComponentPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnStudioComponentPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnStudioComponentPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

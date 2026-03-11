@@ -1,0 +1,174 @@
+package awsservicediscovery
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsservicediscovery/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a public namespace based on DNS, which is visible on the internet.
+//
+// The namespace defines your service naming scheme. For example, if you name your namespace `example.com` and name your service `backend` , the resulting DNS name for the service is `backend.example.com` . You can discover instances that were registered with a public DNS namespace by using either a `DiscoverInstances` request or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account , see [AWS Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *AWS Cloud Map Developer Guide* .
+//
+// > The `CreatePublicDnsNamespace` API operation is not supported in the AWS GovCloud (US) Regions.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnPublicDnsNamespacePropsMixin := awscdkcfnpropertymixins.Aws_servicediscovery.NewCfnPublicDnsNamespacePropsMixin(&CfnPublicDnsNamespaceMixinProps{
+//   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
+//   	Properties: &PropertiesProperty{
+//   		DnsProperties: &PublicDnsPropertiesMutableProperty{
+//   			Soa: &SOAProperty{
+//   				Ttl: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
+//
+type CfnPublicDnsNamespacePropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnPublicDnsNamespaceMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnPublicDnsNamespacePropsMixin
+type jsiiProxy_CfnPublicDnsNamespacePropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnPublicDnsNamespacePropsMixin) Props() *CfnPublicDnsNamespaceMixinProps {
+	var returns *CfnPublicDnsNamespaceMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPublicDnsNamespacePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::ServiceDiscovery::PublicDnsNamespace`.
+func NewCfnPublicDnsNamespacePropsMixin(props *CfnPublicDnsNamespaceMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnPublicDnsNamespacePropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnPublicDnsNamespacePropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnPublicDnsNamespacePropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_servicediscovery.CfnPublicDnsNamespacePropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::ServiceDiscovery::PublicDnsNamespace`.
+func NewCfnPublicDnsNamespacePropsMixin_Override(c CfnPublicDnsNamespacePropsMixin, props *CfnPublicDnsNamespaceMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_servicediscovery.CfnPublicDnsNamespacePropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnPublicDnsNamespacePropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnPublicDnsNamespacePropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_servicediscovery.CfnPublicDnsNamespacePropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnPublicDnsNamespacePropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_servicediscovery.CfnPublicDnsNamespacePropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnPublicDnsNamespacePropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnPublicDnsNamespacePropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

@@ -1,0 +1,169 @@
+package awslambda
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awslambda/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::Lambda::LayerVersion` resource creates a [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) from a ZIP archive.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnLayerVersionPropsMixin := awscdkcfnpropertymixins.Aws_lambda.NewCfnLayerVersionPropsMixin(&CfnLayerVersionMixinProps{
+//   	CompatibleArchitectures: []*string{
+//   		jsii.String("compatibleArchitectures"),
+//   	},
+//   	CompatibleRuntimes: []*string{
+//   		jsii.String("compatibleRuntimes"),
+//   	},
+//   	Content: &ContentProperty{
+//   		S3Bucket: jsii.String("s3Bucket"),
+//   		S3Key: jsii.String("s3Key"),
+//   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
+//   	},
+//   	Description: jsii.String("description"),
+//   	LayerName: jsii.String("layerName"),
+//   	LicenseInfo: jsii.String("licenseInfo"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html
+//
+type CfnLayerVersionPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnLayerVersionMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnLayerVersionPropsMixin
+type jsiiProxy_CfnLayerVersionPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnLayerVersionPropsMixin) Props() *CfnLayerVersionMixinProps {
+	var returns *CfnLayerVersionMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLayerVersionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Lambda::LayerVersion`.
+func NewCfnLayerVersionPropsMixin(props *CfnLayerVersionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnLayerVersionPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnLayerVersionPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnLayerVersionPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnLayerVersionPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Lambda::LayerVersion`.
+func NewCfnLayerVersionPropsMixin_Override(c CfnLayerVersionPropsMixin, props *CfnLayerVersionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnLayerVersionPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnLayerVersionPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnLayerVersionPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnLayerVersionPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnLayerVersionPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnLayerVersionPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnLayerVersionPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnLayerVersionPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

@@ -1,0 +1,178 @@
+package awsdocdbelastic
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsdocdbelastic/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnClusterPropsMixin := awscdkcfnpropertymixins.Aws_docdbelastic.NewCfnClusterPropsMixin(&CfnClusterMixinProps{
+//   	AdminUserName: jsii.String("adminUserName"),
+//   	AdminUserPassword: jsii.String("adminUserPassword"),
+//   	AuthType: jsii.String("authType"),
+//   	BackupRetentionPeriod: jsii.Number(123),
+//   	ClusterName: jsii.String("clusterName"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
+//   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   	ShardCapacity: jsii.Number(123),
+//   	ShardCount: jsii.Number(123),
+//   	ShardInstanceCount: jsii.Number(123),
+//   	SubnetIds: []*string{
+//   		jsii.String("subnetIds"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcSecurityGroupIds: []interface{}{
+//   		jsii.String("vpcSecurityGroupIds"),
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html
+//
+type CfnClusterPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnClusterMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnClusterPropsMixin
+type jsiiProxy_CfnClusterPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnClusterPropsMixin) Props() *CfnClusterMixinProps {
+	var returns *CfnClusterMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClusterPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::DocDBElastic::Cluster`.
+func NewCfnClusterPropsMixin(props *CfnClusterMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnClusterPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnClusterPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnClusterPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_docdbelastic.CfnClusterPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::DocDBElastic::Cluster`.
+func NewCfnClusterPropsMixin_Override(c CfnClusterPropsMixin, props *CfnClusterMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_docdbelastic.CfnClusterPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnClusterPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnClusterPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_docdbelastic.CfnClusterPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnClusterPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_docdbelastic.CfnClusterPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnClusterPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnClusterPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

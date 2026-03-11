@@ -1,0 +1,241 @@
+package awselasticsearch
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awselasticsearch/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The AWS::Elasticsearch::Domain resource creates an Amazon OpenSearch Service domain.
+//
+// > The `AWS::Elasticsearch::Domain` resource is being replaced by the [AWS::OpenSearchService::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html) resource. While the legacy Elasticsearch resource and options are still supported, we recommend modifying your existing Cloudformation templates to use the new OpenSearch Service resource, which supports both OpenSearch and legacy Elasticsearch. For instructions to upgrade domains defined within CloudFormation from Elasticsearch to OpenSearch, see [Remarks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--remarks) .
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var accessPolicies interface{}
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnDomainPropsMixin := awscdkcfnpropertymixins.Aws_elasticsearch.NewCfnDomainPropsMixin(&CfnDomainMixinProps{
+//   	AccessPolicies: accessPolicies,
+//   	AdvancedOptions: map[string]*string{
+//   		"advancedOptionsKey": jsii.String("advancedOptions"),
+//   	},
+//   	AdvancedSecurityOptions: &AdvancedSecurityOptionsInputProperty{
+//   		AnonymousAuthEnabled: jsii.Boolean(false),
+//   		Enabled: jsii.Boolean(false),
+//   		InternalUserDatabaseEnabled: jsii.Boolean(false),
+//   		MasterUserOptions: &MasterUserOptionsProperty{
+//   			MasterUserArn: jsii.String("masterUserArn"),
+//   			MasterUserName: jsii.String("masterUserName"),
+//   			MasterUserPassword: jsii.String("masterUserPassword"),
+//   		},
+//   	},
+//   	CognitoOptions: &CognitoOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		IdentityPoolId: jsii.String("identityPoolId"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		UserPoolId: jsii.String("userPoolId"),
+//   	},
+//   	DomainArn: jsii.String("domainArn"),
+//   	DomainEndpointOptions: &DomainEndpointOptionsProperty{
+//   		CustomEndpoint: jsii.String("customEndpoint"),
+//   		CustomEndpointCertificateArn: jsii.String("customEndpointCertificateArn"),
+//   		CustomEndpointEnabled: jsii.Boolean(false),
+//   		EnforceHttps: jsii.Boolean(false),
+//   		TlsSecurityPolicy: jsii.String("tlsSecurityPolicy"),
+//   	},
+//   	DomainName: jsii.String("domainName"),
+//   	EbsOptions: &EBSOptionsProperty{
+//   		EbsEnabled: jsii.Boolean(false),
+//   		Iops: jsii.Number(123),
+//   		VolumeSize: jsii.Number(123),
+//   		VolumeType: jsii.String("volumeType"),
+//   	},
+//   	ElasticsearchClusterConfig: &ElasticsearchClusterConfigProperty{
+//   		ColdStorageOptions: &ColdStorageOptionsProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   		DedicatedMasterCount: jsii.Number(123),
+//   		DedicatedMasterEnabled: jsii.Boolean(false),
+//   		DedicatedMasterType: jsii.String("dedicatedMasterType"),
+//   		InstanceCount: jsii.Number(123),
+//   		InstanceType: jsii.String("instanceType"),
+//   		WarmCount: jsii.Number(123),
+//   		WarmEnabled: jsii.Boolean(false),
+//   		WarmType: jsii.String("warmType"),
+//   		ZoneAwarenessConfig: &ZoneAwarenessConfigProperty{
+//   			AvailabilityZoneCount: jsii.Number(123),
+//   		},
+//   		ZoneAwarenessEnabled: jsii.Boolean(false),
+//   	},
+//   	ElasticsearchVersion: jsii.String("elasticsearchVersion"),
+//   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
+//   	LogPublishingOptions: map[string]interface{}{
+//   		"logPublishingOptionsKey": &LogPublishingOptionProperty{
+//   			"cloudWatchLogsLogGroupArn": jsii.String("cloudWatchLogsLogGroupArn"),
+//   			"enabled": jsii.Boolean(false),
+//   		},
+//   	},
+//   	NodeToNodeEncryptionOptions: &NodeToNodeEncryptionOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
+//   	SnapshotOptions: &SnapshotOptionsProperty{
+//   		AutomatedSnapshotStartHour: jsii.Number(123),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcOptions: &VPCOptionsProperty{
+//   		SecurityGroupIds: []*string{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
+//
+type CfnDomainPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnDomainMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnDomainPropsMixin
+type jsiiProxy_CfnDomainPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnDomainPropsMixin) Props() *CfnDomainMixinProps {
+	var returns *CfnDomainMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomainPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Elasticsearch::Domain`.
+func NewCfnDomainPropsMixin(props *CfnDomainMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnDomainPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnDomainPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnDomainPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_elasticsearch.CfnDomainPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Elasticsearch::Domain`.
+func NewCfnDomainPropsMixin_Override(c CfnDomainPropsMixin, props *CfnDomainMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_elasticsearch.CfnDomainPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnDomainPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDomainPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_elasticsearch.CfnDomainPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnDomainPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_elasticsearch.CfnDomainPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnDomainPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnDomainPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

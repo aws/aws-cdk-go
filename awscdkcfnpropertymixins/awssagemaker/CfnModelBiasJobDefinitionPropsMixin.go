@@ -1,0 +1,250 @@
+package awssagemaker
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awssagemaker/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates the definition for a model bias job.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnModelBiasJobDefinitionPropsMixin := awscdkcfnpropertymixins.Aws_sagemaker.NewCfnModelBiasJobDefinitionPropsMixin(&CfnModelBiasJobDefinitionMixinProps{
+//   	EndpointName: jsii.String("endpointName"),
+//   	JobDefinitionName: jsii.String("jobDefinitionName"),
+//   	JobResources: &MonitoringResourcesProperty{
+//   		ClusterConfig: &ClusterConfigProperty{
+//   			InstanceCount: jsii.Number(123),
+//   			InstanceType: jsii.String("instanceType"),
+//   			VolumeKmsKeyId: jsii.String("volumeKmsKeyId"),
+//   			VolumeSizeInGb: jsii.Number(123),
+//   		},
+//   	},
+//   	ModelBiasAppSpecification: &ModelBiasAppSpecificationProperty{
+//   		ConfigUri: jsii.String("configUri"),
+//   		Environment: map[string]*string{
+//   			"environmentKey": jsii.String("environment"),
+//   		},
+//   		ImageUri: jsii.String("imageUri"),
+//   	},
+//   	ModelBiasBaselineConfig: &ModelBiasBaselineConfigProperty{
+//   		BaseliningJobName: jsii.String("baseliningJobName"),
+//   		ConstraintsResource: &ConstraintsResourceProperty{
+//   			S3Uri: jsii.String("s3Uri"),
+//   		},
+//   	},
+//   	ModelBiasJobInput: &ModelBiasJobInputProperty{
+//   		BatchTransformInput: &BatchTransformInputProperty{
+//   			DataCapturedDestinationS3Uri: jsii.String("dataCapturedDestinationS3Uri"),
+//   			DatasetFormat: &DatasetFormatProperty{
+//   				Csv: &CsvProperty{
+//   					Header: jsii.Boolean(false),
+//   				},
+//   				Json: &JsonProperty{
+//   					Line: jsii.Boolean(false),
+//   				},
+//   				Parquet: jsii.Boolean(false),
+//   			},
+//   			EndTimeOffset: jsii.String("endTimeOffset"),
+//   			FeaturesAttribute: jsii.String("featuresAttribute"),
+//   			InferenceAttribute: jsii.String("inferenceAttribute"),
+//   			LocalPath: jsii.String("localPath"),
+//   			ProbabilityAttribute: jsii.String("probabilityAttribute"),
+//   			ProbabilityThresholdAttribute: jsii.Number(123),
+//   			S3DataDistributionType: jsii.String("s3DataDistributionType"),
+//   			S3InputMode: jsii.String("s3InputMode"),
+//   			StartTimeOffset: jsii.String("startTimeOffset"),
+//   		},
+//   		EndpointInput: &EndpointInputProperty{
+//   			EndpointName: jsii.String("endpointName"),
+//   			EndTimeOffset: jsii.String("endTimeOffset"),
+//   			FeaturesAttribute: jsii.String("featuresAttribute"),
+//   			InferenceAttribute: jsii.String("inferenceAttribute"),
+//   			LocalPath: jsii.String("localPath"),
+//   			ProbabilityAttribute: jsii.String("probabilityAttribute"),
+//   			ProbabilityThresholdAttribute: jsii.Number(123),
+//   			S3DataDistributionType: jsii.String("s3DataDistributionType"),
+//   			S3InputMode: jsii.String("s3InputMode"),
+//   			StartTimeOffset: jsii.String("startTimeOffset"),
+//   		},
+//   		GroundTruthS3Input: &MonitoringGroundTruthS3InputProperty{
+//   			S3Uri: jsii.String("s3Uri"),
+//   		},
+//   	},
+//   	ModelBiasJobOutputConfig: &MonitoringOutputConfigProperty{
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   		MonitoringOutputs: []interface{}{
+//   			&MonitoringOutputProperty{
+//   				S3Output: &S3OutputProperty{
+//   					LocalPath: jsii.String("localPath"),
+//   					S3UploadMode: jsii.String("s3UploadMode"),
+//   					S3Uri: jsii.String("s3Uri"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	NetworkConfig: &NetworkConfigProperty{
+//   		EnableInterContainerTrafficEncryption: jsii.Boolean(false),
+//   		EnableNetworkIsolation: jsii.Boolean(false),
+//   		VpcConfig: &VpcConfigProperty{
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			Subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//   		},
+//   	},
+//   	RoleArn: jsii.String("roleArn"),
+//   	StoppingCondition: &StoppingConditionProperty{
+//   		MaxRuntimeInSeconds: jsii.Number(123),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
+//
+type CfnModelBiasJobDefinitionPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnModelBiasJobDefinitionMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnModelBiasJobDefinitionPropsMixin
+type jsiiProxy_CfnModelBiasJobDefinitionPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnModelBiasJobDefinitionPropsMixin) Props() *CfnModelBiasJobDefinitionMixinProps {
+	var returns *CfnModelBiasJobDefinitionMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModelBiasJobDefinitionPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::SageMaker::ModelBiasJobDefinition`.
+func NewCfnModelBiasJobDefinitionPropsMixin(props *CfnModelBiasJobDefinitionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnModelBiasJobDefinitionPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnModelBiasJobDefinitionPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnModelBiasJobDefinitionPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelBiasJobDefinitionPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::SageMaker::ModelBiasJobDefinition`.
+func NewCfnModelBiasJobDefinitionPropsMixin_Override(c CfnModelBiasJobDefinitionPropsMixin, props *CfnModelBiasJobDefinitionMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelBiasJobDefinitionPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnModelBiasJobDefinitionPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnModelBiasJobDefinitionPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelBiasJobDefinitionPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnModelBiasJobDefinitionPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelBiasJobDefinitionPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnModelBiasJobDefinitionPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnModelBiasJobDefinitionPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

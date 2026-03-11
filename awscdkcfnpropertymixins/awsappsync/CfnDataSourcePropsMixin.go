@@ -1,0 +1,208 @@
+package awsappsync
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsappsync/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::AppSync::DataSource` resource creates data sources for resolvers in AWS AppSync to connect to, such as Amazon DynamoDB , AWS Lambda , and Amazon OpenSearch Service .
+//
+// Resolvers use these data sources to fetch data when clients make GraphQL calls.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnDataSourcePropsMixin := awscdkcfnpropertymixins.Aws_appsync.NewCfnDataSourcePropsMixin(&CfnDataSourceMixinProps{
+//   	ApiId: jsii.String("apiId"),
+//   	Description: jsii.String("description"),
+//   	DynamoDbConfig: &DynamoDBConfigProperty{
+//   		AwsRegion: jsii.String("awsRegion"),
+//   		DeltaSyncConfig: &DeltaSyncConfigProperty{
+//   			BaseTableTtl: jsii.String("baseTableTtl"),
+//   			DeltaSyncTableName: jsii.String("deltaSyncTableName"),
+//   			DeltaSyncTableTtl: jsii.String("deltaSyncTableTtl"),
+//   		},
+//   		TableName: jsii.String("tableName"),
+//   		UseCallerCredentials: jsii.Boolean(false),
+//   		Versioned: jsii.Boolean(false),
+//   	},
+//   	ElasticsearchConfig: &ElasticsearchConfigProperty{
+//   		AwsRegion: jsii.String("awsRegion"),
+//   		Endpoint: jsii.String("endpoint"),
+//   	},
+//   	EventBridgeConfig: &EventBridgeConfigProperty{
+//   		EventBusArn: jsii.String("eventBusArn"),
+//   	},
+//   	HttpConfig: &HttpConfigProperty{
+//   		AuthorizationConfig: &AuthorizationConfigProperty{
+//   			AuthorizationType: jsii.String("authorizationType"),
+//   			AwsIamConfig: &AwsIamConfigProperty{
+//   				SigningRegion: jsii.String("signingRegion"),
+//   				SigningServiceName: jsii.String("signingServiceName"),
+//   			},
+//   		},
+//   		Endpoint: jsii.String("endpoint"),
+//   	},
+//   	LambdaConfig: &LambdaConfigProperty{
+//   		LambdaFunctionArn: jsii.String("lambdaFunctionArn"),
+//   	},
+//   	MetricsConfig: jsii.String("metricsConfig"),
+//   	Name: jsii.String("name"),
+//   	OpenSearchServiceConfig: &OpenSearchServiceConfigProperty{
+//   		AwsRegion: jsii.String("awsRegion"),
+//   		Endpoint: jsii.String("endpoint"),
+//   	},
+//   	RelationalDatabaseConfig: &RelationalDatabaseConfigProperty{
+//   		RdsHttpEndpointConfig: &RdsHttpEndpointConfigProperty{
+//   			AwsRegion: jsii.String("awsRegion"),
+//   			AwsSecretStoreArn: jsii.String("awsSecretStoreArn"),
+//   			DatabaseName: jsii.String("databaseName"),
+//   			DbClusterIdentifier: jsii.String("dbClusterIdentifier"),
+//   			Schema: jsii.String("schema"),
+//   		},
+//   		RelationalDatabaseSourceType: jsii.String("relationalDatabaseSourceType"),
+//   	},
+//   	ServiceRoleArn: jsii.String("serviceRoleArn"),
+//   	Type: jsii.String("type"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
+//
+type CfnDataSourcePropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnDataSourceMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnDataSourcePropsMixin
+type jsiiProxy_CfnDataSourcePropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnDataSourcePropsMixin) Props() *CfnDataSourceMixinProps {
+	var returns *CfnDataSourceMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSourcePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::AppSync::DataSource`.
+func NewCfnDataSourcePropsMixin(props *CfnDataSourceMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnDataSourcePropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnDataSourcePropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnDataSourcePropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_appsync.CfnDataSourcePropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::AppSync::DataSource`.
+func NewCfnDataSourcePropsMixin_Override(c CfnDataSourcePropsMixin, props *CfnDataSourceMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_appsync.CfnDataSourcePropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnDataSourcePropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnDataSourcePropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_appsync.CfnDataSourcePropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnDataSourcePropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_appsync.CfnDataSourcePropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnDataSourcePropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnDataSourcePropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

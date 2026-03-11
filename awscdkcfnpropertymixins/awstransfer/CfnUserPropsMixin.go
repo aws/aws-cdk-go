@@ -1,0 +1,186 @@
+package awstransfer
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awstransfer/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::Transfer::User` resource creates a user and associates them with an existing server.
+//
+// You can only create and associate users with servers that have the `IdentityProviderType` set to `SERVICE_MANAGED` . Using parameters for `CreateUser` , you can specify the user name, set the home directory, store the user's public key, and assign the user's AWS Identity and Access Management (IAM) role. You can also optionally add a session policy, and assign metadata with tags that can be used to group and search for users.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnUserPropsMixin := awscdkcfnpropertymixins.Aws_transfer.NewCfnUserPropsMixin(&CfnUserMixinProps{
+//   	HomeDirectory: jsii.String("homeDirectory"),
+//   	HomeDirectoryMappings: []interface{}{
+//   		&HomeDirectoryMapEntryProperty{
+//   			Entry: jsii.String("entry"),
+//   			Target: jsii.String("target"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
+//   	HomeDirectoryType: jsii.String("homeDirectoryType"),
+//   	Policy: jsii.String("policy"),
+//   	PosixProfile: &PosixProfileProperty{
+//   		Gid: jsii.Number(123),
+//   		SecondaryGids: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		Uid: jsii.Number(123),
+//   	},
+//   	Role: jsii.String("role"),
+//   	ServerId: jsii.String("serverId"),
+//   	SshPublicKeys: []*string{
+//   		jsii.String("sshPublicKeys"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	UserName: jsii.String("userName"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html
+//
+type CfnUserPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnUserMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnUserPropsMixin
+type jsiiProxy_CfnUserPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnUserPropsMixin) Props() *CfnUserMixinProps {
+	var returns *CfnUserMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUserPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Transfer::User`.
+func NewCfnUserPropsMixin(props *CfnUserMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnUserPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnUserPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnUserPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnUserPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Transfer::User`.
+func NewCfnUserPropsMixin_Override(c CfnUserPropsMixin, props *CfnUserMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnUserPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnUserPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnUserPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnUserPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnUserPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnUserPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnUserPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnUserPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

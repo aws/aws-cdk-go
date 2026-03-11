@@ -1,0 +1,36 @@
+package awsfsx
+
+
+// Describes the FSx for ONTAP attachment configuration of an S3 access point attachment.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   s3AccessPointOntapConfigurationProperty := &S3AccessPointOntapConfigurationProperty{
+//   	FileSystemIdentity: &OntapFileSystemIdentityProperty{
+//   		Type: jsii.String("type"),
+//   		UnixUser: &OntapUnixFileSystemUserProperty{
+//   			Name: jsii.String("name"),
+//   		},
+//   		WindowsUser: &OntapWindowsFileSystemUserProperty{
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
+//   	VolumeId: jsii.String("volumeId"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointontapconfiguration.html
+//
+type CfnS3AccessPointAttachmentPropsMixin_S3AccessPointOntapConfigurationProperty struct {
+	// The file system identity used to authorize file access requests made using the S3 access point.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointontapconfiguration.html#cfn-fsx-s3accesspointattachment-s3accesspointontapconfiguration-filesystemidentity
+	//
+	FileSystemIdentity interface{} `field:"optional" json:"fileSystemIdentity" yaml:"fileSystemIdentity"`
+	// The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-s3accesspointontapconfiguration.html#cfn-fsx-s3accesspointattachment-s3accesspointontapconfiguration-volumeid
+	//
+	VolumeId *string `field:"optional" json:"volumeId" yaml:"volumeId"`
+}
+

@@ -1,0 +1,183 @@
+package awsiotwireless
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsiotwireless/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a new service profile.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnServiceProfilePropsMixin := awscdkcfnpropertymixins.Aws_iotwireless.NewCfnServiceProfilePropsMixin(&CfnServiceProfileMixinProps{
+//   	LoRaWan: &LoRaWANServiceProfileProperty{
+//   		AddGwMetadata: jsii.Boolean(false),
+//   		ChannelMask: jsii.String("channelMask"),
+//   		DevStatusReqFreq: jsii.Number(123),
+//   		DlBucketSize: jsii.Number(123),
+//   		DlRate: jsii.Number(123),
+//   		DlRatePolicy: jsii.String("dlRatePolicy"),
+//   		DrMax: jsii.Number(123),
+//   		DrMin: jsii.Number(123),
+//   		HrAllowed: jsii.Boolean(false),
+//   		MinGwDiversity: jsii.Number(123),
+//   		NwkGeoLoc: jsii.Boolean(false),
+//   		PrAllowed: jsii.Boolean(false),
+//   		RaAllowed: jsii.Boolean(false),
+//   		ReportDevStatusBattery: jsii.Boolean(false),
+//   		ReportDevStatusMargin: jsii.Boolean(false),
+//   		TargetPer: jsii.Number(123),
+//   		UlBucketSize: jsii.Number(123),
+//   		UlRate: jsii.Number(123),
+//   		UlRatePolicy: jsii.String("ulRatePolicy"),
+//   	},
+//   	Name: jsii.String("name"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
+//
+type CfnServiceProfilePropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnServiceProfileMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnServiceProfilePropsMixin
+type jsiiProxy_CfnServiceProfilePropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnServiceProfilePropsMixin) Props() *CfnServiceProfileMixinProps {
+	var returns *CfnServiceProfileMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfilePropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::IoTWireless::ServiceProfile`.
+func NewCfnServiceProfilePropsMixin(props *CfnServiceProfileMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnServiceProfilePropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnServiceProfilePropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnServiceProfilePropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_iotwireless.CfnServiceProfilePropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::IoTWireless::ServiceProfile`.
+func NewCfnServiceProfilePropsMixin_Override(c CfnServiceProfilePropsMixin, props *CfnServiceProfileMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_iotwireless.CfnServiceProfilePropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnServiceProfilePropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnServiceProfilePropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_iotwireless.CfnServiceProfilePropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnServiceProfilePropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_iotwireless.CfnServiceProfilePropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnServiceProfilePropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnServiceProfilePropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

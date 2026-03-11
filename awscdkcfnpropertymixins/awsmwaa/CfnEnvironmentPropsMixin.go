@@ -1,0 +1,216 @@
+package awsmwaa
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsmwaa/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::MWAA::Environment` resource creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var airflowConfigurationOptions interface{}
+//   var mergeStrategy IMergeStrategy
+//   var tags interface{}
+//
+//   cfnEnvironmentPropsMixin := awscdkcfnpropertymixins.Aws_mwaa.NewCfnEnvironmentPropsMixin(&CfnEnvironmentMixinProps{
+//   	AirflowConfigurationOptions: airflowConfigurationOptions,
+//   	AirflowVersion: jsii.String("airflowVersion"),
+//   	DagS3Path: jsii.String("dagS3Path"),
+//   	EndpointManagement: jsii.String("endpointManagement"),
+//   	EnvironmentClass: jsii.String("environmentClass"),
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
+//   	KmsKey: jsii.String("kmsKey"),
+//   	LoggingConfiguration: &LoggingConfigurationProperty{
+//   		DagProcessingLogs: &ModuleLoggingConfigurationProperty{
+//   			CloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   			Enabled: jsii.Boolean(false),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   		SchedulerLogs: &ModuleLoggingConfigurationProperty{
+//   			CloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   			Enabled: jsii.Boolean(false),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   		TaskLogs: &ModuleLoggingConfigurationProperty{
+//   			CloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   			Enabled: jsii.Boolean(false),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   		WebserverLogs: &ModuleLoggingConfigurationProperty{
+//   			CloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   			Enabled: jsii.Boolean(false),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   		WorkerLogs: &ModuleLoggingConfigurationProperty{
+//   			CloudWatchLogGroupArn: jsii.String("cloudWatchLogGroupArn"),
+//   			Enabled: jsii.Boolean(false),
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   	},
+//   	MaxWebservers: jsii.Number(123),
+//   	MaxWorkers: jsii.Number(123),
+//   	MinWebservers: jsii.Number(123),
+//   	MinWorkers: jsii.Number(123),
+//   	Name: jsii.String("name"),
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		SecurityGroupIds: []interface{}{
+//   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []interface{}{
+//   			jsii.String("subnetIds"),
+//   		},
+//   	},
+//   	PluginsS3ObjectVersion: jsii.String("pluginsS3ObjectVersion"),
+//   	PluginsS3Path: jsii.String("pluginsS3Path"),
+//   	RequirementsS3ObjectVersion: jsii.String("requirementsS3ObjectVersion"),
+//   	RequirementsS3Path: jsii.String("requirementsS3Path"),
+//   	Schedulers: jsii.Number(123),
+//   	SourceBucketArn: jsii.String("sourceBucketArn"),
+//   	StartupScriptS3ObjectVersion: jsii.String("startupScriptS3ObjectVersion"),
+//   	StartupScriptS3Path: jsii.String("startupScriptS3Path"),
+//   	Tags: tags,
+//   	WebserverAccessMode: jsii.String("webserverAccessMode"),
+//   	WeeklyMaintenanceWindowStart: jsii.String("weeklyMaintenanceWindowStart"),
+//   	WorkerReplacementStrategy: jsii.String("workerReplacementStrategy"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
+//
+type CfnEnvironmentPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnEnvironmentMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnEnvironmentPropsMixin
+type jsiiProxy_CfnEnvironmentPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnEnvironmentPropsMixin) Props() *CfnEnvironmentMixinProps {
+	var returns *CfnEnvironmentMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEnvironmentPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::MWAA::Environment`.
+func NewCfnEnvironmentPropsMixin(props *CfnEnvironmentMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnEnvironmentPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnEnvironmentPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnEnvironmentPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_mwaa.CfnEnvironmentPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::MWAA::Environment`.
+func NewCfnEnvironmentPropsMixin_Override(c CfnEnvironmentPropsMixin, props *CfnEnvironmentMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_mwaa.CfnEnvironmentPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnEnvironmentPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEnvironmentPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_mwaa.CfnEnvironmentPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnEnvironmentPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_mwaa.CfnEnvironmentPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnEnvironmentPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnEnvironmentPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

@@ -1,0 +1,198 @@
+package awsefs
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsefs/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// The `AWS::EFS::FileSystem` resource creates a new, empty file system in Amazon Elastic File System ( Amazon EFS ).
+//
+// You must create a mount target ( [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) ) to mount your EFS file system on an Amazon EC2 or other AWS cloud compute resource.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var fileSystemPolicy interface{}
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnFileSystemPropsMixin := awscdkcfnpropertymixins.Aws_efs.NewCfnFileSystemPropsMixin(&CfnFileSystemMixinProps{
+//   	AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   	BackupPolicy: &BackupPolicyProperty{
+//   		Status: jsii.String("status"),
+//   	},
+//   	BypassPolicyLockoutSafetyCheck: jsii.Boolean(false),
+//   	Encrypted: jsii.Boolean(false),
+//   	FileSystemPolicy: fileSystemPolicy,
+//   	FileSystemProtection: &FileSystemProtectionProperty{
+//   		ReplicationOverwriteProtection: jsii.String("replicationOverwriteProtection"),
+//   	},
+//   	FileSystemTags: []ElasticFileSystemTagProperty{
+//   		&ElasticFileSystemTagProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	LifecyclePolicies: []interface{}{
+//   		&LifecyclePolicyProperty{
+//   			TransitionToArchive: jsii.String("transitionToArchive"),
+//   			TransitionToIa: jsii.String("transitionToIa"),
+//   			TransitionToPrimaryStorageClass: jsii.String("transitionToPrimaryStorageClass"),
+//   		},
+//   	},
+//   	PerformanceMode: jsii.String("performanceMode"),
+//   	ProvisionedThroughputInMibps: jsii.Number(123),
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Destinations: []interface{}{
+//   			&ReplicationDestinationProperty{
+//   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   				FileSystemId: jsii.String("fileSystemId"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   				Region: jsii.String("region"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				Status: jsii.String("status"),
+//   				StatusMessage: jsii.String("statusMessage"),
+//   			},
+//   		},
+//   	},
+//   	ThroughputMode: jsii.String("throughputMode"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
+//
+type CfnFileSystemPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnFileSystemMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnFileSystemPropsMixin
+type jsiiProxy_CfnFileSystemPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnFileSystemPropsMixin) Props() *CfnFileSystemMixinProps {
+	var returns *CfnFileSystemMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFileSystemPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EFS::FileSystem`.
+func NewCfnFileSystemPropsMixin(props *CfnFileSystemMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnFileSystemPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnFileSystemPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnFileSystemPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_efs.CfnFileSystemPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EFS::FileSystem`.
+func NewCfnFileSystemPropsMixin_Override(c CfnFileSystemPropsMixin, props *CfnFileSystemMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_efs.CfnFileSystemPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnFileSystemPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnFileSystemPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_efs.CfnFileSystemPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnFileSystemPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_efs.CfnFileSystemPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnFileSystemPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnFileSystemPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

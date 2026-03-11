@@ -1,0 +1,161 @@
+package awsec2
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsec2/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Grant or revoke permissions for service consumers (users, IAM roles, and AWS accounts) to connect to a VPC endpoint service.
+//
+// If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnVPCEndpointServicePermissionsPropsMixin := awscdkcfnpropertymixins.Aws_ec2.NewCfnVPCEndpointServicePermissionsPropsMixin(&CfnVPCEndpointServicePermissionsMixinProps{
+//   	AllowedPrincipals: []*string{
+//   		jsii.String("allowedPrincipals"),
+//   	},
+//   	ServiceId: jsii.String("serviceId"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html
+//
+type CfnVPCEndpointServicePermissionsPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnVPCEndpointServicePermissionsMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnVPCEndpointServicePermissionsPropsMixin
+type jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin) Props() *CfnVPCEndpointServicePermissionsMixinProps {
+	var returns *CfnVPCEndpointServicePermissionsMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::EC2::VPCEndpointServicePermissions`.
+func NewCfnVPCEndpointServicePermissionsPropsMixin(props *CfnVPCEndpointServicePermissionsMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnVPCEndpointServicePermissionsPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnVPCEndpointServicePermissionsPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnVPCEndpointServicePermissionsPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::EC2::VPCEndpointServicePermissions`.
+func NewCfnVPCEndpointServicePermissionsPropsMixin_Override(c CfnVPCEndpointServicePermissionsPropsMixin, props *CfnVPCEndpointServicePermissionsMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnVPCEndpointServicePermissionsPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnVPCEndpointServicePermissionsPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVPCEndpointServicePermissionsPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnVPCEndpointServicePermissionsPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnVPCEndpointServicePermissionsPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnVPCEndpointServicePermissionsPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnVPCEndpointServicePermissionsPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

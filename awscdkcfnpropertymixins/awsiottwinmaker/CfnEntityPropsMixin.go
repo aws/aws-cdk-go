@@ -1,0 +1,247 @@
+package awsiottwinmaker
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsiottwinmaker/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Use the `AWS::IoTTwinMaker::Entity` resource to declare an entity.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var dataValueProperty_ DataValueProperty
+//   var definition interface{}
+//   var error interface{}
+//   var mergeStrategy IMergeStrategy
+//   var relationshipValue interface{}
+//
+//   cfnEntityPropsMixin := awscdkcfnpropertymixins.Aws_iottwinmaker.NewCfnEntityPropsMixin(&CfnEntityMixinProps{
+//   	Components: map[string]interface{}{
+//   		"componentsKey": &ComponentProperty{
+//   			"componentName": jsii.String("componentName"),
+//   			"componentTypeId": jsii.String("componentTypeId"),
+//   			"definedIn": jsii.String("definedIn"),
+//   			"description": jsii.String("description"),
+//   			"properties": map[string]interface{}{
+//   				"propertiesKey": &PropertyProperty{
+//   					"definition": definition,
+//   					"value": &DataValueProperty{
+//   						"booleanValue": jsii.Boolean(false),
+//   						"doubleValue": jsii.Number(123),
+//   						"expression": jsii.String("expression"),
+//   						"integerValue": jsii.Number(123),
+//   						"listValue": []interface{}{
+//   							dataValueProperty_,
+//   						},
+//   						"longValue": jsii.Number(123),
+//   						"mapValue": map[string]interface{}{
+//   							"mapValueKey": dataValueProperty_,
+//   						},
+//   						"relationshipValue": relationshipValue,
+//   						"stringValue": jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   			"propertyGroups": map[string]interface{}{
+//   				"propertyGroupsKey": &PropertyGroupProperty{
+//   					"groupType": jsii.String("groupType"),
+//   					"propertyNames": []*string{
+//   						jsii.String("propertyNames"),
+//   					},
+//   				},
+//   			},
+//   			"status": &StatusProperty{
+//   				"error": error,
+//   				"state": jsii.String("state"),
+//   			},
+//   		},
+//   	},
+//   	CompositeComponents: map[string]interface{}{
+//   		"compositeComponentsKey": &CompositeComponentProperty{
+//   			"componentName": jsii.String("componentName"),
+//   			"componentPath": jsii.String("componentPath"),
+//   			"componentTypeId": jsii.String("componentTypeId"),
+//   			"description": jsii.String("description"),
+//   			"properties": map[string]interface{}{
+//   				"propertiesKey": &PropertyProperty{
+//   					"definition": definition,
+//   					"value": &DataValueProperty{
+//   						"booleanValue": jsii.Boolean(false),
+//   						"doubleValue": jsii.Number(123),
+//   						"expression": jsii.String("expression"),
+//   						"integerValue": jsii.Number(123),
+//   						"listValue": []interface{}{
+//   							dataValueProperty_,
+//   						},
+//   						"longValue": jsii.Number(123),
+//   						"mapValue": map[string]interface{}{
+//   							"mapValueKey": dataValueProperty_,
+//   						},
+//   						"relationshipValue": relationshipValue,
+//   						"stringValue": jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   			"propertyGroups": map[string]interface{}{
+//   				"propertyGroupsKey": &PropertyGroupProperty{
+//   					"groupType": jsii.String("groupType"),
+//   					"propertyNames": []*string{
+//   						jsii.String("propertyNames"),
+//   					},
+//   				},
+//   			},
+//   			"status": &StatusProperty{
+//   				"error": error,
+//   				"state": jsii.String("state"),
+//   			},
+//   		},
+//   	},
+//   	Description: jsii.String("description"),
+//   	EntityId: jsii.String("entityId"),
+//   	EntityName: jsii.String("entityName"),
+//   	ParentEntityId: jsii.String("parentEntityId"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	WorkspaceId: jsii.String("workspaceId"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html
+//
+type CfnEntityPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnEntityMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnEntityPropsMixin
+type jsiiProxy_CfnEntityPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnEntityPropsMixin) Props() *CfnEntityMixinProps {
+	var returns *CfnEntityMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEntityPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::IoTTwinMaker::Entity`.
+func NewCfnEntityPropsMixin(props *CfnEntityMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnEntityPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnEntityPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnEntityPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_iottwinmaker.CfnEntityPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::IoTTwinMaker::Entity`.
+func NewCfnEntityPropsMixin_Override(c CfnEntityPropsMixin, props *CfnEntityMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_iottwinmaker.CfnEntityPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnEntityPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEntityPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_iottwinmaker.CfnEntityPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnEntityPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_iottwinmaker.CfnEntityPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnEntityPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnEntityPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

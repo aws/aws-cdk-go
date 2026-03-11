@@ -1,0 +1,193 @@
+package awsnetworkmanager
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awsnetworkmanager/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Creates a VPC attachment on an edge location of a core network.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnVpcAttachmentPropsMixin := awscdkcfnpropertymixins.Aws_networkmanager.NewCfnVpcAttachmentPropsMixin(&CfnVpcAttachmentMixinProps{
+//   	CoreNetworkId: jsii.String("coreNetworkId"),
+//   	Options: &VpcOptionsProperty{
+//   		ApplianceModeSupport: jsii.Boolean(false),
+//   		DnsSupport: jsii.Boolean(false),
+//   		Ipv6Support: jsii.Boolean(false),
+//   		SecurityGroupReferencingSupport: jsii.Boolean(false),
+//   	},
+//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
+//   		AttachmentPolicyRuleNumber: jsii.Number(123),
+//   		SegmentName: jsii.String("segmentName"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
+//   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
+//   	SubnetArns: []*string{
+//   		jsii.String("subnetArns"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	VpcArn: jsii.String("vpcArn"),
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html
+//
+type CfnVpcAttachmentPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnVpcAttachmentMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnVpcAttachmentPropsMixin
+type jsiiProxy_CfnVpcAttachmentPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnVpcAttachmentPropsMixin) Props() *CfnVpcAttachmentMixinProps {
+	var returns *CfnVpcAttachmentMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachmentPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::NetworkManager::VpcAttachment`.
+func NewCfnVpcAttachmentPropsMixin(props *CfnVpcAttachmentMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnVpcAttachmentPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnVpcAttachmentPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnVpcAttachmentPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnVpcAttachmentPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::NetworkManager::VpcAttachment`.
+func NewCfnVpcAttachmentPropsMixin_Override(c CfnVpcAttachmentPropsMixin, props *CfnVpcAttachmentMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnVpcAttachmentPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnVpcAttachmentPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnVpcAttachmentPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnVpcAttachmentPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnVpcAttachmentPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnVpcAttachmentPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnVpcAttachmentPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnVpcAttachmentPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
