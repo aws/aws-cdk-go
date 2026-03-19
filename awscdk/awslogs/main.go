@@ -1402,6 +1402,7 @@ func init() {
 		"aws-cdk-lib.aws_logs.LogGroupGrants",
 		reflect.TypeOf((*LogGroupGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberProperty{JsiiProperty: "policyResource", GoGetter: "PolicyResource"},
 			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},

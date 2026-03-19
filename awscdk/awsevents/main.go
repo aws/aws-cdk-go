@@ -745,6 +745,7 @@ func init() {
 		"aws-cdk-lib.aws_events.EventBusGrants",
 		reflect.TypeOf((*EventBusGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "allPutEvents", GoMethod: "AllPutEvents"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 		},

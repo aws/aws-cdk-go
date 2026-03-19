@@ -141,6 +141,16 @@ type ExternalService interface {
 	EnableDeploymentAlarms(alarmNames *[]*string, options *DeploymentAlarmOptions)
 	// Enable Service Connect on this service.
 	EnableServiceConnect(config *ServiceConnectProps)
+	// Forces a new deployment of the service.
+	//
+	// This can be used to trigger a deployment without changing the task definition or desired count.
+	// ECS will start a new deployment even if there are no changes to the service configuration.
+	//
+	// **Important:** When called without a nonce, a timestamp is generated automatically, which means
+	// every `cdk synth` produces a different template and every `cdk deploy` triggers a new deployment
+	// regardless of whether any code has changed. To avoid this, provide a stable nonce value that only
+	// changes when you intentionally want to force a redeployment (e.g., an image digest or a version string).
+	ForceNewDeployment(nonce *string)
 	GeneratePhysicalName() *string
 	// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
 	//
@@ -726,6 +736,14 @@ func (e *jsiiProxy_ExternalService) EnableServiceConnect(config *ServiceConnectP
 		e,
 		"enableServiceConnect",
 		[]interface{}{config},
+	)
+}
+
+func (e *jsiiProxy_ExternalService) ForceNewDeployment(nonce *string) {
+	_jsii_.InvokeVoid(
+		e,
+		"forceNewDeployment",
+		[]interface{}{nonce},
 	)
 }
 

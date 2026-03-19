@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdevopsagent"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -150,6 +151,30 @@ func (c *jsiiProxy_CfnService) validateReplaceDependencyParameters(target awscdk
 func (c *jsiiProxy_CfnService) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnService_ArnForServiceParameters(resource interfacesawsdevopsagent.IServiceRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnService_FromServiceIdParameters(scope constructs.Construct, id *string, serviceId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if serviceId == nil {
+		return fmt.Errorf("parameter serviceId is required, but nil was provided")
 	}
 
 	return nil

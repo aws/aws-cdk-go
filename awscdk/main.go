@@ -191,6 +191,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.Bitrate",
+		reflect.TypeOf((*Bitrate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "isUnresolved", GoMethod: "IsUnresolved"},
+			_jsii_.MemberMethod{JsiiMethod: "toBps", GoMethod: "ToBps"},
+			_jsii_.MemberMethod{JsiiMethod: "toGbps", GoMethod: "ToGbps"},
+			_jsii_.MemberMethod{JsiiMethod: "toKbps", GoMethod: "ToKbps"},
+			_jsii_.MemberMethod{JsiiMethod: "toMbps", GoMethod: "ToMbps"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Bitrate{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.BootstraplessSynthesizer",
 		reflect.TypeOf((*BootstraplessSynthesizer)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2094,6 +2108,10 @@ func init() {
 		reflect.TypeOf((*EncodingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.EncryptedPermissionsOptions",
+		reflect.TypeOf((*EncryptedPermissionsOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.Environment",
 		reflect.TypeOf((*Environment)(nil)).Elem(),
 	)
@@ -2888,6 +2906,10 @@ func init() {
 		"aws-cdk-lib.PermissionsBoundaryBindOptions",
 		reflect.TypeOf((*PermissionsBoundaryBindOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.PermissionsOptions",
+		reflect.TypeOf((*PermissionsOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.PhysicalName",
 		reflect.TypeOf((*PhysicalName)(nil)).Elem(),
@@ -3094,6 +3116,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.SecretsManagerSecretOptions",
 		reflect.TypeOf((*SecretsManagerSecretOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.Shims",
+		reflect.TypeOf((*Shims)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Shims{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.Size",

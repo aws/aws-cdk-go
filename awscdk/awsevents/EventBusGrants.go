@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
@@ -22,6 +23,8 @@ import (
 //
 type EventBusGrants interface {
 	Resource() interfacesawsevents.IEventBusRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Permits an IAM Principal to send custom events to EventBridge so that they can be matched to rules.
 	AllPutEvents(grantee awsiam.IGrantable) awsiam.Grant
 }
@@ -55,6 +58,22 @@ func EventBusGrants_FromEventBus(resource interfacesawsevents.IEventBusRef) Even
 		"aws-cdk-lib.aws_events.EventBusGrants",
 		"fromEventBus",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (e *jsiiProxy_EventBusGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := e.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		e,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

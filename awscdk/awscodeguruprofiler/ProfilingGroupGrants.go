@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscodeguruprofiler"
 )
@@ -22,6 +23,8 @@ import (
 //
 type ProfilingGroupGrants interface {
 	Resource() interfacesawscodeguruprofiler.IProfilingGroupRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
 	//
 	// This will grant the following permissions:
@@ -67,6 +70,22 @@ func ProfilingGroupGrants_FromProfilingGroup(resource interfacesawscodeguruprofi
 		"aws-cdk-lib.aws_codeguruprofiler.ProfilingGroupGrants",
 		"fromProfilingGroup",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_ProfilingGroupGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := p.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		p,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

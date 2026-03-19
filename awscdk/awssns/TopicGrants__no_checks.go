@@ -4,6 +4,10 @@ package awssns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (t *jsiiProxy_TopicGrants) validateActionsParameters(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.EncryptedPermissionsOptions) error {
+	return nil
+}
+
 func (t *jsiiProxy_TopicGrants) validatePublishParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

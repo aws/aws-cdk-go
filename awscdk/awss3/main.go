@@ -190,6 +190,8 @@ func init() {
 		"aws-cdk-lib.aws_s3.BucketGrants",
 		reflect.TypeOf((*BucketGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actionsOnBucketAndObjectKeys", GoMethod: "ActionsOnBucketAndObjectKeys"},
+			_jsii_.MemberMethod{JsiiMethod: "actionsOnObjectKeys", GoMethod: "ActionsOnObjectKeys"},
 			_jsii_.MemberMethod{JsiiMethod: "delete", GoMethod: "Delete"},
 			_jsii_.MemberMethod{JsiiMethod: "publicAccess", GoMethod: "PublicAccess"},
 			_jsii_.MemberMethod{JsiiMethod: "put", GoMethod: "Put"},

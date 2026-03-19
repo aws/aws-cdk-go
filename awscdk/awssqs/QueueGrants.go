@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssqs"
 )
@@ -24,6 +25,8 @@ type QueueGrants interface {
 	EncryptedResource() awsiam.IEncryptedResource
 	PolicyResource() awsiam.IResourceWithPolicyV2
 	Resource() interfacesawssqs.IQueueRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.EncryptedPermissionsOptions) awsiam.Grant
 	// Grant permissions to consume messages from a queue.
 	//
 	// This will grant the following permissions:
@@ -110,6 +113,22 @@ func QueueGrants_FromQueue(resource interfacesawssqs.IQueueRef) QueueGrants {
 		"aws-cdk-lib.aws_sqs.QueueGrants",
 		"fromQueue",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (q *jsiiProxy_QueueGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.EncryptedPermissionsOptions) awsiam.Grant {
+	if err := q.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		q,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

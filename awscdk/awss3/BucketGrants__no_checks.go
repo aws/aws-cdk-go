@@ -4,6 +4,14 @@ package awss3
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (b *jsiiProxy_BucketGrants) validateActionsOnBucketAndObjectKeysParameters(identity awsiam.IGrantable) error {
+	return nil
+}
+
+func (b *jsiiProxy_BucketGrants) validateActionsOnObjectKeysParameters(identity awsiam.IGrantable) error {
+	return nil
+}
+
 func (b *jsiiProxy_BucketGrants) validateDeleteParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

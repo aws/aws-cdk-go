@@ -4,6 +4,10 @@ package awskinesisfirehose
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (d *jsiiProxy_DeliveryStreamGrants) validateActionsParameters(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) error {
+	return nil
+}
+
 func (d *jsiiProxy_DeliveryStreamGrants) validatePutRecordsParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

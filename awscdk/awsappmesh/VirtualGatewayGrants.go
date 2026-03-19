@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsappmesh"
 )
@@ -22,6 +23,8 @@ import (
 //
 type VirtualGatewayGrants interface {
 	Resource() interfacesawsappmesh.IVirtualGatewayRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
 	StreamAggregatedResources(grantee awsiam.IGrantable) awsiam.Grant
 }
@@ -55,6 +58,22 @@ func VirtualGatewayGrants_FromVirtualGateway(resource interfacesawsappmesh.IVirt
 		"aws-cdk-lib.aws_appmesh.VirtualGatewayGrants",
 		"fromVirtualGateway",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (v *jsiiProxy_VirtualGatewayGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := v.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		v,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

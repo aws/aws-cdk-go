@@ -35,6 +35,9 @@ import (
 //   	ImageTag: []*string{
 //   		jsii.String("imageTag"),
 //   	},
+//   	LastActivatedAt: []*string{
+//   		jsii.String("lastActivatedAt"),
+//   	},
 //   	ManifestMediaType: []*string{
 //   		jsii.String("manifestMediaType"),
 //   	},
@@ -43,6 +46,9 @@ import (
 //   	},
 //   	Result: []*string{
 //   		jsii.String("result"),
+//   	},
+//   	TargetStorageClass: []*string{
+//   		jsii.String("targetStorageClass"),
 //   	},
 //   }
 //
@@ -81,6 +87,13 @@ type ECRImageAction_ECRImageActionProps struct {
 	//
 	// Experimental.
 	ImageTag *[]*string `field:"optional" json:"imageTag" yaml:"imageTag"`
+	// last-activated-at property.
+	//
+	// Specify an array of string values to match this event if the actual value of last-activated-at is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
+	// Default: - Do not filter on this field.
+	//
+	// Experimental.
+	LastActivatedAt *[]*string `field:"optional" json:"lastActivatedAt" yaml:"lastActivatedAt"`
 	// manifest-media-type property.
 	//
 	// Specify an array of string values to match this event if the actual value of manifest-media-type is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
@@ -102,5 +115,12 @@ type ECRImageAction_ECRImageActionProps struct {
 	//
 	// Experimental.
 	Result *[]*string `field:"optional" json:"result" yaml:"result"`
+	// target-storage-class property.
+	//
+	// Specify an array of string values to match this event if the actual value of target-storage-class is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
+	// Default: - Do not filter on this field.
+	//
+	// Experimental.
+	TargetStorageClass *[]*string `field:"optional" json:"targetStorageClass" yaml:"targetStorageClass"`
 }
 

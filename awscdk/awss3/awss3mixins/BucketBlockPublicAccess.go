@@ -13,20 +13,13 @@ import (
 // S3-specific mixin for blocking public-access.
 //
 // Example:
-//   // Apply mixins fluently with .with()
-//   // Apply mixins fluently with .with()
-//   s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(awscdk.NewBucketBlockPublicAccess()).With(awscdk.NewBucketAutoDeleteObjects())
+//   // Applies an Aspect immediately as a Mixin
+//   versioningMixin := awscdk.Shims_AsMixin(NewEnableBucketVersioning())
+//   awscdk.Mixins_Of(scope).Apply(versioningMixin)
 //
-//   // Apply multiple mixins to the same construct
-//   // Apply multiple mixins to the same construct
-//   s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(awscdk.NewBucketBlockPublicAccess(), awscdk.NewBucketAutoDeleteObjects())
-//
-//   // Mixins work with all types of constructs:
-//   // L1, L2 and even custom constructs
-//   // Mixins work with all types of constructs:
-//   // L1, L2 and even custom constructs
-//   s3.NewBucket(stack, jsii.String("MyL2Bucket")).With(awscdk.NewBucketBlockPublicAccess())
-//   NewCustomBucket(stack, jsii.String("MyCustomBucket")).With(awscdk.NewBucketBlockPublicAccess())
+//   // Delays application of a Mixin to the synthesis phase
+//   publicAccessAspect := awscdk.Shims_AsAspect(awscdk.NewBucketBlockPublicAccess())
+//   awscdk.Aspects_Of(scope).Add(publicAccessAspect)
 //
 type BucketBlockPublicAccess interface {
 	awscdk.Mixin

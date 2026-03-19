@@ -4,6 +4,10 @@ package awssqs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (q *jsiiProxy_QueueGrants) validateActionsParameters(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.EncryptedPermissionsOptions) error {
+	return nil
+}
+
 func (q *jsiiProxy_QueueGrants) validateConsumeMessagesParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

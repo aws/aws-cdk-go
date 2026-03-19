@@ -323,6 +323,7 @@ func init() {
 		"@aws-cdk/aws-elasticache-alpha.ServerlessCacheGrants",
 		reflect.TypeOf((*ServerlessCacheGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "connect", GoMethod: "Connect"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 		},

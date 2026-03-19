@@ -1779,6 +1779,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.DistributionGrants",
 		reflect.TypeOf((*DistributionGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "createInvalidation", GoMethod: "CreateInvalidation"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 		},

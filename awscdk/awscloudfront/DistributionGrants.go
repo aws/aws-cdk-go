@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudfront"
 )
@@ -22,6 +23,8 @@ import (
 //
 type DistributionGrants interface {
 	Resource() interfacesawscloudfront.IDistributionRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Grant to create invalidations for this bucket to an IAM principal (Role/Group/User).
 	CreateInvalidation(grantee awsiam.IGrantable) awsiam.Grant
 }
@@ -55,6 +58,22 @@ func DistributionGrants_FromDistribution(resource interfacesawscloudfront.IDistr
 		"aws-cdk-lib.aws_cloudfront.DistributionGrants",
 		"fromDistribution",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DistributionGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := d.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		d,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

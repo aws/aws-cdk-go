@@ -1765,6 +1765,7 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.VirtualGatewayGrants",
 		reflect.TypeOf((*VirtualGatewayGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberMethod{JsiiMethod: "streamAggregatedResources", GoMethod: "StreamAggregatedResources"},
 		},
@@ -1832,6 +1833,7 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.VirtualNodeGrants",
 		reflect.TypeOf((*VirtualNodeGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberMethod{JsiiMethod: "streamAggregatedResources", GoMethod: "StreamAggregatedResources"},
 		},

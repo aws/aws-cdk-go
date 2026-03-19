@@ -355,6 +355,7 @@ func init() {
 		"aws-cdk-lib.aws_sqs.QueueGrants",
 		reflect.TypeOf((*QueueGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "consumeMessages", GoMethod: "ConsumeMessages"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptedResource", GoGetter: "EncryptedResource"},
 			_jsii_.MemberProperty{JsiiProperty: "policyResource", GoGetter: "PolicyResource"},

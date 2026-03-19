@@ -28,6 +28,14 @@ func (p *jsiiProxy_ParameterGroup) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func validateParameterGroup_ForClusterParameters(scope constructs.Construct, id *string, props *ParameterGroupProps) error {
+	return nil
+}
+
+func validateParameterGroup_ForInstanceParameters(scope constructs.Construct, id *string, props *ParameterGroupProps) error {
+	return nil
+}
+
 func validateParameterGroup_FromParameterGroupNameParameters(scope constructs.Construct, id *string, parameterGroupName *string) error {
 	return nil
 }

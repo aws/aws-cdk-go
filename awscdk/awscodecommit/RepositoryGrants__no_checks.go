@@ -4,6 +4,10 @@ package awscodecommit
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_RepositoryGrants) validateActionsParameters(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) error {
+	return nil
+}
+
 func (r *jsiiProxy_RepositoryGrants) validatePullParameters(grantee awsiam.IGrantable) error {
 	return nil
 }

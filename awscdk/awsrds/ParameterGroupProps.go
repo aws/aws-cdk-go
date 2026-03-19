@@ -7,23 +7,15 @@ import (
 // Properties for a parameter group.
 //
 // Example:
-//   var vpc Vpc
-//
-//
-//   parameterGroup := rds.NewParameterGroup(this, jsii.String("ParameterGroup"), &ParameterGroupProps{
-//   	Engine: rds.DatabaseInstanceEngine_SqlServerEe(&SqlServerEeInstanceEngineProps{
-//   		Version: rds.SqlServerEngineVersion_VER_11(),
+//   parameterGroup := rds.ParameterGroup_ForInstance(this, jsii.String("InstanceParameterGroup"), &ParameterGroupProps{
+//   	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+//   		Version: rds.MysqlEngineVersion_VER_8_0_35(),
 //   	}),
-//   	Name: jsii.String("my-parameter-group"),
+//   	Description: jsii.String("Parameter group for MySQL"),
 //   	Parameters: map[string]*string{
-//   		"locks": jsii.String("100"),
+//   		"max_connections": jsii.String("150"),
+//   		"slow_query_log": jsii.String("1"),
 //   	},
-//   })
-//
-//   rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
-//   	Engine: rds.DatabaseInstanceEngine_SQL_SERVER_EE(),
-//   	Vpc: Vpc,
-//   	ParameterGroup: ParameterGroup,
 //   })
 //
 type ParameterGroupProps struct {

@@ -117,7 +117,7 @@ type BucketProps struct {
 	// Intelligent Tiering Configurations.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html
 	//
-	// Default: No Intelligent Tiiering Configurations.
+	// Default: No Intelligent Tiering Configurations.
 	//
 	IntelligentTieringConfigurations *[]*IntelligentTieringConfiguration `field:"optional" json:"intelligentTieringConfigurations" yaml:"intelligentTieringConfigurations"`
 	// The inventory configuration of the bucket.

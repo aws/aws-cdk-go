@@ -2677,6 +2677,33 @@ ecs.NewExternalService(this, jsii.String("ExternalService"), &ExternalServicePro
 })
 ```
 
+### Force New Deployment
+
+You can force a new deployment of a service without changing the task definition or desired count.
+This is useful when you want ECS to pull the latest container image with the same tag or to trigger a redeployment.
+
+When called without a nonce, a timestamp is generated automatically. This means every `cdk synth`
+produces a different template and every `cdk deploy` triggers a new deployment, regardless of
+whether any code has changed. To control when deployments happen, provide a stable nonce that only
+changes when you intentionally want to redeploy (e.g., an image digest or a version string).
+
+```go
+var cluster Cluster
+var taskDefinition TaskDefinition
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+})
+
+// Force a new deployment with an auto-generated nonce (deploys on every `cdk deploy`)
+service.ForceNewDeployment()
+
+// Or provide your own nonce to control when deployments are triggered
+service.ForceNewDeployment(jsii.String("my-custom-nonce-v2"))
+```
+
 ## Mixins
 
 ECS provides [mixins](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins) that can be applied to L1 and L2 constructs.

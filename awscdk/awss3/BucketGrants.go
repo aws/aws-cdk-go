@@ -18,6 +18,14 @@ import (
 //   s3.BucketGrants_FromBucket(bucket).Delete(principal)
 //
 type BucketGrants interface {
+	// Grants the given actions on both the bucket and the bucket's objects to the given principal.
+	//
+	// KMS actions (prefixed with `kms:`) are automatically separated and granted on the encryption key.
+	ActionsOnBucketAndObjectKeys(identity awsiam.IGrantable, objectsKeyPattern *string, actions ...*string) awsiam.Grant
+	// Grants the given actions on the bucket's objects to the given principal.
+	//
+	// KMS actions (prefixed with `kms:`) are automatically separated and granted on the encryption key.
+	ActionsOnObjectKeys(identity awsiam.IGrantable, objectsKeyPattern *string, actions ...*string) awsiam.Grant
 	// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
 	Delete(grantee awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
 	// Allows unrestricted access to objects from this bucket.
@@ -91,6 +99,48 @@ func BucketGrants_FromBucket(bucket interfacesawss3.IBucketRef) BucketGrants {
 		"aws-cdk-lib.aws_s3.BucketGrants",
 		"fromBucket",
 		[]interface{}{bucket},
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BucketGrants) ActionsOnBucketAndObjectKeys(identity awsiam.IGrantable, objectsKeyPattern *string, actions ...*string) awsiam.Grant {
+	if err := b.validateActionsOnBucketAndObjectKeysParameters(identity); err != nil {
+		panic(err)
+	}
+	args := []interface{}{identity, objectsKeyPattern}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		b,
+		"actionsOnBucketAndObjectKeys",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (b *jsiiProxy_BucketGrants) ActionsOnObjectKeys(identity awsiam.IGrantable, objectsKeyPattern *string, actions ...*string) awsiam.Grant {
+	if err := b.validateActionsOnObjectKeysParameters(identity); err != nil {
+		panic(err)
+	}
+	args := []interface{}{identity, objectsKeyPattern}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		b,
+		"actionsOnObjectKeys",
+		args,
 		&returns,
 	)
 

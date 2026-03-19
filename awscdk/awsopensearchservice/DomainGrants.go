@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsopensearchservice"
 )
@@ -22,6 +23,8 @@ import (
 //
 type DomainGrants interface {
 	Resource() interfacesawsopensearchservice.IDomainRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
 	Read(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
@@ -59,6 +62,22 @@ func DomainGrants_FromDomain(resource interfacesawsopensearchservice.IDomainRef)
 		"aws-cdk-lib.aws_opensearchservice.DomainGrants",
 		"fromDomain",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DomainGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := d.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		d,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

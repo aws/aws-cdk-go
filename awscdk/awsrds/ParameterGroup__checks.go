@@ -76,6 +76,44 @@ func (p *jsiiProxy_ParameterGroup) validateGetResourceNameAttributeParameters(na
 	return nil
 }
 
+func validateParameterGroup_ForClusterParameters(scope constructs.Construct, id *string, props *ParameterGroupProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateParameterGroup_ForInstanceParameters(scope constructs.Construct, id *string, props *ParameterGroupProps) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateParameterGroup_FromParameterGroupNameParameters(scope constructs.Construct, id *string, parameterGroupName *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

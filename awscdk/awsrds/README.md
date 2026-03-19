@@ -1572,6 +1572,44 @@ rds.NewDatabaseInstance(this, jsii.String("Database"), &DatabaseInstanceProps{
 
 You cannot specify a parameter map and a parameter group at the same time.
 
+### Creating Standalone Parameter Groups
+
+In some scenarios, you may want to create a parameter group that exists independently
+of a database instance or cluster.
+
+By default, `ParameterGroup` uses a lazy creation pattern and only generates the
+CloudFormation resource when bound to an instance or cluster. To create a standalone
+parameter group, use the static factory methods `forInstance()` or `forCluster()`:
+
+**For instance parameter group (AWS::RDS::DBParameterGroup):**
+
+```go
+parameterGroup := rds.ParameterGroup_ForInstance(this, jsii.String("InstanceParameterGroup"), &ParameterGroupProps{
+	Engine: rds.DatabaseInstanceEngine_Mysql(&MySqlInstanceEngineProps{
+		Version: rds.MysqlEngineVersion_VER_8_0_35(),
+	}),
+	Description: jsii.String("Parameter group for MySQL"),
+	Parameters: map[string]*string{
+		"max_connections": jsii.String("150"),
+		"slow_query_log": jsii.String("1"),
+	},
+})
+```
+
+**For cluster parameter group (AWS::RDS::DBClusterParameterGroup):**
+
+```go
+clusterParameterGroup := rds.ParameterGroup_ForCluster(this, jsii.String("ClusterParameterGroup"), &ParameterGroupProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_04_0(),
+	}),
+	Description: jsii.String("Parameter group for Aurora MySQL"),
+	Parameters: map[string]*string{
+		"aurora_parallel_query": jsii.String("1"),
+	},
+})
+```
+
 ## Serverless v1
 
 [Amazon Aurora Serverless v1](https://aws.amazon.com/rds/aurora/serverless/) is an on-demand, auto-scaling configuration for Amazon

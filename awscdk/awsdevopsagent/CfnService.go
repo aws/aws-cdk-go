@@ -555,6 +555,43 @@ func (j *jsiiProxy_CfnService)SetServiceType(val *string) {
 	)
 }
 
+func CfnService_ArnForService(resource interfacesawsdevopsagent.IServiceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnService_ArnForServiceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsagent.CfnService",
+		"arnForService",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IServiceRef from a serviceId.
+func CfnService_FromServiceId(scope constructs.Construct, id *string, serviceId *string) interfacesawsdevopsagent.IServiceRef {
+	_init_.Initialize()
+
+	if err := validateCfnService_FromServiceIdParameters(scope, id, serviceId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdevopsagent.IServiceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsagent.CfnService",
+		"fromServiceId",
+		[]interface{}{scope, id, serviceId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

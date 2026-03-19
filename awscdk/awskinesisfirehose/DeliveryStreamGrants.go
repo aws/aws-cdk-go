@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskinesisfirehose"
 )
@@ -22,6 +23,8 @@ import (
 //
 type DeliveryStreamGrants interface {
 	Resource() interfacesawskinesisfirehose.IDeliveryStreamRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Grant the `grantee` identity permissions to perform `actions`.
 	PutRecords(grantee awsiam.IGrantable) awsiam.Grant
 }
@@ -55,6 +58,22 @@ func DeliveryStreamGrants_FromDeliveryStream(resource interfacesawskinesisfireho
 		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamGrants",
 		"fromDeliveryStream",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (d *jsiiProxy_DeliveryStreamGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := d.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		d,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

@@ -11,6 +11,22 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
+func (b *jsiiProxy_BucketGrants) validateActionsOnBucketAndObjectKeysParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (b *jsiiProxy_BucketGrants) validateActionsOnObjectKeysParameters(identity awsiam.IGrantable) error {
+	if identity == nil {
+		return fmt.Errorf("parameter identity is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_BucketGrants) validateDeleteParameters(grantee awsiam.IGrantable) error {
 	if grantee == nil {
 		return fmt.Errorf("parameter grantee is required, but nil was provided")

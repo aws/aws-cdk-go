@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
@@ -23,6 +24,8 @@ import (
 type LogGroupGrants interface {
 	PolicyResource() awsiam.IResourceWithPolicyV2
 	Resource() interfacesawslogs.ILogGroupRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Give permissions to read and filter events from this log group.
 	Read(grantee awsiam.IGrantable) awsiam.Grant
 	// Give permissions to create and write to streams in this log group.
@@ -68,6 +71,22 @@ func LogGroupGrants_FromLogGroup(resource interfacesawslogs.ILogGroupRef) LogGro
 		"aws-cdk-lib.aws_logs.LogGroupGrants",
 		"fromLogGroup",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroupGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := l.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		l,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

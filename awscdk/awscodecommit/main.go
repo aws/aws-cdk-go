@@ -221,6 +221,7 @@ func init() {
 		"aws-cdk-lib.aws_codecommit.RepositoryGrants",
 		reflect.TypeOf((*RepositoryGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "pull", GoMethod: "Pull"},
 			_jsii_.MemberMethod{JsiiMethod: "pullPush", GoMethod: "PullPush"},
 			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},

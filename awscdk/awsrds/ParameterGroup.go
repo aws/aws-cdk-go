@@ -13,8 +13,8 @@ import (
 
 // A parameter group.
 //
-// Represents both a cluster parameter group,
-// and an instance parameter group.
+// Represents both a cluster parameter group (AWS::RDS::DBClusterParameterGroup),
+// and an instance parameter group (AWS::RDS::DBParameterGroup).
 //
 // Example:
 //   var vpc Vpc
@@ -201,6 +201,54 @@ func NewParameterGroup_Override(p ParameterGroup, scope constructs.Construct, id
 		[]interface{}{scope, id, props},
 		p,
 	)
+}
+
+// Creates a standalone cluster parameter group.
+//
+// This method allows you to explicitly create a parameter group
+// without binding it to a database cluster.
+//
+// Returns: cluster parameter group (AWS::RDS::DBClusterParameterGroup).
+func ParameterGroup_ForCluster(scope constructs.Construct, id *string, props *ParameterGroupProps) IParameterGroup {
+	_init_.Initialize()
+
+	if err := validateParameterGroup_ForClusterParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns IParameterGroup
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"forCluster",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a standalone instance parameter group.
+//
+// This method allows you to explicitly create a parameter group
+// without binding it to a database instance.
+//
+// Returns: instance parameter group (AWS::RDS::DBParameterGroup).
+func ParameterGroup_ForInstance(scope constructs.Construct, id *string, props *ParameterGroupProps) IParameterGroup {
+	_init_.Initialize()
+
+	if err := validateParameterGroup_ForInstanceParameters(scope, id, props); err != nil {
+		panic(err)
+	}
+	var returns IParameterGroup
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"forInstance",
+		[]interface{}{scope, id, props},
+		&returns,
+	)
+
+	return returns
 }
 
 // Imports a parameter group.

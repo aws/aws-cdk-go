@@ -482,6 +482,27 @@ awscdk.Size_Kibibytes(jsii.Number(2050)).ToMebibytes(&SizeConversionOptions{
 })
 ```
 
+## Bitrate
+
+To make specification of bitrate values unambiguous, a class called
+`Bitrate` is available.
+
+An instance of `Bitrate` is initialized through one of its static factory methods:
+
+```go
+awscdk.Bitrate_Bps(jsii.Number(5000)) // 5,000 bits per second
+awscdk.Bitrate_Kbps(jsii.Number(500)) // 500 kilobits per second
+awscdk.Bitrate_Mbps(jsii.Number(10)) // 10 megabits per second
+awscdk.Bitrate_Gbps(jsii.Number(1))
+```
+
+Instances of `Bitrate` created with one of the units can be converted into others:
+
+```go
+awscdk.Bitrate_Mbps(jsii.Number(10)).ToBps() // yields 10000000
+awscdk.Bitrate_Mbps(jsii.Number(10)).ToKbps()
+```
+
 ## Secrets
 
 To help avoid accidental storage of secrets as plain text, we use the `SecretValue` type to
@@ -2171,6 +2192,23 @@ for _, aspectApplication := range aspectApplications {
 	aspectApplication.priority = 700
 }
 ```
+
+### Converting between Aspects and Mixins
+
+Since Mixins and Aspects are both implementations of the visitor pattern, they can be converted from each other using the `Shims` class:
+
+```go
+// Applies an Aspect immediately as a Mixin
+versioningMixin := awscdk.Shims_AsMixin(NewEnableBucketVersioning())
+awscdk.Mixins_Of(scope).Apply(versioningMixin)
+
+// Delays application of a Mixin to the synthesis phase
+publicAccessAspect := awscdk.Shims_AsAspect(awscdk.NewBucketBlockPublicAccess())
+awscdk.Aspects_Of(scope).Add(publicAccessAspect)
+```
+
+When shimming a Mixin to an Aspect, the Mixin will automatically only be applied to supported constructs (via `supports()`).
+Going from an Aspect to a Mixin, the Aspect will be applied to every node.
 
 ## Blueprint Property Injection
 

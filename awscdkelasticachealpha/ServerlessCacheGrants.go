@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkelasticachealpha/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawselasticache"
 )
@@ -24,6 +25,9 @@ import (
 type ServerlessCacheGrants interface {
 	// Experimental.
 	Resource() interfacesawselasticache.IServerlessCacheRef
+	// Grant the given identity custom permissions.
+	// Experimental.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Grant connect permissions to the cache.
 	// Experimental.
 	Connect(grantee awsiam.IGrantable) awsiam.Grant
@@ -59,6 +63,22 @@ func ServerlessCacheGrants_FromServerlessCache(resource interfacesawselasticache
 		"@aws-cdk/aws-elasticache-alpha.ServerlessCacheGrants",
 		"fromServerlessCache",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ServerlessCacheGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := s.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		s,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 

@@ -34,10 +34,6 @@ app := core.NewApp()
 stack := core.NewStack(app, jsii.String("FlinkAppTest"))
 
 flinkRuntimes := []Runtime{
-	flink.Runtime_FLINK_1_6(),
-	flink.Runtime_FLINK_1_8(),
-	flink.Runtime_FLINK_1_11(),
-	flink.Runtime_FLINK_1_13(),
 	flink.Runtime_FLINK_1_15(),
 	flink.Runtime_FLINK_1_18(),
 	flink.Runtime_FLINK_1_19(),

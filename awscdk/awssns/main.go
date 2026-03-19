@@ -573,6 +573,7 @@ func init() {
 		"aws-cdk-lib.aws_sns.TopicGrants",
 		reflect.TypeOf((*TopicGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptedResource", GoGetter: "EncryptedResource"},
 			_jsii_.MemberProperty{JsiiProperty: "policyResource", GoGetter: "PolicyResource"},
 			_jsii_.MemberMethod{JsiiMethod: "publish", GoMethod: "Publish"},

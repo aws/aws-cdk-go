@@ -489,6 +489,7 @@ func init() {
 		"aws-cdk-lib.aws_kinesisfirehose.DeliveryStreamGrants",
 		reflect.TypeOf((*DeliveryStreamGrants)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
 			_jsii_.MemberMethod{JsiiMethod: "putRecords", GoMethod: "PutRecords"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 		},

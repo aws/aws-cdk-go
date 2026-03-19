@@ -4,6 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsapigateway"
 )
@@ -22,6 +23,8 @@ import (
 //
 type ApiKeyGrants interface {
 	Resource() interfacesawsapigateway.IApiKeyRef
+	// Grant the given identity custom permissions.
+	Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant
 	// Permits the IAM principal all read operations through this key.
 	Read(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits the IAM principal all read and write operations through this key.
@@ -59,6 +62,22 @@ func ApiKeyGrants_FromApiKey(resource interfacesawsapigateway.IApiKeyRef) ApiKey
 		"aws-cdk-lib.aws_apigateway.ApiKeyGrants",
 		"fromApiKey",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+func (a *jsiiProxy_ApiKeyGrants) Actions(grantee awsiam.IGrantable, actions *[]*string, options *awscdk.PermissionsOptions) awsiam.Grant {
+	if err := a.validateActionsParameters(grantee, actions, options); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		a,
+		"actions",
+		[]interface{}{grantee, actions, options},
 		&returns,
 	)
 
