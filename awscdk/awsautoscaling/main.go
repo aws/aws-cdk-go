@@ -931,6 +931,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.InstanceLifecyclePolicy",
+		reflect.TypeOf((*InstanceLifecyclePolicy)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.InstancesDistribution",
 		reflect.TypeOf((*InstancesDistribution)(nil)).Elem(),
 	)
@@ -1046,6 +1050,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.RequestCountScalingProps",
 		reflect.TypeOf((*RequestCountScalingProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.RetentionTriggers",
+		reflect.TypeOf((*RetentionTriggers)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.RollingUpdateOptions",
@@ -1210,6 +1218,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.TargetTrackingScalingPolicyProps",
 		reflect.TypeOf((*TargetTrackingScalingPolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_autoscaling.TerminateHookAbandonAction",
+		reflect.TypeOf((*TerminateHookAbandonAction)(nil)).Elem(),
+		map[string]interface{}{
+			"RETAIN": TerminateHookAbandonAction_RETAIN,
+			"TERMINATE": TerminateHookAbandonAction_TERMINATE,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_autoscaling.TerminationPolicy",

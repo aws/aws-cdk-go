@@ -124,6 +124,10 @@ func init() {
 		reflect.TypeOf((*CfnReplicationGroupPropsMixin_DestinationDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnReplicationGroupPropsMixin.EndpointProperty",
+		reflect.TypeOf((*CfnReplicationGroupPropsMixin_EndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnReplicationGroupPropsMixin.KinesisFirehoseDestinationDetailsProperty",
 		reflect.TypeOf((*CfnReplicationGroupPropsMixin_KinesisFirehoseDestinationDetailsProperty)(nil)).Elem(),
 	)
@@ -134,6 +138,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnReplicationGroupPropsMixin.NodeGroupConfigurationProperty",
 		reflect.TypeOf((*CfnReplicationGroupPropsMixin_NodeGroupConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnReplicationGroupPropsMixin.ReadEndPointProperty",
+		reflect.TypeOf((*CfnReplicationGroupPropsMixin_ReadEndPointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnSecurityGroupIngressMixinProps",

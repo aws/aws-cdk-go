@@ -29,6 +29,9 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),
+//   	PeerNetworkRouteTableIds: []*string{
+//   		jsii.String("peerNetworkRouteTableIds"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

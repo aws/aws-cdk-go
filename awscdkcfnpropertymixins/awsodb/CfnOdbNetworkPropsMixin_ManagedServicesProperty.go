@@ -9,6 +9,23 @@ package awsodb
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   managedServicesProperty := &ManagedServicesProperty{
+//   	CrossRegionS3RestoreSourcesAccess: []interface{}{
+//   		&CrossRegionS3RestoreSourcesAccessProperty{
+//   			Ipv4Addresses: []*string{
+//   				jsii.String("ipv4Addresses"),
+//   			},
+//   			Region: jsii.String("region"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
+//   	KmsAccess: &KmsAccessProperty{
+//   		DomainName: jsii.String("domainName"),
+//   		Ipv4Addresses: []*string{
+//   			jsii.String("ipv4Addresses"),
+//   		},
+//   		KmsPolicyDocument: jsii.String("kmsPolicyDocument"),
+//   		Status: jsii.String("status"),
+//   	},
 //   	ManagedS3BackupAccess: &ManagedS3BackupAccessProperty{
 //   		Ipv4Addresses: []*string{
 //   			jsii.String("ipv4Addresses"),
@@ -32,6 +49,14 @@ package awsodb
 //   		VpcEndpointId: jsii.String("vpcEndpointId"),
 //   		VpcEndpointType: jsii.String("vpcEndpointType"),
 //   	},
+//   	StsAccess: &StsAccessProperty{
+//   		DomainName: jsii.String("domainName"),
+//   		Ipv4Addresses: []*string{
+//   			jsii.String("ipv4Addresses"),
+//   		},
+//   		Status: jsii.String("status"),
+//   		StsPolicyDocument: jsii.String("stsPolicyDocument"),
+//   	},
 //   	ZeroEtlAccess: &ZeroEtlAccessProperty{
 //   		Cidr: jsii.String("cidr"),
 //   		Status: jsii.String("status"),
@@ -41,6 +66,14 @@ package awsodb
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html
 //
 type CfnOdbNetworkPropsMixin_ManagedServicesProperty struct {
+	// The access configuration for the cross-Region Amazon S3 database restore source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html#cfn-odb-odbnetwork-managedservices-crossregions3restoresourcesaccess
+	//
+	CrossRegionS3RestoreSourcesAccess interface{} `field:"optional" json:"crossRegionS3RestoreSourcesAccess" yaml:"crossRegionS3RestoreSourcesAccess"`
+	// The AWS Key Management Service (KMS) access configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html#cfn-odb-odbnetwork-managedservices-kmsaccess
+	//
+	KmsAccess interface{} `field:"optional" json:"kmsAccess" yaml:"kmsAccess"`
 	// The managed Amazon S3 backup access configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html#cfn-odb-odbnetwork-managedservices-manageds3backupaccess
 	//
@@ -65,6 +98,10 @@ type CfnOdbNetworkPropsMixin_ManagedServicesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html#cfn-odb-odbnetwork-managedservices-servicenetworkendpoint
 	//
 	ServiceNetworkEndpoint interface{} `field:"optional" json:"serviceNetworkEndpoint" yaml:"serviceNetworkEndpoint"`
+	// The AWS Security Token Service (STS) access configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html#cfn-odb-odbnetwork-managedservices-stsaccess
+	//
+	StsAccess interface{} `field:"optional" json:"stsAccess" yaml:"stsAccess"`
 	// The Zero-ETL access configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html#cfn-odb-odbnetwork-managedservices-zeroetlaccess
 	//

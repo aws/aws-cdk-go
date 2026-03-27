@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnApi) validateSetCorsParameters(val interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnApi) validateSetDefinitionBodyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApi) validateSetDefinitionUriParameters(val interface{}) error {
 	return nil
 }
@@ -124,7 +128,15 @@ func (j *jsiiProxy_CfnApi) validateSetEndpointConfigurationParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnApi) validateSetGatewayResponsesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApi) validateSetMethodSettingsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApi) validateSetModelsParameters(val interface{}) error {
 	return nil
 }
 

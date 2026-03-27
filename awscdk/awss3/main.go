@@ -25,6 +25,16 @@ func init() {
 		reflect.TypeOf((*BlockPublicAccessOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_s3.BlockedEncryptionType",
+		reflect.TypeOf((*BlockedEncryptionType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_BlockedEncryptionType{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_s3.Bucket",
 		reflect.TypeOf((*Bucket)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -539,6 +549,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrWebsiteUrl", GoGetter: "AttrWebsiteUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketEncryption", GoGetter: "BucketEncryption"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketName", GoGetter: "BucketName"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamePrefix", GoGetter: "BucketNamePrefix"},
+			_jsii_.MemberProperty{JsiiProperty: "bucketNamespace", GoGetter: "BucketNamespace"},
 			_jsii_.MemberProperty{JsiiProperty: "bucketRef", GoGetter: "BucketRef"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

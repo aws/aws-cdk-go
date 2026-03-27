@@ -27,12 +27,19 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	BackupSubnetCidr: jsii.String("backupSubnetCidr"),
 //   	ClientSubnetCidr: jsii.String("clientSubnetCidr"),
+//   	CrossRegionS3RestoreSources: []*string{
+//   		jsii.String("crossRegionS3RestoreSources"),
+//   	},
 //   	CustomDomainName: jsii.String("customDomainName"),
 //   	DefaultDnsPrefix: jsii.String("defaultDnsPrefix"),
 //   	DeleteAssociatedResources: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
+//   	KmsAccess: jsii.String("kmsAccess"),
+//   	KmsPolicyDocument: jsii.String("kmsPolicyDocument"),
 //   	S3Access: jsii.String("s3Access"),
 //   	S3PolicyDocument: jsii.String("s3PolicyDocument"),
+//   	StsAccess: jsii.String("stsAccess"),
+//   	StsPolicyDocument: jsii.String("stsPolicyDocument"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

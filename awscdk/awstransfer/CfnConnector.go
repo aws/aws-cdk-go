@@ -608,6 +608,9 @@ func (j *jsiiProxy_CfnConnector)SetAccessRole(val *string) {
 }
 
 func (j *jsiiProxy_CfnConnector)SetAs2Config(val interface{}) {
+	if err := j.validateSetAs2ConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"as2Config",

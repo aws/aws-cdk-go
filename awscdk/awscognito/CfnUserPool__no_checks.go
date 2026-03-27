@@ -140,6 +140,10 @@ func (j *jsiiProxy_CfnUserPool) validateSetUserPoolAddOnsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserPool) validateSetUserPoolTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserPool) validateSetVerificationMessageTemplateParameters(val interface{}) error {
 	return nil
 }

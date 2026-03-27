@@ -222,6 +222,14 @@ func (j *jsiiProxy_CfnMLTransform) validateSetRoleParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnMLTransform) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnMLTransform) validateSetTransformEncryptionParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

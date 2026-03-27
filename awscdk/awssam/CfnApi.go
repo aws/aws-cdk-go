@@ -825,6 +825,9 @@ func (j *jsiiProxy_CfnApi)SetCors(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnApi)SetDefinitionBody(val interface{}) {
+	if err := j.validateSetDefinitionBodyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"definitionBody",
@@ -885,6 +888,9 @@ func (j *jsiiProxy_CfnApi)SetEndpointConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnApi)SetGatewayResponses(val interface{}) {
+	if err := j.validateSetGatewayResponsesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"gatewayResponses",
@@ -912,6 +918,9 @@ func (j *jsiiProxy_CfnApi)SetMinimumCompressionSize(val *float64) {
 }
 
 func (j *jsiiProxy_CfnApi)SetModels(val interface{}) {
+	if err := j.validateSetModelsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"models",

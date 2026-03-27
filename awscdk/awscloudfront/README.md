@@ -148,7 +148,7 @@ distributionConfig := &DistributionConfigProperty{
 }
 
 // Override the distribution configuration to enable multi-tenancy.
-cfnDistribution.DistributionConfig = distributionConfig
+cfnDistribution.distributionConfig = distributionConfig
 
 // Create a distribution tenant using an existing ACM certificate
 cfnDistributionTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("distribution-tenant"), &CfnDistributionTenantProps{
@@ -245,7 +245,7 @@ distributionConfig := &DistributionConfigProperty{
 }
 
 // Override the distribution configuration to enable multi-tenancy.
-cfnDistribution.DistributionConfig = distributionConfig
+cfnDistribution.distributionConfig = distributionConfig
 
 // Create a connection group and a cname record in an existing hosted zone to validate domain ownership
 connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("cf-hosted-connection-group"), &CfnConnectionGroupProps{
@@ -357,7 +357,7 @@ distributionConfig := &DistributionConfigProperty{
 }
 
 // Override the distribution configuration to enable multi-tenancy.
-cfnDistribution.DistributionConfig = distributionConfig
+cfnDistribution.distributionConfig = distributionConfig
 
 // Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
 connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{
@@ -1003,6 +1003,36 @@ cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	AutoPublish: jsii.Boolean(false),
 })
 ```
+
+#### Runtime Version
+
+CloudFront Functions support two runtime versions: `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+By default, new projects use `cloudfront-js-2.0`, which is the recommended runtime version with
+enhanced functionality.
+
+You can explicitly specify the runtime version:
+
+```go
+// Use v2.0 explicitly (same as default for new projects)
+// Use v2.0 explicitly (same as default for new projects)
+cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
+	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
+})
+
+// Use v1.0 for legacy compatibility
+// Use v1.0 for legacy compatibility
+cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
+	Code: cloudfront.FunctionCode_*FromInline(jsii.String("function handler(event) { return event.request }")),
+	Runtime: cloudfront.FunctionRuntime_JS_1_0(),
+})
+```
+
+**Note:** Functions associated with a Key Value Store always use `cloudfront-js-2.0`, as
+Key Value Store support requires the v2.0 runtime.
+
+When the `@aws-cdk/aws-cloudfront:defaultFunctionRuntimeV2_0` feature flag is disabled,
+the runtime defaults to `cloudfront-js-1.0` for backward compatibility.
 
 ### Key Value Store
 

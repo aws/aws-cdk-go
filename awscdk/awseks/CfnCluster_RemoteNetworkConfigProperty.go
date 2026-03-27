@@ -18,8 +18,6 @@ package awseks
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
 //   	RemotePodNetworks: []interface{}{
 //   		&RemotePodNetworkProperty{
 //   			Cidrs: []*string{
@@ -48,7 +46,7 @@ type CfnCluster_RemoteNetworkConfigProperty struct {
 	// - Each host must allow TCP and UDP network connectivity to and from other hosts that are running `CoreDNS` on UDP port `53` for service and pod DNS names.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html#cfn-eks-cluster-remotenetworkconfig-remotenodenetworks
 	//
-	RemoteNodeNetworks interface{} `field:"required" json:"remoteNodeNetworks" yaml:"remoteNodeNetworks"`
+	RemoteNodeNetworks interface{} `field:"optional" json:"remoteNodeNetworks" yaml:"remoteNodeNetworks"`
 	// The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
 	//
 	// These CIDR blocks are determined by configuring your Container Network Interface (CNI) plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin for Kubernetes isn't available for on-premises and edge locations.

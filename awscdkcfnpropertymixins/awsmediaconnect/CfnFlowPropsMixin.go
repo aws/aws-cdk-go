@@ -25,6 +25,10 @@ import (
 //
 //   cfnFlowPropsMixin := awscdkcfnpropertymixins.Aws_mediaconnect.NewCfnFlowPropsMixin(&CfnFlowMixinProps{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	EncodingConfig: &EncodingConfigProperty{
+//   		EncodingProfile: jsii.String("encodingProfile"),
+//   		VideoMaxBitrate: jsii.Number(123),
+//   	},
 //   	FlowSize: jsii.String("flowSize"),
 //   	Maintenance: &MaintenanceProperty{
 //   		MaintenanceDay: jsii.String("maintenanceDay"),
@@ -50,6 +54,12 @@ import (
 //   			MediaStreamId: jsii.Number(123),
 //   			MediaStreamName: jsii.String("mediaStreamName"),
 //   			MediaStreamType: jsii.String("mediaStreamType"),
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
 //   			VideoFormat: jsii.String("videoFormat"),
 //   		},
 //   	},
@@ -106,6 +116,9 @@ import (
 //   		},
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
+//   		NdiSourceSettings: &NdiSourceSettingsProperty{
+//   			SourceName: jsii.String("sourceName"),
+//   		},
 //   		Protocol: jsii.String("protocol"),
 //   		RouterIntegrationState: jsii.String("routerIntegrationState"),
 //   		RouterIntegrationTransitDecryption: &FlowTransitEncryptionProperty{
@@ -125,6 +138,12 @@ import (
 //   		SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   		SourceListenerPort: jsii.Number(123),
 //   		StreamId: jsii.String("streamId"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   		WhitelistCidr: jsii.String("whitelistCidr"),
 //   	},
@@ -160,6 +179,12 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaces: []interface{}{
 //   		&VpcInterfaceProperty{
 //   			Name: jsii.String("name"),
@@ -172,6 +197,12 @@ import (
 //   				jsii.String("securityGroupIds"),
 //   			},
 //   			SubnetId: jsii.String("subnetId"),
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{

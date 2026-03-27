@@ -116,10 +116,6 @@ func init() {
 		reflect.TypeOf((*CfnWorkspaceInstancePropsMixin_InstanceMaintenanceOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_workspacesinstances.CfnWorkspaceInstancePropsMixin.InstanceMarketOptionsRequestProperty",
-		reflect.TypeOf((*CfnWorkspaceInstancePropsMixin_InstanceMarketOptionsRequestProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_workspacesinstances.CfnWorkspaceInstancePropsMixin.InstanceMetadataOptionsRequestProperty",
 		reflect.TypeOf((*CfnWorkspaceInstancePropsMixin_InstanceMetadataOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -150,10 +146,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_workspacesinstances.CfnWorkspaceInstancePropsMixin.RunInstancesMonitoringEnabledProperty",
 		reflect.TypeOf((*CfnWorkspaceInstancePropsMixin_RunInstancesMonitoringEnabledProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_workspacesinstances.CfnWorkspaceInstancePropsMixin.SpotMarketOptionsProperty",
-		reflect.TypeOf((*CfnWorkspaceInstancePropsMixin_SpotMarketOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_workspacesinstances.CfnWorkspaceInstancePropsMixin.TagSpecificationProperty",

@@ -8,26 +8,28 @@ import (
 // Basic properties for a lifecycle hook.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
 //
-//   var lifecycleHookTarget ILifecycleHookTarget
-//   var role Role
 //
-//   basicLifecycleHookProps := &BasicLifecycleHookProps{
-//   	LifecycleTransition: awscdk.Aws_autoscaling.LifecycleTransition_INSTANCE_LAUNCHING,
+//   asg := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: MachineImage,
 //
-//   	// the properties below are optional
-//   	DefaultResult: awscdk.*Aws_autoscaling.DefaultResult_CONTINUE,
-//   	HeartbeatTimeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   	LifecycleHookName: jsii.String("lifecycleHookName"),
-//   	NotificationMetadata: jsii.String("notificationMetadata"),
-//   	NotificationTarget: lifecycleHookTarget,
-//   	Role: role,
-//   }
+//   	// Configure instance lifecycle policy
+//   	InstanceLifecyclePolicy: &InstanceLifecyclePolicy{
+//   		RetentionTriggers: &RetentionTriggers{
+//   			TerminateHookAbandon: autoscaling.TerminateHookAbandonAction_RETAIN,
+//   		},
+//   	},
+//   })
+//
+//   // Add termination lifecycle hook (required for the policy to take effect)
+//   asg.addLifecycleHook(jsii.String("TerminationHook"), &BasicLifecycleHookProps{
+//   	LifecycleTransition: autoscaling.LifecycleTransition_INSTANCE_TERMINATING,
+//   })
 //
 type BasicLifecycleHookProps struct {
 	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.

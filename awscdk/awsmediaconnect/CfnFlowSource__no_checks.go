@@ -92,11 +92,19 @@ func (j *jsiiProxy_CfnFlowSource) validateSetDescriptionParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowSource) validateSetFlowArnParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowSource) validateSetGatewayBridgeSourceParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnFlowSource) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFlowSource) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

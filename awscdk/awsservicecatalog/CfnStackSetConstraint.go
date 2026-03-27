@@ -51,6 +51,7 @@ type CfnStackSetConstraint interface {
 	// AdminRole ARN.
 	AdminRole() *string
 	SetAdminRole(val *string)
+	// Unique identifier for the constraint.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

@@ -23,6 +23,10 @@ type ContainerImageAssetMetadataEntry struct {
 	// Default: no build args are passed.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Build contexts to pass to the `docker build` command.
+	// Default: no build contexts are passed.
+	//
+	BuildContexts *map[string]*string `field:"optional" json:"buildContexts" yaml:"buildContexts"`
 	// Build secrets to pass to the `docker build` command.
 	// Default: no build secrets are passed.
 	//

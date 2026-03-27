@@ -22,6 +22,7 @@ import (
 //
 //   cfnFlowSource := awscdk.Aws_mediaconnect.NewCfnFlowSource(this, jsii.String("MyCfnFlowSource"), &CfnFlowSourceProps{
 //   	Description: jsii.String("description"),
+//   	FlowArn: jsii.String("flowArn"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -39,7 +40,6 @@ import (
 //   		Url: jsii.String("url"),
 //   	},
 //   	EntitlementArn: jsii.String("entitlementArn"),
-//   	FlowArn: jsii.String("flowArn"),
 //   	GatewayBridgeSource: &GatewayBridgeSourceProperty{
 //   		BridgeArn: jsii.String("bridgeArn"),
 //
@@ -58,6 +58,12 @@ import (
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   	SourceListenerPort: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
 //   })
@@ -68,6 +74,7 @@ type CfnFlowSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IFlowSourceRef
+	awscdk.ITaggableV2
 	// The IP address that the flow listens on for incoming content.
 	AttrIngestIp() *string
 	// The ARN of the source.
@@ -76,6 +83,8 @@ type CfnFlowSource interface {
 	//
 	// If the protocol of the source is Zixi, the port must be set to 2088.
 	AttrSourceIngestPort() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -92,7 +101,9 @@ type CfnFlowSource interface {
 	Description() *string
 	SetDescription(val *string)
 	// The ARN of the entitlement that allows you to subscribe to this flow.
+	// Deprecated: this property has been deprecated.
 	EntitlementArn() *string
+	// Deprecated: this property has been deprecated.
 	SetEntitlementArn(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the flow this source is connected to.
@@ -139,10 +150,14 @@ type CfnFlowSource interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// The port that the flow uses to send outbound requests to initiate connection with the sender.
+	// Deprecated: this property has been deprecated.
 	SenderControlPort() *float64
+	// Deprecated: this property has been deprecated.
 	SetSenderControlPort(val *float64)
 	// The IP address that the flow communicates with to initiate connection with the sender.
+	// Deprecated: this property has been deprecated.
 	SenderIpAddress() *string
+	// Deprecated: this property has been deprecated.
 	SetSenderIpAddress(val *string)
 	// Source IP or domain name for SRT-caller protocol.
 	SourceListenerAddress() *string
@@ -157,6 +172,9 @@ type CfnFlowSource interface {
 	// The stream ID that you want to use for this transport.
 	StreamId() *string
 	SetStreamId(val *string)
+	// Key-value pairs that can be used to tag and organize this flow source.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -315,6 +333,7 @@ type jsiiProxy_CfnFlowSource struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsmediaconnectIFlowSourceRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFlowSource) AttrIngestIp() *string {
@@ -342,6 +361,16 @@ func (j *jsiiProxy_CfnFlowSource) AttrSourceIngestPort() *string {
 	_jsii_.Get(
 		j,
 		"attrSourceIngestPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -607,6 +636,16 @@ func (j *jsiiProxy_CfnFlowSource) StreamId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowSource) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowSource) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -708,6 +747,9 @@ func (j *jsiiProxy_CfnFlowSource)SetEntitlementArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnFlowSource)SetFlowArn(val *string) {
+	if err := j.validateSetFlowArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"flowArn",
@@ -813,6 +855,17 @@ func (j *jsiiProxy_CfnFlowSource)SetStreamId(val *string) {
 	_jsii_.Set(
 		j,
 		"streamId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

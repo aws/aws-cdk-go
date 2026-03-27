@@ -24,6 +24,7 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //
 //   	// the properties below are optional
+//   	CostScaleFactor: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Tags: []CfnTag{
@@ -52,6 +53,8 @@ type CfnFarm interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	CostScaleFactor() *float64
+	SetCostScaleFactor(val *float64)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -307,6 +310,16 @@ func (j *jsiiProxy_CfnFarm) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFarm) CostScaleFactor() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"costScaleFactor",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFarm) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -464,6 +477,14 @@ func NewCfnFarm_Override(c CfnFarm, scope constructs.Construct, id *string, prop
 		"aws-cdk-lib.aws_deadline.CfnFarm",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFarm)SetCostScaleFactor(val *float64) {
+	_jsii_.Set(
+		j,
+		"costScaleFactor",
+		val,
 	)
 }
 

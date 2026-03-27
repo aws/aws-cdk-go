@@ -59,6 +59,13 @@ type BucketProps struct {
 	// Default: false.
 	//
 	AutoDeleteObjects *bool `field:"optional" json:"autoDeleteObjects" yaml:"autoDeleteObjects"`
+	// Encryption types that should be blocked for this bucket. Use `NONE` to allow all encryption types.
+	//
+	// At least one `BlockedEncryptionType` must be given. If `NONE` is given, it must be
+	// the only `BlockedEncryptionType` in the list.
+	// Default: - Amazon S3 determines which encryption types to block.
+	//
+	BlockedEncryptionTypes *[]BlockedEncryptionType `field:"optional" json:"blockedEncryptionTypes" yaml:"blockedEncryptionTypes"`
 	// The block public access configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html
 	//

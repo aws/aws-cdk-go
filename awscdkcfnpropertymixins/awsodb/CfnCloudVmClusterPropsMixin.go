@@ -64,6 +64,13 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	GiVersion: jsii.String("giVersion"),
 //   	Hostname: jsii.String("hostname"),
+//   	IamRoles: []interface{}{
+//   		&IamRoleProperty{
+//   			AwsIntegration: jsii.String("awsIntegration"),
+//   			IamRoleArn: jsii.String("iamRoleArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IsLocalBackupEnabled: jsii.Boolean(false),
 //   	IsSparseDiskgroupEnabled: jsii.Boolean(false),
 //   	LicenseModel: jsii.String("licenseModel"),

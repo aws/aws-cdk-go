@@ -436,6 +436,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_HtmlMotionGraphicsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.InferenceSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_InferenceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.InputAttachmentProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_InputAttachmentProperty)(nil)).Elem(),
 	)

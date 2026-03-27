@@ -16,12 +16,19 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	BackupSubnetCidr: jsii.String("backupSubnetCidr"),
 //   	ClientSubnetCidr: jsii.String("clientSubnetCidr"),
+//   	CrossRegionS3RestoreSources: []*string{
+//   		jsii.String("crossRegionS3RestoreSources"),
+//   	},
 //   	CustomDomainName: jsii.String("customDomainName"),
 //   	DefaultDnsPrefix: jsii.String("defaultDnsPrefix"),
 //   	DeleteAssociatedResources: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
+//   	KmsAccess: jsii.String("kmsAccess"),
+//   	KmsPolicyDocument: jsii.String("kmsPolicyDocument"),
 //   	S3Access: jsii.String("s3Access"),
 //   	S3PolicyDocument: jsii.String("s3PolicyDocument"),
+//   	StsAccess: jsii.String("stsAccess"),
+//   	StsPolicyDocument: jsii.String("stsPolicyDocument"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -56,6 +63,10 @@ type CfnOdbNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-clientsubnetcidr
 	//
 	ClientSubnetCidr *string `field:"optional" json:"clientSubnetCidr" yaml:"clientSubnetCidr"`
+	// The cross-Region Amazon S3 restore sources for the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-crossregions3restoresources
+	//
+	CrossRegionS3RestoreSources *[]*string `field:"optional" json:"crossRegionS3RestoreSources" yaml:"crossRegionS3RestoreSources"`
 	// The domain name for the resources in the ODB network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-customdomainname
 	//
@@ -78,6 +89,14 @@ type CfnOdbNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// The AWS Key Management Service (KMS) access configuration for the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-kmsaccess
+	//
+	KmsAccess *string `field:"optional" json:"kmsAccess" yaml:"kmsAccess"`
+	// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-kmspolicydocument
+	//
+	KmsPolicyDocument *string `field:"optional" json:"kmsPolicyDocument" yaml:"kmsPolicyDocument"`
 	// The configuration for Amazon S3 access from the ODB network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-s3access
 	//
@@ -86,6 +105,14 @@ type CfnOdbNetworkProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-s3policydocument
 	//
 	S3PolicyDocument *string `field:"optional" json:"s3PolicyDocument" yaml:"s3PolicyDocument"`
+	// The AWS Security Token Service (STS) access configuration for the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-stsaccess
+	//
+	StsAccess *string `field:"optional" json:"stsAccess" yaml:"stsAccess"`
+	// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-stspolicydocument
+	//
+	StsPolicyDocument *string `field:"optional" json:"stsPolicyDocument" yaml:"stsPolicyDocument"`
 	// Tags to assign to the Odb Network.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#cfn-odb-odbnetwork-tags
 	//

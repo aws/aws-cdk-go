@@ -101,6 +101,9 @@ import (
 //   		RoleArn: jsii.String("roleArn"),
 //   		UserPoolId: jsii.String("userPoolId"),
 //   	},
+//   	DeploymentStrategyOptions: &DeploymentStrategyOptionsProperty{
+//   		DeploymentStrategy: jsii.String("deploymentStrategy"),
+//   	},
 //   	DomainArn: jsii.String("domainArn"),
 //   	DomainEndpointOptions: &DomainEndpointOptionsProperty{
 //   		CustomEndpoint: jsii.String("customEndpoint"),
@@ -236,6 +239,8 @@ type CfnDomain interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DeploymentStrategyOptions() interface{}
+	SetDeploymentStrategyOptions(val interface{})
 	DomainArn() *string
 	SetDomainArn(val *string)
 	// Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
@@ -733,6 +738,16 @@ func (j *jsiiProxy_CfnDomain) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) DeploymentStrategyOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deploymentStrategyOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) DomainArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1014,6 +1029,9 @@ func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnDomain)SetAccessPolicies(val interface{}) {
+	if err := j.validateSetAccessPoliciesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accessPolicies",
@@ -1072,6 +1090,17 @@ func (j *jsiiProxy_CfnDomain)SetCognitoOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"cognitoOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetDeploymentStrategyOptions(val interface{}) {
+	if err := j.validateSetDeploymentStrategyOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deploymentStrategyOptions",
 		val,
 	)
 }

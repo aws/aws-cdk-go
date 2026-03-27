@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnSegment) validateSetSegmentGroupsParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnSegment) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnSegmentParameters(scope constructs.Construct, id *string, props *CfnSegmentProps) error {
 	return nil
 }

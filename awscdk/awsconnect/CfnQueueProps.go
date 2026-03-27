@@ -17,6 +17,11 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AdditionalEmailAddresses: []interface{}{
+//   		&EmailAddressProperty{
+//   			EmailAddressArn: jsii.String("emailAddressArn"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	MaxContacts: jsii.Number(123),
 //   	OutboundCallerConfig: &OutboundCallerConfigProperty{
@@ -54,6 +59,10 @@ type CfnQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The email addresses that agents can use when replying to or initiating email contacts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-additionalemailaddresses
+	//
+	AdditionalEmailAddresses interface{} `field:"optional" json:"additionalEmailAddresses" yaml:"additionalEmailAddresses"`
 	// The description of the queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-description
 	//

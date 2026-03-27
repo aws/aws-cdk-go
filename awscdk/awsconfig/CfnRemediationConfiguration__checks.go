@@ -8,7 +8,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -156,30 +155,6 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateValidatePropertiesParame
 	return nil
 }
 
-func validateCfnRemediationConfiguration_ArnForRemediationConfigurationParameters(resource interfacesawsconfig.IRemediationConfigurationRef) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope constructs.Construct, id *string, remediationConfigurationId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if remediationConfigurationId == nil {
-		return fmt.Errorf("parameter remediationConfigurationId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnRemediationConfiguration_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -256,6 +231,14 @@ func (j *jsiiProxy_CfnRemediationConfiguration) validateSetExecutionControlsPara
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRemediationConfiguration_ExecutionControlsProperty; received %#v (a %T)", val, val)
 		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnRemediationConfiguration) validateSetParametersParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

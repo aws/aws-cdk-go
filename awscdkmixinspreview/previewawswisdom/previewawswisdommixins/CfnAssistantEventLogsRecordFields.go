@@ -91,5 +91,19 @@ const (
 	CfnAssistantEventLogsRecordFields_GUARDRAIL_COVERAGE CfnAssistantEventLogsRecordFields = "GUARDRAIL_COVERAGE"
 	// Experimental.
 	CfnAssistantEventLogsRecordFields_AI_AGENT_VERSION CfnAssistantEventLogsRecordFields = "AI_AGENT_VERSION"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_GUARDRAIL_BLOCKED CfnAssistantEventLogsRecordFields = "GUARDRAIL_BLOCKED"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_PARTICIPANT CfnAssistantEventLogsRecordFields = "PARTICIPANT"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_VALUES CfnAssistantEventLogsRecordFields = "VALUES"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_ORCHESTRATION_ID CfnAssistantEventLogsRecordFields = "ORCHESTRATION_ID"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_AI_AGENT_ORCHESTRATION_USE_CASE CfnAssistantEventLogsRecordFields = "AI_AGENT_ORCHESTRATION_USE_CASE"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_ORCHESTRATION_ITERATION CfnAssistantEventLogsRecordFields = "ORCHESTRATION_ITERATION"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_ORCHESTRATION_ERROR CfnAssistantEventLogsRecordFields = "ORCHESTRATION_ERROR"
 )
 

@@ -92,6 +92,14 @@ func validateCfnWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkflow) validateSetDefaultRunPropertiesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnWorkflow) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnWorkflowParameters(scope constructs.Construct, id *string, props *CfnWorkflowProps) error {
 	return nil
 }

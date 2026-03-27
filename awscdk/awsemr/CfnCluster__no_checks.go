@@ -92,6 +92,10 @@ func validateCfnCluster_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetAdditionalInfoParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetApplicationsParameters(val interface{}) error {
 	return nil
 }

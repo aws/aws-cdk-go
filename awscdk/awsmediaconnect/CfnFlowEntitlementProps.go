@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnFlowEntitlement`.
 //
@@ -32,6 +35,12 @@ package awsmediaconnect
 //   		Url: jsii.String("url"),
 //   	},
 //   	EntitlementStatus: jsii.String("entitlementStatus"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
@@ -75,5 +84,9 @@ type CfnFlowEntitlementProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
 	//
 	EntitlementStatus *string `field:"optional" json:"entitlementStatus" yaml:"entitlementStatus"`
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -873,6 +873,9 @@ func (j *jsiiProxy_CfnNamespace)SetNamespaceName(val *string) {
 }
 
 func (j *jsiiProxy_CfnNamespace)SetNamespaceResourcePolicy(val interface{}) {
+	if err := j.validateSetNamespaceResourcePolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"namespaceResourcePolicy",

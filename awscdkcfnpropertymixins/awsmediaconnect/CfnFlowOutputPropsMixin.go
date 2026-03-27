@@ -77,6 +77,12 @@ import (
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
 //   		VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	},

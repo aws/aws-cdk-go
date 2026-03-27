@@ -102,6 +102,10 @@ func init() {
 		reflect.TypeOf((*CfnLifecyclePolicy_CrossRegionCopyRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.CrossRegionCopyTargetProperty",
+		reflect.TypeOf((*CfnLifecyclePolicy_CrossRegionCopyTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dlm.CfnLifecyclePolicy.DeprecateRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicy_DeprecateRuleProperty)(nil)).Elem(),
 	)

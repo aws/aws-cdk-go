@@ -592,6 +592,9 @@ func NewCfnPortal_Override(c CfnPortal, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnPortal)SetAlarms(val interface{}) {
+	if err := j.validateSetAlarmsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"alarms",

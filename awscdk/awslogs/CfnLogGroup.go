@@ -538,6 +538,9 @@ func NewCfnLogGroup_Override(c CfnLogGroup, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnLogGroup)SetDataProtectionPolicy(val interface{}) {
+	if err := j.validateSetDataProtectionPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",
@@ -592,6 +595,9 @@ func (j *jsiiProxy_CfnLogGroup)SetLogGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnLogGroup)SetResourcePolicyDocument(val interface{}) {
+	if err := j.validateSetResourcePolicyDocumentParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"resourcePolicyDocument",

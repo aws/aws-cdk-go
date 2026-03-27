@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // The details of a VPC interface.
 //
@@ -26,6 +29,12 @@ package awsmediaconnect
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html
@@ -55,5 +64,9 @@ type CfnFlowPropsMixin_VpcInterfaceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html#cfn-mediaconnect-flow-vpcinterface-subnetid
 	//
 	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
+	// Key-value pairs that can be used to tag this VPC interface.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html#cfn-mediaconnect-flow-vpcinterface-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -18,6 +18,12 @@ package awsgameliftstreams
 //   	MaximumCapacity: jsii.Number(123),
 //   	OnDemandCapacity: jsii.Number(123),
 //   	TargetIdleCapacity: jsii.Number(123),
+//   	VpcTransitConfiguration: &VpcTransitConfigurationProperty{
+//   		Ipv4CidrBlocks: []*string{
+//   			jsii.String("ipv4CidrBlocks"),
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html
@@ -47,5 +53,8 @@ type CfnStreamGroup_LocationConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-targetidlecapacity
 	//
 	TargetIdleCapacity *float64 `field:"optional" json:"targetIdleCapacity" yaml:"targetIdleCapacity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gameliftstreams-streamgroup-locationconfiguration.html#cfn-gameliftstreams-streamgroup-locationconfiguration-vpctransitconfiguration
+	//
+	VpcTransitConfiguration interface{} `field:"optional" json:"vpcTransitConfiguration" yaml:"vpcTransitConfiguration"`
 }
 

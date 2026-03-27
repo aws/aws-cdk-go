@@ -72,6 +72,10 @@ func validateCfnInstanceConnectEndpoint_ArnForInstanceConnectEndpointParameters(
 	return nil
 }
 
+func validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointIdParameters(scope constructs.Construct, id *string, instanceConnectEndpointId *string) error {
 	return nil
 }

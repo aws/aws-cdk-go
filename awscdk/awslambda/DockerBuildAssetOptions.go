@@ -15,6 +15,9 @@ import (
 //   	BuildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
 //   	},
+//   	BuildContexts: map[string]*string{
+//   		"buildContextsKey": jsii.String("buildContexts"),
+//   	},
 //   	CacheDisabled: jsii.Boolean(false),
 //   	CacheFrom: []DockerCacheOption{
 //   		&DockerCacheOption{
@@ -47,6 +50,16 @@ type DockerBuildAssetOptions struct {
 	// Default: - no build args.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Build contexts to pass to the `docker build` command.
+	//
+	// Build contexts can be used to specify additional directories or images
+	// to use during the build. Each entry specifies a named build context
+	// and its source (a directory path, a URL, or a docker image).
+	// See: https://docs.docker.com/build/building/context/#additional-build-contexts
+	//
+	// Default: - no additional build contexts.
+	//
+	BuildContexts *map[string]*string `field:"optional" json:"buildContexts" yaml:"buildContexts"`
 	// Disable the cache and pass `--no-cache` to the `docker build` command.
 	// Default: - cache is used.
 	//

@@ -50,15 +50,6 @@ package awsworkspacesinstances
 //   		Name: jsii.String("name"),
 //   	},
 //   	ImageId: jsii.String("imageId"),
-//   	InstanceMarketOptions: &InstanceMarketOptionsRequestProperty{
-//   		MarketType: jsii.String("marketType"),
-//   		SpotOptions: &SpotMarketOptionsProperty{
-//   			InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
-//   			MaxPrice: jsii.String("maxPrice"),
-//   			SpotInstanceType: jsii.String("spotInstanceType"),
-//   			ValidUntilUtc: jsii.String("validUntilUtc"),
-//   		},
-//   	},
 //   	InstanceType: jsii.String("instanceType"),
 //   	Ipv6AddressCount: jsii.Number(123),
 //   	KeyName: jsii.String("keyName"),
@@ -156,9 +147,6 @@ type CfnWorkspaceInstancePropsMixin_ManagedInstanceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-imageid
 	//
 	ImageId *string `field:"optional" json:"imageId" yaml:"imageId"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-instancemarketoptions
-	//
-	InstanceMarketOptions interface{} `field:"optional" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`

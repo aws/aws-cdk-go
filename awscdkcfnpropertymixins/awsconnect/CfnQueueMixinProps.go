@@ -12,6 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnQueueMixinProps := &CfnQueueMixinProps{
+//   	AdditionalEmailAddresses: []interface{}{
+//   		&EmailAddressProperty{
+//   			EmailAddressArn: jsii.String("emailAddressArn"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	HoursOfOperationArn: jsii.String("hoursOfOperationArn"),
 //   	InstanceArn: jsii.String("instanceArn"),
@@ -40,6 +45,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html
 //
 type CfnQueueMixinProps struct {
+	// The email addresses that agents can use when replying to or initiating email contacts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-additionalemailaddresses
+	//
+	AdditionalEmailAddresses interface{} `field:"optional" json:"additionalEmailAddresses" yaml:"additionalEmailAddresses"`
 	// The description of the queue.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-description
 	//

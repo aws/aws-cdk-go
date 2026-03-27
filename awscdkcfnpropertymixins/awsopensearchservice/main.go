@@ -80,6 +80,10 @@ func init() {
 		reflect.TypeOf((*CfnDomainPropsMixin_ColdStorageOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_opensearchservice.CfnDomainPropsMixin.DeploymentStrategyOptionsProperty",
+		reflect.TypeOf((*CfnDomainPropsMixin_DeploymentStrategyOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_opensearchservice.CfnDomainPropsMixin.DomainEndpointOptionsProperty",
 		reflect.TypeOf((*CfnDomainPropsMixin_DomainEndpointOptionsProperty)(nil)).Elem(),
 	)

@@ -28,7 +28,6 @@ import (
 //   		},
 //   	},
 //   	Schema: &SchemaDefinitionProperty{
-//   		CedarFormat: jsii.String("cedarFormat"),
 //   		CedarJson: jsii.String("cedarJson"),
 //   	},
 //   	Tags: []CfnTag{

@@ -513,6 +513,9 @@ func (j *jsiiProxy_CfnDataQualityRuleset)SetRuleset(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataQualityRuleset)SetTags(val interface{}) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tags",

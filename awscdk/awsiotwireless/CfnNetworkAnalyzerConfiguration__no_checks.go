@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) validateSetTagsRawParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration) validateSetTraceContentParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnNetworkAnalyzerConfigurationParameters(scope constructs.Construct, id *string, props *CfnNetworkAnalyzerConfigurationProps) error {
 	return nil
 }

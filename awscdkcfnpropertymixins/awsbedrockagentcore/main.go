@@ -192,6 +192,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayInterceptorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayPropsMixin.GatewayPolicyEngineConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayPolicyEngineConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayPropsMixin.GatewayProtocolConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayProtocolConfigurationProperty)(nil)).Elem(),
 	)
@@ -328,6 +332,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.ContentConfigurationProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_ContentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.CustomConfigurationInputProperty",
 		reflect.TypeOf((*CfnMemoryPropsMixin_CustomConfigurationInputProperty)(nil)).Elem(),
 	)
@@ -364,6 +372,10 @@ func init() {
 		reflect.TypeOf((*CfnMemoryPropsMixin_InvocationConfigurationInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.KinesisResourceProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_KinesisResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.MemoryStrategyProperty",
 		reflect.TypeOf((*CfnMemoryPropsMixin_MemoryStrategyProperty)(nil)).Elem(),
 	)
@@ -390,6 +402,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.SemanticOverrideProperty",
 		reflect.TypeOf((*CfnMemoryPropsMixin_SemanticOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.StreamDeliveryResourceProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_StreamDeliveryResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.StreamDeliveryResourcesProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_StreamDeliveryResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.SummaryMemoryStrategyProperty",

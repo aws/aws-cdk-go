@@ -28,6 +28,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_odb.CfnCloudAutonomousVmClusterPropsMixin.IamRoleProperty",
+		reflect.TypeOf((*CfnCloudAutonomousVmClusterPropsMixin_IamRoleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_odb.CfnCloudAutonomousVmClusterPropsMixin.MaintenanceWindowProperty",
 		reflect.TypeOf((*CfnCloudAutonomousVmClusterPropsMixin_MaintenanceWindowProperty)(nil)).Elem(),
 	)
@@ -88,6 +92,10 @@ func init() {
 		reflect.TypeOf((*CfnCloudVmClusterPropsMixin_DbNodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_odb.CfnCloudVmClusterPropsMixin.IamRoleProperty",
+		reflect.TypeOf((*CfnCloudVmClusterPropsMixin_IamRoleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkMixinProps",
 		reflect.TypeOf((*CfnOdbNetworkMixinProps)(nil)).Elem(),
 	)
@@ -108,6 +116,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkPropsMixin.CrossRegionS3RestoreSourcesAccessProperty",
+		reflect.TypeOf((*CfnOdbNetworkPropsMixin_CrossRegionS3RestoreSourcesAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkPropsMixin.KmsAccessProperty",
+		reflect.TypeOf((*CfnOdbNetworkPropsMixin_KmsAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkPropsMixin.ManagedS3BackupAccessProperty",
 		reflect.TypeOf((*CfnOdbNetworkPropsMixin_ManagedS3BackupAccessProperty)(nil)).Elem(),
 	)
@@ -122,6 +138,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkPropsMixin.ServiceNetworkEndpointProperty",
 		reflect.TypeOf((*CfnOdbNetworkPropsMixin_ServiceNetworkEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkPropsMixin.StsAccessProperty",
+		reflect.TypeOf((*CfnOdbNetworkPropsMixin_StsAccessProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_odb.CfnOdbNetworkPropsMixin.ZeroEtlAccessProperty",

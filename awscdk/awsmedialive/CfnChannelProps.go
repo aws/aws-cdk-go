@@ -39,6 +39,9 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
 	//
 	EncoderSettings interface{} `field:"optional" json:"encoderSettings" yaml:"encoderSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inferencesettings
+	//
+	InferenceSettings interface{} `field:"optional" json:"inferenceSettings" yaml:"inferenceSettings"`
 	// The list of input attachments for the channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments
 	//

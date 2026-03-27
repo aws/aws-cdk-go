@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnFarmMixinProps := &CfnFarmMixinProps{
+//   	CostScaleFactor: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
@@ -26,6 +27,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html
 //
 type CfnFarmMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html#cfn-deadline-farm-costscalefactor
+	//
+	// Default: - 1.
+	//
+	CostScaleFactor *float64 `field:"optional" json:"costScaleFactor" yaml:"costScaleFactor"`
 	// A description of the farm that helps identify what the farm is used for.
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.

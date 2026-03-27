@@ -497,6 +497,9 @@ func (j *jsiiProxy_CfnSmsTemplate)SetDefaultSubstitutions(val *string) {
 }
 
 func (j *jsiiProxy_CfnSmsTemplate)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

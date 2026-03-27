@@ -44,6 +44,12 @@ import (
 //   		Url: jsii.String("url"),
 //   	},
 //   	EntitlementStatus: jsii.String("entitlementStatus"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
@@ -52,8 +58,11 @@ type CfnFlowEntitlement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IFlowEntitlementRef
+	awscdk.ITaggableV2
 	// The entitlement ARN.
 	AttrEntitlementArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -108,6 +117,9 @@ type CfnFlowEntitlement interface {
 	// The AWS account IDs that you want to share your content with.
 	Subscribers() *[]*string
 	SetSubscribers(val *[]*string)
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -260,6 +272,7 @@ type jsiiProxy_CfnFlowEntitlement struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsmediaconnectIFlowEntitlementRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFlowEntitlement) AttrEntitlementArn() *string {
@@ -267,6 +280,16 @@ func (j *jsiiProxy_CfnFlowEntitlement) AttrEntitlementArn() *string {
 	_jsii_.Get(
 		j,
 		"attrEntitlementArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowEntitlement) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -442,6 +465,16 @@ func (j *jsiiProxy_CfnFlowEntitlement) Subscribers() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowEntitlement) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowEntitlement) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -559,6 +592,17 @@ func (j *jsiiProxy_CfnFlowEntitlement)SetSubscribers(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"subscribers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowEntitlement)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

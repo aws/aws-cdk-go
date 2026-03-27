@@ -21,6 +21,11 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnQueuePropsMixin := awscdkcfnpropertymixins.Aws_connect.NewCfnQueuePropsMixin(&CfnQueueMixinProps{
+//   	AdditionalEmailAddresses: []interface{}{
+//   		&EmailAddressProperty{
+//   			EmailAddressArn: jsii.String("emailAddressArn"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	HoursOfOperationArn: jsii.String("hoursOfOperationArn"),
 //   	InstanceArn: jsii.String("instanceArn"),

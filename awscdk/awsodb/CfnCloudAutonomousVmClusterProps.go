@@ -20,6 +20,13 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
+//   	IamRoles: []interface{}{
+//   		&IamRoleProperty{
+//   			AwsIntegration: jsii.String("awsIntegration"),
+//   			IamRoleArn: jsii.String("iamRoleArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IsMtlsEnabledVmCluster: jsii.Boolean(false),
 //   	LicenseModel: jsii.String("licenseModel"),
 //   	MaintenanceWindow: &MaintenanceWindowProperty{
@@ -87,6 +94,10 @@ type CfnCloudAutonomousVmClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudautonomousvmcluster.html#cfn-odb-cloudautonomousvmcluster-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudautonomousvmcluster.html#cfn-odb-cloudautonomousvmcluster-iamroles
+	//
+	IamRoles interface{} `field:"optional" json:"iamRoles" yaml:"iamRoles"`
 	// Specifies whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudautonomousvmcluster.html#cfn-odb-cloudautonomousvmcluster-ismtlsenabledvmcluster
 	//

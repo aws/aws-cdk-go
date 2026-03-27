@@ -95,7 +95,7 @@ func init() {
 			"REQUEST_URI": CfnBucketS3ServerAccessLogsRecordFields_REQUEST_URI,
 			"HTTP_STATUS": CfnBucketS3ServerAccessLogsRecordFields_HTTP_STATUS,
 			"ERROR_CODE": CfnBucketS3ServerAccessLogsRecordFields_ERROR_CODE,
-			"BYTES_SENT": CfnBucketS3ServerAccessLogsRecordFields_BYTES_SENT,
+			"BYTES_SENT_SIZE": CfnBucketS3ServerAccessLogsRecordFields_BYTES_SENT_SIZE,
 			"OBJECT_SIZE": CfnBucketS3ServerAccessLogsRecordFields_OBJECT_SIZE,
 			"TOTAL_DURATION": CfnBucketS3ServerAccessLogsRecordFields_TOTAL_DURATION,
 			"TURN_AROUND_DURATION": CfnBucketS3ServerAccessLogsRecordFields_TURN_AROUND_DURATION,

@@ -432,6 +432,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IIPAMPrefixListResolverTargetRef",
+		reflect.TypeOf((*IIPAMPrefixListResolverTargetRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamPrefixListResolverTargetRef", GoGetter: "IpamPrefixListResolverTargetRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIPAMPrefixListResolverTargetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.IIPAMRef",
 		reflect.TypeOf((*IIPAMRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -878,6 +894,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.IPAMPrefixListResolverReference",
 		reflect.TypeOf((*IPAMPrefixListResolverReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.IPAMPrefixListResolverTargetReference",
+		reflect.TypeOf((*IPAMPrefixListResolverTargetReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.IPAMReference",

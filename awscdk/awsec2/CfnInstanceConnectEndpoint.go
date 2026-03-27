@@ -46,8 +46,30 @@ type CfnInstanceConnectEndpoint interface {
 	awscdk.IInspectable
 	interfacesawsec2.IInstanceConnectEndpointRef
 	awscdk.ITaggableV2
+	// The Availability Zone of the EC2 Instance Connect Endpoint.
+	AttrAvailabilityZone() *string
+	// The ID of the Availability Zone of the EC2 Instance Connect Endpoint.
+	AttrAvailabilityZoneId() *string
+	// The date and time that the EC2 Instance Connect Endpoint was created.
+	AttrCreatedAt() *string
 	// The ID of the EC2 Instance Connect Endpoint.
 	AttrId() *string
+	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+	AttrInstanceConnectEndpointArn() *string
+	// The ID of the elastic network interface that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
+	AttrNetworkInterfaceIds() *[]*string
+	// The ID of the AWS account that created the EC2 Instance Connect Endpoint.
+	AttrOwnerId() *string
+	// The public DNS names of the endpoint, including IPv4-only and dualstack DNS names.
+	AttrPublicDnsNames() awscdk.IResolvable
+	// The current state of the EC2 Instance Connect Endpoint.
+	AttrState() *string
+	// The message for the current state of the EC2 Instance Connect Endpoint.
+	//
+	// Can include a failure message.
+	AttrStateMessage() *string
+	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
+	AttrVpcId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -255,11 +277,111 @@ type jsiiProxy_CfnInstanceConnectEndpoint struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrAvailabilityZone() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAvailabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrAvailabilityZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAvailabilityZoneId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrInstanceConnectEndpointArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInstanceConnectEndpointArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrNetworkInterfaceIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrNetworkInterfaceIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrOwnerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOwnerId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrPublicDnsNames() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPublicDnsNames",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceConnectEndpoint) AttrVpcId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcId",
 		&returns,
 	)
 	return returns
@@ -536,6 +658,25 @@ func CfnInstanceConnectEndpoint_ArnForInstanceConnectEndpoint(resource interface
 		"aws-cdk-lib.aws_ec2.CfnInstanceConnectEndpoint",
 		"arnForInstanceConnectEndpoint",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IInstanceConnectEndpointRef from an ARN.
+func CfnInstanceConnectEndpoint_FromInstanceConnectEndpointArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IInstanceConnectEndpointRef {
+	_init_.Initialize()
+
+	if err := validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.IInstanceConnectEndpointRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnInstanceConnectEndpoint",
+		"fromInstanceConnectEndpointArn",
+		[]interface{}{scope, id, arn},
 		&returns,
 	)
 

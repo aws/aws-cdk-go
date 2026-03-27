@@ -8,6 +8,50 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogMixinProps",
+		reflect.TypeOf((*CfnCatalogMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin",
+		reflect.TypeOf((*CfnCatalogPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCatalogPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.CatalogPropertiesProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_CatalogPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.DataLakeAccessPropertiesProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_DataLakeAccessPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.DataLakePrincipalProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_DataLakePrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.FederatedCatalogProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_FederatedCatalogProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.PrincipalPermissionsProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_PrincipalPermissionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.TargetRedshiftCatalogProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_TargetRedshiftCatalogProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnClassifierMixinProps",
 		reflect.TypeOf((*CfnClassifierMixinProps)(nil)).Elem(),
 	)

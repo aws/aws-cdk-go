@@ -59,15 +59,6 @@ import (
 //   			Arn: jsii.String("arn"),
 //   			Name: jsii.String("name"),
 //   		},
-//   		InstanceMarketOptions: &InstanceMarketOptionsRequestProperty{
-//   			MarketType: jsii.String("marketType"),
-//   			SpotOptions: &SpotMarketOptionsProperty{
-//   				InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
-//   				MaxPrice: jsii.String("maxPrice"),
-//   				SpotInstanceType: jsii.String("spotInstanceType"),
-//   				ValidUntilUtc: jsii.String("validUntilUtc"),
-//   			},
-//   		},
 //   		Ipv6AddressCount: jsii.Number(123),
 //   		KeyName: jsii.String("keyName"),
 //   		LicenseSpecifications: []interface{}{

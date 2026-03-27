@@ -94,6 +94,7 @@ import (
 //   	},
 //   	TableReference: &TableReferenceProperty{
 //   		Athena: &AthenaTableReferenceProperty{
+//   			CatalogName: jsii.String("catalogName"),
 //   			DatabaseName: jsii.String("databaseName"),
 //   			OutputLocation: jsii.String("outputLocation"),
 //   			Region: jsii.String("region"),

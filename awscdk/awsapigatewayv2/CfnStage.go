@@ -652,6 +652,9 @@ func (j *jsiiProxy_CfnStage)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnStage)SetRouteSettings(val interface{}) {
+	if err := j.validateSetRouteSettingsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"routeSettings",
@@ -671,6 +674,9 @@ func (j *jsiiProxy_CfnStage)SetStageName(val *string) {
 }
 
 func (j *jsiiProxy_CfnStage)SetStageVariables(val interface{}) {
+	if err := j.validateSetStageVariablesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"stageVariables",
@@ -679,6 +685,9 @@ func (j *jsiiProxy_CfnStage)SetStageVariables(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnStage)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

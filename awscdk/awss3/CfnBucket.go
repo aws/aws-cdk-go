@@ -101,6 +101,10 @@ type CfnBucket interface {
 	// A name for the bucket.
 	BucketName() *string
 	SetBucketName(val *string)
+	BucketNamePrefix() *string
+	SetBucketNamePrefix(val *string)
+	BucketNamespace() *string
+	SetBucketNamespace(val *string)
 	// A reference to a Bucket resource.
 	BucketRef() *interfacesawss3.BucketReference
 	// Options for this resource, such as condition, update policy etc.
@@ -522,6 +526,26 @@ func (j *jsiiProxy_CfnBucket) BucketName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBucket) BucketNamePrefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamePrefix",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBucket) BucketNamespace() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"bucketNamespace",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBucket) BucketRef() *interfacesawss3.BucketReference {
 	var returns *interfacesawss3.BucketReference
 	_jsii_.Get(
@@ -905,6 +929,22 @@ func (j *jsiiProxy_CfnBucket)SetBucketName(val *string) {
 	_jsii_.Set(
 		j,
 		"bucketName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBucket)SetBucketNamePrefix(val *string) {
+	_jsii_.Set(
+		j,
+		"bucketNamePrefix",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBucket)SetBucketNamespace(val *string) {
+	_jsii_.Set(
+		j,
+		"bucketNamespace",
 		val,
 	)
 }

@@ -162,6 +162,23 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
+//   		Resources: []interface{}{
+//   			&StreamDeliveryResourceProperty{
+//   				Kinesis: &KinesisResourceProperty{
+//   					ContentConfigurations: []interface{}{
+//   						&ContentConfigurationProperty{
+//   							Type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							Level: jsii.String("level"),
+//   						},
+//   					},
+//   					DataStreamArn: jsii.String("dataStreamArn"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -194,6 +211,9 @@ type CfnMemoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-memorystrategies
 	//
 	MemoryStrategies interface{} `field:"optional" json:"memoryStrategies" yaml:"memoryStrategies"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-streamdeliveryresources
+	//
+	StreamDeliveryResources interface{} `field:"optional" json:"streamDeliveryResources" yaml:"streamDeliveryResources"`
 	// The tags for the resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-tags
 	//

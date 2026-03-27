@@ -69,6 +69,8 @@ type CfnChannel interface {
 	EncoderSettings() interface{}
 	SetEncoderSettings(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	InferenceSettings() interface{}
+	SetInferenceSettings(val interface{})
 	// The list of input attachments for the channel.
 	InputAttachments() interface{}
 	SetInputAttachments(val interface{})
@@ -443,6 +445,16 @@ func (j *jsiiProxy_CfnChannel) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) InferenceSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"inferenceSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) InputAttachments() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -715,6 +727,17 @@ func (j *jsiiProxy_CfnChannel)SetEncoderSettings(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnChannel)SetInferenceSettings(val interface{}) {
+	if err := j.validateSetInferenceSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"inferenceSettings",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnChannel)SetInputAttachments(val interface{}) {
 	if err := j.validateSetInputAttachmentsParameters(val); err != nil {
 		panic(err)
@@ -784,6 +807,9 @@ func (j *jsiiProxy_CfnChannel)SetRoleArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnChannel)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

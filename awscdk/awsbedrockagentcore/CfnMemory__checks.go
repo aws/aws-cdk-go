@@ -272,6 +272,30 @@ func (j *jsiiProxy_CfnMemory) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMemory) validateSetStreamDeliveryResourcesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnMemory_StreamDeliveryResourcesProperty:
+		val := val.(*CfnMemory_StreamDeliveryResourcesProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnMemory_StreamDeliveryResourcesProperty:
+		val_ := val.(CfnMemory_StreamDeliveryResourcesProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnMemory_StreamDeliveryResourcesProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnMemoryParameters(scope constructs.Construct, id *string, props *CfnMemoryProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

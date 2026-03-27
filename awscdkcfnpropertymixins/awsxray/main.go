@@ -72,6 +72,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_xray.CfnSamplingRulePropsMixin.SamplingRateBoostProperty",
+		reflect.TypeOf((*CfnSamplingRulePropsMixin_SamplingRateBoostProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_xray.CfnSamplingRulePropsMixin.SamplingRuleProperty",
 		reflect.TypeOf((*CfnSamplingRulePropsMixin_SamplingRuleProperty)(nil)).Elem(),
 	)

@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnGateway) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGateway) validateSetPolicyEngineConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGateway) validateSetProtocolConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -32,6 +32,9 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	QuotaSharePolicy: &QuotaSharePolicyProperty{
+//   		IdleResourceAssignmentStrategy: jsii.String("idleResourceAssignmentStrategy"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -74,6 +77,9 @@ type CfnSchedulingPolicy interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Quota Share Policy for the Job Queue.
+	QuotaSharePolicy() interface{}
+	SetQuotaSharePolicy(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -345,6 +351,16 @@ func (j *jsiiProxy_CfnSchedulingPolicy) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSchedulingPolicy) QuotaSharePolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"quotaSharePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSchedulingPolicy) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -460,6 +476,17 @@ func (j *jsiiProxy_CfnSchedulingPolicy)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSchedulingPolicy)SetQuotaSharePolicy(val interface{}) {
+	if err := j.validateSetQuotaSharePolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"quotaSharePolicy",
 		val,
 	)
 }

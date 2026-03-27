@@ -110,6 +110,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vectorOptions", GoGetter: "VectorOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
@@ -124,6 +125,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchserverless.CfnCollection.EncryptionConfigProperty",
 		reflect.TypeOf((*CfnCollection_EncryptionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchserverless.CfnCollection.VectorOptionsProperty",
+		reflect.TypeOf((*CfnCollection_VectorOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_opensearchserverless.CfnCollectionGroup",

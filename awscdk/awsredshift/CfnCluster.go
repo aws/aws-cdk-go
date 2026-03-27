@@ -1530,6 +1530,9 @@ func (j *jsiiProxy_CfnCluster)SetMultiAz(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnCluster)SetNamespaceResourcePolicy(val interface{}) {
+	if err := j.validateSetNamespaceResourcePolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"namespaceResourcePolicy",

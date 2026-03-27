@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnFlowOutputPropsMixin.
 //
@@ -64,6 +67,12 @@ package awsmediaconnect
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
 //   		VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	},
@@ -163,6 +172,10 @@ type CfnFlowOutputMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
 	//
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the VPC interface attachment to use for this output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
 	//

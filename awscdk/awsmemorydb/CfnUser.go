@@ -480,6 +480,9 @@ func (j *jsiiProxy_CfnUser)SetAccessString(val *string) {
 }
 
 func (j *jsiiProxy_CfnUser)SetAuthenticationMode(val interface{}) {
+	if err := j.validateSetAuthenticationModeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"authenticationMode",

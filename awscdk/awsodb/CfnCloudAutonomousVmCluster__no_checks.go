@@ -88,6 +88,10 @@ func validateCfnCloudAutonomousVmCluster_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnCloudAutonomousVmCluster) validateSetIamRolesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCloudAutonomousVmCluster) validateSetIsMtlsEnabledVmClusterParameters(val interface{}) error {
 	return nil
 }

@@ -64,6 +64,13 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	GiVersion: jsii.String("giVersion"),
 //   	Hostname: jsii.String("hostname"),
+//   	IamRoles: []interface{}{
+//   		&IamRoleProperty{
+//   			AwsIntegration: jsii.String("awsIntegration"),
+//   			IamRoleArn: jsii.String("iamRoleArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IsLocalBackupEnabled: jsii.Boolean(false),
 //   	IsSparseDiskgroupEnabled: jsii.Boolean(false),
 //   	LicenseModel: jsii.String("licenseModel"),
@@ -173,6 +180,9 @@ type CfnCloudVmCluster interface {
 	// The host name for the VM cluster.
 	Hostname() *string
 	SetHostname(val *string)
+	// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+	IamRoles() interface{}
+	SetIamRoles(val interface{})
 	// Specifies whether database backups to local Exadata storage are enabled for the VM cluster.
 	IsLocalBackupEnabled() interface{}
 	SetIsLocalBackupEnabled(val interface{})
@@ -709,6 +719,16 @@ func (j *jsiiProxy_CfnCloudVmCluster) Hostname() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCloudVmCluster) IamRoles() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"iamRoles",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCloudVmCluster) IsLocalBackupEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -989,6 +1009,17 @@ func (j *jsiiProxy_CfnCloudVmCluster)SetHostname(val *string) {
 	_jsii_.Set(
 		j,
 		"hostname",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCloudVmCluster)SetIamRoles(val interface{}) {
+	if err := j.validateSetIamRolesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"iamRoles",
 		val,
 	)
 }

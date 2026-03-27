@@ -476,6 +476,9 @@ func (j *jsiiProxy_CfnCustomEntityType)SetRegexString(val *string) {
 }
 
 func (j *jsiiProxy_CfnCustomEntityType)SetTags(val interface{}) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tags",

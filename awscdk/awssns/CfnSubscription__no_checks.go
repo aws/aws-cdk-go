@@ -88,11 +88,27 @@ func validateCfnSubscription_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscription) validateSetDeliveryPolicyParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSubscription) validateSetFilterPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscription) validateSetProtocolParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnSubscription) validateSetRawMessageDeliveryParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSubscription) validateSetRedrivePolicyParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSubscription) validateSetReplayPolicyParameters(val interface{}) error {
 	return nil
 }
 

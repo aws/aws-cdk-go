@@ -18,6 +18,9 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),
+//   	PeerNetworkRouteTableIds: []*string{
+//   		jsii.String("peerNetworkRouteTableIds"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -45,6 +48,10 @@ type CfnOdbPeeringConnectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html#cfn-odb-odbpeeringconnection-peernetworkid
 	//
 	PeerNetworkId *string `field:"optional" json:"peerNetworkId" yaml:"peerNetworkId"`
+	// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html#cfn-odb-odbpeeringconnection-peernetworkroutetableids
+	//
+	PeerNetworkRouteTableIds *[]*string `field:"optional" json:"peerNetworkRouteTableIds" yaml:"peerNetworkRouteTableIds"`
 	// Tags to assign to the Odb peering connection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbpeeringconnection.html#cfn-odb-odbpeeringconnection-tags
 	//

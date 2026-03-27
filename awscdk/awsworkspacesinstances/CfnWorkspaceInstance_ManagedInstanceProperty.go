@@ -53,15 +53,6 @@ package awsworkspacesinstances
 //   		Arn: jsii.String("arn"),
 //   		Name: jsii.String("name"),
 //   	},
-//   	InstanceMarketOptions: &InstanceMarketOptionsRequestProperty{
-//   		MarketType: jsii.String("marketType"),
-//   		SpotOptions: &SpotMarketOptionsProperty{
-//   			InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
-//   			MaxPrice: jsii.String("maxPrice"),
-//   			SpotInstanceType: jsii.String("spotInstanceType"),
-//   			ValidUntilUtc: jsii.String("validUntilUtc"),
-//   		},
-//   	},
 //   	Ipv6AddressCount: jsii.Number(123),
 //   	KeyName: jsii.String("keyName"),
 //   	LicenseSpecifications: []interface{}{
@@ -161,9 +152,6 @@ type CfnWorkspaceInstance_ManagedInstanceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-iaminstanceprofile
 	//
 	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-instancemarketoptions
-	//
-	InstanceMarketOptions interface{} `field:"optional" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-managedinstance.html#cfn-workspacesinstances-workspaceinstance-managedinstance-ipv6addresscount
 	//
 	Ipv6AddressCount *float64 `field:"optional" json:"ipv6AddressCount" yaml:"ipv6AddressCount"`

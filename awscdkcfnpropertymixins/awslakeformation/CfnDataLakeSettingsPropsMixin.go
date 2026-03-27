@@ -20,7 +20,6 @@ import (
 //
 //   var mergeStrategy IMergeStrategy
 //   var parameters interface{}
-//   var readOnlyAdmins interface{}
 //
 //   cfnDataLakeSettingsPropsMixin := awscdkcfnpropertymixins.Aws_lakeformation.NewCfnDataLakeSettingsPropsMixin(&CfnDataLakeSettingsMixinProps{
 //   	Admins: []interface{}{
@@ -60,7 +59,11 @@ import (
 //   	},
 //   	MutationType: jsii.String("mutationType"),
 //   	Parameters: parameters,
-//   	ReadOnlyAdmins: readOnlyAdmins,
+//   	ReadOnlyAdmins: []interface{}{
+//   		&DataLakePrincipalProperty{
+//   			DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   		},
+//   	},
 //   	TrustedResourceOwners: []*string{
 //   		jsii.String("trustedResourceOwners"),
 //   	},

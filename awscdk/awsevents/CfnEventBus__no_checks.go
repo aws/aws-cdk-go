@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnEventBus) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventBus) validateSetPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventBus) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

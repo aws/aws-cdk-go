@@ -579,6 +579,9 @@ func (j *jsiiProxy_CfnDataIntegration)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataIntegration)SetObjectConfiguration(val interface{}) {
+	if err := j.validateSetObjectConfigurationParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"objectConfiguration",

@@ -255,7 +255,7 @@ scopedDownKeyPolicy := map[string]interface{}{
 	},
 }
 cfnKey := (kmsKey.Node.defaultChild.(CfnKey))
-cfnKey.KeyPolicy = scopedDownKeyPolicy
+cfnKey.keyPolicy = scopedDownKeyPolicy
 ```
 
 **Step 3.** Deploy the stack

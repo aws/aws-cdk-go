@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnLayer) validateSetAutoAssignPublicIpsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnLayer) validateSetCustomJsonParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLayer) validateSetCustomRecipesParameters(val interface{}) error {
 	return nil
 }

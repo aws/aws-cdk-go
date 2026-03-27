@@ -1,4 +1,10 @@
-# CDK Mixins (Preview)
+# CDK Mixins
+
+> **Note**: The core Mixins mechanism  is now GA  and available in `constructs` and `aws-cdk-lib` (`Mixins`, `Mixin`, `IMixin`, `MixinApplicator`, `ConstructSelector`).
+> All service Mixins are now available in `aws-cdk-lib`.
+> Please update your imports.
+>
+> This package continues to provide **Logs Delivery Mixins** and **EventBridge Event Facades**, which are still experimental.
 
 <!--BEGIN STABILITY BANNER-->---
 
@@ -13,15 +19,6 @@
 
 ---
 <!--END STABILITY BANNER-->
-
-> **Note**: The core Mixins mechanism (`Mixins`, `Mixin`, `IMixin`, `MixinApplicator`, `ConstructSelector`) is now available in `constructs` and `aws-cdk-lib`.
-> All service Mixins are now available in `aws-cdk-lib`.
-> Please update your imports.
->
-> This package continues to provide **Logs Delivery Mixins** and **EventBridge Event Facades**.
-
----
-
 
 CDK Mixins provide a new, advanced way to add functionality through composable abstractions.
 Unlike traditional L2 constructs that bundle all features together, Mixins allow you to pick and choose exactly the capabilities you need for constructs.
@@ -149,9 +146,13 @@ distribution.With(cloudfrontMixins.CfnDistributionLogsMixin_CONNECTION_LOGS().To
 
 ## EventBridge Event Patterns
 
-CDK Mixins automatically generates typed EventBridge event patterns for AWS resources. These patterns work with both L1 and L2 constructs, providing a consistent interface for creating EventBridge rules.
+CDK Mixins automatically generates typed EventBridge event patterns for AWS resources. These patterns come in two flavors: **resource-specific** and **standalone**.
 
-### Event Patterns Basic Usage
+### Resource-Specific Event Patterns
+
+Resource-specific patterns are created by attaching a resource reference (e.g. an S3 bucket). The resource identifier is automatically injected into the event pattern, so calling a pattern method with no arguments still filters events to that specific resource. For example, an S3 `objectCreatedPattern()` will automatically include the bucket name in the pattern, meaning it only matches events from that particular bucket.
+
+#### Event Patterns Basic Usage
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
@@ -195,9 +196,7 @@ events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
 })
 ```
 
-### Event Pattern Features
-
-**Automatic Resource Injection**: Resource identifiers are automatically included in patterns
+#### Event Pattern Features
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
@@ -228,6 +227,92 @@ pattern := bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
 })
 ```
 
+### Standalone Event Patterns
+
+Standalone patterns are not tied to any specific resource. They match events across all resources of that type. For example, a standalone `awsAPICallViaCloudTrailPattern()` will match CloudTrail API calls for all S3 buckets in the account, not just a specific one.
+
+#### Event Patterns Basic Usage
+
+```go
+import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+import "github.com/aws/aws-cdk-go/awscdk"
+import targets "github.com/aws/aws-cdk-go/awscdk"
+
+var fn Function
+
+
+// Works with L2 Rule
+// Works with L2 Rule
+events.NewRule(scope, jsii.String("Rule"), &RuleProps{
+	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+		TlsDetails: &TlsDetails{
+			TlsVersion: []*string{
+				jsii.String("TLSv1.3"),
+			},
+		},
+		EventMetadata: &AWSEventMetadataProps{
+			Region: []*string{
+				jsii.String("us-east-1"),
+			},
+		},
+	}),
+	Targets: []IRuleTarget{
+		targets.NewLambdaFunction(fn),
+	},
+})
+
+// Also works with L1 CfnRule
+// Also works with L1 CfnRule
+events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
+	State: jsii.String("ENABLED"),
+	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+		TlsDetails: &TlsDetails{
+			TlsVersion: []*string{
+				jsii.String("TLSv1.3"),
+			},
+		},
+		EventMetadata: &AWSEventMetadataProps{
+			Region: []*string{
+				jsii.String("us-east-1"),
+			},
+		},
+	}),
+	Targets: []interface{}{
+		&TargetProperty{
+			Arn: fn.functionArn,
+			Id: jsii.String("L1"),
+		},
+	},
+})
+```
+
+#### Event Pattern Features
+
+```go
+import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+
+
+// Matches CloudTrail API calls across ALL S3 buckets
+pattern := awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern()
+```
+
+**Event Metadata Support**: Control EventBridge pattern metadata
+
+```go
+import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+import events "github.com/aws/aws-cdk-go/awscdk"
+
+
+pattern := awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+	EventMetadata: &AWSEventMetadataProps{
+		Region: events.Match_Prefix(jsii.String("us-")),
+		Version: []*string{
+			jsii.String("0"),
+		},
+	},
+})
+```
+
 ### Available Events
 
 Event patterns are generated for EventBridge events available in the AWS Event Schema Registry. Common examples:
@@ -242,5 +327,9 @@ Event patterns are generated for EventBridge events available in the AWS Event S
 Import events from service-specific modules:
 
 ```go
+// Resource-specific (filters to a specific bucket)
+import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+
+// Standalone (matches across all buckets)
 import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 ```

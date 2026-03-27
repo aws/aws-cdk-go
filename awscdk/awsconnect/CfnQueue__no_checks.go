@@ -88,6 +88,10 @@ func validateCfnQueue_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueue) validateSetAdditionalEmailAddressesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnQueue) validateSetHoursOfOperationArnParameters(val *string) error {
 	return nil
 }

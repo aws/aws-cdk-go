@@ -96,6 +96,10 @@ func validateCfnPortal_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPortal) validateSetAlarmsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPortal) validateSetPortalContactEmailParameters(val *string) error {
 	return nil
 }

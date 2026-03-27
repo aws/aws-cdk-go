@@ -29,6 +29,13 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
+//   	IamRoles: []interface{}{
+//   		&IamRoleProperty{
+//   			AwsIntegration: jsii.String("awsIntegration"),
+//   			IamRoleArn: jsii.String("iamRoleArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IsMtlsEnabledVmCluster: jsii.Boolean(false),
 //   	LicenseModel: jsii.String("licenseModel"),
 //   	MaintenanceWindow: &MaintenanceWindowProperty{
@@ -156,6 +163,9 @@ type CfnCloudAutonomousVmCluster interface {
 	DisplayName() *string
 	SetDisplayName(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+	IamRoles() interface{}
+	SetIamRoles(val interface{})
 	// Specifies whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
 	IsMtlsEnabledVmCluster() interface{}
 	SetIsMtlsEnabledVmCluster(val interface{})
@@ -772,6 +782,16 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster) Env() *interfaces.ResourceEnviro
 	return returns
 }
 
+func (j *jsiiProxy_CfnCloudAutonomousVmCluster) IamRoles() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"iamRoles",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCloudAutonomousVmCluster) IsMtlsEnabledVmCluster() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1006,6 +1026,17 @@ func (j *jsiiProxy_CfnCloudAutonomousVmCluster)SetDisplayName(val *string) {
 	_jsii_.Set(
 		j,
 		"displayName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCloudAutonomousVmCluster)SetIamRoles(val interface{}) {
+	if err := j.validateSetIamRolesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"iamRoles",
 		val,
 	)
 }

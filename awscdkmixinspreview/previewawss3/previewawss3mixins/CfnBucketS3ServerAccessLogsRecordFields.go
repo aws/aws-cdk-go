@@ -32,7 +32,7 @@ const (
 	// Experimental.
 	CfnBucketS3ServerAccessLogsRecordFields_ERROR_CODE CfnBucketS3ServerAccessLogsRecordFields = "ERROR_CODE"
 	// Experimental.
-	CfnBucketS3ServerAccessLogsRecordFields_BYTES_SENT CfnBucketS3ServerAccessLogsRecordFields = "BYTES_SENT"
+	CfnBucketS3ServerAccessLogsRecordFields_BYTES_SENT_SIZE CfnBucketS3ServerAccessLogsRecordFields = "BYTES_SENT_SIZE"
 	// Experimental.
 	CfnBucketS3ServerAccessLogsRecordFields_OBJECT_SIZE CfnBucketS3ServerAccessLogsRecordFields = "OBJECT_SIZE"
 	// Experimental.

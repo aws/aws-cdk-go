@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnFlowEntitlementPropsMixin.
 //
@@ -27,6 +30,12 @@ package awsmediaconnect
 //   	Name: jsii.String("name"),
 //   	Subscribers: []*string{
 //   		jsii.String("subscribers"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -71,5 +80,9 @@ type CfnFlowEntitlementMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
 	//
 	Subscribers *[]*string `field:"optional" json:"subscribers" yaml:"subscribers"`
+	// Key-value pairs that can be used to tag and organize this flow entitlement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

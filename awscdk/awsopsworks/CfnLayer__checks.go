@@ -244,6 +244,14 @@ func (j *jsiiProxy_CfnLayer) validateSetAutoAssignPublicIpsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnLayer) validateSetCustomJsonParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLayer) validateSetCustomRecipesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

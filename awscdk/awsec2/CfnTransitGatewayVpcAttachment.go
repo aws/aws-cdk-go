@@ -512,6 +512,9 @@ func (j *jsiiProxy_CfnTransitGatewayVpcAttachment)SetAddSubnetIds(val *[]*string
 }
 
 func (j *jsiiProxy_CfnTransitGatewayVpcAttachment)SetOptions(val interface{}) {
+	if err := j.validateSetOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"options",

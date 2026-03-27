@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnVPCEndpoint) validateSetDnsOptionsParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEndpoint) validateSetPolicyDocumentParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCEndpoint) validateSetPrivateDnsEnabledParameters(val interface{}) error {
 	return nil
 }

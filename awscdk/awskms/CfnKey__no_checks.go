@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnKey) validateSetEnableKeyRotationParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnKey) validateSetKeyPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnKey) validateSetMultiRegionParameters(val interface{}) error {
 	return nil
 }

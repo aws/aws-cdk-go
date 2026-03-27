@@ -108,6 +108,8 @@ type CfnReplicationGroupProps struct {
 	// Default: `false`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-atrestencryptionenabled
 	//
+	// Default: - false.
+	//
 	AtRestEncryptionEnabled interface{} `field:"optional" json:"atRestEncryptionEnabled" yaml:"atRestEncryptionEnabled"`
 	// *Reserved parameter.* The password used to access a password protected server.
 	//
@@ -133,6 +135,8 @@ type CfnReplicationGroupProps struct {
 	//
 	// Default: false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled
+	//
+	// Default: - false.
 	//
 	AutomaticFailoverEnabled interface{} `field:"optional" json:"automaticFailoverEnabled" yaml:"automaticFailoverEnabled"`
 	// If you are running Valkey 7.2 or later, or Redis OSS 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign. This parameter is disabled for previous versions.
@@ -207,6 +211,7 @@ type CfnReplicationGroupProps struct {
 	// A list of cache security group names to associate with this replication group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesecuritygroupnames
 	//
+	// Deprecated: this property has been deprecated.
 	CacheSecurityGroupNames *[]*string `field:"optional" json:"cacheSecurityGroupNames" yaml:"cacheSecurityGroupNames"`
 	// The name of the cache subnet group to be used for the replication group.
 	//
@@ -303,6 +308,8 @@ type CfnReplicationGroupProps struct {
 	// Default: 1.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups
 	//
+	// Default: - 1.
+	//
 	NumNodeGroups *float64 `field:"optional" json:"numNodeGroups" yaml:"numNodeGroups"`
 	// The port number on which each member of the replication group accepts connections.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-port
@@ -391,6 +398,8 @@ type CfnReplicationGroupProps struct {
 	// Default: 0 (i.e., automatic backups are disabled for this cluster).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotretentionlimit
 	//
+	// Default: - 0.
+	//
 	SnapshotRetentionLimit *float64 `field:"optional" json:"snapshotRetentionLimit" yaml:"snapshotRetentionLimit"`
 	// The cluster ID that is used as the daily snapshot source for the replication group.
 	//
@@ -424,6 +433,8 @@ type CfnReplicationGroupProps struct {
 	//
 	// > For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true` , an `AuthToken` , and a `CacheSubnetGroup` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-transitencryptionenabled
+	//
+	// Default: - false.
 	//
 	TransitEncryptionEnabled interface{} `field:"optional" json:"transitEncryptionEnabled" yaml:"transitEncryptionEnabled"`
 	// A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.

@@ -224,10 +224,6 @@ func init() {
 		reflect.TypeOf((*CfnWorkspaceInstance_InstanceMaintenanceOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.InstanceMarketOptionsRequestProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_InstanceMarketOptionsRequestProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.InstanceMetadataOptionsRequestProperty",
 		reflect.TypeOf((*CfnWorkspaceInstance_InstanceMetadataOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -258,10 +254,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.RunInstancesMonitoringEnabledProperty",
 		reflect.TypeOf((*CfnWorkspaceInstance_RunInstancesMonitoringEnabledProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.SpotMarketOptionsProperty",
-		reflect.TypeOf((*CfnWorkspaceInstance_SpotMarketOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_workspacesinstances.CfnWorkspaceInstance.TagSpecificationProperty",

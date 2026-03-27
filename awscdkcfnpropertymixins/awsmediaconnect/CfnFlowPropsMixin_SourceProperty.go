@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // The details of the sources of the flow.
 //
@@ -57,6 +60,9 @@ package awsmediaconnect
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiSourceSettings: &NdiSourceSettingsProperty{
+//   		SourceName: jsii.String("sourceName"),
+//   	},
 //   	Protocol: jsii.String("protocol"),
 //   	RouterIntegrationState: jsii.String("routerIntegrationState"),
 //   	RouterIntegrationTransitDecryption: &FlowTransitEncryptionProperty{
@@ -76,6 +82,12 @@ package awsmediaconnect
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   	SourceListenerPort: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
 //   }
@@ -137,6 +149,9 @@ type CfnFlowPropsMixin_SourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-ndisourcesettings
+	//
+	NdiSourceSettings interface{} `field:"optional" json:"ndiSourceSettings" yaml:"ndiSourceSettings"`
 	// The protocol that is used by the source.
 	//
 	// AWS CloudFormation does not currently support CDI or ST 2110 JPEG XS source protocols.
@@ -185,6 +200,10 @@ type CfnFlowPropsMixin_SourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-streamid
 	//
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
+	// Key-value pairs that can be used to tag this source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the VPC interface that is used for this source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-vpcinterfacename
 	//

@@ -80,6 +80,10 @@ import (
 //   		},
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PolicyEngineConfiguration: &GatewayPolicyEngineConfigurationProperty{
+//   		Arn: jsii.String("arn"),
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
 //   		Mcp: &MCPGatewayConfigurationProperty{
 //   			Instructions: jsii.String("instructions"),
@@ -159,6 +163,9 @@ type CfnGateway interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The configuration for a policy engine associated with a gateway.
+	PolicyEngineConfiguration() interface{}
+	SetPolicyEngineConfiguration(val interface{})
 	// The protocol configuration for the gateway target.
 	ProtocolConfiguration() interface{}
 	SetProtocolConfiguration(val interface{})
@@ -574,6 +581,16 @@ func (j *jsiiProxy_CfnGateway) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGateway) PolicyEngineConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"policyEngineConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGateway) ProtocolConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -748,6 +765,17 @@ func (j *jsiiProxy_CfnGateway)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGateway)SetPolicyEngineConfiguration(val interface{}) {
+	if err := j.validateSetPolicyEngineConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"policyEngineConfiguration",
 		val,
 	)
 }

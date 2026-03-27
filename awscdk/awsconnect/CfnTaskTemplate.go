@@ -582,6 +582,9 @@ func (j *jsiiProxy_CfnTaskTemplate)SetClientToken(val *string) {
 }
 
 func (j *jsiiProxy_CfnTaskTemplate)SetConstraints(val interface{}) {
+	if err := j.validateSetConstraintsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"constraints",

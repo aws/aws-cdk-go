@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnCollection) validateSetTagsRawParameters(val *[]*awscdk.Cf
 	return nil
 }
 
+func (j *jsiiProxy_CfnCollection) validateSetVectorOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnCollectionParameters(scope constructs.Construct, id *string, props *CfnCollectionProps) error {
 	return nil
 }

@@ -32,6 +32,9 @@ package cloudassemblyschema
 //   	DockerBuildArgs: map[string]*string{
 //   		"dockerBuildArgsKey": jsii.String("dockerBuildArgs"),
 //   	},
+//   	DockerBuildContexts: map[string]*string{
+//   		"dockerBuildContextsKey": jsii.String("dockerBuildContexts"),
+//   	},
 //   	DockerBuildSecrets: map[string]*string{
 //   		"dockerBuildSecretsKey": jsii.String("dockerBuildSecrets"),
 //   	},
@@ -77,6 +80,12 @@ type DockerImageSource struct {
 	// Default: - No additional build arguments.
 	//
 	DockerBuildArgs *map[string]*string `field:"optional" json:"dockerBuildArgs" yaml:"dockerBuildArgs"`
+	// Additional build contexts.
+	//
+	// Only allowed when `directory` is set.
+	// Default: - No additional build contexts.
+	//
+	DockerBuildContexts *map[string]*string `field:"optional" json:"dockerBuildContexts" yaml:"dockerBuildContexts"`
 	// Additional build secrets.
 	//
 	// Only allowed when `directory` is set.

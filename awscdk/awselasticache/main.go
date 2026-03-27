@@ -249,14 +249,18 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "atRestEncryptionEnabled", GoGetter: "AtRestEncryptionEnabled"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationEndPoint", GoGetter: "AttrConfigurationEndPoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationEndPointAddress", GoGetter: "AttrConfigurationEndPointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationEndPointPort", GoGetter: "AttrConfigurationEndPointPort"},
+			_jsii_.MemberProperty{JsiiProperty: "attrPrimaryEndPoint", GoGetter: "AttrPrimaryEndPoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPrimaryEndPointAddress", GoGetter: "AttrPrimaryEndPointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPrimaryEndPointPort", GoGetter: "AttrPrimaryEndPointPort"},
+			_jsii_.MemberProperty{JsiiProperty: "attrReadEndPoint", GoGetter: "AttrReadEndPoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndPointAddresses", GoGetter: "AttrReadEndPointAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndPointAddressesList", GoGetter: "AttrReadEndPointAddressesList"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndPointPorts", GoGetter: "AttrReadEndPointPorts"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndPointPortsList", GoGetter: "AttrReadEndPointPortsList"},
+			_jsii_.MemberProperty{JsiiProperty: "attrReaderEndPoint", GoGetter: "AttrReaderEndPoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReaderEndPointAddress", GoGetter: "AttrReaderEndPointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReaderEndPointPort", GoGetter: "AttrReaderEndPointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "authToken", GoGetter: "AuthToken"},
@@ -342,6 +346,10 @@ func init() {
 		reflect.TypeOf((*CfnReplicationGroup_DestinationDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup.EndpointProperty",
+		reflect.TypeOf((*CfnReplicationGroup_EndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty",
 		reflect.TypeOf((*CfnReplicationGroup_KinesisFirehoseDestinationDetailsProperty)(nil)).Elem(),
 	)
@@ -352,6 +360,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup.NodeGroupConfigurationProperty",
 		reflect.TypeOf((*CfnReplicationGroup_NodeGroupConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticache.CfnReplicationGroup.ReadEndPointProperty",
+		reflect.TypeOf((*CfnReplicationGroup_ReadEndPointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticache.CfnReplicationGroupProps",

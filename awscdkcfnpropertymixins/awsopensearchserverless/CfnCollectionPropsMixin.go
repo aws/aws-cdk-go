@@ -40,6 +40,9 @@ import (
 //   		},
 //   	},
 //   	Type: jsii.String("type"),
+//   	VectorOptions: &VectorOptionsProperty{
+//   		ServerlessVectorAcceleration: jsii.String("serverlessVectorAcceleration"),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

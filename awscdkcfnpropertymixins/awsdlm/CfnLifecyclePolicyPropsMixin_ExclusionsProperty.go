@@ -10,13 +10,19 @@ package awsdlm
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var excludeTags interface{}
 //   var excludeVolumeTypes interface{}
 //
 //   exclusionsProperty := &ExclusionsProperty{
 //   	ExcludeBootVolumes: jsii.Boolean(false),
-//   	ExcludeTags: excludeTags,
-//   	ExcludeVolumeTypes: excludeVolumeTypes,
+//   	ExcludeTags: []interface{}{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ExcludeVolumeTypes: []interface{}{
+//   		excludeVolumeTypes,
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html

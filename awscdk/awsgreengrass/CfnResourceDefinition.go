@@ -563,6 +563,9 @@ func (j *jsiiProxy_CfnResourceDefinition)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnResourceDefinition)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

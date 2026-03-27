@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnSmsTemplate) validateSetBodyParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnSmsTemplate) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSmsTemplate) validateSetTemplateNameParameters(val *string) error {
 	return nil
 }

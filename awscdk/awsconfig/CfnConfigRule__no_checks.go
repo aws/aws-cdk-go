@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnConfigRule) validateSetEvaluationModesParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigRule) validateSetInputParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConfigRule) validateSetScopeParameters(val interface{}) error {
 	return nil
 }

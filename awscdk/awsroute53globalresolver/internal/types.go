@@ -1,0 +1,15 @@
+package internal
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsroute53globalresolver"
+)
+type Type__awscdkCfnResource = awscdk.CfnResource
+type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsroute53globalresolverIAccessSourceRef = interfacesawsroute53globalresolver.IAccessSourceRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsroute53globalresolverIAccessTokenRef = interfacesawsroute53globalresolver.IAccessTokenRef
+type Type__interfacesawsroute53globalresolverIDnsViewRef = interfacesawsroute53globalresolver.IDnsViewRef
+type Type__interfacesawsroute53globalresolverIFirewallDomainListRef = interfacesawsroute53globalresolver.IFirewallDomainListRef
+type Type__interfacesawsroute53globalresolverIFirewallRuleRef = interfacesawsroute53globalresolver.IFirewallRuleRef
+type Type__interfacesawsroute53globalresolverIGlobalResolverRef = interfacesawsroute53globalresolver.IGlobalResolverRef
+type Type__interfacesawsroute53globalresolverIHostedZoneAssociationRef = interfacesawsroute53globalresolver.IHostedZoneAssociationRef

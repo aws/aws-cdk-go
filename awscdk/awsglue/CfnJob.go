@@ -756,6 +756,9 @@ func (j *jsiiProxy_CfnJob)SetConnections(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJob)SetDefaultArguments(val interface{}) {
+	if err := j.validateSetDefaultArgumentsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"defaultArguments",
@@ -858,6 +861,9 @@ func (j *jsiiProxy_CfnJob)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnJob)SetNonOverridableArguments(val interface{}) {
+	if err := j.validateSetNonOverridableArgumentsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"nonOverridableArguments",
@@ -904,6 +910,9 @@ func (j *jsiiProxy_CfnJob)SetSecurityConfiguration(val *string) {
 }
 
 func (j *jsiiProxy_CfnJob)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

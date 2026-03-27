@@ -108,6 +108,14 @@ func (j *jsiiProxy_CfnDataLakeSettings) validateSetExternalDataFilteringAllowLis
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataLakeSettings) validateSetParametersParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataLakeSettings) validateSetReadOnlyAdminsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnDataLakeSettingsParameters(scope constructs.Construct, id *string, props *CfnDataLakeSettingsProps) error {
 	return nil
 }

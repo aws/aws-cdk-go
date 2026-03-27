@@ -99,6 +99,46 @@ asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerIm
 })
 ```
 
+You can optionally pass additional build contexts to the `docker build` command by specifying
+the `buildContexts` property. Each entry specifies a named build context and its source, which
+can be a directory path, a URL, or a docker image. This is equivalent to the `--build-context`
+flag in the `docker build` command.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	BuildContexts: map[string]*string{
+		"mycontext": path.join(__dirname, jsii.String("path/to/context")),
+		"alpine": jsii.String("docker-image://alpine:latest"),
+	},
+})
+```
+
+Note that while changes to the `buildContexts` values (e.g. changing which directory a context
+points to) will invalidate the asset hash and trigger a rebuild, changes to the *contents* of
+directories referenced by build contexts are not automatically tracked. Only the contents of
+the primary `directory` are fingerprinted. If files in a build context directory change, you can
+use `extraHash` to trigger a rebuild:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+contextDir := path.join(__dirname, jsii.String("path/to/context"))
+
+asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
+	Directory: path.join(__dirname, jsii.String("my-image")),
+	BuildContexts: map[string]*string{
+		"mycontext": contextDir,
+	},
+	ExtraHash: awscdk.FileSystem_Fingerprint(contextDir),
+})
+```
+
 You can optionally pass a target to the `docker build` command by specifying
 the `target` property:
 

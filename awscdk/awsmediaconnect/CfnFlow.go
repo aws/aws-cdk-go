@@ -71,6 +71,9 @@ import (
 //   		},
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
+//   		NdiSourceSettings: &NdiSourceSettingsProperty{
+//   			SourceName: jsii.String("sourceName"),
+//   		},
 //   		Protocol: jsii.String("protocol"),
 //   		RouterIntegrationState: jsii.String("routerIntegrationState"),
 //   		RouterIntegrationTransitDecryption: &FlowTransitEncryptionProperty{
@@ -92,12 +95,22 @@ import (
 //   		SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   		SourceListenerPort: jsii.Number(123),
 //   		StreamId: jsii.String("streamId"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   		WhitelistCidr: jsii.String("whitelistCidr"),
 //   	},
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	EncodingConfig: &EncodingConfigProperty{
+//   		EncodingProfile: jsii.String("encodingProfile"),
+//   		VideoMaxBitrate: jsii.Number(123),
+//   	},
 //   	FlowSize: jsii.String("flowSize"),
 //   	Maintenance: &MaintenanceProperty{
 //   		MaintenanceDay: jsii.String("maintenanceDay"),
@@ -125,6 +138,12 @@ import (
 //   			ClockRate: jsii.Number(123),
 //   			Description: jsii.String("description"),
 //   			Fmt: jsii.Number(123),
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
 //   			VideoFormat: jsii.String("videoFormat"),
 //   		},
 //   	},
@@ -173,6 +192,12 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaces: []interface{}{
 //   		&VpcInterfaceProperty{
 //   			Name: jsii.String("name"),
@@ -187,6 +212,12 @@ import (
 //   				jsii.String("networkInterfaceIds"),
 //   			},
 //   			NetworkInterfaceType: jsii.String("networkInterfaceType"),
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   })
@@ -197,6 +228,7 @@ type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IFlowRef
+	awscdk.ITaggableV2
 	// The IP address from which video will be sent to output destinations.
 	AttrEgressIp() *string
 	// The Amazon Resource Name (ARN) of the flow.
@@ -220,6 +252,8 @@ type CfnFlow interface {
 	// The Availability Zone that you want to create the flow in.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -229,6 +263,8 @@ type CfnFlow interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	EncodingConfig() interface{}
+	SetEncodingConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// A reference to a Flow resource.
 	FlowRef() *interfacesawsmediaconnect.FlowReference
@@ -277,6 +313,9 @@ type CfnFlow interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Key-value pairs that can be used to tag this flow.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -432,6 +471,7 @@ type jsiiProxy_CfnFlow struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsmediaconnectIFlowRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFlow) AttrEgressIp() *string {
@@ -514,6 +554,16 @@ func (j *jsiiProxy_CfnFlow) AvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -549,6 +599,16 @@ func (j *jsiiProxy_CfnFlow) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) EncodingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encodingConfig",
 		&returns,
 	)
 	return returns
@@ -694,6 +754,16 @@ func (j *jsiiProxy_CfnFlow) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlow) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlow) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -758,6 +828,17 @@ func (j *jsiiProxy_CfnFlow)SetAvailabilityZone(val *string) {
 	_jsii_.Set(
 		j,
 		"availabilityZone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetEncodingConfig(val interface{}) {
+	if err := j.validateSetEncodingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encodingConfig",
 		val,
 	)
 }
@@ -843,6 +924,17 @@ func (j *jsiiProxy_CfnFlow)SetSourceMonitoringConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"sourceMonitoringConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlow)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

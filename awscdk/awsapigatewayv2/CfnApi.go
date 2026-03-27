@@ -699,6 +699,9 @@ func (j *jsiiProxy_CfnApi)SetBasePath(val *string) {
 }
 
 func (j *jsiiProxy_CfnApi)SetBody(val interface{}) {
+	if err := j.validateSetBodyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"body",

@@ -14,6 +14,7 @@ package awscleanrooms
 //   	WorkGroup: jsii.String("workGroup"),
 //
 //   	// the properties below are optional
+//   	CatalogName: jsii.String("catalogName"),
 //   	OutputLocation: jsii.String("outputLocation"),
 //   	Region: jsii.String("region"),
 //   }
@@ -33,6 +34,9 @@ type CfnConfiguredTable_AthenaTableReferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-workgroup
 	//
 	WorkGroup *string `field:"required" json:"workGroup" yaml:"workGroup"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-catalogname
+	//
+	CatalogName *string `field:"optional" json:"catalogName" yaml:"catalogName"`
 	// The output location for the Athena table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-outputlocation
 	//

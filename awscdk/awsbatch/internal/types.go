@@ -13,6 +13,7 @@ type Type__interfacesawsbatchIConsumableResourceRef = interfacesawsbatch.IConsum
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsbatchIJobDefinitionRef = interfacesawsbatch.IJobDefinitionRef
 type Type__interfacesawsbatchIJobQueueRef = interfacesawsbatch.IJobQueueRef
+type Type__interfacesawsbatchIQuotaShareRef = interfacesawsbatch.IQuotaShareRef
 type Type__interfacesawsbatchISchedulingPolicyRef = interfacesawsbatch.ISchedulingPolicyRef
 type Type__interfacesawsbatchIServiceEnvironmentRef = interfacesawsbatch.IServiceEnvironmentRef
 type Type__constructsConstruct = constructs.Construct

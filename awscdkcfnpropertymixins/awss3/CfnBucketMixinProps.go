@@ -8,7 +8,7 @@ import (
 //
 // Example:
 //   combineBucket := s3.NewCfnBucket(scope, jsii.String("CombineBucket"))
-//   combineBucket.PublicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
+//   combineBucket.publicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
 //   	BlockPublicAcls: jsii.Boolean(true),
 //   }
 //
@@ -64,6 +64,12 @@ type CfnBucketMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketname
 	//
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketnameprefix
+	//
+	BucketNamePrefix *string `field:"optional" json:"bucketNamePrefix" yaml:"bucketNamePrefix"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-bucketnamespace
+	//
+	BucketNamespace *string `field:"optional" json:"bucketNamespace" yaml:"bucketNamespace"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket.
 	//
 	// For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide* .

@@ -60,6 +60,10 @@ func init() {
 		reflect.TypeOf((*CfnLifecyclePolicyPropsMixin_CrossRegionCopyRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dlm.CfnLifecyclePolicyPropsMixin.CrossRegionCopyTargetProperty",
+		reflect.TypeOf((*CfnLifecyclePolicyPropsMixin_CrossRegionCopyTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dlm.CfnLifecyclePolicyPropsMixin.DeprecateRuleProperty",
 		reflect.TypeOf((*CfnLifecyclePolicyPropsMixin_DeprecateRuleProperty)(nil)).Elem(),
 	)

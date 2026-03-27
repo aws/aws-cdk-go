@@ -148,6 +148,21 @@ package awsbedrockagentcore
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
+//   		Resources: []interface{}{
+//   			&StreamDeliveryResourceProperty{
+//   				Kinesis: &KinesisResourceProperty{
+//   					ContentConfigurations: []interface{}{
+//   						&ContentConfigurationProperty{
+//   							Level: jsii.String("level"),
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   					DataStreamArn: jsii.String("dataStreamArn"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -180,6 +195,9 @@ type CfnMemoryMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-streamdeliveryresources
+	//
+	StreamDeliveryResources interface{} `field:"optional" json:"streamDeliveryResources" yaml:"streamDeliveryResources"`
 	// The tags for the resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-tags
 	//

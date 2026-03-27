@@ -54,6 +54,9 @@ package cloudassemblyschema
 //   				"dockerBuildArgs": map[string]*string{
 //   					"dockerBuildArgsKey": jsii.String("dockerBuildArgs"),
 //   				},
+//   				"dockerBuildContexts": map[string]*string{
+//   					"dockerBuildContextsKey": jsii.String("dockerBuildContexts"),
+//   				},
 //   				"dockerBuildSecrets": map[string]*string{
 //   					"dockerBuildSecretsKey": jsii.String("dockerBuildSecrets"),
 //   				},

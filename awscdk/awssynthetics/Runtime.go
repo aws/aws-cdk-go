@@ -91,6 +91,17 @@ func Runtime_SYNTHETICS_NODEJS_3_0() Runtime {
 	return returns
 }
 
+func Runtime_SYNTHETICS_NODEJS_3_1() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_synthetics.Runtime",
+		"SYNTHETICS_NODEJS_3_1",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_SYNTHETICS_NODEJS_PLAYWRIGHT_1_0() Runtime {
 	_init_.Initialize()
 	var returns Runtime

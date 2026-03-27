@@ -20,21 +20,30 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var crossRegionCopyTargets interface{}
-//   var excludeTags interface{}
 //   var excludeVolumeTypes interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnLifecyclePolicyPropsMixin := awscdkcfnpropertymixins.Aws_dlm.NewCfnLifecyclePolicyPropsMixin(&CfnLifecyclePolicyMixinProps{
 //   	CopyTags: jsii.Boolean(false),
 //   	CreateInterval: jsii.Number(123),
-//   	CrossRegionCopyTargets: crossRegionCopyTargets,
+//   	CrossRegionCopyTargets: []interface{}{
+//   		&CrossRegionCopyTargetProperty{
+//   			TargetRegion: jsii.String("targetRegion"),
+//   		},
+//   	},
 //   	DefaultPolicy: jsii.String("defaultPolicy"),
 //   	Description: jsii.String("description"),
 //   	Exclusions: &ExclusionsProperty{
 //   		ExcludeBootVolumes: jsii.Boolean(false),
-//   		ExcludeTags: excludeTags,
-//   		ExcludeVolumeTypes: excludeVolumeTypes,
+//   		ExcludeTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		ExcludeVolumeTypes: []interface{}{
+//   			excludeVolumeTypes,
+//   		},
 //   	},
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	ExtendDeletion: jsii.Boolean(false),
@@ -59,7 +68,11 @@ import (
 //   		},
 //   		CopyTags: jsii.Boolean(false),
 //   		CreateInterval: jsii.Number(123),
-//   		CrossRegionCopyTargets: crossRegionCopyTargets,
+//   		CrossRegionCopyTargets: []interface{}{
+//   			&CrossRegionCopyTargetProperty{
+//   				TargetRegion: jsii.String("targetRegion"),
+//   			},
+//   		},
 //   		EventSource: &EventSourceProperty{
 //   			Parameters: &EventParametersProperty{
 //   				DescriptionRegex: jsii.String("descriptionRegex"),
@@ -72,8 +85,15 @@ import (
 //   		},
 //   		Exclusions: &ExclusionsProperty{
 //   			ExcludeBootVolumes: jsii.Boolean(false),
-//   			ExcludeTags: excludeTags,
-//   			ExcludeVolumeTypes: excludeVolumeTypes,
+//   			ExcludeTags: []interface{}{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			ExcludeVolumeTypes: []interface{}{
+//   				excludeVolumeTypes,
+//   			},
 //   		},
 //   		ExtendDeletion: jsii.Boolean(false),
 //   		Parameters: &ParametersProperty{

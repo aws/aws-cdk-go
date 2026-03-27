@@ -665,6 +665,9 @@ func (j *jsiiProxy_CfnSequenceStore)SetPropagatedSetLevelTags(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnSequenceStore)SetS3AccessPolicy(val interface{}) {
+	if err := j.validateSetS3AccessPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"s3AccessPolicy",

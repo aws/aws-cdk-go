@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnChannel) validateSetEncoderSettingsParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetInferenceSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetInputAttachmentsParameters(val interface{}) error {
 	return nil
 }
@@ -133,6 +137,10 @@ func (j *jsiiProxy_CfnChannel) validateSetLinkedChannelSettingsParameters(val in
 }
 
 func (j *jsiiProxy_CfnChannel) validateSetMaintenanceParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnChannel) validateSetTagsRawParameters(val interface{}) error {
 	return nil
 }
 

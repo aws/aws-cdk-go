@@ -164,6 +164,21 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
+//   		Resources: []interface{}{
+//   			&StreamDeliveryResourceProperty{
+//   				Kinesis: &KinesisResourceProperty{
+//   					ContentConfigurations: []interface{}{
+//   						&ContentConfigurationProperty{
+//   							Level: jsii.String("level"),
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   					DataStreamArn: jsii.String("dataStreamArn"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},

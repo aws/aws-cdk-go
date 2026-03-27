@@ -74,6 +74,10 @@ import (
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
+//   	PolicyEngineConfiguration: &GatewayPolicyEngineConfigurationProperty{
+//   		Arn: jsii.String("arn"),
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
 //   		Mcp: &MCPGatewayConfigurationProperty{
 //   			Instructions: jsii.String("instructions"),

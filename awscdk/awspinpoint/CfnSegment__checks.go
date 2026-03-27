@@ -260,6 +260,14 @@ func (j *jsiiProxy_CfnSegment) validateSetSegmentGroupsParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnSegment) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnSegmentParameters(scope constructs.Construct, id *string, props *CfnSegmentProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

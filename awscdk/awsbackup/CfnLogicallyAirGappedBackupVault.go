@@ -548,6 +548,9 @@ func NewCfnLogicallyAirGappedBackupVault_Override(c CfnLogicallyAirGappedBackupV
 }
 
 func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault)SetAccessPolicy(val interface{}) {
+	if err := j.validateSetAccessPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accessPolicy",

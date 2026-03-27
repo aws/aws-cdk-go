@@ -86,6 +86,12 @@ import (
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceAttachment: &VpcInterfaceAttachmentProperty{
 //   		VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	},
@@ -97,8 +103,11 @@ type CfnFlowOutput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IFlowOutputRef
+	awscdk.ITaggableV2
 	// The ARN of the output.
 	AttrOutputArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -188,6 +197,9 @@ type CfnFlowOutput interface {
 	// The stream ID that you want to use for this transport.
 	StreamId() *string
 	SetStreamId(val *string)
+	// Key-value pairs that can be used to tag and organize this flow output.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -343,6 +355,7 @@ type jsiiProxy_CfnFlowOutput struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsmediaconnectIFlowOutputRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFlowOutput) AttrOutputArn() *string {
@@ -350,6 +363,16 @@ func (j *jsiiProxy_CfnFlowOutput) AttrOutputArn() *string {
 	_jsii_.Get(
 		j,
 		"attrOutputArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowOutput) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -645,6 +668,16 @@ func (j *jsiiProxy_CfnFlowOutput) StreamId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -865,6 +898,17 @@ func (j *jsiiProxy_CfnFlowOutput)SetStreamId(val *string) {
 	_jsii_.Set(
 		j,
 		"streamId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

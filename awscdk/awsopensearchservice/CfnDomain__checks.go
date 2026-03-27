@@ -228,6 +228,14 @@ func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetAccessPoliciesParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case *map[string]*string:
@@ -335,6 +343,30 @@ func (j *jsiiProxy_CfnDomain) validateSetCognitoOptionsParameters(val interface{
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_CognitoOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetDeploymentStrategyOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_DeploymentStrategyOptionsProperty:
+		val := val.(*CfnDomain_DeploymentStrategyOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_DeploymentStrategyOptionsProperty:
+		val_ := val.(CfnDomain_DeploymentStrategyOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_DeploymentStrategyOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

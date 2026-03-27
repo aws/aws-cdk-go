@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnSchedulingPolicy) validateSetFairsharePolicyParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnSchedulingPolicy) validateSetQuotaSharePolicyParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnSchedulingPolicyParameters(scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) error {
 	return nil
 }

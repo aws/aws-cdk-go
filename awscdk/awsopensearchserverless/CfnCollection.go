@@ -40,6 +40,9 @@ import (
 //   		},
 //   	},
 //   	Type: jsii.String("type"),
+//   	VectorOptions: &VectorOptionsProperty{
+//   		ServerlessVectorAcceleration: jsii.String("serverlessVectorAcceleration"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html
@@ -136,6 +139,9 @@ type CfnCollection interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Vector search configuration options for the collection.
+	VectorOptions() interface{}
+	SetVectorOptions(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -528,6 +534,16 @@ func (j *jsiiProxy_CfnCollection) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollection) VectorOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vectorOptions",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::OpenSearchServerless::Collection`.
 func NewCfnCollection(scope constructs.Construct, id *string, props *CfnCollectionProps) CfnCollection {
@@ -619,6 +635,17 @@ func (j *jsiiProxy_CfnCollection)SetType(val *string) {
 	_jsii_.Set(
 		j,
 		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollection)SetVectorOptions(val interface{}) {
+	if err := j.validateSetVectorOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vectorOptions",
 		val,
 	)
 }

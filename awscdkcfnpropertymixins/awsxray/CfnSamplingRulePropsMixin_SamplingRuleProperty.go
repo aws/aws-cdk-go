@@ -22,6 +22,10 @@ package awsxray
 //   	ResourceArn: jsii.String("resourceArn"),
 //   	RuleArn: jsii.String("ruleArn"),
 //   	RuleName: jsii.String("ruleName"),
+//   	SamplingRateBoost: &SamplingRateBoostProperty{
+//   		CooldownWindowMinutes: jsii.Number(123),
+//   		MaxRate: jsii.Number(123),
+//   	},
 //   	ServiceName: jsii.String("serviceName"),
 //   	ServiceType: jsii.String("serviceType"),
 //   	UrlPath: jsii.String("urlPath"),
@@ -79,6 +83,9 @@ type CfnSamplingRulePropsMixin_SamplingRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
 	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-samplingrateboost
+	//
+	SamplingRateBoost interface{} `field:"optional" json:"samplingRateBoost" yaml:"samplingRateBoost"`
 	// Matches the `name` that the service uses to identify itself in segments.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
 	//

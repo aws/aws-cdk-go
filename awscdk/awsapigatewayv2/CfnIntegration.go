@@ -741,6 +741,9 @@ func (j *jsiiProxy_CfnIntegration)SetPayloadFormatVersion(val *string) {
 }
 
 func (j *jsiiProxy_CfnIntegration)SetRequestParameters(val interface{}) {
+	if err := j.validateSetRequestParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"requestParameters",
@@ -749,6 +752,9 @@ func (j *jsiiProxy_CfnIntegration)SetRequestParameters(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnIntegration)SetRequestTemplates(val interface{}) {
+	if err := j.validateSetRequestTemplatesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"requestTemplates",
@@ -757,6 +763,9 @@ func (j *jsiiProxy_CfnIntegration)SetRequestTemplates(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnIntegration)SetResponseParameters(val interface{}) {
+	if err := j.validateSetResponseParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"responseParameters",

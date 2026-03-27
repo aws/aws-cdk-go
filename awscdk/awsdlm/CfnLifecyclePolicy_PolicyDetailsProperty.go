@@ -8,8 +8,6 @@ package awsdlm
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var crossRegionCopyTargets interface{}
-//   var excludeTags interface{}
 //   var excludeVolumeTypes interface{}
 //
 //   policyDetailsProperty := &PolicyDetailsProperty{
@@ -37,7 +35,11 @@ package awsdlm
 //   	},
 //   	CopyTags: jsii.Boolean(false),
 //   	CreateInterval: jsii.Number(123),
-//   	CrossRegionCopyTargets: crossRegionCopyTargets,
+//   	CrossRegionCopyTargets: []interface{}{
+//   		&CrossRegionCopyTargetProperty{
+//   			TargetRegion: jsii.String("targetRegion"),
+//   		},
+//   	},
 //   	EventSource: &EventSourceProperty{
 //   		Type: jsii.String("type"),
 //
@@ -54,8 +56,15 @@ package awsdlm
 //   	},
 //   	Exclusions: &ExclusionsProperty{
 //   		ExcludeBootVolumes: jsii.Boolean(false),
-//   		ExcludeTags: excludeTags,
-//   		ExcludeVolumeTypes: excludeVolumeTypes,
+//   		ExcludeTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		ExcludeVolumeTypes: []interface{}{
+//   			excludeVolumeTypes,
+//   		},
 //   	},
 //   	ExtendDeletion: jsii.Boolean(false),
 //   	Parameters: &ParametersProperty{

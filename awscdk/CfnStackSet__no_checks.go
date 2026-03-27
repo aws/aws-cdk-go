@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnStackSet) validateSetAutoDeploymentParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnStackSet) validateSetManagedExecutionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStackSet) validateSetOperationPreferencesParameters(val interface{}) error {
 	return nil
 }

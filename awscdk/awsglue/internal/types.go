@@ -5,12 +5,13 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsglueICatalogRef = interfacesawsglue.ICatalogRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsglueIClassifierRef = interfacesawsglue.IClassifierRef
 type Type__interfacesawsglueIConnectionRef = interfacesawsglue.IConnectionRef
 type Type__interfacesawsglueICrawlerRef = interfacesawsglue.ICrawlerRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsglueICustomEntityTypeRef = interfacesawsglue.ICustomEntityTypeRef
-type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsglueIDataCatalogEncryptionSettingsRef = interfacesawsglue.IDataCatalogEncryptionSettingsRef
 type Type__interfacesawsglueIDataQualityRulesetRef = interfacesawsglue.IDataQualityRulesetRef
 type Type__interfacesawsglueIDatabaseRef = interfacesawsglue.IDatabaseRef

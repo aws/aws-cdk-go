@@ -136,6 +136,10 @@ func init() {
 		reflect.TypeOf((*CfnStreamGroup_LocationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gameliftstreams.CfnStreamGroup.VpcTransitConfigurationProperty",
+		reflect.TypeOf((*CfnStreamGroup_VpcTransitConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gameliftstreams.CfnStreamGroupProps",
 		reflect.TypeOf((*CfnStreamGroupProps)(nil)).Elem(),
 	)

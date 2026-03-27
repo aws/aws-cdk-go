@@ -907,6 +907,9 @@ func NewCfnEnvironment_Override(c CfnEnvironment, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnEnvironment)SetAirflowConfigurationOptions(val interface{}) {
+	if err := j.validateSetAirflowConfigurationOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"airflowConfigurationOptions",
@@ -1092,6 +1095,9 @@ func (j *jsiiProxy_CfnEnvironment)SetStartupScriptS3Path(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironment)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

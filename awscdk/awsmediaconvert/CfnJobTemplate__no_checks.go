@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnJobTemplate) validateSetSettingsJsonParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnJobTemplate) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnJobTemplateParameters(scope constructs.Construct, id *string, props *CfnJobTemplateProps) error {
 	return nil
 }

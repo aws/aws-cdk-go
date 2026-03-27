@@ -28,6 +28,9 @@ import (
 //   	BuildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
 //   	},
+//   	BuildContexts: map[string]*string{
+//   		"buildContextsKey": jsii.String("buildContexts"),
+//   	},
 //   	BuildSecrets: map[string]*string{
 //   		"buildSecretsKey": jsii.String("buildSecrets"),
 //   	},
@@ -67,6 +70,7 @@ import (
 //   	IgnoreMode: cdk.IgnoreMode_GLOB,
 //   	Invalidation: &DockerImageAssetInvalidationOptions{
 //   		BuildArgs: jsii.Boolean(false),
+//   		BuildContexts: jsii.Boolean(false),
 //   		BuildSecrets: jsii.Boolean(false),
 //   		BuildSsh: jsii.Boolean(false),
 //   		ExtraHash: jsii.Boolean(false),

@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnCollectionPropsMixin_EncryptionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_opensearchserverless.CfnCollectionPropsMixin.VectorOptionsProperty",
+		reflect.TypeOf((*CfnCollectionPropsMixin_VectorOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_opensearchserverless.CfnIndexMixinProps",
 		reflect.TypeOf((*CfnIndexMixinProps)(nil)).Elem(),
 	)

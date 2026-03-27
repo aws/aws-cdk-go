@@ -59,4 +59,8 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_gameliftstreams.CfnStreamGroupPropsMixin.LocationConfigurationProperty",
 		reflect.TypeOf((*CfnStreamGroupPropsMixin_LocationConfigurationProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_gameliftstreams.CfnStreamGroupPropsMixin.VpcTransitConfigurationProperty",
+		reflect.TypeOf((*CfnStreamGroupPropsMixin_VpcTransitConfigurationProperty)(nil)).Elem(),
+	)
 }

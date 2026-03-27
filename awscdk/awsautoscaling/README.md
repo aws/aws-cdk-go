@@ -920,6 +920,46 @@ The following deletion protection levels are available:
 
 **Note:** When using `PREVENT_ALL_DELETION`, you must first update the deletion protection setting before deleting the CloudFormation stack containing the Auto Scaling group.
 
+## Instance Lifecycle Policy
+
+You can configure an instance lifecycle policy to control how instances are handled during lifecycle events, particularly when lifecycle hooks are abandoned or fail. This allows fine-grained control over when to preserve instances for manual intervention.
+
+The instance lifecycle policy defines retention triggers that specify when instances should be moved to a Retained state rather than terminated. Retained instances don't count toward desired capacity and remain until you manually terminate them.
+
+**Important:** To use instance lifecycle policies in your Auto Scaling group, you must also configure a termination lifecycle hook. If you configure an instance lifecycle policy but don't have any termination lifecycle hooks, the policy has no effect. Instance lifecycle policies will only apply when termination lifecycle actions are abandoned, not when they complete successfully with the CONTINUE result.
+
+```go
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
+
+
+asg := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+
+	// Configure instance lifecycle policy
+	InstanceLifecyclePolicy: &InstanceLifecyclePolicy{
+		RetentionTriggers: &RetentionTriggers{
+			TerminateHookAbandon: autoscaling.TerminateHookAbandonAction_RETAIN,
+		},
+	},
+})
+
+// Add termination lifecycle hook (required for the policy to take effect)
+asg.addLifecycleHook(jsii.String("TerminationHook"), &BasicLifecycleHookProps{
+	LifecycleTransition: autoscaling.LifecycleTransition_INSTANCE_TERMINATING,
+})
+```
+
+The `terminateHookAbandon` trigger specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. You can set it to:
+
+* `RETAIN` - Move instances to a Retained state for manual investigation
+* `TERMINATE` - Use default termination behavior (instances are terminated normally)
+
+This feature is particularly useful for debugging failed instances or preserving instances that contain important data during lifecycle hook failures.
+
 ## Future work
 
 * [ ] CloudWatch Events (impossible to add currently as the AutoScalingGroup ARN is

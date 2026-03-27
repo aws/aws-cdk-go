@@ -328,6 +328,38 @@ func init() {
 		reflect.TypeOf((*CfnJobQueuePropsMixin_ServiceEnvironmentOrderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnQuotaShareMixinProps",
+		reflect.TypeOf((*CfnQuotaShareMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnQuotaSharePropsMixin",
+		reflect.TypeOf((*CfnQuotaSharePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnQuotaSharePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnQuotaSharePropsMixin.QuotaShareCapacityLimitProperty",
+		reflect.TypeOf((*CfnQuotaSharePropsMixin_QuotaShareCapacityLimitProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnQuotaSharePropsMixin.QuotaSharePreemptionConfigurationProperty",
+		reflect.TypeOf((*CfnQuotaSharePropsMixin_QuotaSharePreemptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnQuotaSharePropsMixin.QuotaShareResourceSharingConfigurationProperty",
+		reflect.TypeOf((*CfnQuotaSharePropsMixin_QuotaShareResourceSharingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnSchedulingPolicyMixinProps",
 		reflect.TypeOf((*CfnSchedulingPolicyMixinProps)(nil)).Elem(),
 	)
@@ -350,6 +382,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnSchedulingPolicyPropsMixin.FairsharePolicyProperty",
 		reflect.TypeOf((*CfnSchedulingPolicyPropsMixin_FairsharePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnSchedulingPolicyPropsMixin.QuotaSharePolicyProperty",
+		reflect.TypeOf((*CfnSchedulingPolicyPropsMixin_QuotaSharePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnSchedulingPolicyPropsMixin.ShareAttributesProperty",

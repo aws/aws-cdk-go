@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnFlowSource`.
 //
@@ -10,6 +13,7 @@ package awsmediaconnect
 //
 //   cfnFlowSourceProps := &CfnFlowSourceProps{
 //   	Description: jsii.String("description"),
+//   	FlowArn: jsii.String("flowArn"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -27,7 +31,6 @@ package awsmediaconnect
 //   		Url: jsii.String("url"),
 //   	},
 //   	EntitlementArn: jsii.String("entitlementArn"),
-//   	FlowArn: jsii.String("flowArn"),
 //   	GatewayBridgeSource: &GatewayBridgeSourceProperty{
 //   		BridgeArn: jsii.String("bridgeArn"),
 //
@@ -46,6 +49,12 @@ package awsmediaconnect
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   	SourceListenerPort: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
 //   }
@@ -59,6 +68,12 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
+	// The Amazon Resource Name (ARN) of the flow this source is connected to.
+	//
+	// The flow must have Failover enabled to add an additional source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
+	//
+	FlowArn *string `field:"required" json:"flowArn" yaml:"flowArn"`
 	// The name of the source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
 	//
@@ -74,13 +89,8 @@ type CfnFlowSourceProps struct {
 	// The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
 	//
+	// Deprecated: this property has been deprecated.
 	EntitlementArn *string `field:"optional" json:"entitlementArn" yaml:"entitlementArn"`
-	// The Amazon Resource Name (ARN) of the flow this source is connected to.
-	//
-	// The flow must have Failover enabled to add an additional source.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
-	//
-	FlowArn *string `field:"optional" json:"flowArn" yaml:"flowArn"`
 	// The bridge's source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-gatewaybridgesource
 	//
@@ -118,10 +128,12 @@ type CfnFlowSourceProps struct {
 	// The port that the flow uses to send outbound requests to initiate connection with the sender.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-sendercontrolport
 	//
+	// Deprecated: this property has been deprecated.
 	SenderControlPort *float64 `field:"optional" json:"senderControlPort" yaml:"senderControlPort"`
 	// The IP address that the flow communicates with to initiate connection with the sender.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-senderipaddress
 	//
+	// Deprecated: this property has been deprecated.
 	SenderIpAddress *string `field:"optional" json:"senderIpAddress" yaml:"senderIpAddress"`
 	// Source IP or domain name for SRT-caller protocol.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-sourcelisteneraddress
@@ -137,6 +149,10 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
 	//
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
+	// Key-value pairs that can be used to tag and organize this flow source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The name of the VPC interface to use for this source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
 	//

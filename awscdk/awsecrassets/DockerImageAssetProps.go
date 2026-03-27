@@ -12,11 +12,9 @@ import (
 //
 //   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
 //   	Directory: path.join(__dirname, jsii.String("my-image")),
-//   	BuildArgs: map[string]*string{
-//   		"HTTP_PROXY": jsii.String("http://10.20.30.2:1234"),
-//   	},
-//   	Invalidation: &DockerImageAssetInvalidationOptions{
-//   		BuildArgs: jsii.Boolean(false),
+//   	BuildContexts: map[string]*string{
+//   		"mycontext": path.join(__dirname, jsii.String("path/to/context")),
+//   		"alpine": jsii.String("docker-image://alpine:latest"),
 //   	},
 //   })
 //
@@ -54,6 +52,20 @@ type DockerImageAssetProps struct {
 	// Default: - no build args are passed.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Build contexts to pass to the `docker build` command.
+	//
+	// Build contexts can be used to specify additional directories or images
+	// to use during the build. Each entry specifies a named build context
+	// and its source (a directory path, a URL, or a docker image).
+	//
+	// Since Docker build contexts are resolved before deployment, keys and
+	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
+	// `queue.queueUrl`).
+	// See: https://docs.docker.com/build/building/context/#additional-build-contexts
+	//
+	// Default: - no additional build contexts.
+	//
+	BuildContexts *map[string]*string `field:"optional" json:"buildContexts" yaml:"buildContexts"`
 	// Build secrets.
 	//
 	// Docker BuildKit must be enabled to use build secrets.

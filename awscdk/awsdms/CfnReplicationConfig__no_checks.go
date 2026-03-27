@@ -96,11 +96,19 @@ func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationConfigIdentifierP
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationTypeParameters(val *string) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnReplicationConfig) validateSetSourceEndpointArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) validateSetSupplementalSettingsParameters(val interface{}) error {
 	return nil
 }
 

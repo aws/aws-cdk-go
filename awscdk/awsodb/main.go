@@ -62,6 +62,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "iamRoles", GoGetter: "IamRoles"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "isMtlsEnabledVmCluster", GoGetter: "IsMtlsEnabledVmCluster"},
 			_jsii_.MemberProperty{JsiiProperty: "licenseModel", GoGetter: "LicenseModel"},
@@ -98,6 +99,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_odb.CfnCloudAutonomousVmCluster.IamRoleProperty",
+		reflect.TypeOf((*CfnCloudAutonomousVmCluster_IamRoleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnCloudAutonomousVmCluster.MaintenanceWindowProperty",
@@ -246,6 +251,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "giVersion", GoGetter: "GiVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "hostname", GoGetter: "Hostname"},
+			_jsii_.MemberProperty{JsiiProperty: "iamRoles", GoGetter: "IamRoles"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "isLocalBackupEnabled", GoGetter: "IsLocalBackupEnabled"},
 			_jsii_.MemberProperty{JsiiProperty: "isSparseDiskgroupEnabled", GoGetter: "IsSparseDiskgroupEnabled"},
@@ -292,6 +298,10 @@ func init() {
 		reflect.TypeOf((*CfnCloudVmCluster_DbNodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_odb.CfnCloudVmCluster.IamRoleProperty",
+		reflect.TypeOf((*CfnCloudVmCluster_IamRoleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnCloudVmClusterProps",
 		reflect.TypeOf((*CfnCloudVmClusterProps)(nil)).Elem(),
 	)
@@ -322,6 +332,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "clientSubnetCidr", GoGetter: "ClientSubnetCidr"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "crossRegionS3RestoreSources", GoGetter: "CrossRegionS3RestoreSources"},
 			_jsii_.MemberProperty{JsiiProperty: "customDomainName", GoGetter: "CustomDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultDnsPrefix", GoGetter: "DefaultDnsPrefix"},
 			_jsii_.MemberProperty{JsiiProperty: "deleteAssociatedResources", GoGetter: "DeleteAssociatedResources"},
@@ -330,6 +341,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsAccess", GoGetter: "KmsAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsPolicyDocument", GoGetter: "KmsPolicyDocument"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -344,6 +357,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "s3PolicyDocument", GoGetter: "S3PolicyDocument"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "stsAccess", GoGetter: "StsAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "stsPolicyDocument", GoGetter: "StsPolicyDocument"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -362,6 +377,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_odb.CfnOdbNetwork.CrossRegionS3RestoreSourcesAccessProperty",
+		reflect.TypeOf((*CfnOdbNetwork_CrossRegionS3RestoreSourcesAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_odb.CfnOdbNetwork.KmsAccessProperty",
+		reflect.TypeOf((*CfnOdbNetwork_KmsAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ManagedS3BackupAccessProperty",
 		reflect.TypeOf((*CfnOdbNetwork_ManagedS3BackupAccessProperty)(nil)).Elem(),
 	)
@@ -376,6 +399,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ServiceNetworkEndpointProperty",
 		reflect.TypeOf((*CfnOdbNetwork_ServiceNetworkEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_odb.CfnOdbNetwork.StsAccessProperty",
+		reflect.TypeOf((*CfnOdbNetwork_StsAccessProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_odb.CfnOdbNetwork.ZeroEtlAccessProperty",
@@ -421,6 +448,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "odbPeeringConnectionRef", GoGetter: "OdbPeeringConnectionRef"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerNetworkId", GoGetter: "PeerNetworkId"},
+			_jsii_.MemberProperty{JsiiProperty: "peerNetworkRouteTableIds", GoGetter: "PeerNetworkRouteTableIds"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},

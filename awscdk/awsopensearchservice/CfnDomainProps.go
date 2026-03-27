@@ -94,6 +94,9 @@ import (
 //   		RoleArn: jsii.String("roleArn"),
 //   		UserPoolId: jsii.String("userPoolId"),
 //   	},
+//   	DeploymentStrategyOptions: &DeploymentStrategyOptionsProperty{
+//   		DeploymentStrategy: jsii.String("deploymentStrategy"),
+//   	},
 //   	DomainArn: jsii.String("domainArn"),
 //   	DomainEndpointOptions: &DomainEndpointOptionsProperty{
 //   		CustomEndpoint: jsii.String("customEndpoint"),
@@ -198,6 +201,9 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-cognitooptions
 	//
 	CognitoOptions interface{} `field:"optional" json:"cognitoOptions" yaml:"cognitoOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-deploymentstrategyoptions
+	//
+	DeploymentStrategyOptions interface{} `field:"optional" json:"deploymentStrategyOptions" yaml:"deploymentStrategyOptions"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-domainarn
 	//
 	DomainArn *string `field:"optional" json:"domainArn" yaml:"domainArn"`

@@ -9,7 +9,6 @@ package awslakeformation
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var parameters interface{}
-//   var readOnlyAdmins interface{}
 //
 //   cfnDataLakeSettingsMixinProps := &CfnDataLakeSettingsMixinProps{
 //   	Admins: []interface{}{
@@ -49,7 +48,11 @@ package awslakeformation
 //   	},
 //   	MutationType: jsii.String("mutationType"),
 //   	Parameters: parameters,
-//   	ReadOnlyAdmins: readOnlyAdmins,
+//   	ReadOnlyAdmins: []interface{}{
+//   		&DataLakePrincipalProperty{
+//   			DataLakePrincipalIdentifier: jsii.String("dataLakePrincipalIdentifier"),
+//   		},
+//   	},
 //   	TrustedResourceOwners: []*string{
 //   		jsii.String("trustedResourceOwners"),
 //   	},

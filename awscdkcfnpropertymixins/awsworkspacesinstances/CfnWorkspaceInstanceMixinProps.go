@@ -56,15 +56,6 @@ import (
 //   			Name: jsii.String("name"),
 //   		},
 //   		ImageId: jsii.String("imageId"),
-//   		InstanceMarketOptions: &InstanceMarketOptionsRequestProperty{
-//   			MarketType: jsii.String("marketType"),
-//   			SpotOptions: &SpotMarketOptionsProperty{
-//   				InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
-//   				MaxPrice: jsii.String("maxPrice"),
-//   				SpotInstanceType: jsii.String("spotInstanceType"),
-//   				ValidUntilUtc: jsii.String("validUntilUtc"),
-//   			},
-//   		},
 //   		InstanceType: jsii.String("instanceType"),
 //   		Ipv6AddressCount: jsii.Number(123),
 //   		KeyName: jsii.String("keyName"),

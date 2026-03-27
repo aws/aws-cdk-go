@@ -55,6 +55,13 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	GiVersion: jsii.String("giVersion"),
 //   	Hostname: jsii.String("hostname"),
+//   	IamRoles: []interface{}{
+//   		&IamRoleProperty{
+//   			AwsIntegration: jsii.String("awsIntegration"),
+//   			IamRoleArn: jsii.String("iamRoleArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IsLocalBackupEnabled: jsii.Boolean(false),
 //   	IsSparseDiskgroupEnabled: jsii.Boolean(false),
 //   	LicenseModel: jsii.String("licenseModel"),
@@ -131,6 +138,10 @@ type CfnCloudVmClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html#cfn-odb-cloudvmcluster-hostname
 	//
 	Hostname *string `field:"optional" json:"hostname" yaml:"hostname"`
+	// The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html#cfn-odb-cloudvmcluster-iamroles
+	//
+	IamRoles interface{} `field:"optional" json:"iamRoles" yaml:"iamRoles"`
 	// Specifies whether database backups to local Exadata storage are enabled for the VM cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-cloudvmcluster.html#cfn-odb-cloudvmcluster-islocalbackupenabled
 	//

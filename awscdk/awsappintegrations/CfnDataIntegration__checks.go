@@ -268,6 +268,14 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetNameParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataIntegration) validateSetObjectConfigurationParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

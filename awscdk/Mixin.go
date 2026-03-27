@@ -34,7 +34,7 @@ import (
 //
 //   func (this *myEncryptionAtRest) applyTo(target CfnBucket) CfnBucket {
 //   	// Validate pre-conditions on the target, throw if error is unrecoverable
-//   	if !*target.BucketEncryption {throw new Error("Bucket encryption not configured");
+//   	if !*target.bucketEncryption {throw new Error("Bucket encryption not configured");
 //   	}
 //
 //   	// Validate properties are met after app execution
@@ -44,7 +44,7 @@ import (
 //   		        : [],
 //   	})
 //
-//   	*target.BucketEncryption = &BucketEncryptionProperty{
+//   	*target.bucketEncryption = &BucketEncryptionProperty{
 //   		ServerSideEncryptionConfiguration: []interface{}{
 //   			&ServerSideEncryptionRuleProperty{
 //   				BucketKeyEnabled: jsii.Boolean(true),

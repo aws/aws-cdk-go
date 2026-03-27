@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnFlowPropsMixin.
 //
@@ -12,6 +15,10 @@ package awsmediaconnect
 //
 //   cfnFlowMixinProps := &CfnFlowMixinProps{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	EncodingConfig: &EncodingConfigProperty{
+//   		EncodingProfile: jsii.String("encodingProfile"),
+//   		VideoMaxBitrate: jsii.Number(123),
+//   	},
 //   	FlowSize: jsii.String("flowSize"),
 //   	Maintenance: &MaintenanceProperty{
 //   		MaintenanceDay: jsii.String("maintenanceDay"),
@@ -37,6 +44,12 @@ package awsmediaconnect
 //   			MediaStreamId: jsii.Number(123),
 //   			MediaStreamName: jsii.String("mediaStreamName"),
 //   			MediaStreamType: jsii.String("mediaStreamType"),
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
 //   			VideoFormat: jsii.String("videoFormat"),
 //   		},
 //   	},
@@ -93,6 +106,9 @@ package awsmediaconnect
 //   		},
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
+//   		NdiSourceSettings: &NdiSourceSettingsProperty{
+//   			SourceName: jsii.String("sourceName"),
+//   		},
 //   		Protocol: jsii.String("protocol"),
 //   		RouterIntegrationState: jsii.String("routerIntegrationState"),
 //   		RouterIntegrationTransitDecryption: &FlowTransitEncryptionProperty{
@@ -112,6 +128,12 @@ package awsmediaconnect
 //   		SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   		SourceListenerPort: jsii.Number(123),
 //   		StreamId: jsii.String("streamId"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   		VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   		WhitelistCidr: jsii.String("whitelistCidr"),
 //   	},
@@ -147,6 +169,12 @@ package awsmediaconnect
 //   			},
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaces: []interface{}{
 //   		&VpcInterfaceProperty{
 //   			Name: jsii.String("name"),
@@ -159,6 +187,12 @@ package awsmediaconnect
 //   				jsii.String("securityGroupIds"),
 //   			},
 //   			SubnetId: jsii.String("subnetId"),
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -172,6 +206,9 @@ type CfnFlowMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-encodingconfig
+	//
+	EncodingConfig interface{} `field:"optional" json:"encodingConfig" yaml:"encodingConfig"`
 	// Determines the processing capacity and feature set of the flow.
 	//
 	// Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
@@ -210,6 +247,10 @@ type CfnFlowMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcemonitoringconfig
 	//
 	SourceMonitoringConfig interface{} `field:"optional" json:"sourceMonitoringConfig" yaml:"sourceMonitoringConfig"`
+	// Key-value pairs that can be used to tag this flow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The VPC Interfaces for this flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-vpcinterfaces
 	//

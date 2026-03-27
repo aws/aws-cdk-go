@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnLifecyclePolicy) validateSetCopyTagsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnLifecyclePolicy) validateSetCrossRegionCopyTargetsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLifecyclePolicy) validateSetExclusionsParameters(val interface{}) error {
 	return nil
 }

@@ -16,6 +16,9 @@ package awscdk
 //   	DockerBuildArgs: map[string]*string{
 //   		"dockerBuildArgsKey": jsii.String("dockerBuildArgs"),
 //   	},
+//   	DockerBuildContexts: map[string]*string{
+//   		"dockerBuildContextsKey": jsii.String("dockerBuildContexts"),
+//   	},
 //   	DockerBuildSecrets: map[string]*string{
 //   		"dockerBuildSecretsKey": jsii.String("dockerBuildSecrets"),
 //   	},
@@ -88,6 +91,18 @@ type DockerImageAssetSource struct {
 	// Default: - no build args are passed.
 	//
 	DockerBuildArgs *map[string]*string `field:"optional" json:"dockerBuildArgs" yaml:"dockerBuildArgs"`
+	// Build contexts to pass to the `docker build` command.
+	//
+	// Build contexts can be used to specify additional directories or images
+	// to use during the build. Each entry specifies a named build context
+	// and its source (a directory path, a URL, or a docker image).
+	//
+	// Only allowed when `directoryName` is specified.
+	// See: https://docs.docker.com/build/building/context/#additional-build-contexts
+	//
+	// Default: - no additional build contexts.
+	//
+	DockerBuildContexts *map[string]*string `field:"optional" json:"dockerBuildContexts" yaml:"dockerBuildContexts"`
 	// Build secrets to pass to the `docker build` command.
 	//
 	// Since Docker build secrets are resolved before deployment, keys and

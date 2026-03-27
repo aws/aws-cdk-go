@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnDomainNameV2) validateSetEndpointConfigurationParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomainNameV2) validateSetPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomainNameV2) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

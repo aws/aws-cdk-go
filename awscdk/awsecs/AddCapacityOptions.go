@@ -149,6 +149,12 @@ type AddCapacityOptions struct {
 	// Default: true.
 	//
 	IgnoreUnmodifiedSizeProperties *bool `field:"optional" json:"ignoreUnmodifiedSizeProperties" yaml:"ignoreUnmodifiedSizeProperties"`
+	// An instance lifecycle policy that defines how instances should be handled during lifecycle events, particularly when lifecycle hooks are abandoned or fail.
+	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html
+	//
+	// Default: None.
+	//
+	InstanceLifecyclePolicy *awsautoscaling.InstanceLifecyclePolicy `field:"optional" json:"instanceLifecyclePolicy" yaml:"instanceLifecyclePolicy"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
 	// When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account

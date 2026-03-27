@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnManagedLoginBranding) validateSetReturnMergedResourcesPara
 	return nil
 }
 
+func (j *jsiiProxy_CfnManagedLoginBranding) validateSetSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnManagedLoginBranding) validateSetUseCognitoProvidedValuesParameters(val interface{}) error {
 	return nil
 }

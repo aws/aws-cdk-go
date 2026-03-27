@@ -88,6 +88,10 @@ func validateCfnFlow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlow) validateSetEncodingConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlow) validateSetMaintenanceParameters(val interface{}) error {
 	return nil
 }
@@ -113,6 +117,10 @@ func (j *jsiiProxy_CfnFlow) validateSetSourceFailoverConfigParameters(val interf
 }
 
 func (j *jsiiProxy_CfnFlow) validateSetSourceMonitoringConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFlow) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

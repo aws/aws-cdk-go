@@ -114,6 +114,13 @@ func init() {
 			"USAGE": CfnAssistantEventLogsRecordFields_USAGE,
 			"GUARDRAIL_COVERAGE": CfnAssistantEventLogsRecordFields_GUARDRAIL_COVERAGE,
 			"AI_AGENT_VERSION": CfnAssistantEventLogsRecordFields_AI_AGENT_VERSION,
+			"GUARDRAIL_BLOCKED": CfnAssistantEventLogsRecordFields_GUARDRAIL_BLOCKED,
+			"PARTICIPANT": CfnAssistantEventLogsRecordFields_PARTICIPANT,
+			"VALUES": CfnAssistantEventLogsRecordFields_VALUES,
+			"ORCHESTRATION_ID": CfnAssistantEventLogsRecordFields_ORCHESTRATION_ID,
+			"AI_AGENT_ORCHESTRATION_USE_CASE": CfnAssistantEventLogsRecordFields_AI_AGENT_ORCHESTRATION_USE_CASE,
+			"ORCHESTRATION_ITERATION": CfnAssistantEventLogsRecordFields_ORCHESTRATION_ITERATION,
+			"ORCHESTRATION_ERROR": CfnAssistantEventLogsRecordFields_ORCHESTRATION_ERROR,
 		},
 	)
 	_jsii_.RegisterStruct(

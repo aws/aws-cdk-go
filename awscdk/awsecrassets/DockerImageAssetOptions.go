@@ -20,6 +20,9 @@ import (
 //   	BuildArgs: map[string]*string{
 //   		"buildArgsKey": jsii.String("buildArgs"),
 //   	},
+//   	BuildContexts: map[string]*string{
+//   		"buildContextsKey": jsii.String("buildContexts"),
+//   	},
 //   	BuildSecrets: map[string]*string{
 //   		"buildSecretsKey": jsii.String("buildSecrets"),
 //   	},
@@ -53,6 +56,7 @@ import (
 //   	IgnoreMode: cdk.IgnoreMode_GLOB,
 //   	Invalidation: &DockerImageAssetInvalidationOptions{
 //   		BuildArgs: jsii.Boolean(false),
+//   		BuildContexts: jsii.Boolean(false),
 //   		BuildSecrets: jsii.Boolean(false),
 //   		BuildSsh: jsii.Boolean(false),
 //   		ExtraHash: jsii.Boolean(false),
@@ -105,6 +109,20 @@ type DockerImageAssetOptions struct {
 	// Default: - no build args are passed.
 	//
 	BuildArgs *map[string]*string `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Build contexts to pass to the `docker build` command.
+	//
+	// Build contexts can be used to specify additional directories or images
+	// to use during the build. Each entry specifies a named build context
+	// and its source (a directory path, a URL, or a docker image).
+	//
+	// Since Docker build contexts are resolved before deployment, keys and
+	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
+	// `queue.queueUrl`).
+	// See: https://docs.docker.com/build/building/context/#additional-build-contexts
+	//
+	// Default: - no additional build contexts.
+	//
+	BuildContexts *map[string]*string `field:"optional" json:"buildContexts" yaml:"buildContexts"`
 	// Build secrets.
 	//
 	// Docker BuildKit must be enabled to use build secrets.

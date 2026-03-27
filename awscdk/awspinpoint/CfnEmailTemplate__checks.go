@@ -204,6 +204,14 @@ func (j *jsiiProxy_CfnEmailTemplate) validateSetSubjectParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnEmailTemplate) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEmailTemplate) validateSetTemplateNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

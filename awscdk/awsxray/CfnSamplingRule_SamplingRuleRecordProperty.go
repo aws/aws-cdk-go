@@ -26,6 +26,10 @@ package awsxray
 //   		},
 //   		RuleArn: jsii.String("ruleArn"),
 //   		RuleName: jsii.String("ruleName"),
+//   		SamplingRateBoost: &SamplingRateBoostProperty{
+//   			CooldownWindowMinutes: jsii.Number(123),
+//   			MaxRate: jsii.Number(123),
+//   		},
 //   		Version: jsii.Number(123),
 //   	},
 //   }

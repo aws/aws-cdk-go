@@ -102,6 +102,9 @@ import (
 //   		RoleArn: jsii.String("roleArn"),
 //   		UserPoolId: jsii.String("userPoolId"),
 //   	},
+//   	DeploymentStrategyOptions: &DeploymentStrategyOptionsProperty{
+//   		DeploymentStrategy: jsii.String("deploymentStrategy"),
+//   	},
 //   	DomainArn: jsii.String("domainArn"),
 //   	DomainEndpointOptions: &DomainEndpointOptionsProperty{
 //   		CustomEndpoint: jsii.String("customEndpoint"),

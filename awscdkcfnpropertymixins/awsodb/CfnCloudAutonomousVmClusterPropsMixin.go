@@ -31,6 +31,13 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
+//   	IamRoles: []interface{}{
+//   		&IamRoleProperty{
+//   			AwsIntegration: jsii.String("awsIntegration"),
+//   			IamRoleArn: jsii.String("iamRoleArn"),
+//   			Status: jsii.String("status"),
+//   		},
+//   	},
 //   	IsMtlsEnabledVmCluster: jsii.Boolean(false),
 //   	LicenseModel: jsii.String("licenseModel"),
 //   	MaintenanceWindow: &MaintenanceWindowProperty{

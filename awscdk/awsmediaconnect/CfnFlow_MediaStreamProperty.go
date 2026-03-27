@@ -1,5 +1,8 @@
 package awsmediaconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // A media stream represents one component of your content, such as video, audio, or ancillary data.
 //
@@ -31,6 +34,12 @@ package awsmediaconnect
 //   	ClockRate: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	Fmt: jsii.Number(123),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VideoFormat: jsii.String("videoFormat"),
 //   }
 //
@@ -69,6 +78,10 @@ type CfnFlow_MediaStreamProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-fmt
 	//
 	Fmt *float64 `field:"optional" json:"fmt" yaml:"fmt"`
+	// Key-value pairs that can be used to tag this media stream.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The resolution of the video.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html#cfn-mediaconnect-flow-mediastream-videoformat
 	//

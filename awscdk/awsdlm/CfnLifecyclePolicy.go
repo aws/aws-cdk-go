@@ -20,20 +20,29 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var crossRegionCopyTargets interface{}
-//   var excludeTags interface{}
 //   var excludeVolumeTypes interface{}
 //
 //   cfnLifecyclePolicy := awscdk.Aws_dlm.NewCfnLifecyclePolicy(this, jsii.String("MyCfnLifecyclePolicy"), &CfnLifecyclePolicyProps{
 //   	CopyTags: jsii.Boolean(false),
 //   	CreateInterval: jsii.Number(123),
-//   	CrossRegionCopyTargets: crossRegionCopyTargets,
+//   	CrossRegionCopyTargets: []interface{}{
+//   		&CrossRegionCopyTargetProperty{
+//   			TargetRegion: jsii.String("targetRegion"),
+//   		},
+//   	},
 //   	DefaultPolicy: jsii.String("defaultPolicy"),
 //   	Description: jsii.String("description"),
 //   	Exclusions: &ExclusionsProperty{
 //   		ExcludeBootVolumes: jsii.Boolean(false),
-//   		ExcludeTags: excludeTags,
-//   		ExcludeVolumeTypes: excludeVolumeTypes,
+//   		ExcludeTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		ExcludeVolumeTypes: []interface{}{
+//   			excludeVolumeTypes,
+//   		},
 //   	},
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	ExtendDeletion: jsii.Boolean(false),
@@ -62,7 +71,11 @@ import (
 //   		},
 //   		CopyTags: jsii.Boolean(false),
 //   		CreateInterval: jsii.Number(123),
-//   		CrossRegionCopyTargets: crossRegionCopyTargets,
+//   		CrossRegionCopyTargets: []interface{}{
+//   			&CrossRegionCopyTargetProperty{
+//   				TargetRegion: jsii.String("targetRegion"),
+//   			},
+//   		},
 //   		EventSource: &EventSourceProperty{
 //   			Type: jsii.String("type"),
 //
@@ -79,8 +92,15 @@ import (
 //   		},
 //   		Exclusions: &ExclusionsProperty{
 //   			ExcludeBootVolumes: jsii.Boolean(false),
-//   			ExcludeTags: excludeTags,
-//   			ExcludeVolumeTypes: excludeVolumeTypes,
+//   			ExcludeTags: []interface{}{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			ExcludeVolumeTypes: []interface{}{
+//   				excludeVolumeTypes,
+//   			},
 //   		},
 //   		ExtendDeletion: jsii.Boolean(false),
 //   		Parameters: &ParametersProperty{
@@ -770,6 +790,9 @@ func (j *jsiiProxy_CfnLifecyclePolicy)SetCreateInterval(val *float64) {
 }
 
 func (j *jsiiProxy_CfnLifecyclePolicy)SetCrossRegionCopyTargets(val interface{}) {
+	if err := j.validateSetCrossRegionCopyTargetsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"crossRegionCopyTargets",

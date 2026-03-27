@@ -27,6 +27,10 @@ package awsxray
 //   	},
 //   	RuleArn: jsii.String("ruleArn"),
 //   	RuleName: jsii.String("ruleName"),
+//   	SamplingRateBoost: &SamplingRateBoostProperty{
+//   		CooldownWindowMinutes: jsii.Number(123),
+//   		MaxRate: jsii.Number(123),
+//   	},
 //   	Version: jsii.Number(123),
 //   }
 //
@@ -93,6 +97,9 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
 	//
 	RuleName *string `field:"optional" json:"ruleName" yaml:"ruleName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-samplingrateboost
+	//
+	SamplingRateBoost interface{} `field:"optional" json:"samplingRateBoost" yaml:"samplingRateBoost"`
 	// The version of the sampling rule.
 	//
 	// `Version` can only be set when creating a new sampling rule.

@@ -88,6 +88,10 @@ func validateCfnUser_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnUser) validateSetAuthenticationModeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUser) validateSetEngineParameters(val *string) error {
 	return nil
 }

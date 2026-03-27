@@ -54,6 +54,12 @@ import (
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
 //   	SourceListenerPort: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcInterfaceName: jsii.String("vpcInterfaceName"),
 //   	WhitelistCidr: jsii.String("whitelistCidr"),
 //   }, &CfnPropertyMixinOptions{

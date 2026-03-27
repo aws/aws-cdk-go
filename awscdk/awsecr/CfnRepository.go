@@ -592,6 +592,9 @@ func (j *jsiiProxy_CfnRepository)SetRepositoryName(val *string) {
 }
 
 func (j *jsiiProxy_CfnRepository)SetRepositoryPolicyText(val interface{}) {
+	if err := j.validateSetRepositoryPolicyTextParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"repositoryPolicyText",

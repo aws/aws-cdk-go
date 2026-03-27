@@ -4,21 +4,56 @@ package previewawss3events
 // Type definition for TlsDetails.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   tlsDetails := &TlsDetails{
-//   	CipherSuite: []*string{
-//   		jsii.String("cipherSuite"),
+//   var fn Function
+//
+//
+//   // Works with L2 Rule
+//   // Works with L2 Rule
+//   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
+//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+//   		TlsDetails: &TlsDetails{
+//   			TlsVersion: []*string{
+//   				jsii.String("TLSv1.3"),
+//   			},
+//   		},
+//   		EventMetadata: &AWSEventMetadataProps{
+//   			Region: []*string{
+//   				jsii.String("us-east-1"),
+//   			},
+//   		},
+//   	}),
+//   	Targets: []IRuleTarget{
+//   		targets.NewLambdaFunction(fn),
 //   	},
-//   	ClientProvidedHostHeader: []*string{
-//   		jsii.String("clientProvidedHostHeader"),
+//   })
+//
+//   // Also works with L1 CfnRule
+//   // Also works with L1 CfnRule
+//   events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
+//   	State: jsii.String("ENABLED"),
+//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+//   		TlsDetails: &TlsDetails{
+//   			TlsVersion: []*string{
+//   				jsii.String("TLSv1.3"),
+//   			},
+//   		},
+//   		EventMetadata: &AWSEventMetadataProps{
+//   			Region: []*string{
+//   				jsii.String("us-east-1"),
+//   			},
+//   		},
+//   	}),
+//   	Targets: []interface{}{
+//   		&TargetProperty{
+//   			Arn: fn.functionArn,
+//   			Id: jsii.String("L1"),
+//   		},
 //   	},
-//   	TlsVersion: []*string{
-//   		jsii.String("tlsVersion"),
-//   	},
-//   }
+//   })
 //
 // Experimental.
 type AWSAPICallViaCloudTrail_TlsDetails struct {

@@ -15,9 +15,6 @@ package awsconfig
 //   		Value: jsii.String("value"),
 //   	},
 //   	StaticValue: &StaticValueProperty{
-//   		Value: []*string{
-//   			jsii.String("value"),
-//   		},
 //   		Values: []*string{
 //   			jsii.String("values"),
 //   		},

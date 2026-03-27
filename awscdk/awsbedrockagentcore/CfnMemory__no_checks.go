@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnMemory) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMemory) validateSetStreamDeliveryResourcesParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnMemoryParameters(scope constructs.Construct, id *string, props *CfnMemoryProps) error {
 	return nil
 }

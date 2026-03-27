@@ -176,6 +176,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_xray.CfnSamplingRule.SamplingRateBoostProperty",
+		reflect.TypeOf((*CfnSamplingRule_SamplingRateBoostProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_xray.CfnSamplingRule.SamplingRuleProperty",
 		reflect.TypeOf((*CfnSamplingRule_SamplingRuleProperty)(nil)).Elem(),
 	)

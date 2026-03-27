@@ -15,6 +15,7 @@ package awscleanrooms
 //   		WorkGroup: jsii.String("workGroup"),
 //
 //   		// the properties below are optional
+//   		CatalogName: jsii.String("catalogName"),
 //   		OutputLocation: jsii.String("outputLocation"),
 //   		Region: jsii.String("region"),
 //   	},

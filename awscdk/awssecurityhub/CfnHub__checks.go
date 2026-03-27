@@ -230,6 +230,14 @@ func (j *jsiiProxy_CfnHub) validateSetEnableDefaultStandardsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnHub) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnHubParameters(scope constructs.Construct, id *string, props *CfnHubProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

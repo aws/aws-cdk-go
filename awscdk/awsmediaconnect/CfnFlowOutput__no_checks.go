@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetRouterIntegrationTransitEncryptionP
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowOutput) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowOutput) validateSetVpcInterfaceAttachmentParameters(val interface{}) error {
 	return nil
 }

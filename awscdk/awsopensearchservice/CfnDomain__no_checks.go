@@ -96,6 +96,10 @@ func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDomain) validateSetAccessPoliciesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface{}) error {
 	return nil
 }
@@ -113,6 +117,10 @@ func (j *jsiiProxy_CfnDomain) validateSetClusterConfigParameters(val interface{}
 }
 
 func (j *jsiiProxy_CfnDomain) validateSetCognitoOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetDeploymentStrategyOptionsParameters(val interface{}) error {
 	return nil
 }
 

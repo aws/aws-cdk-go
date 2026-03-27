@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnConnector) validateSetAccessRoleParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnector) validateSetAs2ConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnector) validateSetEgressConfigParameters(val interface{}) error {
 	return nil
 }

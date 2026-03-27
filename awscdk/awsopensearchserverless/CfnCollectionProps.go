@@ -29,6 +29,9 @@ import (
 //   		},
 //   	},
 //   	Type: jsii.String("type"),
+//   	VectorOptions: &VectorOptionsProperty{
+//   		ServerlessVectorAcceleration: jsii.String("serverlessVectorAcceleration"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html
@@ -75,5 +78,9 @@ type CfnCollectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`
+	// Vector search configuration options for the collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-vectoroptions
+	//
+	VectorOptions interface{} `field:"optional" json:"vectorOptions" yaml:"vectorOptions"`
 }
 

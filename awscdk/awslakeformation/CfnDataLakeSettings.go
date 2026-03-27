@@ -674,6 +674,9 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetMutationType(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataLakeSettings)SetParameters(val interface{}) {
+	if err := j.validateSetParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"parameters",
@@ -682,6 +685,9 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetParameters(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnDataLakeSettings)SetReadOnlyAdmins(val interface{}) {
+	if err := j.validateSetReadOnlyAdminsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"readOnlyAdmins",

@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnInput) validateSetSrtSettingsParameters(val interface{}) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnInput) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnInput) validateSetVpcParameters(val interface{}) error {
 	return nil
 }

@@ -176,6 +176,23 @@ import (
 //   			},
 //   		},
 //   	},
+//   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
+//   		Resources: []interface{}{
+//   			&StreamDeliveryResourceProperty{
+//   				Kinesis: &KinesisResourceProperty{
+//   					ContentConfigurations: []interface{}{
+//   						&ContentConfigurationProperty{
+//   							Type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							Level: jsii.String("level"),
+//   						},
+//   					},
+//   					DataStreamArn: jsii.String("dataStreamArn"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -251,6 +268,8 @@ type CfnMemory interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	StreamDeliveryResources() interface{}
+	SetStreamDeliveryResources(val interface{})
 	// The tags for the resources.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
@@ -639,6 +658,16 @@ func (j *jsiiProxy_CfnMemory) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMemory) StreamDeliveryResources() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"streamDeliveryResources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMemory) Tags() *map[string]*string {
 	var returns *map[string]*string
 	_jsii_.Get(
@@ -752,6 +781,17 @@ func (j *jsiiProxy_CfnMemory)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMemory)SetStreamDeliveryResources(val interface{}) {
+	if err := j.validateSetStreamDeliveryResourcesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"streamDeliveryResources",
 		val,
 	)
 }

@@ -19,6 +19,12 @@ package awsgameliftstreams
 //   			MaximumCapacity: jsii.Number(123),
 //   			OnDemandCapacity: jsii.Number(123),
 //   			TargetIdleCapacity: jsii.Number(123),
+//   			VpcTransitConfiguration: &VpcTransitConfigurationProperty{
+//   				Ipv4CidrBlocks: []*string{
+//   					jsii.String("ipv4CidrBlocks"),
+//   				},
+//   				VpcId: jsii.String("vpcId"),
+//   			},
 //   		},
 //   	},
 //   	StreamClass: jsii.String("streamClass"),

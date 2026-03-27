@@ -672,6 +672,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnQueuePropsMixin.EmailAddressProperty",
+		reflect.TypeOf((*CfnQueuePropsMixin_EmailAddressProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnQueuePropsMixin.OutboundCallerConfigProperty",
 		reflect.TypeOf((*CfnQueuePropsMixin_OutboundCallerConfigProperty)(nil)).Elem(),
 	)

@@ -34,6 +34,9 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	QuotaSharePolicy: &QuotaSharePolicyProperty{
+//   		IdleResourceAssignmentStrategy: jsii.String("idleResourceAssignmentStrategy"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},

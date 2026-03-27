@@ -25,12 +25,19 @@ import (
 //   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	BackupSubnetCidr: jsii.String("backupSubnetCidr"),
 //   	ClientSubnetCidr: jsii.String("clientSubnetCidr"),
+//   	CrossRegionS3RestoreSources: []*string{
+//   		jsii.String("crossRegionS3RestoreSources"),
+//   	},
 //   	CustomDomainName: jsii.String("customDomainName"),
 //   	DefaultDnsPrefix: jsii.String("defaultDnsPrefix"),
 //   	DeleteAssociatedResources: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
+//   	KmsAccess: jsii.String("kmsAccess"),
+//   	KmsPolicyDocument: jsii.String("kmsPolicyDocument"),
 //   	S3Access: jsii.String("s3Access"),
 //   	S3PolicyDocument: jsii.String("s3PolicyDocument"),
+//   	StsAccess: jsii.String("stsAccess"),
+//   	StsPolicyDocument: jsii.String("stsPolicyDocument"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -82,6 +89,9 @@ type CfnOdbNetwork interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The cross-Region Amazon S3 restore sources for the ODB network.
+	CrossRegionS3RestoreSources() *[]*string
+	SetCrossRegionS3RestoreSources(val *[]*string)
 	// The domain name for the resources in the ODB network.
 	CustomDomainName() *string
 	SetCustomDomainName(val *string)
@@ -95,6 +105,12 @@ type CfnOdbNetwork interface {
 	DisplayName() *string
 	SetDisplayName(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The AWS Key Management Service (KMS) access configuration for the ODB network.
+	KmsAccess() *string
+	SetKmsAccess(val *string)
+	// The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+	KmsPolicyDocument() *string
+	SetKmsPolicyDocument(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -124,6 +140,12 @@ type CfnOdbNetwork interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The AWS Security Token Service (STS) access configuration for the ODB network.
+	StsAccess() *string
+	SetStsAccess(val *string)
+	// The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+	StsPolicyDocument() *string
+	SetStsPolicyDocument(val *string)
 	// Tags to assign to the Odb Network.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -435,6 +457,16 @@ func (j *jsiiProxy_CfnOdbNetwork) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOdbNetwork) CrossRegionS3RestoreSources() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"crossRegionS3RestoreSources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOdbNetwork) CustomDomainName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -480,6 +512,26 @@ func (j *jsiiProxy_CfnOdbNetwork) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOdbNetwork) KmsAccess() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOdbNetwork) KmsPolicyDocument() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsPolicyDocument",
 		&returns,
 	)
 	return returns
@@ -550,6 +602,26 @@ func (j *jsiiProxy_CfnOdbNetwork) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOdbNetwork) StsAccess() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stsAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOdbNetwork) StsPolicyDocument() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stsPolicyDocument",
 		&returns,
 	)
 	return returns
@@ -657,6 +729,14 @@ func (j *jsiiProxy_CfnOdbNetwork)SetClientSubnetCidr(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnOdbNetwork)SetCrossRegionS3RestoreSources(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"crossRegionS3RestoreSources",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnOdbNetwork)SetCustomDomainName(val *string) {
 	_jsii_.Set(
 		j,
@@ -692,6 +772,22 @@ func (j *jsiiProxy_CfnOdbNetwork)SetDisplayName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnOdbNetwork)SetKmsAccess(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsAccess",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOdbNetwork)SetKmsPolicyDocument(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsPolicyDocument",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnOdbNetwork)SetS3Access(val *string) {
 	_jsii_.Set(
 		j,
@@ -704,6 +800,22 @@ func (j *jsiiProxy_CfnOdbNetwork)SetS3PolicyDocument(val *string) {
 	_jsii_.Set(
 		j,
 		"s3PolicyDocument",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOdbNetwork)SetStsAccess(val *string) {
+	_jsii_.Set(
+		j,
+		"stsAccess",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOdbNetwork)SetStsPolicyDocument(val *string) {
+	_jsii_.Set(
+		j,
+		"stsPolicyDocument",
 		val,
 	)
 }

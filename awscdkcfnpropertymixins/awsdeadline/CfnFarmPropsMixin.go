@@ -23,6 +23,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFarmPropsMixin := awscdkcfnpropertymixins.Aws_deadline.NewCfnFarmPropsMixin(&CfnFarmMixinProps{
+//   	CostScaleFactor: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),

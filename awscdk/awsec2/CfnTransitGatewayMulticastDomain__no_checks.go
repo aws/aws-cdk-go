@@ -96,6 +96,10 @@ func validateCfnTransitGatewayMulticastDomain_IsConstructParameters(x interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) validateSetOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayMulticastDomain) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

@@ -27,6 +27,9 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //   	OdbNetworkId: jsii.String("odbNetworkId"),
 //   	PeerNetworkId: jsii.String("peerNetworkId"),
+//   	PeerNetworkRouteTableIds: []*string{
+//   		jsii.String("peerNetworkRouteTableIds"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -94,6 +97,9 @@ type CfnOdbPeeringConnection interface {
 	// The unique identifier of the peer network.
 	PeerNetworkId() *string
 	SetPeerNetworkId(val *string)
+	// The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+	PeerNetworkRouteTableIds() *[]*string
+	SetPeerNetworkRouteTableIds(val *[]*string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -441,6 +447,16 @@ func (j *jsiiProxy_CfnOdbPeeringConnection) PeerNetworkId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOdbPeeringConnection) PeerNetworkRouteTableIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"peerNetworkRouteTableIds",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOdbPeeringConnection) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -549,6 +565,14 @@ func (j *jsiiProxy_CfnOdbPeeringConnection)SetPeerNetworkId(val *string) {
 	_jsii_.Set(
 		j,
 		"peerNetworkId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOdbPeeringConnection)SetPeerNetworkRouteTableIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"peerNetworkRouteTableIds",
 		val,
 	)
 }

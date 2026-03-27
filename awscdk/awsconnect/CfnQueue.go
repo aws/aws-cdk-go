@@ -24,6 +24,11 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AdditionalEmailAddresses: []interface{}{
+//   		&EmailAddressProperty{
+//   			EmailAddressArn: jsii.String("emailAddressArn"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	MaxContacts: jsii.Number(123),
 //   	OutboundCallerConfig: &OutboundCallerConfigProperty{
@@ -53,6 +58,9 @@ type CfnQueue interface {
 	awscdk.IInspectable
 	interfacesawsconnect.IQueueRef
 	awscdk.ITaggableV2
+	// The email addresses that agents can use when replying to or initiating email contacts.
+	AdditionalEmailAddresses() interface{}
+	SetAdditionalEmailAddresses(val interface{})
 	// The Amazon Resource Name (ARN) of the queue.
 	AttrQueueArn() *string
 	// The type of queue.
@@ -275,6 +283,16 @@ type jsiiProxy_CfnQueue struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconnectIQueueRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnQueue) AdditionalEmailAddresses() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"additionalEmailAddresses",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnQueue) AttrQueueArn() *string {
@@ -554,6 +572,17 @@ func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_connect.CfnQueue",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetAdditionalEmailAddresses(val interface{}) {
+	if err := j.validateSetAdditionalEmailAddressesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"additionalEmailAddresses",
+		val,
 	)
 }
 

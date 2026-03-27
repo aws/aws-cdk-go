@@ -119,32 +119,36 @@ type CfnReplicationGroup interface {
 	// A flag that enables encryption at rest when set to `true` .
 	AtRestEncryptionEnabled() interface{}
 	SetAtRestEncryptionEnabled(val interface{})
+	AttrConfigurationEndPoint() awscdk.IResolvable
 	// The DNS hostname of the cache node.
 	//
 	// > Valkey or Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails. For Valkey or Redis OSS (cluster mode disabled) replication groups, use the `PrimaryEndpoint` or `ReadEndpoint` attributes.
 	AttrConfigurationEndPointAddress() *string
 	// The port number that the cache engine is listening on.
 	AttrConfigurationEndPointPort() *string
+	AttrPrimaryEndPoint() awscdk.IResolvable
 	// The DNS address of the primary read-write cache node.
 	AttrPrimaryEndPointAddress() *string
 	// The number of the port that the primary read-write cache engine is listening on.
 	AttrPrimaryEndPointPort() *string
+	AttrReadEndPoint() awscdk.IResolvable
 	// A string with a list of endpoints for the primary and read-only replicas.
 	//
 	// The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
 	AttrReadEndPointAddresses() *string
-	// A string with a list of endpoints for the read-only replicas.
+	// A list of endpoints for the read-only replicas.
 	//
-	// The order of the addresses maps to the order of the ports from the `ReadEndPoint.Ports` attribute.
+	// The order of the addresses maps to the order of the ports from the ReadEndPoint.Ports attribute.
 	AttrReadEndPointAddressesList() *[]*string
 	// A string with a list of ports for the read-only replicas.
 	//
 	// The order of the ports maps to the order of the addresses from the `ReadEndPoint.Addresses` attribute.
 	AttrReadEndPointPorts() *string
-	// A string with a list of ports for the read-only replicas.
+	// A list of ports for the read-only replicas.
 	//
 	// The order of the ports maps to the order of the addresses from the ReadEndPoint.Addresses attribute.
 	AttrReadEndPointPortsList() *[]*string
+	AttrReaderEndPoint() awscdk.IResolvable
 	// The address of the reader endpoint.
 	AttrReaderEndPointAddress() *string
 	// The port used by the reader endpoint.
@@ -165,7 +169,9 @@ type CfnReplicationGroup interface {
 	CacheParameterGroupName() *string
 	SetCacheParameterGroupName(val *string)
 	// A list of cache security group names to associate with this replication group.
+	// Deprecated: this property has been deprecated.
 	CacheSecurityGroupNames() *[]*string
+	// Deprecated: this property has been deprecated.
 	SetCacheSecurityGroupNames(val *[]*string)
 	// The name of the cache subnet group to be used for the replication group.
 	CacheSubnetGroupName() *string
@@ -465,6 +471,16 @@ func (j *jsiiProxy_CfnReplicationGroup) AtRestEncryptionEnabled() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationGroup) AttrConfigurationEndPoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrConfigurationEndPoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationGroup) AttrConfigurationEndPointAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -485,6 +501,16 @@ func (j *jsiiProxy_CfnReplicationGroup) AttrConfigurationEndPointPort() *string 
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationGroup) AttrPrimaryEndPoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPrimaryEndPoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationGroup) AttrPrimaryEndPointAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -500,6 +526,16 @@ func (j *jsiiProxy_CfnReplicationGroup) AttrPrimaryEndPointPort() *string {
 	_jsii_.Get(
 		j,
 		"attrPrimaryEndPointPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationGroup) AttrReadEndPoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrReadEndPoint",
 		&returns,
 	)
 	return returns
@@ -540,6 +576,16 @@ func (j *jsiiProxy_CfnReplicationGroup) AttrReadEndPointPortsList() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrReadEndPointPortsList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationGroup) AttrReaderEndPoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrReaderEndPoint",
 		&returns,
 	)
 	return returns

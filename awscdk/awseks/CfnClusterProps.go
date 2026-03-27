@@ -94,8 +94,6 @@ import (
 //   				},
 //   			},
 //   		},
-//
-//   		// the properties below are optional
 //   		RemotePodNetworks: []interface{}{
 //   			&RemotePodNetworkProperty{
 //   				Cidrs: []*string{

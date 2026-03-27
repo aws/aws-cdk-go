@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnFlowEntitlement) validateSetSubscribersParameters(val *[]*
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowEntitlement) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFlowEntitlementParameters(scope constructs.Construct, id *string, props *CfnFlowEntitlementProps) error {
 	return nil
 }

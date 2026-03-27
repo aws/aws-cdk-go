@@ -30,6 +30,10 @@ import (
 //   		},
 //   		RuleArn: jsii.String("ruleArn"),
 //   		RuleName: jsii.String("ruleName"),
+//   		SamplingRateBoost: &SamplingRateBoostProperty{
+//   			CooldownWindowMinutes: jsii.Number(123),
+//   			MaxRate: jsii.Number(123),
+//   		},
 //   		Version: jsii.Number(123),
 //   	},
 //   	SamplingRuleRecord: &SamplingRuleRecordProperty{
@@ -52,6 +56,10 @@ import (
 //   			},
 //   			RuleArn: jsii.String("ruleArn"),
 //   			RuleName: jsii.String("ruleName"),
+//   			SamplingRateBoost: &SamplingRateBoostProperty{
+//   				CooldownWindowMinutes: jsii.Number(123),
+//   				MaxRate: jsii.Number(123),
+//   			},
 //   			Version: jsii.Number(123),
 //   		},
 //   	},
@@ -67,6 +75,10 @@ import (
 //   		ResourceArn: jsii.String("resourceArn"),
 //   		RuleArn: jsii.String("ruleArn"),
 //   		RuleName: jsii.String("ruleName"),
+//   		SamplingRateBoost: &SamplingRateBoostProperty{
+//   			CooldownWindowMinutes: jsii.Number(123),
+//   			MaxRate: jsii.Number(123),
+//   		},
 //   		ServiceName: jsii.String("serviceName"),
 //   		ServiceType: jsii.String("serviceType"),
 //   		UrlPath: jsii.String("urlPath"),

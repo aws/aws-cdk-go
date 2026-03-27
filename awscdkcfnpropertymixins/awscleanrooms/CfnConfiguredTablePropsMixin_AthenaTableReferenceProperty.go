@@ -9,6 +9,7 @@ package awscleanrooms
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   athenaTableReferenceProperty := &AthenaTableReferenceProperty{
+//   	CatalogName: jsii.String("catalogName"),
 //   	DatabaseName: jsii.String("databaseName"),
 //   	OutputLocation: jsii.String("outputLocation"),
 //   	Region: jsii.String("region"),
@@ -19,6 +20,9 @@ package awscleanrooms
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html
 //
 type CfnConfiguredTablePropsMixin_AthenaTableReferenceProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-catalogname
+	//
+	CatalogName *string `field:"optional" json:"catalogName" yaml:"catalogName"`
 	// The database name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-databasename
 	//

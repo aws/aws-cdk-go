@@ -84,7 +84,7 @@ for example, the name of the bucket can be changed:
 var cfnTemplate CfnInclude
 
 cfnBucket := cfnTemplate.GetResource(jsii.String("Bucket")).(CfnBucket)
-cfnBucket.BucketName = "amzn-s3-demo-bucket"
+cfnBucket.bucketName = "amzn-s3-demo-bucket"
 ```
 
 You can also refer to the resource when defining other constructs,
@@ -422,7 +422,7 @@ var childTemplate CfnInclude
 
 
 cfnBucket := childTemplate.GetResource(jsii.String("MyBucket")).(CfnBucket)
-cfnBucket.BucketName = "amzn-s3-demo-bucket1"
+cfnBucket.bucketName = "amzn-s3-demo-bucket1"
 
 role := iam.NewRole(this, jsii.String("MyRole"), &RoleProps{
 	AssumedBy: iam.NewAccountRootPrincipal(),

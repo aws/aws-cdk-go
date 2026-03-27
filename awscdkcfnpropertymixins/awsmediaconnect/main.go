@@ -240,6 +240,10 @@ func init() {
 		reflect.TypeOf((*CfnFlowPropsMixin_BlackFramesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnFlowPropsMixin.EncodingConfigProperty",
+		reflect.TypeOf((*CfnFlowPropsMixin_EncodingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnFlowPropsMixin.EncryptionProperty",
 		reflect.TypeOf((*CfnFlowPropsMixin_EncryptionProperty)(nil)).Elem(),
 	)
@@ -298,6 +302,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnFlowPropsMixin.NdiDiscoveryServerConfigProperty",
 		reflect.TypeOf((*CfnFlowPropsMixin_NdiDiscoveryServerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnFlowPropsMixin.NdiSourceSettingsProperty",
+		reflect.TypeOf((*CfnFlowPropsMixin_NdiSourceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnFlowPropsMixin.SecretsManagerEncryptionKeyConfigurationProperty",

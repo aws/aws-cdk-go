@@ -22,6 +22,10 @@ type DockerImageAssetInvalidationOptions struct {
 	// Default: true.
 	//
 	BuildArgs *bool `field:"optional" json:"buildArgs" yaml:"buildArgs"`
+	// Use `buildContexts` while calculating the asset hash.
+	// Default: true.
+	//
+	BuildContexts *bool `field:"optional" json:"buildContexts" yaml:"buildContexts"`
 	// Use `buildSecrets` while calculating the asset hash.
 	// Default: true.
 	//

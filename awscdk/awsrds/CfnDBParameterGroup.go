@@ -508,6 +508,9 @@ func (j *jsiiProxy_CfnDBParameterGroup)SetFamily(val *string) {
 }
 
 func (j *jsiiProxy_CfnDBParameterGroup)SetParameters(val interface{}) {
+	if err := j.validateSetParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"parameters",

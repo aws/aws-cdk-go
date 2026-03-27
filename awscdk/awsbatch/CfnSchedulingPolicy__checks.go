@@ -220,6 +220,30 @@ func (j *jsiiProxy_CfnSchedulingPolicy) validateSetFairsharePolicyParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnSchedulingPolicy) validateSetQuotaSharePolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSchedulingPolicy_QuotaSharePolicyProperty:
+		val := val.(*CfnSchedulingPolicy_QuotaSharePolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSchedulingPolicy_QuotaSharePolicyProperty:
+		val_ := val.(CfnSchedulingPolicy_QuotaSharePolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSchedulingPolicy_QuotaSharePolicyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnSchedulingPolicyParameters(scope constructs.Construct, id *string, props *CfnSchedulingPolicyProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

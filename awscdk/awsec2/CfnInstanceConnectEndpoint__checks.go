@@ -164,6 +164,22 @@ func validateCfnInstanceConnectEndpoint_ArnForInstanceConnectEndpointParameters(
 	return nil
 }
 
+func validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnInstanceConnectEndpoint_FromInstanceConnectEndpointIdParameters(scope constructs.Construct, id *string, instanceConnectEndpointId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

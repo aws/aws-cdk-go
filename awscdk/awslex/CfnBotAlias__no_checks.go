@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnBotAlias) validateSetConversationLogSettingsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnBotAlias) validateSetSentimentAnalysisSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnBotAliasParameters(scope constructs.Construct, id *string, props *CfnBotAliasProps) error {
 	return nil
 }

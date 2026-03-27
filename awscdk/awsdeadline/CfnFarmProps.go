@@ -15,6 +15,7 @@ import (
 //   	DisplayName: jsii.String("displayName"),
 //
 //   	// the properties below are optional
+//   	CostScaleFactor: jsii.Number(123),
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Tags: []CfnTag{
@@ -34,6 +35,11 @@ type CfnFarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html#cfn-deadline-farm-displayname
 	//
 	DisplayName *string `field:"required" json:"displayName" yaml:"displayName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html#cfn-deadline-farm-costscalefactor
+	//
+	// Default: - 1.
+	//
+	CostScaleFactor *float64 `field:"optional" json:"costScaleFactor" yaml:"costScaleFactor"`
 	// A description of the farm that helps identify what the farm is used for.
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.

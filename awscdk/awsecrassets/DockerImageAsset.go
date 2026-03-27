@@ -20,11 +20,9 @@ import (
 //
 //   asset := awscdk.NewDockerImageAsset(this, jsii.String("MyBuildImage"), &DockerImageAssetProps{
 //   	Directory: path.join(__dirname, jsii.String("my-image")),
-//   	BuildArgs: map[string]*string{
-//   		"HTTP_PROXY": jsii.String("http://10.20.30.2:1234"),
-//   	},
-//   	Invalidation: &DockerImageAssetInvalidationOptions{
-//   		BuildArgs: jsii.Boolean(false),
+//   	BuildContexts: map[string]*string{
+//   		"mycontext": path.join(__dirname, jsii.String("path/to/context")),
+//   		"alpine": jsii.String("docker-image://alpine:latest"),
 //   	},
 //   })
 //

@@ -228,6 +228,14 @@ func validateCfnEnvironment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnEnvironment) validateSetAirflowConfigurationOptionsParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEnvironment) validateSetLoggingConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -279,6 +287,14 @@ func (j *jsiiProxy_CfnEnvironment) validateSetNetworkConfigurationParameters(val
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEnvironment_NetworkConfigurationProperty; received %#v (a %T)", val, val)
 		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnEnvironment) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

@@ -490,6 +490,9 @@ func (j *jsiiProxy_CfnRouteResponse)SetModelSelectionExpression(val *string) {
 }
 
 func (j *jsiiProxy_CfnRouteResponse)SetResponseModels(val interface{}) {
+	if err := j.validateSetResponseModelsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"responseModels",

@@ -66,6 +66,10 @@ package awsbedrockagentcore
 //   		},
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PolicyEngineConfiguration: &GatewayPolicyEngineConfigurationProperty{
+//   		Arn: jsii.String("arn"),
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
 //   		Mcp: &MCPGatewayConfigurationProperty{
 //   			Instructions: jsii.String("instructions"),
@@ -116,6 +120,12 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The configuration for a policy engine associated with a gateway.
+	//
+	// A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-policyengineconfiguration
+	//
+	PolicyEngineConfiguration interface{} `field:"optional" json:"policyEngineConfiguration" yaml:"policyEngineConfiguration"`
 	// The protocol configuration for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-protocolconfiguration
 	//

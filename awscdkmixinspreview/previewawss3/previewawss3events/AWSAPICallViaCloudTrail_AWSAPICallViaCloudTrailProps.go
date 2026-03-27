@@ -7,206 +7,56 @@ import (
 // Props type for aws.s3@AWSAPICallViaCloudTrail event.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import targets "github.com/aws/aws-cdk-go/awscdk"
 //
-//   aWSAPICallViaCloudTrailProps := &AWSAPICallViaCloudTrailProps{
-//   	AdditionalEventData: &AdditionalEventData{
-//   		AuthenticationMethod: []*string{
-//   			jsii.String("authenticationMethod"),
-//   		},
-//   		BytesTransferredIn: []*string{
-//   			jsii.String("bytesTransferredIn"),
-//   		},
-//   		BytesTransferredOut: []*string{
-//   			jsii.String("bytesTransferredOut"),
-//   		},
-//   		CipherSuite: []*string{
-//   			jsii.String("cipherSuite"),
-//   		},
-//   		ObjectRetentionInfo: &ObjectRetentionInfo{
-//   			LegalHoldInfo: &LegalHoldInfo{
-//   				IsUnderLegalHold: []*string{
-//   					jsii.String("isUnderLegalHold"),
-//   				},
-//   				LastModifiedTime: []*string{
-//   					jsii.String("lastModifiedTime"),
-//   				},
-//   			},
-//   			RetentionInfo: &RetentionInfo{
-//   				LastModifiedTime: []*string{
-//   					jsii.String("lastModifiedTime"),
-//   				},
-//   				RetainUntilMode: []*string{
-//   					jsii.String("retainUntilMode"),
-//   				},
-//   				RetainUntilTime: []*string{
-//   					jsii.String("retainUntilTime"),
-//   				},
+//   var fn Function
+//
+//
+//   // Works with L2 Rule
+//   // Works with L2 Rule
+//   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
+//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+//   		TlsDetails: &TlsDetails{
+//   			TlsVersion: []*string{
+//   				jsii.String("TLSv1.3"),
 //   			},
 //   		},
-//   		SignatureVersion: []*string{
-//   			jsii.String("signatureVersion"),
-//   		},
-//   		XAmzId2: []*string{
-//   			jsii.String("xAmzId2"),
-//   		},
-//   	},
-//   	AwsRegion: []*string{
-//   		jsii.String("awsRegion"),
-//   	},
-//   	ErrorCode: []*string{
-//   		jsii.String("errorCode"),
-//   	},
-//   	ErrorMessage: []*string{
-//   		jsii.String("errorMessage"),
-//   	},
-//   	EventCategory: []*string{
-//   		jsii.String("eventCategory"),
-//   	},
-//   	EventId: []*string{
-//   		jsii.String("eventId"),
-//   	},
-//   	EventMetadata: &AWSEventMetadataProps{
-//   		Region: []*string{
-//   			jsii.String("region"),
-//   		},
-//   		Resources: []*string{
-//   			jsii.String("resources"),
-//   		},
-//   		Version: []*string{
-//   			jsii.String("version"),
-//   		},
-//   	},
-//   	EventName: []*string{
-//   		jsii.String("eventName"),
-//   	},
-//   	EventSource: []*string{
-//   		jsii.String("eventSource"),
-//   	},
-//   	EventTime: []*string{
-//   		jsii.String("eventTime"),
-//   	},
-//   	EventType: []*string{
-//   		jsii.String("eventType"),
-//   	},
-//   	EventVersion: []*string{
-//   		jsii.String("eventVersion"),
-//   	},
-//   	ManagementEvent: []*string{
-//   		jsii.String("managementEvent"),
-//   	},
-//   	ReadOnly: []*string{
-//   		jsii.String("readOnly"),
-//   	},
-//   	RecipientAccountId: []*string{
-//   		jsii.String("recipientAccountId"),
-//   	},
-//   	RequestId: []*string{
-//   		jsii.String("requestId"),
-//   	},
-//   	RequestParameters: &RequestParameters{
-//   		BucketName: []*string{
-//   			jsii.String("bucketName"),
-//   		},
-//   		Host: []*string{
-//   			jsii.String("host"),
-//   		},
-//   		Key: []*string{
-//   			jsii.String("key"),
-//   		},
-//   		LegalHold: []*string{
-//   			jsii.String("legalHold"),
-//   		},
-//   		Retention: []*string{
-//   			jsii.String("retention"),
-//   		},
-//   	},
-//   	Resources: []AwsapiCallViaCloudTrailItem{
-//   		&AwsapiCallViaCloudTrailItem{
-//   			AccountId: []*string{
-//   				jsii.String("accountId"),
-//   			},
-//   			Arn: []*string{
-//   				jsii.String("arn"),
-//   			},
-//   			Type: []*string{
-//   				jsii.String("type"),
+//   		EventMetadata: &AWSEventMetadataProps{
+//   			Region: []*string{
+//   				jsii.String("us-east-1"),
 //   			},
 //   		},
+//   	}),
+//   	Targets: []IRuleTarget{
+//   		targets.NewLambdaFunction(fn),
 //   	},
-//   	ResponseElements: []*string{
-//   		jsii.String("responseElements"),
-//   	},
-//   	SourceIpAddress: []*string{
-//   		jsii.String("sourceIpAddress"),
-//   	},
-//   	TlsDetails: &TlsDetails{
-//   		CipherSuite: []*string{
-//   			jsii.String("cipherSuite"),
-//   		},
-//   		ClientProvidedHostHeader: []*string{
-//   			jsii.String("clientProvidedHostHeader"),
-//   		},
-//   		TlsVersion: []*string{
-//   			jsii.String("tlsVersion"),
-//   		},
-//   	},
-//   	UserAgent: []*string{
-//   		jsii.String("userAgent"),
-//   	},
-//   	UserIdentity: &UserIdentity{
-//   		AccessKeyId: []*string{
-//   			jsii.String("accessKeyId"),
-//   		},
-//   		AccountId: []*string{
-//   			jsii.String("accountId"),
-//   		},
-//   		Arn: []*string{
-//   			jsii.String("arn"),
-//   		},
-//   		PrincipalId: []*string{
-//   			jsii.String("principalId"),
-//   		},
-//   		SessionContext: &SessionContext{
-//   			Attributes: &Attributes{
-//   				CreationDate: []*string{
-//   					jsii.String("creationDate"),
-//   				},
-//   				MfaAuthenticated: []*string{
-//   					jsii.String("mfaAuthenticated"),
-//   				},
-//   			},
-//   			SessionIssuer: &SessionIssuer{
-//   				AccountId: []*string{
-//   					jsii.String("accountId"),
-//   				},
-//   				Arn: []*string{
-//   					jsii.String("arn"),
-//   				},
-//   				PrincipalId: []*string{
-//   					jsii.String("principalId"),
-//   				},
-//   				Type: []*string{
-//   					jsii.String("type"),
-//   				},
-//   				UserName: []*string{
-//   					jsii.String("userName"),
-//   				},
-//   			},
-//   			WebIdFederationData: []*string{
-//   				jsii.String("webIdFederationData"),
+//   })
+//
+//   // Also works with L1 CfnRule
+//   // Also works with L1 CfnRule
+//   events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
+//   	State: jsii.String("ENABLED"),
+//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+//   		TlsDetails: &TlsDetails{
+//   			TlsVersion: []*string{
+//   				jsii.String("TLSv1.3"),
 //   			},
 //   		},
-//   		Type: []*string{
-//   			jsii.String("type"),
+//   		EventMetadata: &AWSEventMetadataProps{
+//   			Region: []*string{
+//   				jsii.String("us-east-1"),
+//   			},
+//   		},
+//   	}),
+//   	Targets: []interface{}{
+//   		&TargetProperty{
+//   			Arn: fn.functionArn,
+//   			Id: jsii.String("L1"),
 //   		},
 //   	},
-//   	VpcEndpointId: []*string{
-//   		jsii.String("vpcEndpointId"),
-//   	},
-//   }
+//   })
 //
 // Experimental.
 type AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps struct {

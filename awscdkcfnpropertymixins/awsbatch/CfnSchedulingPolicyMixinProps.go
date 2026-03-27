@@ -20,6 +20,9 @@ package awsbatch
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	QuotaSharePolicy: &QuotaSharePolicyProperty{
+//   		IdleResourceAssignmentStrategy: jsii.String("idleResourceAssignmentStrategy"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -38,6 +41,10 @@ type CfnSchedulingPolicyMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Quota Share Policy for the Job Queue.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html#cfn-batch-schedulingpolicy-quotasharepolicy
+	//
+	QuotaSharePolicy interface{} `field:"optional" json:"quotaSharePolicy" yaml:"quotaSharePolicy"`
 	// The tags that you apply to the scheduling policy to help you categorize and organize your resources.
 	//
 	// Each tag consists of a key and an optional value. For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in *AWS General Reference* .

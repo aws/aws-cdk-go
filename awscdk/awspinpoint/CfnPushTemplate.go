@@ -637,6 +637,9 @@ func (j *jsiiProxy_CfnPushTemplate)SetGcm(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnPushTemplate)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

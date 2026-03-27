@@ -38,6 +38,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceSettings", GoGetter: "InferenceSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "inputAttachments", GoGetter: "InputAttachments"},
 			_jsii_.MemberProperty{JsiiProperty: "inputSpecification", GoGetter: "InputSpecification"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -462,6 +463,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.HtmlMotionGraphicsSettingsProperty",
 		reflect.TypeOf((*CfnChannel_HtmlMotionGraphicsSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.InferenceSettingsProperty",
+		reflect.TypeOf((*CfnChannel_InferenceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.InputAttachmentProperty",
