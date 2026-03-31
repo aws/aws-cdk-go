@@ -578,9 +578,6 @@ func (j *jsiiProxy_CfnReplicationConfig)SetReplicationConfigIdentifier(val *stri
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetReplicationSettings(val interface{}) {
-	if err := j.validateSetReplicationSettingsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"replicationSettings",
@@ -619,9 +616,6 @@ func (j *jsiiProxy_CfnReplicationConfig)SetSourceEndpointArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnReplicationConfig)SetSupplementalSettings(val interface{}) {
-	if err := j.validateSetSupplementalSettingsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"supplementalSettings",

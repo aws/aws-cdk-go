@@ -605,9 +605,6 @@ func (j *jsiiProxy_CfnConfigRule)SetEvaluationModes(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnConfigRule)SetInputParameters(val interface{}) {
-	if err := j.validateSetInputParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"inputParameters",

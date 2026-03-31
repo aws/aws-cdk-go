@@ -415,9 +415,6 @@ func NewCfnUserPolicy_Override(c CfnUserPolicy, scope constructs.Construct, id *
 }
 
 func (j *jsiiProxy_CfnUserPolicy)SetPolicyDocument(val interface{}) {
-	if err := j.validateSetPolicyDocumentParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policyDocument",

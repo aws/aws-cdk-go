@@ -523,9 +523,6 @@ func (j *jsiiProxy_CfnIntegrationResponse)SetIntegrationResponseKey(val *string)
 }
 
 func (j *jsiiProxy_CfnIntegrationResponse)SetResponseParameters(val interface{}) {
-	if err := j.validateSetResponseParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"responseParameters",
@@ -534,9 +531,6 @@ func (j *jsiiProxy_CfnIntegrationResponse)SetResponseParameters(val interface{})
 }
 
 func (j *jsiiProxy_CfnIntegrationResponse)SetResponseTemplates(val interface{}) {
-	if err := j.validateSetResponseTemplatesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"responseTemplates",

@@ -577,9 +577,6 @@ func (j *jsiiProxy_CfnRule)SetEventBusName(val *string) {
 }
 
 func (j *jsiiProxy_CfnRule)SetEventPattern(val interface{}) {
-	if err := j.validateSetEventPatternParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"eventPattern",

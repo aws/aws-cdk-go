@@ -13,7 +13,7 @@ package awskinesisfirehose
 //   	ParameterValue: jsii.String("parameterValue"),
 //   }
 //
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
 //
 type DataProcessorIdentifier struct {
 	// The parameter name that corresponds to the processor resource's identifier.

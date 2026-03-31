@@ -96,10 +96,6 @@ func validateCfnProfilingGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnProfilingGroup) validateSetAgentPermissionsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnProfilingGroup) validateSetAnomalyDetectionNotificationConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -489,9 +489,6 @@ func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnPipeline)SetParallelismConfiguration(val interface{}) {
-	if err := j.validateSetParallelismConfigurationParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parallelismConfiguration",

@@ -266,7 +266,7 @@ func NewFairshareSchedulingPolicy_Override(f FairshareSchedulingPolicy, scope co
 	)
 }
 
-// Reference an exisiting Scheduling Policy by its ARN.
+// Reference an existing Scheduling Policy by its ARN.
 func FairshareSchedulingPolicy_FromFairshareSchedulingPolicyArn(scope constructs.Construct, id *string, fairshareSchedulingPolicyArn *string) IFairshareSchedulingPolicy {
 	_init_.Initialize()
 

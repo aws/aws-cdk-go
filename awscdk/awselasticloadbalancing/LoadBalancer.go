@@ -14,7 +14,7 @@ import (
 
 // A load balancer with a single listener.
 //
-// Routes to a fleet of of instances in a VPC.
+// Routes to a fleet of instances in a VPC.
 //
 // Example:
 //   var cluster Cluster

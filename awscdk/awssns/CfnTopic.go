@@ -609,9 +609,6 @@ func NewCfnTopic_Override(c CfnTopic, scope constructs.Construct, id *string, pr
 }
 
 func (j *jsiiProxy_CfnTopic)SetArchivePolicy(val interface{}) {
-	if err := j.validateSetArchivePolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"archivePolicy",
@@ -631,9 +628,6 @@ func (j *jsiiProxy_CfnTopic)SetContentBasedDeduplication(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTopic)SetDataProtectionPolicy(val interface{}) {
-	if err := j.validateSetDataProtectionPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"dataProtectionPolicy",

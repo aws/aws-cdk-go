@@ -116,10 +116,6 @@ func (j *jsiiProxy_CfnRepository) validateSetLifecyclePolicyParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnRepository) validateSetRepositoryPolicyTextParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRepository) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

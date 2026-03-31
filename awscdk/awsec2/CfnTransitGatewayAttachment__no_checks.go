@@ -92,10 +92,6 @@ func validateCfnTransitGatewayAttachment_IsConstructParameters(x interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetOptionsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnTransitGatewayAttachment) validateSetSubnetIdsParameters(val *[]*string) error {
 	return nil
 }

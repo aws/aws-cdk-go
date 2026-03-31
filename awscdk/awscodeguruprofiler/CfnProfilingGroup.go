@@ -477,9 +477,6 @@ func NewCfnProfilingGroup_Override(c CfnProfilingGroup, scope constructs.Constru
 }
 
 func (j *jsiiProxy_CfnProfilingGroup)SetAgentPermissions(val interface{}) {
-	if err := j.validateSetAgentPermissionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"agentPermissions",

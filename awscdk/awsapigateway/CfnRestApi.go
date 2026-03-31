@@ -686,9 +686,6 @@ func (j *jsiiProxy_CfnRestApi)SetBinaryMediaTypes(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnRestApi)SetBody(val interface{}) {
-	if err := j.validateSetBodyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"body",
@@ -800,9 +797,6 @@ func (j *jsiiProxy_CfnRestApi)SetParameters(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnRestApi)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policy",

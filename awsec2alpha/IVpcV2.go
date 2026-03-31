@@ -43,10 +43,10 @@ type IVpcV2 interface {
 	// For more information, see the {@link https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html}.
 	// Experimental.
 	CreatePeeringConnection(id *string, options *VPCPeeringConnectionOptions) VPCPeeringConnection
-	// Adds VPN Gateway to VPC and set route propogation.
+	// Adds VPN Gateway to VPC and set route propagation.
 	//
 	// For more information, see the {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html}.
-	// Default: - no route propogation.
+	// Default: - no route propagation.
 	//
 	// Experimental.
 	EnableVpnGatewayV2(options *VPNGatewayV2Options) VPNGatewayV2

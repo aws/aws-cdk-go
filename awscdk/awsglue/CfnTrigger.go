@@ -621,9 +621,6 @@ func (j *jsiiProxy_CfnTrigger)SetStartOnCreation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTrigger)SetTagsRaw(val interface{}) {
-	if err := j.validateSetTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

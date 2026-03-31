@@ -1175,9 +1175,6 @@ func (j *jsiiProxy_CfnUserPool)SetUserPoolName(val *string) {
 }
 
 func (j *jsiiProxy_CfnUserPool)SetUserPoolTagsRaw(val interface{}) {
-	if err := j.validateSetUserPoolTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"userPoolTagsRaw",

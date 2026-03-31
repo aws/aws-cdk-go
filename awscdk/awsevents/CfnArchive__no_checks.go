@@ -96,10 +96,6 @@ func validateCfnArchive_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnArchive) validateSetEventPatternParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnArchive) validateSetSourceArnParameters(val *string) error {
 	return nil
 }

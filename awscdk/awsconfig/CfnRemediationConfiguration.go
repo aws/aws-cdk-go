@@ -561,9 +561,6 @@ func (j *jsiiProxy_CfnRemediationConfiguration)SetMaximumAutomaticAttempts(val *
 }
 
 func (j *jsiiProxy_CfnRemediationConfiguration)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameters",

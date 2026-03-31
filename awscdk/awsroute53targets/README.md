@@ -232,7 +232,7 @@ route53.NewARecord(this, jsii.String("AliasRecord"), &ARecordProps{
 })
 ```
 
-If Elastic Beanstalk environment URL is not avaiable at synth time, you can specify Hosted Zone ID of the target
+If Elastic Beanstalk environment URL is not available at synth time, you can specify Hosted Zone ID of the target
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"

@@ -756,9 +756,6 @@ func (j *jsiiProxy_CfnQueue)SetReceiveMessageWaitTimeSeconds(val *float64) {
 }
 
 func (j *jsiiProxy_CfnQueue)SetRedriveAllowPolicy(val interface{}) {
-	if err := j.validateSetRedriveAllowPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"redriveAllowPolicy",
@@ -767,9 +764,6 @@ func (j *jsiiProxy_CfnQueue)SetRedriveAllowPolicy(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnQueue)SetRedrivePolicy(val interface{}) {
-	if err := j.validateSetRedrivePolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"redrivePolicy",

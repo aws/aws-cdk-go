@@ -38,14 +38,14 @@ type IntegrationResponse struct {
 	//   value. You must enclose static values in single quotation marks and
 	//   pre-encode these values based on the destination specified in the
 	//   request.
-	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
 	//
 	ResponseParameters *map[string]*string `field:"optional" json:"responseParameters" yaml:"responseParameters"`
 	// The templates that are used to transform the integration response body.
 	//
 	// Specify templates as key-value pairs, with a content type as the key and
 	// a template as the value.
-	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
 	ResponseTemplates *map[string]*string `field:"optional" json:"responseTemplates" yaml:"responseTemplates"`
 	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end.

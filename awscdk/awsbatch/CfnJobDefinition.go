@@ -646,9 +646,6 @@ func (j *jsiiProxy_CfnJobDefinition)SetNodeProperties(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJobDefinition)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameters",
@@ -706,9 +703,6 @@ func (j *jsiiProxy_CfnJobDefinition)SetSchedulingPriority(val *float64) {
 }
 
 func (j *jsiiProxy_CfnJobDefinition)SetTagsRaw(val interface{}) {
-	if err := j.validateSetTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

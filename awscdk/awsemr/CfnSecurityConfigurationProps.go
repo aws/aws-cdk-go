@@ -30,7 +30,7 @@ package awsemr
 //   	Instances: &InstancesConfigProperty{
 //   	},
 //   	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
-//   	SecurityConfiguration: cfnSecurityConfiguration.name,
+//   	SecurityConfiguration: cfnSecurityConfiguration.Name,
 //   })
 //
 //   executionRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{

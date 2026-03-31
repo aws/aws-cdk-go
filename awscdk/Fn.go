@@ -7,7 +7,7 @@ import (
 
 // CloudFormation intrinsic functions.
 //
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
+// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -273,7 +273,7 @@ func Fn_ConditionOr(conditions ...ICfnConditionExpression) ICfnRuleConditionExpr
 
 // The intrinsic function ``Fn::FindInMap`` returns the value corresponding to keys in a two-level map that is declared in the Mappings section.
 //
-// Warning: do not use with lazy mappings as this function will not guarentee a lazy mapping to render in the template.
+// Warning: do not use with lazy mappings as this function will not guarantee a lazy mapping to render in the template.
 // Prefer to use `CfnMapping.findInMap` in general.
 //
 // Returns: a token represented as a string.

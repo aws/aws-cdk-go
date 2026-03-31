@@ -108,10 +108,6 @@ func (j *jsiiProxy_CfnFileSystem) validateSetEncryptedParameters(val interface{}
 	return nil
 }
 
-func (j *jsiiProxy_CfnFileSystem) validateSetFileSystemPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnFileSystem) validateSetFileSystemProtectionParameters(val interface{}) error {
 	return nil
 }

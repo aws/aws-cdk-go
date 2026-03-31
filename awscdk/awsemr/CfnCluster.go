@@ -752,9 +752,6 @@ func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string
 }
 
 func (j *jsiiProxy_CfnCluster)SetAdditionalInfo(val interface{}) {
-	if err := j.validateSetAdditionalInfoParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"additionalInfo",

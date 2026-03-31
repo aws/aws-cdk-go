@@ -436,9 +436,6 @@ func (j *jsiiProxy_CfnParameterGroup)SetParameterGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnParameterGroup)SetParameterNameValues(val interface{}) {
-	if err := j.validateSetParameterNameValuesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameterNameValues",

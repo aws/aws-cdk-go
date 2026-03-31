@@ -589,9 +589,6 @@ func (j *jsiiProxy_CfnRepository)SetExternalConnections(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnRepository)SetPermissionsPolicyDocument(val interface{}) {
-	if err := j.validateSetPermissionsPolicyDocumentParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"permissionsPolicyDocument",

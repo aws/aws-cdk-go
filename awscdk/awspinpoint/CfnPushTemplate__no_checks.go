@@ -108,10 +108,6 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetGcmParameters(val interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnPushTemplate) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPushTemplate) validateSetTemplateNameParameters(val *string) error {
 	return nil
 }

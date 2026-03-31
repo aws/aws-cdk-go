@@ -852,9 +852,6 @@ func (j *jsiiProxy_CfnStack)SetCustomCookbooksSource(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnStack)SetCustomJson(val interface{}) {
-	if err := j.validateSetCustomJsonParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"customJson",

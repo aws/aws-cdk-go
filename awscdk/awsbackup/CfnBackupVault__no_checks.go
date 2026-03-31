@@ -96,10 +96,6 @@ func validateCfnBackupVault_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnBackupVault) validateSetAccessPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnBackupVault) validateSetBackupVaultNameParameters(val *string) error {
 	return nil
 }

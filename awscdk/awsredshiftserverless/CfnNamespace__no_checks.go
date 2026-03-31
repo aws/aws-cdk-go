@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnNamespace) validateSetNamespaceNameParameters(val *string)
 	return nil
 }
 
-func (j *jsiiProxy_CfnNamespace) validateSetNamespaceResourcePolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnNamespace) validateSetSnapshotCopyConfigurationsParameters(val interface{}) error {
 	return nil
 }

@@ -91,7 +91,7 @@ func (j *jsiiProxy_SchemaFile)SetDefinition(val *string) {
 
 // Generate a Schema from file.
 //
-// Returns: `SchemaAsset` with immutable schema defintion.
+// Returns: `SchemaAsset` with immutable schema definition.
 func SchemaFile_FromAsset(filePath *string) SchemaFile {
 	_init_.Initialize()
 

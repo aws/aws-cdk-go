@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnSequenceStore) validateSetNameParameters(val *string) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnSequenceStore) validateSetS3AccessPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnSequenceStore) validateSetSseConfigParameters(val interface{}) error {
 	return nil
 }

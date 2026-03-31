@@ -88,15 +88,7 @@ func validateCfnTopic_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnTopic) validateSetArchivePolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnTopic) validateSetContentBasedDeduplicationParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnTopic) validateSetDataProtectionPolicyParameters(val interface{}) error {
 	return nil
 }
 

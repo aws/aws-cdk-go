@@ -5,7 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-// The format target function should recieve record in.
+// The format target function should receive record in.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"

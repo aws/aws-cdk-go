@@ -787,9 +787,6 @@ func (j *jsiiProxy_CfnCrawler)SetTablePrefix(val *string) {
 }
 
 func (j *jsiiProxy_CfnCrawler)SetTagsRaw(val interface{}) {
-	if err := j.validateSetTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

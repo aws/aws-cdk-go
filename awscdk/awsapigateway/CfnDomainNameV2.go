@@ -564,9 +564,6 @@ func (j *jsiiProxy_CfnDomainNameV2)SetEndpointConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnDomainNameV2)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policy",

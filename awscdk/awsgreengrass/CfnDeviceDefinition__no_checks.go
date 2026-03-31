@@ -104,10 +104,6 @@ func (j *jsiiProxy_CfnDeviceDefinition) validateSetNameParameters(val *string) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnDeviceDefinition) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnDeviceDefinitionParameters(scope constructs.Construct, id *string, props *CfnDeviceDefinitionProps) error {
 	return nil
 }

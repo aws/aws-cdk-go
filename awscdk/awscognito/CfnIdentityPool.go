@@ -587,9 +587,6 @@ func (j *jsiiProxy_CfnIdentityPool)SetAllowUnauthenticatedIdentities(val interfa
 }
 
 func (j *jsiiProxy_CfnIdentityPool)SetCognitoEvents(val interface{}) {
-	if err := j.validateSetCognitoEventsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"cognitoEvents",
@@ -674,9 +671,6 @@ func (j *jsiiProxy_CfnIdentityPool)SetSamlProviderArns(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnIdentityPool)SetSupportedLoginProviders(val interface{}) {
-	if err := j.validateSetSupportedLoginProvidersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"supportedLoginProviders",

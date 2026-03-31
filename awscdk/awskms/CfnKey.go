@@ -77,7 +77,7 @@ import (
 //   	},
 //   }
 //   cfnKey := (kmsKey.Node.defaultChild.(CfnKey))
-//   cfnKey.keyPolicy = scopedDownKeyPolicy
+//   cfnKey.KeyPolicy = scopedDownKeyPolicy
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 //
@@ -666,9 +666,6 @@ func (j *jsiiProxy_CfnKey)SetEnableKeyRotation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnKey)SetKeyPolicy(val interface{}) {
-	if err := j.validateSetKeyPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"keyPolicy",

@@ -611,9 +611,6 @@ func NewCfnDevEndpoint_Override(c CfnDevEndpoint, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnDevEndpoint)SetArguments(val interface{}) {
-	if err := j.validateSetArgumentsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"arguments",
@@ -721,9 +718,6 @@ func (j *jsiiProxy_CfnDevEndpoint)SetSubnetId(val *string) {
 }
 
 func (j *jsiiProxy_CfnDevEndpoint)SetTagsRaw(val interface{}) {
-	if err := j.validateSetTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

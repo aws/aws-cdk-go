@@ -92,10 +92,6 @@ func validateCfnLogicallyAirGappedBackupVault_IsConstructParameters(x interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateSetAccessPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateSetBackupVaultNameParameters(val *string) error {
 	return nil
 }

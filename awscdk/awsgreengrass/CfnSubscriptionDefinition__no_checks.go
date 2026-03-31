@@ -104,10 +104,6 @@ func (j *jsiiProxy_CfnSubscriptionDefinition) validateSetNameParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnSubscriptionDefinition) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnSubscriptionDefinitionParameters(scope constructs.Construct, id *string, props *CfnSubscriptionDefinitionProps) error {
 	return nil
 }

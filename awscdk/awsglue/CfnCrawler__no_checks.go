@@ -112,10 +112,6 @@ func (j *jsiiProxy_CfnCrawler) validateSetSchemaChangePolicyParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnCrawler) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCrawler) validateSetTargetsParameters(val interface{}) error {
 	return nil
 }

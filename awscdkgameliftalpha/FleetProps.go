@@ -77,7 +77,7 @@ type FleetProps struct {
 	// The GameLift-supported Amazon EC2 instance type to use for all fleet instances.
 	//
 	// Instance type determines the computing resources that will be used to host your game servers, including CPU, memory, storage, and networking capacity.
-	// See: http://aws.amazon.com/ec2/instance-types/ for detailed descriptions of Amazon EC2 instance types.
+	// See: https://aws.amazon.com/ec2/instance-types/ for detailed descriptions of Amazon EC2 instance types.
 	//
 	// Experimental.
 	InstanceType awsec2.InstanceType `field:"required" json:"instanceType" yaml:"instanceType"`

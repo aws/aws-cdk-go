@@ -109,12 +109,12 @@ type IBucket interface {
 	// calling `grantWrite` or `grantReadWrite` no longer grants permissions to modify the ACLs of the objects;
 	// in this case, if you need to modify object ACLs, call this method explicitly.
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
-	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grant read permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
 	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grants read/write permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 	//
 	// If an encryption key is used, permission to use the key for
 	// encrypt/decrypt will also be granted.

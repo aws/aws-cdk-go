@@ -260,14 +260,6 @@ func (j *jsiiProxy_CfnConnectorDefinition) validateSetNameParameters(val *string
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnectorDefinition) validateSetTagsRawParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnConnectorDefinitionParameters(scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

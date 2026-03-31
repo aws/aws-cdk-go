@@ -514,9 +514,6 @@ func NewCfnBackupVault_Override(c CfnBackupVault, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnBackupVault)SetAccessPolicy(val interface{}) {
-	if err := j.validateSetAccessPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"accessPolicy",

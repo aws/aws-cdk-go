@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnConformancePack) validateSetConformancePackNameParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnConformancePack) validateSetTemplateSsmDocumentDetailsParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnConformancePackParameters(scope constructs.Construct, id *string, props *CfnConformancePackProps) error {
 	return nil
 }

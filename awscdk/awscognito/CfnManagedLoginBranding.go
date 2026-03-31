@@ -513,9 +513,6 @@ func (j *jsiiProxy_CfnManagedLoginBranding)SetReturnMergedResources(val interfac
 }
 
 func (j *jsiiProxy_CfnManagedLoginBranding)SetSettings(val interface{}) {
-	if err := j.validateSetSettingsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"settings",

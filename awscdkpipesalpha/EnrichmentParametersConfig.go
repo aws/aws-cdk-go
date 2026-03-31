@@ -28,7 +28,7 @@ import (
 //   	},
 //   }
 //
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipeenrichmentparameters.html
 //
 // Experimental.
 type EnrichmentParametersConfig struct {

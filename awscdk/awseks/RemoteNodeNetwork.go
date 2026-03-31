@@ -16,7 +16,7 @@ package awseks
 //
 type RemoteNodeNetwork struct {
 	// Specifies the list of remote node CIDRs.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenodenetwork.html#cfn-eks-cluster-remotenodenetwork-cidrs
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenodenetwork.html#cfn-eks-cluster-remotenodenetwork-cidrs
 	//
 	Cidrs *[]*string `field:"required" json:"cidrs" yaml:"cidrs"`
 }

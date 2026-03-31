@@ -502,9 +502,6 @@ func (j *jsiiProxy_CfnParameterGroup)SetParameterGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnParameterGroup)SetParameters(val interface{}) {
-	if err := j.validateSetParametersParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"parameters",

@@ -484,9 +484,6 @@ func (j *jsiiProxy_CfnLoggingConfiguration)SetLogDestinationConfigs(val *[]*stri
 }
 
 func (j *jsiiProxy_CfnLoggingConfiguration)SetLoggingFilter(val interface{}) {
-	if err := j.validateSetLoggingFilterParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"loggingFilter",

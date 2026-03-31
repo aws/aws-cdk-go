@@ -100,19 +100,7 @@ func (j *jsiiProxy_CfnStage) validateSetDefaultRouteSettingsParameters(val inter
 	return nil
 }
 
-func (j *jsiiProxy_CfnStage) validateSetRouteSettingsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnStage) validateSetStageNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnStage) validateSetStageVariablesParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnStage) validateSetTagsRawParameters(val interface{}) error {
 	return nil
 }
 

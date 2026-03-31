@@ -458,9 +458,6 @@ func (j *jsiiProxy_CfnSink)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnSink)SetPolicy(val interface{}) {
-	if err := j.validateSetPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"policy",

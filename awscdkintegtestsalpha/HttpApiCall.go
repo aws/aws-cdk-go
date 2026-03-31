@@ -41,7 +41,7 @@ type HttpApiCall interface {
 	// access the AssertionsProvider.
 	//
 	// This can be used to add additional IAM policies
-	// the the provider role policy.
+	// the provider role policy.
 	// Experimental.
 	Provider() AssertionsProvider
 	// Experimental.

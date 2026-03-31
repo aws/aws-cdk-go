@@ -98,7 +98,7 @@ type EventPattern struct {
 	// To find the correct value for source for an AWS service, see the table in
 	// AWS Service Namespaces. For example, the source value for Amazon
 	// CloudFront is aws.cloudfront.
-	// See: http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
+	// See: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 	//
 	// Default: - No filtering on source.
 	//

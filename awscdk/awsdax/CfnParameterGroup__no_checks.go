@@ -84,10 +84,6 @@ func validateCfnParameterGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnParameterGroup) validateSetParameterNameValuesParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnParameterGroupParameters(scope constructs.Construct, id *string, props *CfnParameterGroupProps) error {
 	return nil
 }

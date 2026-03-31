@@ -73,7 +73,7 @@ import (
 //   }
 //
 //   // Override the distribution configuration to enable multi-tenancy.
-//   cfnDistribution.distributionConfig = distributionConfig
+//   cfnDistribution.DistributionConfig = distributionConfig
 //
 //   // Create a connection group and a cname record in an existing hosted zone to validate domain ownership
 //   connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("cf-hosted-connection-group"), &CfnConnectionGroupProps{

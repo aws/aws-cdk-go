@@ -28,7 +28,7 @@ type IRepository interface {
 	// Defines a CodeStar Notification rule triggered when the project events specified by you are emitted. Similar to `onEvent` API.
 	//
 	// You can also use the methods to define rules for the specific event emitted.
-	// eg: `notifyOnPullRequstCreated`.
+	// e.g. `notifyOnPullRequestCreated`.
 	//
 	// Returns: CodeStar Notifications rule associated with this repository.
 	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *RepositoryNotifyOnOptions) awscodestarnotifications.INotificationRule

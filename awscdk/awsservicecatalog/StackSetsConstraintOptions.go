@@ -52,7 +52,7 @@ type StackSetsConstraintOptions struct {
 	ExecutionRoleName *string `field:"required" json:"executionRoleName" yaml:"executionRoleName"`
 	// List of regions to deploy stacks to.
 	Regions *[]*string `field:"required" json:"regions" yaml:"regions"`
-	// Wether to allow end users to create, update, and delete stacks.
+	// Whether to allow end users to create, update, and delete stacks.
 	// Default: false.
 	//
 	AllowStackSetInstanceOperations *bool `field:"optional" json:"allowStackSetInstanceOperations" yaml:"allowStackSetInstanceOperations"`

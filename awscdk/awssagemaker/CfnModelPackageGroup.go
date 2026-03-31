@@ -499,9 +499,6 @@ func (j *jsiiProxy_CfnModelPackageGroup)SetModelPackageGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnModelPackageGroup)SetModelPackageGroupPolicy(val interface{}) {
-	if err := j.validateSetModelPackageGroupPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"modelPackageGroupPolicy",

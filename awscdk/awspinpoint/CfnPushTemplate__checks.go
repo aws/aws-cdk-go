@@ -316,14 +316,6 @@ func (j *jsiiProxy_CfnPushTemplate) validateSetGcmParameters(val interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnPushTemplate) validateSetTagsRawParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnPushTemplate) validateSetTemplateNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

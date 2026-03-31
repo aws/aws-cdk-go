@@ -463,9 +463,6 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment)SetRoleMappings(val interface{}
 }
 
 func (j *jsiiProxy_CfnIdentityPoolRoleAttachment)SetRoles(val interface{}) {
-	if err := j.validateSetRolesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"roles",

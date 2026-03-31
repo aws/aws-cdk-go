@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnPermissionSet) validateSetCustomerManagedPolicyReferencesP
 	return nil
 }
 
-func (j *jsiiProxy_CfnPermissionSet) validateSetInlinePolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnPermissionSet) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }

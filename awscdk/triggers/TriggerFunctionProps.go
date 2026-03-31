@@ -412,7 +412,7 @@ type TriggerFunctionProps struct {
 	// This means that this
 	// trigger will get executed *before* the given construct(s).
 	//
-	// You can also use `trigger.executeBefore()` to add additional dependants.
+	// You can also use `trigger.executeBefore()` to add additional dependents.
 	// Default: [].
 	//
 	ExecuteBefore *[]constructs.Construct `field:"optional" json:"executeBefore" yaml:"executeBefore"`

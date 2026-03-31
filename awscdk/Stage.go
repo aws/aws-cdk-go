@@ -15,7 +15,7 @@ import (
 // application.
 //
 // You can then instantiate your subclass multiple times to model multiple
-// copies of your application which should be be deployed to different
+// copies of your application which should be deployed to different
 // environments.
 //
 // Example:

@@ -38,7 +38,7 @@ type EventBusProps struct {
 	// The event bus description.
 	//
 	// The description can be up to 512 characters long.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-description
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-description
 	//
 	// Default: - no description.
 	//

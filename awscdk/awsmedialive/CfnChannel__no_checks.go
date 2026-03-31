@@ -140,10 +140,6 @@ func (j *jsiiProxy_CfnChannel) validateSetMaintenanceParameters(val interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnChannel) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnChannel) validateSetVpcParameters(val interface{}) error {
 	return nil
 }

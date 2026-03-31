@@ -84,10 +84,6 @@ func validateCfnRolePolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnRolePolicy) validateSetPolicyDocumentParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRolePolicy) validateSetPolicyNameParameters(val *string) error {
 	return nil
 }

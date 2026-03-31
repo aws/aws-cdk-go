@@ -599,9 +599,6 @@ func NewCfnJobTemplate_Override(c CfnJobTemplate, scope constructs.Construct, id
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetAbortConfig(val interface{}) {
-	if err := j.validateSetAbortConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"abortConfig",
@@ -664,9 +661,6 @@ func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRetryConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetJobExecutionsRolloutConfig(val interface{}) {
-	if err := j.validateSetJobExecutionsRolloutConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"jobExecutionsRolloutConfig",
@@ -697,9 +691,6 @@ func (j *jsiiProxy_CfnJobTemplate)SetMaintenanceWindows(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetPresignedUrlConfig(val interface{}) {
-	if err := j.validateSetPresignedUrlConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"presignedUrlConfig",
@@ -719,9 +710,6 @@ func (j *jsiiProxy_CfnJobTemplate)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnJobTemplate)SetTimeoutConfig(val interface{}) {
-	if err := j.validateSetTimeoutConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"timeoutConfig",

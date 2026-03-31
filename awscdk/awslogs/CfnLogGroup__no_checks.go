@@ -96,19 +96,11 @@ func validateCfnLogGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnLogGroup) validateSetDataProtectionPolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnLogGroup) validateSetDeletionProtectionEnabledParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnLogGroup) validateSetFieldIndexPoliciesParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnLogGroup) validateSetResourcePolicyDocumentParameters(val interface{}) error {
 	return nil
 }
 

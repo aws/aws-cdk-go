@@ -107,7 +107,7 @@ type IApiCall interface {
 	// access the AssertionsProvider.
 	//
 	// This can be used to add additional IAM policies
-	// the the provider role policy.
+	// the provider role policy.
 	//
 	// Example:
 	//   var apiCall AwsApiCall

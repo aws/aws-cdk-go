@@ -234,7 +234,7 @@ type BucketBase interface {
 	//
 	// [disable-awslint:no-grants].
 	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
-	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grant read permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.

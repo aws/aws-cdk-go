@@ -212,14 +212,6 @@ func validateCfnRestApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnRestApi) validateSetBodyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnRestApi) validateSetBodyS3LocationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -314,14 +306,6 @@ func (j *jsiiProxy_CfnRestApi) validateSetParametersParameters(val interface{}) 
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: *map[string]*string, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnRestApi) validateSetPolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

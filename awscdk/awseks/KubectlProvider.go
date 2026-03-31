@@ -88,7 +88,7 @@ type KubectlProvider interface {
 	Environment() *string
 	// The IAM execution role of the handler.
 	HandlerRole() awsiam.IRole
-	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
+	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to its parent.
 	Nested() *bool
 	// If this is a nested stack, returns its parent stack.
 	NestedStackParent() awscdk.Stack

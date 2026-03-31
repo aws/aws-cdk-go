@@ -33,7 +33,7 @@ import (
 //   			// group of the same type.
 //   			Name: jsii.String("Ingress"),
 //
-//   			// 'cidrMask' specifies the IP addresses in the range of of individual
+//   			// 'cidrMask' specifies the IP addresses in the range of individual
 //   			// subnets in the group. Each of the subnets in this group will contain
 //   			// `2^(32 address bits - 24 subnet bits) - 2 reserved addresses = 254`
 //   			// usable IP addresses.

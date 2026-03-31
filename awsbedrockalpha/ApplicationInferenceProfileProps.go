@@ -25,7 +25,7 @@ type ApplicationInferenceProfileProps struct {
 	// - Required:  Yes
 	// - Maximum length: 64 characters
 	// - Pattern: `^([0-9a-zA-Z:.][ _-]?)+$`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilename
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-inferenceprofilename
 	//
 	// Experimental.
 	ApplicationInferenceProfileName *string `field:"required" json:"applicationInferenceProfileName" yaml:"applicationInferenceProfileName"`
@@ -45,7 +45,7 @@ type ApplicationInferenceProfileProps struct {
 	//
 	// - Maximum length: 200 characters when provided
 	// - Pattern: `^([0-9a-zA-Z:.][ _-]?)+$`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-description
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html#cfn-bedrock-applicationinferenceprofile-description
 	//
 	// Default: - No description is provided.
 	//

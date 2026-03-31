@@ -67,7 +67,7 @@ package awscloudfront
 //   }
 //
 //   // Override the distribution configuration to enable multi-tenancy.
-//   cfnDistribution.distributionConfig = distributionConfig
+//   cfnDistribution.DistributionConfig = distributionConfig
 //
 //   // Create a distribution tenant using an existing ACM certificate
 //   cfnDistributionTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("distribution-tenant"), &CfnDistributionTenantProps{

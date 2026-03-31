@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnEmailTemplate) validateSetSubjectParameters(val *string) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnEmailTemplate) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEmailTemplate) validateSetTemplateNameParameters(val *string) error {
 	return nil
 }

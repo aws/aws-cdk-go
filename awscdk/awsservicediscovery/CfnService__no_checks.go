@@ -108,10 +108,6 @@ func (j *jsiiProxy_CfnService) validateSetHealthCheckCustomConfigParameters(val 
 	return nil
 }
 
-func (j *jsiiProxy_CfnService) validateSetServiceAttributesParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnService) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

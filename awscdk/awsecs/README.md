@@ -2081,7 +2081,7 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 
 // Escape hatch: Force launchType at the CloudFormation level to prevent service replacement
 cfnService := service.Node.defaultChild.(CfnService)
-cfnService.launchType = "FARGATE"
+cfnService.LaunchType = "FARGATE"
 ```
 
 ### Cluster Default Provider Strategy

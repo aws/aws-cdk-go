@@ -8,7 +8,7 @@ import (
 //
 // Example:
 //   combineBucket := s3.NewCfnBucket(scope, jsii.String("CombineBucket"))
-//   combineBucket.publicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
+//   combineBucket.PublicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
 //   	BlockPublicAcls: jsii.Boolean(true),
 //   }
 //

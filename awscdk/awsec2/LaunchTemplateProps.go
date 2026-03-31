@@ -184,7 +184,7 @@ type LaunchTemplateProps struct {
 	// A description for the first version of the launch template.
 	//
 	// The version description must be maximum 255 characters long.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-versiondescription
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-versiondescription
 	//
 	// Default: - No description.
 	//

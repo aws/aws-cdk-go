@@ -96,10 +96,6 @@ func validateCfnEnvironment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetAirflowConfigurationOptionsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironment) validateSetLoggingConfigurationParameters(val interface{}) error {
 	return nil
 }
@@ -109,10 +105,6 @@ func (j *jsiiProxy_CfnEnvironment) validateSetNameParameters(val *string) error 
 }
 
 func (j *jsiiProxy_CfnEnvironment) validateSetNetworkConfigurationParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnEnvironment) validateSetTagsRawParameters(val interface{}) error {
 	return nil
 }
 

@@ -99,7 +99,7 @@ type IntegTestCaseStack interface {
 	// region/account-agnostic.
 	// Experimental.
 	Environment() *string
-	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
+	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to its parent.
 	// Experimental.
 	Nested() *bool
 	// If this is a nested stack, returns its parent stack.

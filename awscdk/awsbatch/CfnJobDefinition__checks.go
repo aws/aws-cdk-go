@@ -316,14 +316,6 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetNodePropertiesParameters(val int
 	return nil
 }
 
-func (j *jsiiProxy_CfnJobDefinition) validateSetParametersParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnJobDefinition) validateSetPropagateTagsParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -384,14 +376,6 @@ func (j *jsiiProxy_CfnJobDefinition) validateSetRetryStrategyParameters(val inte
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnJobDefinition_RetryStrategyProperty; received %#v (a %T)", val, val)
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnJobDefinition) validateSetTagsRawParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

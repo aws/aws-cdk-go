@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnComponent) validateSetEventsParameters(val interface{}) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnComponent) validateSetOverridesParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnComponent) validateSetPropertiesParameters(val interface{}) error {
 	return nil
 }

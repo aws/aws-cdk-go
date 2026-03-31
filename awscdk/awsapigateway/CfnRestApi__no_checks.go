@@ -92,10 +92,6 @@ func validateCfnRestApi_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnRestApi) validateSetBodyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRestApi) validateSetBodyS3LocationParameters(val interface{}) error {
 	return nil
 }
@@ -113,10 +109,6 @@ func (j *jsiiProxy_CfnRestApi) validateSetFailOnWarningsParameters(val interface
 }
 
 func (j *jsiiProxy_CfnRestApi) validateSetParametersParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnRestApi) validateSetPolicyParameters(val interface{}) error {
 	return nil
 }
 

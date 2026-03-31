@@ -624,9 +624,6 @@ func (j *jsiiProxy_CfnService)SetNamespaceId(val *string) {
 }
 
 func (j *jsiiProxy_CfnService)SetServiceAttributes(val interface{}) {
-	if err := j.validateSetServiceAttributesParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"serviceAttributes",

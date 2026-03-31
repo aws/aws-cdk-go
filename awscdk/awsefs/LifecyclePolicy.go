@@ -17,7 +17,7 @@ package awsefs
 //   	ReplicationOverwriteProtection: efs.ReplicationOverwriteProtection_ENABLED,
 //   })
 //
-// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies
 //
 type LifecyclePolicy string
 

@@ -564,9 +564,6 @@ func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnStateMachine)SetDefinition(val interface{}) {
-	if err := j.validateSetDefinitionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"definition",

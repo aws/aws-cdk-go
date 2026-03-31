@@ -922,9 +922,6 @@ func (j *jsiiProxy_CfnFunction)SetArchitectures(val *[]*string) {
 }
 
 func (j *jsiiProxy_CfnFunction)SetAssumeRolePolicyDocument(val interface{}) {
-	if err := j.validateSetAssumeRolePolicyDocumentParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"assumeRolePolicyDocument",

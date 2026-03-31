@@ -108,10 +108,6 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) validateSetTaskInvocationParameters
 	return nil
 }
 
-func (j *jsiiProxy_CfnMaintenanceWindowTask) validateSetTaskParametersParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnMaintenanceWindowTask) validateSetTaskTypeParameters(val *string) error {
 	return nil
 }

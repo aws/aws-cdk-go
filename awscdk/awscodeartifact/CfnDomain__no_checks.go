@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnDomain) validateSetDomainNameParameters(val *string) error
 	return nil
 }
 
-func (j *jsiiProxy_CfnDomain) validateSetPermissionsPolicyDocumentParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDomain) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

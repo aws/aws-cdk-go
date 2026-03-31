@@ -42,7 +42,7 @@ type GroupProps struct {
 	// The path to the group.
 	//
 	// For more information about paths, see [IAM
-	// Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
+	// Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
 	// in the IAM User Guide.
 	// Default: /.
 	//

@@ -96,10 +96,6 @@ func validateCfnInputSecurityGroup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnInputSecurityGroup) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnInputSecurityGroup) validateSetWhitelistRulesParameters(val interface{}) error {
 	return nil
 }

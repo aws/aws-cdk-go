@@ -741,9 +741,6 @@ func (j *jsiiProxy_CfnStreamProcessor)SetNotificationChannel(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnStreamProcessor)SetPolygonRegionsOfInterest(val interface{}) {
-	if err := j.validateSetPolygonRegionsOfInterestParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"polygonRegionsOfInterest",

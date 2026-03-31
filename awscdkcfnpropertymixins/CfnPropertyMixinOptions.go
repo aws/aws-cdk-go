@@ -8,7 +8,7 @@ import (
 //
 // Example:
 //   overrideBucket := s3.NewCfnBucket(scope, jsii.String("OverrideBucket"))
-//   overrideBucket.publicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
+//   overrideBucket.PublicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
 //   	BlockPublicAcls: jsii.Boolean(true),
 //   }
 //

@@ -321,14 +321,6 @@ func (j *jsiiProxy_CfnApi) validateSetCorsParameters(val interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnApi) validateSetDefinitionBodyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnApi) validateSetDefinitionUriParameters(val interface{}) error {
 	switch val.(type) {
 	case *string:
@@ -426,14 +418,6 @@ func (j *jsiiProxy_CfnApi) validateSetEndpointConfigurationParameters(val interf
 	return nil
 }
 
-func (j *jsiiProxy_CfnApi) validateSetGatewayResponsesParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnApi) validateSetMethodSettingsParameters(val interface{}) error {
 	switch val.(type) {
 	case *[]interface{}:
@@ -446,14 +430,6 @@ func (j *jsiiProxy_CfnApi) validateSetMethodSettingsParameters(val interface{}) 
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnApi) validateSetModelsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

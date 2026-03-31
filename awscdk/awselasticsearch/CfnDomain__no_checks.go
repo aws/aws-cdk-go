@@ -96,10 +96,6 @@ func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDomain) validateSetAccessPoliciesParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface{}) error {
 	return nil
 }

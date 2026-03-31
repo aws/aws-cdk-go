@@ -128,10 +128,6 @@ func (j *jsiiProxy_CfnCampaign) validateSetSegmentIdParameters(val *string) erro
 	return nil
 }
 
-func (j *jsiiProxy_CfnCampaign) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCampaign) validateSetTemplateConfigurationParameters(val interface{}) error {
 	return nil
 }

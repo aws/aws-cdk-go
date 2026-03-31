@@ -571,9 +571,6 @@ func (j *jsiiProxy_CfnProject)SetServiceCatalogProvisionedProductDetails(val int
 }
 
 func (j *jsiiProxy_CfnProject)SetServiceCatalogProvisioningDetails(val interface{}) {
-	if err := j.validateSetServiceCatalogProvisioningDetailsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"serviceCatalogProvisioningDetails",

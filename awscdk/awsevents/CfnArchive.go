@@ -487,9 +487,6 @@ func (j *jsiiProxy_CfnArchive)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnArchive)SetEventPattern(val interface{}) {
-	if err := j.validateSetEventPatternParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"eventPattern",

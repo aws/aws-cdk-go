@@ -447,9 +447,6 @@ func (j *jsiiProxy_CfnIdentityPoolPrincipalTag)SetIdentityProviderName(val *stri
 }
 
 func (j *jsiiProxy_CfnIdentityPoolPrincipalTag)SetPrincipalTags(val interface{}) {
-	if err := j.validateSetPrincipalTagsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"principalTags",

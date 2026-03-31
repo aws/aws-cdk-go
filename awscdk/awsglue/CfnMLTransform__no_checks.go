@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnMLTransform) validateSetRoleParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnMLTransform) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnMLTransform) validateSetTransformEncryptionParameters(val interface{}) error {
 	return nil
 }

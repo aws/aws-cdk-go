@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnJob) validateSetConnectionsParameters(val interface{}) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnJob) validateSetDefaultArgumentsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnJob) validateSetExecutionPropertyParameters(val interface{}) error {
 	return nil
 }
@@ -112,19 +108,11 @@ func (j *jsiiProxy_CfnJob) validateSetJobRunQueuingEnabledParameters(val interfa
 	return nil
 }
 
-func (j *jsiiProxy_CfnJob) validateSetNonOverridableArgumentsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnJob) validateSetNotificationPropertyParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnJob) validateSetRoleParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnJob) validateSetTagsRawParameters(val interface{}) error {
 	return nil
 }
 

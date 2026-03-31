@@ -104,7 +104,7 @@ func KeyCondition_Ge(keyName *string, arg *string) KeyCondition {
 	return returns
 }
 
-// Condition k > arg, true if the key attribute k is greater than the the Query argument.
+// Condition k > arg, true if the key attribute k is greater than the Query argument.
 func KeyCondition_Gt(keyName *string, arg *string) KeyCondition {
 	_init_.Initialize()
 

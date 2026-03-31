@@ -1333,6 +1333,39 @@ func FoundationModelIdentifier_META_LLAMA_4_SCOUT_17B_INSTRUCT_V1_0() Foundation
 	return returns
 }
 
+func FoundationModelIdentifier_MINIMAX_MINIMAX_M2() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MINIMAX_MINIMAX_M2",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_MINIMAX_MINIMAX_M2_1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MINIMAX_MINIMAX_M2_1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_MINIMAX_MINIMAX_M2_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MINIMAX_MINIMAX_M2_5",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_MISTRAL_LARGE_2_V0_1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1625,6 +1658,39 @@ func FoundationModelIdentifier_WRITER_PALMYRA_X5_V1_0() FoundationModelIdentifie
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"WRITER_PALMYRA_X5_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ZAI_GLM_4_7() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ZAI_GLM_4_7",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ZAI_GLM_4_7_FLASH() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ZAI_GLM_4_7_FLASH",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ZAI_GLM_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ZAI_GLM_5",
 		&returns,
 	)
 	return returns

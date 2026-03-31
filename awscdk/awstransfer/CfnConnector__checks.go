@@ -236,14 +236,6 @@ func (j *jsiiProxy_CfnConnector) validateSetAccessRoleParameters(val *string) er
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnector) validateSetAs2ConfigParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnConnector) validateSetEgressConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

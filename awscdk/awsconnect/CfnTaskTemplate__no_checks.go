@@ -88,10 +88,6 @@ func validateCfnTaskTemplate_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnTaskTemplate) validateSetConstraintsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnTaskTemplate) validateSetDefaultsParameters(val interface{}) error {
 	return nil
 }

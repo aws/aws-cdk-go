@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnApp) validateSetNameParameters(val *string) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnApp) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnAppParameters(scope constructs.Construct, id *string, props *CfnAppProps) error {
 	return nil
 }

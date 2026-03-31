@@ -590,9 +590,6 @@ func (j *jsiiProxy_CfnFlowLog)SetDeliverLogsPermissionArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnFlowLog)SetDestinationOptions(val interface{}) {
-	if err := j.validateSetDestinationOptionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"destinationOptions",

@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnGroupPolicy) validateSetGroupNameParameters(val *string) e
 	return nil
 }
 
-func (j *jsiiProxy_CfnGroupPolicy) validateSetPolicyDocumentParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnGroupPolicy) validateSetPolicyNameParameters(val *string) error {
 	return nil
 }

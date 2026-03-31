@@ -191,7 +191,7 @@ type TableProps struct {
 	// Specify values to pre-warm you DynamoDB Table Warm Throughput feature is not available for Global Table replicas using the `Table` construct.
 	//
 	// To enable Warm Throughput, use the `TableV2` construct instead.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
 	//
 	// Default: - warm throughput is not configured.
 	//

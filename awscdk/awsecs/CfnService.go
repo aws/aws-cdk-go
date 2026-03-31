@@ -63,7 +63,7 @@ import (
 //
 //   // Escape hatch: Force launchType at the CloudFormation level to prevent service replacement
 //   cfnService := service.Node.defaultChild.(CfnService)
-//   cfnService.launchType = "FARGATE"
+//   cfnService.LaunchType = "FARGATE"
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 //

@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnPreset) validateSetSettingsJsonParameters(val interface{})
 	return nil
 }
 
-func (j *jsiiProxy_CfnPreset) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnPresetParameters(scope constructs.Construct, id *string, props *CfnPresetProps) error {
 	return nil
 }

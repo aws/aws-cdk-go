@@ -84,15 +84,7 @@ func validateCfnDevEndpoint_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDevEndpoint) validateSetArgumentsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDevEndpoint) validateSetRoleArnParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnDevEndpoint) validateSetTagsRawParameters(val interface{}) error {
 	return nil
 }
 

@@ -44,7 +44,7 @@ import (
 // Experimental.
 type VPNGatewayV2Props struct {
 	// The type of VPN connection the virtual private gateway supports.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html#cfn-ec2-vpngateway-type
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html#cfn-ec2-vpngateway-type
 	//
 	// Experimental.
 	Type awsec2.VpnConnectionType `field:"required" json:"type" yaml:"type"`
@@ -59,7 +59,7 @@ type VPNGatewayV2Props struct {
 	// Experimental.
 	VpnGatewayName *string `field:"optional" json:"vpnGatewayName" yaml:"vpnGatewayName"`
 	// Subnets where the route propagation should be added.
-	// Default: - no propogation for routes.
+	// Default: - no propagation for routes.
 	//
 	// Experimental.
 	VpnRoutePropagation *[]*awsec2.SubnetSelection `field:"optional" json:"vpnRoutePropagation" yaml:"vpnRoutePropagation"`

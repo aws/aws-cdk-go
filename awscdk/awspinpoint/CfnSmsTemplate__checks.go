@@ -204,14 +204,6 @@ func (j *jsiiProxy_CfnSmsTemplate) validateSetBodyParameters(val *string) error 
 	return nil
 }
 
-func (j *jsiiProxy_CfnSmsTemplate) validateSetTagsRawParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnSmsTemplate) validateSetTemplateNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

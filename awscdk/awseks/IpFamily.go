@@ -10,8 +10,8 @@ package awseks
 //
 //   func associateSubnetWithV6Cidr(vpc Vpc, count *f64, subnet ISubnet) {
 //   	cfnSubnet := *subnet.Node.defaultChild.(CfnSubnet)
-//   	cfnSubnet.ipv6CidrBlock = awscdk.Fn_Select(*count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), *vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
-//   	cfnSubnet.assignIpv6AddressOnCreation = true
+//   	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
+//   	cfnSubnet.AssignIpv6AddressOnCreation = true
 //   }
 //
 //   // make an ipv6 cidr

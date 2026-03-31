@@ -136,10 +136,6 @@ func (j *jsiiProxy_CfnCluster) validateSetMultiAzParameters(val interface{}) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnCluster) validateSetNamespaceResourcePolicyParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCluster) validateSetNodeTypeParameters(val *string) error {
 	return nil
 }

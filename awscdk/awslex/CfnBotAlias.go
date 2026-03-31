@@ -654,9 +654,6 @@ func (j *jsiiProxy_CfnBotAlias)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnBotAlias)SetSentimentAnalysisSettings(val interface{}) {
-	if err := j.validateSetSentimentAnalysisSettingsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"sentimentAnalysisSettings",

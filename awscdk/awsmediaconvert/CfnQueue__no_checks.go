@@ -96,10 +96,6 @@ func validateCfnQueue_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnQueue) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnQueueParameters(scope constructs.Construct, id *string, props *CfnQueueProps) error {
 	return nil
 }

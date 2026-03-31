@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetAllowUnauthenticatedIdentitiesPar
 	return nil
 }
 
-func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoEventsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnIdentityPool) validateSetCognitoIdentityProvidersParameters(val interface{}) error {
 	return nil
 }
@@ -117,10 +113,6 @@ func (j *jsiiProxy_CfnIdentityPool) validateSetIdentityPoolTagsParameters(val *[
 }
 
 func (j *jsiiProxy_CfnIdentityPool) validateSetPushSyncParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnIdentityPool) validateSetSupportedLoginProvidersParameters(val interface{}) error {
 	return nil
 }
 

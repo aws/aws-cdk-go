@@ -64,7 +64,7 @@ type ServiceManagedVolume interface {
 	Config() *ServiceManagedEBSVolumeConfiguration
 	// configuredAtLaunch indicates volume at launch time, referenced by taskdefinition volume.
 	ConfiguredAtLaunch() *bool
-	// Name of the volume, referenced by taskdefintion and mount point.
+	// Name of the volume, referenced by task definition and mount point.
 	Name() *string
 	// The tree node.
 	Node() constructs.Node

@@ -103,7 +103,7 @@ type ProductStack interface {
 	// `unknown-region` will be used respectively to indicate this stack is
 	// region/account-agnostic.
 	Environment() *string
-	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
+	// Indicates if this is a nested stack, in which case `parentStack` will include a reference to its parent.
 	Nested() *bool
 	// If this is a nested stack, returns its parent stack.
 	NestedStackParent() awscdk.Stack

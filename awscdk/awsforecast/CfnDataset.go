@@ -544,9 +544,6 @@ func (j *jsiiProxy_CfnDataset)SetDomain(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataset)SetEncryptionConfig(val interface{}) {
-	if err := j.validateSetEncryptionConfigParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"encryptionConfig",

@@ -499,9 +499,6 @@ func (j *jsiiProxy_CfnHub)SetEnableDefaultStandards(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnHub)SetTagsRaw(val interface{}) {
-	if err := j.validateSetTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

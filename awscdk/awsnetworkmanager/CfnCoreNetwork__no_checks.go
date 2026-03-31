@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnCoreNetwork) validateSetGlobalNetworkIdParameters(val *str
 	return nil
 }
 
-func (j *jsiiProxy_CfnCoreNetwork) validateSetPolicyDocumentParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnCoreNetwork) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

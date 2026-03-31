@@ -59,12 +59,12 @@ type BucketGrants interface {
 	// If encryption is used, permission to use the key to encrypt the contents
 	// of written files will also be granted to the same principal.
 	PutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
-	// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grant read permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
 	Read(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	// Grant read and write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grant read and write permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.
@@ -74,7 +74,7 @@ type BucketGrants interface {
 	// Note that when calling this function for source or destination buckets that support KMS encryption,
 	// you need to specify the KMS key for encryption and the KMS key for decryption, respectively.
 	ReplicationPermission(identity awsiam.IGrantable, props *GrantReplicationPermissionProps) awsiam.Grant
-	// Grant write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
+	// Grant write permissions for this bucket and its contents to an IAM principal (Role/Group/User).
 	//
 	// If encryption is used, permission to use the key to decrypt the contents
 	// of the bucket will also be granted to the same principal.

@@ -287,14 +287,6 @@ func (j *jsiiProxy_CfnHttpApi) validateSetDefaultRouteSettingsParameters(val int
 	return nil
 }
 
-func (j *jsiiProxy_CfnHttpApi) validateSetDefinitionBodyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnHttpApi) validateSetDefinitionUriParameters(val interface{}) error {
 	switch val.(type) {
 	case *string:

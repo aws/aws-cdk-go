@@ -649,9 +649,6 @@ func (j *jsiiProxy_CfnHttpApi)SetDefaultRouteSettings(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnHttpApi)SetDefinitionBody(val interface{}) {
-	if err := j.validateSetDefinitionBodyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"definitionBody",

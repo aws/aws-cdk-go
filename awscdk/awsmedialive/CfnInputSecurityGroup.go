@@ -441,9 +441,6 @@ func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope constructs
 }
 
 func (j *jsiiProxy_CfnInputSecurityGroup)SetTagsRaw(val interface{}) {
-	if err := j.validateSetTagsRawParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

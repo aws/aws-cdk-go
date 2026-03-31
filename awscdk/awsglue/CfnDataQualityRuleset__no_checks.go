@@ -84,10 +84,6 @@ func validateCfnDataQualityRuleset_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset) validateSetTagsParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDataQualityRuleset) validateSetTargetTableParameters(val interface{}) error {
 	return nil
 }

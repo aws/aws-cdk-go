@@ -230,22 +230,6 @@ func (j *jsiiProxy_CfnQueue) validateSetFifoQueueParameters(val interface{}) err
 	return nil
 }
 
-func (j *jsiiProxy_CfnQueue) validateSetRedriveAllowPolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnQueue) validateSetRedrivePolicyParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnQueue) validateSetSqsManagedSseEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

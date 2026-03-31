@@ -528,9 +528,6 @@ func (j *jsiiProxy_CfnConformancePack)SetTemplateS3Uri(val *string) {
 }
 
 func (j *jsiiProxy_CfnConformancePack)SetTemplateSsmDocumentDetails(val interface{}) {
-	if err := j.validateSetTemplateSsmDocumentDetailsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"templateSsmDocumentDetails",

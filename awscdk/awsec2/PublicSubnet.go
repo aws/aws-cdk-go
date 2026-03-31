@@ -98,7 +98,7 @@ type PublicSubnet interface {
 	//
 	// Also adds the EIP for the managed NAT.
 	//
-	// Returns: A ref to the the NAT Gateway ID.
+	// Returns: A ref to the NAT Gateway ID.
 	AddNatGateway(eipAllocationId *string) CfnNatGateway
 	// Adds an entry to this subnets route table.
 	AddRoute(id *string, options *AddRouteOptions)

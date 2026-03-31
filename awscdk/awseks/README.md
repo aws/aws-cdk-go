@@ -845,7 +845,7 @@ aws-load-balancer-controller-76bd6c7586-fqxph   1/1     Running   0          109
 ...
 ```
 
-Every Kubernetes manifest that utilizes the ALB Controller is effectively dependant on the controller.
+Every Kubernetes manifest that utilizes the ALB Controller is effectively dependent on the controller.
 If the controller is deleted before the manifest, it might result in dangling ELB/ALB resources.
 Currently, the EKS construct library does not detect such dependencies, and they should be done explicitly.
 
@@ -954,8 +954,8 @@ var vpc Vpc
 
 func associateSubnetWithV6Cidr(vpc Vpc, count *f64, subnet ISubnet) {
 	cfnSubnet := *subnet.Node.defaultChild.(CfnSubnet)
-	cfnSubnet.ipv6CidrBlock = awscdk.Fn_Select(*count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), *vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
-	cfnSubnet.assignIpv6AddressOnCreation = true
+	cfnSubnet.Ipv6CidrBlock = awscdk.Fn_Select(count, awscdk.Fn_Cidr(awscdk.Fn_Select(jsii.Number(0), vpc.VpcIpv6CidrBlocks), jsii.Number(256), (jsii.Number(128 - 64)).toString()))
+	cfnSubnet.AssignIpv6AddressOnCreation = true
 }
 
 // make an ipv6 cidr

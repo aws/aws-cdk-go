@@ -104,10 +104,6 @@ func (j *jsiiProxy_CfnConnectorDefinition) validateSetNameParameters(val *string
 	return nil
 }
 
-func (j *jsiiProxy_CfnConnectorDefinition) validateSetTagsRawParameters(val interface{}) error {
-	return nil
-}
-
 func validateNewCfnConnectorDefinitionParameters(scope constructs.Construct, id *string, props *CfnConnectorDefinitionProps) error {
 	return nil
 }

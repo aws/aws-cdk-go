@@ -456,9 +456,6 @@ func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scop
 }
 
 func (j *jsiiProxy_CfnUserPoolIdentityProvider)SetAttributeMapping(val interface{}) {
-	if err := j.validateSetAttributeMappingParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"attributeMapping",

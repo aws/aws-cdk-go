@@ -21,7 +21,7 @@ type SchemaConfigurationFromCfnTableProps struct {
 	// Specifies the table version for the output data schema.
 	//
 	// if set to `LATEST`, Firehose uses the most recent table version. This means that any updates to the table are automatically picked up.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-versionid
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html#cfn-kinesisfirehose-deliverystream-schemaconfiguration-versionid
 	//
 	// Default: `LATEST`.
 	//

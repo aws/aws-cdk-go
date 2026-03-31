@@ -1954,7 +1954,7 @@ func (this *enableVersioning) supports(construct interface{}) *bool {
 }
 
 func (this *enableVersioning) applyTo(bucket IConstruct) {
-	(*bucket.(CfnBucket)).versioningConfiguration = &VersioningConfigurationProperty{
+	(*bucket.(CfnBucket)).VersioningConfiguration = &VersioningConfigurationProperty{
 		Status: jsii.String("Enabled"),
 	}
 }
@@ -2013,7 +2013,7 @@ func (this *myEncryptionAtRest) supports(construct interface{}) *bool {
 
 func (this *myEncryptionAtRest) applyTo(target CfnBucket) CfnBucket {
 	// Validate pre-conditions on the target, throw if error is unrecoverable
-	if !*target.bucketEncryption {throw new Error("Bucket encryption not configured");
+	if !*target.BucketEncryption {throw new Error("Bucket encryption not configured");
 	}
 
 	// Validate properties are met after app execution
@@ -2023,7 +2023,7 @@ func (this *myEncryptionAtRest) applyTo(target CfnBucket) CfnBucket {
 		        : [],
 	})
 
-	*target.bucketEncryption = &BucketEncryptionProperty{
+	*target.BucketEncryption = &BucketEncryptionProperty{
 		ServerSideEncryptionConfiguration: []interface{}{
 			&ServerSideEncryptionRuleProperty{
 				BucketKeyEnabled: jsii.Boolean(true),
@@ -2072,7 +2072,7 @@ type enableBucketVersioning struct {
 
 func (this *enableBucketVersioning) visit(node IConstruct) {
 	if *node instanceof s3.CfnBucket {
-		*node.versioningConfiguration = &VersioningConfigurationProperty{
+		*node.VersioningConfiguration = &VersioningConfigurationProperty{
 			Status: jsii.String("Enabled"),
 		}
 	}

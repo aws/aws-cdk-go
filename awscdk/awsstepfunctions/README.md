@@ -559,7 +559,7 @@ hits a particular time. The time to wait may be taken from the execution's JSON
 state.
 
 ```go
-// Wait until it's the time mentioned in the the state object's "triggerTime"
+// Wait until it's the time mentioned in the state object's "triggerTime"
 // field.
 wait := sfn.NewWait(this, jsii.String("Wait For Trigger Time"), &WaitProps{
 	Time: sfn.WaitTime_TimestampPath(jsii.String("$.triggerTime")),

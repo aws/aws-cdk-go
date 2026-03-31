@@ -480,9 +480,6 @@ func NewCfnTransitGatewayMulticastDomain_Override(c CfnTransitGatewayMulticastDo
 }
 
 func (j *jsiiProxy_CfnTransitGatewayMulticastDomain)SetOptions(val interface{}) {
-	if err := j.validateSetOptionsParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"options",

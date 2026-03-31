@@ -503,7 +503,7 @@ aws-load-balancer-controller-76bd6c7586-fqxph   1/1     Running   0          109
 ...
 ```
 
-Every Kubernetes manifest that utilizes the ALB Controller is effectively dependant on the controller.
+Every Kubernetes manifest that utilizes the ALB Controller is effectively dependent on the controller.
 If the controller is deleted before the manifest, it might result in dangling ELB/ALB resources.
 Currently, the EKS construct library does not detect such dependencies, and they should be done explicitly.
 
@@ -593,7 +593,7 @@ If you want to use an existing kubectl provider function, for example with tight
 
 ```go
 handlerRole := iam.Role_FromRoleArn(this, jsii.String("HandlerRole"), jsii.String("arn:aws:iam::123456789012:role/lambda-role"))
-// get the serivceToken from the custom resource provider
+// get the serviceToken from the custom resource provider
 functionArn := lambda.Function_FromFunctionName(this, jsii.String("ProviderOnEventFunc"), jsii.String("ProviderframeworkonEvent-XXX")).FunctionArn
 kubectlProvider := eks.KubectlProvider_FromKubectlProviderAttributes(this, jsii.String("KubectlProvider"), &KubectlProviderAttributes{
 	ServiceToken: functionArn,

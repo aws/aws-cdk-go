@@ -18,7 +18,7 @@ import (
 //
 type TrailProps struct {
 	// The Amazon S3 bucket.
-	// Default: - if not supplied a bucket will be created with all the correct permisions.
+	// Default: - if not supplied a bucket will be created with all the correct permissions.
 	//
 	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
 	// Log Group to which CloudTrail to push logs to.

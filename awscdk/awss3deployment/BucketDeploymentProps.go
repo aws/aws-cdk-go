@@ -246,7 +246,7 @@ type BucketDeploymentProps struct {
 	// Default: - the Vpc default strategy if not specified.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
-	// In case of using a cloudfront distribtuion, if this property is set to false then the custom resource will not wait and verify for Cloudfront invalidation to complete.
+	// In case of using a cloudfront distribution, if this property is set to false then the custom resource will not wait and verify for Cloudfront invalidation to complete.
 	//
 	// This may speed up deployment and avoid
 	// intermittent Cloudfront issues. However, this is risky and not recommended as cache invalidation

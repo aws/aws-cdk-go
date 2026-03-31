@@ -56,7 +56,7 @@ type PoolOptions struct {
 	// Limits which service in AWS that the pool can be used in.
 	//
 	// "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-awsservice
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-awsservice
 	//
 	// Default: - required in case of an IPv6, throws an error if not provided.
 	//
@@ -78,7 +78,7 @@ type PoolOptions struct {
 	//  Only resources in the same Region as the locale of the pool can get IP address allocations from the pool.
 	// You can only allocate a CIDR for a VPC, for example, from an IPAM pool that shares a locale with the VPC’s Region.
 	// Note that once you choose a Locale for a pool, you cannot modify it. If you choose an AWS Region for locale that has not been configured as an operating Region for the IPAM, you'll get an error.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-locale
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-locale
 	//
 	// Default: - Current operating region of IPAM.
 	//

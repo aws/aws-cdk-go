@@ -32,7 +32,7 @@ type DashboardProps struct {
 	// Default: - automatically generated name.
 	//
 	DashboardName *string `field:"optional" json:"dashboardName" yaml:"dashboardName"`
-	// Interval duration for metrics. You can specify defaultInterval with the relative time(eg. cdk.Duration.days(7)).
+	// Interval duration for metrics. You can specify defaultInterval with the relative time (e.g. cdk.Duration.days(7)).
 	//
 	// Both properties `defaultInterval` and `start` cannot be set at once.
 	// Default: When the dashboard loads, the defaultInterval time will be the default time range.

@@ -540,9 +540,6 @@ func NewCfnSubscription_Override(c CfnSubscription, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnSubscription)SetDeliveryPolicy(val interface{}) {
-	if err := j.validateSetDeliveryPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"deliveryPolicy",
@@ -559,9 +556,6 @@ func (j *jsiiProxy_CfnSubscription)SetEndpoint(val *string) {
 }
 
 func (j *jsiiProxy_CfnSubscription)SetFilterPolicy(val interface{}) {
-	if err := j.validateSetFilterPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"filterPolicy",
@@ -600,9 +594,6 @@ func (j *jsiiProxy_CfnSubscription)SetRawMessageDelivery(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnSubscription)SetRedrivePolicy(val interface{}) {
-	if err := j.validateSetRedrivePolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"redrivePolicy",
@@ -619,9 +610,6 @@ func (j *jsiiProxy_CfnSubscription)SetRegion(val *string) {
 }
 
 func (j *jsiiProxy_CfnSubscription)SetReplayPolicy(val interface{}) {
-	if err := j.validateSetReplayPolicyParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"replayPolicy",
