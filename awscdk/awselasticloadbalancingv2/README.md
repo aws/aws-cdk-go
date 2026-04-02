@@ -153,7 +153,9 @@ Balancer that the other two convenience methods don't:
 * **Redirects**: use `ListenerAction.redirect()` to serve an HTTP
   redirect response (ALB only).
 * **Authentication**: use `ListenerAction.authenticateOidc()` to
-  perform OpenID authentication before serving a request (see the
+  perform OpenID authentication before serving a request, or
+  `ListenerAction.authenticateJwt()` to verify JSON Web Tokens (JWT)
+  for secure service-to-service communications (see the
   `aws-cdk-lib/aws-elasticloadbalancingv2-actions` package for direct authentication
   integration with Cognito) (ALB only).
 
@@ -195,6 +197,33 @@ listener.AddAction(jsii.String("DefaultAction"), &AddApplicationActionProps{
 		UserInfoEndpoint: jsii.String("..."),
 
 		// Next
+		Next: elbv2.ListenerAction_Forward([]IApplicationTargetGroup{
+			myTargetGroup,
+		}),
+	}),
+})
+```
+
+Here's an example of using JWT authentication for service-to-service communication:
+
+**Note:** JWT authentication requires an HTTPS listener. If you attempt to use it with an HTTP listener, a validation error will be thrown.
+
+```go
+var lb ApplicationLoadBalancer
+var certificate IListenerCertificate
+var myTargetGroup ApplicationTargetGroup
+
+
+// JWT authentication requires HTTPS
+listener := lb.AddListener(jsii.String("Listener"), &BaseApplicationListenerProps{
+	Protocol: elbv2.ApplicationProtocol_HTTPS,
+	Port: jsii.Number(443),
+	Certificates: []IListenerCertificate{
+		certificate,
+	},
+	DefaultAction: elbv2.ListenerAction_AuthenticateJwt(&AuthenticateJwtOptions{
+		Issuer: jsii.String("https://issuer.example.com"),
+		JwksEndpoint: jsii.String("https://issuer.example.com/.well-known/jwks.json"),
 		Next: elbv2.ListenerAction_Forward([]IApplicationTargetGroup{
 			myTargetGroup,
 		}),

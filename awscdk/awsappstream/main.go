@@ -586,7 +586,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "rootVolumeConfig", GoGetter: "RootVolumeConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "softwaresToInstall", GoGetter: "SoftwaresToInstall"},
+			_jsii_.MemberProperty{JsiiProperty: "softwaresToUninstall", GoGetter: "SoftwaresToUninstall"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
@@ -613,6 +616,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appstream.CfnImageBuilder.DomainJoinInfoProperty",
 		reflect.TypeOf((*CfnImageBuilder_DomainJoinInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_appstream.CfnImageBuilder.VolumeConfigProperty",
+		reflect.TypeOf((*CfnImageBuilder_VolumeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_appstream.CfnImageBuilder.VpcConfigProperty",

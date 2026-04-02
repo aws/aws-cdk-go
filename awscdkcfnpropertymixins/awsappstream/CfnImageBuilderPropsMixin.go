@@ -42,6 +42,15 @@ import (
 //   	ImageName: jsii.String("imageName"),
 //   	InstanceType: jsii.String("instanceType"),
 //   	Name: jsii.String("name"),
+//   	RootVolumeConfig: &VolumeConfigProperty{
+//   		VolumeSizeInGb: jsii.Number(123),
+//   	},
+//   	SoftwaresToInstall: []*string{
+//   		jsii.String("softwaresToInstall"),
+//   	},
+//   	SoftwaresToUninstall: []*string{
+//   		jsii.String("softwaresToUninstall"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

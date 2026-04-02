@@ -16,8 +16,6 @@ const (
 	// Experimental.
 	CfnLogGroupAuditLogsRecordFields_RESOURCEARN CfnLogGroupAuditLogsRecordFields = "RESOURCEARN"
 	// Experimental.
-	CfnLogGroupAuditLogsRecordFields_RESOURCENAME CfnLogGroupAuditLogsRecordFields = "RESOURCENAME"
-	// Experimental.
 	CfnLogGroupAuditLogsRecordFields_DATAIDENTIFIERS CfnLogGroupAuditLogsRecordFields = "DATAIDENTIFIERS"
 )
 

@@ -9,6 +9,7 @@ package awsobservabilityadmin
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   sourceLogsConfigurationProperty := &SourceLogsConfigurationProperty{
+//   	DataSourceSelectionCriteria: jsii.String("dataSourceSelectionCriteria"),
 //   	EncryptedLogGroupStrategy: jsii.String("encryptedLogGroupStrategy"),
 //   	LogGroupSelectionCriteria: jsii.String("logGroupSelectionCriteria"),
 //   }
@@ -16,6 +17,9 @@ package awsobservabilityadmin
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html
 //
 type CfnOrganizationCentralizationRulePropsMixin_SourceLogsConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration-datasourceselectioncriteria
+	//
+	DataSourceSelectionCriteria *string `field:"optional" json:"dataSourceSelectionCriteria" yaml:"dataSourceSelectionCriteria"`
 	// A strategy determining whether to centralize source log groups that are encrypted with customer managed KMS keys (CMK).
 	//
 	// ALLOW will consider CMK encrypted source log groups for centralization while SKIP will skip CMK encrypted source log groups from centralization.

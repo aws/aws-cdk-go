@@ -167,7 +167,7 @@ type CallApiGatewayHttpApiEndpointJsonPathProps struct {
 	// Default: - No headers.
 	//
 	Headers awsstepfunctions.TaskInput `field:"optional" json:"headers" yaml:"headers"`
-	// Query strings attatched to end of request.
+	// Query strings attached to end of request.
 	// Default: - No query parameters.
 	//
 	QueryParameters awsstepfunctions.TaskInput `field:"optional" json:"queryParameters" yaml:"queryParameters"`

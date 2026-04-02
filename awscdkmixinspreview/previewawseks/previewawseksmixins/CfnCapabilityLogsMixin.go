@@ -114,12 +114,12 @@ func CfnCapabilityLogsMixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
-func CfnCapabilityLogsMixin_EKS_CAPABILITY_ACK_S3_LOGS() CfnCapabilityEksCapabilityAckS3Logs {
+func CfnCapabilityLogsMixin_EKS_CAPABILITY_ACK_LOGS() CfnCapabilityEksCapabilityAckLogs {
 	_init_.Initialize()
-	var returns CfnCapabilityEksCapabilityAckS3Logs
+	var returns CfnCapabilityEksCapabilityAckLogs
 	_jsii_.StaticGet(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
-		"EKS_CAPABILITY_ACK_S3_LOGS",
+		"EKS_CAPABILITY_ACK_LOGS",
 		&returns,
 	)
 	return returns
@@ -131,6 +131,50 @@ func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS() CfnCapabili
 	_jsii_.StaticGet(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
 		"EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS() CfnCapabilityEksCapabilityArgocdApplicationsetLogs {
+	_init_.Initialize()
+	var returns CfnCapabilityEksCapabilityArgocdApplicationsetLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
+		"EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS() CfnCapabilityEksCapabilityArgocdCommitserverLogs {
+	_init_.Initialize()
+	var returns CfnCapabilityEksCapabilityArgocdCommitserverLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
+		"EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS() CfnCapabilityEksCapabilityArgocdReposerverLogs {
+	_init_.Initialize()
+	var returns CfnCapabilityEksCapabilityArgocdReposerverLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
+		"EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_SERVER_LOGS() CfnCapabilityEksCapabilityArgocdServerLogs {
+	_init_.Initialize()
+	var returns CfnCapabilityEksCapabilityArgocdServerLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
+		"EKS_CAPABILITY_ARGOCD_SERVER_LOGS",
 		&returns,
 	)
 	return returns

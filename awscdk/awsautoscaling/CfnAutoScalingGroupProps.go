@@ -17,6 +17,9 @@ package awsautoscaling
 //   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
 //   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
 //   	},
+//   	AvailabilityZoneIds: []*string{
+//   		jsii.String("availabilityZoneIds"),
+//   	},
 //   	AvailabilityZoneImpairmentPolicy: &AvailabilityZoneImpairmentPolicyProperty{
 //   		ImpairedZoneHealthCheckBehavior: jsii.String("impairedZoneHealthCheckBehavior"),
 //   		ZonalShiftEnabled: jsii.Boolean(false),
@@ -279,6 +282,9 @@ type CfnAutoScalingGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzonedistribution
 	//
 	AvailabilityZoneDistribution interface{} `field:"optional" json:"availabilityZoneDistribution" yaml:"availabilityZoneDistribution"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzoneids
+	//
+	AvailabilityZoneIds *[]*string `field:"optional" json:"availabilityZoneIds" yaml:"availabilityZoneIds"`
 	// The Availability Zone impairment policy for the Auto Scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy
 	//

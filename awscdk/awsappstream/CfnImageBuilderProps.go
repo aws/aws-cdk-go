@@ -33,6 +33,15 @@ import (
 //   	IamRoleArn: jsii.String("iamRoleArn"),
 //   	ImageArn: jsii.String("imageArn"),
 //   	ImageName: jsii.String("imageName"),
+//   	RootVolumeConfig: &VolumeConfigProperty{
+//   		VolumeSizeInGb: jsii.Number(123),
+//   	},
+//   	SoftwaresToInstall: []*string{
+//   		jsii.String("softwaresToInstall"),
+//   	},
+//   	SoftwaresToUninstall: []*string{
+//   		jsii.String("softwaresToUninstall"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -155,6 +164,15 @@ type CfnImageBuilderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename
 	//
 	ImageName *string `field:"optional" json:"imageName" yaml:"imageName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-rootvolumeconfig
+	//
+	RootVolumeConfig interface{} `field:"optional" json:"rootVolumeConfig" yaml:"rootVolumeConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-softwarestoinstall
+	//
+	SoftwaresToInstall *[]*string `field:"optional" json:"softwaresToInstall" yaml:"softwaresToInstall"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-softwarestouninstall
+	//
+	SoftwaresToUninstall *[]*string `field:"optional" json:"softwaresToUninstall" yaml:"softwaresToUninstall"`
 	// An array of key-value pairs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags
 	//

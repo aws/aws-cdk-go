@@ -574,6 +574,44 @@ func CfnIPAMPrefixListResolverTarget_ArnForIPAMPrefixListResolverTarget(resource
 	return returns
 }
 
+// Creates a new IIPAMPrefixListResolverTargetRef from an ARN.
+func CfnIPAMPrefixListResolverTarget_FromIPAMPrefixListResolverTargetArn(scope constructs.Construct, id *string, arn *string) interfacesawsec2.IIPAMPrefixListResolverTargetRef {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMPrefixListResolverTarget_FromIPAMPrefixListResolverTargetArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.IIPAMPrefixListResolverTargetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMPrefixListResolverTarget",
+		"fromIPAMPrefixListResolverTargetArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IIPAMPrefixListResolverTargetRef from a ipamPrefixListResolverTargetId.
+func CfnIPAMPrefixListResolverTarget_FromIpamPrefixListResolverTargetId(scope constructs.Construct, id *string, ipamPrefixListResolverTargetId *string) interfacesawsec2.IIPAMPrefixListResolverTargetRef {
+	_init_.Initialize()
+
+	if err := validateCfnIPAMPrefixListResolverTarget_FromIpamPrefixListResolverTargetIdParameters(scope, id, ipamPrefixListResolverTargetId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.IIPAMPrefixListResolverTargetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnIPAMPrefixListResolverTarget",
+		"fromIpamPrefixListResolverTargetId",
+		[]interface{}{scope, id, ipamPrefixListResolverTargetId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -72,6 +72,14 @@ func validateCfnIPAMPrefixListResolverTarget_ArnForIPAMPrefixListResolverTargetP
 	return nil
 }
 
+func validateCfnIPAMPrefixListResolverTarget_FromIPAMPrefixListResolverTargetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnIPAMPrefixListResolverTarget_FromIpamPrefixListResolverTargetIdParameters(scope constructs.Construct, id *string, ipamPrefixListResolverTargetId *string) error {
+	return nil
+}
+
 func validateCfnIPAMPrefixListResolverTarget_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

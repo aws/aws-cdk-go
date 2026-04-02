@@ -15,25 +15,14 @@ import (
 // A JobDefinition that uses ECS orchestration.
 //
 // Example:
-//   var myFileSystem IFileSystem
-//   var myJobRole Role
-//
-//   myFileSystem.GrantRead(myJobRole)
-//
 //   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
-//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("myFargateContainer"), &EcsFargateContainerDefinitionProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 //   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
-//   		Volumes: []EcsVolume{
-//   			batch.EcsVolume_Efs(&EfsVolumeOptions{
-//   				Name: jsii.String("myVolume"),
-//   				FileSystem: myFileSystem,
-//   				ContainerPath: jsii.String("/Volumes/myVolume"),
-//   				UseJobRole: jsii.Boolean(true),
-//   			}),
-//   		},
-//   		JobRole: myJobRole,
+//   		EphemeralStorageSize: cdk.Size_Gibibytes(jsii.Number(100)),
+//   		FargateCpuArchitecture: ecs.CpuArchitecture_ARM64(),
+//   		FargateOperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
 //   	}),
 //   })
 //
@@ -84,6 +73,10 @@ type EcsJobDefinition interface {
 	// to decide which job to run first when there are multiple jobs
 	// with the same share identifier.
 	SchedulingPriority() *float64
+	// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource.
+	// Default: undefined - AWS Batch default is false.
+	//
+	SkipDeregisterOnUpdate() *bool
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The timeout time for jobs that are submitted with this job definition.
@@ -253,6 +246,16 @@ func (j *jsiiProxy_EcsJobDefinition) SchedulingPriority() *float64 {
 	_jsii_.Get(
 		j,
 		"schedulingPriority",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsJobDefinition) SkipDeregisterOnUpdate() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipDeregisterOnUpdate",
 		&returns,
 	)
 	return returns

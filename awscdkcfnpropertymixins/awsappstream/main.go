@@ -248,6 +248,10 @@ func init() {
 		reflect.TypeOf((*CfnImageBuilderPropsMixin_DomainJoinInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnImageBuilderPropsMixin.VolumeConfigProperty",
+		reflect.TypeOf((*CfnImageBuilderPropsMixin_VolumeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnImageBuilderPropsMixin.VpcConfigProperty",
 		reflect.TypeOf((*CfnImageBuilderPropsMixin_VpcConfigProperty)(nil)).Elem(),
 	)

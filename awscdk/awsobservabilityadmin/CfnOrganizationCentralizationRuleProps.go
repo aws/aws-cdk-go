@@ -46,6 +46,9 @@ import (
 //   			Scope: jsii.String("scope"),
 //   			SourceLogsConfiguration: &SourceLogsConfigurationProperty{
 //   				EncryptedLogGroupStrategy: jsii.String("encryptedLogGroupStrategy"),
+//
+//   				// the properties below are optional
+//   				DataSourceSelectionCriteria: jsii.String("dataSourceSelectionCriteria"),
 //   				LogGroupSelectionCriteria: jsii.String("logGroupSelectionCriteria"),
 //   			},
 //   		},

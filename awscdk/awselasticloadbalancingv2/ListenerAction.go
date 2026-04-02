@@ -132,6 +132,34 @@ func NewListenerAction_Override(l ListenerAction, defaultActionJson *CfnListener
 	)
 }
 
+// Authenticate using JWT validation.
+//
+// You can configure ALB to verify JSON Web Tokens (JWT) provided by clients
+// for secure service-to-service (S2S) or machine-to-machine (M2M) communications.
+//
+// ALB validates the token signature and requires mandatory claims: 'iss' (issuer)
+// and 'exp' (expiration). Additionally, if present, ALB validates 'nbf' (not before)
+// and 'iat' (issued at time) claims.
+// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-verify-jwt.html
+//
+func ListenerAction_AuthenticateJwt(options *AuthenticateJwtOptions) ListenerAction {
+	_init_.Initialize()
+
+	if err := validateListenerAction_AuthenticateJwtParameters(options); err != nil {
+		panic(err)
+	}
+	var returns ListenerAction
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerAction",
+		"authenticateJwt",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Authenticate using an identity provider (IdP) that is compliant with OpenID Connect (OIDC).
 // See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html#oidc-requirements
 //

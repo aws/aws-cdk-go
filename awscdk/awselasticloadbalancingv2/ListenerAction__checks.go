@@ -46,6 +46,17 @@ func (l *jsiiProxy_ListenerAction) validateRenumberParameters(actions *[]*CfnLis
 	return nil
 }
 
+func validateListenerAction_AuthenticateJwtParameters(options *AuthenticateJwtOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateListenerAction_AuthenticateOidcParameters(options *AuthenticateOidcOptions) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")

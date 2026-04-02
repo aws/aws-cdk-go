@@ -16,6 +16,7 @@ import (
 //   var resourcePolicyDocument interface{}
 //
 //   cfnLogGroupProps := &CfnLogGroupProps{
+//   	BearerTokenAuthenticationEnabled: jsii.Boolean(false),
 //   	DataProtectionPolicy: dataProtectionPolicy,
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	FieldIndexPolicies: []interface{}{
@@ -37,6 +38,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 //
 type CfnLogGroupProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-bearertokenauthenticationenabled
+	//
+	// Default: - false.
+	//
+	BearerTokenAuthenticationEnabled interface{} `field:"optional" json:"bearerTokenAuthenticationEnabled" yaml:"bearerTokenAuthenticationEnabled"`
 	// Creates a data protection policy and assigns it to the log group.
 	//
 	// A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.

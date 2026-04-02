@@ -75,6 +75,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_AuthKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pcs.CfnCluster.CgroupCustomSettingProperty",
+		reflect.TypeOf((*CfnCluster_CgroupCustomSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pcs.CfnCluster.EndpointProperty",
 		reflect.TypeOf((*CfnCluster_EndpointProperty)(nil)).Elem(),
 	)
@@ -109,6 +113,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pcs.CfnCluster.SlurmRestProperty",
 		reflect.TypeOf((*CfnCluster_SlurmRestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pcs.CfnCluster.SlurmdbdCustomSettingProperty",
+		reflect.TypeOf((*CfnCluster_SlurmdbdCustomSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pcs.CfnClusterProps",

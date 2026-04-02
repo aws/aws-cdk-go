@@ -38,6 +38,7 @@ import (
 //   			EvaluatorId: jsii.String("evaluatorId"),
 //   		},
 //   	},
+//   	ExecutionStatus: jsii.String("executionStatus"),
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
 //   	Rule: &RuleProperty{
 //   		Filters: []interface{}{

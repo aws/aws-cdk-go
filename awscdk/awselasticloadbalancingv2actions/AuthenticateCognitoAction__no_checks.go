@@ -16,6 +16,10 @@ func (a *jsiiProxy_AuthenticateCognitoAction) validateRenumberParameters(actions
 	return nil
 }
 
+func validateAuthenticateCognitoAction_AuthenticateJwtParameters(options *awselasticloadbalancingv2.AuthenticateJwtOptions) error {
+	return nil
+}
+
 func validateAuthenticateCognitoAction_AuthenticateOidcParameters(options *awselasticloadbalancingv2.AuthenticateOidcOptions) error {
 	return nil
 }

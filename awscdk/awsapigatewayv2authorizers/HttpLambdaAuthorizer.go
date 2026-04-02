@@ -18,11 +18,16 @@ import (
 //   // This function handles your auth logic
 //   var authHandler Function
 //
+//   // This role will be used to invoke the Lambda function
+//   var role Role
+//
 //
 //   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
 //   	ResponseTypes: []HttpLambdaResponseType{
 //   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
+//   	 // Define if returns simple and/or iam response
+//   	Role: Role,
 //   })
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))

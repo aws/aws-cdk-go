@@ -10,7 +10,7 @@ const (
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "LEVEL"
 	// Experimental.
-	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_MSG CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "MSG"
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_MESSAGE CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "MESSAGE"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_ERROR CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "ERROR"
 	// Experimental.

@@ -63,6 +63,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
+			_jsii_.MemberProperty{JsiiProperty: "protocol", GoGetter: "Protocol"},
 			_jsii_.MemberMethod{JsiiMethod: "registerConnectable", GoMethod: "RegisterConnectable"},
 			_jsii_.MemberMethod{JsiiMethod: "removeAttribute", GoMethod: "RemoveAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "setAttribute", GoMethod: "SetAttribute"},
@@ -280,6 +281,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroupProps",
 		reflect.TypeOf((*ApplicationTargetGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.AuthenticateJwtOptions",
+		reflect.TypeOf((*AuthenticateJwtOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.AuthenticateOidcOptions",

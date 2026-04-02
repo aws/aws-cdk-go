@@ -29,6 +29,7 @@ import (
 //   			EvaluatorId: jsii.String("evaluatorId"),
 //   		},
 //   	},
+//   	ExecutionStatus: jsii.String("executionStatus"),
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
 //   	Rule: &RuleProperty{
 //   		Filters: []interface{}{
@@ -76,6 +77,9 @@ type CfnOnlineEvaluationConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-evaluators
 	//
 	Evaluators interface{} `field:"optional" json:"evaluators" yaml:"evaluators"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-executionstatus
+	//
+	ExecutionStatus *string `field:"optional" json:"executionStatus" yaml:"executionStatus"`
 	// The name of the online evaluation configuration.
 	//
 	// Must be unique within your account.

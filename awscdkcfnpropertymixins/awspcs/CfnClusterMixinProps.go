@@ -33,6 +33,12 @@ package awspcs
 //   			SecretArn: jsii.String("secretArn"),
 //   			SecretVersion: jsii.String("secretVersion"),
 //   		},
+//   		CgroupCustomSettings: []interface{}{
+//   			&CgroupCustomSettingProperty{
+//   				ParameterName: jsii.String("parameterName"),
+//   				ParameterValue: jsii.String("parameterValue"),
+//   			},
+//   		},
 //   		JwtAuth: &JwtAuthProperty{
 //   			JwtKey: &JwtKeyProperty{
 //   				SecretArn: jsii.String("secretArn"),
@@ -42,6 +48,12 @@ package awspcs
 //   		ScaleDownIdleTimeInSeconds: jsii.Number(123),
 //   		SlurmCustomSettings: []interface{}{
 //   			&SlurmCustomSettingProperty{
+//   				ParameterName: jsii.String("parameterName"),
+//   				ParameterValue: jsii.String("parameterValue"),
+//   			},
+//   		},
+//   		SlurmdbdCustomSettings: []interface{}{
+//   			&SlurmdbdCustomSettingProperty{
 //   				ParameterName: jsii.String("parameterName"),
 //   				ParameterValue: jsii.String("parameterValue"),
 //   			},

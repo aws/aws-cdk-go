@@ -10,6 +10,9 @@ package awsobservabilityadmin
 //
 //   sourceLogsConfigurationProperty := &SourceLogsConfigurationProperty{
 //   	EncryptedLogGroupStrategy: jsii.String("encryptedLogGroupStrategy"),
+//
+//   	// the properties below are optional
+//   	DataSourceSelectionCriteria: jsii.String("dataSourceSelectionCriteria"),
 //   	LogGroupSelectionCriteria: jsii.String("logGroupSelectionCriteria"),
 //   }
 //
@@ -22,11 +25,14 @@ type CfnOrganizationCentralizationRule_SourceLogsConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration-encryptedloggroupstrategy
 	//
 	EncryptedLogGroupStrategy *string `field:"required" json:"encryptedLogGroupStrategy" yaml:"encryptedLogGroupStrategy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration-datasourceselectioncriteria
+	//
+	DataSourceSelectionCriteria *string `field:"optional" json:"dataSourceSelectionCriteria" yaml:"dataSourceSelectionCriteria"`
 	// The selection criteria that specifies which source log groups to centralize.
 	//
 	// The selection criteria uses the same format as OAM link filters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration-loggroupselectioncriteria
 	//
-	LogGroupSelectionCriteria *string `field:"required" json:"logGroupSelectionCriteria" yaml:"logGroupSelectionCriteria"`
+	LogGroupSelectionCriteria *string `field:"optional" json:"logGroupSelectionCriteria" yaml:"logGroupSelectionCriteria"`
 }
 

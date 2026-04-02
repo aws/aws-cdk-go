@@ -30,6 +30,7 @@ package awsecs
 //   			ReservationPreference: jsii.String("reservationPreference"),
 //   		},
 //   		FipsEnabled: jsii.Boolean(false),
+//   		InstanceMetadataTagsPropagation: jsii.Boolean(false),
 //   		InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   			MemoryMiB: &MemoryMiBRequestProperty{
 //   				Min: jsii.Number(123),

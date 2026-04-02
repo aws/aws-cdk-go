@@ -544,6 +544,19 @@ import (
 //   		ScalingStrategy: jsii.String("scalingStrategy"),
 //   		UtilizationPerformanceIndex: jsii.Number(123),
 //   	},
+//   	MonitoringConfiguration: &MonitoringConfigurationProperty{
+//   		CloudWatchLogConfiguration: &CloudWatchLogConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
+//   			LogTypes: map[string][]*string{
+//   				"logTypesKey": []*string{
+//   					jsii.String("logTypes"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	OsReleaseLabel: jsii.String("osReleaseLabel"),
 //   	PlacementGroupConfigs: []interface{}{

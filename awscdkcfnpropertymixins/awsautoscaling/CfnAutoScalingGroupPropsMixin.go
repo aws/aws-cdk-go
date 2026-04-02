@@ -31,6 +31,9 @@ import (
 //   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
 //   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
 //   	},
+//   	AvailabilityZoneIds: []*string{
+//   		jsii.String("availabilityZoneIds"),
+//   	},
 //   	AvailabilityZoneImpairmentPolicy: &AvailabilityZoneImpairmentPolicyProperty{
 //   		ImpairedZoneHealthCheckBehavior: jsii.String("impairedZoneHealthCheckBehavior"),
 //   		ZonalShiftEnabled: jsii.Boolean(false),

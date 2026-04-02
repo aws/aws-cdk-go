@@ -195,6 +195,8 @@ Lambda authorizers use a Lambda function to control access to your HTTP API. Whe
 
 Lambda authorizers depending on their response, fall into either two types - Simple or IAM. You can learn about differences [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html#http-api-lambda-authorizer.payload-format-response).
 
+If the Lambda function is in another account, you need to provide an IAM role to the authorizer that has permission to invoke the Lambda function.
+
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -202,11 +204,16 @@ import "github.com/aws/aws-cdk-go/awscdk"
 // This function handles your auth logic
 var authHandler Function
 
+// This role will be used to invoke the Lambda function
+var role Role
+
 
 authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
 	ResponseTypes: []HttpLambdaResponseType{
 		awscdk.HttpLambdaResponseType_SIMPLE,
 	},
+	 // Define if returns simple and/or iam response
+	Role: Role,
 })
 
 api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))

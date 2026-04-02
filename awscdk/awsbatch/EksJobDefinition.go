@@ -82,6 +82,10 @@ type EksJobDefinition interface {
 	// service accounts are Kubernetes method of identification and authentication,
 	// roughly analogous to IAM users.
 	ServiceAccount() *string
+	// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource.
+	// Default: undefined - AWS Batch default is false.
+	//
+	SkipDeregisterOnUpdate() *bool
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The timeout time for jobs that are submitted with this job definition.
@@ -263,6 +267,16 @@ func (j *jsiiProxy_EksJobDefinition) ServiceAccount() *string {
 	_jsii_.Get(
 		j,
 		"serviceAccount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EksJobDefinition) SkipDeregisterOnUpdate() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"skipDeregisterOnUpdate",
 		&returns,
 	)
 	return returns

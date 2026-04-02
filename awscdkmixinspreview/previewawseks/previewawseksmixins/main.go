@@ -8,8 +8,8 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3Logs",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3Logs)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogs",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogs)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
 			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
@@ -17,84 +17,84 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
 		},
 		func() interface{} {
-			return &jsiiProxy_CfnCapabilityEksCapabilityAckS3Logs{}
+			return &jsiiProxy_CfnCapabilityEksCapabilityAckLogs{}
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsDestProps",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsDestProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsDestProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsDestProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsFirehoseProps",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsFirehoseProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsFirehoseProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsFirehoseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsLogGroupProps",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsLogGroupProps)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsLogGroupProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsLogGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsOutputFormat",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsOutputFormat)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsOutputFormat",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsOutputFormat)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
-			return &jsiiProxy_CfnCapabilityEksCapabilityAckS3LogsOutputFormat{}
+			return &jsiiProxy_CfnCapabilityEksCapabilityAckLogsOutputFormat{}
 		},
 	)
 	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsOutputFormat.Firehose",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsOutputFormat_Firehose)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_Firehose_JSON,
-			"PLAIN": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_Firehose_PLAIN,
-			"RAW": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_Firehose_RAW,
+			"JSON": CfnCapabilityEksCapabilityAckLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityAckLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnCapabilityEksCapabilityAckLogsOutputFormat_Firehose_RAW,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsOutputFormat.LogGroup",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsOutputFormat_LogGroup)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsOutputFormat_LogGroup)(nil)).Elem(),
 		map[string]interface{}{
-			"PLAIN": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_LogGroup_PLAIN,
-			"JSON": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_LogGroup_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityAckLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityAckLogsOutputFormat_LogGroup_JSON,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsOutputFormat.S3",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsOutputFormat_S3)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_S3_JSON,
-			"PLAIN": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_S3_PLAIN,
-			"W3C": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_S3_W3C,
-			"PARQUET": CfnCapabilityEksCapabilityAckS3LogsOutputFormat_S3_PARQUET,
+			"JSON": CfnCapabilityEksCapabilityAckLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityAckLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnCapabilityEksCapabilityAckLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnCapabilityEksCapabilityAckLogsOutputFormat_S3_PARQUET,
 		},
 	)
 	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsRecordFields",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsRecordFields)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsRecordFields",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
-			"STREAM": CfnCapabilityEksCapabilityAckS3LogsRecordFields_STREAM,
-			"LEVEL": CfnCapabilityEksCapabilityAckS3LogsRecordFields_LEVEL,
-			"MSG": CfnCapabilityEksCapabilityAckS3LogsRecordFields_MSG,
-			"ERR": CfnCapabilityEksCapabilityAckS3LogsRecordFields_ERR,
-			"ERROR": CfnCapabilityEksCapabilityAckS3LogsRecordFields_ERROR,
-			"CONTROLLER": CfnCapabilityEksCapabilityAckS3LogsRecordFields_CONTROLLER,
-			"CONTROLLERGROUP": CfnCapabilityEksCapabilityAckS3LogsRecordFields_CONTROLLERGROUP,
-			"CONTROLLERKIND": CfnCapabilityEksCapabilityAckS3LogsRecordFields_CONTROLLERKIND,
-			"RECONCILEID": CfnCapabilityEksCapabilityAckS3LogsRecordFields_RECONCILEID,
-			"WORKER_COUNT": CfnCapabilityEksCapabilityAckS3LogsRecordFields_WORKER_COUNT,
-			"KIND": CfnCapabilityEksCapabilityAckS3LogsRecordFields_KIND,
-			"RECONCILER_KIND": CfnCapabilityEksCapabilityAckS3LogsRecordFields_RECONCILER_KIND,
-			"NAME": CfnCapabilityEksCapabilityAckS3LogsRecordFields_NAME,
-			"NAMESPACE": CfnCapabilityEksCapabilityAckS3LogsRecordFields_NAMESPACE,
-			"AWS_SERVICE": CfnCapabilityEksCapabilityAckS3LogsRecordFields_AWS_SERVICE,
-			"VERSION": CfnCapabilityEksCapabilityAckS3LogsRecordFields_VERSION,
-			"TYPE": CfnCapabilityEksCapabilityAckS3LogsRecordFields_TYPE,
-			"RESOURCE_ARN": CfnCapabilityEksCapabilityAckS3LogsRecordFields_RESOURCE_ARN,
-			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityAckS3LogsRecordFields_EVENT_TIMESTAMP,
+			"STREAM": CfnCapabilityEksCapabilityAckLogsRecordFields_STREAM,
+			"LEVEL": CfnCapabilityEksCapabilityAckLogsRecordFields_LEVEL,
+			"MESSAGE": CfnCapabilityEksCapabilityAckLogsRecordFields_MESSAGE,
+			"ERR": CfnCapabilityEksCapabilityAckLogsRecordFields_ERR,
+			"ERROR": CfnCapabilityEksCapabilityAckLogsRecordFields_ERROR,
+			"CONTROLLER": CfnCapabilityEksCapabilityAckLogsRecordFields_CONTROLLER,
+			"CONTROLLERGROUP": CfnCapabilityEksCapabilityAckLogsRecordFields_CONTROLLERGROUP,
+			"CONTROLLERKIND": CfnCapabilityEksCapabilityAckLogsRecordFields_CONTROLLERKIND,
+			"RECONCILEID": CfnCapabilityEksCapabilityAckLogsRecordFields_RECONCILEID,
+			"WORKER_COUNT": CfnCapabilityEksCapabilityAckLogsRecordFields_WORKER_COUNT,
+			"KIND": CfnCapabilityEksCapabilityAckLogsRecordFields_KIND,
+			"RECONCILER_KIND": CfnCapabilityEksCapabilityAckLogsRecordFields_RECONCILER_KIND,
+			"NAME": CfnCapabilityEksCapabilityAckLogsRecordFields_NAME,
+			"NAMESPACE": CfnCapabilityEksCapabilityAckLogsRecordFields_NAMESPACE,
+			"AWS_SERVICE": CfnCapabilityEksCapabilityAckLogsRecordFields_AWS_SERVICE,
+			"VERSION": CfnCapabilityEksCapabilityAckLogsRecordFields_VERSION,
+			"TYPE": CfnCapabilityEksCapabilityAckLogsRecordFields_TYPE,
+			"RESOURCE_ARN": CfnCapabilityEksCapabilityAckLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityAckLogsRecordFields_EVENT_TIMESTAMP,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckS3LogsS3Props",
-		reflect.TypeOf((*CfnCapabilityEksCapabilityAckS3LogsS3Props)(nil)).Elem(),
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityAckLogsS3Props",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityAckLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationLogs",
@@ -162,7 +162,7 @@ func init() {
 		map[string]interface{}{
 			"STREAM": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_STREAM,
 			"LEVEL": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_LEVEL,
-			"MSG": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_MSG,
+			"MESSAGE": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_MESSAGE,
 			"ERROR": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_ERROR,
 			"APPLICATION": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_APPLICATION,
 			"APP_NAMESPACE": CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_APP_NAMESPACE,
@@ -185,6 +185,327 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationLogsS3Props",
 		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogs",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdApplicationsetLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsDestProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsFirehoseProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsLogGroupProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"STREAM": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_STREAM,
+			"LEVEL": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_LEVEL,
+			"MESSAGE": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_MESSAGE,
+			"ERROR": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_ERROR,
+			"CONTROLLER": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_CONTROLLER,
+			"CONTROLLERGROUP": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_CONTROLLERGROUP,
+			"CONTROLLERKIND": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_CONTROLLERKIND,
+			"RECONCILEID": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_RECONCILEID,
+			"WORKER_COUNT": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_WORKER_COUNT,
+			"NAME": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_NAME,
+			"NAMESPACE": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_NAMESPACE,
+			"APPLICATION": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_APPLICATION,
+			"APP_NAMESPACE": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_APP_NAMESPACE,
+			"PROJECT": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_PROJECT,
+			"APPLICATIONSET": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_APPLICATIONSET,
+			"ACTION": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_ACTION,
+			"COUNT": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_COUNT,
+			"REQUEUEAFTER": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_REQUEUEAFTER,
+			"TYPE": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_TYPE,
+			"RESOURCE_ARN": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsS3Props",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdApplicationsetLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogs",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdCommitserverLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsDestProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsFirehoseProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsLogGroupProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"STREAM": CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_STREAM,
+			"LEVEL": CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_LEVEL,
+			"MESSAGE": CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_MESSAGE,
+			"RESOURCE_ARN": CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdCommitserverLogsS3Props",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogs",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdReposerverLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsDestProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsFirehoseProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsLogGroupProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"STREAM": CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_STREAM,
+			"LEVEL": CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_LEVEL,
+			"MESSAGE": CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_MESSAGE,
+			"ERROR": CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_ERROR,
+			"RESOURCE_ARN": CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogsS3Props",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogs",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdServerLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsDestProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsFirehoseProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsLogGroupProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnCapabilityEksCapabilityArgocdServerLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsRecordFields",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"STREAM": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_STREAM,
+			"LEVEL": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_LEVEL,
+			"MESSAGE": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_MESSAGE,
+			"ERROR": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_ERROR,
+			"NAME": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_NAME,
+			"NAMESPACE": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_NAMESPACE,
+			"REASON": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_REASON,
+			"RESOURCE_ARN": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdServerLogsS3Props",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdServerLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityKroLogs",

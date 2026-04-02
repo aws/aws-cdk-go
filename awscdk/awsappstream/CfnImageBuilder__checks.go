@@ -329,6 +329,30 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnImageBuilder) validateSetRootVolumeConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnImageBuilder_VolumeConfigProperty:
+		val := val.(*CfnImageBuilder_VolumeConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnImageBuilder_VolumeConfigProperty:
+		val_ := val.(CfnImageBuilder_VolumeConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnImageBuilder_VolumeConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnImageBuilder) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

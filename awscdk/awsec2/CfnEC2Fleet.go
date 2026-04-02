@@ -172,6 +172,11 @@ import (
 //   		SingleInstanceType: jsii.Boolean(false),
 //   	},
 //   	ReplaceUnhealthyInstances: jsii.Boolean(false),
+//   	ReservedCapacityOptions: &ReservedCapacityOptionsRequestProperty{
+//   		ReservationTypes: []*string{
+//   			jsii.String("reservationTypes"),
+//   		},
+//   	},
 //   	SpotOptions: &SpotOptionsRequestProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   		InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
@@ -256,6 +261,8 @@ type CfnEC2Fleet interface {
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances.
 	ReplaceUnhealthyInstances() interface{}
 	SetReplaceUnhealthyInstances(val interface{})
+	ReservedCapacityOptions() interface{}
+	SetReservedCapacityOptions(val interface{})
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions() interface{}
 	SetSpotOptions(val interface{})
@@ -589,6 +596,16 @@ func (j *jsiiProxy_CfnEC2Fleet) ReplaceUnhealthyInstances() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEC2Fleet) ReservedCapacityOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"reservedCapacityOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEC2Fleet) SpotOptions() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -764,6 +781,17 @@ func (j *jsiiProxy_CfnEC2Fleet)SetReplaceUnhealthyInstances(val interface{}) {
 	_jsii_.Set(
 		j,
 		"replaceUnhealthyInstances",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEC2Fleet)SetReservedCapacityOptions(val interface{}) {
+	if err := j.validateSetReservedCapacityOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"reservedCapacityOptions",
 		val,
 	)
 }

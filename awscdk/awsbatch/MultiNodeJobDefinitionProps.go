@@ -63,6 +63,13 @@ type MultiNodeJobDefinitionProps struct {
 	// Default: none.
 	//
 	SchedulingPriority *float64 `field:"optional" json:"schedulingPriority" yaml:"schedulingPriority"`
+	// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource.
+	//
+	// When the property is set to false, the previous revision of the job definition is de-registered after a new revision is created.
+	// When the property is set to true, the previous revision of the job definition is not de-registered.
+	// Default: undefined - AWS Batch default is false.
+	//
+	SkipDeregisterOnUpdate *bool `field:"optional" json:"skipDeregisterOnUpdate" yaml:"skipDeregisterOnUpdate"`
 	// The timeout time for jobs that are submitted with this job definition.
 	//
 	// After the amount of time you specify passes,

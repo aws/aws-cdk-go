@@ -170,10 +170,10 @@ func init() {
 			"SCHEDULER_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_TYPE,
 			"SCHEDULER_PATCH_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_PATCH_VERSION,
 			"NODE_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_NODE_TYPE,
-			"LOG_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_TYPE,
 			"MESSAGE": CfnClusterPcsSchedulerAuditLogsRecordFields_MESSAGE,
 			"LOG_NAME": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_NAME,
 			"SCHEDULER_MAJOR_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_MAJOR_VERSION,
+			"LOG_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_TYPE,
 		},
 	)
 	_jsii_.RegisterStruct(

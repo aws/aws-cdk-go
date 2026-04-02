@@ -32,6 +32,7 @@ import (
 //   var resourcePolicyDocument interface{}
 //
 //   cfnLogGroupPropsMixin := awscdkcfnpropertymixins.Aws_logs.NewCfnLogGroupPropsMixin(&CfnLogGroupMixinProps{
+//   	BearerTokenAuthenticationEnabled: jsii.Boolean(false),
 //   	DataProtectionPolicy: dataProtectionPolicy,
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	FieldIndexPolicies: []interface{}{

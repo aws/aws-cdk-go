@@ -14,31 +14,27 @@ import (
 // A container orchestrated by ECS that uses EC2 resources.
 //
 // Example:
-//   var vpc IVpc
+//   var myFileSystem IFileSystem
+//   var myJobRole Role
 //
+//   myFileSystem.GrantRead(myJobRole)
 //
-//   ecsJob := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
+//   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
 //   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 //   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
+//   		Volumes: []EcsVolume{
+//   			batch.EcsVolume_Efs(&EfsVolumeOptions{
+//   				Name: jsii.String("myVolume"),
+//   				FileSystem: myFileSystem,
+//   				ContainerPath: jsii.String("/Volumes/myVolume"),
+//   				UseJobRole: jsii.Boolean(true),
+//   			}),
+//   		},
+//   		JobRole: myJobRole,
 //   	}),
 //   })
-//
-//   queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
-//   	ComputeEnvironments: []OrderedComputeEnvironment{
-//   		&OrderedComputeEnvironment{
-//   			ComputeEnvironment: batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("managedEc2CE"), &ManagedEc2EcsComputeEnvironmentProps{
-//   				Vpc: *Vpc,
-//   			}),
-//   			Order: jsii.Number(1),
-//   		},
-//   	},
-//   	Priority: jsii.Number(10),
-//   })
-//
-//   user := iam.NewUser(this, jsii.String("MyUser"))
-//   ecsJob.GrantSubmitJob(user, queue)
 //
 type EcsEc2ContainerDefinition interface {
 	constructs.Construct

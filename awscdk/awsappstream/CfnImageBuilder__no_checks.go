@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetNameParameters(val *string) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnImageBuilder) validateSetRootVolumeConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImageBuilder) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

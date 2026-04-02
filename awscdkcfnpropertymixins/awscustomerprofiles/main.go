@@ -312,6 +312,50 @@ func init() {
 		reflect.TypeOf((*CfnObjectTypePropsMixin_ObjectTypeKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderMixinProps",
+		reflect.TypeOf((*CfnRecommenderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin",
+		reflect.TypeOf((*CfnRecommenderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRecommenderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin.EventParametersProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_EventParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin.EventsConfigProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_EventsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin.MetricsProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_MetricsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin.RecommenderConfigProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_RecommenderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin.RecommenderUpdateProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_RecommenderUpdateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnRecommenderPropsMixin.TrainingMetricsProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_TrainingMetricsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnSegmentDefinitionMixinProps",
 		reflect.TypeOf((*CfnSegmentDefinitionMixinProps)(nil)).Elem(),
 	)

@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnEC2Fleet) validateSetReplaceUnhealthyInstancesParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnEC2Fleet) validateSetReservedCapacityOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEC2Fleet) validateSetSpotOptionsParameters(val interface{}) error {
 	return nil
 }

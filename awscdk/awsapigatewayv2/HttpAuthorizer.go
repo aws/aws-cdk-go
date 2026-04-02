@@ -18,8 +18,10 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApiRef IHttpApiRef
+//   var roleRef IRoleRef
 //
 //   httpAuthorizer := awscdk.Aws_apigatewayv2.NewHttpAuthorizer(this, jsii.String("MyHttpAuthorizer"), &HttpAuthorizerProps{
 //   	HttpApi: httpApiRef,
@@ -38,6 +40,7 @@ import (
 //   	JwtIssuer: jsii.String("jwtIssuer"),
 //   	PayloadFormatVersion: awscdk.*Aws_apigatewayv2.AuthorizerPayloadVersion_VERSION_1_0,
 //   	ResultsCacheTtl: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Role: roleRef,
 //   })
 //
 type HttpAuthorizer interface {

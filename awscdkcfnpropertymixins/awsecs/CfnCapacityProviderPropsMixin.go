@@ -49,6 +49,7 @@ import (
 //   			},
 //   			Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   			FipsEnabled: jsii.Boolean(false),
+//   			InstanceMetadataTagsPropagation: jsii.Boolean(false),
 //   			InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   				AcceleratorCount: &AcceleratorCountRequestProperty{
 //   					Max: jsii.Number(123),

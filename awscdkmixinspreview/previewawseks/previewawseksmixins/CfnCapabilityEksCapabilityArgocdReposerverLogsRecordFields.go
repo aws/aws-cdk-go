@@ -1,0 +1,21 @@
+package previewawseksmixins
+
+
+// Experimental.
+type CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "STREAM"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "LEVEL"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_MESSAGE CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "MESSAGE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_ERROR CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_EVENT_TIMESTAMP CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "EVENT_TIMESTAMP"
+)
+

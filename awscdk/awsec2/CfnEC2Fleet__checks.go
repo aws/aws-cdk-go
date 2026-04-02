@@ -316,6 +316,30 @@ func (j *jsiiProxy_CfnEC2Fleet) validateSetReplaceUnhealthyInstancesParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnEC2Fleet) validateSetReservedCapacityOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEC2Fleet_ReservedCapacityOptionsRequestProperty:
+		val := val.(*CfnEC2Fleet_ReservedCapacityOptionsRequestProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEC2Fleet_ReservedCapacityOptionsRequestProperty:
+		val_ := val.(CfnEC2Fleet_ReservedCapacityOptionsRequestProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEC2Fleet_ReservedCapacityOptionsRequestProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEC2Fleet) validateSetSpotOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

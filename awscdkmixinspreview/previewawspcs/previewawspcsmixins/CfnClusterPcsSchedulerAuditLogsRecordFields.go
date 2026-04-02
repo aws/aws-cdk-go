@@ -20,12 +20,12 @@ const (
 	// Experimental.
 	CfnClusterPcsSchedulerAuditLogsRecordFields_NODE_TYPE CfnClusterPcsSchedulerAuditLogsRecordFields = "NODE_TYPE"
 	// Experimental.
-	CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_TYPE CfnClusterPcsSchedulerAuditLogsRecordFields = "LOG_TYPE"
-	// Experimental.
 	CfnClusterPcsSchedulerAuditLogsRecordFields_MESSAGE CfnClusterPcsSchedulerAuditLogsRecordFields = "MESSAGE"
 	// Experimental.
 	CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_NAME CfnClusterPcsSchedulerAuditLogsRecordFields = "LOG_NAME"
 	// Experimental.
 	CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_MAJOR_VERSION CfnClusterPcsSchedulerAuditLogsRecordFields = "SCHEDULER_MAJOR_VERSION"
+	// Experimental.
+	CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_TYPE CfnClusterPcsSchedulerAuditLogsRecordFields = "LOG_TYPE"
 )
 

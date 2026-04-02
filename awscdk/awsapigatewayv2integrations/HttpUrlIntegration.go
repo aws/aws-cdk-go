@@ -14,13 +14,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // This function handles your auth logic
-//   var authHandler Function
 //
-//
-//   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
-//   	ResponseTypes: []HttpLambdaResponseType{
-//   		awscdk.HttpLambdaResponseType_SIMPLE,
+//   issuer := "https://test.us.auth0.com"
+//   authorizer := awscdk.NewHttpJwtAuthorizer(jsii.String("BooksAuthorizer"), issuer, &HttpJwtAuthorizerProps{
+//   	JwtAudience: []*string{
+//   		jsii.String("3131231"),
 //   	},
 //   })
 //

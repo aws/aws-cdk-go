@@ -147,7 +147,7 @@ func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 	return returns
 }
 
-// Supresses a volume mapping.
+// Suppresses a volume mapping.
 func BlockDeviceVolume_NoDevice() BlockDeviceVolume {
 	_init_.Initialize()
 

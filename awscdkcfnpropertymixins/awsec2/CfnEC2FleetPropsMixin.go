@@ -161,6 +161,11 @@ import (
 //   		SingleInstanceType: jsii.Boolean(false),
 //   	},
 //   	ReplaceUnhealthyInstances: jsii.Boolean(false),
+//   	ReservedCapacityOptions: &ReservedCapacityOptionsRequestProperty{
+//   		ReservationTypes: []*string{
+//   			jsii.String("reservationTypes"),
+//   		},
+//   	},
 //   	SpotOptions: &SpotOptionsRequestProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   		InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),

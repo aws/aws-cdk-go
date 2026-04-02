@@ -76,6 +76,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCollectionEndpoint", GoGetter: "AttrCollectionEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDashboardEndpoint", GoGetter: "AttrDashboardEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFipsEndpoints", GoGetter: "AttrFipsEndpoints"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrKmsKeyArn", GoGetter: "AttrKmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -125,6 +126,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchserverless.CfnCollection.EncryptionConfigProperty",
 		reflect.TypeOf((*CfnCollection_EncryptionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchserverless.CfnCollection.FipsEndpointsProperty",
+		reflect.TypeOf((*CfnCollection_FipsEndpointsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchserverless.CfnCollection.VectorOptionsProperty",

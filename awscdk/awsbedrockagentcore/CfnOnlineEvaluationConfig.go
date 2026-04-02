@@ -60,6 +60,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ExecutionStatus: jsii.String("executionStatus"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -77,7 +78,6 @@ type CfnOnlineEvaluationConfig interface {
 	awscdk.ITaggableV2
 	// The timestamp when the online evaluation configuration was created.
 	AttrCreatedAt() *string
-	AttrExecutionStatus() *string
 	// The Amazon Resource Name (ARN) of the online evaluation configuration.
 	AttrOnlineEvaluationConfigArn() *string
 	// The unique identifier of the online evaluation configuration.
@@ -111,6 +111,8 @@ type CfnOnlineEvaluationConfig interface {
 	// The list of evaluators to apply during online evaluation.
 	Evaluators() interface{}
 	SetEvaluators(val interface{})
+	ExecutionStatus() *string
+	SetExecutionStatus(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -308,16 +310,6 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) AttrCreatedAt() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOnlineEvaluationConfig) AttrExecutionStatus() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrExecutionStatus",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) AttrOnlineEvaluationConfigArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -463,6 +455,16 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) Evaluators() interface{} {
 	_jsii_.Get(
 		j,
 		"evaluators",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) ExecutionStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionStatus",
 		&returns,
 	)
 	return returns
@@ -635,6 +637,14 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetEvaluators(val interface{}) {
 	_jsii_.Set(
 		j,
 		"evaluators",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetExecutionStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"executionStatus",
 		val,
 	)
 }

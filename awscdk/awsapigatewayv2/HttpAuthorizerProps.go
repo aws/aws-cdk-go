@@ -2,6 +2,7 @@ package awsapigatewayv2
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Properties to initialize an instance of `HttpAuthorizer`.
@@ -11,8 +12,10 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var httpApiRef IHttpApiRef
+//   var roleRef IRoleRef
 //
 //   httpAuthorizerProps := &HttpAuthorizerProps{
 //   	HttpApi: httpApiRef,
@@ -31,6 +34,7 @@ import (
 //   	JwtIssuer: jsii.String("jwtIssuer"),
 //   	PayloadFormatVersion: awscdk.*Aws_apigatewayv2.AuthorizerPayloadVersion_VERSION_1_0,
 //   	ResultsCacheTtl: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Role: roleRef,
 //   }
 //
 type HttpAuthorizerProps struct {
@@ -78,5 +82,11 @@ type HttpAuthorizerProps struct {
 	// Default: - API Gateway will not cache authorizer responses.
 	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	// The IAM role that the API Gateway service assumes while invoking the authorizer.
+	//
+	// Supported only for REQUEST authorizers.
+	// Default: - No role.
+	//
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

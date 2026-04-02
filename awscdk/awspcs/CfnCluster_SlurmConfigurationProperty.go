@@ -19,6 +19,12 @@ package awspcs
 //   		SecretArn: jsii.String("secretArn"),
 //   		SecretVersion: jsii.String("secretVersion"),
 //   	},
+//   	CgroupCustomSettings: []interface{}{
+//   		&CgroupCustomSettingProperty{
+//   			ParameterName: jsii.String("parameterName"),
+//   			ParameterValue: jsii.String("parameterValue"),
+//   		},
+//   	},
 //   	JwtAuth: &JwtAuthProperty{
 //   		JwtKey: &JwtKeyProperty{
 //   			SecretArn: jsii.String("secretArn"),
@@ -28,6 +34,12 @@ package awspcs
 //   	ScaleDownIdleTimeInSeconds: jsii.Number(123),
 //   	SlurmCustomSettings: []interface{}{
 //   		&SlurmCustomSettingProperty{
+//   			ParameterName: jsii.String("parameterName"),
+//   			ParameterValue: jsii.String("parameterValue"),
+//   		},
+//   	},
+//   	SlurmdbdCustomSettings: []interface{}{
+//   		&SlurmdbdCustomSettingProperty{
 //   			ParameterName: jsii.String("parameterName"),
 //   			ParameterValue: jsii.String("parameterValue"),
 //   		},
@@ -48,6 +60,10 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-authkey
 	//
 	AuthKey interface{} `field:"optional" json:"authKey" yaml:"authKey"`
+	// Additional cgroup-specific configuration that directly maps to cgroup.conf settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-cgroupcustomsettings
+	//
+	CgroupCustomSettings interface{} `field:"optional" json:"cgroupCustomSettings" yaml:"cgroupCustomSettings"`
 	// The JWT authentication configuration for Slurm REST API access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-jwtauth
 	//
@@ -62,6 +78,10 @@ type CfnCluster_SlurmConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmcustomsettings
 	//
 	SlurmCustomSettings interface{} `field:"optional" json:"slurmCustomSettings" yaml:"slurmCustomSettings"`
+	// Additional slurmdbd-specific configuration that directly maps to slurmdbd.conf settings.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmdbdcustomsettings
+	//
+	SlurmdbdCustomSettings interface{} `field:"optional" json:"slurmdbdCustomSettings" yaml:"slurmdbdCustomSettings"`
 	// The Slurm REST API configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmrest
 	//

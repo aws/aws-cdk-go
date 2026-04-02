@@ -18,6 +18,7 @@ package awsecs
 //   	},
 //   	Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
 //   	FipsEnabled: jsii.Boolean(false),
+//   	InstanceMetadataTagsPropagation: jsii.Boolean(false),
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
@@ -133,6 +134,9 @@ type CfnCapacityProviderPropsMixin_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-fipsenabled
 	//
 	FipsEnabled interface{} `field:"optional" json:"fipsEnabled" yaml:"fipsEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-instancemetadatatagspropagation
+	//
+	InstanceMetadataTagsPropagation interface{} `field:"optional" json:"instanceMetadataTagsPropagation" yaml:"instanceMetadataTagsPropagation"`
 	// The instance requirements. You can specify:.
 	//
 	// - The instance types

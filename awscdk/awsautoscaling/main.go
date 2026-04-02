@@ -174,6 +174,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroupName", GoGetter: "AutoScalingGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroupRef", GoGetter: "AutoScalingGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneDistribution", GoGetter: "AvailabilityZoneDistribution"},
+			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneIds", GoGetter: "AvailabilityZoneIds"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneImpairmentPolicy", GoGetter: "AvailabilityZoneImpairmentPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "capacityRebalance", GoGetter: "CapacityRebalance"},

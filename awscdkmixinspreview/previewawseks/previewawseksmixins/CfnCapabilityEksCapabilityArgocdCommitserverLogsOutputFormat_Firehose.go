@@ -1,0 +1,15 @@
+package previewawseksmixins
+
+
+// Experimental.
+type CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose string
+
+const (
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose_JSON CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose = "JSON"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose_PLAIN CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose_RAW CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_Firehose = "RAW"
+)
+

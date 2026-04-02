@@ -36,6 +36,10 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_AuthKeyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnClusterPropsMixin.CgroupCustomSettingProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_CgroupCustomSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnClusterPropsMixin.EndpointProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_EndpointProperty)(nil)).Elem(),
 	)
@@ -70,6 +74,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnClusterPropsMixin.SlurmRestProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_SlurmRestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnClusterPropsMixin.SlurmdbdCustomSettingProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_SlurmdbdCustomSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupMixinProps",

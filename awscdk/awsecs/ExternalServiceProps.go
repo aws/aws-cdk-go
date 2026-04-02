@@ -127,7 +127,7 @@ type ExternalServiceProps struct {
 	// Configuration details for a volume used by the service.
 	//
 	// This allows you to specify
-	// details about the EBS volume that can be attched to ECS tasks.
+	// details about the EBS volume that can be attached to ECS tasks.
 	// Default: - undefined.
 	//
 	VolumeConfigurations *[]ServiceManagedVolume `field:"optional" json:"volumeConfigurations" yaml:"volumeConfigurations"`

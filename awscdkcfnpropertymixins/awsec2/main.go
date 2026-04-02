@@ -368,6 +368,10 @@ func init() {
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_PlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.ReservedCapacityOptionsRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_ReservedCapacityOptionsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.SpotOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_SpotOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -2058,6 +2062,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSpotFleetPropsMixin.VCpuCountRangeRequestProperty",
 		reflect.TypeOf((*CfnSpotFleetPropsMixin_VCpuCountRangeRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSqlHaStandbyDetectedInstanceMixinProps",
+		reflect.TypeOf((*CfnSqlHaStandbyDetectedInstanceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSqlHaStandbyDetectedInstancePropsMixin",
+		reflect.TypeOf((*CfnSqlHaStandbyDetectedInstancePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSqlHaStandbyDetectedInstancePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSubnetCidrBlockMixinProps",

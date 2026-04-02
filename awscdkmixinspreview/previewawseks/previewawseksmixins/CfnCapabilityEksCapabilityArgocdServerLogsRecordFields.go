@@ -1,0 +1,27 @@
+package previewawseksmixins
+
+
+// Experimental.
+type CfnCapabilityEksCapabilityArgocdServerLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "STREAM"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "LEVEL"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_MESSAGE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "MESSAGE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_ERROR CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_NAME CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "NAME"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_NAMESPACE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "NAMESPACE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_REASON CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "REASON"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_EVENT_TIMESTAMP CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "EVENT_TIMESTAMP"
+)
+

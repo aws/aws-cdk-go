@@ -84,6 +84,8 @@ type ApplicationListener interface {
 	PhysicalName() *string
 	// The port of the listener.
 	Port() *float64
+	// Listener protocol for this listener.
+	Protocol() ApplicationProtocol
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// Perform the given default action on incoming requests.
@@ -262,6 +264,16 @@ func (j *jsiiProxy_ApplicationListener) Port() *float64 {
 	_jsii_.Get(
 		j,
 		"port",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ApplicationListener) Protocol() ApplicationProtocol {
+	var returns ApplicationProtocol
+	_jsii_.Get(
+		j,
+		"protocol",
 		&returns,
 	)
 	return returns

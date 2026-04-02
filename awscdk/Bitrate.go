@@ -13,11 +13,34 @@ import (
 // When the amount is passed as a token, unit conversion is not possible.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   var channel Channel
 //
-//   bitrate := cdk.Bitrate_Bps(jsii.Number(123))
+//
+//   awsmediapackagev2alpha.NewOriginEndpoint(this, jsii.String("Endpoint"), &OriginEndpointProps{
+//   	Channel: Channel,
+//   	Segment: awsmediapackagev2alpha.Segment_Cmaf(),
+//   	Manifests: []Manifest{
+//   		awsmediapackagev2alpha.Manifest_Hls(&HlsManifestConfiguration{
+//   			ManifestName: jsii.String("index"),
+//   			FilterConfiguration: &FilterConfiguration{
+//   				ManifestFilter: []ManifestFilter{
+//   					awsmediapackagev2alpha.ManifestFilter_BitrateRange(awsmediapackagev2alpha.BitrateFilterKey_VIDEO_BITRATE, awscdk.Bitrate_Mbps(jsii.Number(1)), awscdk.Bitrate_*Mbps(jsii.Number(5))),
+//   					awsmediapackagev2alpha.ManifestFilter_NumericRange(awsmediapackagev2alpha.NumericFilterKey_VIDEO_HEIGHT, jsii.Number(720), jsii.Number(1080)),
+//   					awsmediapackagev2alpha.ManifestFilter_VideoCodecList([]VideoCodec{
+//   						awsmediapackagev2alpha.VideoCodec_H264,
+//   						awsmediapackagev2alpha.VideoCodec_H265,
+//   					}),
+//   					awsmediapackagev2alpha.ManifestFilter_Numeric(awsmediapackagev2alpha.NumericFilterKey_AUDIO_CHANNELS, jsii.Number(2)),
+//   					awsmediapackagev2alpha.ManifestFilter_TextList(awsmediapackagev2alpha.TextFilterKey_AUDIO_LANGUAGE, []*string{
+//   						jsii.String("en-US"),
+//   						jsii.String("fr"),
+//   					}),
+//   				},
+//   				TimeDelay: awscdk.Duration_Seconds(jsii.Number(30)),
+//   			},
+//   		}),
+//   	},
+//   })
 //
 type Bitrate interface {
 	// Checks if bitrate is a token or a resolvable object.

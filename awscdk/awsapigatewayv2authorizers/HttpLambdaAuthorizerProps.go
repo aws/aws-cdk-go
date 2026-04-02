@@ -2,6 +2,7 @@ package awsapigatewayv2authorizers
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiam"
 )
 
 // Properties to initialize HttpTokenAuthorizer.
@@ -13,11 +14,16 @@ import (
 //   // This function handles your auth logic
 //   var authHandler Function
 //
+//   // This role will be used to invoke the Lambda function
+//   var role Role
+//
 //
 //   authorizer := awscdk.NewHttpLambdaAuthorizer(jsii.String("BooksAuthorizer"), authHandler, &HttpLambdaAuthorizerProps{
 //   	ResponseTypes: []HttpLambdaResponseType{
 //   		awscdk.HttpLambdaResponseType_SIMPLE,
 //   	},
+//   	 // Define if returns simple and/or iam response
+//   	Role: Role,
 //   })
 //
 //   api := apigwv2.NewHttpApi(this, jsii.String("HttpApi"))
@@ -53,5 +59,11 @@ type HttpLambdaAuthorizerProps struct {
 	// Default: Duration.minutes(5)
 	//
 	ResultsCacheTtl awscdk.Duration `field:"optional" json:"resultsCacheTtl" yaml:"resultsCacheTtl"`
+	// The IAM role that the API Gateway service assumes while invoking the authorizer.
+	//
+	// Supported only for REQUEST authorizers.
+	// Default: - No role.
+	//
+	Role interfacesawsiam.IRoleRef `field:"optional" json:"role" yaml:"role"`
 }
 

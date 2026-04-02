@@ -16,6 +16,10 @@ func (l *jsiiProxy_ListenerAction) validateRenumberParameters(actions *[]*CfnLis
 	return nil
 }
 
+func validateListenerAction_AuthenticateJwtParameters(options *AuthenticateJwtOptions) error {
+	return nil
+}
+
 func validateListenerAction_AuthenticateOidcParameters(options *AuthenticateOidcOptions) error {
 	return nil
 }

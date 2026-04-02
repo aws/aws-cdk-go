@@ -76,7 +76,6 @@ func init() {
 			"CLOUDWATCHLOGS_LOGSTREAM": CfnLogGroupAuditLogsRecordFields_CLOUDWATCHLOGS_LOGSTREAM,
 			"AUDITTIMESTAMP": CfnLogGroupAuditLogsRecordFields_AUDITTIMESTAMP,
 			"RESOURCEARN": CfnLogGroupAuditLogsRecordFields_RESOURCEARN,
-			"RESOURCENAME": CfnLogGroupAuditLogsRecordFields_RESOURCENAME,
 			"DATAIDENTIFIERS": CfnLogGroupAuditLogsRecordFields_DATAIDENTIFIERS,
 		},
 	)

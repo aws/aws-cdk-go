@@ -33,6 +33,9 @@ import (
 //   	AvailabilityZoneDistribution: &AvailabilityZoneDistributionProperty{
 //   		CapacityDistributionStrategy: jsii.String("capacityDistributionStrategy"),
 //   	},
+//   	AvailabilityZoneIds: []*string{
+//   		jsii.String("availabilityZoneIds"),
+//   	},
 //   	AvailabilityZoneImpairmentPolicy: &AvailabilityZoneImpairmentPolicyProperty{
 //   		ImpairedZoneHealthCheckBehavior: jsii.String("impairedZoneHealthCheckBehavior"),
 //   		ZonalShiftEnabled: jsii.Boolean(false),
@@ -289,6 +292,8 @@ type CfnAutoScalingGroup interface {
 	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution() interface{}
 	SetAvailabilityZoneDistribution(val interface{})
+	AvailabilityZoneIds() *[]*string
+	SetAvailabilityZoneIds(val *[]*string)
 	// The Availability Zone impairment policy for the Auto Scaling group.
 	AvailabilityZoneImpairmentPolicy() interface{}
 	SetAvailabilityZoneImpairmentPolicy(val interface{})
@@ -618,6 +623,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) AvailabilityZoneDistribution() interface
 	_jsii_.Get(
 		j,
 		"availabilityZoneDistribution",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) AvailabilityZoneIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"availabilityZoneIds",
 		&returns,
 	)
 	return returns
@@ -1138,6 +1153,14 @@ func (j *jsiiProxy_CfnAutoScalingGroup)SetAvailabilityZoneDistribution(val inter
 	_jsii_.Set(
 		j,
 		"availabilityZoneDistribution",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup)SetAvailabilityZoneIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneIds",
 		val,
 	)
 }

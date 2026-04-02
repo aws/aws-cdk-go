@@ -4,18 +4,27 @@ package awscloudwatch
 // Properties needed to make an alarm from a metric.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   var channelGroup ChannelGroup
+//   var channel Channel
+//   var endpoint OriginEndpoint
 //
-//   var myHostedZone HostedZone
 //
-//   certificate := acm.NewCertificate(this, jsii.String("Certificate"), &CertificateProps{
-//   	DomainName: jsii.String("hello.example.com"),
-//   	Validation: acm.CertificateValidation_FromDns(myHostedZone),
-//   })
-//   certificate.metricDaysToExpiry().CreateAlarm(this, jsii.String("Alarm"), &CreateAlarmOptions{
-//   	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_THRESHOLD,
+//   // Create a CloudWatch alarm on channel group egress bytes
+//   alarm := channelGroup.metricEgressBytes().CreateAlarm(this, jsii.String("HighEgress"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(1000),
 //   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(45),
+//   })
+//
+//   // Monitor channel ingress response time
+//   channel.metricIngressResponseTime().CreateAlarm(this, jsii.String("SlowIngress"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(1000),
+//   	EvaluationPeriods: jsii.Number(2),
+//   })
+//
+//   // Track origin endpoint request count
+//   requestMetric := endpoint.metricEgressRequestCount(&MetricOptions{
+//   	Statistic: jsii.String("sum"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
 type CreateAlarmOptions struct {

@@ -147,6 +147,11 @@ package awsec2
 //   		SingleInstanceType: jsii.Boolean(false),
 //   	},
 //   	ReplaceUnhealthyInstances: jsii.Boolean(false),
+//   	ReservedCapacityOptions: &ReservedCapacityOptionsRequestProperty{
+//   		ReservationTypes: []*string{
+//   			jsii.String("reservationTypes"),
+//   		},
+//   	},
 //   	SpotOptions: &SpotOptionsRequestProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   		InstanceInterruptionBehavior: jsii.String("instanceInterruptionBehavior"),
@@ -213,6 +218,9 @@ type CfnEC2FleetMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
 	//
 	ReplaceUnhealthyInstances interface{} `field:"optional" json:"replaceUnhealthyInstances" yaml:"replaceUnhealthyInstances"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-reservedcapacityoptions
+	//
+	ReservedCapacityOptions interface{} `field:"optional" json:"reservedCapacityOptions" yaml:"reservedCapacityOptions"`
 	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
 	//

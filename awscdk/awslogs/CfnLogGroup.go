@@ -31,6 +31,7 @@ import (
 //   var resourcePolicyDocument interface{}
 //
 //   cfnLogGroup := awscdk.Aws_logs.NewCfnLogGroup(this, jsii.String("MyCfnLogGroup"), &CfnLogGroupProps{
+//   	BearerTokenAuthenticationEnabled: jsii.Boolean(false),
 //   	DataProtectionPolicy: dataProtectionPolicy,
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	FieldIndexPolicies: []interface{}{
@@ -58,6 +59,8 @@ type CfnLogGroup interface {
 	awscdk.ITaggable
 	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`.
 	AttrArn() *string
+	BearerTokenAuthenticationEnabled() interface{}
+	SetBearerTokenAuthenticationEnabled(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -282,6 +285,16 @@ func (j *jsiiProxy_CfnLogGroup) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLogGroup) BearerTokenAuthenticationEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"bearerTokenAuthenticationEnabled",
 		&returns,
 	)
 	return returns
@@ -534,6 +547,17 @@ func NewCfnLogGroup_Override(c CfnLogGroup, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_logs.CfnLogGroup",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLogGroup)SetBearerTokenAuthenticationEnabled(val interface{}) {
+	if err := j.validateSetBearerTokenAuthenticationEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"bearerTokenAuthenticationEnabled",
+		val,
 	)
 }
 

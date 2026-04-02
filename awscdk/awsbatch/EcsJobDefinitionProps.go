@@ -7,25 +7,14 @@ import (
 // Props for EcsJobDefinition.
 //
 // Example:
-//   var myFileSystem IFileSystem
-//   var myJobRole Role
-//
-//   myFileSystem.GrantRead(myJobRole)
-//
 //   jobDefn := batch.NewEcsJobDefinition(this, jsii.String("JobDefn"), &EcsJobDefinitionProps{
-//   	Container: batch.NewEcsEc2ContainerDefinition(this, jsii.String("containerDefn"), &EcsEc2ContainerDefinitionProps{
+//   	Container: batch.NewEcsFargateContainerDefinition(this, jsii.String("myFargateContainer"), &EcsFargateContainerDefinitionProps{
 //   		Image: ecs.ContainerImage_FromRegistry(jsii.String("public.ecr.aws/amazonlinux/amazonlinux:latest")),
 //   		Memory: cdk.Size_Mebibytes(jsii.Number(2048)),
 //   		Cpu: jsii.Number(256),
-//   		Volumes: []EcsVolume{
-//   			batch.EcsVolume_Efs(&EfsVolumeOptions{
-//   				Name: jsii.String("myVolume"),
-//   				FileSystem: myFileSystem,
-//   				ContainerPath: jsii.String("/Volumes/myVolume"),
-//   				UseJobRole: jsii.Boolean(true),
-//   			}),
-//   		},
-//   		JobRole: myJobRole,
+//   		EphemeralStorageSize: cdk.Size_Gibibytes(jsii.Number(100)),
+//   		FargateCpuArchitecture: ecs.CpuArchitecture_ARM64(),
+//   		FargateOperatingSystemFamily: ecs.OperatingSystemFamily_LINUX(),
 //   	}),
 //   })
 //
@@ -58,6 +47,13 @@ type EcsJobDefinitionProps struct {
 	// Default: none.
 	//
 	SchedulingPriority *float64 `field:"optional" json:"schedulingPriority" yaml:"schedulingPriority"`
+	// Specifies whether the previous revision of the job definition is retained in an active status after UPDATE events for the resource.
+	//
+	// When the property is set to false, the previous revision of the job definition is de-registered after a new revision is created.
+	// When the property is set to true, the previous revision of the job definition is not de-registered.
+	// Default: undefined - AWS Batch default is false.
+	//
+	SkipDeregisterOnUpdate *bool `field:"optional" json:"skipDeregisterOnUpdate" yaml:"skipDeregisterOnUpdate"`
 	// The timeout time for jobs that are submitted with this job definition.
 	//
 	// After the amount of time you specify passes,

@@ -1156,6 +1156,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ISqlHaStandbyDetectedInstanceRef",
+		reflect.TypeOf((*ISqlHaStandbyDetectedInstanceRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sqlHaStandbyDetectedInstanceRef", GoGetter: "SqlHaStandbyDetectedInstanceRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISqlHaStandbyDetectedInstanceRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.ISubnetCidrBlockRef",
 		reflect.TypeOf((*ISubnetCidrBlockRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2058,6 +2074,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.SpotFleetReference",
 		reflect.TypeOf((*SpotFleetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.SqlHaStandbyDetectedInstanceReference",
+		reflect.TypeOf((*SqlHaStandbyDetectedInstanceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.SubnetCidrBlockReference",

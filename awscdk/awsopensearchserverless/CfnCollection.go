@@ -64,6 +64,7 @@ type CfnCollection interface {
 	//
 	// For example, `https://07tjusf2h91cunochc.us-east-1.aoss.amazonaws.com/_dashboards` .
 	AttrDashboardEndpoint() *string
+	AttrFipsEndpoints() awscdk.IResolvable
 	// A unique identifier for the collection.
 	//
 	// For example, `07tjusf2h91cunochc` .
@@ -309,6 +310,16 @@ func (j *jsiiProxy_CfnCollection) AttrDashboardEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrDashboardEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCollection) AttrFipsEndpoints() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrFipsEndpoints",
 		&returns,
 	)
 	return returns

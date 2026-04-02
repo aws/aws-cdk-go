@@ -42,6 +42,15 @@ import (
 //   	IamRoleArn: jsii.String("iamRoleArn"),
 //   	ImageArn: jsii.String("imageArn"),
 //   	ImageName: jsii.String("imageName"),
+//   	RootVolumeConfig: &VolumeConfigProperty{
+//   		VolumeSizeInGb: jsii.Number(123),
+//   	},
+//   	SoftwaresToInstall: []*string{
+//   		jsii.String("softwaresToInstall"),
+//   	},
+//   	SoftwaresToUninstall: []*string{
+//   		jsii.String("softwaresToUninstall"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -131,6 +140,12 @@ type CfnImageBuilder interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	RootVolumeConfig() interface{}
+	SetRootVolumeConfig(val interface{})
+	SoftwaresToInstall() *[]*string
+	SetSoftwaresToInstall(val *[]*string)
+	SoftwaresToUninstall() *[]*string
+	SetSoftwaresToUninstall(val *[]*string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -508,6 +523,36 @@ func (j *jsiiProxy_CfnImageBuilder) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageBuilder) RootVolumeConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rootVolumeConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageBuilder) SoftwaresToInstall() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"softwaresToInstall",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnImageBuilder) SoftwaresToUninstall() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"softwaresToUninstall",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageBuilder) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -697,6 +742,33 @@ func (j *jsiiProxy_CfnImageBuilder)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageBuilder)SetRootVolumeConfig(val interface{}) {
+	if err := j.validateSetRootVolumeConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rootVolumeConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageBuilder)SetSoftwaresToInstall(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"softwaresToInstall",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageBuilder)SetSoftwaresToUninstall(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"softwaresToUninstall",
 		val,
 	)
 }
