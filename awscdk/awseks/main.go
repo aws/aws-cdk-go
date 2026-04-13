@@ -814,6 +814,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+			_jsii_.MemberProperty{JsiiProperty: "warmPoolConfig", GoGetter: "WarmPoolConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
@@ -852,6 +853,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnNodegroup.UpdateConfigProperty",
 		reflect.TypeOf((*CfnNodegroup_UpdateConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnNodegroup.WarmPoolConfigProperty",
+		reflect.TypeOf((*CfnNodegroup_WarmPoolConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnNodegroupProps",

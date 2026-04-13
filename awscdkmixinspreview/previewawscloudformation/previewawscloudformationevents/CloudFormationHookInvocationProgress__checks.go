@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressPatternParameters(options *CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressProps) error {
+func validateCloudFormationHookInvocationProgress_EventPatternParameters(options *CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

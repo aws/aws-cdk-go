@@ -124,6 +124,10 @@ func init() {
 		reflect.TypeOf((*CfnEvaluatorPropsMixin_CategoricalScaleDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.CodeBasedEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_CodeBasedEvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.EvaluatorConfigProperty",
 		reflect.TypeOf((*CfnEvaluatorPropsMixin_EvaluatorConfigProperty)(nil)).Elem(),
 	)
@@ -134,6 +138,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.InferenceConfigurationProperty",
 		reflect.TypeOf((*CfnEvaluatorPropsMixin_InferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.LambdaEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_LambdaEvaluatorConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.LlmAsAJudgeEvaluatorConfigProperty",

@@ -53,17 +53,17 @@ func NewEBSSnapshotNotification_Override(e EBSSnapshotNotification) {
 
 // EventBridge event pattern for EBS Snapshot Notification.
 // Experimental.
-func EBSSnapshotNotification_EbsSnapshotNotificationPattern(options *EBSSnapshotNotification_EBSSnapshotNotificationProps) *awsevents.EventPattern {
+func EBSSnapshotNotification_EventPattern(options *EBSSnapshotNotification_EBSSnapshotNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEBSSnapshotNotification_EbsSnapshotNotificationPatternParameters(options); err != nil {
+	if err := validateEBSSnapshotNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ec2.events.EBSSnapshotNotification",
-		"ebsSnapshotNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

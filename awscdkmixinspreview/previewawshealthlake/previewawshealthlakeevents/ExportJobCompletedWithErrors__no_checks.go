@@ -4,7 +4,7 @@ package previewawshealthlakeevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateExportJobCompletedWithErrors_ExportJobCompletedWithErrorsPatternParameters(options *ExportJobCompletedWithErrors_ExportJobCompletedWithErrorsProps) error {
+func validateExportJobCompletedWithErrors_EventPatternParameters(options *ExportJobCompletedWithErrors_ExportJobCompletedWithErrorsProps) error {
 	return nil
 }
 

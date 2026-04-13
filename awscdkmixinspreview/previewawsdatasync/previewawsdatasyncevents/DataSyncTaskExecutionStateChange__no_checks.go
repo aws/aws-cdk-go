@@ -4,7 +4,7 @@ package previewawsdatasyncevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateDataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangePatternParameters(options *DataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangeProps) error {
+func validateDataSyncTaskExecutionStateChange_EventPatternParameters(options *DataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangeProps) error {
 	return nil
 }
 

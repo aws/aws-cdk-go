@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateBatchJobStateChange_BatchJobStateChangePatternParameters(options *BatchJobStateChange_BatchJobStateChangeProps) error {
+func validateBatchJobStateChange_EventPatternParameters(options *BatchJobStateChange_BatchJobStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -148,7 +148,7 @@ distributionConfig := &DistributionConfigProperty{
 }
 
 // Override the distribution configuration to enable multi-tenancy.
-cfnDistribution.DistributionConfig = distributionConfig
+cfnDistribution.distributionConfig = distributionConfig
 
 // Create a distribution tenant using an existing ACM certificate
 cfnDistributionTenant := cloudfront.NewCfnDistributionTenant(this, jsii.String("distribution-tenant"), &CfnDistributionTenantProps{
@@ -245,7 +245,7 @@ distributionConfig := &DistributionConfigProperty{
 }
 
 // Override the distribution configuration to enable multi-tenancy.
-cfnDistribution.DistributionConfig = distributionConfig
+cfnDistribution.distributionConfig = distributionConfig
 
 // Create a connection group and a cname record in an existing hosted zone to validate domain ownership
 connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("cf-hosted-connection-group"), &CfnConnectionGroupProps{
@@ -357,7 +357,7 @@ distributionConfig := &DistributionConfigProperty{
 }
 
 // Override the distribution configuration to enable multi-tenancy.
-cfnDistribution.DistributionConfig = distributionConfig
+cfnDistribution.distributionConfig = distributionConfig
 
 // Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
 connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{

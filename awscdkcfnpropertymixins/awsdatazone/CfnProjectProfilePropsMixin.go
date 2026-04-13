@@ -21,6 +21,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnProjectProfilePropsMixin := awscdkcfnpropertymixins.Aws_datazone.NewCfnProjectProfilePropsMixin(&CfnProjectProfileMixinProps{
+//   	AllowCustomProjectResourceTags: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	DomainUnitIdentifier: jsii.String("domainUnitIdentifier"),
@@ -58,6 +59,14 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	ProjectResourceTags: []interface{}{
+//   		&ResourceTagParameterProperty{
+//   			IsValueEditable: jsii.Boolean(false),
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ProjectResourceTagsDescription: jsii.String("projectResourceTagsDescription"),
 //   	Status: jsii.String("status"),
 //   	UseDefaultConfigurations: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{

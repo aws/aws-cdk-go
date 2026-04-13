@@ -167,13 +167,13 @@ func init() {
 			"RESOURCE_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_TYPE,
 			"EVENT_TIMESTAMP": CfnClusterPcsSchedulerAuditLogsRecordFields_EVENT_TIMESTAMP,
 			"LOG_LEVEL": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_LEVEL,
+			"LOG_NAME": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_NAME,
 			"SCHEDULER_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_TYPE,
+			"SCHEDULER_MAJOR_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_MAJOR_VERSION,
 			"SCHEDULER_PATCH_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_PATCH_VERSION,
 			"NODE_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_NODE_TYPE,
-			"MESSAGE": CfnClusterPcsSchedulerAuditLogsRecordFields_MESSAGE,
-			"LOG_NAME": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_NAME,
-			"SCHEDULER_MAJOR_VERSION": CfnClusterPcsSchedulerAuditLogsRecordFields_SCHEDULER_MAJOR_VERSION,
 			"LOG_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_LOG_TYPE,
+			"MESSAGE": CfnClusterPcsSchedulerAuditLogsRecordFields_MESSAGE,
 		},
 	)
 	_jsii_.RegisterStruct(

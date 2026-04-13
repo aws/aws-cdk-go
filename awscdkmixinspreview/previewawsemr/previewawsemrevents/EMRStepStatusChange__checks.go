@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEMRStepStatusChange_EmrStepStatusChangePatternParameters(options *EMRStepStatusChange_EMRStepStatusChangeProps) error {
+func validateEMRStepStatusChange_EventPatternParameters(options *EMRStepStatusChange_EMRStepStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

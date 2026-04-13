@@ -53,17 +53,17 @@ func NewEMRStepStatusChange_Override(e EMRStepStatusChange) {
 
 // EventBridge event pattern for EMR Step Status Change.
 // Experimental.
-func EMRStepStatusChange_EmrStepStatusChangePattern(options *EMRStepStatusChange_EMRStepStatusChangeProps) *awsevents.EventPattern {
+func EMRStepStatusChange_EventPattern(options *EMRStepStatusChange_EMRStepStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRStepStatusChange_EmrStepStatusChangePatternParameters(options); err != nil {
+	if err := validateEMRStepStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRStepStatusChange",
-		"emrStepStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

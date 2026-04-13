@@ -434,6 +434,30 @@ func (j *jsiiProxy_CfnNodegroup) validateSetUpdateConfigParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnNodegroup) validateSetWarmPoolConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnNodegroup_WarmPoolConfigProperty:
+		val := val.(*CfnNodegroup_WarmPoolConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnNodegroup_WarmPoolConfigProperty:
+		val_ := val.(CfnNodegroup_WarmPoolConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnNodegroup_WarmPoolConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnNodegroupParameters(scope constructs.Construct, id *string, props *CfnNodegroupProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

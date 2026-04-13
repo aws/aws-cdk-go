@@ -22,6 +22,14 @@ import (
 //
 //   cfnEvaluator := awscdk.Aws_bedrockagentcore.NewCfnEvaluator(this, jsii.String("MyCfnEvaluator"), &CfnEvaluatorProps{
 //   	EvaluatorConfig: &EvaluatorConfigProperty{
+//   		CodeBased: &CodeBasedEvaluatorConfigProperty{
+//   			LambdaConfig: &LambdaEvaluatorConfigProperty{
+//   				LambdaArn: jsii.String("lambdaArn"),
+//
+//   				// the properties below are optional
+//   				LambdaTimeoutInSeconds: jsii.Number(123),
+//   			},
+//   		},
 //   		LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{
 //   			Instructions: jsii.String("instructions"),
 //   			ModelConfig: &EvaluatorModelConfigProperty{

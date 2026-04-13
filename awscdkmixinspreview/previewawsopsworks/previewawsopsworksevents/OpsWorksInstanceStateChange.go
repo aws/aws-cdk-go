@@ -53,17 +53,17 @@ func NewOpsWorksInstanceStateChange_Override(o OpsWorksInstanceStateChange) {
 
 // EventBridge event pattern for OpsWorks Instance State Change.
 // Experimental.
-func OpsWorksInstanceStateChange_OpsWorksInstanceStateChangePattern(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) *awsevents.EventPattern {
+func OpsWorksInstanceStateChange_EventPattern(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateOpsWorksInstanceStateChange_OpsWorksInstanceStateChangePatternParameters(options); err != nil {
+	if err := validateOpsWorksInstanceStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksInstanceStateChange",
-		"opsWorksInstanceStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

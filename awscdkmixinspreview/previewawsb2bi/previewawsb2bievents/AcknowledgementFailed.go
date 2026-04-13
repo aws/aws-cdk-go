@@ -53,17 +53,17 @@ func NewAcknowledgementFailed_Override(a AcknowledgementFailed) {
 
 // EventBridge event pattern for Acknowledgement Failed.
 // Experimental.
-func AcknowledgementFailed_AcknowledgementFailedPattern(options *AcknowledgementFailed_AcknowledgementFailedProps) *awsevents.EventPattern {
+func AcknowledgementFailed_EventPattern(options *AcknowledgementFailed_AcknowledgementFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAcknowledgementFailed_AcknowledgementFailedPatternParameters(options); err != nil {
+	if err := validateAcknowledgementFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_b2bi.events.AcknowledgementFailed",
-		"acknowledgementFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewFirewallAttachmentStatusChanged_Override(f FirewallAttachmentStatusChang
 
 // EventBridge event pattern for Firewall Attachment Status Changed.
 // Experimental.
-func FirewallAttachmentStatusChanged_FirewallAttachmentStatusChangedPattern(options *FirewallAttachmentStatusChanged_FirewallAttachmentStatusChangedProps) *awsevents.EventPattern {
+func FirewallAttachmentStatusChanged_EventPattern(options *FirewallAttachmentStatusChanged_FirewallAttachmentStatusChangedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFirewallAttachmentStatusChanged_FirewallAttachmentStatusChangedPatternParameters(options); err != nil {
+	if err := validateFirewallAttachmentStatusChanged_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_networkfirewall.events.FirewallAttachmentStatusChanged",
-		"firewallAttachmentStatusChangedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

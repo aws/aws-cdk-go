@@ -53,17 +53,17 @@ func NewEMRAutoScalingPolicyStateChange_Override(e EMRAutoScalingPolicyStateChan
 
 // EventBridge event pattern for EMR Auto Scaling Policy State Change.
 // Experimental.
-func EMRAutoScalingPolicyStateChange_EmrAutoScalingPolicyStateChangePattern(options *EMRAutoScalingPolicyStateChange_EMRAutoScalingPolicyStateChangeProps) *awsevents.EventPattern {
+func EMRAutoScalingPolicyStateChange_EventPattern(options *EMRAutoScalingPolicyStateChange_EMRAutoScalingPolicyStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRAutoScalingPolicyStateChange_EmrAutoScalingPolicyStateChangePatternParameters(options); err != nil {
+	if err := validateEMRAutoScalingPolicyStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRAutoScalingPolicyStateChange",
-		"emrAutoScalingPolicyStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

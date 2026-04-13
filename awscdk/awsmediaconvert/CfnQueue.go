@@ -542,6 +542,9 @@ func (j *jsiiProxy_CfnQueue)SetStatus(val *string) {
 }
 
 func (j *jsiiProxy_CfnQueue)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

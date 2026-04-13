@@ -4,7 +4,7 @@ package previewawshealthimagingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateImageSetDeleted_ImageSetDeletedPatternParameters(options *ImageSetDeleted_ImageSetDeletedProps) error {
+func validateImageSetDeleted_EventPatternParameters(options *ImageSetDeleted_ImageSetDeletedProps) error {
 	return nil
 }
 

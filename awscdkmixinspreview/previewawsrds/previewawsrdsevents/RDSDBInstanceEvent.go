@@ -53,17 +53,17 @@ func NewRDSDBInstanceEvent_Override(r RDSDBInstanceEvent) {
 
 // EventBridge event pattern for RDS DB Instance Event.
 // Experimental.
-func RDSDBInstanceEvent_RdsDBInstanceEventPattern(options *RDSDBInstanceEvent_RDSDBInstanceEventProps) *awsevents.EventPattern {
+func RDSDBInstanceEvent_EventPattern(options *RDSDBInstanceEvent_RDSDBInstanceEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRDSDBInstanceEvent_RdsDBInstanceEventPatternParameters(options); err != nil {
+	if err := validateRDSDBInstanceEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_rds.events.RDSDBInstanceEvent",
-		"rdsDBInstanceEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -563,6 +563,9 @@ func (j *jsiiProxy_CfnCoreNetwork)SetGlobalNetworkId(val *string) {
 }
 
 func (j *jsiiProxy_CfnCoreNetwork)SetPolicyDocument(val interface{}) {
+	if err := j.validateSetPolicyDocumentParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policyDocument",

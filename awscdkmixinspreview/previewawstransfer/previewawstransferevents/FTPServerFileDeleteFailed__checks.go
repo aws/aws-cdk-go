@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateFTPServerFileDeleteFailed_FtpServerFileDeleteFailedPatternParameters(options *FTPServerFileDeleteFailed_FTPServerFileDeleteFailedProps) error {
+func validateFTPServerFileDeleteFailed_EventPatternParameters(options *FTPServerFileDeleteFailed_FTPServerFileDeleteFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

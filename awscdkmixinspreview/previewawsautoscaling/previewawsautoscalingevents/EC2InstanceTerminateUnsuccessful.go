@@ -53,17 +53,17 @@ func NewEC2InstanceTerminateUnsuccessful_Override(e EC2InstanceTerminateUnsucces
 
 // EventBridge event pattern for EC2 Instance Terminate Unsuccessful.
 // Experimental.
-func EC2InstanceTerminateUnsuccessful_Ec2InstanceTerminateUnsuccessfulPattern(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) *awsevents.EventPattern {
+func EC2InstanceTerminateUnsuccessful_EventPattern(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceTerminateUnsuccessful_Ec2InstanceTerminateUnsuccessfulPatternParameters(options); err != nil {
+	if err := validateEC2InstanceTerminateUnsuccessful_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_autoscaling.events.EC2InstanceTerminateUnsuccessful",
-		"ec2InstanceTerminateUnsuccessfulPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

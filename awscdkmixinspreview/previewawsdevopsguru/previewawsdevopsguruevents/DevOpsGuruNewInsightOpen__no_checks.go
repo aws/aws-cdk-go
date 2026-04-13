@@ -4,7 +4,7 @@ package previewawsdevopsguruevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateDevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenPatternParameters(options *DevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenProps) error {
+func validateDevOpsGuruNewInsightOpen_EventPatternParameters(options *DevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenProps) error {
 	return nil
 }
 

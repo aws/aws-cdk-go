@@ -59,7 +59,9 @@ import (
 //   deliveryStream := firehose.NewDeliveryStream(stack, jsii.String("DeliveryStream"), &DeliveryStreamProps{
 //   	Destination: firehose.NewS3Bucket(bucket, &S3BucketProps{
 //   		LoggingConfig: firehose.NewEnableLogging(logGroup),
-//   		Processor: processor,
+//   		Processors: []IDataProcessor{
+//   			processor,
+//   		},
 //   		Compression: firehose.Compression_GZIP(),
 //   		DataOutputPrefix: jsii.String("regularPrefix"),
 //   		ErrorOutputPrefix: jsii.String("errorPrefix"),

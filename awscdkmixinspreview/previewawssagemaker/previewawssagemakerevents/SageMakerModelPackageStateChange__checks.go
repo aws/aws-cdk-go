@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSageMakerModelPackageStateChange_SageMakerModelPackageStateChangePatternParameters(options *SageMakerModelPackageStateChange_SageMakerModelPackageStateChangeProps) error {
+func validateSageMakerModelPackageStateChange_EventPatternParameters(options *SageMakerModelPackageStateChange_SageMakerModelPackageStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -53,17 +53,17 @@ func NewDataSyncTaskExecutionStateChange_Override(d DataSyncTaskExecutionStateCh
 
 // EventBridge event pattern for DataSync Task Execution State Change.
 // Experimental.
-func DataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangePattern(options *DataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangeProps) *awsevents.EventPattern {
+func DataSyncTaskExecutionStateChange_EventPattern(options *DataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataSyncTaskExecutionStateChange_DataSyncTaskExecutionStateChangePatternParameters(options); err != nil {
+	if err := validateDataSyncTaskExecutionStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_datasync.events.DataSyncTaskExecutionStateChange",
-		"dataSyncTaskExecutionStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

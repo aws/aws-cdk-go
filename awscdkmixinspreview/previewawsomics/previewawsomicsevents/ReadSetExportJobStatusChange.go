@@ -53,17 +53,17 @@ func NewReadSetExportJobStatusChange_Override(r ReadSetExportJobStatusChange) {
 
 // EventBridge event pattern for Read Set Export Job Status Change.
 // Experimental.
-func ReadSetExportJobStatusChange_ReadSetExportJobStatusChangePattern(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) *awsevents.EventPattern {
+func ReadSetExportJobStatusChange_EventPattern(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateReadSetExportJobStatusChange_ReadSetExportJobStatusChangePatternParameters(options); err != nil {
+	if err := validateReadSetExportJobStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.ReadSetExportJobStatusChange",
-		"readSetExportJobStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

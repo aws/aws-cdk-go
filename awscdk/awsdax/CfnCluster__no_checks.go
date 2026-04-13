@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnCluster) validateSetSseSpecificationParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	return nil
 }

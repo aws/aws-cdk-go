@@ -8,6 +8,8 @@ package awsdatazone
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var workflowsServerlessProperties interface{}
+//
 //   connectionPropertiesInputProperty := &ConnectionPropertiesInputProperty{
 //   	AmazonQProperties: &AmazonQPropertiesInputProperty{
 //   		AuthMode: jsii.String("authMode"),
@@ -141,6 +143,10 @@ package awsdatazone
 //   		PythonVirtualEnv: jsii.String("pythonVirtualEnv"),
 //   		WorkerType: jsii.String("workerType"),
 //   	},
+//   	WorkflowsMwaaProperties: &WorkflowsMwaaPropertiesInputProperty{
+//   		MwaaEnvironmentName: jsii.String("mwaaEnvironmentName"),
+//   	},
+//   	WorkflowsServerlessProperties: workflowsServerlessProperties,
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html
@@ -186,5 +192,13 @@ type CfnConnectionPropsMixin_ConnectionPropertiesInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-sparkglueproperties
 	//
 	SparkGlueProperties interface{} `field:"optional" json:"sparkGlueProperties" yaml:"sparkGlueProperties"`
+	// Workflows MWAA Properties Input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-workflowsmwaaproperties
+	//
+	WorkflowsMwaaProperties interface{} `field:"optional" json:"workflowsMwaaProperties" yaml:"workflowsMwaaProperties"`
+	// Workflows Serverless Properties Input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-workflowsserverlessproperties
+	//
+	WorkflowsServerlessProperties interface{} `field:"optional" json:"workflowsServerlessProperties" yaml:"workflowsServerlessProperties"`
 }
 

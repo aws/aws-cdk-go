@@ -4,7 +4,7 @@ package previewawsopsworksevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateOpsWorksCommandStateChange_OpsWorksCommandStateChangePatternParameters(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) error {
+func validateOpsWorksCommandStateChange_EventPatternParameters(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) error {
 	return nil
 }
 

@@ -4,7 +4,7 @@ package previewawsgameliftevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateGameLiftQueuePlacementEvent_GameLiftQueuePlacementEventPatternParameters(options *GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventProps) error {
+func validateGameLiftQueuePlacementEvent_EventPatternParameters(options *GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventProps) error {
 	return nil
 }
 

@@ -101,7 +101,6 @@ type CfnCluster interface {
 	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
 	ManagedScalingPolicy() interface{}
 	SetManagedScalingPolicy(val interface{})
-	// Contains CloudWatch log configuration metadata and settings.
 	MonitoringConfiguration() interface{}
 	SetMonitoringConfiguration(val interface{})
 	// The name of the cluster.
@@ -112,7 +111,6 @@ type CfnCluster interface {
 	// The Amazon Linux release specified in a cluster launch RunJobFlow request.
 	OsReleaseLabel() *string
 	SetOsReleaseLabel(val *string)
-	// The configuration specifies the placement strategy that can be applied to instance roles during cluster creation.
 	PlacementGroupConfigs() interface{}
 	SetPlacementGroupConfigs(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -161,9 +159,7 @@ type CfnCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster.
-	// Deprecated: this property has been deprecated.
 	VisibleToAllUsers() interface{}
-	// Deprecated: this property has been deprecated.
 	SetVisibleToAllUsers(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
@@ -768,6 +764,9 @@ func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string
 }
 
 func (j *jsiiProxy_CfnCluster)SetAdditionalInfo(val interface{}) {
+	if err := j.validateSetAdditionalInfoParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"additionalInfo",

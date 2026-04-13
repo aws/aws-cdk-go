@@ -4,7 +4,7 @@ package previewawsb2bievents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAcknowledgementFailed_AcknowledgementFailedPatternParameters(options *AcknowledgementFailed_AcknowledgementFailedProps) error {
+func validateAcknowledgementFailed_EventPatternParameters(options *AcknowledgementFailed_AcknowledgementFailedProps) error {
 	return nil
 }
 

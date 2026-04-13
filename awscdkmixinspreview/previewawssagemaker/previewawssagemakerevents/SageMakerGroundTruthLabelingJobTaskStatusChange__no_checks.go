@@ -4,7 +4,7 @@ package previewawssagemakerevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateSageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangePatternParameters(options *SageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangeProps) error {
+func validateSageMakerGroundTruthLabelingJobTaskStatusChange_EventPatternParameters(options *SageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangeProps) error {
 	return nil
 }
 

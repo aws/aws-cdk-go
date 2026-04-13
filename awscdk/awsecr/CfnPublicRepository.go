@@ -459,6 +459,9 @@ func NewCfnPublicRepository_Override(c CfnPublicRepository, scope constructs.Con
 }
 
 func (j *jsiiProxy_CfnPublicRepository)SetRepositoryCatalogData(val interface{}) {
+	if err := j.validateSetRepositoryCatalogDataParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"repositoryCatalogData",
@@ -475,6 +478,9 @@ func (j *jsiiProxy_CfnPublicRepository)SetRepositoryName(val *string) {
 }
 
 func (j *jsiiProxy_CfnPublicRepository)SetRepositoryPolicyText(val interface{}) {
+	if err := j.validateSetRepositoryPolicyTextParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"repositoryPolicyText",

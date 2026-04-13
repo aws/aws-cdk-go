@@ -4,7 +4,7 @@ package previewawsemrevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateEMRAutoScalingPolicyStateChange_EmrAutoScalingPolicyStateChangePatternParameters(options *EMRAutoScalingPolicyStateChange_EMRAutoScalingPolicyStateChangeProps) error {
+func validateEMRAutoScalingPolicyStateChange_EventPatternParameters(options *EMRAutoScalingPolicyStateChange_EMRAutoScalingPolicyStateChangeProps) error {
 	return nil
 }
 

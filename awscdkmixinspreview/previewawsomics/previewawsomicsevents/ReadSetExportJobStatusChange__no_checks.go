@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateReadSetExportJobStatusChange_ReadSetExportJobStatusChangePatternParameters(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) error {
+func validateReadSetExportJobStatusChange_EventPatternParameters(options *ReadSetExportJobStatusChange_ReadSetExportJobStatusChangeProps) error {
 	return nil
 }
 

@@ -53,17 +53,17 @@ func NewSFTPServerFileRenameFailed_Override(s SFTPServerFileRenameFailed) {
 
 // EventBridge event pattern for SFTP Server File Rename Failed.
 // Experimental.
-func SFTPServerFileRenameFailed_SftPServerFileRenameFailedPattern(options *SFTPServerFileRenameFailed_SFTPServerFileRenameFailedProps) *awsevents.EventPattern {
+func SFTPServerFileRenameFailed_EventPattern(options *SFTPServerFileRenameFailed_SFTPServerFileRenameFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerFileRenameFailed_SftPServerFileRenameFailedPatternParameters(options); err != nil {
+	if err := validateSFTPServerFileRenameFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerFileRenameFailed",
-		"sftPServerFileRenameFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

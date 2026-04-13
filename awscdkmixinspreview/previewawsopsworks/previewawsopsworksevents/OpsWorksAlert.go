@@ -53,17 +53,17 @@ func NewOpsWorksAlert_Override(o OpsWorksAlert) {
 
 // EventBridge event pattern for OpsWorks Alert.
 // Experimental.
-func OpsWorksAlert_OpsWorksAlertPattern(options *OpsWorksAlert_OpsWorksAlertProps) *awsevents.EventPattern {
+func OpsWorksAlert_EventPattern(options *OpsWorksAlert_OpsWorksAlertProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateOpsWorksAlert_OpsWorksAlertPatternParameters(options); err != nil {
+	if err := validateOpsWorksAlert_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksAlert",
-		"opsWorksAlertPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

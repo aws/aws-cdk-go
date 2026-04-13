@@ -53,17 +53,17 @@ func NewExportJobInProgress_Override(e ExportJobInProgress) {
 
 // EventBridge event pattern for Export Job In Progress.
 // Experimental.
-func ExportJobInProgress_ExportJobInProgressPattern(options *ExportJobInProgress_ExportJobInProgressProps) *awsevents.EventPattern {
+func ExportJobInProgress_EventPattern(options *ExportJobInProgress_ExportJobInProgressProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateExportJobInProgress_ExportJobInProgressPatternParameters(options); err != nil {
+	if err := validateExportJobInProgress_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.ExportJobInProgress",
-		"exportJobInProgressPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

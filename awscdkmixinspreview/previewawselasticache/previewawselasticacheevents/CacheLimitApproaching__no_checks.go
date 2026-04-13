@@ -4,7 +4,7 @@ package previewawselasticacheevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCacheLimitApproaching_CacheLimitApproachingPatternParameters(options *CacheLimitApproaching_CacheLimitApproachingProps) error {
+func validateCacheLimitApproaching_EventPatternParameters(options *CacheLimitApproaching_CacheLimitApproachingProps) error {
 	return nil
 }
 

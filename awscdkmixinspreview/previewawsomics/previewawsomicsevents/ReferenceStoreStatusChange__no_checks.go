@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateReferenceStoreStatusChange_ReferenceStoreStatusChangePatternParameters(options *ReferenceStoreStatusChange_ReferenceStoreStatusChangeProps) error {
+func validateReferenceStoreStatusChange_EventPatternParameters(options *ReferenceStoreStatusChange_ReferenceStoreStatusChangeProps) error {
 	return nil
 }
 

@@ -4,7 +4,7 @@ package previewawscloudwatchevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangePatternParameters(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) error {
+func validateCloudWatchAlarmConfigurationChange_EventPatternParameters(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) error {
 	return nil
 }
 

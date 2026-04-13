@@ -53,17 +53,17 @@ func NewCacheUpdated_Override(c CacheUpdated) {
 
 // EventBridge event pattern for Cache Updated.
 // Experimental.
-func CacheUpdated_CacheUpdatedPattern(options *CacheUpdated_CacheUpdatedProps) *awsevents.EventPattern {
+func CacheUpdated_EventPattern(options *CacheUpdated_CacheUpdatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCacheUpdated_CacheUpdatedPatternParameters(options); err != nil {
+	if err := validateCacheUpdated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.CacheUpdated",
-		"cacheUpdatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

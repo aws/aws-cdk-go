@@ -53,17 +53,17 @@ func NewImportJobFailed_Override(i ImportJobFailed) {
 
 // EventBridge event pattern for Import Job Failed.
 // Experimental.
-func ImportJobFailed_ImportJobFailedPattern(options *ImportJobFailed_ImportJobFailedProps) *awsevents.EventPattern {
+func ImportJobFailed_EventPattern(options *ImportJobFailed_ImportJobFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImportJobFailed_ImportJobFailedPatternParameters(options); err != nil {
+	if err := validateImportJobFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.ImportJobFailed",
-		"importJobFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

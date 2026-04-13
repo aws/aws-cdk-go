@@ -92,6 +92,10 @@ func validateCfnCustomEntityType_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCustomEntityType) validateSetTagsParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnCustomEntityTypeParameters(scope constructs.Construct, id *string, props *CfnCustomEntityTypeProps) error {
 	return nil
 }

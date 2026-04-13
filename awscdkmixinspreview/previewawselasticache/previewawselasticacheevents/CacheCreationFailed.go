@@ -53,17 +53,17 @@ func NewCacheCreationFailed_Override(c CacheCreationFailed) {
 
 // EventBridge event pattern for Cache Creation Failed.
 // Experimental.
-func CacheCreationFailed_CacheCreationFailedPattern(options *CacheCreationFailed_CacheCreationFailedProps) *awsevents.EventPattern {
+func CacheCreationFailed_EventPattern(options *CacheCreationFailed_CacheCreationFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCacheCreationFailed_CacheCreationFailedPatternParameters(options); err != nil {
+	if err := validateCacheCreationFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.CacheCreationFailed",
-		"cacheCreationFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

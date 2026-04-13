@@ -21,7 +21,6 @@ package awsemr
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-emrconfiguration.html
 //
 type CfnCluster_EMRConfigurationProperty struct {
-	// The classification within a configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-emrconfiguration.html#cfn-emr-cluster-emrconfiguration-classification
 	//
 	Classification *string `field:"optional" json:"classification" yaml:"classification"`

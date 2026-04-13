@@ -53,17 +53,17 @@ func NewDevOpsGuruNewInsightOpen_Override(d DevOpsGuruNewInsightOpen) {
 
 // EventBridge event pattern for DevOps Guru New Insight Open.
 // Experimental.
-func DevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenPattern(options *DevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenProps) *awsevents.EventPattern {
+func DevOpsGuruNewInsightOpen_EventPattern(options *DevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDevOpsGuruNewInsightOpen_DevOpsGuruNewInsightOpenPatternParameters(options); err != nil {
+	if err := validateDevOpsGuruNewInsightOpen_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_devopsguru.events.DevOpsGuruNewInsightOpen",
-		"devOpsGuruNewInsightOpenPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

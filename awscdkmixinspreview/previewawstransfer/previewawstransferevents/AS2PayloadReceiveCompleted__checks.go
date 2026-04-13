@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateAS2PayloadReceiveCompleted_As2PayloadReceiveCompletedPatternParameters(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) error {
+func validateAS2PayloadReceiveCompleted_EventPatternParameters(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

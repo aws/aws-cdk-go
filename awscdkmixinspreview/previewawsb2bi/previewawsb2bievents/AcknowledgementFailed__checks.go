@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateAcknowledgementFailed_AcknowledgementFailedPatternParameters(options *AcknowledgementFailed_AcknowledgementFailedProps) error {
+func validateAcknowledgementFailed_EventPatternParameters(options *AcknowledgementFailed_AcknowledgementFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

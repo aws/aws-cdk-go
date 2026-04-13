@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnLoggerDefinition) validateSetNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoggerDefinition) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnLoggerDefinitionParameters(scope constructs.Construct, id *string, props *CfnLoggerDefinitionProps) error {
 	return nil
 }

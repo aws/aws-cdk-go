@@ -70,7 +70,7 @@ import (
 //   }
 //
 //   // Override the distribution configuration to enable multi-tenancy.
-//   cfnDistribution.DistributionConfig = distributionConfig
+//   cfnDistribution.distributionConfig = distributionConfig
 //
 //   // Create a connection group so we have access to the RoutingEndpoint associated with the tenant we are about to create
 //   connectionGroup := cloudfront.NewCfnConnectionGroup(this, jsii.String("self-hosted-connection-group"), &CfnConnectionGroupProps{

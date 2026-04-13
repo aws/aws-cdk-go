@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateECSServiceAction_EcsServiceActionPatternParameters(options *ECSServiceAction_ECSServiceActionProps) error {
+func validateECSServiceAction_EventPatternParameters(options *ECSServiceAction_ECSServiceActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -53,17 +53,17 @@ func NewFTPServerDirectoryDeleteFailed_Override(f FTPServerDirectoryDeleteFailed
 
 // EventBridge event pattern for FTP Server Directory Delete Failed.
 // Experimental.
-func FTPServerDirectoryDeleteFailed_FtpServerDirectoryDeleteFailedPattern(options *FTPServerDirectoryDeleteFailed_FTPServerDirectoryDeleteFailedProps) *awsevents.EventPattern {
+func FTPServerDirectoryDeleteFailed_EventPattern(options *FTPServerDirectoryDeleteFailed_FTPServerDirectoryDeleteFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPServerDirectoryDeleteFailed_FtpServerDirectoryDeleteFailedPatternParameters(options); err != nil {
+	if err := validateFTPServerDirectoryDeleteFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPServerDirectoryDeleteFailed",
-		"ftpServerDirectoryDeleteFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

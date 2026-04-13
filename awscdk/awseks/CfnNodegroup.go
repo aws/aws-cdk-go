@@ -95,6 +95,13 @@ import (
 //   		UpdateStrategy: jsii.String("updateStrategy"),
 //   	},
 //   	Version: jsii.String("version"),
+//   	WarmPoolConfig: &WarmPoolConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		MaxGroupPreparedCapacity: jsii.Number(123),
+//   		MinSize: jsii.Number(123),
+//   		PoolState: jsii.String("poolState"),
+//   		ReuseOnScaleIn: jsii.Boolean(false),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html
@@ -216,6 +223,9 @@ type CfnNodegroup interface {
 	// The Kubernetes version to use for your managed nodes.
 	Version() *string
 	SetVersion(val *string)
+	// The warm pool configuration for the node group.
+	WarmPoolConfig() interface{}
+	SetWarmPoolConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -718,6 +728,16 @@ func (j *jsiiProxy_CfnNodegroup) Version() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNodegroup) WarmPoolConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"warmPoolConfig",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::EKS::Nodegroup`.
 func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
@@ -929,6 +949,17 @@ func (j *jsiiProxy_CfnNodegroup)SetVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"version",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNodegroup)SetWarmPoolConfig(val interface{}) {
+	if err := j.validateSetWarmPoolConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"warmPoolConfig",
 		val,
 	)
 }

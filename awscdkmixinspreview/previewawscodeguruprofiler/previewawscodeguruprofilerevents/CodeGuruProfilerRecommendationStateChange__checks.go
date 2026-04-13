@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangePatternParameters(options *CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangeProps) error {
+func validateCodeGuruProfilerRecommendationStateChange_EventPatternParameters(options *CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

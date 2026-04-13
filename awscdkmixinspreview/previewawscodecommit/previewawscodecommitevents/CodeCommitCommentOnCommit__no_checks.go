@@ -4,7 +4,7 @@ package previewawscodecommitevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCodeCommitCommentOnCommit_CodeCommitCommentOnCommitPatternParameters(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) error {
+func validateCodeCommitCommentOnCommit_EventPatternParameters(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) error {
 	return nil
 }
 

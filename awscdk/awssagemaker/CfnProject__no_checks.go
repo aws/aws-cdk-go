@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnProject) validateSetServiceCatalogProvisionedProductDetail
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetServiceCatalogProvisioningDetailsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProject) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

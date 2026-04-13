@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateFTPSServerDirectoryCreateCompleted_FtpSServerDirectoryCreateCompletedPatternParameters(options *FTPSServerDirectoryCreateCompleted_FTPSServerDirectoryCreateCompletedProps) error {
+func validateFTPSServerDirectoryCreateCompleted_EventPatternParameters(options *FTPSServerDirectoryCreateCompleted_FTPSServerDirectoryCreateCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

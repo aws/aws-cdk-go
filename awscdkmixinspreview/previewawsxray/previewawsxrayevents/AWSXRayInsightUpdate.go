@@ -53,17 +53,17 @@ func NewAWSXRayInsightUpdate_Override(a AWSXRayInsightUpdate) {
 
 // EventBridge event pattern for AWS X-Ray Insight Update.
 // Experimental.
-func AWSXRayInsightUpdate_AwsXRayInsightUpdatePattern(options *AWSXRayInsightUpdate_AWSXRayInsightUpdateProps) *awsevents.EventPattern {
+func AWSXRayInsightUpdate_EventPattern(options *AWSXRayInsightUpdate_AWSXRayInsightUpdateProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAWSXRayInsightUpdate_AwsXRayInsightUpdatePatternParameters(options); err != nil {
+	if err := validateAWSXRayInsightUpdate_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_xray.events.AWSXRayInsightUpdate",
-		"awsXRayInsightUpdatePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

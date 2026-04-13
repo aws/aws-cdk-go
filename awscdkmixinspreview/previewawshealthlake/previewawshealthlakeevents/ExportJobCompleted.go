@@ -53,17 +53,17 @@ func NewExportJobCompleted_Override(e ExportJobCompleted) {
 
 // EventBridge event pattern for Export Job Completed.
 // Experimental.
-func ExportJobCompleted_ExportJobCompletedPattern(options *ExportJobCompleted_ExportJobCompletedProps) *awsevents.EventPattern {
+func ExportJobCompleted_EventPattern(options *ExportJobCompleted_ExportJobCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateExportJobCompleted_ExportJobCompletedPatternParameters(options); err != nil {
+	if err := validateExportJobCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.ExportJobCompleted",
-		"exportJobCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

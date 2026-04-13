@@ -53,17 +53,17 @@ func NewEMRInstanceGroupStatusNotification_Override(e EMRInstanceGroupStatusNoti
 
 // EventBridge event pattern for EMR Instance Group Status Notification.
 // Experimental.
-func EMRInstanceGroupStatusNotification_EmrInstanceGroupStatusNotificationPattern(options *EMRInstanceGroupStatusNotification_EMRInstanceGroupStatusNotificationProps) *awsevents.EventPattern {
+func EMRInstanceGroupStatusNotification_EventPattern(options *EMRInstanceGroupStatusNotification_EMRInstanceGroupStatusNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRInstanceGroupStatusNotification_EmrInstanceGroupStatusNotificationPatternParameters(options); err != nil {
+	if err := validateEMRInstanceGroupStatusNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRInstanceGroupStatusNotification",
-		"emrInstanceGroupStatusNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

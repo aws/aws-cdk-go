@@ -53,17 +53,17 @@ func NewEMRInstanceFleetStateChange_Override(e EMRInstanceFleetStateChange) {
 
 // EventBridge event pattern for EMR Instance Fleet State Change.
 // Experimental.
-func EMRInstanceFleetStateChange_EmrInstanceFleetStateChangePattern(options *EMRInstanceFleetStateChange_EMRInstanceFleetStateChangeProps) *awsevents.EventPattern {
+func EMRInstanceFleetStateChange_EventPattern(options *EMRInstanceFleetStateChange_EMRInstanceFleetStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRInstanceFleetStateChange_EmrInstanceFleetStateChangePatternParameters(options); err != nil {
+	if err := validateEMRInstanceFleetStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRInstanceFleetStateChange",
-		"emrInstanceFleetStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

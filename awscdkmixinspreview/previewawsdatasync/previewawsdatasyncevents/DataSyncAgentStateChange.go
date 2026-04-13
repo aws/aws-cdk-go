@@ -53,17 +53,17 @@ func NewDataSyncAgentStateChange_Override(d DataSyncAgentStateChange) {
 
 // EventBridge event pattern for DataSync Agent State Change.
 // Experimental.
-func DataSyncAgentStateChange_DataSyncAgentStateChangePattern(options *DataSyncAgentStateChange_DataSyncAgentStateChangeProps) *awsevents.EventPattern {
+func DataSyncAgentStateChange_EventPattern(options *DataSyncAgentStateChange_DataSyncAgentStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataSyncAgentStateChange_DataSyncAgentStateChangePatternParameters(options); err != nil {
+	if err := validateDataSyncAgentStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_datasync.events.DataSyncAgentStateChange",
-		"dataSyncAgentStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

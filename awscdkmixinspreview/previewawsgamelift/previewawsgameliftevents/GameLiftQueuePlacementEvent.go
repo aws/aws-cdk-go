@@ -53,17 +53,17 @@ func NewGameLiftQueuePlacementEvent_Override(g GameLiftQueuePlacementEvent) {
 
 // EventBridge event pattern for GameLift Queue Placement Event.
 // Experimental.
-func GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventPattern(options *GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventProps) *awsevents.EventPattern {
+func GameLiftQueuePlacementEvent_EventPattern(options *GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateGameLiftQueuePlacementEvent_GameLiftQueuePlacementEventPatternParameters(options); err != nil {
+	if err := validateGameLiftQueuePlacementEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_gamelift.events.GameLiftQueuePlacementEvent",
-		"gameLiftQueuePlacementEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

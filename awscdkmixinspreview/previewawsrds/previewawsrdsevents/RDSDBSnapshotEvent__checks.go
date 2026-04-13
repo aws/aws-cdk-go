@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateRDSDBSnapshotEvent_RdsDBSnapshotEventPatternParameters(options *RDSDBSnapshotEvent_RDSDBSnapshotEventProps) error {
+func validateRDSDBSnapshotEvent_EventPatternParameters(options *RDSDBSnapshotEvent_RDSDBSnapshotEventProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

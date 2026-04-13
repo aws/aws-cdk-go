@@ -53,17 +53,17 @@ func NewSFTPServerFileRenameCompleted_Override(s SFTPServerFileRenameCompleted) 
 
 // EventBridge event pattern for SFTP Server File Rename Completed.
 // Experimental.
-func SFTPServerFileRenameCompleted_SftPServerFileRenameCompletedPattern(options *SFTPServerFileRenameCompleted_SFTPServerFileRenameCompletedProps) *awsevents.EventPattern {
+func SFTPServerFileRenameCompleted_EventPattern(options *SFTPServerFileRenameCompleted_SFTPServerFileRenameCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerFileRenameCompleted_SftPServerFileRenameCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPServerFileRenameCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerFileRenameCompleted",
-		"sftPServerFileRenameCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

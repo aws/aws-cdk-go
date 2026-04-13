@@ -4,7 +4,7 @@ package previewawsglueevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
+func validateAWSAPICallViaCloudTrail_EventPatternParameters(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) error {
 	return nil
 }
 

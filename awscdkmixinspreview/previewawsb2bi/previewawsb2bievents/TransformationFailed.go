@@ -53,17 +53,17 @@ func NewTransformationFailed_Override(t TransformationFailed) {
 
 // EventBridge event pattern for Transformation Failed.
 // Experimental.
-func TransformationFailed_TransformationFailedPattern(options *TransformationFailed_TransformationFailedProps) *awsevents.EventPattern {
+func TransformationFailed_EventPattern(options *TransformationFailed_TransformationFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateTransformationFailed_TransformationFailedPatternParameters(options); err != nil {
+	if err := validateTransformationFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_b2bi.events.TransformationFailed",
-		"transformationFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

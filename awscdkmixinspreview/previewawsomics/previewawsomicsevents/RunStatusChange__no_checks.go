@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateRunStatusChange_RunStatusChangePatternParameters(options *RunStatusChange_RunStatusChangeProps) error {
+func validateRunStatusChange_EventPatternParameters(options *RunStatusChange_RunStatusChangeProps) error {
 	return nil
 }
 

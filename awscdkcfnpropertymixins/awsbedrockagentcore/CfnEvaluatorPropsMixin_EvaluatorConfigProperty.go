@@ -11,6 +11,12 @@ package awsbedrockagentcore
 //   var additionalModelRequestFields interface{}
 //
 //   evaluatorConfigProperty := &EvaluatorConfigProperty{
+//   	CodeBased: &CodeBasedEvaluatorConfigProperty{
+//   		LambdaConfig: &LambdaEvaluatorConfigProperty{
+//   			LambdaArn: jsii.String("lambdaArn"),
+//   			LambdaTimeoutInSeconds: jsii.Number(123),
+//   		},
+//   	},
 //   	LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{
 //   		Instructions: jsii.String("instructions"),
 //   		ModelConfig: &EvaluatorModelConfigProperty{
@@ -45,6 +51,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html
 //
 type CfnEvaluatorPropsMixin_EvaluatorConfigProperty struct {
+	// The configuration for code-based evaluation using a Lambda function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html#cfn-bedrockagentcore-evaluator-evaluatorconfig-codebased
+	//
+	CodeBased interface{} `field:"optional" json:"codeBased" yaml:"codeBased"`
 	// The configuration for LLM-as-a-Judge evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html#cfn-bedrockagentcore-evaluator-evaluatorconfig-llmasajudge
 	//

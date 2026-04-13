@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var workflowsServerlessProperties interface{}
+//
 //   cfnConnection := awscdk.Aws_datazone.NewCfnConnection(this, jsii.String("MyCfnConnection"), &CfnConnectionProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	Name: jsii.String("name"),
@@ -168,6 +170,10 @@ import (
 //   			PythonVirtualEnv: jsii.String("pythonVirtualEnv"),
 //   			WorkerType: jsii.String("workerType"),
 //   		},
+//   		WorkflowsMwaaProperties: &WorkflowsMwaaPropertiesInputProperty{
+//   			MwaaEnvironmentName: jsii.String("mwaaEnvironmentName"),
+//   		},
+//   		WorkflowsServerlessProperties: workflowsServerlessProperties,
 //   	},
 //   	Scope: jsii.String("scope"),
 //   })

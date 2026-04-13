@@ -132,6 +132,10 @@ func init() {
 		reflect.TypeOf((*CfnConnectionPropsMixin_UsernamePasswordProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnConnectionPropsMixin.WorkflowsMwaaPropertiesInputProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_WorkflowsMwaaPropertiesInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnDataSourceMixinProps",
 		reflect.TypeOf((*CfnDataSourceMixinProps)(nil)).Elem(),
 	)
@@ -591,6 +595,10 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectProfilePropsMixin.RegionProperty",
 		reflect.TypeOf((*CfnProjectProfilePropsMixin_RegionProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectProfilePropsMixin.ResourceTagParameterProperty",
+		reflect.TypeOf((*CfnProjectProfilePropsMixin_ResourceTagParameterProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin",
 		reflect.TypeOf((*CfnProjectPropsMixin)(nil)).Elem(),
@@ -614,6 +622,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin.EnvironmentParameterProperty",
 		reflect.TypeOf((*CfnProjectPropsMixin_EnvironmentParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin.ResourceTagProperty",
+		reflect.TypeOf((*CfnProjectPropsMixin_ResourceTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnSubscriptionTargetMixinProps",

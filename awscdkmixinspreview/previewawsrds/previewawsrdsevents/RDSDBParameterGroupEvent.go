@@ -53,17 +53,17 @@ func NewRDSDBParameterGroupEvent_Override(r RDSDBParameterGroupEvent) {
 
 // EventBridge event pattern for RDS DB Parameter Group Event.
 // Experimental.
-func RDSDBParameterGroupEvent_RdsDBParameterGroupEventPattern(options *RDSDBParameterGroupEvent_RDSDBParameterGroupEventProps) *awsevents.EventPattern {
+func RDSDBParameterGroupEvent_EventPattern(options *RDSDBParameterGroupEvent_RDSDBParameterGroupEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRDSDBParameterGroupEvent_RdsDBParameterGroupEventPatternParameters(options); err != nil {
+	if err := validateRDSDBParameterGroupEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_rds.events.RDSDBParameterGroupEvent",
-		"rdsDBParameterGroupEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

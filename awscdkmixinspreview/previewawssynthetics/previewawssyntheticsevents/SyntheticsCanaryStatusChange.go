@@ -53,17 +53,17 @@ func NewSyntheticsCanaryStatusChange_Override(s SyntheticsCanaryStatusChange) {
 
 // EventBridge event pattern for Synthetics Canary Status Change.
 // Experimental.
-func SyntheticsCanaryStatusChange_SyntheticsCanaryStatusChangePattern(options *SyntheticsCanaryStatusChange_SyntheticsCanaryStatusChangeProps) *awsevents.EventPattern {
+func SyntheticsCanaryStatusChange_EventPattern(options *SyntheticsCanaryStatusChange_SyntheticsCanaryStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSyntheticsCanaryStatusChange_SyntheticsCanaryStatusChangePatternParameters(options); err != nil {
+	if err := validateSyntheticsCanaryStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_synthetics.events.SyntheticsCanaryStatusChange",
-		"syntheticsCanaryStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

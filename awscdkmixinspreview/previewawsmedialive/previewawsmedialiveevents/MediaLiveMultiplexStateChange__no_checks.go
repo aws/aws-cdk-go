@@ -4,7 +4,7 @@ package previewawsmedialiveevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateMediaLiveMultiplexStateChange_MediaLiveMultiplexStateChangePatternParameters(options *MediaLiveMultiplexStateChange_MediaLiveMultiplexStateChangeProps) error {
+func validateMediaLiveMultiplexStateChange_EventPatternParameters(options *MediaLiveMultiplexStateChange_MediaLiveMultiplexStateChangeProps) error {
 	return nil
 }
 

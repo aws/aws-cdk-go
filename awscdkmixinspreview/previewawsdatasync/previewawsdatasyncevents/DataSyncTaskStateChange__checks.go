@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateDataSyncTaskStateChange_DataSyncTaskStateChangePatternParameters(options *DataSyncTaskStateChange_DataSyncTaskStateChangeProps) error {
+func validateDataSyncTaskStateChange_EventPatternParameters(options *DataSyncTaskStateChange_DataSyncTaskStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

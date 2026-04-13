@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateWorkflowStatusChange_WorkflowStatusChangePatternParameters(options *WorkflowStatusChange_WorkflowStatusChangeProps) error {
+func validateWorkflowStatusChange_EventPatternParameters(options *WorkflowStatusChange_WorkflowStatusChangeProps) error {
 	return nil
 }
 

@@ -53,17 +53,17 @@ func NewImportJobSubmitted_Override(i ImportJobSubmitted) {
 
 // EventBridge event pattern for Import Job Submitted.
 // Experimental.
-func ImportJobSubmitted_ImportJobSubmittedPattern(options *ImportJobSubmitted_ImportJobSubmittedProps) *awsevents.EventPattern {
+func ImportJobSubmitted_EventPattern(options *ImportJobSubmitted_ImportJobSubmittedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImportJobSubmitted_ImportJobSubmittedPatternParameters(options); err != nil {
+	if err := validateImportJobSubmitted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.ImportJobSubmitted",
-		"importJobSubmittedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

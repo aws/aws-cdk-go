@@ -178,6 +178,22 @@ batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myEc2ComputeEnv"), &
 })
 ```
 
+If your image needs GPU resources, specify `ECS_AL2023_NVIDIA`:
+
+```go
+var vpc IVpc
+
+
+batch.NewManagedEc2EcsComputeEnvironment(this, jsii.String("myGpuComputeEnv"), &ManagedEc2EcsComputeEnvironmentProps{
+	Vpc: Vpc,
+	Images: []EcsMachineImage{
+		&EcsMachineImage{
+			ImageType: batch.EcsMachineImageType_ECS_AL2023_NVIDIA,
+		},
+	},
+})
+```
+
 #### Allocation Strategies
 
 | Allocation Strategy           | Optimized for              | Downsides                     |

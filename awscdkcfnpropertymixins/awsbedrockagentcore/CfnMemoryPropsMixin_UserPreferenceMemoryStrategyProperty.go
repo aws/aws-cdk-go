@@ -15,6 +15,9 @@ package awsbedrockagentcore
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
+//   	NamespaceTemplates: []*string{
+//   		jsii.String("namespaceTemplates"),
+//   	},
 //   	Status: jsii.String("status"),
 //   	StrategyId: jsii.String("strategyId"),
 //   	Type: jsii.String("type"),
@@ -40,6 +43,10 @@ type CfnMemoryPropsMixin_UserPreferenceMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-namespaces
 	//
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	// List of namespaces for memory strategy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-namespacetemplates
+	//
+	NamespaceTemplates *[]*string `field:"optional" json:"namespaceTemplates" yaml:"namespaceTemplates"`
 	// The memory strategy status.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-status
 	//

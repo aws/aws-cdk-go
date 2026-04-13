@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAnnotationStoreStatusChange_AnnotationStoreStatusChangePatternParameters(options *AnnotationStoreStatusChange_AnnotationStoreStatusChangeProps) error {
+func validateAnnotationStoreStatusChange_EventPatternParameters(options *AnnotationStoreStatusChange_AnnotationStoreStatusChangeProps) error {
 	return nil
 }
 

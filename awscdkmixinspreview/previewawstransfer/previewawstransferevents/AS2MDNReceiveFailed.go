@@ -53,17 +53,17 @@ func NewAS2MDNReceiveFailed_Override(a AS2MDNReceiveFailed) {
 
 // EventBridge event pattern for AS2 MDN Receive Failed.
 // Experimental.
-func AS2MDNReceiveFailed_As2MDNReceiveFailedPattern(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) *awsevents.EventPattern {
+func AS2MDNReceiveFailed_EventPattern(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAS2MDNReceiveFailed_As2MDNReceiveFailedPatternParameters(options); err != nil {
+	if err := validateAS2MDNReceiveFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.AS2MDNReceiveFailed",
-		"as2MDNReceiveFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

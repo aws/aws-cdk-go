@@ -53,17 +53,17 @@ func NewECRPullThroughCacheAction_Override(e ECRPullThroughCacheAction) {
 
 // EventBridge event pattern for ECR Pull Through Cache Action.
 // Experimental.
-func ECRPullThroughCacheAction_EcrPullThroughCacheActionPattern(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) *awsevents.EventPattern {
+func ECRPullThroughCacheAction_EventPattern(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECRPullThroughCacheAction_EcrPullThroughCacheActionPatternParameters(options); err != nil {
+	if err := validateECRPullThroughCacheAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecr.events.ECRPullThroughCacheAction",
-		"ecrPullThroughCacheActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

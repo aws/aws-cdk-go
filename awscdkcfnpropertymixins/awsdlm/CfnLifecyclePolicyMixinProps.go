@@ -162,6 +162,9 @@ import (
 //   					IntervalUnit: jsii.String("intervalUnit"),
 //   				},
 //   				FastRestoreRule: &FastRestoreRuleProperty{
+//   					AvailabilityZoneIds: []*string{
+//   						jsii.String("availabilityZoneIds"),
+//   					},
 //   					AvailabilityZones: []*string{
 //   						jsii.String("availabilityZones"),
 //   					},

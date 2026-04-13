@@ -661,6 +661,9 @@ func (j *jsiiProxy_CfnFileSystem)SetEncrypted(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnFileSystem)SetFileSystemPolicy(val interface{}) {
+	if err := j.validateSetFileSystemPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"fileSystemPolicy",

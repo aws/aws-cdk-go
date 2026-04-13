@@ -53,17 +53,17 @@ func NewCodeCommitRepositoryStateChange_Override(c CodeCommitRepositoryStateChan
 
 // EventBridge event pattern for CodeCommit Repository State Change.
 // Experimental.
-func CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangePattern(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) *awsevents.EventPattern {
+func CodeCommitRepositoryStateChange_EventPattern(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangePatternParameters(options); err != nil {
+	if err := validateCodeCommitRepositoryStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codecommit.events.CodeCommitRepositoryStateChange",
-		"codeCommitRepositoryStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

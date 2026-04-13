@@ -734,6 +734,9 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskInvocationParameters(val inte
 }
 
 func (j *jsiiProxy_CfnMaintenanceWindowTask)SetTaskParameters(val interface{}) {
+	if err := j.validateSetTaskParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"taskParameters",

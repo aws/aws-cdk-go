@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateVariantImportJobStatusChange_VariantImportJobStatusChangePatternParameters(options *VariantImportJobStatusChange_VariantImportJobStatusChangeProps) error {
+func validateVariantImportJobStatusChange_EventPatternParameters(options *VariantImportJobStatusChange_VariantImportJobStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -53,17 +53,17 @@ func NewSecurityHubFindingsImported_Override(s SecurityHubFindingsImported) {
 
 // EventBridge event pattern for Security Hub Findings - Imported.
 // Experimental.
-func SecurityHubFindingsImported_SecurityHubFindingsImportedPattern(options *SecurityHubFindingsImported_SecurityHubFindingsImportedProps) *awsevents.EventPattern {
+func SecurityHubFindingsImported_EventPattern(options *SecurityHubFindingsImported_SecurityHubFindingsImportedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSecurityHubFindingsImported_SecurityHubFindingsImportedPatternParameters(options); err != nil {
+	if err := validateSecurityHubFindingsImported_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_securityhub.events.SecurityHubFindingsImported",
-		"securityHubFindingsImportedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

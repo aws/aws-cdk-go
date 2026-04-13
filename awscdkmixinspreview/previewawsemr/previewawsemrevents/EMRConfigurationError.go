@@ -53,17 +53,17 @@ func NewEMRConfigurationError_Override(e EMRConfigurationError) {
 
 // EventBridge event pattern for EMR Configuration Error.
 // Experimental.
-func EMRConfigurationError_EmrConfigurationErrorPattern(options *EMRConfigurationError_EMRConfigurationErrorProps) *awsevents.EventPattern {
+func EMRConfigurationError_EventPattern(options *EMRConfigurationError_EMRConfigurationErrorProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRConfigurationError_EmrConfigurationErrorPatternParameters(options); err != nil {
+	if err := validateEMRConfigurationError_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRConfigurationError",
-		"emrConfigurationErrorPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -66,7 +66,7 @@ This is useful when you want to add configuration without losing what's already 
 
 ```go
 combineBucket := s3.NewCfnBucket(scope, jsii.String("CombineBucket"))
-combineBucket.PublicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
+combineBucket.publicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
 	BlockPublicAcls: jsii.Boolean(true),
 }
 
@@ -88,7 +88,7 @@ This is useful when you want to fully replace a configuration:
 
 ```go
 overrideBucket := s3.NewCfnBucket(scope, jsii.String("OverrideBucket"))
-overrideBucket.PublicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
+overrideBucket.publicAccessBlockConfiguration = &PublicAccessBlockConfigurationProperty{
 	BlockPublicAcls: jsii.Boolean(true),
 }
 

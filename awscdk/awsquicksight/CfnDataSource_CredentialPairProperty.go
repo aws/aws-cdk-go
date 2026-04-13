@@ -105,6 +105,9 @@ package awsquicksight
 //   				// the properties below are optional
 //   				RoleArn: jsii.String("roleArn"),
 //   			},
+//   			S3TablesParameters: &S3TablesParametersProperty{
+//   				TableBucketArn: jsii.String("tableBucketArn"),
+//   			},
 //   			SnowflakeParameters: &SnowflakeParametersProperty{
 //   				Database: jsii.String("database"),
 //   				Host: jsii.String("host"),

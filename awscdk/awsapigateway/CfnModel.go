@@ -474,6 +474,9 @@ func (j *jsiiProxy_CfnModel)SetRestApiId(val *string) {
 }
 
 func (j *jsiiProxy_CfnModel)SetSchema(val interface{}) {
+	if err := j.validateSetSchemaParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"schema",

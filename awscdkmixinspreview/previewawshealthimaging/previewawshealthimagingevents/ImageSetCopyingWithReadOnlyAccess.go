@@ -53,17 +53,17 @@ func NewImageSetCopyingWithReadOnlyAccess_Override(i ImageSetCopyingWithReadOnly
 
 // EventBridge event pattern for Image Set Copying With Read Only Access.
 // Experimental.
-func ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessPattern(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern {
+func ImageSetCopyingWithReadOnlyAccess_EventPattern(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessPatternParameters(options); err != nil {
+	if err := validateImageSetCopyingWithReadOnlyAccess_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyingWithReadOnlyAccess",
-		"imageSetCopyingWithReadOnlyAccessPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEC2SpotInstanceInterruptionWarning_Ec2SpotInstanceInterruptionWarningPatternParameters(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) error {
+func validateEC2SpotInstanceInterruptionWarning_EventPatternParameters(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

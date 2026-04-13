@@ -53,17 +53,17 @@ func NewTaskStatusChange_Override(t TaskStatusChange) {
 
 // EventBridge event pattern for Task Status Change.
 // Experimental.
-func TaskStatusChange_TaskStatusChangePattern(options *TaskStatusChange_TaskStatusChangeProps) *awsevents.EventPattern {
+func TaskStatusChange_EventPattern(options *TaskStatusChange_TaskStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateTaskStatusChange_TaskStatusChangePatternParameters(options); err != nil {
+	if err := validateTaskStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.TaskStatusChange",
-		"taskStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

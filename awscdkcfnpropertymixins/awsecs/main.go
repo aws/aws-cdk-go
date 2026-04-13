@@ -60,6 +60,10 @@ func init() {
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_InstanceRequirementsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnCapacityProviderPropsMixin.ManagedInstancesLocalStorageConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_ManagedInstancesLocalStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnCapacityProviderPropsMixin.ManagedInstancesNetworkConfigurationProperty",
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_ManagedInstancesNetworkConfigurationProperty)(nil)).Elem(),
 	)
@@ -170,6 +174,130 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnClusterPropsMixin.ServiceConnectDefaultsProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ServiceConnectDefaultsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonMixinProps",
+		reflect.TypeOf((*CfnDaemonMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonPropsMixin",
+		reflect.TypeOf((*CfnDaemonPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDaemonPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonPropsMixin.DaemonAlarmConfigurationProperty",
+		reflect.TypeOf((*CfnDaemonPropsMixin_DaemonAlarmConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonPropsMixin.DaemonDeploymentConfigurationProperty",
+		reflect.TypeOf((*CfnDaemonPropsMixin_DaemonDeploymentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionMixinProps",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDaemonTaskDefinitionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.ContainerDependencyProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_ContainerDependencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.DaemonContainerDefinitionProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_DaemonContainerDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.DeviceProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_DeviceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.EnvironmentFileProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_EnvironmentFileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.FirelensConfigurationProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_FirelensConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.HealthCheckProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_HealthCheckProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.HostVolumePropertiesProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_HostVolumePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.KernelCapabilitiesProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_KernelCapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.KeyValuePairProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_KeyValuePairProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.LinuxParametersProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_LinuxParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.LogConfigurationProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.MountPointProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_MountPointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.RepositoryCredentialsProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_RepositoryCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.RestartPolicyProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_RestartPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.SecretProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_SecretProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.SystemControlProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_SystemControlProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.TmpfsProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_TmpfsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.UlimitProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_UlimitProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.VolumeProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_VolumeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnExpressGatewayServiceMixinProps",

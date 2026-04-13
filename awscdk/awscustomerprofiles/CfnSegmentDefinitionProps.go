@@ -319,6 +319,18 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
+//   	SegmentSort: &SegmentSortProperty{
+//   		Attributes: []interface{}{
+//   			&SortAttributeProperty{
+//   				Name: jsii.String("name"),
+//   				Order: jsii.String("order"),
+//
+//   				// the properties below are optional
+//   				DataType: jsii.String("dataType"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -351,6 +363,10 @@ type CfnSegmentDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentgroups
 	//
 	SegmentGroups interface{} `field:"optional" json:"segmentGroups" yaml:"segmentGroups"`
+	// Defines how segments should be sorted and ordered in the results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentsort
+	//
+	SegmentSort interface{} `field:"optional" json:"segmentSort" yaml:"segmentSort"`
 	// The SQL query that defines the segment criteria.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html#cfn-customerprofiles-segmentdefinition-segmentsqlquery
 	//

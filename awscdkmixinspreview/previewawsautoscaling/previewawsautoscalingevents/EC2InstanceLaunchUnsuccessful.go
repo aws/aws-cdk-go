@@ -53,17 +53,17 @@ func NewEC2InstanceLaunchUnsuccessful_Override(e EC2InstanceLaunchUnsuccessful) 
 
 // EventBridge event pattern for EC2 Instance Launch Unsuccessful.
 // Experimental.
-func EC2InstanceLaunchUnsuccessful_Ec2InstanceLaunchUnsuccessfulPattern(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) *awsevents.EventPattern {
+func EC2InstanceLaunchUnsuccessful_EventPattern(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceLaunchUnsuccessful_Ec2InstanceLaunchUnsuccessfulPatternParameters(options); err != nil {
+	if err := validateEC2InstanceLaunchUnsuccessful_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_autoscaling.events.EC2InstanceLaunchUnsuccessful",
-		"ec2InstanceLaunchUnsuccessfulPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

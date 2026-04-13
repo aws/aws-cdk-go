@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateTaskStatusChange_TaskStatusChangePatternParameters(options *TaskStatusChange_TaskStatusChangeProps) error {
+func validateTaskStatusChange_EventPatternParameters(options *TaskStatusChange_TaskStatusChangeProps) error {
 	return nil
 }
 

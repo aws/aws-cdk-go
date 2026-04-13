@@ -4,7 +4,7 @@ package previewawsroute53resolverevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateDNSFirewallBlock_DnsFirewallBlockPatternParameters(options *DNSFirewallBlock_DNSFirewallBlockProps) error {
+func validateDNSFirewallBlock_EventPatternParameters(options *DNSFirewallBlock_DNSFirewallBlockProps) error {
 	return nil
 }
 

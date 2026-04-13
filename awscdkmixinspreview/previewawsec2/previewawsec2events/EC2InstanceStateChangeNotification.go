@@ -53,17 +53,17 @@ func NewEC2InstanceStateChangeNotification_Override(e EC2InstanceStateChangeNoti
 
 // EventBridge event pattern for EC2 Instance State-change Notification.
 // Experimental.
-func EC2InstanceStateChangeNotification_Ec2InstanceStateChangeNotificationPattern(options *EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) *awsevents.EventPattern {
+func EC2InstanceStateChangeNotification_EventPattern(options *EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceStateChangeNotification_Ec2InstanceStateChangeNotificationPatternParameters(options); err != nil {
+	if err := validateEC2InstanceStateChangeNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ec2.events.EC2InstanceStateChangeNotification",
-		"ec2InstanceStateChangeNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

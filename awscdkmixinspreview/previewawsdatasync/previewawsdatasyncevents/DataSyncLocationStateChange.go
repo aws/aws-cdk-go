@@ -53,17 +53,17 @@ func NewDataSyncLocationStateChange_Override(d DataSyncLocationStateChange) {
 
 // EventBridge event pattern for DataSync Location State Change.
 // Experimental.
-func DataSyncLocationStateChange_DataSyncLocationStateChangePattern(options *DataSyncLocationStateChange_DataSyncLocationStateChangeProps) *awsevents.EventPattern {
+func DataSyncLocationStateChange_EventPattern(options *DataSyncLocationStateChange_DataSyncLocationStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataSyncLocationStateChange_DataSyncLocationStateChangePatternParameters(options); err != nil {
+	if err := validateDataSyncLocationStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_datasync.events.DataSyncLocationStateChange",
-		"dataSyncLocationStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

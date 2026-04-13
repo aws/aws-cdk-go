@@ -4,7 +4,7 @@ package previewawshealthimagingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateImageSetCopied_ImageSetCopiedPatternParameters(options *ImageSetCopied_ImageSetCopiedProps) error {
+func validateImageSetCopied_EventPatternParameters(options *ImageSetCopied_ImageSetCopiedProps) error {
 	return nil
 }
 

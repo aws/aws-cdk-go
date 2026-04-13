@@ -25,6 +25,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html
 //
 type CfnModelPropsMixin_S3DataSourceProperty struct {
+	// Specifies how the ML model data is prepared.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-compressiontype
 	//
 	CompressionType *string `field:"optional" json:"compressionType" yaml:"compressionType"`
@@ -32,6 +33,9 @@ type CfnModelPropsMixin_S3DataSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-hubaccessconfig
 	//
 	HubAccessConfig interface{} `field:"optional" json:"hubAccessConfig" yaml:"hubAccessConfig"`
+	// The access configuration file to control access to the ML model.
+	//
+	// You can explicitly accept the model end-user license agreement (EULA) within the `ModelAccessConfig`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html#cfn-sagemaker-model-s3datasource-modelaccessconfig
 	//
 	ModelAccessConfig interface{} `field:"optional" json:"modelAccessConfig" yaml:"modelAccessConfig"`

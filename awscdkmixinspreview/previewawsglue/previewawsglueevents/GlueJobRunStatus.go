@@ -53,17 +53,17 @@ func NewGlueJobRunStatus_Override(g GlueJobRunStatus) {
 
 // EventBridge event pattern for Glue Job Run Status.
 // Experimental.
-func GlueJobRunStatus_GlueJobRunStatusPattern(options *GlueJobRunStatus_GlueJobRunStatusProps) *awsevents.EventPattern {
+func GlueJobRunStatus_EventPattern(options *GlueJobRunStatus_GlueJobRunStatusProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateGlueJobRunStatus_GlueJobRunStatusPatternParameters(options); err != nil {
+	if err := validateGlueJobRunStatus_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_glue.events.GlueJobRunStatus",
-		"glueJobRunStatusPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

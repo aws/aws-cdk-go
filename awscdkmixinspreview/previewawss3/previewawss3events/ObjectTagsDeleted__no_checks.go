@@ -4,7 +4,7 @@ package previewawss3events
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateObjectTagsDeleted_ObjectTagsDeletedPatternParameters(options *ObjectTagsDeleted_ObjectTagsDeletedProps) error {
+func validateObjectTagsDeleted_EventPatternParameters(options *ObjectTagsDeleted_ObjectTagsDeletedProps) error {
 	return nil
 }
 

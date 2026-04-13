@@ -24,6 +24,7 @@ import (
 //
 //   var additionalInfo interface{}
 //   var configurationProperty_ ConfigurationProperty
+//   var logTypes interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnClusterPropsMixin := awscdkcfnpropertymixins.Aws_emr.NewCfnClusterPropsMixin(&CfnClusterMixinProps{
@@ -550,11 +551,7 @@ import (
 //   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
 //   			LogGroupName: jsii.String("logGroupName"),
 //   			LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
-//   			LogTypes: map[string][]*string{
-//   				"logTypesKey": []*string{
-//   					jsii.String("logTypes"),
-//   				},
-//   			},
+//   			LogTypes: logTypes,
 //   		},
 //   	},
 //   	Name: jsii.String("name"),

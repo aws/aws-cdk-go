@@ -90,7 +90,6 @@ type CfnStack interface {
 	// The stack attributes to delete.
 	AttributesToDelete() *[]*string
 	SetAttributesToDelete(val *[]*string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -339,16 +338,6 @@ func (j *jsiiProxy_CfnStack) AttributesToDelete() *[]*string {
 	_jsii_.Get(
 		j,
 		"attributesToDelete",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnStack) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns
@@ -755,6 +744,43 @@ func (j *jsiiProxy_CfnStack)SetUserSettings(val interface{}) {
 		"userSettings",
 		val,
 	)
+}
+
+func CfnStack_ArnForStack(resource interfacesawsappstream.IStackRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnStack_ArnForStackParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnStack",
+		"arnForStack",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IStackRef from a stackName.
+func CfnStack_FromStackName(scope constructs.Construct, id *string, stackName *string) interfacesawsappstream.IStackRef {
+	_init_.Initialize()
+
+	if err := validateCfnStack_FromStackNameParameters(scope, id, stackName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsappstream.IStackRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnStack",
+		"fromStackName",
+		[]interface{}{scope, id, stackName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

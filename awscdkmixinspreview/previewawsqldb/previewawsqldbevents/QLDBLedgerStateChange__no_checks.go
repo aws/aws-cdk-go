@@ -4,7 +4,7 @@ package previewawsqldbevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateQLDBLedgerStateChange_QldbLedgerStateChangePatternParameters(options *QLDBLedgerStateChange_QLDBLedgerStateChangeProps) error {
+func validateQLDBLedgerStateChange_EventPatternParameters(options *QLDBLedgerStateChange_QLDBLedgerStateChangeProps) error {
 	return nil
 }
 

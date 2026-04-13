@@ -53,17 +53,17 @@ func NewEC2InstanceTerminateSuccessful_Override(e EC2InstanceTerminateSuccessful
 
 // EventBridge event pattern for EC2 Instance Terminate Successful.
 // Experimental.
-func EC2InstanceTerminateSuccessful_Ec2InstanceTerminateSuccessfulPattern(options *EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) *awsevents.EventPattern {
+func EC2InstanceTerminateSuccessful_EventPattern(options *EC2InstanceTerminateSuccessful_EC2InstanceTerminateSuccessfulProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceTerminateSuccessful_Ec2InstanceTerminateSuccessfulPatternParameters(options); err != nil {
+	if err := validateEC2InstanceTerminateSuccessful_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_autoscaling.events.EC2InstanceTerminateSuccessful",
-		"ec2InstanceTerminateSuccessfulPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateGameLiftQueuePlacementEvent_GameLiftQueuePlacementEventPatternParameters(options *GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventProps) error {
+func validateGameLiftQueuePlacementEvent_EventPatternParameters(options *GameLiftQueuePlacementEvent_GameLiftQueuePlacementEventProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

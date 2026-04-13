@@ -53,17 +53,17 @@ func NewReferenceStoreStatusChange_Override(r ReferenceStoreStatusChange) {
 
 // EventBridge event pattern for Reference Store Status Change.
 // Experimental.
-func ReferenceStoreStatusChange_ReferenceStoreStatusChangePattern(options *ReferenceStoreStatusChange_ReferenceStoreStatusChangeProps) *awsevents.EventPattern {
+func ReferenceStoreStatusChange_EventPattern(options *ReferenceStoreStatusChange_ReferenceStoreStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateReferenceStoreStatusChange_ReferenceStoreStatusChangePatternParameters(options); err != nil {
+	if err := validateReferenceStoreStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.ReferenceStoreStatusChange",
-		"referenceStoreStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

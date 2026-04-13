@@ -53,17 +53,17 @@ func NewReferenceStatusChange_Override(r ReferenceStatusChange) {
 
 // EventBridge event pattern for Reference Status Change.
 // Experimental.
-func ReferenceStatusChange_ReferenceStatusChangePattern(options *ReferenceStatusChange_ReferenceStatusChangeProps) *awsevents.EventPattern {
+func ReferenceStatusChange_EventPattern(options *ReferenceStatusChange_ReferenceStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateReferenceStatusChange_ReferenceStatusChangePatternParameters(options); err != nil {
+	if err := validateReferenceStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.ReferenceStatusChange",
-		"referenceStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

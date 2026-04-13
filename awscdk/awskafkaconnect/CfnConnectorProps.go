@@ -28,10 +28,8 @@ import (
 //   			MaxAutoscalingTaskCount: jsii.Number(123),
 //   		},
 //   		ProvisionedCapacity: &ProvisionedCapacityProperty{
-//   			WorkerCount: jsii.Number(123),
-//
-//   			// the properties below are optional
 //   			McuCount: jsii.Number(123),
+//   			WorkerCount: jsii.Number(123),
 //   		},
 //   	},
 //   	ConnectorConfiguration: map[string]*string{

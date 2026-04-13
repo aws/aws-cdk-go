@@ -174,6 +174,10 @@ func init() {
 		reflect.TypeOf((*CfnConnection_UsernamePasswordProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnConnection.WorkflowsMwaaPropertiesInputProperty",
+		reflect.TypeOf((*CfnConnection_WorkflowsMwaaPropertiesInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnectionProps",
 		reflect.TypeOf((*CfnConnectionProps)(nil)).Elem(),
 	)
@@ -1089,6 +1093,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceTags", GoGetter: "ResourceTags"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1113,6 +1118,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnProject.EnvironmentParameterProperty",
 		reflect.TypeOf((*CfnProject_EnvironmentParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProject.ResourceTagProperty",
+		reflect.TypeOf((*CfnProject_ResourceTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_datazone.CfnProjectMembership",
@@ -1185,6 +1194,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "allowCustomProjectResourceTags", GoGetter: "AllowCustomProjectResourceTags"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedBy", GoGetter: "AttrCreatedBy"},
@@ -1212,6 +1222,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "projectProfileRef", GoGetter: "ProjectProfileRef"},
+			_jsii_.MemberProperty{JsiiProperty: "projectResourceTags", GoGetter: "ProjectResourceTags"},
+			_jsii_.MemberProperty{JsiiProperty: "projectResourceTagsDescription", GoGetter: "ProjectResourceTagsDescription"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -1253,6 +1265,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnProjectProfile.RegionProperty",
 		reflect.TypeOf((*CfnProjectProfile_RegionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProjectProfile.ResourceTagParameterProperty",
+		reflect.TypeOf((*CfnProjectProfile_ResourceTagParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnProjectProfileProps",

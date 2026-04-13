@@ -53,17 +53,17 @@ func NewEC2InstanceLaunchSuccessful_Override(e EC2InstanceLaunchSuccessful) {
 
 // EventBridge event pattern for EC2 Instance Launch Successful.
 // Experimental.
-func EC2InstanceLaunchSuccessful_Ec2InstanceLaunchSuccessfulPattern(options *EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) *awsevents.EventPattern {
+func EC2InstanceLaunchSuccessful_EventPattern(options *EC2InstanceLaunchSuccessful_EC2InstanceLaunchSuccessfulProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceLaunchSuccessful_Ec2InstanceLaunchSuccessfulPatternParameters(options); err != nil {
+	if err := validateEC2InstanceLaunchSuccessful_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_autoscaling.events.EC2InstanceLaunchSuccessful",
-		"ec2InstanceLaunchSuccessfulPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

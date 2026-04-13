@@ -48,6 +48,9 @@ import (
 //   							Namespaces: []*string{
 //   								jsii.String("namespaces"),
 //   							},
+//   							NamespaceTemplates: []*string{
+//   								jsii.String("namespaceTemplates"),
+//   							},
 //   						},
 //   					},
 //   					SelfManagedConfiguration: &SelfManagedConfigurationProperty{
@@ -103,6 +106,9 @@ import (
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
+//   				NamespaceTemplates: []*string{
+//   					jsii.String("namespaceTemplates"),
+//   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),
 //   				Type: jsii.String("type"),
@@ -115,9 +121,15 @@ import (
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
+//   				NamespaceTemplates: []*string{
+//   					jsii.String("namespaceTemplates"),
+//   				},
 //   				ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
 //   					Namespaces: []*string{
 //   						jsii.String("namespaces"),
+//   					},
+//   					NamespaceTemplates: []*string{
+//   						jsii.String("namespaceTemplates"),
 //   					},
 //   				},
 //   				Status: jsii.String("status"),
@@ -132,6 +144,9 @@ import (
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
+//   				NamespaceTemplates: []*string{
+//   					jsii.String("namespaceTemplates"),
+//   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),
 //   				Type: jsii.String("type"),
@@ -144,6 +159,9 @@ import (
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
+//   				NamespaceTemplates: []*string{
+//   					jsii.String("namespaceTemplates"),
+//   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),
 //   				Type: jsii.String("type"),
@@ -155,6 +173,9 @@ import (
 //   				Name: jsii.String("name"),
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
+//   				},
+//   				NamespaceTemplates: []*string{
+//   					jsii.String("namespaceTemplates"),
 //   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),

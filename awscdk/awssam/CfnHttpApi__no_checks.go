@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnHttpApi) validateSetDefaultRouteSettingsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnHttpApi) validateSetDefinitionBodyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnHttpApi) validateSetDefinitionUriParameters(val interface{}) error {
 	return nil
 }

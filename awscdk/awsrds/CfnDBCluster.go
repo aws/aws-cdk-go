@@ -182,6 +182,7 @@ type CfnDBCluster interface {
 	//
 	// For example: `mystack-mydbcluster-ro-123456789012.us-east-2.rds.amazonaws.com`
 	AttrReadEndpointAddress() *string
+	AttrStorageEncryptionType() *string
 	// The storage throughput for the DB cluster.
 	//
 	// The throughput is automatically set based on the IOPS that you provision, and is not configurable.
@@ -660,6 +661,16 @@ func (j *jsiiProxy_CfnDBCluster) AttrReadEndpointAddress() *string {
 	_jsii_.Get(
 		j,
 		"attrReadEndpointAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) AttrStorageEncryptionType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStorageEncryptionType",
 		&returns,
 	)
 	return returns

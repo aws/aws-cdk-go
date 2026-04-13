@@ -72,6 +72,10 @@ func validateCfnService_ArnForServiceParameters(resource interfacesawsdevopsagen
 	return nil
 }
 
+func validateCfnService_FromServiceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnService_FromServiceIdParameters(scope constructs.Construct, id *string, serviceId *string) error {
 	return nil
 }
@@ -97,6 +101,10 @@ func (j *jsiiProxy_CfnService) validateSetServiceDetailsParameters(val interface
 }
 
 func (j *jsiiProxy_CfnService) validateSetServiceTypeParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnService) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

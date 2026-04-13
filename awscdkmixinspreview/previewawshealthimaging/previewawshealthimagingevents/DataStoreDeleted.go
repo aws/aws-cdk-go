@@ -53,17 +53,17 @@ func NewDataStoreDeleted_Override(d DataStoreDeleted) {
 
 // EventBridge event pattern for Data Store Deleted.
 // Experimental.
-func DataStoreDeleted_DataStoreDeletedPattern(options *DataStoreDeleted_DataStoreDeletedProps) *awsevents.EventPattern {
+func DataStoreDeleted_EventPattern(options *DataStoreDeleted_DataStoreDeletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataStoreDeleted_DataStoreDeletedPatternParameters(options); err != nil {
+	if err := validateDataStoreDeleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreDeleted",
-		"dataStoreDeletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewObjectACLUpdated_Override(o ObjectACLUpdated) {
 
 // EventBridge event pattern for Object ACL Updated.
 // Experimental.
-func ObjectACLUpdated_ObjectACLUpdatedPattern(options *ObjectACLUpdated_ObjectACLUpdatedProps) *awsevents.EventPattern {
+func ObjectACLUpdated_EventPattern(options *ObjectACLUpdated_ObjectACLUpdatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectACLUpdated_ObjectACLUpdatedPatternParameters(options); err != nil {
+	if err := validateObjectACLUpdated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectACLUpdated",
-		"objectACLUpdatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

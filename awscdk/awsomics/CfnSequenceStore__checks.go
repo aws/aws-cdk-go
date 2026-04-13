@@ -236,6 +236,14 @@ func (j *jsiiProxy_CfnSequenceStore) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnSequenceStore) validateSetS3AccessPolicyParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnSequenceStore) validateSetSseConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

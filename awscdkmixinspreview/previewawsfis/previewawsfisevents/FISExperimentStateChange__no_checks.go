@@ -4,7 +4,7 @@ package previewawsfisevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateFISExperimentStateChange_FisExperimentStateChangePatternParameters(options *FISExperimentStateChange_FISExperimentStateChangeProps) error {
+func validateFISExperimentStateChange_EventPatternParameters(options *FISExperimentStateChange_FISExperimentStateChangeProps) error {
 	return nil
 }
 

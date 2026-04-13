@@ -312,6 +312,10 @@ func init() {
 		reflect.TypeOf((*CfnNodegroupPropsMixin_UpdateConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnNodegroupPropsMixin.WarmPoolConfigProperty",
+		reflect.TypeOf((*CfnNodegroupPropsMixin_WarmPoolConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnPodIdentityAssociationMixinProps",
 		reflect.TypeOf((*CfnPodIdentityAssociationMixinProps)(nil)).Elem(),
 	)

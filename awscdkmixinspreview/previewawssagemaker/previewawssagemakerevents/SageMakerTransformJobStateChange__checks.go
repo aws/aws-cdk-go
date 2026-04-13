@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSageMakerTransformJobStateChange_SageMakerTransformJobStateChangePatternParameters(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) error {
+func validateSageMakerTransformJobStateChange_EventPatternParameters(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

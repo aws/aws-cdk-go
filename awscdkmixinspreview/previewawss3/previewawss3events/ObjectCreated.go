@@ -53,17 +53,17 @@ func NewObjectCreated_Override(o ObjectCreated) {
 
 // EventBridge event pattern for Object Created.
 // Experimental.
-func ObjectCreated_ObjectCreatedPattern(options *ObjectCreated_ObjectCreatedProps) *awsevents.EventPattern {
+func ObjectCreated_EventPattern(options *ObjectCreated_ObjectCreatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectCreated_ObjectCreatedPatternParameters(options); err != nil {
+	if err := validateObjectCreated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectCreated",
-		"objectCreatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

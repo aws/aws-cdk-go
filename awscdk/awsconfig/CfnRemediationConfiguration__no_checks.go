@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnRemediationConfiguration) validateSetExecutionControlsPara
 	return nil
 }
 
+func (j *jsiiProxy_CfnRemediationConfiguration) validateSetParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRemediationConfiguration) validateSetTargetIdParameters(val *string) error {
 	return nil
 }

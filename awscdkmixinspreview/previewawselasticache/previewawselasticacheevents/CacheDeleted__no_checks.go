@@ -4,7 +4,7 @@ package previewawselasticacheevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCacheDeleted_CacheDeletedPatternParameters(options *CacheDeleted_CacheDeletedProps) error {
+func validateCacheDeleted_EventPatternParameters(options *CacheDeleted_CacheDeletedProps) error {
 	return nil
 }
 

@@ -53,17 +53,17 @@ func NewRoute53ApplicationRecoveryControllerReadinessCheckStatusChange_Override(
 
 // EventBridge event pattern for Route 53 Application Recovery Controller readiness check status change.
 // Experimental.
-func Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangePattern(options *Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) *awsevents.EventPattern {
+func Route53ApplicationRecoveryControllerReadinessCheckStatusChange_EventPattern(options *Route53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRoute53ApplicationRecoveryControllerReadinessCheckStatusChange_Route53ApplicationRecoveryControllerReadinessCheckStatusChangePatternParameters(options); err != nil {
+	if err := validateRoute53ApplicationRecoveryControllerReadinessCheckStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_route53recoveryreadiness.events.Route53ApplicationRecoveryControllerReadinessCheckStatusChange",
-		"route53ApplicationRecoveryControllerReadinessCheckStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

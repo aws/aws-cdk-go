@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateVariantStoreStatusChange_VariantStoreStatusChangePatternParameters(options *VariantStoreStatusChange_VariantStoreStatusChangeProps) error {
+func validateVariantStoreStatusChange_EventPatternParameters(options *VariantStoreStatusChange_VariantStoreStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

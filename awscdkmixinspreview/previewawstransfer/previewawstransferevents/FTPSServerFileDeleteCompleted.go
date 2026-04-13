@@ -53,17 +53,17 @@ func NewFTPSServerFileDeleteCompleted_Override(f FTPSServerFileDeleteCompleted) 
 
 // EventBridge event pattern for FTPS Server File Delete Completed.
 // Experimental.
-func FTPSServerFileDeleteCompleted_FtpSServerFileDeleteCompletedPattern(options *FTPSServerFileDeleteCompleted_FTPSServerFileDeleteCompletedProps) *awsevents.EventPattern {
+func FTPSServerFileDeleteCompleted_EventPattern(options *FTPSServerFileDeleteCompleted_FTPSServerFileDeleteCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPSServerFileDeleteCompleted_FtpSServerFileDeleteCompletedPatternParameters(options); err != nil {
+	if err := validateFTPSServerFileDeleteCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPSServerFileDeleteCompleted",
-		"ftpSServerFileDeleteCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

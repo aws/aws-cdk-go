@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateVoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionPatternParameters(options *VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) error {
+func validateVoiceIdUpdateSessionAction_EventPatternParameters(options *VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

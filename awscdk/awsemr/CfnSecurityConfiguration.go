@@ -40,7 +40,7 @@ import (
 //   	Instances: &InstancesConfigProperty{
 //   	},
 //   	Name: sfn.TaskInput_FromJsonPathAt(jsii.String("$.ClusterName")).value,
-//   	SecurityConfiguration: cfnSecurityConfiguration.Name,
+//   	SecurityConfiguration: cfnSecurityConfiguration.name,
 //   })
 //
 //   executionRole := iam.NewRole(this, jsii.String("Role"), &RoleProps{

@@ -53,17 +53,17 @@ func NewSageMakerTransformJobStateChange_Override(s SageMakerTransformJobStateCh
 
 // EventBridge event pattern for SageMaker Transform Job State Change.
 // Experimental.
-func SageMakerTransformJobStateChange_SageMakerTransformJobStateChangePattern(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) *awsevents.EventPattern {
+func SageMakerTransformJobStateChange_EventPattern(options *SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerTransformJobStateChange_SageMakerTransformJobStateChangePatternParameters(options); err != nil {
+	if err := validateSageMakerTransformJobStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerTransformJobStateChange",
-		"sageMakerTransformJobStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

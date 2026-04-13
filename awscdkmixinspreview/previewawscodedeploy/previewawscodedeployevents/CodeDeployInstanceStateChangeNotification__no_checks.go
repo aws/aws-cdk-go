@@ -4,7 +4,7 @@ package previewawscodedeployevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCodeDeployInstanceStateChangeNotification_CodeDeployInstanceStateChangeNotificationPatternParameters(options *CodeDeployInstanceStateChangeNotification_CodeDeployInstanceStateChangeNotificationProps) error {
+func validateCodeDeployInstanceStateChangeNotification_EventPatternParameters(options *CodeDeployInstanceStateChangeNotification_CodeDeployInstanceStateChangeNotificationProps) error {
 	return nil
 }
 

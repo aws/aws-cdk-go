@@ -53,17 +53,17 @@ func NewReadSetStatusChange_Override(r ReadSetStatusChange) {
 
 // EventBridge event pattern for Read Set Status Change.
 // Experimental.
-func ReadSetStatusChange_ReadSetStatusChangePattern(options *ReadSetStatusChange_ReadSetStatusChangeProps) *awsevents.EventPattern {
+func ReadSetStatusChange_EventPattern(options *ReadSetStatusChange_ReadSetStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateReadSetStatusChange_ReadSetStatusChangePatternParameters(options); err != nil {
+	if err := validateReadSetStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.ReadSetStatusChange",
-		"readSetStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

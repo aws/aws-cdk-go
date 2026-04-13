@@ -478,6 +478,9 @@ func NewCfnTransitGatewayAttachment_Override(c CfnTransitGatewayAttachment, scop
 }
 
 func (j *jsiiProxy_CfnTransitGatewayAttachment)SetOptions(val interface{}) {
+	if err := j.validateSetOptionsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"options",

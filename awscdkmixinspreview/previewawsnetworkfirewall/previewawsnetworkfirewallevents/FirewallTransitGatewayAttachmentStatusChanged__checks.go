@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateFirewallTransitGatewayAttachmentStatusChanged_FirewallTransitGatewayAttachmentStatusChangedPatternParameters(options *FirewallTransitGatewayAttachmentStatusChanged_FirewallTransitGatewayAttachmentStatusChangedProps) error {
+func validateFirewallTransitGatewayAttachmentStatusChanged_EventPatternParameters(options *FirewallTransitGatewayAttachmentStatusChanged_FirewallTransitGatewayAttachmentStatusChangedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

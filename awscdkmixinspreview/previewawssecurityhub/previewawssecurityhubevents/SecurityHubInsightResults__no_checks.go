@@ -4,7 +4,7 @@ package previewawssecurityhubevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateSecurityHubInsightResults_SecurityHubInsightResultsPatternParameters(options *SecurityHubInsightResults_SecurityHubInsightResultsProps) error {
+func validateSecurityHubInsightResults_EventPatternParameters(options *SecurityHubInsightResults_SecurityHubInsightResultsProps) error {
 	return nil
 }
 

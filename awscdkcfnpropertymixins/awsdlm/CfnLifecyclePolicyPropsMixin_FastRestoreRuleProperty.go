@@ -11,6 +11,9 @@ package awsdlm
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   fastRestoreRuleProperty := &FastRestoreRuleProperty{
+//   	AvailabilityZoneIds: []*string{
+//   		jsii.String("availabilityZoneIds"),
+//   	},
 //   	AvailabilityZones: []*string{
 //   		jsii.String("availabilityZones"),
 //   	},
@@ -22,6 +25,9 @@ package awsdlm
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html
 //
 type CfnLifecyclePolicyPropsMixin_FastRestoreRuleProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzoneids
+	//
+	AvailabilityZoneIds *[]*string `field:"optional" json:"availabilityZoneIds" yaml:"availabilityZoneIds"`
 	// The Availability Zones in which to enable fast snapshot restore.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html#cfn-dlm-lifecyclepolicy-fastrestorerule-availabilityzones
 	//

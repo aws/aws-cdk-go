@@ -508,6 +508,9 @@ func (j *jsiiProxy_CfnEventBusPolicy)SetPrincipal(val *string) {
 }
 
 func (j *jsiiProxy_CfnEventBusPolicy)SetStatement(val interface{}) {
+	if err := j.validateSetStatementParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"statement",

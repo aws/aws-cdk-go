@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateFTPSServerFileRenameFailed_FtpSServerFileRenameFailedPatternParameters(options *FTPSServerFileRenameFailed_FTPSServerFileRenameFailedProps) error {
+func validateFTPSServerFileRenameFailed_EventPatternParameters(options *FTPSServerFileRenameFailed_FTPSServerFileRenameFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnLoggingConfiguration) validateSetLogDestinationConfigsPara
 	return nil
 }
 
+func (j *jsiiProxy_CfnLoggingConfiguration) validateSetLoggingFilterParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLoggingConfiguration) validateSetRedactedFieldsParameters(val interface{}) error {
 	return nil
 }

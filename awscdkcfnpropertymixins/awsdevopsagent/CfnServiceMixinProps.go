@@ -1,5 +1,8 @@
 package awsdevopsagent
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnServicePropsMixin.
 //
@@ -11,6 +14,7 @@ package awsdevopsagent
 //   var exchangeParameters interface{}
 //
 //   cfnServiceMixinProps := &CfnServiceMixinProps{
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		Dynatrace: &DynatraceServiceDetailsProperty{
 //   			AccountUrn: jsii.String("accountUrn"),
@@ -94,11 +98,21 @@ package awsdevopsagent
 //   		},
 //   	},
 //   	ServiceType: jsii.String("serviceType"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html
 //
 type CfnServiceMixinProps struct {
+	// The ARN of the KMS key to use for encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Service-specific configuration details.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-servicedetails
 	//
@@ -107,5 +121,9 @@ type CfnServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-servicetype
 	//
 	ServiceType *string `field:"optional" json:"serviceType" yaml:"serviceType"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

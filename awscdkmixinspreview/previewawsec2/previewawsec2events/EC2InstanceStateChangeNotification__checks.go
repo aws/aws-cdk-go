@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEC2InstanceStateChangeNotification_Ec2InstanceStateChangeNotificationPatternParameters(options *EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) error {
+func validateEC2InstanceStateChangeNotification_EventPatternParameters(options *EC2InstanceStateChangeNotification_EC2InstanceStateChangeNotificationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

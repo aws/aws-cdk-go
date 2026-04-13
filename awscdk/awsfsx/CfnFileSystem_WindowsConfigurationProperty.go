@@ -31,6 +31,12 @@ package awsfsx
 //   		Iops: jsii.Number(123),
 //   		Mode: jsii.String("mode"),
 //   	},
+//   	FsrmConfiguration: &FsrmConfigurationProperty{
+//   		FsrmServiceEnabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		EventLogDestination: jsii.String("eventLogDestination"),
+//   	},
 //   	PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   	SelfManagedActiveDirectoryConfiguration: &SelfManagedActiveDirectoryConfigurationProperty{
 //   		DnsIps: []*string{
@@ -116,6 +122,9 @@ type CfnFileSystem_WindowsConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-diskiopsconfiguration
 	//
 	DiskIopsConfiguration interface{} `field:"optional" json:"diskIopsConfiguration" yaml:"diskIopsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-fsrmconfiguration
+	//
+	FsrmConfiguration interface{} `field:"optional" json:"fsrmConfiguration" yaml:"fsrmConfiguration"`
 	// Required when `DeploymentType` is set to `MULTI_AZ_1` .
 	//
 	// This specifies the subnet in which you want the preferred file server to be located. For in- AWS applications, we recommend that you launch your clients in the same availability zone as your preferred file server to reduce cross-availability zone data transfer costs and minimize latency.

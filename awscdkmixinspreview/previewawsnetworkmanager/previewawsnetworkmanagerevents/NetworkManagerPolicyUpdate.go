@@ -53,17 +53,17 @@ func NewNetworkManagerPolicyUpdate_Override(n NetworkManagerPolicyUpdate) {
 
 // EventBridge event pattern for Network Manager Policy Update.
 // Experimental.
-func NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdatePattern(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) *awsevents.EventPattern {
+func NetworkManagerPolicyUpdate_EventPattern(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateNetworkManagerPolicyUpdate_NetworkManagerPolicyUpdatePatternParameters(options); err != nil {
+	if err := validateNetworkManagerPolicyUpdate_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_networkmanager.events.NetworkManagerPolicyUpdate",
-		"networkManagerPolicyUpdatePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

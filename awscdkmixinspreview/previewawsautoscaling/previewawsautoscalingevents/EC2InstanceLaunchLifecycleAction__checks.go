@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEC2InstanceLaunchLifecycleAction_Ec2InstanceLaunchLifecycleActionPatternParameters(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) error {
+func validateEC2InstanceLaunchLifecycleAction_EventPatternParameters(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

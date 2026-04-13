@@ -4,7 +4,7 @@ package previewawscodecommitevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangePatternParameters(options *CodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangeProps) error {
+func validateCodeCommitApprovalRuleTemplateChange_EventPatternParameters(options *CodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangeProps) error {
 	return nil
 }
 

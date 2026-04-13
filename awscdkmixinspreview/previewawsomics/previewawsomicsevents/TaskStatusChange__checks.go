@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateTaskStatusChange_TaskStatusChangePatternParameters(options *TaskStatusChange_TaskStatusChangeProps) error {
+func validateTaskStatusChange_EventPatternParameters(options *TaskStatusChange_TaskStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

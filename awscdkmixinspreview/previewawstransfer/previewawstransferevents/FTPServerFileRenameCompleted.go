@@ -53,17 +53,17 @@ func NewFTPServerFileRenameCompleted_Override(f FTPServerFileRenameCompleted) {
 
 // EventBridge event pattern for FTP Server File Rename Completed.
 // Experimental.
-func FTPServerFileRenameCompleted_FtpServerFileRenameCompletedPattern(options *FTPServerFileRenameCompleted_FTPServerFileRenameCompletedProps) *awsevents.EventPattern {
+func FTPServerFileRenameCompleted_EventPattern(options *FTPServerFileRenameCompleted_FTPServerFileRenameCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPServerFileRenameCompleted_FtpServerFileRenameCompletedPatternParameters(options); err != nil {
+	if err := validateFTPServerFileRenameCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPServerFileRenameCompleted",
-		"ftpServerFileRenameCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

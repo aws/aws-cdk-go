@@ -108,6 +108,9 @@ import (
 //   					Min: jsii.Number(123),
 //   				},
 //   			},
+//   			LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   				UseLocalStorage: jsii.Boolean(false),
+//   			},
 //   			Monitoring: jsii.String("monitoring"),
 //   			NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
 //   				SecurityGroups: []*string{

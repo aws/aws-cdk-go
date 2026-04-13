@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSFTPConnectorFileRetrieveFailed_SftPConnectorFileRetrieveFailedPatternParameters(options *SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) error {
+func validateSFTPConnectorFileRetrieveFailed_EventPatternParameters(options *SFTPConnectorFileRetrieveFailed_SFTPConnectorFileRetrieveFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

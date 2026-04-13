@@ -576,6 +576,9 @@ func (j *jsiiProxy_CfnPermissionSet)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnPermissionSet)SetInlinePolicy(val interface{}) {
+	if err := j.validateSetInlinePolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"inlinePolicy",

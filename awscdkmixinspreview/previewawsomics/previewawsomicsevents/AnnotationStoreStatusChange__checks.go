@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateAnnotationStoreStatusChange_AnnotationStoreStatusChangePatternParameters(options *AnnotationStoreStatusChange_AnnotationStoreStatusChangeProps) error {
+func validateAnnotationStoreStatusChange_EventPatternParameters(options *AnnotationStoreStatusChange_AnnotationStoreStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

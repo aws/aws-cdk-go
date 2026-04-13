@@ -53,17 +53,17 @@ func NewObjectTagsDeleted_Override(o ObjectTagsDeleted) {
 
 // EventBridge event pattern for Object Tags Deleted.
 // Experimental.
-func ObjectTagsDeleted_ObjectTagsDeletedPattern(options *ObjectTagsDeleted_ObjectTagsDeletedProps) *awsevents.EventPattern {
+func ObjectTagsDeleted_EventPattern(options *ObjectTagsDeleted_ObjectTagsDeletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectTagsDeleted_ObjectTagsDeletedPatternParameters(options); err != nil {
+	if err := validateObjectTagsDeleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectTagsDeleted",
-		"objectTagsDeletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

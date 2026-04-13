@@ -53,17 +53,17 @@ func NewS3AccessPolicyStatusChange_Override(s S3AccessPolicyStatusChange) {
 
 // EventBridge event pattern for S3 Access Policy Status Change.
 // Experimental.
-func S3AccessPolicyStatusChange_S3AccessPolicyStatusChangePattern(options *S3AccessPolicyStatusChange_S3AccessPolicyStatusChangeProps) *awsevents.EventPattern {
+func S3AccessPolicyStatusChange_EventPattern(options *S3AccessPolicyStatusChange_S3AccessPolicyStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateS3AccessPolicyStatusChange_S3AccessPolicyStatusChangePatternParameters(options); err != nil {
+	if err := validateS3AccessPolicyStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.S3AccessPolicyStatusChange",
-		"s3AccessPolicyStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

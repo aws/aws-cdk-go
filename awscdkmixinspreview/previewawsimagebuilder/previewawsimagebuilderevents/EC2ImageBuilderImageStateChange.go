@@ -53,17 +53,17 @@ func NewEC2ImageBuilderImageStateChange_Override(e EC2ImageBuilderImageStateChan
 
 // EventBridge event pattern for EC2 Image Builder Image State Change.
 // Experimental.
-func EC2ImageBuilderImageStateChange_Ec2ImageBuilderImageStateChangePattern(options *EC2ImageBuilderImageStateChange_EC2ImageBuilderImageStateChangeProps) *awsevents.EventPattern {
+func EC2ImageBuilderImageStateChange_EventPattern(options *EC2ImageBuilderImageStateChange_EC2ImageBuilderImageStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2ImageBuilderImageStateChange_Ec2ImageBuilderImageStateChangePatternParameters(options); err != nil {
+	if err := validateEC2ImageBuilderImageStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_imagebuilder.events.EC2ImageBuilderImageStateChange",
-		"ec2ImageBuilderImageStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -428,6 +428,14 @@ func init() {
 		reflect.TypeOf((*CfnSegmentDefinitionPropsMixin_SegmentGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnSegmentDefinitionPropsMixin.SegmentSortProperty",
+		reflect.TypeOf((*CfnSegmentDefinitionPropsMixin_SegmentSortProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnSegmentDefinitionPropsMixin.SortAttributeProperty",
+		reflect.TypeOf((*CfnSegmentDefinitionPropsMixin_SortAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnSegmentDefinitionPropsMixin.SourceSegmentProperty",
 		reflect.TypeOf((*CfnSegmentDefinitionPropsMixin_SourceSegmentProperty)(nil)).Elem(),
 	)

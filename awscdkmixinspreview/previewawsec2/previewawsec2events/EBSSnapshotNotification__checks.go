@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEBSSnapshotNotification_EbsSnapshotNotificationPatternParameters(options *EBSSnapshotNotification_EBSSnapshotNotificationProps) error {
+func validateEBSSnapshotNotification_EventPatternParameters(options *EBSSnapshotNotification_EBSSnapshotNotificationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

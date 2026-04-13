@@ -40,6 +40,7 @@ import (
 //   			Weight: jsii.Number(123),
 //   		},
 //   	},
+//   	StateMachineArn: jsii.String("stateMachineArn"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

@@ -53,17 +53,17 @@ func NewReferenceImportJobStatusChange_Override(r ReferenceImportJobStatusChange
 
 // EventBridge event pattern for Reference Import Job Status Change.
 // Experimental.
-func ReferenceImportJobStatusChange_ReferenceImportJobStatusChangePattern(options *ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) *awsevents.EventPattern {
+func ReferenceImportJobStatusChange_EventPattern(options *ReferenceImportJobStatusChange_ReferenceImportJobStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateReferenceImportJobStatusChange_ReferenceImportJobStatusChangePatternParameters(options); err != nil {
+	if err := validateReferenceImportJobStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.ReferenceImportJobStatusChange",
-		"referenceImportJobStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

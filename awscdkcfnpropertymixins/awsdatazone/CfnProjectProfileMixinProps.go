@@ -9,6 +9,7 @@ package awsdatazone
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnProjectProfileMixinProps := &CfnProjectProfileMixinProps{
+//   	AllowCustomProjectResourceTags: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	DomainUnitIdentifier: jsii.String("domainUnitIdentifier"),
@@ -46,6 +47,14 @@ package awsdatazone
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	ProjectResourceTags: []interface{}{
+//   		&ResourceTagParameterProperty{
+//   			IsValueEditable: jsii.Boolean(false),
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ProjectResourceTagsDescription: jsii.String("projectResourceTagsDescription"),
 //   	Status: jsii.String("status"),
 //   	UseDefaultConfigurations: jsii.Boolean(false),
 //   }
@@ -53,6 +62,9 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html
 //
 type CfnProjectProfileMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-allowcustomprojectresourcetags
+	//
+	AllowCustomProjectResourceTags interface{} `field:"optional" json:"allowCustomProjectResourceTags" yaml:"allowCustomProjectResourceTags"`
 	// The description of the project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-description
 	//
@@ -73,6 +85,12 @@ type CfnProjectProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-projectresourcetags
+	//
+	ProjectResourceTags interface{} `field:"optional" json:"projectResourceTags" yaml:"projectResourceTags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-projectresourcetagsdescription
+	//
+	ProjectResourceTagsDescription *string `field:"optional" json:"projectResourceTagsDescription" yaml:"projectResourceTagsDescription"`
 	// The status of a project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html#cfn-datazone-projectprofile-status
 	//

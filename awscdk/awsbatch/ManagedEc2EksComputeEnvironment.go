@@ -142,7 +142,7 @@ type ManagedEc2EksComputeEnvironment interface {
 	Env() *interfaces.ResourceEnvironment
 	// Configure which AMIs this Compute Environment can launch.
 	Images() *[]*EksMachineImage
-	// The instance types that this Compute Environment can launch.
+	// The instance classes that this Compute Environment can launch.
 	//
 	// Which one is chosen depends on the `AllocationStrategy` used.
 	InstanceClasses() *[]awsec2.InstanceClass

@@ -53,17 +53,17 @@ func NewSecurityHubInsightResults_Override(s SecurityHubInsightResults) {
 
 // EventBridge event pattern for Security Hub Insight Results.
 // Experimental.
-func SecurityHubInsightResults_SecurityHubInsightResultsPattern(options *SecurityHubInsightResults_SecurityHubInsightResultsProps) *awsevents.EventPattern {
+func SecurityHubInsightResults_EventPattern(options *SecurityHubInsightResults_SecurityHubInsightResultsProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSecurityHubInsightResults_SecurityHubInsightResultsPatternParameters(options); err != nil {
+	if err := validateSecurityHubInsightResults_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_securityhub.events.SecurityHubInsightResults",
-		"securityHubInsightResultsPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

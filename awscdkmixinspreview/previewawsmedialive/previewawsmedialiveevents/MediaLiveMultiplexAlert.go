@@ -53,17 +53,17 @@ func NewMediaLiveMultiplexAlert_Override(m MediaLiveMultiplexAlert) {
 
 // EventBridge event pattern for MediaLive Multiplex Alert.
 // Experimental.
-func MediaLiveMultiplexAlert_MediaLiveMultiplexAlertPattern(options *MediaLiveMultiplexAlert_MediaLiveMultiplexAlertProps) *awsevents.EventPattern {
+func MediaLiveMultiplexAlert_EventPattern(options *MediaLiveMultiplexAlert_MediaLiveMultiplexAlertProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateMediaLiveMultiplexAlert_MediaLiveMultiplexAlertPatternParameters(options); err != nil {
+	if err := validateMediaLiveMultiplexAlert_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_medialive.events.MediaLiveMultiplexAlert",
-		"mediaLiveMultiplexAlertPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

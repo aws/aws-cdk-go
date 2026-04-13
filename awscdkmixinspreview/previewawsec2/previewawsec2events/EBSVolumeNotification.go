@@ -53,17 +53,17 @@ func NewEBSVolumeNotification_Override(e EBSVolumeNotification) {
 
 // EventBridge event pattern for EBS Volume Notification.
 // Experimental.
-func EBSVolumeNotification_EbsVolumeNotificationPattern(options *EBSVolumeNotification_EBSVolumeNotificationProps) *awsevents.EventPattern {
+func EBSVolumeNotification_EventPattern(options *EBSVolumeNotification_EBSVolumeNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEBSVolumeNotification_EbsVolumeNotificationPatternParameters(options); err != nil {
+	if err := validateEBSVolumeNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ec2.events.EBSVolumeNotification",
-		"ebsVolumeNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

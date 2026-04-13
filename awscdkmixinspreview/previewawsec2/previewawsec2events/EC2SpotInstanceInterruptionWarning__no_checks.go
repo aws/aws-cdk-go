@@ -4,7 +4,7 @@ package previewawsec2events
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateEC2SpotInstanceInterruptionWarning_Ec2SpotInstanceInterruptionWarningPatternParameters(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) error {
+func validateEC2SpotInstanceInterruptionWarning_EventPatternParameters(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) error {
 	return nil
 }
 

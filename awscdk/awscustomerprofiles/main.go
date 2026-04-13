@@ -703,6 +703,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "segmentDefinitionName", GoGetter: "SegmentDefinitionName"},
 			_jsii_.MemberProperty{JsiiProperty: "segmentDefinitionRef", GoGetter: "SegmentDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "segmentGroups", GoGetter: "SegmentGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "segmentSort", GoGetter: "SegmentSort"},
 			_jsii_.MemberProperty{JsiiProperty: "segmentSqlQuery", GoGetter: "SegmentSqlQuery"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -773,6 +774,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnSegmentDefinition.SegmentGroupProperty",
 		reflect.TypeOf((*CfnSegmentDefinition_SegmentGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnSegmentDefinition.SegmentSortProperty",
+		reflect.TypeOf((*CfnSegmentDefinition_SegmentSortProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnSegmentDefinition.SortAttributeProperty",
+		reflect.TypeOf((*CfnSegmentDefinition_SortAttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnSegmentDefinition.SourceSegmentProperty",

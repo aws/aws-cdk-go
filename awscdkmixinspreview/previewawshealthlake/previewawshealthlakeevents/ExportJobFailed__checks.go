@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateExportJobFailed_ExportJobFailedPatternParameters(options *ExportJobFailed_ExportJobFailedProps) error {
+func validateExportJobFailed_EventPatternParameters(options *ExportJobFailed_ExportJobFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEC2InstanceTerminateUnsuccessful_Ec2InstanceTerminateUnsuccessfulPatternParameters(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) error {
+func validateEC2InstanceTerminateUnsuccessful_EventPatternParameters(options *EC2InstanceTerminateUnsuccessful_EC2InstanceTerminateUnsuccessfulProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

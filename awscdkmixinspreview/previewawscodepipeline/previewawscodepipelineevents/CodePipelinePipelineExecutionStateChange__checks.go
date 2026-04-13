@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCodePipelinePipelineExecutionStateChange_CodePipelinePipelineExecutionStateChangePatternParameters(options *CodePipelinePipelineExecutionStateChange_CodePipelinePipelineExecutionStateChangeProps) error {
+func validateCodePipelinePipelineExecutionStateChange_EventPatternParameters(options *CodePipelinePipelineExecutionStateChange_CodePipelinePipelineExecutionStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

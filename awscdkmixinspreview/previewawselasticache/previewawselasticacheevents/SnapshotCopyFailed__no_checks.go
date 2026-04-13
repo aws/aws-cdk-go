@@ -4,7 +4,7 @@ package previewawselasticacheevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateSnapshotCopyFailed_SnapshotCopyFailedPatternParameters(options *SnapshotCopyFailed_SnapshotCopyFailedProps) error {
+func validateSnapshotCopyFailed_EventPatternParameters(options *SnapshotCopyFailed_SnapshotCopyFailedProps) error {
 	return nil
 }
 

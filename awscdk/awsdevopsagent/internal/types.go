@@ -6,5 +6,6 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsdevopsagentIAgentSpaceRef = interfacesawsdevopsagent.IAgentSpaceRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsdevopsagentIAssociationRef = interfacesawsdevopsagent.IAssociationRef
 type Type__interfacesawsdevopsagentIServiceRef = interfacesawsdevopsagent.IServiceRef

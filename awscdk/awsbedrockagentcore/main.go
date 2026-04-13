@@ -293,6 +293,10 @@ func init() {
 		reflect.TypeOf((*CfnEvaluator_CategoricalScaleDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.CodeBasedEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluator_CodeBasedEvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.EvaluatorConfigProperty",
 		reflect.TypeOf((*CfnEvaluator_EvaluatorConfigProperty)(nil)).Elem(),
 	)
@@ -303,6 +307,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.InferenceConfigurationProperty",
 		reflect.TypeOf((*CfnEvaluator_InferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.LambdaEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluator_LambdaEvaluatorConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.LlmAsAJudgeEvaluatorConfigProperty",

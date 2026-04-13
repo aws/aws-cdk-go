@@ -53,17 +53,17 @@ func NewEMRClusterStateChange_Override(e EMRClusterStateChange) {
 
 // EventBridge event pattern for EMR Cluster State Change.
 // Experimental.
-func EMRClusterStateChange_EmrClusterStateChangePattern(options *EMRClusterStateChange_EMRClusterStateChangeProps) *awsevents.EventPattern {
+func EMRClusterStateChange_EventPattern(options *EMRClusterStateChange_EMRClusterStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRClusterStateChange_EmrClusterStateChangePatternParameters(options); err != nil {
+	if err := validateEMRClusterStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRClusterStateChange",
-		"emrClusterStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

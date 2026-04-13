@@ -53,17 +53,17 @@ func NewOpsWorksCommandStateChange_Override(o OpsWorksCommandStateChange) {
 
 // EventBridge event pattern for OpsWorks Command State Change.
 // Experimental.
-func OpsWorksCommandStateChange_OpsWorksCommandStateChangePattern(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) *awsevents.EventPattern {
+func OpsWorksCommandStateChange_EventPattern(options *OpsWorksCommandStateChange_OpsWorksCommandStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateOpsWorksCommandStateChange_OpsWorksCommandStateChangePatternParameters(options); err != nil {
+	if err := validateOpsWorksCommandStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksCommandStateChange",
-		"opsWorksCommandStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateFTPServerFileRenameCompleted_FtpServerFileRenameCompletedPatternParameters(options *FTPServerFileRenameCompleted_FTPServerFileRenameCompletedProps) error {
+func validateFTPServerFileRenameCompleted_EventPatternParameters(options *FTPServerFileRenameCompleted_FTPServerFileRenameCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

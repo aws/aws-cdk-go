@@ -4,7 +4,7 @@ package previewawsdevopsguruevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateDevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationPatternParameters(options *DevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationProps) error {
+func validateDevOpsGuruNewAnomalyAssociation_EventPatternParameters(options *DevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationProps) error {
 	return nil
 }
 

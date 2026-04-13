@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnNodegroup) validateSetUpdateConfigParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnNodegroup) validateSetWarmPoolConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnNodegroupParameters(scope constructs.Construct, id *string, props *CfnNodegroupProps) error {
 	return nil
 }

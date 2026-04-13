@@ -53,17 +53,17 @@ func NewContactLensRealtimeRulesMatched_Override(c ContactLensRealtimeRulesMatch
 
 // EventBridge event pattern for Contact Lens Realtime Rules Matched.
 // Experimental.
-func ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedPattern(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) *awsevents.EventPattern {
+func ContactLensRealtimeRulesMatched_EventPattern(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedPatternParameters(options); err != nil {
+	if err := validateContactLensRealtimeRulesMatched_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_connect.events.ContactLensRealtimeRulesMatched",
-		"contactLensRealtimeRulesMatchedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

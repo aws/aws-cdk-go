@@ -104,6 +104,9 @@ package awsecs
 //   			Min: jsii.Number(123),
 //   		},
 //   	},
+//   	LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   		UseLocalStorage: jsii.Boolean(false),
+//   	},
 //   	Monitoring: jsii.String("monitoring"),
 //   	StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
 //   		StorageSizeGiB: jsii.Number(123),
@@ -160,6 +163,9 @@ type CfnCapacityProvider_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-instancerequirements
 	//
 	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-localstorageconfiguration
+	//
+	LocalStorageConfiguration interface{} `field:"optional" json:"localStorageConfiguration" yaml:"localStorageConfiguration"`
 	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring.
 	//
 	// By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/detailed-monitoring-managed-instances.html) in the Amazon ECS Developer Guide.

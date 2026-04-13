@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateManagedBlockchainInvitationStatusChange_ManagedBlockchainInvitationStatusChangePatternParameters(options *ManagedBlockchainInvitationStatusChange_ManagedBlockchainInvitationStatusChangeProps) error {
+func validateManagedBlockchainInvitationStatusChange_EventPatternParameters(options *ManagedBlockchainInvitationStatusChange_ManagedBlockchainInvitationStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

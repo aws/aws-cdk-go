@@ -53,17 +53,17 @@ func NewSFTPConnectorDirectoryListingFailed_Override(s SFTPConnectorDirectoryLis
 
 // EventBridge event pattern for SFTP Connector Directory Listing Failed.
 // Experimental.
-func SFTPConnectorDirectoryListingFailed_SftPConnectorDirectoryListingFailedPattern(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) *awsevents.EventPattern {
+func SFTPConnectorDirectoryListingFailed_EventPattern(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPConnectorDirectoryListingFailed_SftPConnectorDirectoryListingFailedPatternParameters(options); err != nil {
+	if err := validateSFTPConnectorDirectoryListingFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPConnectorDirectoryListingFailed",
-		"sftPConnectorDirectoryListingFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

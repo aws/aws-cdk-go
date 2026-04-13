@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangePatternParameters(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) error {
+func validateCodeBuildBuildPhaseChange_EventPatternParameters(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

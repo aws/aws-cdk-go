@@ -53,17 +53,17 @@ func NewCodeDeployDeploymentStateChangeNotification_Override(c CodeDeployDeploym
 
 // EventBridge event pattern for CodeDeploy Deployment State-change Notification.
 // Experimental.
-func CodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationPattern(options *CodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationProps) *awsevents.EventPattern {
+func CodeDeployDeploymentStateChangeNotification_EventPattern(options *CodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationPatternParameters(options); err != nil {
+	if err := validateCodeDeployDeploymentStateChangeNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codedeploy.events.CodeDeployDeploymentStateChangeNotification",
-		"codeDeployDeploymentStateChangeNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

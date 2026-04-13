@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnSegmentDefinition) validateSetSegmentGroupsParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnSegmentDefinition) validateSetSegmentSortParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSegmentDefinition) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

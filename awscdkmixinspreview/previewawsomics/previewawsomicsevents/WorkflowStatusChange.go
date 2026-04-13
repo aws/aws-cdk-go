@@ -53,17 +53,17 @@ func NewWorkflowStatusChange_Override(w WorkflowStatusChange) {
 
 // EventBridge event pattern for Workflow Status Change.
 // Experimental.
-func WorkflowStatusChange_WorkflowStatusChangePattern(options *WorkflowStatusChange_WorkflowStatusChangeProps) *awsevents.EventPattern {
+func WorkflowStatusChange_EventPattern(options *WorkflowStatusChange_WorkflowStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateWorkflowStatusChange_WorkflowStatusChangePatternParameters(options); err != nil {
+	if err := validateWorkflowStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.WorkflowStatusChange",
-		"workflowStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

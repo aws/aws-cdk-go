@@ -893,6 +893,7 @@ func init() {
 			"ECS_AL2": EcsMachineImageType_ECS_AL2,
 			"ECS_AL2023": EcsMachineImageType_ECS_AL2023,
 			"ECS_AL2_NVIDIA": EcsMachineImageType_ECS_AL2_NVIDIA,
+			"ECS_AL2023_NVIDIA": EcsMachineImageType_ECS_AL2023_NVIDIA,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1024,6 +1025,8 @@ func init() {
 		map[string]interface{}{
 			"EKS_AL2": EksMachineImageType_EKS_AL2,
 			"EKS_AL2_NVIDIA": EksMachineImageType_EKS_AL2_NVIDIA,
+			"EKS_AL2023": EksMachineImageType_EKS_AL2023,
+			"EKS_AL2023_NVIDIA": EksMachineImageType_EKS_AL2023_NVIDIA,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1688,6 +1691,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.ManagedComputeEnvironmentProps",
 		reflect.TypeOf((*ManagedComputeEnvironmentProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.ManagedEc2ComputeEnvironmentProps",
+		reflect.TypeOf((*ManagedEc2ComputeEnvironmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_batch.ManagedEc2EcsComputeEnvironment",

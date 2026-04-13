@@ -231,6 +231,14 @@ func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationConfigIdentifierP
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationSettingsParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -240,6 +248,14 @@ func (j *jsiiProxy_CfnReplicationConfig) validateSetReplicationTypeParameters(va
 }
 
 func (j *jsiiProxy_CfnReplicationConfig) validateSetSourceEndpointArnParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnReplicationConfig) validateSetSupplementalSettingsParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}

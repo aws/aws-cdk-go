@@ -53,17 +53,17 @@ func NewCodeCommitCommentOnPullRequest_Override(c CodeCommitCommentOnPullRequest
 
 // EventBridge event pattern for CodeCommit Comment on Pull Request.
 // Experimental.
-func CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestPattern(options *CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) *awsevents.EventPattern {
+func CodeCommitCommentOnPullRequest_EventPattern(options *CodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeCommitCommentOnPullRequest_CodeCommitCommentOnPullRequestPatternParameters(options); err != nil {
+	if err := validateCodeCommitCommentOnPullRequest_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codecommit.events.CodeCommitCommentOnPullRequest",
-		"codeCommitCommentOnPullRequestPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

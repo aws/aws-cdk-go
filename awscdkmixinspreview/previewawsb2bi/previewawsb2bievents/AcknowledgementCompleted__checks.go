@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateAcknowledgementCompleted_AcknowledgementCompletedPatternParameters(options *AcknowledgementCompleted_AcknowledgementCompletedProps) error {
+func validateAcknowledgementCompleted_EventPatternParameters(options *AcknowledgementCompleted_AcknowledgementCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

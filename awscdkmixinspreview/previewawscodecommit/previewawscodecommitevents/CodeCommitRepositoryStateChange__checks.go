@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangePatternParameters(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) error {
+func validateCodeCommitRepositoryStateChange_EventPatternParameters(options *CodeCommitRepositoryStateChange_CodeCommitRepositoryStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -32,6 +32,12 @@ import (
 //   	},
 //   	ProjectProfileId: jsii.String("projectProfileId"),
 //   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
+//   	ResourceTags: []interface{}{
+//   		&ResourceTagProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	UserParameters: []interface{}{
 //   		&EnvironmentConfigurationUserParameterProperty{
 //   			EnvironmentConfigurationName: jsii.String("environmentConfigurationName"),
@@ -114,6 +120,9 @@ type CfnProject interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The resource tags of the project.
+	ResourceTags() interface{}
+	SetResourceTags(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -495,6 +504,16 @@ func (j *jsiiProxy_CfnProject) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) ResourceTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -623,6 +642,17 @@ func (j *jsiiProxy_CfnProject)SetProjectProfileVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"projectProfileVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetResourceTags(val interface{}) {
+	if err := j.validateSetResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourceTags",
 		val,
 	)
 }

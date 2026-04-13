@@ -53,17 +53,17 @@ func NewDLMPolicyStateChange_Override(d DLMPolicyStateChange) {
 
 // EventBridge event pattern for DLM Policy State Change.
 // Experimental.
-func DLMPolicyStateChange_DlmPolicyStateChangePattern(options *DLMPolicyStateChange_DLMPolicyStateChangeProps) *awsevents.EventPattern {
+func DLMPolicyStateChange_EventPattern(options *DLMPolicyStateChange_DLMPolicyStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDLMPolicyStateChange_DlmPolicyStateChangePatternParameters(options); err != nil {
+	if err := validateDLMPolicyStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_dlm.events.DLMPolicyStateChange",
-		"dlmPolicyStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

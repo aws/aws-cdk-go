@@ -71,7 +71,6 @@ type ManagedEc2EcsComputeEnvironment interface {
 	// The instance classes that this Compute Environment can launch.
 	//
 	// Which one is chosen depends on the `AllocationStrategy` used.
-	// Batch will automatically choose the size.
 	InstanceClasses() *[]awsec2.InstanceClass
 	// The execution Role that instances launched by this Compute Environment will use.
 	InstanceRole() awsiam.IRole

@@ -53,17 +53,17 @@ func NewSFTPServerFileDownloadCompleted_Override(s SFTPServerFileDownloadComplet
 
 // EventBridge event pattern for SFTP Server File Download Completed.
 // Experimental.
-func SFTPServerFileDownloadCompleted_SftPServerFileDownloadCompletedPattern(options *SFTPServerFileDownloadCompleted_SFTPServerFileDownloadCompletedProps) *awsevents.EventPattern {
+func SFTPServerFileDownloadCompleted_EventPattern(options *SFTPServerFileDownloadCompleted_SFTPServerFileDownloadCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerFileDownloadCompleted_SftPServerFileDownloadCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPServerFileDownloadCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerFileDownloadCompleted",
-		"sftPServerFileDownloadCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

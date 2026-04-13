@@ -110,7 +110,7 @@ type SageMakerTransformJobStateChange_SageMakerTransformJobStateChangeProps stru
 	// ModelName property.
 	//
 	// Specify an array of string values to match this event if the actual value of ModelName is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
-	// Default: - Filter with the Model reference.
+	// Default: - Do not filter on this field.
 	//
 	// Experimental.
 	ModelName *[]*string `field:"optional" json:"modelName" yaml:"modelName"`

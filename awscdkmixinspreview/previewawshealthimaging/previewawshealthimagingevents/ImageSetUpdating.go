@@ -53,17 +53,17 @@ func NewImageSetUpdating_Override(i ImageSetUpdating) {
 
 // EventBridge event pattern for Image Set Updating.
 // Experimental.
-func ImageSetUpdating_ImageSetUpdatingPattern(options *ImageSetUpdating_ImageSetUpdatingProps) *awsevents.EventPattern {
+func ImageSetUpdating_EventPattern(options *ImageSetUpdating_ImageSetUpdatingProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImageSetUpdating_ImageSetUpdatingPatternParameters(options); err != nil {
+	if err := validateImageSetUpdating_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetUpdating",
-		"imageSetUpdatingPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

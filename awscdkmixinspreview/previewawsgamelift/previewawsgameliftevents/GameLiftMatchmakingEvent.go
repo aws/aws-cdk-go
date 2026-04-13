@@ -53,17 +53,17 @@ func NewGameLiftMatchmakingEvent_Override(g GameLiftMatchmakingEvent) {
 
 // EventBridge event pattern for GameLift Matchmaking Event.
 // Experimental.
-func GameLiftMatchmakingEvent_GameLiftMatchmakingEventPattern(options *GameLiftMatchmakingEvent_GameLiftMatchmakingEventProps) *awsevents.EventPattern {
+func GameLiftMatchmakingEvent_EventPattern(options *GameLiftMatchmakingEvent_GameLiftMatchmakingEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateGameLiftMatchmakingEvent_GameLiftMatchmakingEventPatternParameters(options); err != nil {
+	if err := validateGameLiftMatchmakingEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_gamelift.events.GameLiftMatchmakingEvent",
-		"gameLiftMatchmakingEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

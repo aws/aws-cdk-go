@@ -572,6 +572,9 @@ func (j *jsiiProxy_CfnAccessPoint)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnAccessPoint)SetPolicy(val interface{}) {
+	if err := j.validateSetPolicyParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policy",

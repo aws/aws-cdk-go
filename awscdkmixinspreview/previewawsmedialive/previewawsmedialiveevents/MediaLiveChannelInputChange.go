@@ -53,17 +53,17 @@ func NewMediaLiveChannelInputChange_Override(m MediaLiveChannelInputChange) {
 
 // EventBridge event pattern for MediaLive Channel Input Change.
 // Experimental.
-func MediaLiveChannelInputChange_MediaLiveChannelInputChangePattern(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) *awsevents.EventPattern {
+func MediaLiveChannelInputChange_EventPattern(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateMediaLiveChannelInputChange_MediaLiveChannelInputChangePatternParameters(options); err != nil {
+	if err := validateMediaLiveChannelInputChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_medialive.events.MediaLiveChannelInputChange",
-		"mediaLiveChannelInputChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

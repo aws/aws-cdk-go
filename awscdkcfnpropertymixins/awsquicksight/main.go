@@ -5192,6 +5192,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_S3ParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSourcePropsMixin.S3TablesParametersProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_S3TablesParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSourcePropsMixin.SnowflakeParametersProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_SnowflakeParametersProperty)(nil)).Elem(),
 	)

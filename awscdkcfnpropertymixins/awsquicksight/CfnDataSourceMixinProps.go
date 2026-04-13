@@ -96,6 +96,9 @@ import (
 //   				},
 //   				RoleArn: jsii.String("roleArn"),
 //   			},
+//   			S3TablesParameters: &S3TablesParametersProperty{
+//   				TableBucketArn: jsii.String("tableBucketArn"),
+//   			},
 //   			SnowflakeParameters: &SnowflakeParametersProperty{
 //   				AuthenticationType: jsii.String("authenticationType"),
 //   				Database: jsii.String("database"),
@@ -235,6 +238,9 @@ import (
 //   							Key: jsii.String("key"),
 //   						},
 //   						RoleArn: jsii.String("roleArn"),
+//   					},
+//   					S3TablesParameters: &S3TablesParametersProperty{
+//   						TableBucketArn: jsii.String("tableBucketArn"),
 //   					},
 //   					SnowflakeParameters: &SnowflakeParametersProperty{
 //   						AuthenticationType: jsii.String("authenticationType"),
@@ -381,6 +387,9 @@ import (
 //   				Key: jsii.String("key"),
 //   			},
 //   			RoleArn: jsii.String("roleArn"),
+//   		},
+//   		S3TablesParameters: &S3TablesParametersProperty{
+//   			TableBucketArn: jsii.String("tableBucketArn"),
 //   		},
 //   		SnowflakeParameters: &SnowflakeParametersProperty{
 //   			AuthenticationType: jsii.String("authenticationType"),

@@ -4,7 +4,7 @@ package previewawsvoiceidevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateVoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionPatternParameters(options *VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps) error {
+func validateVoiceIdBatchFraudsterRegistrationAction_EventPatternParameters(options *VoiceIdBatchFraudsterRegistrationAction_VoiceIdBatchFraudsterRegistrationActionProps) error {
 	return nil
 }
 

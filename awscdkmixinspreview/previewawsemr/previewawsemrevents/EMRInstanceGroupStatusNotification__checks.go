@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateEMRInstanceGroupStatusNotification_EmrInstanceGroupStatusNotificationPatternParameters(options *EMRInstanceGroupStatusNotification_EMRInstanceGroupStatusNotificationProps) error {
+func validateEMRInstanceGroupStatusNotification_EventPatternParameters(options *EMRInstanceGroupStatusNotification_EMRInstanceGroupStatusNotificationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

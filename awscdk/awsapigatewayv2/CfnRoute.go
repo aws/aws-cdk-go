@@ -614,6 +614,9 @@ func (j *jsiiProxy_CfnRoute)SetOperationName(val *string) {
 }
 
 func (j *jsiiProxy_CfnRoute)SetRequestModels(val interface{}) {
+	if err := j.validateSetRequestModelsParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"requestModels",
@@ -622,6 +625,9 @@ func (j *jsiiProxy_CfnRoute)SetRequestModels(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnRoute)SetRequestParameters(val interface{}) {
+	if err := j.validateSetRequestParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"requestParameters",

@@ -8,6 +8,8 @@ package awsdatazone
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var workflowsServerlessProperties interface{}
+//
 //   cfnConnectionMixinProps := &CfnConnectionMixinProps{
 //   	AwsLocation: &AwsLocationProperty{
 //   		AccessRole: jsii.String("accessRole"),
@@ -154,6 +156,10 @@ package awsdatazone
 //   			PythonVirtualEnv: jsii.String("pythonVirtualEnv"),
 //   			WorkerType: jsii.String("workerType"),
 //   		},
+//   		WorkflowsMwaaProperties: &WorkflowsMwaaPropertiesInputProperty{
+//   			MwaaEnvironmentName: jsii.String("mwaaEnvironmentName"),
+//   		},
+//   		WorkflowsServerlessProperties: workflowsServerlessProperties,
 //   	},
 //   	Scope: jsii.String("scope"),
 //   }

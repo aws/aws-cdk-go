@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateScheduledJson_ScheduledJsonPatternParameters(options *ScheduledJson_ScheduledJsonProps) error {
+func validateScheduledJson_EventPatternParameters(options *ScheduledJson_ScheduledJsonProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

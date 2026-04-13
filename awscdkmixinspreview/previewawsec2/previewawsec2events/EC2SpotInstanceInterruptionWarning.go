@@ -53,17 +53,17 @@ func NewEC2SpotInstanceInterruptionWarning_Override(e EC2SpotInstanceInterruptio
 
 // EventBridge event pattern for EC2 Spot Instance Interruption Warning.
 // Experimental.
-func EC2SpotInstanceInterruptionWarning_Ec2SpotInstanceInterruptionWarningPattern(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) *awsevents.EventPattern {
+func EC2SpotInstanceInterruptionWarning_EventPattern(options *EC2SpotInstanceInterruptionWarning_EC2SpotInstanceInterruptionWarningProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2SpotInstanceInterruptionWarning_Ec2SpotInstanceInterruptionWarningPatternParameters(options); err != nil {
+	if err := validateEC2SpotInstanceInterruptionWarning_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ec2.events.EC2SpotInstanceInterruptionWarning",
-		"ec2SpotInstanceInterruptionWarningPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

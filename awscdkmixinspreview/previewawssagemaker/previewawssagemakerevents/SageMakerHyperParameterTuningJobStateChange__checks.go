@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangePatternParameters(options *SageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangeProps) error {
+func validateSageMakerHyperParameterTuningJobStateChange_EventPatternParameters(options *SageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

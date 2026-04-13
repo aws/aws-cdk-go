@@ -9,10 +9,13 @@ package interfacesawsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   serviceReference := &ServiceReference{
+//   	ServiceArn: jsii.String("serviceArn"),
 //   	ServiceId: jsii.String("serviceId"),
 //   }
 //
 type ServiceReference struct {
+	// The ARN of the Service resource.
+	ServiceArn *string `field:"required" json:"serviceArn" yaml:"serviceArn"`
 	// The ServiceId of the Service resource.
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 }

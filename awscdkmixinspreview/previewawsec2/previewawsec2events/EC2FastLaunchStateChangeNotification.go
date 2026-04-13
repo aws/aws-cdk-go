@@ -53,17 +53,17 @@ func NewEC2FastLaunchStateChangeNotification_Override(e EC2FastLaunchStateChange
 
 // EventBridge event pattern for EC2 Fast Launch State-change Notification.
 // Experimental.
-func EC2FastLaunchStateChangeNotification_Ec2FastLaunchStateChangeNotificationPattern(options *EC2FastLaunchStateChangeNotification_EC2FastLaunchStateChangeNotificationProps) *awsevents.EventPattern {
+func EC2FastLaunchStateChangeNotification_EventPattern(options *EC2FastLaunchStateChangeNotification_EC2FastLaunchStateChangeNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2FastLaunchStateChangeNotification_Ec2FastLaunchStateChangeNotificationPatternParameters(options); err != nil {
+	if err := validateEC2FastLaunchStateChangeNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ec2.events.EC2FastLaunchStateChangeNotification",
-		"ec2FastLaunchStateChangeNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

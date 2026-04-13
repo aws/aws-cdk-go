@@ -26,6 +26,9 @@ package awsbedrockagentcore
 //   			Namespaces: []*string{
 //   				jsii.String("namespaces"),
 //   			},
+//   			NamespaceTemplates: []*string{
+//   				jsii.String("namespaceTemplates"),
+//   			},
 //   		},
 //   	},
 //   	SelfManagedConfiguration: &SelfManagedConfigurationProperty{

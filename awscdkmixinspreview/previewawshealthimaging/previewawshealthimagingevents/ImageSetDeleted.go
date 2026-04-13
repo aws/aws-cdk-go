@@ -53,17 +53,17 @@ func NewImageSetDeleted_Override(i ImageSetDeleted) {
 
 // EventBridge event pattern for Image Set Deleted.
 // Experimental.
-func ImageSetDeleted_ImageSetDeletedPattern(options *ImageSetDeleted_ImageSetDeletedProps) *awsevents.EventPattern {
+func ImageSetDeleted_EventPattern(options *ImageSetDeleted_ImageSetDeletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImageSetDeleted_ImageSetDeletedPatternParameters(options); err != nil {
+	if err := validateImageSetDeleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetDeleted",
-		"imageSetDeletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

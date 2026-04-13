@@ -53,17 +53,17 @@ func NewSnapshotCreated_Override(s SnapshotCreated) {
 
 // EventBridge event pattern for Snapshot Created.
 // Experimental.
-func SnapshotCreated_SnapshotCreatedPattern(options *SnapshotCreated_SnapshotCreatedProps) *awsevents.EventPattern {
+func SnapshotCreated_EventPattern(options *SnapshotCreated_SnapshotCreatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSnapshotCreated_SnapshotCreatedPatternParameters(options); err != nil {
+	if err := validateSnapshotCreated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.SnapshotCreated",
-		"snapshotCreatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

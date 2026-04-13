@@ -4,7 +4,7 @@ package previewawsrdsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateRDSDBInstanceEvent_RdsDBInstanceEventPatternParameters(options *RDSDBInstanceEvent_RDSDBInstanceEventProps) error {
+func validateRDSDBInstanceEvent_EventPatternParameters(options *RDSDBInstanceEvent_RDSDBInstanceEventProps) error {
 	return nil
 }
 

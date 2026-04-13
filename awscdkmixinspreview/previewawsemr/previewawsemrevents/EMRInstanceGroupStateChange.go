@@ -53,17 +53,17 @@ func NewEMRInstanceGroupStateChange_Override(e EMRInstanceGroupStateChange) {
 
 // EventBridge event pattern for EMR Instance Group State Change.
 // Experimental.
-func EMRInstanceGroupStateChange_EmrInstanceGroupStateChangePattern(options *EMRInstanceGroupStateChange_EMRInstanceGroupStateChangeProps) *awsevents.EventPattern {
+func EMRInstanceGroupStateChange_EventPattern(options *EMRInstanceGroupStateChange_EMRInstanceGroupStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEMRInstanceGroupStateChange_EmrInstanceGroupStateChangePatternParameters(options); err != nil {
+	if err := validateEMRInstanceGroupStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_emr.events.EMRInstanceGroupStateChange",
-		"emrInstanceGroupStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

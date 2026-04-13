@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateObjectRestoreCompleted_ObjectRestoreCompletedPatternParameters(options *ObjectRestoreCompleted_ObjectRestoreCompletedProps) error {
+func validateObjectRestoreCompleted_EventPatternParameters(options *ObjectRestoreCompleted_ObjectRestoreCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

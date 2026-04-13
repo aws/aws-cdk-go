@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateImageSetCreated_ImageSetCreatedPatternParameters(options *ImageSetCreated_ImageSetCreatedProps) error {
+func validateImageSetCreated_EventPatternParameters(options *ImageSetCreated_ImageSetCreatedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

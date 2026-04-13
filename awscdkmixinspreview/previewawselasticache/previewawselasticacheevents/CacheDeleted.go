@@ -53,17 +53,17 @@ func NewCacheDeleted_Override(c CacheDeleted) {
 
 // EventBridge event pattern for Cache Deleted.
 // Experimental.
-func CacheDeleted_CacheDeletedPattern(options *CacheDeleted_CacheDeletedProps) *awsevents.EventPattern {
+func CacheDeleted_EventPattern(options *CacheDeleted_CacheDeletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCacheDeleted_CacheDeletedPatternParameters(options); err != nil {
+	if err := validateCacheDeleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.CacheDeleted",
-		"cacheDeletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

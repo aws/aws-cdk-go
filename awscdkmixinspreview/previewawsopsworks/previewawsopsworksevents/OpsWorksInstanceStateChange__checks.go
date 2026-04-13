@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateOpsWorksInstanceStateChange_OpsWorksInstanceStateChangePatternParameters(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) error {
+func validateOpsWorksInstanceStateChange_EventPatternParameters(options *OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

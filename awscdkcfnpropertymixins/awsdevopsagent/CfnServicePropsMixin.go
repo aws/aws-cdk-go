@@ -22,6 +22,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnServicePropsMixin := awscdkcfnpropertymixins.Aws_devopsagent.NewCfnServicePropsMixin(&CfnServiceMixinProps{
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		Dynatrace: &DynatraceServiceDetailsProperty{
 //   			AccountUrn: jsii.String("accountUrn"),
@@ -105,6 +106,12 @@ import (
 //   		},
 //   	},
 //   	ServiceType: jsii.String("serviceType"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

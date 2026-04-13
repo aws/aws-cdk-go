@@ -53,17 +53,17 @@ func NewOpsWorksDeploymentStateChange_Override(o OpsWorksDeploymentStateChange) 
 
 // EventBridge event pattern for OpsWorks Deployment State Change.
 // Experimental.
-func OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangePattern(options *OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) *awsevents.EventPattern {
+func OpsWorksDeploymentStateChange_EventPattern(options *OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateOpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangePatternParameters(options); err != nil {
+	if err := validateOpsWorksDeploymentStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksDeploymentStateChange",
-		"opsWorksDeploymentStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewVoiceIdFraudsterAction_Override(v VoiceIdFraudsterAction) {
 
 // EventBridge event pattern for VoiceId Fraudster Action.
 // Experimental.
-func VoiceIdFraudsterAction_VoiceIdFraudsterActionPattern(options *VoiceIdFraudsterAction_VoiceIdFraudsterActionProps) *awsevents.EventPattern {
+func VoiceIdFraudsterAction_EventPattern(options *VoiceIdFraudsterAction_VoiceIdFraudsterActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateVoiceIdFraudsterAction_VoiceIdFraudsterActionPatternParameters(options); err != nil {
+	if err := validateVoiceIdFraudsterAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdFraudsterAction",
-		"voiceIdFraudsterActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

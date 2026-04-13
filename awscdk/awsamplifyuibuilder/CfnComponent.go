@@ -670,6 +670,9 @@ func (j *jsiiProxy_CfnComponent)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnComponent)SetOverrides(val interface{}) {
+	if err := j.validateSetOverridesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"overrides",

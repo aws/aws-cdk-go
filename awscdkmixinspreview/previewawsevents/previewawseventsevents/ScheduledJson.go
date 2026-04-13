@@ -53,17 +53,17 @@ func NewScheduledJson_Override(s ScheduledJson) {
 
 // EventBridge event pattern for Scheduled Event.
 // Experimental.
-func ScheduledJson_ScheduledJsonPattern(options *ScheduledJson_ScheduledJsonProps) *awsevents.EventPattern {
+func ScheduledJson_EventPattern(options *ScheduledJson_ScheduledJsonProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateScheduledJson_ScheduledJsonPatternParameters(options); err != nil {
+	if err := validateScheduledJson_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_events.events.ScheduledJson",
-		"scheduledJsonPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

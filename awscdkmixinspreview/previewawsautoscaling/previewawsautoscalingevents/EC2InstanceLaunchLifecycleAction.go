@@ -53,17 +53,17 @@ func NewEC2InstanceLaunchLifecycleAction_Override(e EC2InstanceLaunchLifecycleAc
 
 // EventBridge event pattern for EC2 Instance-launch Lifecycle Action.
 // Experimental.
-func EC2InstanceLaunchLifecycleAction_Ec2InstanceLaunchLifecycleActionPattern(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) *awsevents.EventPattern {
+func EC2InstanceLaunchLifecycleAction_EventPattern(options *EC2InstanceLaunchLifecycleAction_EC2InstanceLaunchLifecycleActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceLaunchLifecycleAction_Ec2InstanceLaunchLifecycleActionPatternParameters(options); err != nil {
+	if err := validateEC2InstanceLaunchLifecycleAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_autoscaling.events.EC2InstanceLaunchLifecycleAction",
-		"ec2InstanceLaunchLifecycleActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

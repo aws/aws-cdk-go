@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateObjectTagsAdded_ObjectTagsAddedPatternParameters(options *ObjectTagsAdded_ObjectTagsAddedProps) error {
+func validateObjectTagsAdded_EventPatternParameters(options *ObjectTagsAdded_ObjectTagsAddedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangePatternParameters(options *SageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangeProps) error {
+func validateSageMakerNotebookLifecycleConfigStateChange_EventPatternParameters(options *SageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

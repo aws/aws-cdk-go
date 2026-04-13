@@ -17,7 +17,7 @@ import (
 //   // Works with L2 Rule
 //   // Works with L2 Rule
 //   events.NewRule(scope, jsii.String("Rule"), &RuleProps{
-//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_EventPattern(&AWSAPICallViaCloudTrailProps{
 //   		TlsDetails: &TlsDetails{
 //   			TlsVersion: []*string{
 //   				jsii.String("TLSv1.3"),
@@ -38,7 +38,7 @@ import (
 //   // Also works with L1 CfnRule
 //   events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
 //   	State: jsii.String("ENABLED"),
-//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+//   	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*EventPattern(&AWSAPICallViaCloudTrailProps{
 //   		TlsDetails: &TlsDetails{
 //   			TlsVersion: []*string{
 //   				jsii.String("TLSv1.3"),

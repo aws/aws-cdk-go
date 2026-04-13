@@ -164,6 +164,10 @@ func init() {
 		reflect.TypeOf((*CfnFileSystem_DiskIopsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnFileSystem.FsrmConfigurationProperty",
+		reflect.TypeOf((*CfnFileSystem_FsrmConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnFileSystem.LustreConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_LustreConfigurationProperty)(nil)).Elem(),
 	)

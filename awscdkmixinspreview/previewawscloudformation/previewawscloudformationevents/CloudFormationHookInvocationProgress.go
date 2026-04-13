@@ -53,17 +53,17 @@ func NewCloudFormationHookInvocationProgress_Override(c CloudFormationHookInvoca
 
 // EventBridge event pattern for CloudFormation Hook Invocation Progress.
 // Experimental.
-func CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressPattern(options *CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressProps) *awsevents.EventPattern {
+func CloudFormationHookInvocationProgress_EventPattern(options *CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressPatternParameters(options); err != nil {
+	if err := validateCloudFormationHookInvocationProgress_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_cloudformation.events.CloudFormationHookInvocationProgress",
-		"cloudFormationHookInvocationProgressPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

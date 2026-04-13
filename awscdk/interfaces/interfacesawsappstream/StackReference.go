@@ -9,11 +9,11 @@ package interfacesawsappstream
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   stackReference := &StackReference{
-//   	StackId: jsii.String("stackId"),
+//   	StackName: jsii.String("stackName"),
 //   }
 //
 type StackReference struct {
-	// The Id of the Stack resource.
-	StackId *string `field:"required" json:"stackId" yaml:"stackId"`
+	// The Name of the Stack resource.
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 }
 

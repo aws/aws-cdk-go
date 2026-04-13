@@ -53,17 +53,17 @@ func NewDataStoreCreationFailed_Override(d DataStoreCreationFailed) {
 
 // EventBridge event pattern for Data Store Creation Failed.
 // Experimental.
-func DataStoreCreationFailed_DataStoreCreationFailedPattern(options *DataStoreCreationFailed_DataStoreCreationFailedProps) *awsevents.EventPattern {
+func DataStoreCreationFailed_EventPattern(options *DataStoreCreationFailed_DataStoreCreationFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataStoreCreationFailed_DataStoreCreationFailedPatternParameters(options); err != nil {
+	if err := validateDataStoreCreationFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreationFailed",
-		"dataStoreCreationFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

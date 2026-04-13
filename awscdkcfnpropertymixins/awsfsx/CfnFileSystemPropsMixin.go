@@ -160,6 +160,10 @@ import (
 //   			Iops: jsii.Number(123),
 //   			Mode: jsii.String("mode"),
 //   		},
+//   		FsrmConfiguration: &FsrmConfigurationProperty{
+//   			EventLogDestination: jsii.String("eventLogDestination"),
+//   			FsrmServiceEnabled: jsii.Boolean(false),
+//   		},
 //   		PreferredSubnetId: jsii.String("preferredSubnetId"),
 //   		SelfManagedActiveDirectoryConfiguration: &SelfManagedActiveDirectoryConfigurationProperty{
 //   			DnsIps: []*string{

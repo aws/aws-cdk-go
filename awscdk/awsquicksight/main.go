@@ -5493,6 +5493,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_S3ParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSource.S3TablesParametersProperty",
+		reflect.TypeOf((*CfnDataSource_S3TablesParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.SnowflakeParametersProperty",
 		reflect.TypeOf((*CfnDataSource_SnowflakeParametersProperty)(nil)).Elem(),
 	)

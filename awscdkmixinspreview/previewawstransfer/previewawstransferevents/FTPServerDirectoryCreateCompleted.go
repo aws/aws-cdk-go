@@ -53,17 +53,17 @@ func NewFTPServerDirectoryCreateCompleted_Override(f FTPServerDirectoryCreateCom
 
 // EventBridge event pattern for FTP Server Directory Create Completed.
 // Experimental.
-func FTPServerDirectoryCreateCompleted_FtpServerDirectoryCreateCompletedPattern(options *FTPServerDirectoryCreateCompleted_FTPServerDirectoryCreateCompletedProps) *awsevents.EventPattern {
+func FTPServerDirectoryCreateCompleted_EventPattern(options *FTPServerDirectoryCreateCompleted_FTPServerDirectoryCreateCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPServerDirectoryCreateCompleted_FtpServerDirectoryCreateCompletedPatternParameters(options); err != nil {
+	if err := validateFTPServerDirectoryCreateCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPServerDirectoryCreateCompleted",
-		"ftpServerDirectoryCreateCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

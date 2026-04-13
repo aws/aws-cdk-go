@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnRepository) validateSetDomainNameParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnRepository) validateSetPermissionsPolicyDocumentParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRepository) validateSetRepositoryNameParameters(val *string) error {
 	return nil
 }

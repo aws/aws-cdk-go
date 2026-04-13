@@ -4,7 +4,7 @@ package previewawsb2bievents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateTransformationCompleted_TransformationCompletedPatternParameters(options *TransformationCompleted_TransformationCompletedProps) error {
+func validateTransformationCompleted_EventPatternParameters(options *TransformationCompleted_TransformationCompletedProps) error {
 	return nil
 }
 

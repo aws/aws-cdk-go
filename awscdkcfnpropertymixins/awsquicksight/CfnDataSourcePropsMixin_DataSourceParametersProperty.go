@@ -93,6 +93,9 @@ package awsquicksight
 //   		},
 //   		RoleArn: jsii.String("roleArn"),
 //   	},
+//   	S3TablesParameters: &S3TablesParametersProperty{
+//   		TableBucketArn: jsii.String("tableBucketArn"),
+//   	},
 //   	SnowflakeParameters: &SnowflakeParametersProperty{
 //   		AuthenticationType: jsii.String("authenticationType"),
 //   		Database: jsii.String("database"),
@@ -204,6 +207,9 @@ type CfnDataSourcePropsMixin_DataSourceParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
 	//
 	S3Parameters interface{} `field:"optional" json:"s3Parameters" yaml:"s3Parameters"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3tablesparameters
+	//
+	S3TablesParameters interface{} `field:"optional" json:"s3TablesParameters" yaml:"s3TablesParameters"`
 	// The parameters for Snowflake.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
 	//

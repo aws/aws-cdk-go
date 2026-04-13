@@ -53,17 +53,17 @@ func NewContactLensPostCallRulesMatched_Override(c ContactLensPostCallRulesMatch
 
 // EventBridge event pattern for Contact Lens Post Call Rules Matched.
 // Experimental.
-func ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedPattern(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) *awsevents.EventPattern {
+func ContactLensPostCallRulesMatched_EventPattern(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedPatternParameters(options); err != nil {
+	if err := validateContactLensPostCallRulesMatched_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_connect.events.ContactLensPostCallRulesMatched",
-		"contactLensPostCallRulesMatchedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

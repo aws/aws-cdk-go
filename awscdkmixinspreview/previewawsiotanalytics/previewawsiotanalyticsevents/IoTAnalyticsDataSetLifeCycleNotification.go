@@ -53,17 +53,17 @@ func NewIoTAnalyticsDataSetLifeCycleNotification_Override(i IoTAnalyticsDataSetL
 
 // EventBridge event pattern for IoT Analytics DataSet Lifecycle Notification.
 // Experimental.
-func IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationPattern(options *IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) *awsevents.EventPattern {
+func IoTAnalyticsDataSetLifeCycleNotification_EventPattern(options *IoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateIoTAnalyticsDataSetLifeCycleNotification_IoTAnalyticsDataSetLifeCycleNotificationPatternParameters(options); err != nil {
+	if err := validateIoTAnalyticsDataSetLifeCycleNotification_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_iotanalytics.events.IoTAnalyticsDataSetLifeCycleNotification",
-		"ioTAnalyticsDataSetLifeCycleNotificationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

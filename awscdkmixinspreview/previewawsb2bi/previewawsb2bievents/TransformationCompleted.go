@@ -53,17 +53,17 @@ func NewTransformationCompleted_Override(t TransformationCompleted) {
 
 // EventBridge event pattern for Transformation Completed.
 // Experimental.
-func TransformationCompleted_TransformationCompletedPattern(options *TransformationCompleted_TransformationCompletedProps) *awsevents.EventPattern {
+func TransformationCompleted_EventPattern(options *TransformationCompleted_TransformationCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateTransformationCompleted_TransformationCompletedPatternParameters(options); err != nil {
+	if err := validateTransformationCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_b2bi.events.TransformationCompleted",
-		"transformationCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -4,7 +4,7 @@ package previewawsvoiceidevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateVoiceIdStartSessionAction_VoiceIdStartSessionActionPatternParameters(options *VoiceIdStartSessionAction_VoiceIdStartSessionActionProps) error {
+func validateVoiceIdStartSessionAction_EventPatternParameters(options *VoiceIdStartSessionAction_VoiceIdStartSessionActionProps) error {
 	return nil
 }
 

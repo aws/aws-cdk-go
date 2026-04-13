@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnDBParameterGroup) validateSetFamilyParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBParameterGroup) validateSetParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBParameterGroup) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

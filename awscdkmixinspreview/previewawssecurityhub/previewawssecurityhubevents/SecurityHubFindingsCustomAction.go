@@ -53,17 +53,17 @@ func NewSecurityHubFindingsCustomAction_Override(s SecurityHubFindingsCustomActi
 
 // EventBridge event pattern for Security Hub Findings - Custom Action.
 // Experimental.
-func SecurityHubFindingsCustomAction_SecurityHubFindingsCustomActionPattern(options *SecurityHubFindingsCustomAction_SecurityHubFindingsCustomActionProps) *awsevents.EventPattern {
+func SecurityHubFindingsCustomAction_EventPattern(options *SecurityHubFindingsCustomAction_SecurityHubFindingsCustomActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSecurityHubFindingsCustomAction_SecurityHubFindingsCustomActionPatternParameters(options); err != nil {
+	if err := validateSecurityHubFindingsCustomAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_securityhub.events.SecurityHubFindingsCustomAction",
-		"securityHubFindingsCustomActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

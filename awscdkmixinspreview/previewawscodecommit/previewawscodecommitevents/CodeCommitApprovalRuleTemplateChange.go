@@ -53,17 +53,17 @@ func NewCodeCommitApprovalRuleTemplateChange_Override(c CodeCommitApprovalRuleTe
 
 // EventBridge event pattern for CodeCommit Approval Rule Template Change.
 // Experimental.
-func CodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangePattern(options *CodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangeProps) *awsevents.EventPattern {
+func CodeCommitApprovalRuleTemplateChange_EventPattern(options *CodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeCommitApprovalRuleTemplateChange_CodeCommitApprovalRuleTemplateChangePatternParameters(options); err != nil {
+	if err := validateCodeCommitApprovalRuleTemplateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codecommit.events.CodeCommitApprovalRuleTemplateChange",
-		"codeCommitApprovalRuleTemplateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

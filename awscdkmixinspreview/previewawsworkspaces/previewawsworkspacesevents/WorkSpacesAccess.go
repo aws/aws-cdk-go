@@ -53,17 +53,17 @@ func NewWorkSpacesAccess_Override(w WorkSpacesAccess) {
 
 // EventBridge event pattern for WorkSpaces Access.
 // Experimental.
-func WorkSpacesAccess_WorkSpacesAccessPattern(options *WorkSpacesAccess_WorkSpacesAccessProps) *awsevents.EventPattern {
+func WorkSpacesAccess_EventPattern(options *WorkSpacesAccess_WorkSpacesAccessProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateWorkSpacesAccess_WorkSpacesAccessPatternParameters(options); err != nil {
+	if err := validateWorkSpacesAccess_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_workspaces.events.WorkSpacesAccess",
-		"workSpacesAccessPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

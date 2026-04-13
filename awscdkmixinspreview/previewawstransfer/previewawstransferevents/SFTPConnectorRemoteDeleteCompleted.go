@@ -53,17 +53,17 @@ func NewSFTPConnectorRemoteDeleteCompleted_Override(s SFTPConnectorRemoteDeleteC
 
 // EventBridge event pattern for SFTP Connector Remote Delete Completed.
 // Experimental.
-func SFTPConnectorRemoteDeleteCompleted_SftPConnectorRemoteDeleteCompletedPattern(options *SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) *awsevents.EventPattern {
+func SFTPConnectorRemoteDeleteCompleted_EventPattern(options *SFTPConnectorRemoteDeleteCompleted_SFTPConnectorRemoteDeleteCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPConnectorRemoteDeleteCompleted_SftPConnectorRemoteDeleteCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPConnectorRemoteDeleteCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPConnectorRemoteDeleteCompleted",
-		"sftPConnectorRemoteDeleteCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

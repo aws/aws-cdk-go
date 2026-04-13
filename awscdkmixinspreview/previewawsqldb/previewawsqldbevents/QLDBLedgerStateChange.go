@@ -53,17 +53,17 @@ func NewQLDBLedgerStateChange_Override(q QLDBLedgerStateChange) {
 
 // EventBridge event pattern for QLDB Ledger State Change.
 // Experimental.
-func QLDBLedgerStateChange_QldbLedgerStateChangePattern(options *QLDBLedgerStateChange_QLDBLedgerStateChangeProps) *awsevents.EventPattern {
+func QLDBLedgerStateChange_EventPattern(options *QLDBLedgerStateChange_QLDBLedgerStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateQLDBLedgerStateChange_QldbLedgerStateChangePatternParameters(options); err != nil {
+	if err := validateQLDBLedgerStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_qldb.events.QLDBLedgerStateChange",
-		"qldbLedgerStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

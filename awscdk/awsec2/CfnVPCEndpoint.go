@@ -684,6 +684,9 @@ func (j *jsiiProxy_CfnVPCEndpoint)SetIpAddressType(val *string) {
 }
 
 func (j *jsiiProxy_CfnVPCEndpoint)SetPolicyDocument(val interface{}) {
+	if err := j.validateSetPolicyDocumentParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"policyDocument",

@@ -17,6 +17,9 @@ package awsbedrockagentcore
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
+//   	NamespaceTemplates: []*string{
+//   		jsii.String("namespaceTemplates"),
+//   	},
 //   	Status: jsii.String("status"),
 //   	StrategyId: jsii.String("strategyId"),
 //   	Type: jsii.String("type"),
@@ -42,6 +45,10 @@ type CfnMemory_SemanticMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-semanticmemorystrategy.html#cfn-bedrockagentcore-memory-semanticmemorystrategy-namespaces
 	//
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	// List of namespaces for memory strategy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-semanticmemorystrategy.html#cfn-bedrockagentcore-memory-semanticmemorystrategy-namespacetemplates
+	//
+	NamespaceTemplates *[]*string `field:"optional" json:"namespaceTemplates" yaml:"namespaceTemplates"`
 	// Status of the memory strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-semanticmemorystrategy.html#cfn-bedrockagentcore-memory-semanticmemorystrategy-status
 	//

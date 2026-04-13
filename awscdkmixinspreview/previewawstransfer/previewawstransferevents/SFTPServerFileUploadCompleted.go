@@ -53,17 +53,17 @@ func NewSFTPServerFileUploadCompleted_Override(s SFTPServerFileUploadCompleted) 
 
 // EventBridge event pattern for SFTP Server File Upload Completed.
 // Experimental.
-func SFTPServerFileUploadCompleted_SftPServerFileUploadCompletedPattern(options *SFTPServerFileUploadCompleted_SFTPServerFileUploadCompletedProps) *awsevents.EventPattern {
+func SFTPServerFileUploadCompleted_EventPattern(options *SFTPServerFileUploadCompleted_SFTPServerFileUploadCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerFileUploadCompleted_SftPServerFileUploadCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPServerFileUploadCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerFileUploadCompleted",
-		"sftPServerFileUploadCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

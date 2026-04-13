@@ -53,17 +53,17 @@ func NewEC2ImageBuilderWorkflowStepWaiting_Override(e EC2ImageBuilderWorkflowSte
 
 // EventBridge event pattern for EC2 Image Builder Workflow Step Waiting.
 // Experimental.
-func EC2ImageBuilderWorkflowStepWaiting_Ec2ImageBuilderWorkflowStepWaitingPattern(options *EC2ImageBuilderWorkflowStepWaiting_EC2ImageBuilderWorkflowStepWaitingProps) *awsevents.EventPattern {
+func EC2ImageBuilderWorkflowStepWaiting_EventPattern(options *EC2ImageBuilderWorkflowStepWaiting_EC2ImageBuilderWorkflowStepWaitingProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2ImageBuilderWorkflowStepWaiting_Ec2ImageBuilderWorkflowStepWaitingPatternParameters(options); err != nil {
+	if err := validateEC2ImageBuilderWorkflowStepWaiting_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_imagebuilder.events.EC2ImageBuilderWorkflowStepWaiting",
-		"ec2ImageBuilderWorkflowStepWaitingPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

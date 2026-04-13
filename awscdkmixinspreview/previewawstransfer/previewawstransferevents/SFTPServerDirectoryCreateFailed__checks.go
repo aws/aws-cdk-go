@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSFTPServerDirectoryCreateFailed_SftPServerDirectoryCreateFailedPatternParameters(options *SFTPServerDirectoryCreateFailed_SFTPServerDirectoryCreateFailedProps) error {
+func validateSFTPServerDirectoryCreateFailed_EventPatternParameters(options *SFTPServerDirectoryCreateFailed_SFTPServerDirectoryCreateFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

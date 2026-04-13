@@ -522,6 +522,9 @@ func (j *jsiiProxy_CfnTable)SetDatabaseName(val *string) {
 }
 
 func (j *jsiiProxy_CfnTable)SetMagneticStoreWriteProperties(val interface{}) {
+	if err := j.validateSetMagneticStoreWritePropertiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"magneticStoreWriteProperties",
@@ -530,6 +533,9 @@ func (j *jsiiProxy_CfnTable)SetMagneticStoreWriteProperties(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnTable)SetRetentionProperties(val interface{}) {
+	if err := j.validateSetRetentionPropertiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"retentionProperties",

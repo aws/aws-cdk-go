@@ -879,6 +879,9 @@ func (j *jsiiProxy_CfnInput)SetSrtSettings(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnInput)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

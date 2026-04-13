@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSyntheticsCanaryTestRunFailure_SyntheticsCanaryTestRunFailurePatternParameters(options *SyntheticsCanaryTestRunFailure_SyntheticsCanaryTestRunFailureProps) error {
+func validateSyntheticsCanaryTestRunFailure_EventPatternParameters(options *SyntheticsCanaryTestRunFailure_SyntheticsCanaryTestRunFailureProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -4,7 +4,7 @@ package previewawsworkspacesevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateWorkSpacesAccess_WorkSpacesAccessPatternParameters(options *WorkSpacesAccess_WorkSpacesAccessProps) error {
+func validateWorkSpacesAccess_EventPatternParameters(options *WorkSpacesAccess_WorkSpacesAccessProps) error {
 	return nil
 }
 

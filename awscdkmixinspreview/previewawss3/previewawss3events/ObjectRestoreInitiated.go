@@ -53,17 +53,17 @@ func NewObjectRestoreInitiated_Override(o ObjectRestoreInitiated) {
 
 // EventBridge event pattern for Object Restore Initiated.
 // Experimental.
-func ObjectRestoreInitiated_ObjectRestoreInitiatedPattern(options *ObjectRestoreInitiated_ObjectRestoreInitiatedProps) *awsevents.EventPattern {
+func ObjectRestoreInitiated_EventPattern(options *ObjectRestoreInitiated_ObjectRestoreInitiatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectRestoreInitiated_ObjectRestoreInitiatedPatternParameters(options); err != nil {
+	if err := validateObjectRestoreInitiated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectRestoreInitiated",
-		"objectRestoreInitiatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

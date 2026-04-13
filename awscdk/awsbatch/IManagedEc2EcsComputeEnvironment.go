@@ -23,6 +23,7 @@ type IManagedEc2EcsComputeEnvironment interface {
 	//
 	// Leave this `undefined` to allow Batch to choose the latest AMIs it supports for each instance that it launches.
 	// Default: - ECS_AL2 compatible AMI ids for non-GPU instances, ECS_AL2_NVIDIA compatible AMI ids for GPU instances.
+	// If the '@aws-cdk/aws-batch:defaultToAL2023' feature flag is set, ECS_AL2023 will be used instead of ECS_AL2.
 	//
 	Images() *[]*EcsMachineImage
 	// The instance classes that this Compute Environment can launch.

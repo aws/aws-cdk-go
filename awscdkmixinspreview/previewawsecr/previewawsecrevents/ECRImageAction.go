@@ -53,17 +53,17 @@ func NewECRImageAction_Override(e ECRImageAction) {
 
 // EventBridge event pattern for ECR Image Action.
 // Experimental.
-func ECRImageAction_EcrImageActionPattern(options *ECRImageAction_ECRImageActionProps) *awsevents.EventPattern {
+func ECRImageAction_EventPattern(options *ECRImageAction_ECRImageActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECRImageAction_EcrImageActionPatternParameters(options); err != nil {
+	if err := validateECRImageAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecr.events.ECRImageAction",
-		"ecrImageActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

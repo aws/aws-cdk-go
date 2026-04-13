@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateRunStatusChange_RunStatusChangePatternParameters(options *RunStatusChange_RunStatusChangeProps) error {
+func validateRunStatusChange_EventPatternParameters(options *RunStatusChange_RunStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

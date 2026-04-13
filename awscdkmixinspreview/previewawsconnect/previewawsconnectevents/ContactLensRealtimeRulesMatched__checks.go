@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedPatternParameters(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) error {
+func validateContactLensRealtimeRulesMatched_EventPatternParameters(options *ContactLensRealtimeRulesMatched_ContactLensRealtimeRulesMatchedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

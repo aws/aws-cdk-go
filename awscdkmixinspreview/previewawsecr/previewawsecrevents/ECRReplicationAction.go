@@ -53,17 +53,17 @@ func NewECRReplicationAction_Override(e ECRReplicationAction) {
 
 // EventBridge event pattern for ECR Replication Action.
 // Experimental.
-func ECRReplicationAction_EcrReplicationActionPattern(options *ECRReplicationAction_ECRReplicationActionProps) *awsevents.EventPattern {
+func ECRReplicationAction_EventPattern(options *ECRReplicationAction_ECRReplicationActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECRReplicationAction_EcrReplicationActionPatternParameters(options); err != nil {
+	if err := validateECRReplicationAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecr.events.ECRReplicationAction",
-		"ecrReplicationActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

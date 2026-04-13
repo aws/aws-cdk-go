@@ -53,17 +53,17 @@ func NewRDSDBProxyEvent_Override(r RDSDBProxyEvent) {
 
 // EventBridge event pattern for RDS DB Proxy Event.
 // Experimental.
-func RDSDBProxyEvent_RdsDBProxyEventPattern(options *RDSDBProxyEvent_RDSDBProxyEventProps) *awsevents.EventPattern {
+func RDSDBProxyEvent_EventPattern(options *RDSDBProxyEvent_RDSDBProxyEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRDSDBProxyEvent_RdsDBProxyEventPatternParameters(options); err != nil {
+	if err := validateRDSDBProxyEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_rds.events.RDSDBProxyEvent",
-		"rdsDBProxyEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

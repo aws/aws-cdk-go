@@ -114,17 +114,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_sagemaker.events.ModelEvents",
-		reflect.TypeOf((*ModelEvents)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "awsAPICallViaCloudTrailPattern", GoMethod: "AwsAPICallViaCloudTrailPattern"},
-			_jsii_.MemberMethod{JsiiMethod: "sageMakerTransformJobStateChangePattern", GoMethod: "SageMakerTransformJobStateChangePattern"},
-		},
-		func() interface{} {
-			return &jsiiProxy_ModelEvents{}
-		},
-	)
-	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerAlgorithmStateChange",
 		reflect.TypeOf((*SageMakerAlgorithmStateChange)(nil)).Elem(),
 		nil, // no members

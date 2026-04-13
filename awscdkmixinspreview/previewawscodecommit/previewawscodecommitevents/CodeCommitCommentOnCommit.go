@@ -53,17 +53,17 @@ func NewCodeCommitCommentOnCommit_Override(c CodeCommitCommentOnCommit) {
 
 // EventBridge event pattern for CodeCommit Comment on Commit.
 // Experimental.
-func CodeCommitCommentOnCommit_CodeCommitCommentOnCommitPattern(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) *awsevents.EventPattern {
+func CodeCommitCommentOnCommit_EventPattern(options *CodeCommitCommentOnCommit_CodeCommitCommentOnCommitProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeCommitCommentOnCommit_CodeCommitCommentOnCommitPatternParameters(options); err != nil {
+	if err := validateCodeCommitCommentOnCommit_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codecommit.events.CodeCommitCommentOnCommit",
-		"codeCommitCommentOnCommitPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

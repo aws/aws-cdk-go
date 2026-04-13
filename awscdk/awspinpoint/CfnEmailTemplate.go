@@ -533,6 +533,9 @@ func (j *jsiiProxy_CfnEmailTemplate)SetSubject(val *string) {
 }
 
 func (j *jsiiProxy_CfnEmailTemplate)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

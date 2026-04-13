@@ -4,7 +4,7 @@ package previewawsathenaevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAthenaQueryStateChange_AthenaQueryStateChangePatternParameters(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) error {
+func validateAthenaQueryStateChange_EventPatternParameters(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) error {
 	return nil
 }
 

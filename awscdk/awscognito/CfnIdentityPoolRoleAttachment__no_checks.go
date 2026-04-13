@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) validateSetRoleMappingsParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) validateSetRolesParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnIdentityPoolRoleAttachmentParameters(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) error {
 	return nil
 }

@@ -53,17 +53,17 @@ func NewKMSCMKDeletion_Override(k KMSCMKDeletion) {
 
 // EventBridge event pattern for KMS CMK Deletion.
 // Experimental.
-func KMSCMKDeletion_KmsCMKDeletionPattern(options *KMSCMKDeletion_KMSCMKDeletionProps) *awsevents.EventPattern {
+func KMSCMKDeletion_EventPattern(options *KMSCMKDeletion_KMSCMKDeletionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateKMSCMKDeletion_KmsCMKDeletionPatternParameters(options); err != nil {
+	if err := validateKMSCMKDeletion_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_kms.events.KMSCMKDeletion",
-		"kmsCMKDeletionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

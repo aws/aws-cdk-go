@@ -4,7 +4,7 @@ package previewawsconnectevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedPatternParameters(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) error {
+func validateContactLensPostCallRulesMatched_EventPatternParameters(options *ContactLensPostCallRulesMatched_ContactLensPostCallRulesMatchedProps) error {
 	return nil
 }
 

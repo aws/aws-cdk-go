@@ -53,17 +53,17 @@ func NewGlueDataCatalogTableStateChange_Override(g GlueDataCatalogTableStateChan
 
 // EventBridge event pattern for Glue Data Catalog Table State Change.
 // Experimental.
-func GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangePattern(options *GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) *awsevents.EventPattern {
+func GlueDataCatalogTableStateChange_EventPattern(options *GlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateGlueDataCatalogTableStateChange_GlueDataCatalogTableStateChangePatternParameters(options); err != nil {
+	if err := validateGlueDataCatalogTableStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_glue.events.GlueDataCatalogTableStateChange",
-		"glueDataCatalogTableStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

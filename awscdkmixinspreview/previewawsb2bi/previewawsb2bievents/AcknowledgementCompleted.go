@@ -53,17 +53,17 @@ func NewAcknowledgementCompleted_Override(a AcknowledgementCompleted) {
 
 // EventBridge event pattern for Acknowledgement Completed.
 // Experimental.
-func AcknowledgementCompleted_AcknowledgementCompletedPattern(options *AcknowledgementCompleted_AcknowledgementCompletedProps) *awsevents.EventPattern {
+func AcknowledgementCompleted_EventPattern(options *AcknowledgementCompleted_AcknowledgementCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAcknowledgementCompleted_AcknowledgementCompletedPatternParameters(options); err != nil {
+	if err := validateAcknowledgementCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_b2bi.events.AcknowledgementCompleted",
-		"acknowledgementCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

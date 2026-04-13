@@ -53,17 +53,17 @@ func NewDevOpsGuruInsightSeverityUpgraded_Override(d DevOpsGuruInsightSeverityUp
 
 // EventBridge event pattern for DevOps Guru Insight Severity Upgraded.
 // Experimental.
-func DevOpsGuruInsightSeverityUpgraded_DevOpsGuruInsightSeverityUpgradedPattern(options *DevOpsGuruInsightSeverityUpgraded_DevOpsGuruInsightSeverityUpgradedProps) *awsevents.EventPattern {
+func DevOpsGuruInsightSeverityUpgraded_EventPattern(options *DevOpsGuruInsightSeverityUpgraded_DevOpsGuruInsightSeverityUpgradedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDevOpsGuruInsightSeverityUpgraded_DevOpsGuruInsightSeverityUpgradedPatternParameters(options); err != nil {
+	if err := validateDevOpsGuruInsightSeverityUpgraded_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_devopsguru.events.DevOpsGuruInsightSeverityUpgraded",
-		"devOpsGuruInsightSeverityUpgradedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

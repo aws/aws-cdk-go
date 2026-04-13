@@ -15,9 +15,17 @@ package awsbedrockagentcore
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
+//   	NamespaceTemplates: []*string{
+//   		jsii.String("namespaceTemplates"),
+//   	},
 //   	ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
 //   		Namespaces: []*string{
 //   			jsii.String("namespaces"),
+//   		},
+//
+//   		// the properties below are optional
+//   		NamespaceTemplates: []*string{
+//   			jsii.String("namespaceTemplates"),
 //   		},
 //   	},
 //   	Status: jsii.String("status"),
@@ -45,6 +53,10 @@ type CfnMemory_EpisodicMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html#cfn-bedrockagentcore-memory-episodicmemorystrategy-namespaces
 	//
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	// List of namespaces for memory strategy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html#cfn-bedrockagentcore-memory-episodicmemorystrategy-namespacetemplates
+	//
+	NamespaceTemplates *[]*string `field:"optional" json:"namespaceTemplates" yaml:"namespaceTemplates"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html#cfn-bedrockagentcore-memory-episodicmemorystrategy-reflectionconfiguration
 	//
 	ReflectionConfiguration interface{} `field:"optional" json:"reflectionConfiguration" yaml:"reflectionConfiguration"`

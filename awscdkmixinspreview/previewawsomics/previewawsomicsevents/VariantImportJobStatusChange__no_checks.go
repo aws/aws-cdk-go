@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateVariantImportJobStatusChange_VariantImportJobStatusChangePatternParameters(options *VariantImportJobStatusChange_VariantImportJobStatusChangeProps) error {
+func validateVariantImportJobStatusChange_EventPatternParameters(options *VariantImportJobStatusChange_VariantImportJobStatusChangeProps) error {
 	return nil
 }
 

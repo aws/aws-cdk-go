@@ -322,6 +322,16 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
+//   	SegmentSort: &SegmentSortProperty{
+//   		Attributes: []interface{}{
+//   			&SortAttributeProperty{
+//   				DataType: jsii.String("dataType"),
+//   				Name: jsii.String("name"),
+//   				Order: jsii.String("order"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

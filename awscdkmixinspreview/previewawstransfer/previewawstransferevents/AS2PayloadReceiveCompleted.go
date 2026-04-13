@@ -53,17 +53,17 @@ func NewAS2PayloadReceiveCompleted_Override(a AS2PayloadReceiveCompleted) {
 
 // EventBridge event pattern for AS2 Payload Receive Completed.
 // Experimental.
-func AS2PayloadReceiveCompleted_As2PayloadReceiveCompletedPattern(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) *awsevents.EventPattern {
+func AS2PayloadReceiveCompleted_EventPattern(options *AS2PayloadReceiveCompleted_AS2PayloadReceiveCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAS2PayloadReceiveCompleted_As2PayloadReceiveCompletedPatternParameters(options); err != nil {
+	if err := validateAS2PayloadReceiveCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.AS2PayloadReceiveCompleted",
-		"as2PayloadReceiveCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

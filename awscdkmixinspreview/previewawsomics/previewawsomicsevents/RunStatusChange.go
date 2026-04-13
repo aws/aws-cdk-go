@@ -53,17 +53,17 @@ func NewRunStatusChange_Override(r RunStatusChange) {
 
 // EventBridge event pattern for Run Status Change.
 // Experimental.
-func RunStatusChange_RunStatusChangePattern(options *RunStatusChange_RunStatusChangeProps) *awsevents.EventPattern {
+func RunStatusChange_EventPattern(options *RunStatusChange_RunStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRunStatusChange_RunStatusChangePatternParameters(options); err != nil {
+	if err := validateRunStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.RunStatusChange",
-		"runStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

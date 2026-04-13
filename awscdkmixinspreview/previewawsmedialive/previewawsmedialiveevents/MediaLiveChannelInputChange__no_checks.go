@@ -4,7 +4,7 @@ package previewawsmedialiveevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateMediaLiveChannelInputChange_MediaLiveChannelInputChangePatternParameters(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) error {
+func validateMediaLiveChannelInputChange_EventPatternParameters(options *MediaLiveChannelInputChange_MediaLiveChannelInputChangeProps) error {
 	return nil
 }
 

@@ -12,8 +12,10 @@ package awsappsync
 //
 //   logConfigProperty := &LogConfigProperty{
 //   	CloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
-//   	ExcludeVerboseContent: jsii.Boolean(false),
 //   	FieldLogLevel: jsii.String("fieldLogLevel"),
+//
+//   	// the properties below are optional
+//   	ExcludeVerboseContent: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html
@@ -22,11 +24,7 @@ type CfnGraphQLApi_LogConfigProperty struct {
 	// The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html#cfn-appsync-graphqlapi-logconfig-cloudwatchlogsrolearn
 	//
-	CloudWatchLogsRoleArn *string `field:"optional" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
-	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html#cfn-appsync-graphqlapi-logconfig-excludeverbosecontent
-	//
-	ExcludeVerboseContent interface{} `field:"optional" json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
+	CloudWatchLogsRoleArn *string `field:"required" json:"cloudWatchLogsRoleArn" yaml:"cloudWatchLogsRoleArn"`
 	// The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
 	//
 	// - *NONE* : No field-level logs are captured.
@@ -51,6 +49,10 @@ type CfnGraphQLApi_LogConfigProperty struct {
 	// - The generated request/response functions that were resolved for each field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html#cfn-appsync-graphqlapi-logconfig-fieldloglevel
 	//
-	FieldLogLevel *string `field:"optional" json:"fieldLogLevel" yaml:"fieldLogLevel"`
+	FieldLogLevel *string `field:"required" json:"fieldLogLevel" yaml:"fieldLogLevel"`
+	// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html#cfn-appsync-graphqlapi-logconfig-excludeverbosecontent
+	//
+	ExcludeVerboseContent interface{} `field:"optional" json:"excludeVerboseContent" yaml:"excludeVerboseContent"`
 }
 

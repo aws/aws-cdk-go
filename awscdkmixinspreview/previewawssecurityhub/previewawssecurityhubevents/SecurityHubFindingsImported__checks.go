@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSecurityHubFindingsImported_SecurityHubFindingsImportedPatternParameters(options *SecurityHubFindingsImported_SecurityHubFindingsImportedProps) error {
+func validateSecurityHubFindingsImported_EventPatternParameters(options *SecurityHubFindingsImported_SecurityHubFindingsImportedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

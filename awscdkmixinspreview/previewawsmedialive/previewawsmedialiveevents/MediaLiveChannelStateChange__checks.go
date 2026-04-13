@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateMediaLiveChannelStateChange_MediaLiveChannelStateChangePatternParameters(options *MediaLiveChannelStateChange_MediaLiveChannelStateChangeProps) error {
+func validateMediaLiveChannelStateChange_EventPatternParameters(options *MediaLiveChannelStateChange_MediaLiveChannelStateChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

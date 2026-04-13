@@ -19,6 +19,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mergeStrategy IMergeStrategy
+//   var workflowsServerlessProperties interface{}
 //
 //   cfnConnectionPropsMixin := awscdkcfnpropertymixins.Aws_datazone.NewCfnConnectionPropsMixin(&CfnConnectionMixinProps{
 //   	AwsLocation: &AwsLocationProperty{
@@ -166,6 +167,10 @@ import (
 //   			PythonVirtualEnv: jsii.String("pythonVirtualEnv"),
 //   			WorkerType: jsii.String("workerType"),
 //   		},
+//   		WorkflowsMwaaProperties: &WorkflowsMwaaPropertiesInputProperty{
+//   			MwaaEnvironmentName: jsii.String("mwaaEnvironmentName"),
+//   		},
+//   		WorkflowsServerlessProperties: workflowsServerlessProperties,
 //   	},
 //   	Scope: jsii.String("scope"),
 //   }, &CfnPropertyMixinOptions{

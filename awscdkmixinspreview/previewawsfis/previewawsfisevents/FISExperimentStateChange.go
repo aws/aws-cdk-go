@@ -53,17 +53,17 @@ func NewFISExperimentStateChange_Override(f FISExperimentStateChange) {
 
 // EventBridge event pattern for FIS Experiment State Change.
 // Experimental.
-func FISExperimentStateChange_FisExperimentStateChangePattern(options *FISExperimentStateChange_FISExperimentStateChangeProps) *awsevents.EventPattern {
+func FISExperimentStateChange_EventPattern(options *FISExperimentStateChange_FISExperimentStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFISExperimentStateChange_FisExperimentStateChangePatternParameters(options); err != nil {
+	if err := validateFISExperimentStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_fis.events.FISExperimentStateChange",
-		"fisExperimentStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

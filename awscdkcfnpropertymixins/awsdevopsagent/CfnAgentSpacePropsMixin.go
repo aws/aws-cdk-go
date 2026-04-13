@@ -22,6 +22,7 @@ import (
 //
 //   cfnAgentSpacePropsMixin := awscdkcfnpropertymixins.Aws_devopsagent.NewCfnAgentSpacePropsMixin(&CfnAgentSpaceMixinProps{
 //   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	OperatorApp: &OperatorAppProperty{
 //   		Iam: &IamAuthConfigurationProperty{
@@ -35,6 +36,12 @@ import (
 //   			IdcInstanceArn: jsii.String("idcInstanceArn"),
 //   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
 //   			UpdatedAt: jsii.String("updatedAt"),
+//   		},
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{

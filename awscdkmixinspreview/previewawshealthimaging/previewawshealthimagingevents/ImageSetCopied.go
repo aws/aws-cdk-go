@@ -53,17 +53,17 @@ func NewImageSetCopied_Override(i ImageSetCopied) {
 
 // EventBridge event pattern for Image Set Copied.
 // Experimental.
-func ImageSetCopied_ImageSetCopiedPattern(options *ImageSetCopied_ImageSetCopiedProps) *awsevents.EventPattern {
+func ImageSetCopied_EventPattern(options *ImageSetCopied_ImageSetCopiedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImageSetCopied_ImageSetCopiedPatternParameters(options); err != nil {
+	if err := validateImageSetCopied_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopied",
-		"imageSetCopiedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

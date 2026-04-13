@@ -4,7 +4,7 @@ package previewawscodeguruprofilerevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangePatternParameters(options *CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangeProps) error {
+func validateCodeGuruProfilerRecommendationStateChange_EventPatternParameters(options *CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangeProps) error {
 	return nil
 }
 

@@ -4,7 +4,7 @@ package previewawss3events
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateObjectStorageClassChanged_ObjectStorageClassChangedPatternParameters(options *ObjectStorageClassChanged_ObjectStorageClassChangedProps) error {
+func validateObjectStorageClassChanged_EventPatternParameters(options *ObjectStorageClassChanged_ObjectStorageClassChangedProps) error {
 	return nil
 }
 

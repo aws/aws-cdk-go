@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSnapshotCreationFailed_SnapshotCreationFailedPatternParameters(options *SnapshotCreationFailed_SnapshotCreationFailedProps) error {
+func validateSnapshotCreationFailed_EventPatternParameters(options *SnapshotCreationFailed_SnapshotCreationFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

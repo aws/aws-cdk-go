@@ -4,7 +4,7 @@ package previewawshealthimagingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateImportJobSubmitted_ImportJobSubmittedPatternParameters(options *ImportJobSubmitted_ImportJobSubmittedProps) error {
+func validateImportJobSubmitted_EventPatternParameters(options *ImportJobSubmitted_ImportJobSubmittedProps) error {
 	return nil
 }
 

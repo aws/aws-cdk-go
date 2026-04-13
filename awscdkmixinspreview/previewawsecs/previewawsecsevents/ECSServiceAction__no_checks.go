@@ -4,7 +4,7 @@ package previewawsecsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateECSServiceAction_EcsServiceActionPatternParameters(options *ECSServiceAction_ECSServiceActionProps) error {
+func validateECSServiceAction_EventPatternParameters(options *ECSServiceAction_ECSServiceActionProps) error {
 	return nil
 }
 

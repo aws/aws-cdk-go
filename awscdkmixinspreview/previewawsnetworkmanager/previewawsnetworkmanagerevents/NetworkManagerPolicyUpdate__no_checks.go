@@ -4,7 +4,7 @@ package previewawsnetworkmanagerevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateNetworkManagerPolicyUpdate_NetworkManagerPolicyUpdatePatternParameters(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) error {
+func validateNetworkManagerPolicyUpdate_EventPatternParameters(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) error {
 	return nil
 }
 

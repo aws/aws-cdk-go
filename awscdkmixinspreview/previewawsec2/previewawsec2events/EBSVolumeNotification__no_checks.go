@@ -4,7 +4,7 @@ package previewawsec2events
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateEBSVolumeNotification_EbsVolumeNotificationPatternParameters(options *EBSVolumeNotification_EBSVolumeNotificationProps) error {
+func validateEBSVolumeNotification_EventPatternParameters(options *EBSVolumeNotification_EBSVolumeNotificationProps) error {
 	return nil
 }
 

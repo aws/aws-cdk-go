@@ -4,7 +4,7 @@ package previewawshealthimagingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateDataStoreCreated_DataStoreCreatedPatternParameters(options *DataStoreCreated_DataStoreCreatedProps) error {
+func validateDataStoreCreated_EventPatternParameters(options *DataStoreCreated_DataStoreCreatedProps) error {
 	return nil
 }
 

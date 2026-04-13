@@ -53,17 +53,17 @@ func NewAthenaQueryStateChange_Override(a AthenaQueryStateChange) {
 
 // EventBridge event pattern for Athena Query State Change.
 // Experimental.
-func AthenaQueryStateChange_AthenaQueryStateChangePattern(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) *awsevents.EventPattern {
+func AthenaQueryStateChange_EventPattern(options *AthenaQueryStateChange_AthenaQueryStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAthenaQueryStateChange_AthenaQueryStateChangePatternParameters(options); err != nil {
+	if err := validateAthenaQueryStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_athena.events.AthenaQueryStateChange",
-		"athenaQueryStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

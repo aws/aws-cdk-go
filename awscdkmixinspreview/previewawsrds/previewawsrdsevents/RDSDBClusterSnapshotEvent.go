@@ -53,17 +53,17 @@ func NewRDSDBClusterSnapshotEvent_Override(r RDSDBClusterSnapshotEvent) {
 
 // EventBridge event pattern for RDS DB Cluster Snapshot Event.
 // Experimental.
-func RDSDBClusterSnapshotEvent_RdsDBClusterSnapshotEventPattern(options *RDSDBClusterSnapshotEvent_RDSDBClusterSnapshotEventProps) *awsevents.EventPattern {
+func RDSDBClusterSnapshotEvent_EventPattern(options *RDSDBClusterSnapshotEvent_RDSDBClusterSnapshotEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRDSDBClusterSnapshotEvent_RdsDBClusterSnapshotEventPatternParameters(options); err != nil {
+	if err := validateRDSDBClusterSnapshotEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_rds.events.RDSDBClusterSnapshotEvent",
-		"rdsDBClusterSnapshotEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

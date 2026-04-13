@@ -186,6 +186,19 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	// Default: new subnets will be created.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
+	// The instance classes that this Compute Environment can launch.
+	//
+	// Which one is chosen depends on the `AllocationStrategy` used.
+	// Batch will automatically choose the instance size.
+	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
+	//
+	InstanceClasses *[]awsec2.InstanceClass `field:"optional" json:"instanceClasses" yaml:"instanceClasses"`
+	// The instance types that this Compute Environment can launch.
+	//
+	// Which one is chosen depends on the `AllocationStrategy` used.
+	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
+	//
+	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The cluster that backs this Compute Environment. Required for Compute Environments running Kubernetes jobs.
 	//
 	// Please ensure that you have followed the steps at
@@ -214,28 +227,16 @@ type ManagedEc2EksComputeEnvironmentProps struct {
 	DefaultInstanceClasses *[]DefaultInstanceClass `field:"optional" json:"defaultInstanceClasses" yaml:"defaultInstanceClasses"`
 	// Configure which AMIs this Compute Environment can launch.
 	// Default: If `imageKubernetesVersion` is specified,
-	// - EKS_AL2 for non-GPU instances, EKS_AL2_NVIDIA for GPU instances,
+	// - EKS_AL2 for non-GPU instances, EKS_AL2_NVIDIA for GPU instances.
 	// Otherwise,
-	// - ECS_AL2 for non-GPU instances, ECS_AL2_NVIDIA for GPU instances,.
+	// - ECS_AL2 for non-GPU instances, ECS_AL2_NVIDIA for GPU instances.
+	// If the '@aws-cdk/aws-batch:defaultToAL2023' feature flag is set, EKS_AL2023 / ECS_AL2023 will be used instead.
 	//
 	Images *[]*EksMachineImage `field:"optional" json:"images" yaml:"images"`
-	// The instance types that this Compute Environment can launch.
-	//
-	// Which one is chosen depends on the `AllocationStrategy` used.
-	// Batch will automatically choose the instance size.
-	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
-	//
-	InstanceClasses *[]awsec2.InstanceClass `field:"optional" json:"instanceClasses" yaml:"instanceClasses"`
 	// The execution Role that instances launched by this Compute Environment will use.
 	// Default: - a role will be created.
 	//
 	InstanceRole awsiam.IRole `field:"optional" json:"instanceRole" yaml:"instanceRole"`
-	// The instance types that this Compute Environment can launch.
-	//
-	// Which one is chosen depends on the `AllocationStrategy` used.
-	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
-	//
-	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The Launch Template that this Compute Environment will use to provision EC2 Instances.
 	//
 	// *Note*: if `securityGroups` is specified on both your

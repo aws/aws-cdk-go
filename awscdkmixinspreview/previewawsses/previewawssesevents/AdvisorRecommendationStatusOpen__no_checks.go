@@ -4,7 +4,7 @@ package previewawssesevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenPatternParameters(options *AdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenProps) error {
+func validateAdvisorRecommendationStatusOpen_EventPatternParameters(options *AdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenProps) error {
 	return nil
 }
 

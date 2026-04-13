@@ -53,17 +53,17 @@ func NewECSContainerInstanceStateChange_Override(e ECSContainerInstanceStateChan
 
 // EventBridge event pattern for ECS Container Instance State Change.
 // Experimental.
-func ECSContainerInstanceStateChange_EcsContainerInstanceStateChangePattern(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) *awsevents.EventPattern {
+func ECSContainerInstanceStateChange_EventPattern(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECSContainerInstanceStateChange_EcsContainerInstanceStateChangePatternParameters(options); err != nil {
+	if err := validateECSContainerInstanceStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecs.events.ECSContainerInstanceStateChange",
-		"ecsContainerInstanceStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

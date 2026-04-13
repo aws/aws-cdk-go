@@ -4,7 +4,7 @@ package previewawsssmevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCalendarStateChange_CalendarStateChangePatternParameters(options *CalendarStateChange_CalendarStateChangeProps) error {
+func validateCalendarStateChange_EventPatternParameters(options *CalendarStateChange_CalendarStateChangeProps) error {
 	return nil
 }
 

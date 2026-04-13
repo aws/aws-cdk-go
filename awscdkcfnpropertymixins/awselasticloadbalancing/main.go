@@ -59,4 +59,8 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_elasticloadbalancing.CfnLoadBalancerPropsMixin.PoliciesProperty",
 		reflect.TypeOf((*CfnLoadBalancerPropsMixin_PoliciesProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticloadbalancing.CfnLoadBalancerPropsMixin.SourceSecurityGroupProperty",
+		reflect.TypeOf((*CfnLoadBalancerPropsMixin_SourceSecurityGroupProperty)(nil)).Elem(),
+	)
 }

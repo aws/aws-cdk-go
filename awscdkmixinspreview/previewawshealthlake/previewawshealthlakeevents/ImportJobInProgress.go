@@ -53,17 +53,17 @@ func NewImportJobInProgress_Override(i ImportJobInProgress) {
 
 // EventBridge event pattern for Import Job In Progress.
 // Experimental.
-func ImportJobInProgress_ImportJobInProgressPattern(options *ImportJobInProgress_ImportJobInProgressProps) *awsevents.EventPattern {
+func ImportJobInProgress_EventPattern(options *ImportJobInProgress_ImportJobInProgressProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImportJobInProgress_ImportJobInProgressPatternParameters(options); err != nil {
+	if err := validateImportJobInProgress_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.ImportJobInProgress",
-		"importJobInProgressPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

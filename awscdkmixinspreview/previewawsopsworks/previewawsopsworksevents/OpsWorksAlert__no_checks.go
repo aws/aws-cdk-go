@@ -4,7 +4,7 @@ package previewawsopsworksevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateOpsWorksAlert_OpsWorksAlertPatternParameters(options *OpsWorksAlert_OpsWorksAlertProps) error {
+func validateOpsWorksAlert_EventPatternParameters(options *OpsWorksAlert_OpsWorksAlertProps) error {
 	return nil
 }
 

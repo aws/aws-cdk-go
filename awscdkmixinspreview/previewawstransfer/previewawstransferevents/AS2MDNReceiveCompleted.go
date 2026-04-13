@@ -53,17 +53,17 @@ func NewAS2MDNReceiveCompleted_Override(a AS2MDNReceiveCompleted) {
 
 // EventBridge event pattern for AS2 MDN Receive Completed.
 // Experimental.
-func AS2MDNReceiveCompleted_As2MDNReceiveCompletedPattern(options *AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) *awsevents.EventPattern {
+func AS2MDNReceiveCompleted_EventPattern(options *AS2MDNReceiveCompleted_AS2MDNReceiveCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAS2MDNReceiveCompleted_As2MDNReceiveCompletedPatternParameters(options); err != nil {
+	if err := validateAS2MDNReceiveCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.AS2MDNReceiveCompleted",
-		"as2MDNReceiveCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

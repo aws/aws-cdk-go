@@ -53,17 +53,17 @@ func NewSFTPConnectorRemoteMoveCompleted_Override(s SFTPConnectorRemoteMoveCompl
 
 // EventBridge event pattern for SFTP Connector Remote Move Completed.
 // Experimental.
-func SFTPConnectorRemoteMoveCompleted_SftPConnectorRemoteMoveCompletedPattern(options *SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) *awsevents.EventPattern {
+func SFTPConnectorRemoteMoveCompleted_EventPattern(options *SFTPConnectorRemoteMoveCompleted_SFTPConnectorRemoteMoveCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPConnectorRemoteMoveCompleted_SftPConnectorRemoteMoveCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPConnectorRemoteMoveCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPConnectorRemoteMoveCompleted",
-		"sftPConnectorRemoteMoveCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

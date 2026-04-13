@@ -53,17 +53,17 @@ func NewCodeGuruProfilerRecommendationStateChange_Override(c CodeGuruProfilerRec
 
 // EventBridge event pattern for CodeGuru Profiler Recommendations State Change.
 // Experimental.
-func CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangePattern(options *CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangeProps) *awsevents.EventPattern {
+func CodeGuruProfilerRecommendationStateChange_EventPattern(options *CodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeGuruProfilerRecommendationStateChange_CodeGuruProfilerRecommendationStateChangePatternParameters(options); err != nil {
+	if err := validateCodeGuruProfilerRecommendationStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codeguruprofiler.events.CodeGuruProfilerRecommendationStateChange",
-		"codeGuruProfilerRecommendationStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

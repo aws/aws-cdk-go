@@ -53,17 +53,17 @@ func NewMediaLiveChannelAlert_Override(m MediaLiveChannelAlert) {
 
 // EventBridge event pattern for MediaLive Channel Alert.
 // Experimental.
-func MediaLiveChannelAlert_MediaLiveChannelAlertPattern(options *MediaLiveChannelAlert_MediaLiveChannelAlertProps) *awsevents.EventPattern {
+func MediaLiveChannelAlert_EventPattern(options *MediaLiveChannelAlert_MediaLiveChannelAlertProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateMediaLiveChannelAlert_MediaLiveChannelAlertPatternParameters(options); err != nil {
+	if err := validateMediaLiveChannelAlert_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_medialive.events.MediaLiveChannelAlert",
-		"mediaLiveChannelAlertPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

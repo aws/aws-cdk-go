@@ -53,17 +53,17 @@ func NewSageMakerModelBuildingPipelineExecutionStatusChange_Override(s SageMaker
 
 // EventBridge event pattern for SageMaker Model Building Pipeline Execution Status Change.
 // Experimental.
-func SageMakerModelBuildingPipelineExecutionStatusChange_SageMakerModelBuildingPipelineExecutionStatusChangePattern(options *SageMakerModelBuildingPipelineExecutionStatusChange_SageMakerModelBuildingPipelineExecutionStatusChangeProps) *awsevents.EventPattern {
+func SageMakerModelBuildingPipelineExecutionStatusChange_EventPattern(options *SageMakerModelBuildingPipelineExecutionStatusChange_SageMakerModelBuildingPipelineExecutionStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerModelBuildingPipelineExecutionStatusChange_SageMakerModelBuildingPipelineExecutionStatusChangePatternParameters(options); err != nil {
+	if err := validateSageMakerModelBuildingPipelineExecutionStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerModelBuildingPipelineExecutionStatusChange",
-		"sageMakerModelBuildingPipelineExecutionStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

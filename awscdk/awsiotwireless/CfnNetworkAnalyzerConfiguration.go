@@ -518,6 +518,9 @@ func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetTagsRaw(val *[]*awscdk.Cfn
 }
 
 func (j *jsiiProxy_CfnNetworkAnalyzerConfiguration)SetTraceContent(val interface{}) {
+	if err := j.validateSetTraceContentParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"traceContent",

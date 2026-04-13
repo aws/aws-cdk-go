@@ -53,17 +53,17 @@ func NewImageSetCopyFailed_Override(i ImageSetCopyFailed) {
 
 // EventBridge event pattern for Image Set Copy Failed.
 // Experimental.
-func ImageSetCopyFailed_ImageSetCopyFailedPattern(options *ImageSetCopyFailed_ImageSetCopyFailedProps) *awsevents.EventPattern {
+func ImageSetCopyFailed_EventPattern(options *ImageSetCopyFailed_ImageSetCopyFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImageSetCopyFailed_ImageSetCopyFailedPatternParameters(options); err != nil {
+	if err := validateImageSetCopyFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImageSetCopyFailed",
-		"imageSetCopyFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -1029,6 +1029,9 @@ func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnDomain)SetAccessPolicies(val interface{}) {
+	if err := j.validateSetAccessPoliciesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"accessPolicies",

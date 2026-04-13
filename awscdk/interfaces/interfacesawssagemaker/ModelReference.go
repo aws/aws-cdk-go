@@ -9,14 +9,11 @@ package interfacesawssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   modelReference := &ModelReference{
-//   	ModelId: jsii.String("modelId"),
-//   	ModelName: jsii.String("modelName"),
+//   	ModelArn: jsii.String("modelArn"),
 //   }
 //
 type ModelReference struct {
-	// The Id of the Model resource.
-	ModelId *string `field:"required" json:"modelId" yaml:"modelId"`
-	// The ModelName of the Model resource.
-	ModelName *string `field:"required" json:"modelName" yaml:"modelName"`
+	// The ModelArn of the Model resource.
+	ModelArn *string `field:"required" json:"modelArn" yaml:"modelArn"`
 }
 

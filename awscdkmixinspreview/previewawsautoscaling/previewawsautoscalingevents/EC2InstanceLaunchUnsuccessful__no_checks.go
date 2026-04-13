@@ -4,7 +4,7 @@ package previewawsautoscalingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateEC2InstanceLaunchUnsuccessful_Ec2InstanceLaunchUnsuccessfulPatternParameters(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) error {
+func validateEC2InstanceLaunchUnsuccessful_EventPatternParameters(options *EC2InstanceLaunchUnsuccessful_EC2InstanceLaunchUnsuccessfulProps) error {
 	return nil
 }
 

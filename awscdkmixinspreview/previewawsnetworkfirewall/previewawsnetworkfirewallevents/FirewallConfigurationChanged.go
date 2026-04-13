@@ -53,17 +53,17 @@ func NewFirewallConfigurationChanged_Override(f FirewallConfigurationChanged) {
 
 // EventBridge event pattern for Firewall Configuration Changed.
 // Experimental.
-func FirewallConfigurationChanged_FirewallConfigurationChangedPattern(options *FirewallConfigurationChanged_FirewallConfigurationChangedProps) *awsevents.EventPattern {
+func FirewallConfigurationChanged_EventPattern(options *FirewallConfigurationChanged_FirewallConfigurationChangedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFirewallConfigurationChanged_FirewallConfigurationChangedPatternParameters(options); err != nil {
+	if err := validateFirewallConfigurationChanged_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_networkfirewall.events.FirewallConfigurationChanged",
-		"firewallConfigurationChangedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

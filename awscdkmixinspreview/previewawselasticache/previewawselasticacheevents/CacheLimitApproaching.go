@@ -53,17 +53,17 @@ func NewCacheLimitApproaching_Override(c CacheLimitApproaching) {
 
 // EventBridge event pattern for Cache Limit Approaching.
 // Experimental.
-func CacheLimitApproaching_CacheLimitApproachingPattern(options *CacheLimitApproaching_CacheLimitApproachingProps) *awsevents.EventPattern {
+func CacheLimitApproaching_EventPattern(options *CacheLimitApproaching_CacheLimitApproachingProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCacheLimitApproaching_CacheLimitApproachingPatternParameters(options); err != nil {
+	if err := validateCacheLimitApproaching_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.CacheLimitApproaching",
-		"cacheLimitApproachingPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

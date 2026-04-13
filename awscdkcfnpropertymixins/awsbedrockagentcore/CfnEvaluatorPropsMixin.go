@@ -24,6 +24,12 @@ import (
 //   cfnEvaluatorPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnEvaluatorPropsMixin(&CfnEvaluatorMixinProps{
 //   	Description: jsii.String("description"),
 //   	EvaluatorConfig: &EvaluatorConfigProperty{
+//   		CodeBased: &CodeBasedEvaluatorConfigProperty{
+//   			LambdaConfig: &LambdaEvaluatorConfigProperty{
+//   				LambdaArn: jsii.String("lambdaArn"),
+//   				LambdaTimeoutInSeconds: jsii.Number(123),
+//   			},
+//   		},
 //   		LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{
 //   			Instructions: jsii.String("instructions"),
 //   			ModelConfig: &EvaluatorModelConfigProperty{

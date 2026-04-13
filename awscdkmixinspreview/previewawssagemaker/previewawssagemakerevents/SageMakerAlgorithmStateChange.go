@@ -53,17 +53,17 @@ func NewSageMakerAlgorithmStateChange_Override(s SageMakerAlgorithmStateChange) 
 
 // EventBridge event pattern for SageMaker Algorithm State Change.
 // Experimental.
-func SageMakerAlgorithmStateChange_SageMakerAlgorithmStateChangePattern(options *SageMakerAlgorithmStateChange_SageMakerAlgorithmStateChangeProps) *awsevents.EventPattern {
+func SageMakerAlgorithmStateChange_EventPattern(options *SageMakerAlgorithmStateChange_SageMakerAlgorithmStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerAlgorithmStateChange_SageMakerAlgorithmStateChangePatternParameters(options); err != nil {
+	if err := validateSageMakerAlgorithmStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerAlgorithmStateChange",
-		"sageMakerAlgorithmStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

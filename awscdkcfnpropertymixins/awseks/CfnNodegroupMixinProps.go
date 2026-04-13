@@ -73,6 +73,13 @@ package awseks
 //   		UpdateStrategy: jsii.String("updateStrategy"),
 //   	},
 //   	Version: jsii.String("version"),
+//   	WarmPoolConfig: &WarmPoolConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		MaxGroupPreparedCapacity: jsii.Number(123),
+//   		MinSize: jsii.Number(123),
+//   		PoolState: jsii.String("poolState"),
+//   		ReuseOnScaleIn: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html
@@ -186,5 +193,9 @@ type CfnNodegroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-version
 	//
 	Version *string `field:"optional" json:"version" yaml:"version"`
+	// The warm pool configuration for the node group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-warmpoolconfig
+	//
+	WarmPoolConfig interface{} `field:"optional" json:"warmPoolConfig" yaml:"warmPoolConfig"`
 }
 

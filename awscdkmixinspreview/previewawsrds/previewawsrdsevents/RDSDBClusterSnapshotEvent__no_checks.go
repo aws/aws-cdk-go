@@ -4,7 +4,7 @@ package previewawsrdsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateRDSDBClusterSnapshotEvent_RdsDBClusterSnapshotEventPatternParameters(options *RDSDBClusterSnapshotEvent_RDSDBClusterSnapshotEventProps) error {
+func validateRDSDBClusterSnapshotEvent_EventPatternParameters(options *RDSDBClusterSnapshotEvent_RDSDBClusterSnapshotEventProps) error {
 	return nil
 }
 

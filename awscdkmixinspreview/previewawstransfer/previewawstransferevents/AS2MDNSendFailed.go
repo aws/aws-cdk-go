@@ -53,17 +53,17 @@ func NewAS2MDNSendFailed_Override(a AS2MDNSendFailed) {
 
 // EventBridge event pattern for AS2 MDN Send Failed.
 // Experimental.
-func AS2MDNSendFailed_As2MDNSendFailedPattern(options *AS2MDNSendFailed_AS2MDNSendFailedProps) *awsevents.EventPattern {
+func AS2MDNSendFailed_EventPattern(options *AS2MDNSendFailed_AS2MDNSendFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAS2MDNSendFailed_As2MDNSendFailedPatternParameters(options); err != nil {
+	if err := validateAS2MDNSendFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.AS2MDNSendFailed",
-		"as2MDNSendFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

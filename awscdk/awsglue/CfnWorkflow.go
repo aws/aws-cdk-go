@@ -465,6 +465,9 @@ func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnWorkflow)SetDefaultRunProperties(val interface{}) {
+	if err := j.validateSetDefaultRunPropertiesParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"defaultRunProperties",
@@ -497,6 +500,9 @@ func (j *jsiiProxy_CfnWorkflow)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnWorkflow)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

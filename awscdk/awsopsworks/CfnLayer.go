@@ -761,6 +761,9 @@ func (j *jsiiProxy_CfnLayer)SetCustomInstanceProfileArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnLayer)SetCustomJson(val interface{}) {
+	if err := j.validateSetCustomJsonParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"customJson",

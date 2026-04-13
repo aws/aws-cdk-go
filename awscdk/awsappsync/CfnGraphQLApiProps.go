@@ -56,8 +56,10 @@ import (
 //   	},
 //   	LogConfig: &LogConfigProperty{
 //   		CloudWatchLogsRoleArn: jsii.String("cloudWatchLogsRoleArn"),
-//   		ExcludeVerboseContent: jsii.Boolean(false),
 //   		FieldLogLevel: jsii.String("fieldLogLevel"),
+//
+//   		// the properties below are optional
+//   		ExcludeVerboseContent: jsii.Boolean(false),
 //   	},
 //   	MergedApiExecutionRoleArn: jsii.String("mergedApiExecutionRoleArn"),
 //   	OpenIdConnectConfig: &OpenIDConnectConfigProperty{

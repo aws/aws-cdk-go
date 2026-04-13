@@ -53,17 +53,17 @@ func NewCalendarStateChange_Override(c CalendarStateChange) {
 
 // EventBridge event pattern for Calendar State Change.
 // Experimental.
-func CalendarStateChange_CalendarStateChangePattern(options *CalendarStateChange_CalendarStateChangeProps) *awsevents.EventPattern {
+func CalendarStateChange_EventPattern(options *CalendarStateChange_CalendarStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCalendarStateChange_CalendarStateChangePatternParameters(options); err != nil {
+	if err := validateCalendarStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ssm.events.CalendarStateChange",
-		"calendarStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

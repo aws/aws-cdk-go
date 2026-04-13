@@ -53,17 +53,17 @@ func NewSFTPServerFileUploadFailed_Override(s SFTPServerFileUploadFailed) {
 
 // EventBridge event pattern for SFTP Server File Upload Failed.
 // Experimental.
-func SFTPServerFileUploadFailed_SftPServerFileUploadFailedPattern(options *SFTPServerFileUploadFailed_SFTPServerFileUploadFailedProps) *awsevents.EventPattern {
+func SFTPServerFileUploadFailed_EventPattern(options *SFTPServerFileUploadFailed_SFTPServerFileUploadFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerFileUploadFailed_SftPServerFileUploadFailedPatternParameters(options); err != nil {
+	if err := validateSFTPServerFileUploadFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerFileUploadFailed",
-		"sftPServerFileUploadFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

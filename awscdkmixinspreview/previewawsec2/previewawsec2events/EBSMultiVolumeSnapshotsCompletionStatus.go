@@ -53,17 +53,17 @@ func NewEBSMultiVolumeSnapshotsCompletionStatus_Override(e EBSMultiVolumeSnapsho
 
 // EventBridge event pattern for EBS Multi-Volume Snapshots Completion Status.
 // Experimental.
-func EBSMultiVolumeSnapshotsCompletionStatus_EbsMultiVolumeSnapshotsCompletionStatusPattern(options *EBSMultiVolumeSnapshotsCompletionStatus_EBSMultiVolumeSnapshotsCompletionStatusProps) *awsevents.EventPattern {
+func EBSMultiVolumeSnapshotsCompletionStatus_EventPattern(options *EBSMultiVolumeSnapshotsCompletionStatus_EBSMultiVolumeSnapshotsCompletionStatusProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEBSMultiVolumeSnapshotsCompletionStatus_EbsMultiVolumeSnapshotsCompletionStatusPatternParameters(options); err != nil {
+	if err := validateEBSMultiVolumeSnapshotsCompletionStatus_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ec2.events.EBSMultiVolumeSnapshotsCompletionStatus",
-		"ebsMultiVolumeSnapshotsCompletionStatusPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewECRReferrerAction_Override(e ECRReferrerAction) {
 
 // EventBridge event pattern for ECR Referrer Action.
 // Experimental.
-func ECRReferrerAction_EcrReferrerActionPattern(options *ECRReferrerAction_ECRReferrerActionProps) *awsevents.EventPattern {
+func ECRReferrerAction_EventPattern(options *ECRReferrerAction_ECRReferrerActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECRReferrerAction_EcrReferrerActionPatternParameters(options); err != nil {
+	if err := validateECRReferrerAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecr.events.ECRReferrerAction",
-		"ecrReferrerActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewCodeBuildBuildPhaseChange_Override(c CodeBuildBuildPhaseChange) {
 
 // EventBridge event pattern for CodeBuild Build Phase Change.
 // Experimental.
-func CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangePattern(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) *awsevents.EventPattern {
+func CodeBuildBuildPhaseChange_EventPattern(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangePatternParameters(options); err != nil {
+	if err := validateCodeBuildBuildPhaseChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codebuild.events.CodeBuildBuildPhaseChange",
-		"codeBuildBuildPhaseChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

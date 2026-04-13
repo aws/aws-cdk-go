@@ -4,7 +4,7 @@ package previewawss3events
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateObjectRestoreCompleted_ObjectRestoreCompletedPatternParameters(options *ObjectRestoreCompleted_ObjectRestoreCompletedProps) error {
+func validateObjectRestoreCompleted_EventPatternParameters(options *ObjectRestoreCompleted_ObjectRestoreCompletedProps) error {
 	return nil
 }
 

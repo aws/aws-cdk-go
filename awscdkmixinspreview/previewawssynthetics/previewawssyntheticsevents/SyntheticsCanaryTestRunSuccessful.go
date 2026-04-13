@@ -53,17 +53,17 @@ func NewSyntheticsCanaryTestRunSuccessful_Override(s SyntheticsCanaryTestRunSucc
 
 // EventBridge event pattern for Synthetics Canary TestRun Successful.
 // Experimental.
-func SyntheticsCanaryTestRunSuccessful_SyntheticsCanaryTestRunSuccessfulPattern(options *SyntheticsCanaryTestRunSuccessful_SyntheticsCanaryTestRunSuccessfulProps) *awsevents.EventPattern {
+func SyntheticsCanaryTestRunSuccessful_EventPattern(options *SyntheticsCanaryTestRunSuccessful_SyntheticsCanaryTestRunSuccessfulProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSyntheticsCanaryTestRunSuccessful_SyntheticsCanaryTestRunSuccessfulPatternParameters(options); err != nil {
+	if err := validateSyntheticsCanaryTestRunSuccessful_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_synthetics.events.SyntheticsCanaryTestRunSuccessful",
-		"syntheticsCanaryTestRunSuccessfulPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

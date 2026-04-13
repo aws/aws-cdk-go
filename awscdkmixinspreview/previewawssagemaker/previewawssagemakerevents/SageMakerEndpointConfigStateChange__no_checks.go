@@ -4,7 +4,7 @@ package previewawssagemakerevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateSageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangePatternParameters(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) error {
+func validateSageMakerEndpointConfigStateChange_EventPatternParameters(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) error {
 	return nil
 }
 

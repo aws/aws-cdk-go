@@ -53,17 +53,17 @@ func NewAnnotationStoreStatusChange_Override(a AnnotationStoreStatusChange) {
 
 // EventBridge event pattern for Annotation Store Status Change.
 // Experimental.
-func AnnotationStoreStatusChange_AnnotationStoreStatusChangePattern(options *AnnotationStoreStatusChange_AnnotationStoreStatusChangeProps) *awsevents.EventPattern {
+func AnnotationStoreStatusChange_EventPattern(options *AnnotationStoreStatusChange_AnnotationStoreStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAnnotationStoreStatusChange_AnnotationStoreStatusChangePatternParameters(options); err != nil {
+	if err := validateAnnotationStoreStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.AnnotationStoreStatusChange",
-		"annotationStoreStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

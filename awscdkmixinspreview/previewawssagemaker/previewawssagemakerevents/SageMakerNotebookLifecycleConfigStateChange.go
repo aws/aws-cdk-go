@@ -53,17 +53,17 @@ func NewSageMakerNotebookLifecycleConfigStateChange_Override(s SageMakerNotebook
 
 // EventBridge event pattern for SageMaker Notebook Lifecycle Config State Change.
 // Experimental.
-func SageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangePattern(options *SageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangeProps) *awsevents.EventPattern {
+func SageMakerNotebookLifecycleConfigStateChange_EventPattern(options *SageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerNotebookLifecycleConfigStateChange_SageMakerNotebookLifecycleConfigStateChangePatternParameters(options); err != nil {
+	if err := validateSageMakerNotebookLifecycleConfigStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerNotebookLifecycleConfigStateChange",
-		"sageMakerNotebookLifecycleConfigStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

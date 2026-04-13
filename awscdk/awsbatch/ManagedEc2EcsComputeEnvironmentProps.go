@@ -119,6 +119,19 @@ type ManagedEc2EcsComputeEnvironmentProps struct {
 	// Default: new subnets will be created.
 	//
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
+	// The instance classes that this Compute Environment can launch.
+	//
+	// Which one is chosen depends on the `AllocationStrategy` used.
+	// Batch will automatically choose the instance size.
+	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
+	//
+	InstanceClasses *[]awsec2.InstanceClass `field:"optional" json:"instanceClasses" yaml:"instanceClasses"`
+	// The instance types that this Compute Environment can launch.
+	//
+	// Which one is chosen depends on the `AllocationStrategy` used.
+	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
+	//
+	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The allocation strategy to use if not enough instances of the best fitting instance type can be allocated.
 	// Default: - `BEST_FIT_PROGRESSIVE` if not using Spot instances,
 	// `SPOT_PRICE_CAPACITY_OPTIMIZED` if using Spot instances.
@@ -136,29 +149,19 @@ type ManagedEc2EcsComputeEnvironmentProps struct {
 	// Configure which AMIs this Compute Environment can launch.
 	//
 	// If you specify this property with only `image` specified, then the
-	// `imageType` will default to `ECS_AL2`. *If your image needs GPU resources,
-	// specify `ECS_AL2_NVIDIA`; otherwise, the instances will not be able to properly
-	// join the ComputeEnvironment*.
+	// `imageType` will default to `ECS_AL2` (or `ECS_AL2023` if the
+	// `@aws-cdk/aws-batch:defaultToAL2023` feature flag is set).
+	// *If your image needs GPU resources,
+	// specify `ECS_AL2_NVIDIA` or `ECS_AL2023_NVIDIA`; otherwise, the instances
+	// will not be able to properly join the ComputeEnvironment*.
 	// Default: - ECS_AL2 for non-GPU instances, ECS_AL2_NVIDIA for GPU instances.
+	// If the '@aws-cdk/aws-batch:defaultToAL2023' feature flag is set, ECS_AL2023 will be used instead of ECS_AL2.
 	//
 	Images *[]*EcsMachineImage `field:"optional" json:"images" yaml:"images"`
-	// The instance classes that this Compute Environment can launch.
-	//
-	// Which one is chosen depends on the `AllocationStrategy` used.
-	// Batch will automatically choose the instance size.
-	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
-	//
-	InstanceClasses *[]awsec2.InstanceClass `field:"optional" json:"instanceClasses" yaml:"instanceClasses"`
 	// The execution Role that instances launched by this Compute Environment will use.
 	// Default: - a role will be created.
 	//
 	InstanceRole awsiam.IRole `field:"optional" json:"instanceRole" yaml:"instanceRole"`
-	// The instance types that this Compute Environment can launch.
-	//
-	// Which one is chosen depends on the `AllocationStrategy` used.
-	// Default: - the instances Batch considers will be used (currently C4, M4, and R4).
-	//
-	InstanceTypes *[]awsec2.InstanceType `field:"optional" json:"instanceTypes" yaml:"instanceTypes"`
 	// The Launch Template that this Compute Environment will use to provision EC2 Instances.
 	//
 	// *Note*: if `securityGroups` is specified on both your

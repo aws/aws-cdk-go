@@ -4,7 +4,7 @@ package previewawsecsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateECSContainerInstanceStateChange_EcsContainerInstanceStateChangePatternParameters(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) error {
+func validateECSContainerInstanceStateChange_EventPatternParameters(options *ECSContainerInstanceStateChange_ECSContainerInstanceStateChangeProps) error {
 	return nil
 }
 

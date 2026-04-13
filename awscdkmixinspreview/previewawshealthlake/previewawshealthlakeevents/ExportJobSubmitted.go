@@ -53,17 +53,17 @@ func NewExportJobSubmitted_Override(e ExportJobSubmitted) {
 
 // EventBridge event pattern for Export Job Submitted.
 // Experimental.
-func ExportJobSubmitted_ExportJobSubmittedPattern(options *ExportJobSubmitted_ExportJobSubmittedProps) *awsevents.EventPattern {
+func ExportJobSubmitted_EventPattern(options *ExportJobSubmitted_ExportJobSubmittedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateExportJobSubmitted_ExportJobSubmittedPatternParameters(options); err != nil {
+	if err := validateExportJobSubmitted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.ExportJobSubmitted",
-		"exportJobSubmittedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -4,7 +4,7 @@ package previewawscodebuildevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangePatternParameters(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) error {
+func validateCodeBuildBuildPhaseChange_EventPatternParameters(options *CodeBuildBuildPhaseChange_CodeBuildBuildPhaseChangeProps) error {
 	return nil
 }
 

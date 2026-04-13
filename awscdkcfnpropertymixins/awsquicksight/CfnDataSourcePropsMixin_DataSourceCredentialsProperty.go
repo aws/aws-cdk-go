@@ -97,6 +97,9 @@ package awsquicksight
 //   					},
 //   					RoleArn: jsii.String("roleArn"),
 //   				},
+//   				S3TablesParameters: &S3TablesParametersProperty{
+//   					TableBucketArn: jsii.String("tableBucketArn"),
+//   				},
 //   				SnowflakeParameters: &SnowflakeParametersProperty{
 //   					AuthenticationType: jsii.String("authenticationType"),
 //   					Database: jsii.String("database"),

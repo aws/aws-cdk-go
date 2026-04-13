@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateSequenceStoreStatusChange_SequenceStoreStatusChangePatternParameters(options *SequenceStoreStatusChange_SequenceStoreStatusChangeProps) error {
+func validateSequenceStoreStatusChange_EventPatternParameters(options *SequenceStoreStatusChange_SequenceStoreStatusChangeProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -53,17 +53,17 @@ func NewSageMakerHyperParameterTuningJobStateChange_Override(s SageMakerHyperPar
 
 // EventBridge event pattern for SageMaker HyperParameter Tuning Job State Change.
 // Experimental.
-func SageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangePattern(options *SageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangeProps) *awsevents.EventPattern {
+func SageMakerHyperParameterTuningJobStateChange_EventPattern(options *SageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerHyperParameterTuningJobStateChange_SageMakerHyperParameterTuningJobStateChangePatternParameters(options); err != nil {
+	if err := validateSageMakerHyperParameterTuningJobStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerHyperParameterTuningJobStateChange",
-		"sageMakerHyperParameterTuningJobStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

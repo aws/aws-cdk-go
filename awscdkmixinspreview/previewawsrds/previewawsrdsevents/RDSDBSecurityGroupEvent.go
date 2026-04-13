@@ -53,17 +53,17 @@ func NewRDSDBSecurityGroupEvent_Override(r RDSDBSecurityGroupEvent) {
 
 // EventBridge event pattern for RDS DB Security Group Event.
 // Experimental.
-func RDSDBSecurityGroupEvent_RdsDBSecurityGroupEventPattern(options *RDSDBSecurityGroupEvent_RDSDBSecurityGroupEventProps) *awsevents.EventPattern {
+func RDSDBSecurityGroupEvent_EventPattern(options *RDSDBSecurityGroupEvent_RDSDBSecurityGroupEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRDSDBSecurityGroupEvent_RdsDBSecurityGroupEventPatternParameters(options); err != nil {
+	if err := validateRDSDBSecurityGroupEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_rds.events.RDSDBSecurityGroupEvent",
-		"rdsDBSecurityGroupEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

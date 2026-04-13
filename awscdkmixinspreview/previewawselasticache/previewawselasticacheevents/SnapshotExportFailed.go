@@ -53,17 +53,17 @@ func NewSnapshotExportFailed_Override(s SnapshotExportFailed) {
 
 // EventBridge event pattern for Snapshot Export Failed.
 // Experimental.
-func SnapshotExportFailed_SnapshotExportFailedPattern(options *SnapshotExportFailed_SnapshotExportFailedProps) *awsevents.EventPattern {
+func SnapshotExportFailed_EventPattern(options *SnapshotExportFailed_SnapshotExportFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSnapshotExportFailed_SnapshotExportFailedPatternParameters(options); err != nil {
+	if err := validateSnapshotExportFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.SnapshotExportFailed",
-		"snapshotExportFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

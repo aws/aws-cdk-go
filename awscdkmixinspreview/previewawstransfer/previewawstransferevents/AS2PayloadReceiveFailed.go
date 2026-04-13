@@ -53,17 +53,17 @@ func NewAS2PayloadReceiveFailed_Override(a AS2PayloadReceiveFailed) {
 
 // EventBridge event pattern for AS2 Payload Receive Failed.
 // Experimental.
-func AS2PayloadReceiveFailed_As2PayloadReceiveFailedPattern(options *AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) *awsevents.EventPattern {
+func AS2PayloadReceiveFailed_EventPattern(options *AS2PayloadReceiveFailed_AS2PayloadReceiveFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAS2PayloadReceiveFailed_As2PayloadReceiveFailedPatternParameters(options); err != nil {
+	if err := validateAS2PayloadReceiveFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.AS2PayloadReceiveFailed",
-		"as2PayloadReceiveFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

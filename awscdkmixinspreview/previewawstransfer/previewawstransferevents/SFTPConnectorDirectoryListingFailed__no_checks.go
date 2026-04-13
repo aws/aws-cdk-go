@@ -4,7 +4,7 @@ package previewawstransferevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateSFTPConnectorDirectoryListingFailed_SftPConnectorDirectoryListingFailedPatternParameters(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) error {
+func validateSFTPConnectorDirectoryListingFailed_EventPatternParameters(options *SFTPConnectorDirectoryListingFailed_SFTPConnectorDirectoryListingFailedProps) error {
 	return nil
 }
 

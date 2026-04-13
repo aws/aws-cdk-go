@@ -53,17 +53,17 @@ func NewFTPServerFileUploadFailed_Override(f FTPServerFileUploadFailed) {
 
 // EventBridge event pattern for FTP Server File Upload Failed.
 // Experimental.
-func FTPServerFileUploadFailed_FtpServerFileUploadFailedPattern(options *FTPServerFileUploadFailed_FTPServerFileUploadFailedProps) *awsevents.EventPattern {
+func FTPServerFileUploadFailed_EventPattern(options *FTPServerFileUploadFailed_FTPServerFileUploadFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPServerFileUploadFailed_FtpServerFileUploadFailedPatternParameters(options); err != nil {
+	if err := validateFTPServerFileUploadFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPServerFileUploadFailed",
-		"ftpServerFileUploadFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

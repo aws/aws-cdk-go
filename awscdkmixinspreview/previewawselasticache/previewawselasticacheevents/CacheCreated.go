@@ -53,17 +53,17 @@ func NewCacheCreated_Override(c CacheCreated) {
 
 // EventBridge event pattern for Cache Created.
 // Experimental.
-func CacheCreated_CacheCreatedPattern(options *CacheCreated_CacheCreatedProps) *awsevents.EventPattern {
+func CacheCreated_EventPattern(options *CacheCreated_CacheCreatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCacheCreated_CacheCreatedPatternParameters(options); err != nil {
+	if err := validateCacheCreated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_elasticache.events.CacheCreated",
-		"cacheCreatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

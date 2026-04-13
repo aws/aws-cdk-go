@@ -53,17 +53,17 @@ func NewSFTPServerDirectoryCreateFailed_Override(s SFTPServerDirectoryCreateFail
 
 // EventBridge event pattern for SFTP Server Directory Create Failed.
 // Experimental.
-func SFTPServerDirectoryCreateFailed_SftPServerDirectoryCreateFailedPattern(options *SFTPServerDirectoryCreateFailed_SFTPServerDirectoryCreateFailedProps) *awsevents.EventPattern {
+func SFTPServerDirectoryCreateFailed_EventPattern(options *SFTPServerDirectoryCreateFailed_SFTPServerDirectoryCreateFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerDirectoryCreateFailed_SftPServerDirectoryCreateFailedPatternParameters(options); err != nil {
+	if err := validateSFTPServerDirectoryCreateFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerDirectoryCreateFailed",
-		"sftPServerDirectoryCreateFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

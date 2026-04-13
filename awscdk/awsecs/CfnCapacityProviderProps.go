@@ -123,6 +123,9 @@ import (
 //   					Min: jsii.Number(123),
 //   				},
 //   			},
+//   			LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   				UseLocalStorage: jsii.Boolean(false),
+//   			},
 //   			Monitoring: jsii.String("monitoring"),
 //   			StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
 //   				StorageSizeGiB: jsii.Number(123),

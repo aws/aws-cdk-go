@@ -53,17 +53,17 @@ func NewSFTPServerDirectoryCreateCompleted_Override(s SFTPServerDirectoryCreateC
 
 // EventBridge event pattern for SFTP Server Directory Create Completed.
 // Experimental.
-func SFTPServerDirectoryCreateCompleted_SftPServerDirectoryCreateCompletedPattern(options *SFTPServerDirectoryCreateCompleted_SFTPServerDirectoryCreateCompletedProps) *awsevents.EventPattern {
+func SFTPServerDirectoryCreateCompleted_EventPattern(options *SFTPServerDirectoryCreateCompleted_SFTPServerDirectoryCreateCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerDirectoryCreateCompleted_SftPServerDirectoryCreateCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPServerDirectoryCreateCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerDirectoryCreateCompleted",
-		"sftPServerDirectoryCreateCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

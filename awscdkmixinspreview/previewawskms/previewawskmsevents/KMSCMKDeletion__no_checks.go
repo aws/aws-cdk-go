@@ -4,7 +4,7 @@ package previewawskmsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateKMSCMKDeletion_KmsCMKDeletionPatternParameters(options *KMSCMKDeletion_KMSCMKDeletionProps) error {
+func validateKMSCMKDeletion_EventPatternParameters(options *KMSCMKDeletion_KMSCMKDeletionProps) error {
 	return nil
 }
 

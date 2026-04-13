@@ -53,17 +53,17 @@ func NewSageMakerEndpointConfigStateChange_Override(s SageMakerEndpointConfigSta
 
 // EventBridge event pattern for SageMaker Endpoint Config State Change.
 // Experimental.
-func SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangePattern(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) *awsevents.EventPattern {
+func SageMakerEndpointConfigStateChange_EventPattern(options *SageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerEndpointConfigStateChange_SageMakerEndpointConfigStateChangePatternParameters(options); err != nil {
+	if err := validateSageMakerEndpointConfigStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerEndpointConfigStateChange",
-		"sageMakerEndpointConfigStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -28,6 +28,7 @@ package awsstepfunctions
 //   			Weight: jsii.Number(123),
 //   		},
 //   	},
+//   	StateMachineArn: jsii.String("stateMachineArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html
@@ -73,5 +74,8 @@ type CfnStateMachineAliasProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-routingconfiguration
 	//
 	RoutingConfiguration interface{} `field:"optional" json:"routingConfiguration" yaml:"routingConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html#cfn-stepfunctions-statemachinealias-statemachinearn
+	//
+	StateMachineArn *string `field:"optional" json:"stateMachineArn" yaml:"stateMachineArn"`
 }
 

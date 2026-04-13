@@ -53,17 +53,17 @@ func NewBatchJobStateChange_Override(b BatchJobStateChange) {
 
 // EventBridge event pattern for Batch Job State Change.
 // Experimental.
-func BatchJobStateChange_BatchJobStateChangePattern(options *BatchJobStateChange_BatchJobStateChangeProps) *awsevents.EventPattern {
+func BatchJobStateChange_EventPattern(options *BatchJobStateChange_BatchJobStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateBatchJobStateChange_BatchJobStateChangePatternParameters(options); err != nil {
+	if err := validateBatchJobStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_batch.events.BatchJobStateChange",
-		"batchJobStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

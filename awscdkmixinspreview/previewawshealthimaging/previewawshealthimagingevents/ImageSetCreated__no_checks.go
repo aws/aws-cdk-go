@@ -4,7 +4,7 @@ package previewawshealthimagingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateImageSetCreated_ImageSetCreatedPatternParameters(options *ImageSetCreated_ImageSetCreatedProps) error {
+func validateImageSetCreated_EventPatternParameters(options *ImageSetCreated_ImageSetCreatedProps) error {
 	return nil
 }
 

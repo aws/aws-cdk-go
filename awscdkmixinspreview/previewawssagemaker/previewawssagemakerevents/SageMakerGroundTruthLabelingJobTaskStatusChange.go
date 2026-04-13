@@ -53,17 +53,17 @@ func NewSageMakerGroundTruthLabelingJobTaskStatusChange_Override(s SageMakerGrou
 
 // EventBridge event pattern for SageMaker Ground Truth Labeling Job Task Status Change.
 // Experimental.
-func SageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangePattern(options *SageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangeProps) *awsevents.EventPattern {
+func SageMakerGroundTruthLabelingJobTaskStatusChange_EventPattern(options *SageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerGroundTruthLabelingJobTaskStatusChange_SageMakerGroundTruthLabelingJobTaskStatusChangePatternParameters(options); err != nil {
+	if err := validateSageMakerGroundTruthLabelingJobTaskStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerGroundTruthLabelingJobTaskStatusChange",
-		"sageMakerGroundTruthLabelingJobTaskStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

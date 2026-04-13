@@ -53,17 +53,17 @@ func NewECSServiceAction_Override(e ECSServiceAction) {
 
 // EventBridge event pattern for ECS Service Action.
 // Experimental.
-func ECSServiceAction_EcsServiceActionPattern(options *ECSServiceAction_ECSServiceActionProps) *awsevents.EventPattern {
+func ECSServiceAction_EventPattern(options *ECSServiceAction_ECSServiceActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECSServiceAction_EcsServiceActionPatternParameters(options); err != nil {
+	if err := validateECSServiceAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecs.events.ECSServiceAction",
-		"ecsServiceActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

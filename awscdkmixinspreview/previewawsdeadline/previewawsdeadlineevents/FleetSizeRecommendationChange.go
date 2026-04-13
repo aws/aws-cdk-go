@@ -53,17 +53,17 @@ func NewFleetSizeRecommendationChange_Override(f FleetSizeRecommendationChange) 
 
 // EventBridge event pattern for Fleet Size Recommendation Change.
 // Experimental.
-func FleetSizeRecommendationChange_FleetSizeRecommendationChangePattern(options *FleetSizeRecommendationChange_FleetSizeRecommendationChangeProps) *awsevents.EventPattern {
+func FleetSizeRecommendationChange_EventPattern(options *FleetSizeRecommendationChange_FleetSizeRecommendationChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFleetSizeRecommendationChange_FleetSizeRecommendationChangePatternParameters(options); err != nil {
+	if err := validateFleetSizeRecommendationChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_deadline.events.FleetSizeRecommendationChange",
-		"fleetSizeRecommendationChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

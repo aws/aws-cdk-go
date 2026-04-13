@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationPatternParameters(options *CodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationProps) error {
+func validateCodeDeployDeploymentStateChangeNotification_EventPatternParameters(options *CodeDeployDeploymentStateChangeNotification_CodeDeployDeploymentStateChangeNotificationProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

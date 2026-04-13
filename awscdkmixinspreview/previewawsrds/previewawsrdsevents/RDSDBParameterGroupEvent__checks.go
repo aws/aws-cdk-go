@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateRDSDBParameterGroupEvent_RdsDBParameterGroupEventPatternParameters(options *RDSDBParameterGroupEvent_RDSDBParameterGroupEventProps) error {
+func validateRDSDBParameterGroupEvent_EventPatternParameters(options *RDSDBParameterGroupEvent_RDSDBParameterGroupEventProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -164,6 +164,22 @@ func validateCfnService_ArnForServiceParameters(resource interfacesawsdevopsagen
 	return nil
 }
 
+func validateCfnService_FromServiceArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnService_FromServiceIdParameters(scope constructs.Construct, id *string, serviceId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -239,6 +255,16 @@ func (j *jsiiProxy_CfnService) validateSetServiceDetailsParameters(val interface
 func (j *jsiiProxy_CfnService) validateSetServiceTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnService) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

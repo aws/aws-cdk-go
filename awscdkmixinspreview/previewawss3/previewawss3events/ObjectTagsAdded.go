@@ -53,17 +53,17 @@ func NewObjectTagsAdded_Override(o ObjectTagsAdded) {
 
 // EventBridge event pattern for Object Tags Added.
 // Experimental.
-func ObjectTagsAdded_ObjectTagsAddedPattern(options *ObjectTagsAdded_ObjectTagsAddedProps) *awsevents.EventPattern {
+func ObjectTagsAdded_EventPattern(options *ObjectTagsAdded_ObjectTagsAddedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectTagsAdded_ObjectTagsAddedPatternParameters(options); err != nil {
+	if err := validateObjectTagsAdded_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectTagsAdded",
-		"objectTagsAddedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

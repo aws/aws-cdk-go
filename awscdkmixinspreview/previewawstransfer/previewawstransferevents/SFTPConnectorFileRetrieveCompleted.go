@@ -53,17 +53,17 @@ func NewSFTPConnectorFileRetrieveCompleted_Override(s SFTPConnectorFileRetrieveC
 
 // EventBridge event pattern for SFTP Connector File Retrieve Completed.
 // Experimental.
-func SFTPConnectorFileRetrieveCompleted_SftPConnectorFileRetrieveCompletedPattern(options *SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) *awsevents.EventPattern {
+func SFTPConnectorFileRetrieveCompleted_EventPattern(options *SFTPConnectorFileRetrieveCompleted_SFTPConnectorFileRetrieveCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPConnectorFileRetrieveCompleted_SftPConnectorFileRetrieveCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPConnectorFileRetrieveCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPConnectorFileRetrieveCompleted",
-		"sftPConnectorFileRetrieveCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

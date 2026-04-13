@@ -554,6 +554,9 @@ func (j *jsiiProxy_CfnInAppTemplate)SetContent(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnInAppTemplate)SetCustomConfig(val interface{}) {
+	if err := j.validateSetCustomConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"customConfig",
@@ -570,6 +573,9 @@ func (j *jsiiProxy_CfnInAppTemplate)SetLayout(val *string) {
 }
 
 func (j *jsiiProxy_CfnInAppTemplate)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

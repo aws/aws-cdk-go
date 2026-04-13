@@ -53,17 +53,17 @@ func NewSFTPConnectorDirectoryListingCompleted_Override(s SFTPConnectorDirectory
 
 // EventBridge event pattern for SFTP Connector Directory Listing Completed.
 // Experimental.
-func SFTPConnectorDirectoryListingCompleted_SftPConnectorDirectoryListingCompletedPattern(options *SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) *awsevents.EventPattern {
+func SFTPConnectorDirectoryListingCompleted_EventPattern(options *SFTPConnectorDirectoryListingCompleted_SFTPConnectorDirectoryListingCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPConnectorDirectoryListingCompleted_SftPConnectorDirectoryListingCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPConnectorDirectoryListingCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPConnectorDirectoryListingCompleted",
-		"sftPConnectorDirectoryListingCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -22,6 +22,7 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	AllowCustomProjectResourceTags: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	DomainUnitIdentifier: jsii.String("domainUnitIdentifier"),
@@ -60,6 +61,14 @@ import (
 //   			EnvironmentConfigurationId: jsii.String("environmentConfigurationId"),
 //   		},
 //   	},
+//   	ProjectResourceTags: []interface{}{
+//   		&ResourceTagParameterProperty{
+//   			IsValueEditable: jsii.Boolean(false),
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   	ProjectResourceTagsDescription: jsii.String("projectResourceTagsDescription"),
 //   	Status: jsii.String("status"),
 //   	UseDefaultConfigurations: jsii.Boolean(false),
 //   })
@@ -70,6 +79,8 @@ type CfnProjectProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdatazone.IProjectProfileRef
+	AllowCustomProjectResourceTags() interface{}
+	SetAllowCustomProjectResourceTags(val interface{})
 	// The timestamp of when the project profile was created.
 	AttrCreatedAt() *string
 	// The user who created the project profile.
@@ -123,6 +134,10 @@ type CfnProjectProfile interface {
 	Node() constructs.Node
 	// A reference to a ProjectProfile resource.
 	ProjectProfileRef() *interfacesawsdatazone.ProjectProfileReference
+	ProjectResourceTags() interface{}
+	SetProjectResourceTags(val interface{})
+	ProjectResourceTagsDescription() *string
+	SetProjectResourceTagsDescription(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -289,6 +304,16 @@ type jsiiProxy_CfnProjectProfile struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsdatazoneIProjectProfileRef
+}
+
+func (j *jsiiProxy_CfnProjectProfile) AllowCustomProjectResourceTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"allowCustomProjectResourceTags",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnProjectProfile) AttrCreatedAt() *string {
@@ -491,6 +516,26 @@ func (j *jsiiProxy_CfnProjectProfile) ProjectProfileRef() *interfacesawsdatazone
 	return returns
 }
 
+func (j *jsiiProxy_CfnProjectProfile) ProjectResourceTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"projectResourceTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProjectProfile) ProjectResourceTagsDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectResourceTagsDescription",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProjectProfile) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -581,6 +626,17 @@ func NewCfnProjectProfile_Override(c CfnProjectProfile, scope constructs.Constru
 	)
 }
 
+func (j *jsiiProxy_CfnProjectProfile)SetAllowCustomProjectResourceTags(val interface{}) {
+	if err := j.validateSetAllowCustomProjectResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"allowCustomProjectResourceTags",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnProjectProfile)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -623,6 +679,25 @@ func (j *jsiiProxy_CfnProjectProfile)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProjectProfile)SetProjectResourceTags(val interface{}) {
+	if err := j.validateSetProjectResourceTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"projectResourceTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProjectProfile)SetProjectResourceTagsDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"projectResourceTagsDescription",
 		val,
 	)
 }

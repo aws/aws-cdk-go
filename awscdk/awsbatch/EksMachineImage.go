@@ -26,6 +26,7 @@ type EksMachineImage struct {
 	Image awsec2.IMachineImage `field:"optional" json:"image" yaml:"image"`
 	// Tells Batch which instance type to launch this image on.
 	// Default: - 'EKS_AL2' for non-gpu instances, 'EKS_AL2_NVIDIA' for gpu instances.
+	// If the '@aws-cdk/aws-batch:defaultToAL2023' feature flag is set, 'EKS_AL2023' will be used instead of 'EKS_AL2'.
 	//
 	ImageType EksMachineImageType `field:"optional" json:"imageType" yaml:"imageType"`
 }

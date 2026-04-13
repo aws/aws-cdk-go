@@ -23,6 +23,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	OperatorApp: &OperatorAppProperty{
 //   		Iam: &IamAuthConfigurationProperty{
 //   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
@@ -41,6 +42,12 @@ import (
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
@@ -49,6 +56,7 @@ type CfnAgentSpace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdevopsagent.IAgentSpaceRef
+	awscdk.ITaggableV2
 	// A reference to a AgentSpace resource.
 	AgentSpaceRef() *interfacesawsdevopsagent.AgentSpaceReference
 	// The unique identifier of the Agent Space.
@@ -64,6 +72,8 @@ type CfnAgentSpace interface {
 	AttrOperatorAppIdcUpdatedAt() *string
 	// The timestamp when the resource was last updated.
 	AttrUpdatedAt() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,6 +87,9 @@ type CfnAgentSpace interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The ARN of the KMS key to use for encryption.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -103,6 +116,9 @@ type CfnAgentSpace interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -255,6 +271,7 @@ type jsiiProxy_CfnAgentSpace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsdevopsagentIAgentSpaceRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAgentSpace) AgentSpaceRef() *interfacesawsdevopsagent.AgentSpaceReference {
@@ -357,6 +374,16 @@ func (j *jsiiProxy_CfnAgentSpace) AttrUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgentSpace) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgentSpace) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -412,6 +439,16 @@ func (j *jsiiProxy_CfnAgentSpace) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
 		&returns,
 	)
 	return returns
@@ -477,6 +514,16 @@ func (j *jsiiProxy_CfnAgentSpace) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgentSpace) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgentSpace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -535,6 +582,14 @@ func (j *jsiiProxy_CfnAgentSpace)SetDescription(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnAgentSpace)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnAgentSpace)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -553,6 +608,17 @@ func (j *jsiiProxy_CfnAgentSpace)SetOperatorApp(val interface{}) {
 	_jsii_.Set(
 		j,
 		"operatorApp",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgentSpace)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

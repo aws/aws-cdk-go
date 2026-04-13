@@ -32,6 +32,12 @@ import (
 //   	Name: jsii.String("name"),
 //   	ProjectProfileId: jsii.String("projectProfileId"),
 //   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
+//   	ResourceTags: []interface{}{
+//   		&ResourceTagProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	UserParameters: []interface{}{
 //   		&EnvironmentConfigurationUserParameterProperty{
 //   			EnvironmentConfigurationName: jsii.String("environmentConfigurationName"),

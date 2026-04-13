@@ -11,6 +11,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_omics.AnnotationStoreReference",
 		reflect.TypeOf((*AnnotationStoreReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_omics.ConfigurationReference",
+		reflect.TypeOf((*ConfigurationReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_omics.IAnnotationStoreRef",
 		reflect.TypeOf((*IAnnotationStoreRef)(nil)).Elem(),
@@ -22,6 +26,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAnnotationStoreRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_omics.IConfigurationRef",
+		reflect.TypeOf((*IConfigurationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configurationRef", GoGetter: "ConfigurationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConfigurationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

@@ -4,7 +4,7 @@ package previewawss3events
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateObjectAccessTierChanged_ObjectAccessTierChangedPatternParameters(options *ObjectAccessTierChanged_ObjectAccessTierChangedProps) error {
+func validateObjectAccessTierChanged_EventPatternParameters(options *ObjectAccessTierChanged_ObjectAccessTierChangedProps) error {
 	return nil
 }
 

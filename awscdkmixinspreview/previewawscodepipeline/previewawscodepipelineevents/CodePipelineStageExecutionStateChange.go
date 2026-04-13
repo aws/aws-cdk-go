@@ -53,17 +53,17 @@ func NewCodePipelineStageExecutionStateChange_Override(c CodePipelineStageExecut
 
 // EventBridge event pattern for CodePipeline Stage Execution State Change.
 // Experimental.
-func CodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangePattern(options *CodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangeProps) *awsevents.EventPattern {
+func CodePipelineStageExecutionStateChange_EventPattern(options *CodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangePatternParameters(options); err != nil {
+	if err := validateCodePipelineStageExecutionStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codepipeline.events.CodePipelineStageExecutionStateChange",
-		"codePipelineStageExecutionStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

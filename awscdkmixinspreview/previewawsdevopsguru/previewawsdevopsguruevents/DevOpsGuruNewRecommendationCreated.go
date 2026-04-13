@@ -53,17 +53,17 @@ func NewDevOpsGuruNewRecommendationCreated_Override(d DevOpsGuruNewRecommendatio
 
 // EventBridge event pattern for DevOps Guru New Recommendation Created.
 // Experimental.
-func DevOpsGuruNewRecommendationCreated_DevOpsGuruNewRecommendationCreatedPattern(options *DevOpsGuruNewRecommendationCreated_DevOpsGuruNewRecommendationCreatedProps) *awsevents.EventPattern {
+func DevOpsGuruNewRecommendationCreated_EventPattern(options *DevOpsGuruNewRecommendationCreated_DevOpsGuruNewRecommendationCreatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDevOpsGuruNewRecommendationCreated_DevOpsGuruNewRecommendationCreatedPatternParameters(options); err != nil {
+	if err := validateDevOpsGuruNewRecommendationCreated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_devopsguru.events.DevOpsGuruNewRecommendationCreated",
-		"devOpsGuruNewRecommendationCreatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

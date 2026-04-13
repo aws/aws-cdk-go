@@ -4,7 +4,7 @@ package previewawscodebuildevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAWSServiceEventViaCloudTrail_AwsServiceEventViaCloudTrailPatternParameters(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) error {
+func validateAWSServiceEventViaCloudTrail_EventPatternParameters(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) error {
 	return nil
 }
 

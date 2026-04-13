@@ -53,17 +53,17 @@ func NewImportJobCompleted_Override(i ImportJobCompleted) {
 
 // EventBridge event pattern for Import Job Completed.
 // Experimental.
-func ImportJobCompleted_ImportJobCompletedPattern(options *ImportJobCompleted_ImportJobCompletedProps) *awsevents.EventPattern {
+func ImportJobCompleted_EventPattern(options *ImportJobCompleted_ImportJobCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateImportJobCompleted_ImportJobCompletedPatternParameters(options); err != nil {
+	if err := validateImportJobCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.ImportJobCompleted",
-		"importJobCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

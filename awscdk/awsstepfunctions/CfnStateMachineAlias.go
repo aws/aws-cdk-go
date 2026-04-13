@@ -40,6 +40,7 @@ import (
 //   			Weight: jsii.Number(123),
 //   		},
 //   	},
+//   	StateMachineArn: jsii.String("stateMachineArn"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html
@@ -97,6 +98,8 @@ type CfnStateMachineAlias interface {
 	Stack() awscdk.Stack
 	// A reference to a StateMachineAlias resource.
 	StateMachineAliasRef() *interfacesawsstepfunctions.StateMachineAliasReference
+	StateMachineArn() *string
+	SetStateMachineArn(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -401,6 +404,16 @@ func (j *jsiiProxy_CfnStateMachineAlias) StateMachineAliasRef() *interfacesawsst
 	return returns
 }
 
+func (j *jsiiProxy_CfnStateMachineAlias) StateMachineArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateMachineArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStateMachineAlias) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -485,6 +498,14 @@ func (j *jsiiProxy_CfnStateMachineAlias)SetRoutingConfiguration(val interface{})
 	_jsii_.Set(
 		j,
 		"routingConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStateMachineAlias)SetStateMachineArn(val *string) {
+	_jsii_.Set(
+		j,
+		"stateMachineArn",
 		val,
 	)
 }

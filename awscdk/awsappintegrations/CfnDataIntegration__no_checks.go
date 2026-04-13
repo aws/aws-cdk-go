@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnDataIntegration) validateSetNameParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataIntegration) validateSetObjectConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataIntegration) validateSetScheduleConfigParameters(val interface{}) error {
 	return nil
 }

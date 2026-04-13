@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateGameLiftMatchmakingEvent_GameLiftMatchmakingEventPatternParameters(options *GameLiftMatchmakingEvent_GameLiftMatchmakingEventProps) error {
+func validateGameLiftMatchmakingEvent_EventPatternParameters(options *GameLiftMatchmakingEvent_GameLiftMatchmakingEventProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

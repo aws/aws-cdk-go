@@ -4,7 +4,7 @@ package previewawsomicsevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateVariantStoreStatusChange_VariantStoreStatusChangePatternParameters(options *VariantStoreStatusChange_VariantStoreStatusChangeProps) error {
+func validateVariantStoreStatusChange_EventPatternParameters(options *VariantStoreStatusChange_VariantStoreStatusChangeProps) error {
 	return nil
 }
 

@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateDataStoreActive_DataStoreActivePatternParameters(options *DataStoreActive_DataStoreActiveProps) error {
+func validateDataStoreActive_EventPatternParameters(options *DataStoreActive_DataStoreActiveProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

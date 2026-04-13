@@ -229,7 +229,7 @@ pattern := bucketEvents.ObjectCreatedPattern(&ObjectCreatedProps{
 
 ### Standalone Event Patterns
 
-Standalone patterns are not tied to any specific resource. They match events across all resources of that type. For example, a standalone `awsAPICallViaCloudTrailPattern()` will match CloudTrail API calls for all S3 buckets in the account, not just a specific one.
+Standalone patterns are not tied to any specific resource. They match events across all resources of that type. For example, a standalone `AWSAPICallViaCloudTrail.eventPattern()` will match CloudTrail API calls for all S3 buckets in the account, not just a specific one.
 
 #### Event Patterns Basic Usage
 
@@ -244,7 +244,7 @@ var fn Function
 // Works with L2 Rule
 // Works with L2 Rule
 events.NewRule(scope, jsii.String("Rule"), &RuleProps{
-	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_EventPattern(&AWSAPICallViaCloudTrailProps{
 		TlsDetails: &TlsDetails{
 			TlsVersion: []*string{
 				jsii.String("TLSv1.3"),
@@ -265,7 +265,7 @@ events.NewRule(scope, jsii.String("Rule"), &RuleProps{
 // Also works with L1 CfnRule
 events.NewCfnRule(scope, jsii.String("CfnRule"), &CfnRuleProps{
 	State: jsii.String("ENABLED"),
-	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+	EventPattern: awscdkmixinspreview.AWSAPICallViaCloudTrail_*EventPattern(&AWSAPICallViaCloudTrailProps{
 		TlsDetails: &TlsDetails{
 			TlsVersion: []*string{
 				jsii.String("TLSv1.3"),
@@ -293,7 +293,7 @@ import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 
 
 // Matches CloudTrail API calls across ALL S3 buckets
-pattern := awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern()
+pattern := awscdkmixinspreview.AWSAPICallViaCloudTrail_EventPattern()
 ```
 
 **Event Metadata Support**: Control EventBridge pattern metadata
@@ -303,7 +303,7 @@ import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 import events "github.com/aws/aws-cdk-go/awscdk"
 
 
-pattern := awscdkmixinspreview.AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(&AWSAPICallViaCloudTrailProps{
+pattern := awscdkmixinspreview.AWSAPICallViaCloudTrail_EventPattern(&AWSAPICallViaCloudTrailProps{
 	EventMetadata: &AWSEventMetadataProps{
 		Region: events.Match_Prefix(jsii.String("us-")),
 		Version: []*string{
@@ -319,10 +319,10 @@ Event patterns are generated for EventBridge events available in the AWS Event S
 
 **S3 Events**:
 
-* `objectCreatedPattern()` - Object creation events
-* `objectDeletedPattern()` - Object deletion events
-* `objectTagsAddedPattern()` - Object tagging events
-* `awsAPICallViaCloudTrailPattern()` - CloudTrail API calls
+* `ObjectCreated.eventPattern()` - Object creation events
+* `ObjectDeleted.eventPattern()` - Object deletion events
+* `ObjectTagsAdded.eventPattern()` - Object tagging events
+* `AWSAPICallViaCloudTrail.eventPattern()` - CloudTrail API calls
 
 Import events from service-specific modules:
 

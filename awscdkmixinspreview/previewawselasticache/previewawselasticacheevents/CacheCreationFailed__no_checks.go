@@ -4,7 +4,7 @@ package previewawselasticacheevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCacheCreationFailed_CacheCreationFailedPatternParameters(options *CacheCreationFailed_CacheCreationFailedProps) error {
+func validateCacheCreationFailed_EventPatternParameters(options *CacheCreationFailed_CacheCreationFailedProps) error {
 	return nil
 }
 

@@ -53,17 +53,17 @@ func NewDataStoreCreated_Override(d DataStoreCreated) {
 
 // EventBridge event pattern for Data Store Created.
 // Experimental.
-func DataStoreCreated_DataStoreCreatedPattern(options *DataStoreCreated_DataStoreCreatedProps) *awsevents.EventPattern {
+func DataStoreCreated_EventPattern(options *DataStoreCreated_DataStoreCreatedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataStoreCreated_DataStoreCreatedPatternParameters(options); err != nil {
+	if err := validateDataStoreCreated_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthimaging.events.DataStoreCreated",
-		"dataStoreCreatedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

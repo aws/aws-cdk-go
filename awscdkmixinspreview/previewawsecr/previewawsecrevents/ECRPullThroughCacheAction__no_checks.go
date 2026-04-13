@@ -4,7 +4,7 @@ package previewawsecrevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateECRPullThroughCacheAction_EcrPullThroughCacheActionPatternParameters(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) error {
+func validateECRPullThroughCacheAction_EventPatternParameters(options *ECRPullThroughCacheAction_ECRPullThroughCacheActionProps) error {
 	return nil
 }
 

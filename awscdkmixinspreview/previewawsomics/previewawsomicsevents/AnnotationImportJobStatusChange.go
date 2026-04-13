@@ -53,17 +53,17 @@ func NewAnnotationImportJobStatusChange_Override(a AnnotationImportJobStatusChan
 
 // EventBridge event pattern for Annotation Import Job Status Change.
 // Experimental.
-func AnnotationImportJobStatusChange_AnnotationImportJobStatusChangePattern(options *AnnotationImportJobStatusChange_AnnotationImportJobStatusChangeProps) *awsevents.EventPattern {
+func AnnotationImportJobStatusChange_EventPattern(options *AnnotationImportJobStatusChange_AnnotationImportJobStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAnnotationImportJobStatusChange_AnnotationImportJobStatusChangePatternParameters(options); err != nil {
+	if err := validateAnnotationImportJobStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.AnnotationImportJobStatusChange",
-		"annotationImportJobStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

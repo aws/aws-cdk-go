@@ -326,6 +326,18 @@ import (
 //   		},
 //   		Include: jsii.String("include"),
 //   	},
+//   	SegmentSort: &SegmentSortProperty{
+//   		Attributes: []interface{}{
+//   			&SortAttributeProperty{
+//   				Name: jsii.String("name"),
+//   				Order: jsii.String("order"),
+//
+//   				// the properties below are optional
+//   				DataType: jsii.String("dataType"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	SegmentSqlQuery: jsii.String("segmentSqlQuery"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -398,6 +410,9 @@ type CfnSegmentDefinition interface {
 	// Contains all groups of the segment definition.
 	SegmentGroups() interface{}
 	SetSegmentGroups(val interface{})
+	// Defines how segments should be sorted and ordered in the results.
+	SegmentSort() interface{}
+	SetSegmentSort(val interface{})
 	// The SQL query that defines the segment criteria.
 	SegmentSqlQuery() *string
 	SetSegmentSqlQuery(val *string)
@@ -743,6 +758,16 @@ func (j *jsiiProxy_CfnSegmentDefinition) SegmentGroups() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSegmentDefinition) SegmentSort() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"segmentSort",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSegmentDefinition) SegmentSqlQuery() *string {
 	var returns *string
 	_jsii_.Get(
@@ -871,6 +896,17 @@ func (j *jsiiProxy_CfnSegmentDefinition)SetSegmentGroups(val interface{}) {
 	_jsii_.Set(
 		j,
 		"segmentGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSegmentDefinition)SetSegmentSort(val interface{}) {
+	if err := j.validateSetSegmentSortParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"segmentSort",
 		val,
 	)
 }

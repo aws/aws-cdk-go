@@ -53,17 +53,17 @@ func NewDataStoreActive_Override(d DataStoreActive) {
 
 // EventBridge event pattern for Data Store Active.
 // Experimental.
-func DataStoreActive_DataStoreActivePattern(options *DataStoreActive_DataStoreActiveProps) *awsevents.EventPattern {
+func DataStoreActive_EventPattern(options *DataStoreActive_DataStoreActiveProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDataStoreActive_DataStoreActivePatternParameters(options); err != nil {
+	if err := validateDataStoreActive_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_healthlake.events.DataStoreActive",
-		"dataStoreActivePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

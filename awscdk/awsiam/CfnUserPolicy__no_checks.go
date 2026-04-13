@@ -84,6 +84,10 @@ func validateCfnUserPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserPolicy) validateSetPolicyDocumentParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserPolicy) validateSetPolicyNameParameters(val *string) error {
 	return nil
 }

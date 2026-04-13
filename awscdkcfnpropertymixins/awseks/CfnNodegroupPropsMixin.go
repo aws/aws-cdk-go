@@ -93,6 +93,13 @@ import (
 //   		UpdateStrategy: jsii.String("updateStrategy"),
 //   	},
 //   	Version: jsii.String("version"),
+//   	WarmPoolConfig: &WarmPoolConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		MaxGroupPreparedCapacity: jsii.Number(123),
+//   		MinSize: jsii.Number(123),
+//   		PoolState: jsii.String("poolState"),
+//   		ReuseOnScaleIn: jsii.Boolean(false),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

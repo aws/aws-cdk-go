@@ -24,6 +24,7 @@ import (
 //   	ServiceType: jsii.String("serviceType"),
 //
 //   	// the properties below are optional
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		Dynatrace: &DynatraceServiceDetailsProperty{
 //   			AccountUrn: jsii.String("accountUrn"),
@@ -126,6 +127,12 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html
@@ -134,12 +141,17 @@ type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdevopsagent.IServiceRef
+	awscdk.ITaggableV2
 	// List of accessible resources for this service.
 	AttrAccessibleResources() awscdk.IResolvable
 	// Additional details specific to the service type returned after registration.
 	AttrAdditionalServiceDetails() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the Service.
+	AttrArn() *string
 	// The unique identifier of the service.
 	AttrServiceId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -150,6 +162,9 @@ type CfnService interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// The ARN of the KMS key to use for encryption.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -179,6 +194,9 @@ type CfnService interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -331,6 +349,7 @@ type jsiiProxy_CfnService struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsdevopsagentIServiceRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnService) AttrAccessibleResources() awscdk.IResolvable {
@@ -353,11 +372,31 @@ func (j *jsiiProxy_CfnService) AttrAdditionalServiceDetails() awscdk.IResolvable
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) AttrServiceId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrServiceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -408,6 +447,16 @@ func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
 		&returns,
 	)
 	return returns
@@ -483,6 +532,16 @@ func (j *jsiiProxy_CfnService) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -533,6 +592,14 @@ func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string
 	)
 }
 
+func (j *jsiiProxy_CfnService)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnService)SetServiceDetails(val interface{}) {
 	if err := j.validateSetServiceDetailsParameters(val); err != nil {
 		panic(err)
@@ -555,6 +622,17 @@ func (j *jsiiProxy_CfnService)SetServiceType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnService)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
+	)
+}
+
 func CfnService_ArnForService(resource interfacesawsdevopsagent.IServiceRef) *string {
 	_init_.Initialize()
 
@@ -567,6 +645,25 @@ func CfnService_ArnForService(resource interfacesawsdevopsagent.IServiceRef) *st
 		"aws-cdk-lib.aws_devopsagent.CfnService",
 		"arnForService",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IServiceRef from an ARN.
+func CfnService_FromServiceArn(scope constructs.Construct, id *string, arn *string) interfacesawsdevopsagent.IServiceRef {
+	_init_.Initialize()
+
+	if err := validateCfnService_FromServiceArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdevopsagent.IServiceRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_devopsagent.CfnService",
+		"fromServiceArn",
+		[]interface{}{scope, id, arn},
 		&returns,
 	)
 

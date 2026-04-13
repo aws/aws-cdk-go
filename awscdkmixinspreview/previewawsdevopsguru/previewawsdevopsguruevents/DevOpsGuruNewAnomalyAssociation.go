@@ -53,17 +53,17 @@ func NewDevOpsGuruNewAnomalyAssociation_Override(d DevOpsGuruNewAnomalyAssociati
 
 // EventBridge event pattern for DevOps Guru New Anomaly Association.
 // Experimental.
-func DevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationPattern(options *DevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationProps) *awsevents.EventPattern {
+func DevOpsGuruNewAnomalyAssociation_EventPattern(options *DevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDevOpsGuruNewAnomalyAssociation_DevOpsGuruNewAnomalyAssociationPatternParameters(options); err != nil {
+	if err := validateDevOpsGuruNewAnomalyAssociation_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_devopsguru.events.DevOpsGuruNewAnomalyAssociation",
-		"devOpsGuruNewAnomalyAssociationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

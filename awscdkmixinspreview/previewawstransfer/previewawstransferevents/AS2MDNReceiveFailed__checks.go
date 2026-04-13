@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateAS2MDNReceiveFailed_As2MDNReceiveFailedPatternParameters(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) error {
+func validateAS2MDNReceiveFailed_EventPatternParameters(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

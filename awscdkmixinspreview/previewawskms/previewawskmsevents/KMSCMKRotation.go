@@ -53,17 +53,17 @@ func NewKMSCMKRotation_Override(k KMSCMKRotation) {
 
 // EventBridge event pattern for KMS CMK Rotation.
 // Experimental.
-func KMSCMKRotation_KmsCMKRotationPattern(options *KMSCMKRotation_KMSCMKRotationProps) *awsevents.EventPattern {
+func KMSCMKRotation_EventPattern(options *KMSCMKRotation_KMSCMKRotationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateKMSCMKRotation_KmsCMKRotationPatternParameters(options); err != nil {
+	if err := validateKMSCMKRotation_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_kms.events.KMSCMKRotation",
-		"kmsCMKRotationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

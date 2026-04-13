@@ -53,17 +53,17 @@ func NewManagedBlockchainProposalStatusChange_Override(m ManagedBlockchainPropos
 
 // EventBridge event pattern for Managed Blockchain Proposal Status Change.
 // Experimental.
-func ManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangePattern(options *ManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangeProps) *awsevents.EventPattern {
+func ManagedBlockchainProposalStatusChange_EventPattern(options *ManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangePatternParameters(options); err != nil {
+	if err := validateManagedBlockchainProposalStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_managedblockchain.events.ManagedBlockchainProposalStatusChange",
-		"managedBlockchainProposalStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

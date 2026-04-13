@@ -53,17 +53,17 @@ func NewSFTPServerFileDeleteCompleted_Override(s SFTPServerFileDeleteCompleted) 
 
 // EventBridge event pattern for SFTP Server File Delete Completed.
 // Experimental.
-func SFTPServerFileDeleteCompleted_SftPServerFileDeleteCompletedPattern(options *SFTPServerFileDeleteCompleted_SFTPServerFileDeleteCompletedProps) *awsevents.EventPattern {
+func SFTPServerFileDeleteCompleted_EventPattern(options *SFTPServerFileDeleteCompleted_SFTPServerFileDeleteCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSFTPServerFileDeleteCompleted_SftPServerFileDeleteCompletedPatternParameters(options); err != nil {
+	if err := validateSFTPServerFileDeleteCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.SFTPServerFileDeleteCompleted",
-		"sftPServerFileDeleteCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

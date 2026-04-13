@@ -53,17 +53,17 @@ func NewDNSFirewallAlert_Override(d DNSFirewallAlert) {
 
 // EventBridge event pattern for DNS Firewall Alert.
 // Experimental.
-func DNSFirewallAlert_DnsFirewallAlertPattern(options *DNSFirewallAlert_DNSFirewallAlertProps) *awsevents.EventPattern {
+func DNSFirewallAlert_EventPattern(options *DNSFirewallAlert_DNSFirewallAlertProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDNSFirewallAlert_DnsFirewallAlertPatternParameters(options); err != nil {
+	if err := validateDNSFirewallAlert_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_route53resolver.events.DNSFirewallAlert",
-		"dnsFirewallAlertPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -340,6 +340,14 @@ func (j *jsiiProxy_CfnTrigger) validateSetStartOnCreationParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrigger) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrigger) validateSetTypeParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

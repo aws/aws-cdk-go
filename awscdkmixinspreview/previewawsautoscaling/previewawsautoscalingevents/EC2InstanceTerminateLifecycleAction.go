@@ -53,17 +53,17 @@ func NewEC2InstanceTerminateLifecycleAction_Override(e EC2InstanceTerminateLifec
 
 // EventBridge event pattern for EC2 Instance-terminate Lifecycle Action.
 // Experimental.
-func EC2InstanceTerminateLifecycleAction_Ec2InstanceTerminateLifecycleActionPattern(options *EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) *awsevents.EventPattern {
+func EC2InstanceTerminateLifecycleAction_EventPattern(options *EC2InstanceTerminateLifecycleAction_EC2InstanceTerminateLifecycleActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2InstanceTerminateLifecycleAction_Ec2InstanceTerminateLifecycleActionPatternParameters(options); err != nil {
+	if err := validateEC2InstanceTerminateLifecycleAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_autoscaling.events.EC2InstanceTerminateLifecycleAction",
-		"ec2InstanceTerminateLifecycleActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

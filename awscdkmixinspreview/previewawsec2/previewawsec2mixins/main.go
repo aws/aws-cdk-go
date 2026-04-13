@@ -8,6 +8,95 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogs",
+		reflect.TypeOf((*CfnInstanceConsoleLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnInstanceConsoleLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsDestProps",
+		reflect.TypeOf((*CfnInstanceConsoleLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsFirehoseProps",
+		reflect.TypeOf((*CfnInstanceConsoleLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsLogGroupProps",
+		reflect.TypeOf((*CfnInstanceConsoleLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsOutputFormat",
+		reflect.TypeOf((*CfnInstanceConsoleLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnInstanceConsoleLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnInstanceConsoleLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnInstanceConsoleLogsOutputFormat_Firehose_JSON,
+			"PLAIN": CfnInstanceConsoleLogsOutputFormat_Firehose_PLAIN,
+			"RAW": CfnInstanceConsoleLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnInstanceConsoleLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnInstanceConsoleLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnInstanceConsoleLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnInstanceConsoleLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"JSON": CfnInstanceConsoleLogsOutputFormat_S3_JSON,
+			"PLAIN": CfnInstanceConsoleLogsOutputFormat_S3_PLAIN,
+			"W3C": CfnInstanceConsoleLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnInstanceConsoleLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsRecordFields",
+		reflect.TypeOf((*CfnInstanceConsoleLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"RESOURCE_ARN": CfnInstanceConsoleLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnInstanceConsoleLogsRecordFields_EVENT_TIMESTAMP,
+			"MESSAGE": CfnInstanceConsoleLogsRecordFields_MESSAGE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceConsoleLogsS3Props",
+		reflect.TypeOf((*CfnInstanceConsoleLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnInstanceLogsMixin",
+		reflect.TypeOf((*CfnInstanceLogsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
+			_jsii_.MemberProperty{JsiiProperty: "logType", GoGetter: "LogType"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnInstanceLogsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_ec2.mixins.CfnRouteServerPeerEventLogs",
 		reflect.TypeOf((*CfnRouteServerPeerEventLogs)(nil)).Elem(),
 		[]_jsii_.Member{

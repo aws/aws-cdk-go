@@ -4,7 +4,7 @@ package previewawsemrevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateEMRInstanceGroupStateChange_EmrInstanceGroupStateChangePatternParameters(options *EMRInstanceGroupStateChange_EMRInstanceGroupStateChangeProps) error {
+func validateEMRInstanceGroupStateChange_EventPatternParameters(options *EMRInstanceGroupStateChange_EMRInstanceGroupStateChangeProps) error {
 	return nil
 }
 

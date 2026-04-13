@@ -53,17 +53,17 @@ func NewFTPServerFileUploadCompleted_Override(f FTPServerFileUploadCompleted) {
 
 // EventBridge event pattern for FTP Server File Upload Completed.
 // Experimental.
-func FTPServerFileUploadCompleted_FtpServerFileUploadCompletedPattern(options *FTPServerFileUploadCompleted_FTPServerFileUploadCompletedProps) *awsevents.EventPattern {
+func FTPServerFileUploadCompleted_EventPattern(options *FTPServerFileUploadCompleted_FTPServerFileUploadCompletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPServerFileUploadCompleted_FtpServerFileUploadCompletedPatternParameters(options); err != nil {
+	if err := validateFTPServerFileUploadCompleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPServerFileUploadCompleted",
-		"ftpServerFileUploadCompletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

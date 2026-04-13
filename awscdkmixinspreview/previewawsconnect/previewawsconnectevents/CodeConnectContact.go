@@ -53,17 +53,17 @@ func NewCodeConnectContact_Override(c CodeConnectContact) {
 
 // EventBridge event pattern for Amazon Connect Contact Event.
 // Experimental.
-func CodeConnectContact_CodeConnectContactPattern(options *CodeConnectContact_CodeConnectContactProps) *awsevents.EventPattern {
+func CodeConnectContact_EventPattern(options *CodeConnectContact_CodeConnectContactProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeConnectContact_CodeConnectContactPatternParameters(options); err != nil {
+	if err := validateCodeConnectContact_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_connect.events.CodeConnectContact",
-		"codeConnectContactPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

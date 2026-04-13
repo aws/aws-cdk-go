@@ -27,5 +27,7 @@ const (
 	EcsMachineImageType_ECS_AL2023 EcsMachineImageType = "ECS_AL2023"
 	// Tells Batch that this machine image runs on GPU instances.
 	EcsMachineImageType_ECS_AL2_NVIDIA EcsMachineImageType = "ECS_AL2_NVIDIA"
+	// Tells Batch that this machine image runs on GPU AL2023 instances.
+	EcsMachineImageType_ECS_AL2023_NVIDIA EcsMachineImageType = "ECS_AL2023_NVIDIA"
 )
 

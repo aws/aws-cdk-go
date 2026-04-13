@@ -53,17 +53,17 @@ func NewECSTaskStateChange_Override(e ECSTaskStateChange) {
 
 // EventBridge event pattern for ECS Task State Change.
 // Experimental.
-func ECSTaskStateChange_EcsTaskStateChangePattern(options *ECSTaskStateChange_ECSTaskStateChangeProps) *awsevents.EventPattern {
+func ECSTaskStateChange_EventPattern(options *ECSTaskStateChange_ECSTaskStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateECSTaskStateChange_EcsTaskStateChangePatternParameters(options); err != nil {
+	if err := validateECSTaskStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ecs.events.ECSTaskStateChange",
-		"ecsTaskStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

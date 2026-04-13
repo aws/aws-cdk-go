@@ -4,7 +4,7 @@ package previewawshealthimagingevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessPatternParameters(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) error {
+func validateImageSetCopyingWithReadOnlyAccess_EventPatternParameters(options *ImageSetCopyingWithReadOnlyAccess_ImageSetCopyingWithReadOnlyAccessProps) error {
 	return nil
 }
 

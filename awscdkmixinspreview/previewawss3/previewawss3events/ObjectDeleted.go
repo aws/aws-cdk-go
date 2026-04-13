@@ -53,17 +53,17 @@ func NewObjectDeleted_Override(o ObjectDeleted) {
 
 // EventBridge event pattern for Object Deleted.
 // Experimental.
-func ObjectDeleted_ObjectDeletedPattern(options *ObjectDeleted_ObjectDeletedProps) *awsevents.EventPattern {
+func ObjectDeleted_EventPattern(options *ObjectDeleted_ObjectDeletedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectDeleted_ObjectDeletedPatternParameters(options); err != nil {
+	if err := validateObjectDeleted_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectDeleted",
-		"objectDeletedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewCodeCommitPullRequestStateChange_Override(c CodeCommitPullRequestStateCh
 
 // EventBridge event pattern for CodeCommit Pull Request State Change.
 // Experimental.
-func CodeCommitPullRequestStateChange_CodeCommitPullRequestStateChangePattern(options *CodeCommitPullRequestStateChange_CodeCommitPullRequestStateChangeProps) *awsevents.EventPattern {
+func CodeCommitPullRequestStateChange_EventPattern(options *CodeCommitPullRequestStateChange_CodeCommitPullRequestStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCodeCommitPullRequestStateChange_CodeCommitPullRequestStateChangePatternParameters(options); err != nil {
+	if err := validateCodeCommitPullRequestStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_codecommit.events.CodeCommitPullRequestStateChange",
-		"codeCommitPullRequestStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

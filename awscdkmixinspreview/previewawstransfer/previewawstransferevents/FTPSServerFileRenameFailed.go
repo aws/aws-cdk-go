@@ -53,17 +53,17 @@ func NewFTPSServerFileRenameFailed_Override(f FTPSServerFileRenameFailed) {
 
 // EventBridge event pattern for FTPS Server File Rename Failed.
 // Experimental.
-func FTPSServerFileRenameFailed_FtpSServerFileRenameFailedPattern(options *FTPSServerFileRenameFailed_FTPSServerFileRenameFailedProps) *awsevents.EventPattern {
+func FTPSServerFileRenameFailed_EventPattern(options *FTPSServerFileRenameFailed_FTPSServerFileRenameFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPSServerFileRenameFailed_FtpSServerFileRenameFailedPatternParameters(options); err != nil {
+	if err := validateFTPSServerFileRenameFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPSServerFileRenameFailed",
-		"ftpSServerFileRenameFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

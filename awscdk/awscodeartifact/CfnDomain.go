@@ -513,6 +513,9 @@ func (j *jsiiProxy_CfnDomain)SetEncryptionKey(val *string) {
 }
 
 func (j *jsiiProxy_CfnDomain)SetPermissionsPolicyDocument(val interface{}) {
+	if err := j.validateSetPermissionsPolicyDocumentParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"permissionsPolicyDocument",

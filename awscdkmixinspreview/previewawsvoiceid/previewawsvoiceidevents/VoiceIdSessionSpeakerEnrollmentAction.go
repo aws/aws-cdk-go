@@ -53,17 +53,17 @@ func NewVoiceIdSessionSpeakerEnrollmentAction_Override(v VoiceIdSessionSpeakerEn
 
 // EventBridge event pattern for VoiceId Session Speaker Enrollment Action.
 // Experimental.
-func VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionPattern(options *VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps) *awsevents.EventPattern {
+func VoiceIdSessionSpeakerEnrollmentAction_EventPattern(options *VoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateVoiceIdSessionSpeakerEnrollmentAction_VoiceIdSessionSpeakerEnrollmentActionPatternParameters(options); err != nil {
+	if err := validateVoiceIdSessionSpeakerEnrollmentAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdSessionSpeakerEnrollmentAction",
-		"voiceIdSessionSpeakerEnrollmentActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

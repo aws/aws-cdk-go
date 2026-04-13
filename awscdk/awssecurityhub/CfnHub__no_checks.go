@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnHub) validateSetEnableDefaultStandardsParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnHub) validateSetTagsRawParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnHubParameters(scope constructs.Construct, id *string, props *CfnHubProps) error {
 	return nil
 }

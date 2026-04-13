@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateCacheUpdateFailed_CacheUpdateFailedPatternParameters(options *CacheUpdateFailed_CacheUpdateFailedProps) error {
+func validateCacheUpdateFailed_EventPatternParameters(options *CacheUpdateFailed_CacheUpdateFailedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -288,6 +288,22 @@ func (j *jsiiProxy_CfnInAppTemplate) validateSetContentParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnInAppTemplate) validateSetCustomConfigParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnInAppTemplate) validateSetTagsRawParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnInAppTemplate) validateSetTemplateNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

@@ -53,17 +53,17 @@ func NewNetworkManagerSegmentUpdate_Override(n NetworkManagerSegmentUpdate) {
 
 // EventBridge event pattern for Network Manager Segment Update.
 // Experimental.
-func NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdatePattern(options *NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) *awsevents.EventPattern {
+func NetworkManagerSegmentUpdate_EventPattern(options *NetworkManagerSegmentUpdate_NetworkManagerSegmentUpdateProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateNetworkManagerSegmentUpdate_NetworkManagerSegmentUpdatePatternParameters(options); err != nil {
+	if err := validateNetworkManagerSegmentUpdate_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_networkmanager.events.NetworkManagerSegmentUpdate",
-		"networkManagerSegmentUpdatePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -53,17 +53,17 @@ func NewVariantStoreStatusChange_Override(v VariantStoreStatusChange) {
 
 // EventBridge event pattern for Variant Store Status Change.
 // Experimental.
-func VariantStoreStatusChange_VariantStoreStatusChangePattern(options *VariantStoreStatusChange_VariantStoreStatusChangeProps) *awsevents.EventPattern {
+func VariantStoreStatusChange_EventPattern(options *VariantStoreStatusChange_VariantStoreStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateVariantStoreStatusChange_VariantStoreStatusChangePatternParameters(options); err != nil {
+	if err := validateVariantStoreStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.VariantStoreStatusChange",
-		"variantStoreStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

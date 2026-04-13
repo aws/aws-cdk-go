@@ -53,17 +53,17 @@ func NewObjectAccessTierChanged_Override(o ObjectAccessTierChanged) {
 
 // EventBridge event pattern for Object Access Tier Changed.
 // Experimental.
-func ObjectAccessTierChanged_ObjectAccessTierChangedPattern(options *ObjectAccessTierChanged_ObjectAccessTierChangedProps) *awsevents.EventPattern {
+func ObjectAccessTierChanged_EventPattern(options *ObjectAccessTierChanged_ObjectAccessTierChangedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectAccessTierChanged_ObjectAccessTierChangedPatternParameters(options); err != nil {
+	if err := validateObjectAccessTierChanged_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectAccessTierChanged",
-		"objectAccessTierChangedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

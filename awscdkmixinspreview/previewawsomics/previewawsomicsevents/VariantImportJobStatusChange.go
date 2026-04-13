@@ -53,17 +53,17 @@ func NewVariantImportJobStatusChange_Override(v VariantImportJobStatusChange) {
 
 // EventBridge event pattern for Variant Import Job Status Change.
 // Experimental.
-func VariantImportJobStatusChange_VariantImportJobStatusChangePattern(options *VariantImportJobStatusChange_VariantImportJobStatusChangeProps) *awsevents.EventPattern {
+func VariantImportJobStatusChange_EventPattern(options *VariantImportJobStatusChange_VariantImportJobStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateVariantImportJobStatusChange_VariantImportJobStatusChangePatternParameters(options); err != nil {
+	if err := validateVariantImportJobStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.VariantImportJobStatusChange",
-		"variantImportJobStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

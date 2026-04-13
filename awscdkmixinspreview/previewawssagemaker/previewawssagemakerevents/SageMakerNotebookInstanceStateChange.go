@@ -53,17 +53,17 @@ func NewSageMakerNotebookInstanceStateChange_Override(s SageMakerNotebookInstanc
 
 // EventBridge event pattern for SageMaker Notebook Instance State Change.
 // Experimental.
-func SageMakerNotebookInstanceStateChange_SageMakerNotebookInstanceStateChangePattern(options *SageMakerNotebookInstanceStateChange_SageMakerNotebookInstanceStateChangeProps) *awsevents.EventPattern {
+func SageMakerNotebookInstanceStateChange_EventPattern(options *SageMakerNotebookInstanceStateChange_SageMakerNotebookInstanceStateChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSageMakerNotebookInstanceStateChange_SageMakerNotebookInstanceStateChangePatternParameters(options); err != nil {
+	if err := validateSageMakerNotebookInstanceStateChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerNotebookInstanceStateChange",
-		"sageMakerNotebookInstanceStateChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

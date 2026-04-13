@@ -4,7 +4,7 @@ package previewawsemrevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateEMRClusterStateChange_EmrClusterStateChangePatternParameters(options *EMRClusterStateChange_EMRClusterStateChangeProps) error {
+func validateEMRClusterStateChange_EventPatternParameters(options *EMRClusterStateChange_EMRClusterStateChangeProps) error {
 	return nil
 }
 

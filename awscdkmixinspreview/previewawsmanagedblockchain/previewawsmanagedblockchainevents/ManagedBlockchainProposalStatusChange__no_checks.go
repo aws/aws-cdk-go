@@ -4,7 +4,7 @@ package previewawsmanagedblockchainevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangePatternParameters(options *ManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangeProps) error {
+func validateManagedBlockchainProposalStatusChange_EventPatternParameters(options *ManagedBlockchainProposalStatusChange_ManagedBlockchainProposalStatusChangeProps) error {
 	return nil
 }
 

@@ -53,17 +53,17 @@ func NewAdvisorRecommendationStatusResolved_Override(a AdvisorRecommendationStat
 
 // EventBridge event pattern for Advisor Recommendation Status Resolved.
 // Experimental.
-func AdvisorRecommendationStatusResolved_AdvisorRecommendationStatusResolvedPattern(options *AdvisorRecommendationStatusResolved_AdvisorRecommendationStatusResolvedProps) *awsevents.EventPattern {
+func AdvisorRecommendationStatusResolved_EventPattern(options *AdvisorRecommendationStatusResolved_AdvisorRecommendationStatusResolvedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAdvisorRecommendationStatusResolved_AdvisorRecommendationStatusResolvedPatternParameters(options); err != nil {
+	if err := validateAdvisorRecommendationStatusResolved_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ses.events.AdvisorRecommendationStatusResolved",
-		"advisorRecommendationStatusResolvedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

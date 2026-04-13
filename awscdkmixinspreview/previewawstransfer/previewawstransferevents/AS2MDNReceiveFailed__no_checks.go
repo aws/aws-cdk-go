@@ -4,7 +4,7 @@ package previewawstransferevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateAS2MDNReceiveFailed_As2MDNReceiveFailedPatternParameters(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) error {
+func validateAS2MDNReceiveFailed_EventPatternParameters(options *AS2MDNReceiveFailed_AS2MDNReceiveFailedProps) error {
 	return nil
 }
 

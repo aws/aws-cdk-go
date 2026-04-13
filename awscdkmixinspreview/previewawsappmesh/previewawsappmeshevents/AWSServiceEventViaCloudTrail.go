@@ -53,17 +53,17 @@ func NewAWSServiceEventViaCloudTrail_Override(a AWSServiceEventViaCloudTrail) {
 
 // EventBridge event pattern for AWS Service Event via CloudTrail.
 // Experimental.
-func AWSServiceEventViaCloudTrail_AwsServiceEventViaCloudTrailPattern(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) *awsevents.EventPattern {
+func AWSServiceEventViaCloudTrail_EventPattern(options *AWSServiceEventViaCloudTrail_AWSServiceEventViaCloudTrailProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAWSServiceEventViaCloudTrail_AwsServiceEventViaCloudTrailPatternParameters(options); err != nil {
+	if err := validateAWSServiceEventViaCloudTrail_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_appmesh.events.AWSServiceEventViaCloudTrail",
-		"awsServiceEventViaCloudTrailPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

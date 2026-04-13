@@ -53,17 +53,17 @@ func NewAdvisorRecommendationStatusOpen_Override(a AdvisorRecommendationStatusOp
 
 // EventBridge event pattern for Advisor Recommendation Status Open.
 // Experimental.
-func AdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenPattern(options *AdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenProps) *awsevents.EventPattern {
+func AdvisorRecommendationStatusOpen_EventPattern(options *AdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAdvisorRecommendationStatusOpen_AdvisorRecommendationStatusOpenPatternParameters(options); err != nil {
+	if err := validateAdvisorRecommendationStatusOpen_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_ses.events.AdvisorRecommendationStatusOpen",
-		"advisorRecommendationStatusOpenPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

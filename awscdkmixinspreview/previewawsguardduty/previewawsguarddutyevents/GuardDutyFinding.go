@@ -53,17 +53,17 @@ func NewGuardDutyFinding_Override(g GuardDutyFinding) {
 
 // EventBridge event pattern for GuardDuty Finding.
 // Experimental.
-func GuardDutyFinding_GuardDutyFindingPattern(options *GuardDutyFinding_GuardDutyFindingProps) *awsevents.EventPattern {
+func GuardDutyFinding_EventPattern(options *GuardDutyFinding_GuardDutyFindingProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateGuardDutyFinding_GuardDutyFindingPatternParameters(options); err != nil {
+	if err := validateGuardDutyFinding_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_guardduty.events.GuardDutyFinding",
-		"guardDutyFindingPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

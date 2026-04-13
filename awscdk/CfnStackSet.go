@@ -711,6 +711,9 @@ func (j *jsiiProxy_CfnStackSet)SetExecutionRoleName(val *string) {
 }
 
 func (j *jsiiProxy_CfnStackSet)SetManagedExecution(val interface{}) {
+	if err := j.validateSetManagedExecutionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"managedExecution",

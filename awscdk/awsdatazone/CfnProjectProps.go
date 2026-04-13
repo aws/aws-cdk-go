@@ -20,6 +20,12 @@ package awsdatazone
 //   	},
 //   	ProjectProfileId: jsii.String("projectProfileId"),
 //   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
+//   	ResourceTags: []interface{}{
+//   		&ResourceTagProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	UserParameters: []interface{}{
 //   		&EnvironmentConfigurationUserParameterProperty{
 //   			EnvironmentConfigurationName: jsii.String("environmentConfigurationName"),
@@ -69,6 +75,10 @@ type CfnProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectprofileversion
 	//
 	ProjectProfileVersion *string `field:"optional" json:"projectProfileVersion" yaml:"projectProfileVersion"`
+	// The resource tags of the project.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-resourcetags
+	//
+	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 	// The user parameters of the project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-userparameters
 	//

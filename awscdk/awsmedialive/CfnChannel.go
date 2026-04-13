@@ -807,6 +807,9 @@ func (j *jsiiProxy_CfnChannel)SetRoleArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnChannel)SetTagsRaw(val interface{}) {
+	if err := j.validateSetTagsRawParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"tagsRaw",

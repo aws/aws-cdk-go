@@ -53,17 +53,17 @@ func NewVoiceIdBatchSpeakerEnrollmentAction_Override(v VoiceIdBatchSpeakerEnroll
 
 // EventBridge event pattern for VoiceId Batch Speaker Enrollment Action.
 // Experimental.
-func VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionPattern(options *VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps) *awsevents.EventPattern {
+func VoiceIdBatchSpeakerEnrollmentAction_EventPattern(options *VoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateVoiceIdBatchSpeakerEnrollmentAction_VoiceIdBatchSpeakerEnrollmentActionPatternParameters(options); err != nil {
+	if err := validateVoiceIdBatchSpeakerEnrollmentAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdBatchSpeakerEnrollmentAction",
-		"voiceIdBatchSpeakerEnrollmentActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

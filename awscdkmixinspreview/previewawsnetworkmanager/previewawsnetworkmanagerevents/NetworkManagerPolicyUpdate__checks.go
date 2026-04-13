@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateNetworkManagerPolicyUpdate_NetworkManagerPolicyUpdatePatternParameters(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) error {
+func validateNetworkManagerPolicyUpdate_EventPatternParameters(options *NetworkManagerPolicyUpdate_NetworkManagerPolicyUpdateProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

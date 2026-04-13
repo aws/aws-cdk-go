@@ -53,17 +53,17 @@ func NewFTPServerDirectoryCreateFailed_Override(f FTPServerDirectoryCreateFailed
 
 // EventBridge event pattern for FTP Server Directory Create Failed.
 // Experimental.
-func FTPServerDirectoryCreateFailed_FtpServerDirectoryCreateFailedPattern(options *FTPServerDirectoryCreateFailed_FTPServerDirectoryCreateFailedProps) *awsevents.EventPattern {
+func FTPServerDirectoryCreateFailed_EventPattern(options *FTPServerDirectoryCreateFailed_FTPServerDirectoryCreateFailedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateFTPServerDirectoryCreateFailed_FtpServerDirectoryCreateFailedPatternParameters(options); err != nil {
+	if err := validateFTPServerDirectoryCreateFailed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_transfer.events.FTPServerDirectoryCreateFailed",
-		"ftpServerDirectoryCreateFailedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

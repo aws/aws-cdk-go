@@ -53,17 +53,17 @@ func NewObjectStorageClassChanged_Override(o ObjectStorageClassChanged) {
 
 // EventBridge event pattern for Object Storage Class Changed.
 // Experimental.
-func ObjectStorageClassChanged_ObjectStorageClassChangedPattern(options *ObjectStorageClassChanged_ObjectStorageClassChangedProps) *awsevents.EventPattern {
+func ObjectStorageClassChanged_EventPattern(options *ObjectStorageClassChanged_ObjectStorageClassChangedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectStorageClassChanged_ObjectStorageClassChangedPatternParameters(options); err != nil {
+	if err := validateObjectStorageClassChanged_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectStorageClassChanged",
-		"objectStorageClassChangedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

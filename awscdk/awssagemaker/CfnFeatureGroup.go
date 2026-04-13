@@ -613,6 +613,9 @@ func (j *jsiiProxy_CfnFeatureGroup)SetFeatureGroupName(val *string) {
 }
 
 func (j *jsiiProxy_CfnFeatureGroup)SetOfflineStoreConfig(val interface{}) {
+	if err := j.validateSetOfflineStoreConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"offlineStoreConfig",
@@ -621,6 +624,9 @@ func (j *jsiiProxy_CfnFeatureGroup)SetOfflineStoreConfig(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnFeatureGroup)SetOnlineStoreConfig(val interface{}) {
+	if err := j.validateSetOnlineStoreConfigParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"onlineStoreConfig",

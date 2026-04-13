@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateImageSetDeleting_ImageSetDeletingPatternParameters(options *ImageSetDeleting_ImageSetDeletingProps) error {
+func validateImageSetDeleting_EventPatternParameters(options *ImageSetDeleting_ImageSetDeletingProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -53,17 +53,17 @@ func NewVoiceIdUpdateSessionAction_Override(v VoiceIdUpdateSessionAction) {
 
 // EventBridge event pattern for VoiceId Update Session Action.
 // Experimental.
-func VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionPattern(options *VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) *awsevents.EventPattern {
+func VoiceIdUpdateSessionAction_EventPattern(options *VoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateVoiceIdUpdateSessionAction_VoiceIdUpdateSessionActionPatternParameters(options); err != nil {
+	if err := validateVoiceIdUpdateSessionAction_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_voiceid.events.VoiceIdUpdateSessionAction",
-		"voiceIdUpdateSessionActionPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

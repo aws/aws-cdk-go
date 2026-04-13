@@ -53,17 +53,17 @@ func NewSequenceStoreStatusChange_Override(s SequenceStoreStatusChange) {
 
 // EventBridge event pattern for Sequence Store Status Change.
 // Experimental.
-func SequenceStoreStatusChange_SequenceStoreStatusChangePattern(options *SequenceStoreStatusChange_SequenceStoreStatusChangeProps) *awsevents.EventPattern {
+func SequenceStoreStatusChange_EventPattern(options *SequenceStoreStatusChange_SequenceStoreStatusChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateSequenceStoreStatusChange_SequenceStoreStatusChangePatternParameters(options); err != nil {
+	if err := validateSequenceStoreStatusChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_omics.events.SequenceStoreStatusChange",
-		"sequenceStoreStatusChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

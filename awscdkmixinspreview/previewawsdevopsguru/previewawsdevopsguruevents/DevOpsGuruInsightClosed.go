@@ -53,17 +53,17 @@ func NewDevOpsGuruInsightClosed_Override(d DevOpsGuruInsightClosed) {
 
 // EventBridge event pattern for DevOps Guru Insight Closed.
 // Experimental.
-func DevOpsGuruInsightClosed_DevOpsGuruInsightClosedPattern(options *DevOpsGuruInsightClosed_DevOpsGuruInsightClosedProps) *awsevents.EventPattern {
+func DevOpsGuruInsightClosed_EventPattern(options *DevOpsGuruInsightClosed_DevOpsGuruInsightClosedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateDevOpsGuruInsightClosed_DevOpsGuruInsightClosedPatternParameters(options); err != nil {
+	if err := validateDevOpsGuruInsightClosed_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_devopsguru.events.DevOpsGuruInsightClosed",
-		"devOpsGuruInsightClosedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

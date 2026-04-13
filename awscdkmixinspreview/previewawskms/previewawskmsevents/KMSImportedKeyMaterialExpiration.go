@@ -53,17 +53,17 @@ func NewKMSImportedKeyMaterialExpiration_Override(k KMSImportedKeyMaterialExpira
 
 // EventBridge event pattern for KMS Imported Key Material Expiration.
 // Experimental.
-func KMSImportedKeyMaterialExpiration_KmsImportedKeyMaterialExpirationPattern(options *KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) *awsevents.EventPattern {
+func KMSImportedKeyMaterialExpiration_EventPattern(options *KMSImportedKeyMaterialExpiration_KMSImportedKeyMaterialExpirationProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateKMSImportedKeyMaterialExpiration_KmsImportedKeyMaterialExpirationPatternParameters(options); err != nil {
+	if err := validateKMSImportedKeyMaterialExpiration_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_kms.events.KMSImportedKeyMaterialExpiration",
-		"kmsImportedKeyMaterialExpirationPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

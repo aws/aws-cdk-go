@@ -4,7 +4,7 @@ package previewawsecrevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateECRReplicationAction_EcrReplicationActionPatternParameters(options *ECRReplicationAction_ECRReplicationActionProps) error {
+func validateECRReplicationAction_EventPatternParameters(options *ECRReplicationAction_ECRReplicationActionProps) error {
 	return nil
 }
 

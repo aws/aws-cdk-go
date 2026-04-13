@@ -53,17 +53,17 @@ func NewObjectRestoreExpired_Override(o ObjectRestoreExpired) {
 
 // EventBridge event pattern for Object Restore Expired.
 // Experimental.
-func ObjectRestoreExpired_ObjectRestoreExpiredPattern(options *ObjectRestoreExpired_ObjectRestoreExpiredProps) *awsevents.EventPattern {
+func ObjectRestoreExpired_EventPattern(options *ObjectRestoreExpired_ObjectRestoreExpiredProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateObjectRestoreExpired_ObjectRestoreExpiredPatternParameters(options); err != nil {
+	if err := validateObjectRestoreExpired_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_s3.events.ObjectRestoreExpired",
-		"objectRestoreExpiredPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

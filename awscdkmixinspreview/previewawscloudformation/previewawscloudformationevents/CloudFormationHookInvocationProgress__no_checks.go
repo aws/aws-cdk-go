@@ -4,7 +4,7 @@ package previewawscloudformationevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressPatternParameters(options *CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressProps) error {
+func validateCloudFormationHookInvocationProgress_EventPatternParameters(options *CloudFormationHookInvocationProgress_CloudFormationHookInvocationProgressProps) error {
 	return nil
 }
 

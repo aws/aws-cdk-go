@@ -53,17 +53,17 @@ func NewEC2ImageBuilderCVEDetected_Override(e EC2ImageBuilderCVEDetected) {
 
 // EventBridge event pattern for EC2 Image Builder CVE Detected.
 // Experimental.
-func EC2ImageBuilderCVEDetected_Ec2ImageBuilderCVEDetectedPattern(options *EC2ImageBuilderCVEDetected_EC2ImageBuilderCVEDetectedProps) *awsevents.EventPattern {
+func EC2ImageBuilderCVEDetected_EventPattern(options *EC2ImageBuilderCVEDetected_EC2ImageBuilderCVEDetectedProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateEC2ImageBuilderCVEDetected_Ec2ImageBuilderCVEDetectedPatternParameters(options); err != nil {
+	if err := validateEC2ImageBuilderCVEDetected_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_imagebuilder.events.EC2ImageBuilderCVEDetected",
-		"ec2ImageBuilderCVEDetectedPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

@@ -674,6 +674,9 @@ func (j *jsiiProxy_CfnDataLakeSettings)SetMutationType(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataLakeSettings)SetParameters(val interface{}) {
+	if err := j.validateSetParametersParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"parameters",

@@ -4,7 +4,7 @@ package previewawstransferevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateFTPSServerFileUploadCompleted_FtpSServerFileUploadCompletedPatternParameters(options *FTPSServerFileUploadCompleted_FTPSServerFileUploadCompletedProps) error {
+func validateFTPSServerFileUploadCompleted_EventPatternParameters(options *FTPSServerFileUploadCompleted_FTPSServerFileUploadCompletedProps) error {
 	return nil
 }
 

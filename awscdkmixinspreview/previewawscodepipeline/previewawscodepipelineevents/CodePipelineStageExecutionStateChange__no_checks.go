@@ -4,7 +4,7 @@ package previewawscodepipelineevents
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateCodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangePatternParameters(options *CodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangeProps) error {
+func validateCodePipelineStageExecutionStateChange_EventPatternParameters(options *CodePipelineStageExecutionStateChange_CodePipelineStageExecutionStateChangeProps) error {
 	return nil
 }
 

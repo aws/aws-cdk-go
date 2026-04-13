@@ -53,17 +53,17 @@ func NewCloudWatchAlarmConfigurationChange_Override(c CloudWatchAlarmConfigurati
 
 // EventBridge event pattern for CloudWatch Alarm Configuration Change.
 // Experimental.
-func CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangePattern(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) *awsevents.EventPattern {
+func CloudWatchAlarmConfigurationChange_EventPattern(options *CloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangeProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateCloudWatchAlarmConfigurationChange_CloudWatchAlarmConfigurationChangePatternParameters(options); err != nil {
+	if err := validateCloudWatchAlarmConfigurationChange_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_cloudwatch.events.CloudWatchAlarmConfigurationChange",
-		"cloudWatchAlarmConfigurationChangePattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

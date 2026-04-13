@@ -125,6 +125,8 @@ type CfnModel interface {
 	interfacesawssagemaker.IModelRef
 	awscdk.ITaggable
 	AttrId() *string
+	// The Amazon Resource Name (ARN) of the model.
+	AttrModelArn() *string
 	// The name of the model, such as `MyModel` .
 	AttrModelName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -346,6 +348,16 @@ func (j *jsiiProxy_CfnModel) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnModel) AttrModelArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrModelArn",
 		&returns,
 	)
 	return returns

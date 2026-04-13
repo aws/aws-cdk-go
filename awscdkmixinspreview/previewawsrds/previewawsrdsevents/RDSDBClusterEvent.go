@@ -53,17 +53,17 @@ func NewRDSDBClusterEvent_Override(r RDSDBClusterEvent) {
 
 // EventBridge event pattern for RDS DB Cluster Event.
 // Experimental.
-func RDSDBClusterEvent_RdsDBClusterEventPattern(options *RDSDBClusterEvent_RDSDBClusterEventProps) *awsevents.EventPattern {
+func RDSDBClusterEvent_EventPattern(options *RDSDBClusterEvent_RDSDBClusterEventProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateRDSDBClusterEvent_RdsDBClusterEventPatternParameters(options); err != nil {
+	if err := validateRDSDBClusterEvent_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_rds.events.RDSDBClusterEvent",
-		"rdsDBClusterEventPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

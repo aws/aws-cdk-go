@@ -6,7 +6,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func validateTransformationCompleted_TransformationCompletedPatternParameters(options *TransformationCompleted_TransformationCompletedProps) error {
+func validateTransformationCompleted_EventPatternParameters(options *TransformationCompleted_TransformationCompletedProps) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
 	}

@@ -53,17 +53,17 @@ func NewAWSAPICallViaCloudTrail_Override(a AWSAPICallViaCloudTrail) {
 
 // EventBridge event pattern for AWS API Call via CloudTrail.
 // Experimental.
-func AWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
+func AWSAPICallViaCloudTrail_EventPattern(options *AWSAPICallViaCloudTrail_AWSAPICallViaCloudTrailProps) *awsevents.EventPattern {
 	_init_.Initialize()
 
-	if err := validateAWSAPICallViaCloudTrail_AwsAPICallViaCloudTrailPatternParameters(options); err != nil {
+	if err := validateAWSAPICallViaCloudTrail_EventPatternParameters(options); err != nil {
 		panic(err)
 	}
 	var returns *awsevents.EventPattern
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/mixins-preview.aws_glue.events.AWSAPICallViaCloudTrail",
-		"awsAPICallViaCloudTrailPattern",
+		"eventPattern",
 		[]interface{}{options},
 		&returns,
 	)

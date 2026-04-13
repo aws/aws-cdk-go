@@ -12,6 +12,9 @@ package awsbedrockagentcore
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
+//   	NamespaceTemplates: []*string{
+//   		jsii.String("namespaceTemplates"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput.html
@@ -28,5 +31,9 @@ type CfnMemoryPropsMixin_EpisodicOverrideReflectionConfigurationInputProperty st
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput.html#cfn-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput-namespaces
 	//
 	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
+	// List of namespaces for memory strategy.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput.html#cfn-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput-namespacetemplates
+	//
+	NamespaceTemplates *[]*string `field:"optional" json:"namespaceTemplates" yaml:"namespaceTemplates"`
 }
 

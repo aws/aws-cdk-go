@@ -1,5 +1,8 @@
 package awsdevopsagent
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnAgentSpacePropsMixin.
 //
@@ -10,6 +13,7 @@ package awsdevopsagent
 //
 //   cfnAgentSpaceMixinProps := &CfnAgentSpaceMixinProps{
 //   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	OperatorApp: &OperatorAppProperty{
 //   		Iam: &IamAuthConfigurationProperty{
@@ -25,6 +29,12 @@ package awsdevopsagent
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html
@@ -34,6 +44,10 @@ type CfnAgentSpaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The ARN of the KMS key to use for encryption.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The name of the Agent Space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-name
 	//
@@ -41,5 +55,9 @@ type CfnAgentSpaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-operatorapp
 	//
 	OperatorApp interface{} `field:"optional" json:"operatorApp" yaml:"operatorApp"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 
