@@ -31,6 +31,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "connectCampaignFlowArn", GoGetter: "ConnectCampaignFlowArn"},
 			_jsii_.MemberProperty{JsiiProperty: "connectInstanceId", GoGetter: "ConnectInstanceId"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "entryLimitsConfig", GoGetter: "EntryLimitsConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -105,6 +106,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.EmailOutboundModeProperty",
 		reflect.TypeOf((*CfnCampaign_EmailOutboundModeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.EntryLimitsConfigProperty",
+		reflect.TypeOf((*CfnCampaign_EntryLimitsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connectcampaignsv2.CfnCampaign.EventTriggerProperty",

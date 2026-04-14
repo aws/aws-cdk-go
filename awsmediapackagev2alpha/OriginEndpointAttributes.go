@@ -27,5 +27,12 @@ type OriginEndpointAttributes struct {
 	// The name that describes the origin endpoint.
 	// Experimental.
 	OriginEndpointName *string `field:"required" json:"originEndpointName" yaml:"originEndpointName"`
+	// The AWS region where the origin endpoint lives.
+	//
+	// Required for cross-region imports to construct the correct ARN.
+	// Default: - the importing stack's region.
+	//
+	// Experimental.
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

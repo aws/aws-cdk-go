@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnQueryDefinition) validateSetNameParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueryDefinition) validateSetParametersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnQueryDefinition) validateSetQueryStringParameters(val *string) error {
 	return nil
 }

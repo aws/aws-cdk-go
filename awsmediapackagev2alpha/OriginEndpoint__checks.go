@@ -129,6 +129,22 @@ func (o *jsiiProxy_OriginEndpoint) validateSegmentValidationParameters(segmentCo
 	return nil
 }
 
+func validateOriginEndpoint_FromOriginEndpointArnParameters(scope constructs.Construct, id *string, originEndpointArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if originEndpointArn == nil {
+		return fmt.Errorf("parameter originEndpointArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateOriginEndpoint_FromOriginEndpointAttributesParameters(scope constructs.Construct, id *string, attrs *OriginEndpointAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

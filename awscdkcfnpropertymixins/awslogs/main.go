@@ -248,6 +248,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_logs.CfnQueryDefinitionPropsMixin.QueryParameterProperty",
+		reflect.TypeOf((*CfnQueryDefinitionPropsMixin_QueryParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_logs.CfnResourcePolicyMixinProps",
 		reflect.TypeOf((*CfnResourcePolicyMixinProps)(nil)).Elem(),
 	)

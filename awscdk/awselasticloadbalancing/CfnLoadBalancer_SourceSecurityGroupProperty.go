@@ -14,11 +14,9 @@ package awselasticloadbalancing
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-sourcesecuritygroup.html
 //
 type CfnLoadBalancer_SourceSecurityGroupProperty struct {
-	// The name of the security group that you can use as part of your inbound rules for your load balancer's back-end instances.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-sourcesecuritygroup.html#cfn-elasticloadbalancing-loadbalancer-sourcesecuritygroup-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
-	// The owner of the source security group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-sourcesecuritygroup.html#cfn-elasticloadbalancing-loadbalancer-sourcesecuritygroup-owneralias
 	//
 	OwnerAlias *string `field:"optional" json:"ownerAlias" yaml:"ownerAlias"`

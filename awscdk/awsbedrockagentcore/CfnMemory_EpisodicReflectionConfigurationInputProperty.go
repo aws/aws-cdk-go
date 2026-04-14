@@ -10,8 +10,6 @@ package awsbedrockagentcore
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
-//
-//   	// the properties below are optional
 //   	NamespaceTemplates: []*string{
 //   		jsii.String("namespaceTemplates"),
 //   	},
@@ -23,7 +21,7 @@ type CfnMemory_EpisodicReflectionConfigurationInputProperty struct {
 	// List of namespaces for memory strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html#cfn-bedrockagentcore-memory-episodicreflectionconfigurationinput-namespaces
 	//
-	Namespaces *[]*string `field:"required" json:"namespaces" yaml:"namespaces"`
+	Namespaces *[]*string `field:"optional" json:"namespaces" yaml:"namespaces"`
 	// List of namespaces for memory strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html#cfn-bedrockagentcore-memory-episodicreflectionconfigurationinput-namespacetemplates
 	//

@@ -295,6 +295,14 @@ import (
 //   				SourcePath: jsii.String("sourcePath"),
 //   			},
 //   			Name: jsii.String("name"),
+//   			S3FilesVolumeConfiguration: &S3FilesVolumeConfigurationProperty{
+//   				FileSystemArn: jsii.String("fileSystemArn"),
+//
+//   				// the properties below are optional
+//   				AccessPointArn: jsii.String("accessPointArn"),
+//   				RootDirectory: jsii.String("rootDirectory"),
+//   				TransitEncryptionPort: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   }

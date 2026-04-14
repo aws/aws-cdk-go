@@ -27,6 +27,13 @@ import (
 //   		jsii.String("logGroupNames"),
 //   	},
 //   	Name: jsii.String("name"),
+//   	Parameters: []interface{}{
+//   		&QueryParameterProperty{
+//   			DefaultValue: jsii.String("defaultValue"),
+//   			Description: jsii.String("description"),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	QueryLanguage: jsii.String("queryLanguage"),
 //   	QueryString: jsii.String("queryString"),
 //   }, &CfnPropertyMixinOptions{

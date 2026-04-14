@@ -13,7 +13,6 @@ import (
 //
 //   var additionalInfo interface{}
 //   var configurationProperty_ ConfigurationProperty
-//   var logTypes interface{}
 //
 //   cfnClusterMixinProps := &CfnClusterMixinProps{
 //   	AdditionalInfo: additionalInfo,
@@ -533,15 +532,6 @@ import (
 //   		ScalingStrategy: jsii.String("scalingStrategy"),
 //   		UtilizationPerformanceIndex: jsii.Number(123),
 //   	},
-//   	MonitoringConfiguration: &MonitoringConfigurationProperty{
-//   		CloudWatchLogConfiguration: &CloudWatchLogConfigurationProperty{
-//   			Enabled: jsii.Boolean(false),
-//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
-//   			LogGroupName: jsii.String("logGroupName"),
-//   			LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
-//   			LogTypes: logTypes,
-//   		},
-//   	},
 //   	Name: jsii.String("name"),
 //   	OsReleaseLabel: jsii.String("osReleaseLabel"),
 //   	PlacementGroupConfigs: []interface{}{
@@ -668,9 +658,6 @@ type CfnClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-managedscalingpolicy
 	//
 	ManagedScalingPolicy interface{} `field:"optional" json:"managedScalingPolicy" yaml:"managedScalingPolicy"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-monitoringconfiguration
-	//
-	MonitoringConfiguration interface{} `field:"optional" json:"monitoringConfiguration" yaml:"monitoringConfiguration"`
 	// The name of the cluster.
 	//
 	// This parameter can't contain the characters <, >, $, |, or ` (backtick).

@@ -10,6 +10,11 @@ package awsdeadline
 //
 //   fleetConfigurationProperty := &FleetConfigurationProperty{
 //   	CustomerManaged: &CustomerManagedFleetConfigurationProperty{
+//   		AutoScalingConfiguration: &CustomerManagedAutoScalingConfigurationProperty{
+//   			ScaleOutWorkersPerMinute: jsii.Number(123),
+//   			StandbyWorkerCount: jsii.Number(123),
+//   			WorkerIdleDurationSeconds: jsii.Number(123),
+//   		},
 //   		Mode: jsii.String("mode"),
 //   		StorageProfileId: jsii.String("storageProfileId"),
 //   		TagPropagationMode: jsii.String("tagPropagationMode"),
@@ -53,6 +58,11 @@ package awsdeadline
 //   		},
 //   	},
 //   	ServiceManagedEc2: &ServiceManagedEc2FleetConfigurationProperty{
+//   		AutoScalingConfiguration: &ServiceManagedEc2AutoScalingConfigurationProperty{
+//   			ScaleOutWorkersPerMinute: jsii.Number(123),
+//   			StandbyWorkerCount: jsii.Number(123),
+//   			WorkerIdleDurationSeconds: jsii.Number(123),
+//   		},
 //   		InstanceCapabilities: &ServiceManagedEc2InstanceCapabilitiesProperty{
 //   			AcceleratorCapabilities: &AcceleratorCapabilitiesProperty{
 //   				Count: &AcceleratorCountRangeProperty{

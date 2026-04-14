@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnCampaign) validateSetConnectInstanceIdParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnCampaign) validateSetEntryLimitsConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCampaign) validateSetNameParameters(val *string) error {
 	return nil
 }

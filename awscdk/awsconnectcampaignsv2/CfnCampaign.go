@@ -244,6 +244,10 @@ import (
 //   		},
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
+//   	EntryLimitsConfig: &EntryLimitsConfigProperty{
+//   		MaxEntryCount: jsii.Number(123),
+//   		MinEntryInterval: jsii.String("minEntryInterval"),
+//   	},
 //   	Schedule: &ScheduleProperty{
 //   		EndTime: jsii.String("endTime"),
 //   		StartTime: jsii.String("startTime"),
@@ -303,6 +307,9 @@ type CfnCampaign interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Entry limits config for a campaign.
+	EntryLimitsConfig() interface{}
+	SetEntryLimitsConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -615,6 +622,16 @@ func (j *jsiiProxy_CfnCampaign) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCampaign) EntryLimitsConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"entryLimitsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCampaign) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -813,6 +830,17 @@ func (j *jsiiProxy_CfnCampaign)SetConnectInstanceId(val *string) {
 	_jsii_.Set(
 		j,
 		"connectInstanceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCampaign)SetEntryLimitsConfig(val interface{}) {
+	if err := j.validateSetEntryLimitsConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"entryLimitsConfig",
 		val,
 	)
 }

@@ -24,7 +24,6 @@ import (
 //
 //   var additionalInfo interface{}
 //   var configurationProperty_ ConfigurationProperty
-//   var logTypes interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnClusterPropsMixin := awscdkcfnpropertymixins.Aws_emr.NewCfnClusterPropsMixin(&CfnClusterMixinProps{
@@ -544,15 +543,6 @@ import (
 //   		},
 //   		ScalingStrategy: jsii.String("scalingStrategy"),
 //   		UtilizationPerformanceIndex: jsii.Number(123),
-//   	},
-//   	MonitoringConfiguration: &MonitoringConfigurationProperty{
-//   		CloudWatchLogConfiguration: &CloudWatchLogConfigurationProperty{
-//   			Enabled: jsii.Boolean(false),
-//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
-//   			LogGroupName: jsii.String("logGroupName"),
-//   			LogStreamNamePrefix: jsii.String("logStreamNamePrefix"),
-//   			LogTypes: logTypes,
-//   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	OsReleaseLabel: jsii.String("osReleaseLabel"),

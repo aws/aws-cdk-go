@@ -22,5 +22,12 @@ type ChannelGroupAttributes struct {
 	//
 	// Experimental.
 	EgressDomain *string `field:"optional" json:"egressDomain" yaml:"egressDomain"`
+	// The AWS region where the channel group lives.
+	//
+	// Required for cross-region imports to construct the correct ARN.
+	// Default: - the importing stack's region.
+	//
+	// Experimental.
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 

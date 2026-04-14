@@ -62,6 +62,11 @@ package awsdeadline
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoScalingConfiguration: &CustomerManagedAutoScalingConfigurationProperty{
+//   		ScaleOutWorkersPerMinute: jsii.Number(123),
+//   		StandbyWorkerCount: jsii.Number(123),
+//   		WorkerIdleDurationSeconds: jsii.Number(123),
+//   	},
 //   	StorageProfileId: jsii.String("storageProfileId"),
 //   	TagPropagationMode: jsii.String("tagPropagationMode"),
 //   }
@@ -77,6 +82,9 @@ type CfnFleet_CustomerManagedFleetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-workercapabilities
 	//
 	WorkerCapabilities interface{} `field:"required" json:"workerCapabilities" yaml:"workerCapabilities"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-autoscalingconfiguration
+	//
+	AutoScalingConfiguration interface{} `field:"optional" json:"autoScalingConfiguration" yaml:"autoScalingConfiguration"`
 	// The storage profile ID for the customer managed fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-storageprofileid
 	//

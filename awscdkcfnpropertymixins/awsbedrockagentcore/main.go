@@ -8,6 +8,30 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnApiKeyCredentialProviderMixinProps",
+		reflect.TypeOf((*CfnApiKeyCredentialProviderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnApiKeyCredentialProviderPropsMixin",
+		reflect.TypeOf((*CfnApiKeyCredentialProviderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnApiKeyCredentialProviderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnApiKeyCredentialProviderPropsMixin.ApiKeySecretArnProperty",
+		reflect.TypeOf((*CfnApiKeyCredentialProviderPropsMixin_ApiKeySecretArnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnBrowserCustomMixinProps",
 		reflect.TypeOf((*CfnBrowserCustomMixinProps)(nil)).Elem(),
 	)
@@ -460,6 +484,82 @@ func init() {
 		reflect.TypeOf((*CfnMemoryPropsMixin_UserPreferenceOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderMixinProps",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnOAuth2CredentialProviderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.AtlassianOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_AtlassianOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.ClientSecretArnProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_ClientSecretArnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.CustomOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_CustomOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.GithubOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_GithubOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.GoogleOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_GoogleOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.IncludedOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_IncludedOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.LinkedinOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_LinkedinOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.MicrosoftOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_MicrosoftOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.Oauth2AuthorizationServerMetadataProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_Oauth2AuthorizationServerMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.Oauth2DiscoveryProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_Oauth2DiscoveryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.Oauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_Oauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.Oauth2ProviderConfigOutputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_Oauth2ProviderConfigOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.SalesforceOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_SalesforceOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.SlackOauth2ProviderConfigInputProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_SlackOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOnlineEvaluationConfigMixinProps",
 		reflect.TypeOf((*CfnOnlineEvaluationConfigMixinProps)(nil)).Elem(),
 	)
@@ -644,6 +744,10 @@ func init() {
 		reflect.TypeOf((*CfnRuntimePropsMixin_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.FilesystemConfigurationProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_FilesystemConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.LifecycleConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_LifecycleConfigurationProperty)(nil)).Elem(),
 	)
@@ -658,6 +762,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.S3LocationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.SessionStorageConfigurationProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_SessionStorageConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.VpcConfigProperty",

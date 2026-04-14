@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3files"
 )
 
 // Represents the filesystem for the Lambda function.
@@ -108,6 +109,25 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.FileSystem",
 		"fromEfsAccessPoint",
+		[]interface{}{ap, mountPath},
+		&returns,
+	)
+
+	return returns
+}
+
+// Mount the filesystem from Amazon S3 Files.
+func FileSystem_FromS3FilesAccessPoint(ap interfacesawss3files.IAccessPointRef, mountPath *string) FileSystem {
+	_init_.Initialize()
+
+	if err := validateFileSystem_FromS3FilesAccessPointParameters(ap, mountPath); err != nil {
+		panic(err)
+	}
+	var returns FileSystem
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.FileSystem",
+		"fromS3FilesAccessPoint",
 		[]interface{}{ap, mountPath},
 		&returns,
 	)

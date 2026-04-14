@@ -8,9 +8,22 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsefs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3files"
 )
 
 func validateFileSystem_FromEfsAccessPointParameters(ap awsefs.IAccessPoint, mountPath *string) error {
+	if ap == nil {
+		return fmt.Errorf("parameter ap is required, but nil was provided")
+	}
+
+	if mountPath == nil {
+		return fmt.Errorf("parameter mountPath is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateFileSystem_FromS3FilesAccessPointParameters(ap interfacesawss3files.IAccessPointRef, mountPath *string) error {
 	if ap == nil {
 		return fmt.Errorf("parameter ap is required, but nil was provided")
 	}

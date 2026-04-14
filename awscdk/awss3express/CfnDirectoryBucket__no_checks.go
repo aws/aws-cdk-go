@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnDirectoryBucket) validateSetLocationNameParameters(val *st
 	return nil
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) validateSetMetricsConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

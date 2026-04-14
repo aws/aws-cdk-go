@@ -9,6 +9,11 @@ package awsdeadline
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   customerManagedFleetConfigurationProperty := &CustomerManagedFleetConfigurationProperty{
+//   	AutoScalingConfiguration: &CustomerManagedAutoScalingConfigurationProperty{
+//   		ScaleOutWorkersPerMinute: jsii.Number(123),
+//   		StandbyWorkerCount: jsii.Number(123),
+//   		WorkerIdleDurationSeconds: jsii.Number(123),
+//   	},
 //   	Mode: jsii.String("mode"),
 //   	StorageProfileId: jsii.String("storageProfileId"),
 //   	TagPropagationMode: jsii.String("tagPropagationMode"),
@@ -55,6 +60,9 @@ package awsdeadline
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html
 //
 type CfnFleetPropsMixin_CustomerManagedFleetConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-autoscalingconfiguration
+	//
+	AutoScalingConfiguration interface{} `field:"optional" json:"autoScalingConfiguration" yaml:"autoScalingConfiguration"`
 	// The Auto Scaling mode for the customer managed fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-mode
 	//

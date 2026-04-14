@@ -71,6 +71,9 @@ import (
 //   		RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   		Role: role,
 //   		SecurityGroup: securityGroup,
+//   		SecurityGroups: []ISecurityGroup{
+//   			securityGroup,
+//   		},
 //   	},
 //   	MastersRole: role,
 //   	Prune: jsii.Boolean(false),

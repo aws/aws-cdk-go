@@ -163,6 +163,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "lifecycleConfiguration", GoGetter: "LifecycleConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "locationName", GoGetter: "LocationName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricsConfigurations", GoGetter: "MetricsConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -200,6 +201,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.LifecycleConfigurationProperty",
 		reflect.TypeOf((*CfnDirectoryBucket_LifecycleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.MetricsConfigurationProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_MetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.RuleProperty",

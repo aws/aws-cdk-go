@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var type interface{}
+//
 //   cfnTableMixinProps := &CfnTableMixinProps{
 //   	Compaction: &CompactionProperty{
 //   		Status: jsii.String("status"),
@@ -37,6 +39,22 @@ import (
 //   					Type: jsii.String("type"),
 //   				},
 //   			},
+//   		},
+//   		IcebergSchemaV2: &IcebergSchemaV2Property{
+//   			IdentifierFieldIds: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			SchemaId: jsii.Number(123),
+//   			SchemaV2FieldList: []interface{}{
+//   				&SchemaV2FieldProperty{
+//   					Doc: jsii.String("doc"),
+//   					Id: jsii.Number(123),
+//   					Name: jsii.String("name"),
+//   					Required: jsii.Boolean(false),
+//   					Type: type,
+//   				},
+//   			},
+//   			SchemaV2FieldType: jsii.String("schemaV2FieldType"),
 //   		},
 //   		IcebergSortOrder: &IcebergSortOrderProperty{
 //   			Fields: []interface{}{

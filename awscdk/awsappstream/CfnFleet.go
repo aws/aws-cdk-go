@@ -49,6 +49,8 @@ type CfnFleet interface {
 	// The description to display.
 	Description() *string
 	SetDescription(val *string)
+	DisableImdsv1() interface{}
+	SetDisableImdsv1(val interface{})
 	// The amount of time that a streaming session remains active after users disconnect.
 	DisconnectTimeoutInSeconds() *float64
 	SetDisconnectTimeoutInSeconds(val *float64)
@@ -359,6 +361,16 @@ func (j *jsiiProxy_CfnFleet) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) DisableImdsv1() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"disableImdsv1",
 		&returns,
 	)
 	return returns
@@ -709,6 +721,17 @@ func (j *jsiiProxy_CfnFleet)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFleet)SetDisableImdsv1(val interface{}) {
+	if err := j.validateSetDisableImdsv1Parameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"disableImdsv1",
 		val,
 	)
 }

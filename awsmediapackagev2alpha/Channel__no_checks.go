@@ -52,6 +52,10 @@ func (c *jsiiProxy_Channel) validateMetricIngressResponseTimeParameters(options 
 	return nil
 }
 
+func validateChannel_FromChannelArnParameters(scope constructs.Construct, id *string, channelArn *string) error {
+	return nil
+}
+
 func validateChannel_FromChannelAttributesParameters(scope constructs.Construct, id *string, attrs *ChannelAttributes) error {
 	return nil
 }

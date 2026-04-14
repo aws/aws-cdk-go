@@ -92,6 +92,10 @@ func init() {
 		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_LifecycleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3express.CfnDirectoryBucketPropsMixin.MetricsConfigurationProperty",
+		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_MetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3express.CfnDirectoryBucketPropsMixin.RuleProperty",
 		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_RuleProperty)(nil)).Elem(),
 	)

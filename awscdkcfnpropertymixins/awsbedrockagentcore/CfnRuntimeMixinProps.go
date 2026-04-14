@@ -61,6 +61,13 @@ package awsbedrockagentcore
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
+//   	FilesystemConfigurations: []interface{}{
+//   		&FilesystemConfigurationProperty{
+//   			SessionStorage: &SessionStorageConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
@@ -111,6 +118,10 @@ type CfnRuntimeMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-environmentvariables
 	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// List of filesystem configurations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-filesystemconfigurations
+	//
+	FilesystemConfigurations interface{} `field:"optional" json:"filesystemConfigurations" yaml:"filesystemConfigurations"`
 	// Configuration for managing the lifecycle of runtime sessions and resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-lifecycleconfiguration
 	//

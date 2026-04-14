@@ -26,6 +26,7 @@ import (
 //   		DesiredSessions: jsii.Number(123),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisconnectTimeoutInSeconds: jsii.Number(123),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainJoinInfo: &DomainJoinInfoProperty{

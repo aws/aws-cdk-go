@@ -146,6 +146,10 @@ func init() {
 		reflect.TypeOf((*CfnFleet_AcceleratorTotalMemoryMiBRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnFleet.CustomerManagedAutoScalingConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_CustomerManagedAutoScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.CustomerManagedFleetConfigurationProperty",
 		reflect.TypeOf((*CfnFleet_CustomerManagedFleetConfigurationProperty)(nil)).Elem(),
 	)
@@ -180,6 +184,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.MemoryMiBRangeProperty",
 		reflect.TypeOf((*CfnFleet_MemoryMiBRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnFleet.ServiceManagedEc2AutoScalingConfigurationProperty",
+		reflect.TypeOf((*CfnFleet_ServiceManagedEc2AutoScalingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.ServiceManagedEc2FleetConfigurationProperty",

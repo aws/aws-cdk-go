@@ -64,6 +64,10 @@ func init() {
 		reflect.TypeOf((*CfnFleetPropsMixin_AcceleratorTotalMemoryMiBRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.CustomerManagedAutoScalingConfigurationProperty",
+		reflect.TypeOf((*CfnFleetPropsMixin_CustomerManagedAutoScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.CustomerManagedFleetConfigurationProperty",
 		reflect.TypeOf((*CfnFleetPropsMixin_CustomerManagedFleetConfigurationProperty)(nil)).Elem(),
 	)
@@ -98,6 +102,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.MemoryMiBRangeProperty",
 		reflect.TypeOf((*CfnFleetPropsMixin_MemoryMiBRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.ServiceManagedEc2AutoScalingConfigurationProperty",
+		reflect.TypeOf((*CfnFleetPropsMixin_ServiceManagedEc2AutoScalingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.ServiceManagedEc2FleetConfigurationProperty",

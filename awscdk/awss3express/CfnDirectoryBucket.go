@@ -92,6 +92,13 @@ import (
 //   			},
 //   		},
 //   	},
+//   	MetricsConfigurations: []interface{}{
+//   		&MetricsConfigurationProperty{
+//   			AccessPointArn: jsii.String("accessPointArn"),
+//   			Id: jsii.String("id"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -158,6 +165,9 @@ type CfnDirectoryBucket interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Specifies the metrics configurations for the Amazon S3 Express bucket.
+	MetricsConfigurations() interface{}
+	SetMetricsConfigurations(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -477,6 +487,16 @@ func (j *jsiiProxy_CfnDirectoryBucket) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) MetricsConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricsConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -615,6 +635,17 @@ func (j *jsiiProxy_CfnDirectoryBucket)SetLocationName(val *string) {
 	_jsii_.Set(
 		j,
 		"locationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectoryBucket)SetMetricsConfigurations(val interface{}) {
+	if err := j.validateSetMetricsConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricsConfigurations",
 		val,
 	)
 }

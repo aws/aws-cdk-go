@@ -307,6 +307,26 @@ func NewChannelGroup_Override(c ChannelGroup, scope constructs.Construct, id *st
 	)
 }
 
+// Creates a Channel Group construct that represents an external (imported) Channel Group from its ARN.
+// Experimental.
+func ChannelGroup_FromChannelGroupArn(scope constructs.Construct, id *string, channelGroupArn *string) IChannelGroup {
+	_init_.Initialize()
+
+	if err := validateChannelGroup_FromChannelGroupArnParameters(scope, id, channelGroupArn); err != nil {
+		panic(err)
+	}
+	var returns IChannelGroup
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-mediapackagev2-alpha.ChannelGroup",
+		"fromChannelGroupArn",
+		[]interface{}{scope, id, channelGroupArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a Channel Group construct that represents an external (imported) Channel Group.
 // Experimental.
 func ChannelGroup_FromChannelGroupAttributes(scope constructs.Construct, id *string, attrs *ChannelGroupAttributes) IChannelGroup {

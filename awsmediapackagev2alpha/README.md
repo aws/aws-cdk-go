@@ -102,6 +102,25 @@ channelGroup := awsmediapackagev2alpha.ChannelGroup_FromChannelGroupAttributes(s
 })
 ```
 
+You can also import from an ARN, which automatically extracts the name and region:
+
+```go
+var stack Stack
+
+channelGroup := awsmediapackagev2alpha.ChannelGroup_FromChannelGroupArn(stack, jsii.String("ImportedChannelGroup"), jsii.String("arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/MyChannelGroup"))
+```
+
+For cross-region imports, pass the `region` parameter to ensure the correct ARN is constructed:
+
+```go
+var stack Stack
+
+channelGroup := awsmediapackagev2alpha.ChannelGroup_FromChannelGroupAttributes(stack, jsii.String("ImportedChannelGroup"), &ChannelGroupAttributes{
+	ChannelGroupName: jsii.String("MyChannelGroup"),
+	Region: jsii.String("us-west-2"),
+})
+```
+
 ## Channel
 
 A channel is part of a channel group and represents the entry point for a content stream into MediaPackage.
@@ -155,6 +174,16 @@ channel := awsmediapackagev2alpha.Channel_FromChannelAttributes(stack, jsii.Stri
 })
 ```
 
+You can also import from an ARN:
+
+```go
+var stack Stack
+
+channel := awsmediapackagev2alpha.Channel_FromChannelArn(stack, jsii.String("ImportedChannel"), jsii.String("arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/MyGroup/channel/MyChannel"))
+```
+
+Imported channels expose a `region` property, which is parsed from the ARN or falls back to the importing stack's region.
+
 ### Channel Resource Policy
 
 The following code creates a resource policy directly on the channel. This
@@ -206,6 +235,14 @@ originEndpoint := awsmediapackagev2alpha.OriginEndpoint_FromOriginEndpointAttrib
 	ChannelName: jsii.String("MyChannel"),
 	OriginEndpointName: jsii.String("MyExampleOriginEndpoint"),
 })
+```
+
+You can also import from an ARN:
+
+```go
+var stack Stack
+
+originEndpoint := awsmediapackagev2alpha.OriginEndpoint_FromOriginEndpointArn(stack, jsii.String("ImportedOriginEndpoint"), jsii.String("arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/MyGroup/channel/MyChannel/originEndpoint/MyEndpoint"))
 ```
 
 The following code creates a resource policy on the origin endpoint. This

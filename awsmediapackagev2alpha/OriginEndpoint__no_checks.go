@@ -52,6 +52,10 @@ func (o *jsiiProxy_OriginEndpoint) validateSegmentValidationParameters(segmentCo
 	return nil
 }
 
+func validateOriginEndpoint_FromOriginEndpointArnParameters(scope constructs.Construct, id *string, originEndpointArn *string) error {
+	return nil
+}
+
 func validateOriginEndpoint_FromOriginEndpointAttributesParameters(scope constructs.Construct, id *string, attrs *OriginEndpointAttributes) error {
 	return nil
 }

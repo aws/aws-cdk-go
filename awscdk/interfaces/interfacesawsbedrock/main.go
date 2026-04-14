@@ -32,12 +32,20 @@ func init() {
 		reflect.TypeOf((*BlueprintReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrock.DataAutomationLibraryReference",
+		reflect.TypeOf((*DataAutomationLibraryReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.DataAutomationProjectReference",
 		reflect.TypeOf((*DataAutomationProjectReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.DataSourceReference",
 		reflect.TypeOf((*DataSourceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrock.EnforcedGuardrailConfigurationReference",
+		reflect.TypeOf((*EnforcedGuardrailConfigurationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.FlowAliasReference",
@@ -156,6 +164,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrock.IDataAutomationLibraryRef",
+		reflect.TypeOf((*IDataAutomationLibraryRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataAutomationLibraryRef", GoGetter: "DataAutomationLibraryRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDataAutomationLibraryRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrock.IDataAutomationProjectRef",
 		reflect.TypeOf((*IDataAutomationProjectRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -182,6 +206,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDataSourceRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrock.IEnforcedGuardrailConfigurationRef",
+		reflect.TypeOf((*IEnforcedGuardrailConfigurationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "enforcedGuardrailConfigurationRef", GoGetter: "EnforcedGuardrailConfigurationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEnforcedGuardrailConfigurationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -331,6 +371,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrock.IResourcePolicyRef",
+		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IResourcePolicyRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.IntelligentPromptRouterReference",
 		reflect.TypeOf((*IntelligentPromptRouterReference)(nil)).Elem(),
@@ -346,5 +402,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.PromptVersionReference",
 		reflect.TypeOf((*PromptVersionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrock.ResourcePolicyReference",
+		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 }

@@ -141,6 +141,10 @@ func init() {
 		reflect.TypeOf((*CfnTable_IcebergSchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergSchemaV2Property",
+		reflect.TypeOf((*CfnTable_IcebergSchemaV2Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTable.IcebergSortFieldProperty",
 		reflect.TypeOf((*CfnTable_IcebergSortFieldProperty)(nil)).Elem(),
 	)
@@ -151,6 +155,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTable.SchemaFieldProperty",
 		reflect.TypeOf((*CfnTable_SchemaFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTable.SchemaV2FieldProperty",
+		reflect.TypeOf((*CfnTable_SchemaV2FieldProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTable.SnapshotManagementProperty",
@@ -193,6 +201,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "replicationConfiguration", GoGetter: "ReplicationConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageClassConfiguration", GoGetter: "StorageClassConfiguration"},
@@ -222,6 +231,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.MetricsConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucket_MetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.ReplicationConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucket_ReplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.ReplicationDestinationProperty",
+		reflect.TypeOf((*CfnTableBucket_ReplicationDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.ReplicationRuleProperty",
+		reflect.TypeOf((*CfnTableBucket_ReplicationRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.StorageClassConfigurationProperty",

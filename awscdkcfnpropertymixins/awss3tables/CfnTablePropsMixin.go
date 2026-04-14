@@ -30,6 +30,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mergeStrategy IMergeStrategy
+//   var type interface{}
 //
 //   cfnTablePropsMixin := awscdkcfnpropertymixins.Aws_s3tables.NewCfnTablePropsMixin(&CfnTableMixinProps{
 //   	Compaction: &CompactionProperty{
@@ -57,6 +58,22 @@ import (
 //   					Type: jsii.String("type"),
 //   				},
 //   			},
+//   		},
+//   		IcebergSchemaV2: &IcebergSchemaV2Property{
+//   			IdentifierFieldIds: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			SchemaId: jsii.Number(123),
+//   			SchemaV2FieldList: []interface{}{
+//   				&SchemaV2FieldProperty{
+//   					Doc: jsii.String("doc"),
+//   					Id: jsii.Number(123),
+//   					Name: jsii.String("name"),
+//   					Required: jsii.Boolean(false),
+//   					Type: type,
+//   				},
+//   			},
+//   			SchemaV2FieldType: jsii.String("schemaV2FieldType"),
 //   		},
 //   		IcebergSortOrder: &IcebergSortOrderProperty{
 //   			Fields: []interface{}{

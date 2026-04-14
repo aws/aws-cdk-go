@@ -48,20 +48,12 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_CloudWatchAlarmDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.CloudWatchLogConfigurationProperty",
-		reflect.TypeOf((*CfnClusterPropsMixin_CloudWatchLogConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.ComputeLimitsProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ComputeLimitsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.ConfigurationProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.EMRConfigurationProperty",
-		reflect.TypeOf((*CfnClusterPropsMixin_EMRConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.EbsBlockDeviceConfigProperty",
@@ -114,10 +106,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.MetricDimensionProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_MetricDimensionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.MonitoringConfigurationProperty",
-		reflect.TypeOf((*CfnClusterPropsMixin_MonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnClusterPropsMixin.OnDemandCapacityReservationOptionsProperty",

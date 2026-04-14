@@ -236,6 +236,34 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataAutomationLibraryMixinProps",
+		reflect.TypeOf((*CfnDataAutomationLibraryMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataAutomationLibraryPropsMixin",
+		reflect.TypeOf((*CfnDataAutomationLibraryPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDataAutomationLibraryPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataAutomationLibraryPropsMixin.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnDataAutomationLibraryPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataAutomationLibraryPropsMixin.EntityTypeInfoProperty",
+		reflect.TypeOf((*CfnDataAutomationLibraryPropsMixin_EntityTypeInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataAutomationProjectMixinProps",
 		reflect.TypeOf((*CfnDataAutomationProjectMixinProps)(nil)).Elem(),
 	)
@@ -594,6 +622,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.WebSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_WebSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnEnforcedGuardrailConfigurationMixinProps",
+		reflect.TypeOf((*CfnEnforcedGuardrailConfigurationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnEnforcedGuardrailConfigurationPropsMixin",
+		reflect.TypeOf((*CfnEnforcedGuardrailConfigurationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnEnforcedGuardrailConfigurationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnEnforcedGuardrailConfigurationPropsMixin.ModelEnforcementProperty",
+		reflect.TypeOf((*CfnEnforcedGuardrailConfigurationPropsMixin_ModelEnforcementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnEnforcedGuardrailConfigurationPropsMixin.SelectiveContentGuardingProperty",
+		reflect.TypeOf((*CfnEnforcedGuardrailConfigurationPropsMixin_SelectiveContentGuardingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnFlowAliasMixinProps",
@@ -1534,5 +1590,25 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnPromptVersionPropsMixin.ToolSpecificationProperty",
 		reflect.TypeOf((*CfnPromptVersionPropsMixin_ToolSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnResourcePolicyMixinProps",
+		reflect.TypeOf((*CfnResourcePolicyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnResourcePolicyPropsMixin",
+		reflect.TypeOf((*CfnResourcePolicyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnResourcePolicyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 }

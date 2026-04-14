@@ -90,6 +90,9 @@ type IChannel interface {
 	// The date and time the channel was modified.
 	// Experimental.
 	ModifiedAt() *string
+	// The AWS region where this channel lives.
+	// Experimental.
+	Region() *string
 }
 
 // The jsii proxy for IChannel
@@ -346,6 +349,16 @@ func (j *jsiiProxy_IChannel) ModifiedAt() *string {
 	_jsii_.Get(
 		j,
 		"modifiedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IChannel) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
 		&returns,
 	)
 	return returns

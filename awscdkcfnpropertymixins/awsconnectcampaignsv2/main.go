@@ -68,6 +68,10 @@ func init() {
 		reflect.TypeOf((*CfnCampaignPropsMixin_EmailOutboundModeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connectcampaignsv2.CfnCampaignPropsMixin.EntryLimitsConfigProperty",
+		reflect.TypeOf((*CfnCampaignPropsMixin_EntryLimitsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connectcampaignsv2.CfnCampaignPropsMixin.EventTriggerProperty",
 		reflect.TypeOf((*CfnCampaignPropsMixin_EventTriggerProperty)(nil)).Elem(),
 	)

@@ -88,6 +88,13 @@ import (
 //   		},
 //   	},
 //   	LocationName: jsii.String("locationName"),
+//   	MetricsConfigurations: []interface{}{
+//   		&MetricsConfigurationProperty{
+//   			AccessPointArn: jsii.String("accessPointArn"),
+//   			Id: jsii.String("id"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

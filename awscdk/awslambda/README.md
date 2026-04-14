@@ -1746,6 +1746,141 @@ fn := lambda.NewFunction(this, jsii.String("MyLambda"), &FunctionProps{
 })
 ```
 
+## S3 Files Filesystem
+
+[Amazon S3 Files](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files.html) provides a fully managed NFS file system backed by an S3 bucket.
+Lambda functions can mount an S3 Files file system to read and write files using standard filesystem operations,
+which is useful for workloads that need POSIX-compatible file access to S3 data — such as ML inference, media processing, or legacy applications that expect a local mount path.
+
+> **Note:** S3 Files currently only has L1 (CloudFormation) constructs. The setup below
+> requires more manual wiring than the equivalent EFS integration. L2 constructs will
+> simplify this in a future release.
+
+S3 Files uses the same NFS infrastructure as Amazon EFS. To mount the file system in Lambda, you need:
+
+* **File system** (`CfnFileSystem`) — the NFS file system backed by your S3 bucket. The backing bucket must have [versioning enabled](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html), as S3 Files relies on object versions to maintain consistency between the file system and S3. The file system requires an IAM role with two sets of permissions:
+
+  * **S3 permissions** — read/write access to the bucket and its objects so S3 Files can synchronize data.
+  * **EventBridge permissions** — S3 Files creates and manages EventBridge rules (prefixed `DO-NOT-DELETE-S3-Files`) to detect S3 object changes and trigger data synchronization. The role needs permission to manage these rules, plus read-only access to list rules for monitoring.
+* **Mount targets** (`CfnMountTarget`) — ENIs placed in your VPC subnets that allow NFS clients (like Lambda) to connect. Each mount target needs a security group that permits inbound NFS traffic (TCP port 2049).
+* **Access point** (`CfnAccessPoint`) — defines the POSIX user identity and root directory path that Lambda uses when accessing the file system. This scopes and isolates the function's view of the file system.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+import s3 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("Vpc"))
+
+// Versioning is required — S3 Files relies on object versions for consistency.
+bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
+	Versioned: jsii.Boolean(true),
+})
+
+// S3 Files assumes this role to sync data between S3 and the file system.
+role := iam.NewRole(this, jsii.String("S3FilesRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("elasticfilesystem.amazonaws.com")),
+})
+
+// S3 permissions: read/write access to the bucket and objects
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("s3:ListBucket*"),
+	},
+	Resources: []*string{
+		bucket.bucketArn,
+	},
+}))
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("s3:AbortMultipartUpload"),
+		jsii.String("s3:DeleteObject"),
+		jsii.String("s3:GetObject*"),
+		jsii.String("s3:List*"),
+		jsii.String("s3:PutObject*"),
+	},
+	Resources: []*string{
+		bucket.ArnForObjects(jsii.String("*")),
+	},
+}))
+
+// EventBridge permissions: S3 Files creates rules prefixed "DO-NOT-DELETE-S3-Files"
+// to detect S3 object changes and trigger data synchronization.
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("events:DeleteRule"),
+		jsii.String("events:DisableRule"),
+		jsii.String("events:EnableRule"),
+		jsii.String("events:PutRule"),
+		jsii.String("events:PutTargets"),
+		jsii.String("events:RemoveTargets"),
+	},
+	Resources: []*string{
+		fmt.Sprintf("arn:%v:events:*:*:rule/DO-NOT-DELETE-S3-Files*", cdk.Aws_PARTITION()),
+	},
+	Conditions: map[string]interface{}{
+		"StringEquals": map[string]*string{
+			"events:ManagedBy": jsii.String("elasticfilesystem.amazonaws.com"),
+		},
+	},
+}))
+role.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("events:DescribeRule"),
+		jsii.String("events:ListRuleNamesByTarget"),
+		jsii.String("events:ListRules"),
+		jsii.String("events:ListTargetsByRule"),
+	},
+	Resources: []*string{
+		fmt.Sprintf("arn:%v:events:*:*:rule/*", cdk.Aws_PARTITION()),
+	},
+}))
+
+fileSystem := s3files.NewCfnFileSystem(this, jsii.String("S3FilesFs"), &CfnFileSystemProps{
+	Bucket: bucket.bucketArn,
+	RoleArn: role.roleArn,
+})
+
+sg := ec2.NewSecurityGroup(this, jsii.String("MountTargetSG"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+// Create a mount target in each private subnet so Lambda can reach the file system via NFS.
+vpc.PrivateSubnets.forEach((subnet, i) =>
+  new s3files.CfnMountTarget(this, `MountTarget${i}`, {
+    fileSystemId: fileSystem.attrFileSystemId,
+    subnetId: subnet.subnetId,
+    securityGroups: [sg.securityGroupId],
+  }))
+
+// The access point defines the POSIX identity and root path Lambda uses on the file system.
+accessPoint := s3files.NewCfnAccessPoint(this, jsii.String("AccessPoint"), &CfnAccessPointProps{
+	FileSystemId: fileSystem.attrFileSystemId,
+	RootDirectory: &RootDirectoryProperty{
+		Path: jsii.String("/export/lambda"),
+		CreationPermissions: &CreationPermissionsProperty{
+			OwnerGid: jsii.String("1001"),
+			OwnerUid: jsii.String("1001"),
+			Permissions: jsii.String("750"),
+		},
+	},
+	PosixUser: &PosixUserProperty{
+		Gid: jsii.String("1001"),
+		Uid: jsii.String("1001"),
+	},
+})
+
+fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_LATEST(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+	Vpc: Vpc,
+	Filesystem: lambda.FileSystem_FromS3FilesAccessPoint(accessPoint, jsii.String("/mnt/s3files")),
+})
+```
+
 ## IPv6 support
 
 You can configure IPv6 connectivity for lambda function by setting `Ipv6AllowedForDualStack` to true.

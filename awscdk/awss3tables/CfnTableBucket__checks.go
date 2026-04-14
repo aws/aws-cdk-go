@@ -244,6 +244,30 @@ func (j *jsiiProxy_CfnTableBucket) validateSetMetricsConfigurationParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnTableBucket) validateSetReplicationConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTableBucket_ReplicationConfigurationProperty:
+		val := val.(*CfnTableBucket_ReplicationConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTableBucket_ReplicationConfigurationProperty:
+		val_ := val.(CfnTableBucket_ReplicationConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTableBucket_ReplicationConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTableBucket) validateSetStorageClassConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

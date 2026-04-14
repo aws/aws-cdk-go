@@ -45,6 +45,12 @@ package awsecs
 //   		SourcePath: jsii.String("sourcePath"),
 //   	},
 //   	Name: jsii.String("name"),
+//   	S3FilesVolumeConfiguration: &S3FilesVolumeConfigurationProperty{
+//   		AccessPointArn: jsii.String("accessPointArn"),
+//   		FileSystemArn: jsii.String("fileSystemArn"),
+//   		RootDirectory: jsii.String("rootDirectory"),
+//   		TransitEncryptionPort: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html
@@ -92,5 +98,8 @@ type CfnTaskDefinitionPropsMixin_VolumeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html#cfn-ecs-taskdefinition-volume-s3filesvolumeconfiguration
+	//
+	S3FilesVolumeConfiguration interface{} `field:"optional" json:"s3FilesVolumeConfiguration" yaml:"s3FilesVolumeConfiguration"`
 }
 

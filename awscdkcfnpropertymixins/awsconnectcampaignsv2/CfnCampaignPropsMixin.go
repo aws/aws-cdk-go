@@ -208,6 +208,10 @@ import (
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
 //   	ConnectInstanceId: jsii.String("connectInstanceId"),
+//   	EntryLimitsConfig: &EntryLimitsConfigProperty{
+//   		MaxEntryCount: jsii.Number(123),
+//   		MinEntryInterval: jsii.String("minEntryInterval"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Schedule: &ScheduleProperty{
 //   		EndTime: jsii.String("endTime"),

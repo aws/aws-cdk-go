@@ -63,6 +63,11 @@ package awsdeadline
 //   		},
 //
 //   		// the properties below are optional
+//   		AutoScalingConfiguration: &CustomerManagedAutoScalingConfigurationProperty{
+//   			ScaleOutWorkersPerMinute: jsii.Number(123),
+//   			StandbyWorkerCount: jsii.Number(123),
+//   			WorkerIdleDurationSeconds: jsii.Number(123),
+//   		},
 //   		StorageProfileId: jsii.String("storageProfileId"),
 //   		TagPropagationMode: jsii.String("tagPropagationMode"),
 //   	},
@@ -136,6 +141,11 @@ package awsdeadline
 //   		},
 //
 //   		// the properties below are optional
+//   		AutoScalingConfiguration: &ServiceManagedEc2AutoScalingConfigurationProperty{
+//   			ScaleOutWorkersPerMinute: jsii.Number(123),
+//   			StandbyWorkerCount: jsii.Number(123),
+//   			WorkerIdleDurationSeconds: jsii.Number(123),
+//   		},
 //   		StorageProfileId: jsii.String("storageProfileId"),
 //   		VpcConfiguration: &VpcConfigurationProperty{
 //   			ResourceConfigurationArns: []*string{

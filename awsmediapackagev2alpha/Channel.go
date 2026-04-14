@@ -113,6 +113,9 @@ type Channel interface {
 	Policy() ChannelPolicy
 	// Experimental.
 	SetPolicy(val ChannelPolicy)
+	// The AWS region where this channel lives.
+	// Experimental.
+	Region() *string
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
@@ -345,6 +348,16 @@ func (j *jsiiProxy_Channel) Policy() ChannelPolicy {
 	return returns
 }
 
+func (j *jsiiProxy_Channel) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Channel) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -402,6 +415,29 @@ func (j *jsiiProxy_Channel)SetPolicy(val ChannelPolicy) {
 		"policy",
 		val,
 	)
+}
+
+// Creates a Channel construct that represents an external (imported) Channel from its ARN.
+//
+// The ARN is expected to be in the format:
+// `arn:<partition>:mediapackagev2:<region>:<account>:channelGroup/<groupName>/channel/<channelName>`.
+// Experimental.
+func Channel_FromChannelArn(scope constructs.Construct, id *string, channelArn *string) IChannel {
+	_init_.Initialize()
+
+	if err := validateChannel_FromChannelArnParameters(scope, id, channelArn); err != nil {
+		panic(err)
+	}
+	var returns IChannel
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-mediapackagev2-alpha.Channel",
+		"fromChannelArn",
+		[]interface{}{scope, id, channelArn},
+		&returns,
+	)
+
+	return returns
 }
 
 // Creates a Channel construct that represents an external (imported) Channel.

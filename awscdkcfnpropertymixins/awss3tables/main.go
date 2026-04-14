@@ -76,6 +76,18 @@ func init() {
 		reflect.TypeOf((*CfnTableBucketPropsMixin_MetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.ReplicationConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_ReplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.ReplicationDestinationProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_ReplicationDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.ReplicationRuleProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_ReplicationRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.StorageClassConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucketPropsMixin_StorageClassConfigurationProperty)(nil)).Elem(),
 	)
@@ -144,6 +156,10 @@ func init() {
 		reflect.TypeOf((*CfnTablePropsMixin_IcebergSchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTablePropsMixin.IcebergSchemaV2Property",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergSchemaV2Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTablePropsMixin.IcebergSortFieldProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_IcebergSortFieldProperty)(nil)).Elem(),
 	)
@@ -154,6 +170,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTablePropsMixin.SchemaFieldProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_SchemaFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTablePropsMixin.SchemaV2FieldProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_SchemaV2FieldProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTablePropsMixin.SnapshotManagementProperty",

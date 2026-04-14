@@ -549,6 +549,29 @@ func (j *jsiiProxy_OriginEndpoint)SetSegment(val *SegmentConfiguration) {
 	)
 }
 
+// Creates an OriginEndpoint construct that represents an external (imported) Origin Endpoint from its ARN.
+//
+// The ARN is expected to be in the format:
+// `arn:<partition>:mediapackagev2:<region>:<account>:channelGroup/<groupName>/channel/<channelName>/originEndpoint/<endpointName>`.
+// Experimental.
+func OriginEndpoint_FromOriginEndpointArn(scope constructs.Construct, id *string, originEndpointArn *string) IOriginEndpoint {
+	_init_.Initialize()
+
+	if err := validateOriginEndpoint_FromOriginEndpointArnParameters(scope, id, originEndpointArn); err != nil {
+		panic(err)
+	}
+	var returns IOriginEndpoint
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-mediapackagev2-alpha.OriginEndpoint",
+		"fromOriginEndpointArn",
+		[]interface{}{scope, id, originEndpointArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates an OriginEndpoint construct that represents an external (imported) Origin Endpoint.
 // Experimental.
 func OriginEndpoint_FromOriginEndpointAttributes(scope constructs.Construct, id *string, attrs *OriginEndpointAttributes) IOriginEndpoint {

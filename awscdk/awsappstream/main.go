@@ -467,6 +467,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "computeCapacity", GoGetter: "ComputeCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "disableImdsv1", GoGetter: "DisableImdsv1"},
 			_jsii_.MemberProperty{JsiiProperty: "disconnectTimeoutInSeconds", GoGetter: "DisconnectTimeoutInSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainJoinInfo", GoGetter: "DomainJoinInfo"},

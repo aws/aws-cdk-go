@@ -127,6 +127,22 @@ func (c *jsiiProxy_Channel) validateMetricIngressResponseTimeParameters(options 
 	return nil
 }
 
+func validateChannel_FromChannelArnParameters(scope constructs.Construct, id *string, channelArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if channelArn == nil {
+		return fmt.Errorf("parameter channelArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateChannel_FromChannelAttributesParameters(scope constructs.Construct, id *string, attrs *ChannelAttributes) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

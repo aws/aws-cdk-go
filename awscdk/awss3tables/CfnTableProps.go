@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var type interface{}
+//
 //   cfnTableProps := &CfnTableProps{
 //   	Namespace: jsii.String("namespace"),
 //   	OpenTableFormat: jsii.String("openTableFormat"),
@@ -23,20 +25,6 @@ import (
 //   		TargetFileSizeMb: jsii.Number(123),
 //   	},
 //   	IcebergMetadata: &IcebergMetadataProperty{
-//   		IcebergSchema: &IcebergSchemaProperty{
-//   			SchemaFieldList: []interface{}{
-//   				&SchemaFieldProperty{
-//   					Name: jsii.String("name"),
-//   					Type: jsii.String("type"),
-//
-//   					// the properties below are optional
-//   					Id: jsii.Number(123),
-//   					Required: jsii.Boolean(false),
-//   				},
-//   			},
-//   		},
-//
-//   		// the properties below are optional
 //   		IcebergPartitionSpec: &IcebergPartitionSpecProperty{
 //   			Fields: []interface{}{
 //   				&IcebergPartitionFieldProperty{
@@ -51,6 +39,38 @@ import (
 //
 //   			// the properties below are optional
 //   			SpecId: jsii.Number(123),
+//   		},
+//   		IcebergSchema: &IcebergSchemaProperty{
+//   			SchemaFieldList: []interface{}{
+//   				&SchemaFieldProperty{
+//   					Name: jsii.String("name"),
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Id: jsii.Number(123),
+//   					Required: jsii.Boolean(false),
+//   				},
+//   			},
+//   		},
+//   		IcebergSchemaV2: &IcebergSchemaV2Property{
+//   			SchemaV2FieldList: []interface{}{
+//   				&SchemaV2FieldProperty{
+//   					Id: jsii.Number(123),
+//   					Name: jsii.String("name"),
+//   					Required: jsii.Boolean(false),
+//   					Type: type,
+//
+//   					// the properties below are optional
+//   					Doc: jsii.String("doc"),
+//   				},
+//   			},
+//   			SchemaV2FieldType: jsii.String("schemaV2FieldType"),
+//
+//   			// the properties below are optional
+//   			IdentifierFieldIds: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			SchemaId: jsii.Number(123),
 //   		},
 //   		IcebergSortOrder: &IcebergSortOrderProperty{
 //   			Fields: []interface{}{

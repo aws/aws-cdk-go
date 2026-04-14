@@ -72,6 +72,8 @@ type CfnS3AccessPointAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsfsx.IS3AccessPointAttachmentRef
+	// The lifecycle status of the S3 access point attachment.
+	AttrLifecycle() *string
 	// The S3 access point's alias.
 	AttrS3AccessPointAlias() *string
 	// The S3 access point's ARN.
@@ -276,6 +278,16 @@ type jsiiProxy_CfnS3AccessPointAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsfsxIS3AccessPointAttachmentRef
+}
+
+func (j *jsiiProxy_CfnS3AccessPointAttachment) AttrLifecycle() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLifecycle",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnS3AccessPointAttachment) AttrS3AccessPointAlias() *string {

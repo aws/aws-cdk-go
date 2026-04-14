@@ -1407,6 +1407,10 @@ func init() {
 		reflect.TypeOf((*CfnTaskDefinition_RuntimePlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.S3FilesVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnTaskDefinition_S3FilesVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.SecretProperty",
 		reflect.TypeOf((*CfnTaskDefinition_SecretProperty)(nil)).Elem(),
 	)

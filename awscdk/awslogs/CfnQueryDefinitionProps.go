@@ -16,6 +16,15 @@ package awslogs
 //   	LogGroupNames: []interface{}{
 //   		jsii.String("logGroupNames"),
 //   	},
+//   	Parameters: []interface{}{
+//   		&QueryParameterProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			DefaultValue: jsii.String("defaultValue"),
+//   			Description: jsii.String("description"),
+//   		},
+//   	},
 //   	QueryLanguage: jsii.String("queryLanguage"),
 //   }
 //
@@ -38,6 +47,12 @@ type CfnQueryDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
 	//
 	LogGroupNames *[]interface{} `field:"optional" json:"logGroupNames" yaml:"logGroupNames"`
+	// Use this parameter to include specific query parameters as part of your query definition.
+	//
+	// Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-parameters
+	//
+	Parameters interface{} `field:"optional" json:"parameters" yaml:"parameters"`
 	// The query language used for this query.
 	//
 	// For more information about the query languages that CloudWatch Logs supports, see [Supported query languages](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html) .

@@ -9,6 +9,11 @@ package awsdeadline
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   serviceManagedEc2FleetConfigurationProperty := &ServiceManagedEc2FleetConfigurationProperty{
+//   	AutoScalingConfiguration: &ServiceManagedEc2AutoScalingConfigurationProperty{
+//   		ScaleOutWorkersPerMinute: jsii.Number(123),
+//   		StandbyWorkerCount: jsii.Number(123),
+//   		WorkerIdleDurationSeconds: jsii.Number(123),
+//   	},
 //   	InstanceCapabilities: &ServiceManagedEc2InstanceCapabilitiesProperty{
 //   		AcceleratorCapabilities: &AcceleratorCapabilitiesProperty{
 //   			Count: &AcceleratorCountRangeProperty{
@@ -73,6 +78,9 @@ package awsdeadline
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html
 //
 type CfnFleetPropsMixin_ServiceManagedEc2FleetConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-autoscalingconfiguration
+	//
+	AutoScalingConfiguration interface{} `field:"optional" json:"autoScalingConfiguration" yaml:"autoScalingConfiguration"`
 	// The instance capabilities for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancecapabilities
 	//

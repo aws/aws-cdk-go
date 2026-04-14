@@ -101,8 +101,6 @@ type CfnCluster interface {
 	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
 	ManagedScalingPolicy() interface{}
 	SetManagedScalingPolicy(val interface{})
-	MonitoringConfiguration() interface{}
-	SetMonitoringConfiguration(val interface{})
 	// The name of the cluster.
 	Name() *string
 	SetName(val *string)
@@ -553,16 +551,6 @@ func (j *jsiiProxy_CfnCluster) ManagedScalingPolicy() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) MonitoringConfiguration() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"monitoringConfiguration",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnCluster) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -914,17 +902,6 @@ func (j *jsiiProxy_CfnCluster)SetManagedScalingPolicy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"managedScalingPolicy",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnCluster)SetMonitoringConfiguration(val interface{}) {
-	if err := j.validateSetMonitoringConfigurationParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"monitoringConfiguration",
 		val,
 	)
 }

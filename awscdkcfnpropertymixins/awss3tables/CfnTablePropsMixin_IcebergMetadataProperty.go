@@ -8,6 +8,8 @@ package awss3tables
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var type interface{}
+//
 //   icebergMetadataProperty := &IcebergMetadataProperty{
 //   	IcebergPartitionSpec: &IcebergPartitionSpecProperty{
 //   		Fields: []interface{}{
@@ -29,6 +31,22 @@ package awss3tables
 //   				Type: jsii.String("type"),
 //   			},
 //   		},
+//   	},
+//   	IcebergSchemaV2: &IcebergSchemaV2Property{
+//   		IdentifierFieldIds: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		SchemaId: jsii.Number(123),
+//   		SchemaV2FieldList: []interface{}{
+//   			&SchemaV2FieldProperty{
+//   				Doc: jsii.String("doc"),
+//   				Id: jsii.Number(123),
+//   				Name: jsii.String("name"),
+//   				Required: jsii.Boolean(false),
+//   				Type: type,
+//   			},
+//   		},
+//   		SchemaV2FieldType: jsii.String("schemaV2FieldType"),
 //   	},
 //   	IcebergSortOrder: &IcebergSortOrderProperty{
 //   		Fields: []interface{}{
@@ -57,6 +75,12 @@ type CfnTablePropsMixin_IcebergMetadataProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergschema
 	//
 	IcebergSchema interface{} `field:"optional" json:"icebergSchema" yaml:"icebergSchema"`
+	// Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map).
+	//
+	// Primitive types are also supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergschemav2
+	//
+	IcebergSchemaV2 interface{} `field:"optional" json:"icebergSchemaV2" yaml:"icebergSchemaV2"`
 	// Sort order specification for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergsortorder
 	//

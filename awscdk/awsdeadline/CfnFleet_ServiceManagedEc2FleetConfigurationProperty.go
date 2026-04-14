@@ -78,6 +78,11 @@ package awsdeadline
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoScalingConfiguration: &ServiceManagedEc2AutoScalingConfigurationProperty{
+//   		ScaleOutWorkersPerMinute: jsii.Number(123),
+//   		StandbyWorkerCount: jsii.Number(123),
+//   		WorkerIdleDurationSeconds: jsii.Number(123),
+//   	},
 //   	StorageProfileId: jsii.String("storageProfileId"),
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		ResourceConfigurationArns: []*string{
@@ -97,6 +102,9 @@ type CfnFleet_ServiceManagedEc2FleetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancemarketoptions
 	//
 	InstanceMarketOptions interface{} `field:"required" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-autoscalingconfiguration
+	//
+	AutoScalingConfiguration interface{} `field:"optional" json:"autoScalingConfiguration" yaml:"autoScalingConfiguration"`
 	// The storage profile ID for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
 	//

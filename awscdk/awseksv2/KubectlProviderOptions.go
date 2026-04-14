@@ -69,6 +69,12 @@ type KubectlProviderOptions struct {
 	// Default: - If not specified, the k8s endpoint is expected to be accessible
 	// publicly.
 	//
+	// Deprecated: Use `securityGroups` instead.
 	SecurityGroup awsec2.ISecurityGroup `field:"optional" json:"securityGroup" yaml:"securityGroup"`
+	// Security groups to use for `kubectl` execution.
+	// Default: - If not specified, the k8s endpoint is expected to be accessible
+	// publicly.
+	//
+	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 }
 

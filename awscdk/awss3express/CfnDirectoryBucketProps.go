@@ -47,6 +47,13 @@ import (
 //   			},
 //   		},
 //   	},
+//   	MetricsConfigurations: []interface{}{
+//   		&MetricsConfigurationProperty{
+//   			AccessPointArn: jsii.String("accessPointArn"),
+//   			Id: jsii.String("id"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -88,6 +95,10 @@ type CfnDirectoryBucketProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-lifecycleconfiguration
 	//
 	LifecycleConfiguration interface{} `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
+	// Specifies the metrics configurations for the Amazon S3 Express bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-metricsconfigurations
+	//
+	MetricsConfigurations interface{} `field:"optional" json:"metricsConfigurations" yaml:"metricsConfigurations"`
 	// An array of tags that you can apply to the S3 directory bucket.
 	//
 	// Tags are key-value pairs of metadata used to categorize and organize your buckets, track costs, and control access. For more information, see [Using tags with directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html) .

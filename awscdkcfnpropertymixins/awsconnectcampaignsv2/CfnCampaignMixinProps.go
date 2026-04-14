@@ -196,6 +196,10 @@ import (
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
 //   	ConnectInstanceId: jsii.String("connectInstanceId"),
+//   	EntryLimitsConfig: &EntryLimitsConfigProperty{
+//   		MaxEntryCount: jsii.Number(123),
+//   		MinEntryInterval: jsii.String("minEntryInterval"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Schedule: &ScheduleProperty{
 //   		EndTime: jsii.String("endTime"),
@@ -242,6 +246,10 @@ type CfnCampaignMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-connectinstanceid
 	//
 	ConnectInstanceId *string `field:"optional" json:"connectInstanceId" yaml:"connectInstanceId"`
+	// Entry limits config for a campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-entrylimitsconfig
+	//
+	EntryLimitsConfig interface{} `field:"optional" json:"entryLimitsConfig" yaml:"entryLimitsConfig"`
 	// The name of the outbound campaign.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-name
 	//

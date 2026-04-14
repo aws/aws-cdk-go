@@ -426,10 +426,33 @@ type NodejsFunctionProps struct {
 	//
 	DepsLockFilePath *string `field:"optional" json:"depsLockFilePath" yaml:"depsLockFilePath"`
 	// Path to the entry file (JavaScript or TypeScript).
-	// Default: - Derived from the name of the defining file and the construct's id.
-	// If the `NodejsFunction` is defined in `stack.ts` with `my-handler` as id
-	// (`new NodejsFunction(this, 'my-handler')`), the construct will look at `stack.my-handler.ts`
-	// and `stack.my-handler.js`.
+	//
+	// If this is a relative path, it will be evaluated with respect to the
+	// JavaScript/TypeScript source file that instantiates the `NodejsFunction`
+	// construct. If the current project is not a Node project, relative paths are
+	// not reliable and absolute paths should be used.
+	//
+	// This file should be located underneath the `projectRoot` directory (by default,
+	// the directory containing the package manager's lock file).
+	//
+	// If omitted, the entry file will be derived from the TypeScript/JavaScript file
+	// that instantiates the `NodejsFunction` construct, and the construct identifier
+	// of the `NodejsFunction` construct, in the following way:
+	//
+	// ```
+	// <filename>.<construct-id>.(ts|js)
+	//
+	// // Example, if stack.ts contains the following:
+	// new NodejsFunction(this, 'my-handler', { ... });
+	//
+	// // Then the implicit entry point(s) will be
+	// stack.my-handler.ts
+	// stack.my-handler.js
+	// ```
+	//
+	// Again: if the current project is not a Node project this is not reliable,
+	// and instead explicit, absolute paths should be used.
+	// Default: - (Realible in Node projects only) derived from the defining file's name and construct ID as described in the documentation.
 	//
 	Entry *string `field:"optional" json:"entry" yaml:"entry"`
 	// The name of the exported handler in the entry file.

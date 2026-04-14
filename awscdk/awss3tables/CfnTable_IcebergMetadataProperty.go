@@ -8,21 +8,9 @@ package awss3tables
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var type interface{}
+//
 //   icebergMetadataProperty := &IcebergMetadataProperty{
-//   	IcebergSchema: &IcebergSchemaProperty{
-//   		SchemaFieldList: []interface{}{
-//   			&SchemaFieldProperty{
-//   				Name: jsii.String("name"),
-//   				Type: jsii.String("type"),
-//
-//   				// the properties below are optional
-//   				Id: jsii.Number(123),
-//   				Required: jsii.Boolean(false),
-//   			},
-//   		},
-//   	},
-//
-//   	// the properties below are optional
 //   	IcebergPartitionSpec: &IcebergPartitionSpecProperty{
 //   		Fields: []interface{}{
 //   			&IcebergPartitionFieldProperty{
@@ -37,6 +25,38 @@ package awss3tables
 //
 //   		// the properties below are optional
 //   		SpecId: jsii.Number(123),
+//   	},
+//   	IcebergSchema: &IcebergSchemaProperty{
+//   		SchemaFieldList: []interface{}{
+//   			&SchemaFieldProperty{
+//   				Name: jsii.String("name"),
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Id: jsii.Number(123),
+//   				Required: jsii.Boolean(false),
+//   			},
+//   		},
+//   	},
+//   	IcebergSchemaV2: &IcebergSchemaV2Property{
+//   		SchemaV2FieldList: []interface{}{
+//   			&SchemaV2FieldProperty{
+//   				Id: jsii.Number(123),
+//   				Name: jsii.String("name"),
+//   				Required: jsii.Boolean(false),
+//   				Type: type,
+//
+//   				// the properties below are optional
+//   				Doc: jsii.String("doc"),
+//   			},
+//   		},
+//   		SchemaV2FieldType: jsii.String("schemaV2FieldType"),
+//
+//   		// the properties below are optional
+//   		IdentifierFieldIds: []interface{}{
+//   			jsii.Number(123),
+//   		},
+//   		SchemaId: jsii.Number(123),
 //   	},
 //   	IcebergSortOrder: &IcebergSortOrderProperty{
 //   		Fields: []interface{}{
@@ -59,14 +79,20 @@ package awss3tables
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html
 //
 type CfnTable_IcebergMetadataProperty struct {
-	// The schema for an Iceberg table.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergschema
-	//
-	IcebergSchema interface{} `field:"required" json:"icebergSchema" yaml:"icebergSchema"`
 	// Partition specification for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergpartitionspec
 	//
 	IcebergPartitionSpec interface{} `field:"optional" json:"icebergPartitionSpec" yaml:"icebergPartitionSpec"`
+	// The schema for an Iceberg table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergschema
+	//
+	IcebergSchema interface{} `field:"optional" json:"icebergSchema" yaml:"icebergSchema"`
+	// Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map).
+	//
+	// Primitive types are also supported.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergschemav2
+	//
+	IcebergSchemaV2 interface{} `field:"optional" json:"icebergSchemaV2" yaml:"icebergSchemaV2"`
 	// Sort order specification for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html#cfn-s3tables-table-icebergmetadata-icebergsortorder
 	//

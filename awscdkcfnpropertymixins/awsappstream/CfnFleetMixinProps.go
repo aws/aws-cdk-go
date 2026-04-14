@@ -17,6 +17,7 @@ import (
 //   		DesiredSessions: jsii.Number(123),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisconnectTimeoutInSeconds: jsii.Number(123),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainJoinInfo: &DomainJoinInfoProperty{
@@ -75,6 +76,9 @@ type CfnFleetMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-disableimdsv1
+	//
+	DisableImdsv1 interface{} `field:"optional" json:"disableImdsv1" yaml:"disableImdsv1"`
 	// The amount of time that a streaming session remains active after users disconnect.
 	//
 	// If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.

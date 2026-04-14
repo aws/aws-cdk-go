@@ -223,6 +223,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLifecycle", GoGetter: "AttrLifecycle"},
 			_jsii_.MemberProperty{JsiiProperty: "attrS3AccessPointAlias", GoGetter: "AttrS3AccessPointAlias"},
 			_jsii_.MemberProperty{JsiiProperty: "attrS3AccessPointResourceArn", GoGetter: "AttrS3AccessPointResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

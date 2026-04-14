@@ -8,20 +8,18 @@ import (
 // An IAM principal that represents an AWS service (i.e. `sqs.amazonaws.com`).
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("BrowserExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreBrowserExecutionRolePolicy")),
-//   	},
+//   var vpc Vpc
+//
+//
+//   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
+//
+//   role := iam.NewRole(this, jsii.String("MyCustomRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("vpc-flow-logs.amazonaws.com")),
 //   })
 //
-//   // Create browser with custom execution role
-//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
-//   	BrowserCustomName: jsii.String("my_browser"),
-//   	Description: jsii.String("Browser with custom execution role"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
-//   	ExecutionRole: executionRole,
+//   ec2.NewFlowLog(this, jsii.String("FlowLog"), &FlowLogProps{
+//   	ResourceType: ec2.FlowLogResourceType_FromVpc(vpc),
+//   	Destination: ec2.FlowLogDestination_ToCloudWatchLogs(logGroup, role),
 //   })
 //
 type ServicePrincipal interface {

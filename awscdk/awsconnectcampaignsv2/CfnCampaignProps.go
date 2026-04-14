@@ -233,6 +233,10 @@ import (
 //   		},
 //   	},
 //   	ConnectCampaignFlowArn: jsii.String("connectCampaignFlowArn"),
+//   	EntryLimitsConfig: &EntryLimitsConfigProperty{
+//   		MaxEntryCount: jsii.Number(123),
+//   		MinEntryInterval: jsii.String("minEntryInterval"),
+//   	},
 //   	Schedule: &ScheduleProperty{
 //   		EndTime: jsii.String("endTime"),
 //   		StartTime: jsii.String("startTime"),
@@ -284,6 +288,10 @@ type CfnCampaignProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-connectcampaignflowarn
 	//
 	ConnectCampaignFlowArn *string `field:"optional" json:"connectCampaignFlowArn" yaml:"connectCampaignFlowArn"`
+	// Entry limits config for a campaign.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-entrylimitsconfig
+	//
+	EntryLimitsConfig interface{} `field:"optional" json:"entryLimitsConfig" yaml:"entryLimitsConfig"`
 	// Contains the schedule configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaignsv2-campaign.html#cfn-connectcampaignsv2-campaign-schedule
 	//

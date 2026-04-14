@@ -36,6 +36,18 @@ import (
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Role: jsii.String("role"),
+//   		Rules: []interface{}{
+//   			&ReplicationRuleProperty{
+//   				Destinations: []interface{}{
+//   					&ReplicationDestinationProperty{
+//   						DestinationTableBucketArn: jsii.String("destinationTableBucketArn"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	StorageClassConfiguration: &StorageClassConfigurationProperty{
 //   		StorageClass: jsii.String("storageClass"),
 //   	},

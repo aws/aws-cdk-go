@@ -79,6 +79,13 @@ import (
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
+//   	FilesystemConfigurations: []interface{}{
+//   		&FilesystemConfigurationProperty{
+//   			SessionStorage: &SessionStorageConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),

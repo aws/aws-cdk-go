@@ -97,6 +97,13 @@ import (
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
+//   	FilesystemConfigurations: []interface{}{
+//   		&FilesystemConfigurationProperty{
+//   			SessionStorage: &SessionStorageConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
@@ -162,6 +169,9 @@ type CfnRuntime interface {
 	// The environment variables for the agent.
 	EnvironmentVariables() interface{}
 	SetEnvironmentVariables(val interface{})
+	// List of filesystem configurations.
+	FilesystemConfigurations() interface{}
+	SetFilesystemConfigurations(val interface{})
 	// Configuration for managing the lifecycle of runtime sessions and resources.
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
@@ -548,6 +558,16 @@ func (j *jsiiProxy_CfnRuntime) EnvironmentVariables() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuntime) FilesystemConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"filesystemConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuntime) LifecycleConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -756,6 +776,17 @@ func (j *jsiiProxy_CfnRuntime)SetEnvironmentVariables(val interface{}) {
 	_jsii_.Set(
 		j,
 		"environmentVariables",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuntime)SetFilesystemConfigurations(val interface{}) {
+	if err := j.validateSetFilesystemConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"filesystemConfigurations",
 		val,
 	)
 }

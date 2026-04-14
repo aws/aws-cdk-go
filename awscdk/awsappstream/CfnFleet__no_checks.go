@@ -88,6 +88,10 @@ func (j *jsiiProxy_CfnFleet) validateSetComputeCapacityParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnFleet) validateSetDisableImdsv1Parameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFleet) validateSetDomainJoinInfoParameters(val interface{}) error {
 	return nil
 }

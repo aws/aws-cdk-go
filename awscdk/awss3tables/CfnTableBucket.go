@@ -37,6 +37,18 @@ import (
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Role: jsii.String("role"),
+//   		Rules: []interface{}{
+//   			&ReplicationRuleProperty{
+//   				Destinations: []interface{}{
+//   					&ReplicationDestinationProperty{
+//   						DestinationTableBucketArn: jsii.String("destinationTableBucketArn"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	StorageClassConfiguration: &StorageClassConfigurationProperty{
 //   		StorageClass: jsii.String("storageClass"),
 //   	},
@@ -97,6 +109,9 @@ type CfnTableBucket interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Specifies replication configuration for the table bucket.
+	ReplicationConfiguration() interface{}
+	SetReplicationConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -390,6 +405,16 @@ func (j *jsiiProxy_CfnTableBucket) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTableBucket) ReplicationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replicationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTableBucket) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -518,6 +543,17 @@ func (j *jsiiProxy_CfnTableBucket)SetMetricsConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"metricsConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTableBucket)SetReplicationConfiguration(val interface{}) {
+	if err := j.validateSetReplicationConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"replicationConfiguration",
 		val,
 	)
 }

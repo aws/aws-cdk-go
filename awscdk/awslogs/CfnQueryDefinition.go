@@ -28,6 +28,15 @@ import (
 //   	LogGroupNames: []interface{}{
 //   		jsii.String("logGroupNames"),
 //   	},
+//   	Parameters: []interface{}{
+//   		&QueryParameterProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			DefaultValue: jsii.String("defaultValue"),
+//   			Description: jsii.String("description"),
+//   		},
+//   	},
 //   	QueryLanguage: jsii.String("queryLanguage"),
 //   })
 //
@@ -67,6 +76,9 @@ type CfnQueryDefinition interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Use this parameter to include specific query parameters as part of your query definition.
+	Parameters() interface{}
+	SetParameters(val interface{})
 	// A reference to a QueryDefinition resource.
 	QueryDefinitionRef() *interfacesawslogs.QueryDefinitionReference
 	// The query language used for this query.
@@ -338,6 +350,16 @@ func (j *jsiiProxy_CfnQueryDefinition) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueryDefinition) Parameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"parameters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueryDefinition) QueryDefinitionRef() *interfacesawslogs.QueryDefinitionReference {
 	var returns *interfacesawslogs.QueryDefinitionReference
 	_jsii_.Get(
@@ -453,6 +475,17 @@ func (j *jsiiProxy_CfnQueryDefinition)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueryDefinition)SetParameters(val interface{}) {
+	if err := j.validateSetParametersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"parameters",
 		val,
 	)
 }

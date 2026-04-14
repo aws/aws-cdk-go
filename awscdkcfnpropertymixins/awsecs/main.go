@@ -664,6 +664,10 @@ func init() {
 		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_RuntimePlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.S3FilesVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_S3FilesVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.SecretProperty",
 		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_SecretProperty)(nil)).Elem(),
 	)

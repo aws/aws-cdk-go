@@ -19,6 +19,18 @@ import (
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
+//   	ReplicationConfiguration: &ReplicationConfigurationProperty{
+//   		Role: jsii.String("role"),
+//   		Rules: []interface{}{
+//   			&ReplicationRuleProperty{
+//   				Destinations: []interface{}{
+//   					&ReplicationDestinationProperty{
+//   						DestinationTableBucketArn: jsii.String("destinationTableBucketArn"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	StorageClassConfiguration: &StorageClassConfigurationProperty{
 //   		StorageClass: jsii.String("storageClass"),
 //   	},
@@ -49,6 +61,10 @@ type CfnTableBucketMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-metricsconfiguration
 	//
 	MetricsConfiguration interface{} `field:"optional" json:"metricsConfiguration" yaml:"metricsConfiguration"`
+	// Specifies replication configuration for the table bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-replicationconfiguration
+	//
+	ReplicationConfiguration interface{} `field:"optional" json:"replicationConfiguration" yaml:"replicationConfiguration"`
 	// The configuration details for the storage class of tables or table buckets.
 	//
 	// This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.

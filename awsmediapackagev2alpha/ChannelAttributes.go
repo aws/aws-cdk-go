@@ -19,5 +19,12 @@ type ChannelAttributes struct {
 	// The name that describes the channel.
 	// Experimental.
 	ChannelName *string `field:"required" json:"channelName" yaml:"channelName"`
+	// The AWS region where the channel lives.
+	//
+	// Required for cross-region imports to construct the correct ARN.
+	// Default: - the importing stack's region.
+	//
+	// Experimental.
+	Region *string `field:"optional" json:"region" yaml:"region"`
 }
 
