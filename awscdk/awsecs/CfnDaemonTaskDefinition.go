@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Schema describing various properties for ECS DaemonTaskDefinition.
+// The details of a daemon task definition.
+//
+// A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -187,7 +189,6 @@ type CfnDaemonTaskDefinition interface {
 	awscdk.IInspectable
 	interfacesawsecs.IDaemonTaskDefinitionRef
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the Amazon ECS daemon task definition.
 	AttrDaemonTaskDefinitionArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -196,8 +197,10 @@ type CfnDaemonTaskDefinition interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 	ContainerDefinitions() interface{}
 	SetContainerDefinitions(val interface{})
+	// The number of CPU units used by the daemon task.
 	Cpu() *string
 	SetCpu(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -207,8 +210,10 @@ type CfnDaemonTaskDefinition interface {
 	// A reference to a DaemonTaskDefinition resource.
 	DaemonTaskDefinitionRef() *interfacesawsecs.DaemonTaskDefinitionReference
 	Env() *interfaces.ResourceEnvironment
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
+	// The name of a family that this daemon task definition is registered to.
 	Family() *string
 	SetFamily(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -221,6 +226,7 @@ type CfnDaemonTaskDefinition interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The amount of memory (in MiB) used by the daemon task.
 	Memory() *string
 	SetMemory(val *string)
 	// The tree node.
@@ -236,6 +242,7 @@ type CfnDaemonTaskDefinition interface {
 	Stack() awscdk.Stack
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
 	// Deprecated.
@@ -251,6 +258,7 @@ type CfnDaemonTaskDefinition interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The list of data volume definitions for the daemon task.
 	Volumes() interface{}
 	SetVolumes(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

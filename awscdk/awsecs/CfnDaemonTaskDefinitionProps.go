@@ -176,27 +176,34 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html
 //
 type CfnDaemonTaskDefinitionProps struct {
+	// A list of container definitions in JSON format that describe the containers that make up the daemon task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-containerdefinitions
 	//
 	ContainerDefinitions interface{} `field:"optional" json:"containerDefinitions" yaml:"containerDefinitions"`
+	// The number of CPU units used by the daemon task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-cpu
 	//
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-executionrolearn
 	//
 	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
+	// The name of a family that this daemon task definition is registered to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-family
 	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
+	// The amount of memory (in MiB) used by the daemon task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-memory
 	//
 	Memory *string `field:"optional" json:"memory" yaml:"memory"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-taskrolearn
 	//
 	TaskRoleArn *string `field:"optional" json:"taskRoleArn" yaml:"taskRoleArn"`
+	// The list of data volume definitions for the daemon task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-volumes
 	//
 	Volumes interface{} `field:"optional" json:"volumes" yaml:"volumes"`

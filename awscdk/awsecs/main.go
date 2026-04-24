@@ -411,6 +411,10 @@ func init() {
 		reflect.TypeOf((*CfnCapacityProvider_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.AutoRepairConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_AutoRepairConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty",
 		reflect.TypeOf((*CfnCapacityProvider_AutoScalingGroupProviderProperty)(nil)).Elem(),
 	)
@@ -3174,6 +3178,18 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ServiceConnect{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ServiceConnectAccessLogConfiguration",
+		reflect.TypeOf((*ServiceConnectAccessLogConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ecs.ServiceConnectAccessLogFormat",
+		reflect.TypeOf((*ServiceConnectAccessLogFormat)(nil)).Elem(),
+		map[string]interface{}{
+			"TEXT": ServiceConnectAccessLogFormat_TEXT,
+			"JSON": ServiceConnectAccessLogFormat_JSON,
 		},
 	)
 	_jsii_.RegisterStruct(

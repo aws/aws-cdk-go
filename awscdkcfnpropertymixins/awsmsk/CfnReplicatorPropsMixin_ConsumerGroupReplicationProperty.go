@@ -9,6 +9,7 @@ package awsmsk
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   consumerGroupReplicationProperty := &ConsumerGroupReplicationProperty{
+//   	ConsumerGroupOffsetSyncMode: jsii.String("consumerGroupOffsetSyncMode"),
 //   	ConsumerGroupsToExclude: []*string{
 //   		jsii.String("consumerGroupsToExclude"),
 //   	},
@@ -22,6 +23,10 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html
 //
 type CfnReplicatorPropsMixin_ConsumerGroupReplicationProperty struct {
+	// The consumer group offset synchronization mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html#cfn-msk-replicator-consumergroupreplication-consumergroupoffsetsyncmode
+	//
+	ConsumerGroupOffsetSyncMode *string `field:"optional" json:"consumerGroupOffsetSyncMode" yaml:"consumerGroupOffsetSyncMode"`
 	// List of regular expression patterns indicating the consumer groups that should not be replicated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-consumergroupreplication.html#cfn-msk-replicator-consumergroupreplication-consumergroupstoexclude
 	//

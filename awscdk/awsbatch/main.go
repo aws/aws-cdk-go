@@ -406,6 +406,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_RuntimePlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.S3FilesVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnJobDefinition_S3FilesVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.SecretProperty",
 		reflect.TypeOf((*CfnJobDefinition_SecretProperty)(nil)).Elem(),
 	)

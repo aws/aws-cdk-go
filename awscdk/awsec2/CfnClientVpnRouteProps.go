@@ -11,10 +11,10 @@ package awsec2
 //   cfnClientVpnRouteProps := &CfnClientVpnRouteProps{
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
-//   	TargetVpcSubnetId: jsii.String("targetVpcSubnetId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	TargetVpcSubnetId: jsii.String("targetVpcSubnetId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html
@@ -33,6 +33,10 @@ type CfnClientVpnRouteProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-destinationcidrblock
 	//
 	DestinationCidrBlock *string `field:"required" json:"destinationCidrBlock" yaml:"destinationCidrBlock"`
+	// A brief description of the route.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The ID of the subnet through which you want to route traffic.
 	//
 	// The specified subnet must be an existing target network of the Client VPN endpoint.
@@ -40,10 +44,6 @@ type CfnClientVpnRouteProps struct {
 	// Alternatively, if you're adding a route for the local network, specify `local` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-targetvpcsubnetid
 	//
-	TargetVpcSubnetId *string `field:"required" json:"targetVpcSubnetId" yaml:"targetVpcSubnetId"`
-	// A brief description of the route.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html#cfn-ec2-clientvpnroute-description
-	//
-	Description *string `field:"optional" json:"description" yaml:"description"`
+	TargetVpcSubnetId *string `field:"optional" json:"targetVpcSubnetId" yaml:"targetVpcSubnetId"`
 }
 

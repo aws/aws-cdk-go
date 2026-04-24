@@ -1,6 +1,8 @@
 package awsecs
 
 
+// An object representing a container instance host device.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,12 +19,17 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-device.html
 //
 type CfnDaemonTaskDefinition_DeviceProperty struct {
+	// The path inside the container at which to expose the host device.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-device.html#cfn-ecs-daemontaskdefinition-device-containerpath
 	//
 	ContainerPath *string `field:"optional" json:"containerPath" yaml:"containerPath"`
+	// The path for the device on the host container instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-device.html#cfn-ecs-daemontaskdefinition-device-hostpath
 	//
 	HostPath *string `field:"optional" json:"hostPath" yaml:"hostPath"`
+	// The explicit permissions to provide to the container for the device.
+	//
+	// By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-device.html#cfn-ecs-daemontaskdefinition-device-permissions
 	//
 	Permissions *[]*string `field:"optional" json:"permissions" yaml:"permissions"`

@@ -25,6 +25,24 @@ import (
 //   	},
 //   	BucketName: jsii.String("bucketName"),
 //   	DataRedundancy: jsii.String("dataRedundancy"),
+//   	InventoryConfigurations: []interface{}{
+//   		&InventoryConfigurationProperty{
+//   			Destination: &DestinationProperty{
+//   				BucketAccountId: jsii.String("bucketAccountId"),
+//   				BucketArn: jsii.String("bucketArn"),
+//   				Format: jsii.String("format"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Enabled: jsii.Boolean(false),
+//   			Id: jsii.String("id"),
+//   			IncludedObjectVersions: jsii.String("includedObjectVersions"),
+//   			OptionalFields: []*string{
+//   				jsii.String("optionalFields"),
+//   			},
+//   			Prefix: jsii.String("prefix"),
+//   			ScheduleFrequency: jsii.String("scheduleFrequency"),
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		Rules: []interface{}{
 //   			&RuleProperty{
@@ -77,6 +95,10 @@ type CfnDirectoryBucketMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-dataredundancy
 	//
 	DataRedundancy *string `field:"optional" json:"dataRedundancy" yaml:"dataRedundancy"`
+	// The inventory configuration for an Amazon S3 Express bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html#cfn-s3express-directorybucket-inventoryconfigurations
+	//
+	InventoryConfigurations interface{} `field:"optional" json:"inventoryConfigurations" yaml:"inventoryConfigurations"`
 	// Container for lifecycle rules. You can add as many as 1000 rules.
 	//
 	// For more information see, [Creating and managing a lifecycle configuration for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-lifecycle.html          ) in the *Amazon S3 User Guide* .

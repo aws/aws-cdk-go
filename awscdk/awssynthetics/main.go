@@ -45,8 +45,10 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactsBucket", GoGetter: "ArtifactsBucket"},
+			_jsii_.MemberProperty{JsiiProperty: "canaryArn", GoGetter: "CanaryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "canaryId", GoGetter: "CanaryId"},
 			_jsii_.MemberProperty{JsiiProperty: "canaryName", GoGetter: "CanaryName"},
+			_jsii_.MemberProperty{JsiiProperty: "canaryRef", GoGetter: "CanaryRef"},
 			_jsii_.MemberProperty{JsiiProperty: "canaryState", GoGetter: "CanaryState"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -67,6 +69,7 @@ func init() {
 			j := jsiiProxy_Canary{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
 			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICanary)
 			return &j
 		},
 	)
@@ -278,6 +281,80 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_synthetics.CustomTestOptions",
 		reflect.TypeOf((*CustomTestOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_synthetics.Group",
+		reflect.TypeOf((*Group)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addCanary", GoMethod: "AddCanary"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "canaries", GoGetter: "Canaries"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "groupArn", GoGetter: "GroupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "groupId", GoGetter: "GroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "groupName", GoGetter: "GroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Group{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGroup)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_synthetics.GroupProps",
+		reflect.TypeOf((*GroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_synthetics.ICanary",
+		reflect.TypeOf((*ICanary)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "canaryArn", GoGetter: "CanaryArn"},
+			_jsii_.MemberProperty{JsiiProperty: "canaryId", GoGetter: "CanaryId"},
+			_jsii_.MemberProperty{JsiiProperty: "canaryName", GoGetter: "CanaryName"},
+			_jsii_.MemberProperty{JsiiProperty: "canaryRef", GoGetter: "CanaryRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICanary{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssyntheticsICanaryRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_synthetics.IGroup",
+		reflect.TypeOf((*IGroup)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "groupArn", GoGetter: "GroupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "groupId", GoGetter: "GroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "groupName", GoGetter: "GroupName"},
+			_jsii_.MemberProperty{JsiiProperty: "groupRef", GoGetter: "GroupRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IGroup{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawssyntheticsIGroupRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_synthetics.InlineCode",

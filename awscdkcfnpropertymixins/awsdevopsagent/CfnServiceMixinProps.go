@@ -16,6 +16,14 @@ import (
 //   cfnServiceMixinProps := &CfnServiceMixinProps{
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ServiceDetails: &ServiceDetailsProperty{
+//   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			TenantId: jsii.String("tenantId"),
+//   			WebIdentityRoleArn: jsii.String("webIdentityRoleArn"),
+//   			WebIdentityTokenAudiences: []*string{
+//   				jsii.String("webIdentityTokenAudiences"),
+//   			},
+//   		},
 //   		Dynatrace: &DynatraceServiceDetailsProperty{
 //   			AccountUrn: jsii.String("accountUrn"),
 //   			AuthorizationConfig: &DynatraceAuthorizationConfigProperty{
@@ -73,6 +81,19 @@ import (
 //   				},
 //   			},
 //   		},
+//   		McpServerSigV4: &MCPServerSigV4DetailsProperty{
+//   			AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
+//   				CustomHeaders: map[string]*string{
+//   					"customHeadersKey": jsii.String("customHeaders"),
+//   				},
+//   				Region: jsii.String("region"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				Service: jsii.String("service"),
+//   			},
+//   			Description: jsii.String("description"),
+//   			Endpoint: jsii.String("endpoint"),
+//   			Name: jsii.String("name"),
+//   		},
 //   		McpServerSplunk: &MCPServerSplunkDetailsProperty{
 //   			AuthorizationConfig: &MCPServerSplunkAuthorizationConfigProperty{
 //   				BearerToken: &BearerTokenDetailsProperty{
@@ -84,6 +105,19 @@ import (
 //   			Description: jsii.String("description"),
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
+//   		},
+//   		PagerDuty: &PagerDutyDetailsProperty{
+//   			AuthorizationConfig: &PagerDutyAuthorizationConfigProperty{
+//   				OAuthClientCredentials: &OAuthClientDetailsProperty{
+//   					ClientId: jsii.String("clientId"),
+//   					ClientName: jsii.String("clientName"),
+//   					ClientSecret: jsii.String("clientSecret"),
+//   					ExchangeParameters: exchangeParameters,
+//   				},
+//   			},
+//   			Scopes: []*string{
+//   				jsii.String("scopes"),
+//   			},
 //   		},
 //   		ServiceNow: &ServiceNowServiceDetailsProperty{
 //   			AuthorizationConfig: &ServiceNowAuthorizationConfigProperty{

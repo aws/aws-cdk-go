@@ -34,6 +34,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ApplicationType: jsii.String("applicationType"),
 //   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{

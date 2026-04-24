@@ -16,10 +16,6 @@ package awssagemaker
 //   	InstanceCount: jsii.Number(123),
 //   	InstanceGroupName: jsii.String("instanceGroupName"),
 //   	InstanceType: jsii.String("instanceType"),
-//   	LifeCycleConfig: &ClusterLifeCycleConfigProperty{
-//   		OnCreate: jsii.String("onCreate"),
-//   		SourceS3Uri: jsii.String("sourceS3Uri"),
-//   	},
 //
 //   	// the properties below are optional
 //   	CapacityRequirements: &ClusterCapacityRequirementsProperty{
@@ -63,6 +59,11 @@ package awssagemaker
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   	},
+//   	LifeCycleConfig: &ClusterLifeCycleConfigProperty{
+//   		OnCreate: jsii.String("onCreate"),
+//   		OnInitComplete: jsii.String("onInitComplete"),
+//   		SourceS3Uri: jsii.String("sourceS3Uri"),
 //   	},
 //   	MinInstanceCount: jsii.Number(123),
 //   	OnStartDeepHealthChecks: []*string{
@@ -132,10 +133,6 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancetype
 	//
 	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
-	// The lifecycle configuration for a SageMaker HyperPod cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-lifecycleconfig
-	//
-	LifeCycleConfig interface{} `field:"required" json:"lifeCycleConfig" yaml:"lifeCycleConfig"`
 	// Specifies the capacity requirements configuration for an instance group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-capacityrequirements
 	//
@@ -156,6 +153,10 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-kubernetesconfig
 	//
 	KubernetesConfig interface{} `field:"optional" json:"kubernetesConfig" yaml:"kubernetesConfig"`
+	// The lifecycle configuration for a SageMaker HyperPod cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-lifecycleconfig
+	//
+	LifeCycleConfig interface{} `field:"optional" json:"lifeCycleConfig" yaml:"lifeCycleConfig"`
 	// The minimum number of instances required for the instance group to be InService.
 	//
 	// MinInstanceCount must be less than or equal to InstanceCount.

@@ -223,6 +223,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dimensions", GoGetter: "Dimensions"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "evaluateLowSampleCountPercentile", GoGetter: "EvaluateLowSampleCountPercentile"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluationCriteria", GoGetter: "EvaluationCriteria"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluationInterval", GoGetter: "EvaluationInterval"},
 			_jsii_.MemberProperty{JsiiProperty: "evaluationPeriods", GoGetter: "EvaluationPeriods"},
 			_jsii_.MemberProperty{JsiiProperty: "extendedStatistic", GoGetter: "ExtendedStatistic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -267,8 +269,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.AlarmPromQLCriteriaProperty",
+		reflect.TypeOf((*CfnAlarm_AlarmPromQLCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.DimensionProperty",
 		reflect.TypeOf((*CfnAlarm_DimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.EvaluationCriteriaProperty",
+		reflect.TypeOf((*CfnAlarm_EvaluationCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.MetricDataQueryProperty",

@@ -344,6 +344,14 @@ func init() {
 		reflect.TypeOf((*CfnMailManagerIngressPointPropsMixin_PublicNetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerIngressPointPropsMixin.TlsAuthConfigurationProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPointPropsMixin_TlsAuthConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerIngressPointPropsMixin.TrustStoreProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPointPropsMixin_TrustStoreProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRelayMixinProps",
 		reflect.TypeOf((*CfnMailManagerRelayMixinProps)(nil)).Elem(),
 	)
@@ -400,12 +408,20 @@ func init() {
 		reflect.TypeOf((*CfnMailManagerRuleSetPropsMixin_ArchiveActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRuleSetPropsMixin.BounceActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSetPropsMixin_BounceActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRuleSetPropsMixin.DeliverToMailboxActionProperty",
 		reflect.TypeOf((*CfnMailManagerRuleSetPropsMixin_DeliverToMailboxActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRuleSetPropsMixin.DeliverToQBusinessActionProperty",
 		reflect.TypeOf((*CfnMailManagerRuleSetPropsMixin_DeliverToQBusinessActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRuleSetPropsMixin.InvokeLambdaActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSetPropsMixin_InvokeLambdaActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ses.CfnMailManagerRuleSetPropsMixin.RelayActionProperty",

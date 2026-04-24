@@ -46,6 +46,12 @@ import (
 //   	FunctionMetadata: &FunctionMetadataProperty{
 //   		FunctionArn: jsii.String("functionArn"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
@@ -54,6 +60,7 @@ type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawscloudfront.IFunctionRef
+	awscdk.ITaggableV2
 	// The ARN of the function. For example:.
 	//
 	// `arn:aws:cloudfront::123456789012:function/ExampleFunction` .
@@ -70,6 +77,8 @@ type CfnFunction interface {
 	// A flag that determines whether to automatically publish the function to the `LIVE` stage when it’s created.
 	AutoPublish() interface{}
 	SetAutoPublish(val interface{})
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -115,6 +124,8 @@ type CfnFunction interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -267,6 +278,7 @@ type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscloudfrontIFunctionRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFunction) AttrFunctionArn() *string {
@@ -304,6 +316,16 @@ func (j *jsiiProxy_CfnFunction) AutoPublish() interface{} {
 	_jsii_.Get(
 		j,
 		"autoPublish",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -449,6 +471,16 @@ func (j *jsiiProxy_CfnFunction) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -550,6 +582,17 @@ func (j *jsiiProxy_CfnFunction)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

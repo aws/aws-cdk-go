@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnDirectoryBucket) validateSetDataRedundancyParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) validateSetInventoryConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) validateSetLifecycleConfigurationParameters(val interface{}) error {
 	return nil
 }

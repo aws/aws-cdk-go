@@ -18,7 +18,7 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-srtencryptionconfiguration.html
 //
 type CfnRouterOutputPropsMixin_SrtEncryptionConfigurationProperty struct {
-	// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+	// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-srtencryptionconfiguration.html#cfn-mediaconnect-routeroutput-srtencryptionconfiguration-encryptionkey
 	//
 	EncryptionKey interface{} `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`

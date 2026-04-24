@@ -244,16 +244,44 @@ func init() {
 		reflect.TypeOf((*CfnReplicatorPropsMixin_AmazonMskClusterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.ApacheKafkaClusterProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_ApacheKafkaClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.CloudWatchLogsProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_CloudWatchLogsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.ConsumerGroupReplicationProperty",
 		reflect.TypeOf((*CfnReplicatorPropsMixin_ConsumerGroupReplicationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.FirehoseProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_FirehoseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterClientAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterClientAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterClientVpcConfigProperty",
 		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterClientVpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterEncryptionInTransitProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterEncryptionInTransitProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterProperty",
 		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterSaslScramAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterSaslScramAuthenticationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.LogDeliveryProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_LogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.ReplicationInfoProperty",
@@ -266,6 +294,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.ReplicationTopicNameConfigurationProperty",
 		reflect.TypeOf((*CfnReplicatorPropsMixin_ReplicationTopicNameConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.ReplicatorLogDeliveryProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_ReplicatorLogDeliveryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.S3Property",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_S3Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.TopicReplicationProperty",

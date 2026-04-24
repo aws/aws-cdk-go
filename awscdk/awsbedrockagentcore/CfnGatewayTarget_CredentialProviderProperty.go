@@ -15,6 +15,12 @@ package awsbedrockagentcore
 //   		CredentialParameterName: jsii.String("credentialParameterName"),
 //   		CredentialPrefix: jsii.String("credentialPrefix"),
 //   	},
+//   	IamCredentialProvider: &IamCredentialProviderProperty{
+//   		Service: jsii.String("service"),
+//
+//   		// the properties below are optional
+//   		Region: jsii.String("region"),
+//   	},
 //   	OauthCredentialProvider: &OAuthCredentialProviderProperty{
 //   		ProviderArn: jsii.String("providerArn"),
 //   		Scopes: []*string{
@@ -37,6 +43,9 @@ type CfnGatewayTarget_CredentialProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovider.html#cfn-bedrockagentcore-gatewaytarget-credentialprovider-apikeycredentialprovider
 	//
 	ApiKeyCredentialProvider interface{} `field:"optional" json:"apiKeyCredentialProvider" yaml:"apiKeyCredentialProvider"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovider.html#cfn-bedrockagentcore-gatewaytarget-credentialprovider-iamcredentialprovider
+	//
+	IamCredentialProvider interface{} `field:"optional" json:"iamCredentialProvider" yaml:"iamCredentialProvider"`
 	// The OAuth credential provider for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovider.html#cfn-bedrockagentcore-gatewaytarget-credentialprovider-oauthcredentialprovider
 	//

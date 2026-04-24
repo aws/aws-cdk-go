@@ -163,6 +163,12 @@ type CallAwsServiceCrossRegionProps struct {
 	//
 	AdditionalIamStatements *[]awsiam.PolicyStatement `field:"optional" json:"additionalIamStatements" yaml:"additionalIamStatements"`
 	// The AWS API endpoint.
+	//
+	// Be aware that if you set this to a value from the Step Functions state
+	// (e.g. `sfn.JsonPath.stringAt('$.endpoint')`), the endpoint is controlled
+	// at runtime by whoever can start the state machine execution. This could
+	// allow them to redirect the authenticated AWS API call to a server they
+	// control, allowing them to intercept and replay that specific API call.
 	// Default: Do not override API endpoint.
 	//
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`

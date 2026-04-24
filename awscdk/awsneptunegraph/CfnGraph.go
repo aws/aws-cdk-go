@@ -28,6 +28,7 @@ import (
 //   	// the properties below are optional
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	PublicConnectivity: jsii.Boolean(false),
 //   	ReplicaCount: jsii.Number(123),
 //   	Tags: []CfnTag{
@@ -82,6 +83,9 @@ type CfnGraph interface {
 	SetGraphName(val *string)
 	// A reference to a Graph resource.
 	GraphRef() *interfacesawsneptunegraph.GraphReference
+	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph.
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -395,6 +399,16 @@ func (j *jsiiProxy_CfnGraph) GraphRef() *interfacesawsneptunegraph.GraphReferenc
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraph) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraph) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -550,6 +564,14 @@ func (j *jsiiProxy_CfnGraph)SetGraphName(val *string) {
 	_jsii_.Set(
 		j,
 		"graphName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraph)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

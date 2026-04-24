@@ -31,6 +31,9 @@ package awsdevopsagent
 //   				},
 //   			},
 //   		},
+//   		Azure: &AzureConfigurationProperty{
+//   			SubscriptionId: jsii.String("subscriptionId"),
+//   		},
 //   		Dynatrace: &DynatraceConfigurationProperty{
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			EnvId: jsii.String("envId"),
@@ -72,11 +75,23 @@ package awsdevopsagent
 //   			AccountId: jsii.String("accountId"),
 //   			Endpoint: jsii.String("endpoint"),
 //   		},
+//   		McpServerSigV4: &MCPServerSigV4ConfigurationProperty{
+//   			Tools: []*string{
+//   				jsii.String("tools"),
+//   			},
+//   		},
 //   		McpServerSplunk: &MCPServerSplunkConfigurationProperty{
 //   			Description: jsii.String("description"),
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
+//   		},
+//   		PagerDuty: &PagerDutyConfigurationProperty{
+//   			CustomerEmail: jsii.String("customerEmail"),
+//   			EnableWebhookUpdates: jsii.Boolean(false),
+//   			Services: []*string{
+//   				jsii.String("services"),
+//   			},
 //   		},
 //   		ServiceNow: &ServiceNowConfigurationProperty{
 //   			EnableWebhookUpdates: jsii.Boolean(false),

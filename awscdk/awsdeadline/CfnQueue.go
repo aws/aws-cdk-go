@@ -20,6 +20,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var alwaysScheduleFirst interface{}
+//   var alwaysScheduleLast interface{}
+//   var priorityFifo interface{}
+//
 //   cfnQueue := awscdk.Aws_deadline.NewCfnQueue(this, jsii.String("MyCfnQueue"), &CfnQueueProps{
 //   	DisplayName: jsii.String("displayName"),
 //   	FarmId: jsii.String("farmId"),
@@ -51,6 +55,25 @@ import (
 //   		jsii.String("requiredFileSystemLocationNames"),
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	SchedulingConfiguration: &SchedulingConfigurationProperty{
+//   		PriorityBalanced: &PriorityBalancedSchedulingConfigurationProperty{
+//   			RenderingTaskBuffer: jsii.Number(123),
+//   		},
+//   		PriorityFifo: priorityFifo,
+//   		WeightedBalanced: &WeightedBalancedSchedulingConfigurationProperty{
+//   			ErrorWeight: jsii.Number(123),
+//   			MaxPriorityOverride: &SchedulingMaxPriorityOverrideProperty{
+//   				AlwaysScheduleFirst: alwaysScheduleFirst,
+//   			},
+//   			MinPriorityOverride: &SchedulingMinPriorityOverrideProperty{
+//   				AlwaysScheduleLast: alwaysScheduleLast,
+//   			},
+//   			PriorityWeight: jsii.Number(123),
+//   			RenderingTaskBuffer: jsii.Number(123),
+//   			RenderingTaskWeight: jsii.Number(123),
+//   			SubmissionTimeWeight: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -128,6 +151,8 @@ type CfnQueue interface {
 	// The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	SchedulingConfiguration() interface{}
+	SetSchedulingConfiguration(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -500,6 +525,16 @@ func (j *jsiiProxy_CfnQueue) RoleArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) SchedulingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"schedulingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -650,6 +685,17 @@ func (j *jsiiProxy_CfnQueue)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetSchedulingConfiguration(val interface{}) {
+	if err := j.validateSetSchedulingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"schedulingConfiguration",
 		val,
 	)
 }

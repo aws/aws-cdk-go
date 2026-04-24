@@ -40,6 +40,7 @@ import (
 //   		DestinationConfigurations: &DestinationConfigurationsProperty{
 //   			S3Destination: &S3DestinationProperty{
 //   				S3Bucket: jsii.String("s3Bucket"),
+//   				S3BucketOwner: jsii.String("s3BucketOwner"),
 //   				S3OutputConfigurations: &S3OutputConfigurationsProperty{
 //   					Compression: jsii.String("compression"),
 //   					Format: jsii.String("format"),

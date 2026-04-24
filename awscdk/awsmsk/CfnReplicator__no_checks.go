@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnReplicator) validateSetKafkaClustersParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnReplicator) validateSetLogDeliveryParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnReplicator) validateSetReplicationInfoListParameters(val interface{}) error {
 	return nil
 }

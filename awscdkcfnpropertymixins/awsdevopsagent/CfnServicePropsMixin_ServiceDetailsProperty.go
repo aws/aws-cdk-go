@@ -9,6 +9,14 @@ package awsdevopsagent
 //   var exchangeParameters interface{}
 //
 //   serviceDetailsProperty := &ServiceDetailsProperty{
+//   	AzureIdentity: &AzureIdentityServiceDetailsProperty{
+//   		ClientId: jsii.String("clientId"),
+//   		TenantId: jsii.String("tenantId"),
+//   		WebIdentityRoleArn: jsii.String("webIdentityRoleArn"),
+//   		WebIdentityTokenAudiences: []*string{
+//   			jsii.String("webIdentityTokenAudiences"),
+//   		},
+//   	},
 //   	Dynatrace: &DynatraceServiceDetailsProperty{
 //   		AccountUrn: jsii.String("accountUrn"),
 //   		AuthorizationConfig: &DynatraceAuthorizationConfigProperty{
@@ -66,6 +74,19 @@ package awsdevopsagent
 //   			},
 //   		},
 //   	},
+//   	McpServerSigV4: &MCPServerSigV4DetailsProperty{
+//   		AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
+//   			CustomHeaders: map[string]*string{
+//   				"customHeadersKey": jsii.String("customHeaders"),
+//   			},
+//   			Region: jsii.String("region"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			Service: jsii.String("service"),
+//   		},
+//   		Description: jsii.String("description"),
+//   		Endpoint: jsii.String("endpoint"),
+//   		Name: jsii.String("name"),
+//   	},
 //   	McpServerSplunk: &MCPServerSplunkDetailsProperty{
 //   		AuthorizationConfig: &MCPServerSplunkAuthorizationConfigProperty{
 //   			BearerToken: &BearerTokenDetailsProperty{
@@ -77,6 +98,19 @@ package awsdevopsagent
 //   		Description: jsii.String("description"),
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),
+//   	},
+//   	PagerDuty: &PagerDutyDetailsProperty{
+//   		AuthorizationConfig: &PagerDutyAuthorizationConfigProperty{
+//   			OAuthClientCredentials: &OAuthClientDetailsProperty{
+//   				ClientId: jsii.String("clientId"),
+//   				ClientName: jsii.String("clientName"),
+//   				ClientSecret: jsii.String("clientSecret"),
+//   				ExchangeParameters: exchangeParameters,
+//   			},
+//   		},
+//   		Scopes: []*string{
+//   			jsii.String("scopes"),
+//   		},
 //   	},
 //   	ServiceNow: &ServiceNowServiceDetailsProperty{
 //   		AuthorizationConfig: &ServiceNowAuthorizationConfigProperty{
@@ -94,6 +128,10 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html
 //
 type CfnServicePropsMixin_ServiceDetailsProperty struct {
+	// Azure Identity service configuration for federated identity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-azureidentity
+	//
+	AzureIdentity interface{} `field:"optional" json:"azureIdentity" yaml:"azureIdentity"`
 	// Dynatrace service configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-dynatrace
 	//
@@ -110,10 +148,18 @@ type CfnServicePropsMixin_ServiceDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-mcpservernewrelic
 	//
 	McpServerNewRelic interface{} `field:"optional" json:"mcpServerNewRelic" yaml:"mcpServerNewRelic"`
+	// SigV4-authenticated MCP server configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-mcpserversigv4
+	//
+	McpServerSigV4 interface{} `field:"optional" json:"mcpServerSigV4" yaml:"mcpServerSigV4"`
 	// Splunk MCP server configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-mcpserversplunk
 	//
 	McpServerSplunk interface{} `field:"optional" json:"mcpServerSplunk" yaml:"mcpServerSplunk"`
+	// PagerDuty service configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-pagerduty
+	//
+	PagerDuty interface{} `field:"optional" json:"pagerDuty" yaml:"pagerDuty"`
 	// ServiceNow service configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-servicenow
 	//

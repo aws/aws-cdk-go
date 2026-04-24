@@ -29,10 +29,6 @@ import (
 //   			InstanceCount: jsii.Number(123),
 //   			InstanceGroupName: jsii.String("instanceGroupName"),
 //   			InstanceType: jsii.String("instanceType"),
-//   			LifeCycleConfig: &ClusterLifeCycleConfigProperty{
-//   				OnCreate: jsii.String("onCreate"),
-//   				SourceS3Uri: jsii.String("sourceS3Uri"),
-//   			},
 //
 //   			// the properties below are optional
 //   			CapacityRequirements: &ClusterCapacityRequirementsProperty{
@@ -76,6 +72,11 @@ import (
 //   						Value: jsii.String("value"),
 //   					},
 //   				},
+//   			},
+//   			LifeCycleConfig: &ClusterLifeCycleConfigProperty{
+//   				OnCreate: jsii.String("onCreate"),
+//   				OnInitComplete: jsii.String("onInitComplete"),
+//   				SourceS3Uri: jsii.String("sourceS3Uri"),
 //   			},
 //   			MinInstanceCount: jsii.Number(123),
 //   			OnStartDeepHealthChecks: []*string{

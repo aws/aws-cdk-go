@@ -460,6 +460,18 @@ func init() {
 		reflect.TypeOf((*CfnRouterInputPropsMixin_MediaConnectFlowRouterInputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.MediaLiveChannelRouterInputConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_MediaLiveChannelRouterInputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.MediaLiveTransitEncryptionKeyConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_MediaLiveTransitEncryptionKeyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.MediaLiveTransitEncryptionProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_MediaLiveTransitEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.MergeRouterInputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_MergeRouterInputConfigurationProperty)(nil)).Elem(),
 	)

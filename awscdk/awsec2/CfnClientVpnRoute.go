@@ -25,10 +25,10 @@ import (
 //   cfnClientVpnRoute := awscdk.Aws_ec2.NewCfnClientVpnRoute(this, jsii.String("MyCfnClientVpnRoute"), &CfnClientVpnRouteProps{
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	DestinationCidrBlock: jsii.String("destinationCidrBlock"),
-//   	TargetVpcSubnetId: jsii.String("targetVpcSubnetId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	TargetVpcSubnetId: jsii.String("targetVpcSubnetId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnroute.html
@@ -470,9 +470,6 @@ func (j *jsiiProxy_CfnClientVpnRoute)SetDestinationCidrBlock(val *string) {
 }
 
 func (j *jsiiProxy_CfnClientVpnRoute)SetTargetVpcSubnetId(val *string) {
-	if err := j.validateSetTargetVpcSubnetIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"targetVpcSubnetId",

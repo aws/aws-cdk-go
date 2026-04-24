@@ -36,6 +36,10 @@ func init() {
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnCapacityProviderPropsMixin.AutoRepairConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_AutoRepairConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnCapacityProviderPropsMixin.AutoScalingGroupProviderProperty",
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_AutoScalingGroupProviderProperty)(nil)).Elem(),
 	)

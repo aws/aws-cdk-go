@@ -300,6 +300,26 @@ func init() {
 		reflect.TypeOf((*CfnQueuePropsMixin_PosixUserProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnQueuePropsMixin.PriorityBalancedSchedulingConfigurationProperty",
+		reflect.TypeOf((*CfnQueuePropsMixin_PriorityBalancedSchedulingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnQueuePropsMixin.SchedulingConfigurationProperty",
+		reflect.TypeOf((*CfnQueuePropsMixin_SchedulingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnQueuePropsMixin.SchedulingMaxPriorityOverrideProperty",
+		reflect.TypeOf((*CfnQueuePropsMixin_SchedulingMaxPriorityOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnQueuePropsMixin.SchedulingMinPriorityOverrideProperty",
+		reflect.TypeOf((*CfnQueuePropsMixin_SchedulingMinPriorityOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnQueuePropsMixin.WeightedBalancedSchedulingConfigurationProperty",
+		reflect.TypeOf((*CfnQueuePropsMixin_WeightedBalancedSchedulingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnQueuePropsMixin.WindowsUserProperty",
 		reflect.TypeOf((*CfnQueuePropsMixin_WindowsUserProperty)(nil)).Elem(),
 	)

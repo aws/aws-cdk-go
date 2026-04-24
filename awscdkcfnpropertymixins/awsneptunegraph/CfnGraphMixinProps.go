@@ -14,6 +14,7 @@ import (
 //   cfnGraphMixinProps := &CfnGraphMixinProps{
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ProvisionedMemory: jsii.Number(123),
 //   	PublicConnectivity: jsii.Boolean(false),
 //   	ReplicaCount: jsii.Number(123),
@@ -45,6 +46,12 @@ type CfnGraphMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-graphname
 	//
 	GraphName *string `field:"optional" json:"graphName" yaml:"graphName"`
+	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph.
+	//
+	// If not specified, the graph is encrypted with an AWS managed key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
 	//
 	// Min = 16.

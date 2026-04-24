@@ -26,6 +26,8 @@ func init() {
 			"LOGICAL_ID": ArtifactMetadataEntryType_LOGICAL_ID,
 			"STACK_TAGS": ArtifactMetadataEntryType_STACK_TAGS,
 			"DO_NOT_REFACTOR": ArtifactMetadataEntryType_DO_NOT_REFACTOR,
+			"CREATION_STACK": ArtifactMetadataEntryType_CREATION_STACK,
+			"PROPERTY_ASSIGNMENT": ArtifactMetadataEntryType_PROPERTY_ASSIGNMENT,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -271,6 +273,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.PluginContextQuery",
 		reflect.TypeOf((*PluginContextQuery)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.PropertyMutationMetadataEntry",
+		reflect.TypeOf((*PropertyMutationMetadataEntry)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.cloud_assembly_schema.RequireApproval",

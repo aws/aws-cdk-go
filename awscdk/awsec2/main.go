@@ -1154,8 +1154,20 @@ func init() {
 		reflect.TypeOf((*CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.IamInstanceProfileSpecificationProperty",
+		reflect.TypeOf((*CfnEC2Fleet_IamInstanceProfileSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.InstanceMetadataOptionsRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_InstanceMetadataOptionsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_InstanceRequirementsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.Ipv6AddressRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_Ipv6AddressRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.MaintenanceStrategiesProperty",
@@ -1178,6 +1190,10 @@ func init() {
 		reflect.TypeOf((*CfnEC2Fleet_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.NetworkInterfaceSpecificationRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_NetworkInterfaceSpecificationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_OnDemandOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -1188,6 +1204,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.PlacementProperty",
 		reflect.TypeOf((*CfnEC2Fleet_PlacementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.PrivateIpAddressSpecificationRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_PrivateIpAddressSpecificationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnEC2Fleet.ReservedCapacityOptionsRequestProperty",

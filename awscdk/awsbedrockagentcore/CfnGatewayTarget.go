@@ -132,6 +132,12 @@ import (
 //   					CredentialParameterName: jsii.String("credentialParameterName"),
 //   					CredentialPrefix: jsii.String("credentialPrefix"),
 //   				},
+//   				IamCredentialProvider: &IamCredentialProviderProperty{
+//   					Service: jsii.String("service"),
+//
+//   					// the properties below are optional
+//   					Region: jsii.String("region"),
+//   				},
 //   				OauthCredentialProvider: &OAuthCredentialProviderProperty{
 //   					ProviderArn: jsii.String("providerArn"),
 //   					Scopes: []*string{

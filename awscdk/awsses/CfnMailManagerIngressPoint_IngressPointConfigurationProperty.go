@@ -13,6 +13,15 @@ package awsses
 //   ingressPointConfigurationProperty := &IngressPointConfigurationProperty{
 //   	SecretArn: jsii.String("secretArn"),
 //   	SmtpPassword: jsii.String("smtpPassword"),
+//   	TlsAuthConfiguration: &TlsAuthConfigurationProperty{
+//   		TrustStore: &TrustStoreProperty{
+//   			CaContent: jsii.String("caContent"),
+//
+//   			// the properties below are optional
+//   			CrlContent: jsii.String("crlContent"),
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html
@@ -26,5 +35,8 @@ type CfnMailManagerIngressPoint_IngressPointConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html#cfn-ses-mailmanageringresspoint-ingresspointconfiguration-smtppassword
 	//
 	SmtpPassword *string `field:"optional" json:"smtpPassword" yaml:"smtpPassword"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html#cfn-ses-mailmanageringresspoint-ingresspointconfiguration-tlsauthconfiguration
+	//
+	TlsAuthConfiguration interface{} `field:"optional" json:"tlsAuthConfiguration" yaml:"tlsAuthConfiguration"`
 }
 

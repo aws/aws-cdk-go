@@ -11,6 +11,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var alwaysScheduleFirst interface{}
+//   var alwaysScheduleLast interface{}
+//   var priorityFifo interface{}
+//
 //   cfnQueueProps := &CfnQueueProps{
 //   	DisplayName: jsii.String("displayName"),
 //   	FarmId: jsii.String("farmId"),
@@ -42,6 +46,25 @@ import (
 //   		jsii.String("requiredFileSystemLocationNames"),
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	SchedulingConfiguration: &SchedulingConfigurationProperty{
+//   		PriorityBalanced: &PriorityBalancedSchedulingConfigurationProperty{
+//   			RenderingTaskBuffer: jsii.Number(123),
+//   		},
+//   		PriorityFifo: priorityFifo,
+//   		WeightedBalanced: &WeightedBalancedSchedulingConfigurationProperty{
+//   			ErrorWeight: jsii.Number(123),
+//   			MaxPriorityOverride: &SchedulingMaxPriorityOverrideProperty{
+//   				AlwaysScheduleFirst: alwaysScheduleFirst,
+//   			},
+//   			MinPriorityOverride: &SchedulingMinPriorityOverrideProperty{
+//   				AlwaysScheduleLast: alwaysScheduleLast,
+//   			},
+//   			PriorityWeight: jsii.Number(123),
+//   			RenderingTaskBuffer: jsii.Number(123),
+//   			RenderingTaskWeight: jsii.Number(123),
+//   			SubmissionTimeWeight: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -99,6 +122,9 @@ type CfnQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html#cfn-deadline-queue-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html#cfn-deadline-queue-schedulingconfiguration
+	//
+	SchedulingConfiguration interface{} `field:"optional" json:"schedulingConfiguration" yaml:"schedulingConfiguration"`
 	// The tags to add to your queue.
 	//
 	// Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.

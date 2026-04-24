@@ -19,6 +19,14 @@ import (
 //   	// the properties below are optional
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ServiceDetails: &ServiceDetailsProperty{
+//   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			TenantId: jsii.String("tenantId"),
+//   			WebIdentityRoleArn: jsii.String("webIdentityRoleArn"),
+//   			WebIdentityTokenAudiences: []*string{
+//   				jsii.String("webIdentityTokenAudiences"),
+//   			},
+//   		},
 //   		Dynatrace: &DynatraceServiceDetailsProperty{
 //   			AccountUrn: jsii.String("accountUrn"),
 //
@@ -88,6 +96,23 @@ import (
 //   				},
 //   			},
 //   		},
+//   		McpServerSigV4: &MCPServerSigV4DetailsProperty{
+//   			AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
+//   				Region: jsii.String("region"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				Service: jsii.String("service"),
+//
+//   				// the properties below are optional
+//   				CustomHeaders: map[string]*string{
+//   					"customHeadersKey": jsii.String("customHeaders"),
+//   				},
+//   			},
+//   			Endpoint: jsii.String("endpoint"),
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			Description: jsii.String("description"),
+//   		},
 //   		McpServerSplunk: &MCPServerSplunkDetailsProperty{
 //   			AuthorizationConfig: &MCPServerSplunkAuthorizationConfigProperty{
 //   				BearerToken: &BearerTokenDetailsProperty{
@@ -103,6 +128,21 @@ import (
 //
 //   			// the properties below are optional
 //   			Description: jsii.String("description"),
+//   		},
+//   		PagerDuty: &PagerDutyDetailsProperty{
+//   			AuthorizationConfig: &PagerDutyAuthorizationConfigProperty{
+//   				OAuthClientCredentials: &OAuthClientDetailsProperty{
+//   					ClientId: jsii.String("clientId"),
+//   					ClientSecret: jsii.String("clientSecret"),
+//
+//   					// the properties below are optional
+//   					ClientName: jsii.String("clientName"),
+//   					ExchangeParameters: exchangeParameters,
+//   				},
+//   			},
+//   			Scopes: []*string{
+//   				jsii.String("scopes"),
+//   			},
 //   		},
 //   		ServiceNow: &ServiceNowServiceDetailsProperty{
 //   			InstanceUrl: jsii.String("instanceUrl"),

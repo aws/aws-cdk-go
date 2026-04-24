@@ -160,6 +160,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "inventoryConfigurations", GoGetter: "InventoryConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecycleConfiguration", GoGetter: "LifecycleConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "locationName", GoGetter: "LocationName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -197,6 +198,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.BucketEncryptionProperty",
 		reflect.TypeOf((*CfnDirectoryBucket_BucketEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.DestinationProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.InventoryConfigurationProperty",
+		reflect.TypeOf((*CfnDirectoryBucket_InventoryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3express.CfnDirectoryBucket.LifecycleConfigurationProperty",

@@ -17,6 +17,7 @@ package awsec2
 //   				// the properties below are optional
 //   				LaunchTemplateId: jsii.String("launchTemplateId"),
 //   				LaunchTemplateName: jsii.String("launchTemplateName"),
+//   				LaunchTemplateSpecificationUserData: jsii.String("launchTemplateSpecificationUserData"),
 //   			},
 //   			Overrides: []interface{}{
 //   				&FleetLaunchTemplateOverridesRequestProperty{
@@ -37,6 +38,10 @@ package awsec2
 //   							NoDevice: jsii.String("noDevice"),
 //   							VirtualName: jsii.String("virtualName"),
 //   						},
+//   					},
+//   					IamInstanceProfile: &IamInstanceProfileSpecificationProperty{
+//   						Arn: jsii.String("arn"),
+//   						Name: jsii.String("name"),
 //   					},
 //   					InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   						AcceleratorCount: &AcceleratorCountRequestProperty{
@@ -118,7 +123,42 @@ package awsec2
 //   						},
 //   					},
 //   					InstanceType: jsii.String("instanceType"),
+//   					KeyName: jsii.String("keyName"),
 //   					MaxPrice: jsii.String("maxPrice"),
+//   					MetadataOptions: &InstanceMetadataOptionsRequestProperty{
+//   						HttpEndpoint: jsii.String("httpEndpoint"),
+//   						HttpPutResponseHopLimit: jsii.Number(123),
+//   						HttpTokens: jsii.String("httpTokens"),
+//   					},
+//   					NetworkInterfaces: []interface{}{
+//   						&NetworkInterfaceSpecificationRequestProperty{
+//   							AssociatePublicIpAddress: jsii.Boolean(false),
+//   							DeleteOnTermination: jsii.Boolean(false),
+//   							Description: jsii.String("description"),
+//   							DeviceIndex: jsii.Number(123),
+//   							Groups: []*string{
+//   								jsii.String("groups"),
+//   							},
+//   							InterfaceType: jsii.String("interfaceType"),
+//   							Ipv6AddressCount: jsii.Number(123),
+//   							Ipv6Addresses: []interface{}{
+//   								&Ipv6AddressRequestProperty{
+//   									Ipv6Address: jsii.String("ipv6Address"),
+//   								},
+//   							},
+//   							NetworkCardIndex: jsii.Number(123),
+//   							NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   							PrivateIpAddress: jsii.String("privateIpAddress"),
+//   							PrivateIpAddresses: []interface{}{
+//   								&PrivateIpAddressSpecificationRequestProperty{
+//   									Primary: jsii.Boolean(false),
+//   									PrivateIpAddress: jsii.String("privateIpAddress"),
+//   								},
+//   							},
+//   							SecondaryPrivateIpAddressCount: jsii.Number(123),
+//   							SubnetId: jsii.String("subnetId"),
+//   						},
+//   					},
 //   					Placement: &PlacementProperty{
 //   						Affinity: jsii.String("affinity"),
 //   						AvailabilityZone: jsii.String("availabilityZone"),

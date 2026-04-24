@@ -20,6 +20,15 @@ import (
 //   	IngressPointConfiguration: &IngressPointConfigurationProperty{
 //   		SecretArn: jsii.String("secretArn"),
 //   		SmtpPassword: jsii.String("smtpPassword"),
+//   		TlsAuthConfiguration: &TlsAuthConfigurationProperty{
+//   			TrustStore: &TrustStoreProperty{
+//   				CaContent: jsii.String("caContent"),
+//
+//   				// the properties below are optional
+//   				CrlContent: jsii.String("crlContent"),
+//   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   		},
 //   	},
 //   	IngressPointName: jsii.String("ingressPointName"),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
@@ -37,6 +46,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TlsPolicy: jsii.String("tlsPolicy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html
@@ -76,5 +86,8 @@ type CfnMailManagerIngressPointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html#cfn-ses-mailmanageringresspoint-tlspolicy
+	//
+	TlsPolicy *string `field:"optional" json:"tlsPolicy" yaml:"tlsPolicy"`
 }
 

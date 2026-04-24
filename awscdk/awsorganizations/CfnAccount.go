@@ -97,6 +97,8 @@ type CfnAccount interface {
 	//
 	// For example: `2016-11-24T11:11:48-08:00` .
 	AttrJoinedTimestamp() *string
+	// The paths in the organization where the account exists.
+	AttrPaths() *[]*string
 	// Each state represents a specific phase in the account lifecycle.
 	//
 	// Use this information to manage account access, automate workflows, or trigger actions based on account state changes.
@@ -362,6 +364,16 @@ func (j *jsiiProxy_CfnAccount) AttrJoinedTimestamp() *string {
 	_jsii_.Get(
 		j,
 		"attrJoinedTimestamp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccount) AttrPaths() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrPaths",
 		&returns,
 	)
 	return returns

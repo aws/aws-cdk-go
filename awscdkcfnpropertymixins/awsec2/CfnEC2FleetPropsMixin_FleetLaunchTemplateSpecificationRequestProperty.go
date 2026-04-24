@@ -22,6 +22,7 @@ package awsec2
 //   fleetLaunchTemplateSpecificationRequestProperty := &FleetLaunchTemplateSpecificationRequestProperty{
 //   	LaunchTemplateId: jsii.String("launchTemplateId"),
 //   	LaunchTemplateName: jsii.String("launchTemplateName"),
+//   	LaunchTemplateSpecificationUserData: jsii.String("launchTemplateSpecificationUserData"),
 //   	Version: jsii.String("version"),
 //   }
 //
@@ -40,6 +41,9 @@ type CfnEC2FleetPropsMixin_FleetLaunchTemplateSpecificationRequestProperty struc
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename
 	//
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatespecificationuserdata
+	//
+	LaunchTemplateSpecificationUserData *string `field:"optional" json:"launchTemplateSpecificationUserData" yaml:"launchTemplateSpecificationUserData"`
 	// The launch template version number, `$Latest` , or `$Default` . You must specify a value, otherwise the request fails.
 	//
 	// If the value is `$Latest` , Amazon EC2 uses the latest version of the launch template.

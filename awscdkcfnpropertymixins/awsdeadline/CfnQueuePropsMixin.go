@@ -20,7 +20,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var alwaysScheduleFirst interface{}
+//   var alwaysScheduleLast interface{}
 //   var mergeStrategy IMergeStrategy
+//   var priorityFifo interface{}
 //
 //   cfnQueuePropsMixin := awscdkcfnpropertymixins.Aws_deadline.NewCfnQueuePropsMixin(&CfnQueueMixinProps{
 //   	AllowedStorageProfileIds: []*string{
@@ -49,6 +52,25 @@ import (
 //   		jsii.String("requiredFileSystemLocationNames"),
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	SchedulingConfiguration: &SchedulingConfigurationProperty{
+//   		PriorityBalanced: &PriorityBalancedSchedulingConfigurationProperty{
+//   			RenderingTaskBuffer: jsii.Number(123),
+//   		},
+//   		PriorityFifo: priorityFifo,
+//   		WeightedBalanced: &WeightedBalancedSchedulingConfigurationProperty{
+//   			ErrorWeight: jsii.Number(123),
+//   			MaxPriorityOverride: &SchedulingMaxPriorityOverrideProperty{
+//   				AlwaysScheduleFirst: alwaysScheduleFirst,
+//   			},
+//   			MinPriorityOverride: &SchedulingMinPriorityOverrideProperty{
+//   				AlwaysScheduleLast: alwaysScheduleLast,
+//   			},
+//   			PriorityWeight: jsii.Number(123),
+//   			RenderingTaskBuffer: jsii.Number(123),
+//   			RenderingTaskWeight: jsii.Number(123),
+//   			SubmissionTimeWeight: jsii.Number(123),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

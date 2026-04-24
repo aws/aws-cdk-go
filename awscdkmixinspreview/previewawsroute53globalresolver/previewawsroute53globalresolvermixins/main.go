@@ -77,6 +77,8 @@ func init() {
 			"CATEGORY_NAME": CfnGlobalResolverGlobalResolverLogsRecordFields_CATEGORY_NAME,
 			"CLASS_NAME": CfnGlobalResolverGlobalResolverLogsRecordFields_CLASS_NAME,
 			"CONNECTION_INFO": CfnGlobalResolverGlobalResolverLogsRecordFields_CONNECTION_INFO,
+			"DISPOSITION": CfnGlobalResolverGlobalResolverLogsRecordFields_DISPOSITION,
+			"DISPOSITION_ID": CfnGlobalResolverGlobalResolverLogsRecordFields_DISPOSITION_ID,
 			"DURATION": CfnGlobalResolverGlobalResolverLogsRecordFields_DURATION,
 			"END_TIME": CfnGlobalResolverGlobalResolverLogsRecordFields_END_TIME,
 			"ENRICHMENTS": CfnGlobalResolverGlobalResolverLogsRecordFields_ENRICHMENTS,

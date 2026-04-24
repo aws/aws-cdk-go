@@ -26,6 +26,13 @@ import (
 //   	IngressPointConfiguration: &IngressPointConfigurationProperty{
 //   		SecretArn: jsii.String("secretArn"),
 //   		SmtpPassword: jsii.String("smtpPassword"),
+//   		TlsAuthConfiguration: &TlsAuthConfigurationProperty{
+//   			TrustStore: &TrustStoreProperty{
+//   				CaContent: jsii.String("caContent"),
+//   				CrlContent: jsii.String("crlContent"),
+//   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   		},
 //   	},
 //   	IngressPointName: jsii.String("ingressPointName"),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
@@ -44,6 +51,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TlsPolicy: jsii.String("tlsPolicy"),
 //   	TrafficPolicyId: jsii.String("trafficPolicyId"),
 //   	Type: jsii.String("type"),
 //   }, &CfnPropertyMixinOptions{

@@ -38,6 +38,7 @@ import (
 //   		},
 //   	},
 //   	EgressType: jsii.String("egressType"),
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	LoggingRole: jsii.String("loggingRole"),
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
@@ -103,6 +104,9 @@ type CfnConnector interface {
 	EgressType() *string
 	SetEgressType(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// IP address type for Connector.
+	IpAddressType() *string
+	SetIpAddressType(val *string)
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole() *string
 	SetLoggingRole(val *string)
@@ -446,6 +450,16 @@ func (j *jsiiProxy_CfnConnector) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnector) IpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipAddressType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnector) LoggingRole() *string {
 	var returns *string
 	_jsii_.Get(
@@ -633,6 +647,14 @@ func (j *jsiiProxy_CfnConnector)SetEgressType(val *string) {
 	_jsii_.Set(
 		j,
 		"egressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnector)SetIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"ipAddressType",
 		val,
 	)
 }

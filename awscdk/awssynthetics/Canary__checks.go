@@ -67,6 +67,38 @@ func (c *jsiiProxy_Canary) validateMetricSuccessPercentParameters(options *awscl
 	return nil
 }
 
+func validateCanary_FromCanaryArnParameters(scope constructs.Construct, id *string, canaryArn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if canaryArn == nil {
+		return fmt.Errorf("parameter canaryArn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCanary_FromCanaryNameParameters(scope constructs.Construct, id *string, canaryName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if canaryName == nil {
+		return fmt.Errorf("parameter canaryName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCanary_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

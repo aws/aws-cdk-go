@@ -17,6 +17,7 @@ import (
 //   	// the properties below are optional
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	PublicConnectivity: jsii.Boolean(false),
 //   	ReplicaCount: jsii.Number(123),
 //   	Tags: []CfnTag{
@@ -53,6 +54,12 @@ type CfnGraphProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-graphname
 	//
 	GraphName *string `field:"optional" json:"graphName" yaml:"graphName"`
+	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph.
+	//
+	// If not specified, the graph is encrypted with an AWS managed key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
 	//
 	// When the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the internet. When the graph isn't publicly available, you need to create a `PrivateGraphEndpoint` in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.

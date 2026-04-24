@@ -38,6 +38,14 @@ import (
 //   		},
 //   	},
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
+//   	EvaluationCriteria: &EvaluationCriteriaProperty{
+//   		PromQlCriteria: &AlarmPromQLCriteriaProperty{
+//   			PendingPeriod: jsii.Number(123),
+//   			Query: jsii.String("query"),
+//   			RecoveryPeriod: jsii.Number(123),
+//   		},
+//   	},
+//   	EvaluationInterval: jsii.Number(123),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{
@@ -138,6 +146,10 @@ type CfnAlarm interface {
 	// Used only for alarms based on percentiles.
 	EvaluateLowSampleCountPercentile() *string
 	SetEvaluateLowSampleCountPercentile(val *string)
+	EvaluationCriteria() interface{}
+	SetEvaluationCriteria(val interface{})
+	EvaluationInterval() *float64
+	SetEvaluationInterval(val *float64)
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
@@ -520,6 +532,26 @@ func (j *jsiiProxy_CfnAlarm) EvaluateLowSampleCountPercentile() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAlarm) EvaluationCriteria() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"evaluationCriteria",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAlarm) EvaluationInterval() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"evaluationInterval",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAlarm) EvaluationPeriods() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -816,6 +848,25 @@ func (j *jsiiProxy_CfnAlarm)SetEvaluateLowSampleCountPercentile(val *string) {
 	_jsii_.Set(
 		j,
 		"evaluateLowSampleCountPercentile",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarm)SetEvaluationCriteria(val interface{}) {
+	if err := j.validateSetEvaluationCriteriaParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"evaluationCriteria",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarm)SetEvaluationInterval(val *float64) {
+	_jsii_.Set(
+		j,
+		"evaluationInterval",
 		val,
 	)
 }

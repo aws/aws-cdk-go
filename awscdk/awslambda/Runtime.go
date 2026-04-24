@@ -705,6 +705,17 @@ func Runtime_RUBY_3_4() Runtime {
 	return returns
 }
 
+func Runtime_RUBY_4_0() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"RUBY_4_0",
+		&returns,
+	)
+	return returns
+}
+
 func (r *jsiiProxy_Runtime) RuntimeEquals(other Runtime) *bool {
 	if err := r.validateRuntimeEqualsParameters(other); err != nil {
 		panic(err)

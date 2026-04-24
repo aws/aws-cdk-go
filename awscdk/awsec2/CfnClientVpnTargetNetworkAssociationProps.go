@@ -10,6 +10,8 @@ package awsec2
 //
 //   cfnClientVpnTargetNetworkAssociationProps := &CfnClientVpnTargetNetworkAssociationProps{
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
+//
+//   	// the properties below are optional
 //   	SubnetId: jsii.String("subnetId"),
 //   }
 //
@@ -23,6 +25,6 @@ type CfnClientVpnTargetNetworkAssociationProps struct {
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html#cfn-ec2-clientvpntargetnetworkassociation-subnetid
 	//
-	SubnetId *string `field:"required" json:"subnetId" yaml:"subnetId"`
+	SubnetId *string `field:"optional" json:"subnetId" yaml:"subnetId"`
 }
 

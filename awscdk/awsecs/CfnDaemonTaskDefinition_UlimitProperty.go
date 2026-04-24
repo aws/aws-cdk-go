@@ -1,6 +1,11 @@
 package awsecs
 
 
+// The ``ulimit`` settings to pass to the container.
+//
+// Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``65535`` and the default hard limit is ``65535``.
+//  You can specify the ``ulimit`` settings for a container in a task definition.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,12 +20,19 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-ulimit.html
 //
 type CfnDaemonTaskDefinition_UlimitProperty struct {
+	// The hard limit for the ``ulimit`` type.
+	//
+	// The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-ulimit.html#cfn-ecs-daemontaskdefinition-ulimit-hardlimit
 	//
 	HardLimit *float64 `field:"required" json:"hardLimit" yaml:"hardLimit"`
+	// The ``type`` of the ``ulimit``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-ulimit.html#cfn-ecs-daemontaskdefinition-ulimit-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The soft limit for the ``ulimit`` type.
+	//
+	// The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-ulimit.html#cfn-ecs-daemontaskdefinition-ulimit-softlimit
 	//
 	SoftLimit *float64 `field:"required" json:"softLimit" yaml:"softLimit"`

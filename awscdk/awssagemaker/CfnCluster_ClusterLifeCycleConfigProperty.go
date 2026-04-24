@@ -10,6 +10,7 @@ package awssagemaker
 //
 //   clusterLifeCycleConfigProperty := &ClusterLifeCycleConfigProperty{
 //   	OnCreate: jsii.String("onCreate"),
+//   	OnInitComplete: jsii.String("onInitComplete"),
 //   	SourceS3Uri: jsii.String("sourceS3Uri"),
 //   }
 //
@@ -21,12 +22,18 @@ type CfnCluster_ClusterLifeCycleConfigProperty struct {
 	// This entrypoint script runs during cluster creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html#cfn-sagemaker-cluster-clusterlifecycleconfig-oncreate
 	//
-	OnCreate *string `field:"required" json:"onCreate" yaml:"onCreate"`
+	OnCreate *string `field:"optional" json:"onCreate" yaml:"onCreate"`
+	// The file name of the extension script under SourceS3Uri.
+	//
+	// This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html#cfn-sagemaker-cluster-clusterlifecycleconfig-oninitcomplete
+	//
+	OnInitComplete *string `field:"optional" json:"onInitComplete" yaml:"onInitComplete"`
 	// An Amazon S3 bucket path where your lifecycle scripts are stored.
 	//
 	// > Make sure that the S3 bucket path starts with `s3://sagemaker-` . The [IAM role for SageMaker HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod) has the managed [`AmazonSageMakerClusterInstanceRolePolicy`](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-cluster.html) attached, which allows access to S3 buckets with the specific prefix `sagemaker-` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html#cfn-sagemaker-cluster-clusterlifecycleconfig-sources3uri
 	//
-	SourceS3Uri *string `field:"required" json:"sourceS3Uri" yaml:"sourceS3Uri"`
+	SourceS3Uri *string `field:"optional" json:"sourceS3Uri" yaml:"sourceS3Uri"`
 }
 

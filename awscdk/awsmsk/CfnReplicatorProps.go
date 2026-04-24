@@ -17,6 +17,22 @@ import (
 //   			AmazonMskCluster: &AmazonMskClusterProperty{
 //   				MskClusterArn: jsii.String("mskClusterArn"),
 //   			},
+//   			ApacheKafkaCluster: &ApacheKafkaClusterProperty{
+//   				ApacheKafkaClusterId: jsii.String("apacheKafkaClusterId"),
+//   				BootstrapBrokerString: jsii.String("bootstrapBrokerString"),
+//   			},
+//   			ClientAuthentication: &KafkaClusterClientAuthenticationProperty{
+//   				SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
+//   					Mechanism: jsii.String("mechanism"),
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//   			EncryptionInTransit: &KafkaClusterEncryptionInTransitProperty{
+//   				EncryptionType: jsii.String("encryptionType"),
+//
+//   				// the properties below are optional
+//   				RootCaCertificate: jsii.String("rootCaCertificate"),
+//   			},
 //   			VpcConfig: &KafkaClusterClientVpcConfigProperty{
 //   				SubnetIds: []*string{
 //   					jsii.String("subnetIds"),
@@ -37,15 +53,14 @@ import (
 //   				},
 //
 //   				// the properties below are optional
+//   				ConsumerGroupOffsetSyncMode: jsii.String("consumerGroupOffsetSyncMode"),
 //   				ConsumerGroupsToExclude: []*string{
 //   					jsii.String("consumerGroupsToExclude"),
 //   				},
 //   				DetectAndCopyNewConsumerGroups: jsii.Boolean(false),
 //   				SynchroniseConsumerGroupOffsets: jsii.Boolean(false),
 //   			},
-//   			SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
 //   			TargetCompressionType: jsii.String("targetCompressionType"),
-//   			TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
 //   			TopicReplication: &TopicReplicationProperty{
 //   				TopicsToReplicate: []*string{
 //   					jsii.String("topicsToReplicate"),
@@ -65,6 +80,12 @@ import (
 //   					jsii.String("topicsToExclude"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
+//   			SourceKafkaClusterId: jsii.String("sourceKafkaClusterId"),
+//   			TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
+//   			TargetKafkaClusterId: jsii.String("targetKafkaClusterId"),
 //   		},
 //   	},
 //   	ReplicatorName: jsii.String("replicatorName"),
@@ -72,6 +93,29 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	LogDelivery: &LogDeliveryProperty{
+//   		ReplicatorLogDelivery: &ReplicatorLogDeliveryProperty{
+//   			CloudWatchLogs: &CloudWatchLogsProperty{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				LogGroup: jsii.String("logGroup"),
+//   			},
+//   			Firehose: &FirehoseProperty{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				DeliveryStream: jsii.String("deliveryStream"),
+//   			},
+//   			S3: &S3Property{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				Bucket: jsii.String("bucket"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -105,6 +149,10 @@ type CfnReplicatorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Configuration for log delivery for the replicator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-logdelivery
+	//
+	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
 	// List of tags to attach to created Replicator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-tags
 	//

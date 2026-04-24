@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssynthetics/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawssynthetics"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -32,12 +33,17 @@ import (
 type Canary interface {
 	awscdk.Resource
 	awsec2.IConnectable
+	ICanary
 	// Bucket where data from each canary run is stored.
 	ArtifactsBucket() awss3.IBucket
+	// The canary ARN.
+	CanaryArn() *string
 	// The canary ID.
 	CanaryId() *string
 	// The canary Name.
 	CanaryName() *string
+	// A reference to the canary.
+	CanaryRef() *interfacesawssynthetics.CanaryReference
 	// The state of the canary.
 	//
 	// For example, 'RUNNING', 'STOPPED', 'NOT STARTED', or 'ERROR'.
@@ -121,6 +127,7 @@ type Canary interface {
 type jsiiProxy_Canary struct {
 	internal.Type__awscdkResource
 	internal.Type__awsec2IConnectable
+	jsiiProxy_ICanary
 }
 
 func (j *jsiiProxy_Canary) ArtifactsBucket() awss3.IBucket {
@@ -128,6 +135,16 @@ func (j *jsiiProxy_Canary) ArtifactsBucket() awss3.IBucket {
 	_jsii_.Get(
 		j,
 		"artifactsBucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Canary) CanaryArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"canaryArn",
 		&returns,
 	)
 	return returns
@@ -148,6 +165,16 @@ func (j *jsiiProxy_Canary) CanaryName() *string {
 	_jsii_.Get(
 		j,
 		"canaryName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Canary) CanaryRef() *interfacesawssynthetics.CanaryReference {
+	var returns *interfacesawssynthetics.CanaryReference
+	_jsii_.Get(
+		j,
+		"canaryRef",
 		&returns,
 	)
 	return returns
@@ -249,6 +276,44 @@ func NewCanary_Override(c Canary, scope constructs.Construct, id *string, props 
 		[]interface{}{scope, id, props},
 		c,
 	)
+}
+
+// Import an existing canary by ARN.
+func Canary_FromCanaryArn(scope constructs.Construct, id *string, canaryArn *string) ICanary {
+	_init_.Initialize()
+
+	if err := validateCanary_FromCanaryArnParameters(scope, id, canaryArn); err != nil {
+		panic(err)
+	}
+	var returns ICanary
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_synthetics.Canary",
+		"fromCanaryArn",
+		[]interface{}{scope, id, canaryArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import an existing canary by name.
+func Canary_FromCanaryName(scope constructs.Construct, id *string, canaryName *string) ICanary {
+	_init_.Initialize()
+
+	if err := validateCanary_FromCanaryNameParameters(scope, id, canaryName); err != nil {
+		panic(err)
+	}
+	var returns ICanary
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_synthetics.Canary",
+		"fromCanaryName",
+		[]interface{}{scope, id, canaryName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks if `x` is a construct.

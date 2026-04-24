@@ -23,26 +23,16 @@ import (
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_22_X(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	        exports.handler = async (event) => {
-//   	            return {
-//   	                statusCode: 200,
-//   	                body: JSON.stringify({ message: 'Hello from Lambda!' })
-//   	            };
-//   	        };
-//   	    `)),
+//   policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
+//   	PolicyEngineName: jsii.String("my_policy_engine"),
 //   })
 //
-//   // Create a gateway target with Lambda and tool schema
-//   target := agentcore.GatewayTarget_ForLambda(this, jsii.String("MyLambdaTarget"), &GatewayTargetLambdaProps{
-//   	GatewayTargetName: jsii.String("my-lambda-target"),
-//   	Description: jsii.String("Target for Lambda function integration"),
-//   	Gateway: gateway,
-//   	LambdaFunction: lambdaFunction,
-//   	ToolSchema: agentcore.ToolSchema_FromLocalAsset(path.join(__dirname, jsii.String("schemas"), jsii.String("my-tool-schema.json"))),
+//   allowAllPolicy := agentcore.NewPolicy(this, jsii.String("AllowAllPolicy"), &PolicyProps{
+//   	PolicyEngine: policyEngine,
+//   	PolicyName: jsii.String("allow_all"),
+//   	Statement: agentcore.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
+//   	Description: jsii.String("Allow all actions on specific gateway (development only)"),
+//   	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html
@@ -108,6 +98,9 @@ type Gateway interface {
 	//   cross-environment scenarios.
 	// Experimental.
 	PhysicalName() *string
+	// The policy engine configuration associated with this gateway.
+	// Experimental.
+	PolicyEngineConfiguration() *GatewayPolicyEngineConfig
 	// The protocol configuration for the gateway.
 	// Experimental.
 	ProtocolConfiguration() IGatewayProtocolConfig
@@ -432,6 +425,16 @@ func (j *jsiiProxy_Gateway) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Gateway) PolicyEngineConfiguration() *GatewayPolicyEngineConfig {
+	var returns *GatewayPolicyEngineConfig
+	_jsii_.Get(
+		j,
+		"policyEngineConfiguration",
 		&returns,
 	)
 	return returns

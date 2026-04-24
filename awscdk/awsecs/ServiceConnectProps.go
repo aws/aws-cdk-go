@@ -36,6 +36,12 @@ package awsecs
 //   })
 //
 type ServiceConnectProps struct {
+	// The configuration for Service Connect access logs.
+	//
+	// Access logs provide detailed telemetry about individual requests processed by the　Service Connect proxy.
+	// Default: undefined - AWS ECS default is disabled, which means that access logs are not recorded.
+	//
+	AccessLogConfiguration *ServiceConnectAccessLogConfiguration `field:"optional" json:"accessLogConfiguration" yaml:"accessLogConfiguration"`
 	// The log driver configuration to use for the Service Connect agent logs.
 	// Default: - none.
 	//

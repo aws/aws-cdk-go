@@ -103,6 +103,8 @@ package awsbatch
 //   			ValueFrom: jsii.String("valueFrom"),
 //   		},
 //   	},
+//   	StartTimeout: jsii.Number(123),
+//   	StopTimeout: jsii.Number(123),
 //   	Ulimits: []interface{}{
 //   		&UlimitProperty{
 //   			HardLimit: jsii.Number(123),
@@ -220,6 +222,12 @@ type CfnJobDefinition_TaskContainerPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-secrets
 	//
 	Secrets interface{} `field:"optional" json:"secrets" yaml:"secrets"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-starttimeout
+	//
+	StartTimeout *float64 `field:"optional" json:"startTimeout" yaml:"startTimeout"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-stoptimeout
+	//
+	StopTimeout *float64 `field:"optional" json:"stopTimeout" yaml:"stopTimeout"`
 	// A list of `ulimits` to set in the container.
 	//
 	// If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .

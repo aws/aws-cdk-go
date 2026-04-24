@@ -15,15 +15,14 @@ package awsmsk
 //   		},
 //
 //   		// the properties below are optional
+//   		ConsumerGroupOffsetSyncMode: jsii.String("consumerGroupOffsetSyncMode"),
 //   		ConsumerGroupsToExclude: []*string{
 //   			jsii.String("consumerGroupsToExclude"),
 //   		},
 //   		DetectAndCopyNewConsumerGroups: jsii.Boolean(false),
 //   		SynchroniseConsumerGroupOffsets: jsii.Boolean(false),
 //   	},
-//   	SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
 //   	TargetCompressionType: jsii.String("targetCompressionType"),
-//   	TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
 //   	TopicReplication: &TopicReplicationProperty{
 //   		TopicsToReplicate: []*string{
 //   			jsii.String("topicsToReplicate"),
@@ -43,6 +42,12 @@ package awsmsk
 //   			jsii.String("topicsToExclude"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
+//   	SourceKafkaClusterId: jsii.String("sourceKafkaClusterId"),
+//   	TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
+//   	TargetKafkaClusterId: jsii.String("targetKafkaClusterId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html
@@ -52,21 +57,29 @@ type CfnReplicator_ReplicationInfoProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-consumergroupreplication
 	//
 	ConsumerGroupReplication interface{} `field:"required" json:"consumerGroupReplication" yaml:"consumerGroupReplication"`
-	// The ARN of the source Kafka cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-sourcekafkaclusterarn
-	//
-	SourceKafkaClusterArn *string `field:"required" json:"sourceKafkaClusterArn" yaml:"sourceKafkaClusterArn"`
 	// The compression type to use when producing records to target cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-targetcompressiontype
 	//
 	TargetCompressionType *string `field:"required" json:"targetCompressionType" yaml:"targetCompressionType"`
-	// The ARN of the target Kafka cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-targetkafkaclusterarn
-	//
-	TargetKafkaClusterArn *string `field:"required" json:"targetKafkaClusterArn" yaml:"targetKafkaClusterArn"`
 	// Configuration relating to topic replication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-topicreplication
 	//
 	TopicReplication interface{} `field:"required" json:"topicReplication" yaml:"topicReplication"`
+	// The ARN of the source Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-sourcekafkaclusterarn
+	//
+	SourceKafkaClusterArn *string `field:"optional" json:"sourceKafkaClusterArn" yaml:"sourceKafkaClusterArn"`
+	// The ID of the source Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-sourcekafkaclusterid
+	//
+	SourceKafkaClusterId *string `field:"optional" json:"sourceKafkaClusterId" yaml:"sourceKafkaClusterId"`
+	// The ARN of the target Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-targetkafkaclusterarn
+	//
+	TargetKafkaClusterArn *string `field:"optional" json:"targetKafkaClusterArn" yaml:"targetKafkaClusterArn"`
+	// The ID of the target Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationinfo.html#cfn-msk-replicator-replicationinfo-targetkafkaclusterid
+	//
+	TargetKafkaClusterId *string `field:"optional" json:"targetKafkaClusterId" yaml:"targetKafkaClusterId"`
 }
 

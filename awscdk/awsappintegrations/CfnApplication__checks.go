@@ -247,14 +247,6 @@ func (j *jsiiProxy_CfnApplication) validateSetApplicationSourceConfigParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnApplication) validateSetDescriptionParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnApplication) validateSetIframeConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

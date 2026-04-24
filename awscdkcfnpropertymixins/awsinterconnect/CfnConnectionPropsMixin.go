@@ -31,6 +31,9 @@ import (
 //   	Bandwidth: jsii.String("bandwidth"),
 //   	Description: jsii.String("description"),
 //   	EnvironmentId: jsii.String("environmentId"),
+//   	RemoteAccount: &RemoteAccountProperty{
+//   		Identifier: jsii.String("identifier"),
+//   	},
 //   	RemoteOwnerAccount: jsii.String("remoteOwnerAccount"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

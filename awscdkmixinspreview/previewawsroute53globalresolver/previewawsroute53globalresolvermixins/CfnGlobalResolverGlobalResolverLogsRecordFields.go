@@ -18,6 +18,10 @@ const (
 	// Experimental.
 	CfnGlobalResolverGlobalResolverLogsRecordFields_CONNECTION_INFO CfnGlobalResolverGlobalResolverLogsRecordFields = "CONNECTION_INFO"
 	// Experimental.
+	CfnGlobalResolverGlobalResolverLogsRecordFields_DISPOSITION CfnGlobalResolverGlobalResolverLogsRecordFields = "DISPOSITION"
+	// Experimental.
+	CfnGlobalResolverGlobalResolverLogsRecordFields_DISPOSITION_ID CfnGlobalResolverGlobalResolverLogsRecordFields = "DISPOSITION_ID"
+	// Experimental.
 	CfnGlobalResolverGlobalResolverLogsRecordFields_DURATION CfnGlobalResolverGlobalResolverLogsRecordFields = "DURATION"
 	// Experimental.
 	CfnGlobalResolverGlobalResolverLogsRecordFields_END_TIME CfnGlobalResolverGlobalResolverLogsRecordFields = "END_TIME"

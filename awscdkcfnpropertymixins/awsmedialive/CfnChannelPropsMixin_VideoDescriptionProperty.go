@@ -28,6 +28,7 @@ package awsmedialive
 //   					MaxCll: jsii.Number(123),
 //   					MaxFall: jsii.Number(123),
 //   				},
+//   				Hlg2020Settings: hlg2020Settings,
 //   				Rec601Settings: rec601Settings,
 //   				Rec709Settings: rec709Settings,
 //   			},

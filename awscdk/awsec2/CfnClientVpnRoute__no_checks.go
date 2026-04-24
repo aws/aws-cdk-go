@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnClientVpnRoute) validateSetDestinationCidrBlockParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnClientVpnRoute) validateSetTargetVpcSubnetIdParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnClientVpnRouteParameters(scope constructs.Construct, id *string, props *CfnClientVpnRouteProps) error {
 	return nil
 }

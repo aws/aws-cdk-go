@@ -60,8 +60,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.AlarmPromQLCriteriaProperty",
+		reflect.TypeOf((*CfnAlarmPropsMixin_AlarmPromQLCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.DimensionProperty",
 		reflect.TypeOf((*CfnAlarmPropsMixin_DimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.EvaluationCriteriaProperty",
+		reflect.TypeOf((*CfnAlarmPropsMixin_EvaluationCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.MetricDataQueryProperty",

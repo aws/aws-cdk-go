@@ -5,3 +5,4 @@ import (
 )
 type Type__awseventsIRuleTarget = awsevents.IRuleTarget
 type Type__awscdkIResource = awscdk.IResource
+type Type__awseventsRuleTargetInput = awsevents.RuleTargetInput

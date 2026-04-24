@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS ECS Daemon.
+// Information about a daemon resource.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -58,6 +58,7 @@ type CfnDaemon interface {
 	AttrDaemonStatus() *string
 	AttrDeploymentArn() *string
 	AttrUpdatedAt() *string
+	// The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
 	CapacityProviderArns() *[]*string
 	SetCapacityProviderArns(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
@@ -67,6 +68,7 @@ type CfnDaemon interface {
 	CfnProperties() *map[string]interface{}
 	// AWS resource type.
 	CfnResourceType() *string
+	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 	ClusterArn() *string
 	SetClusterArn(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -77,12 +79,16 @@ type CfnDaemon interface {
 	SetDaemonName(val *string)
 	// A reference to a Daemon resource.
 	DaemonRef() *interfacesawsecs.DaemonReference
+	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
 	DaemonTaskDefinitionArn() *string
 	SetDaemonTaskDefinitionArn(val *string)
+	// Optional deployment parameters that control how a daemon rolls out updates across container instances.
 	DeploymentConfiguration() interface{}
 	SetDeploymentConfiguration(val interface{})
+	// Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
 	EnableEcsManagedTags() interface{}
 	SetEnableEcsManagedTags(val interface{})
+	// Specifies whether the execute command functionality is turned on for the daemon tasks.
 	EnableExecuteCommand() interface{}
 	SetEnableExecuteCommand(val interface{})
 	Env() *interfaces.ResourceEnvironment
@@ -98,6 +104,7 @@ type CfnDaemon interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Specifies whether tags are propagated from the daemon to the daemon tasks.
 	PropagateTags() *string
 	SetPropagateTags(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.

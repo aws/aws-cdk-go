@@ -223,6 +223,30 @@ func (j *jsiiProxy_CfnConnection) validateSetAttachPointParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetRemoteAccountParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnConnection_RemoteAccountProperty:
+		val := val.(*CfnConnection_RemoteAccountProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnConnection_RemoteAccountProperty:
+		val_ := val.(CfnConnection_RemoteAccountProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnConnection_RemoteAccountProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnection) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

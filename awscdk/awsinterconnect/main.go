@@ -48,6 +48,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "remoteAccount", GoGetter: "RemoteAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "remoteOwnerAccount", GoGetter: "RemoteOwnerAccount"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -77,6 +78,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_interconnect.CfnConnection.ProviderProperty",
 		reflect.TypeOf((*CfnConnection_ProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_interconnect.CfnConnection.RemoteAccountProperty",
+		reflect.TypeOf((*CfnConnection_RemoteAccountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_interconnect.CfnConnectionProps",

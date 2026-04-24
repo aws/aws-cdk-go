@@ -19,5 +19,9 @@ const (
 	ArtifactMetadataEntryType_STACK_TAGS ArtifactMetadataEntryType = "STACK_TAGS"
 	// Whether the resource should be excluded during refactoring.
 	ArtifactMetadataEntryType_DO_NOT_REFACTOR ArtifactMetadataEntryType = "DO_NOT_REFACTOR"
+	// Creation stack of a construct.
+	ArtifactMetadataEntryType_CREATION_STACK ArtifactMetadataEntryType = "CREATION_STACK"
+	// A property mutation trace.
+	ArtifactMetadataEntryType_PROPERTY_ASSIGNMENT ArtifactMetadataEntryType = "PROPERTY_ASSIGNMENT"
 )
 

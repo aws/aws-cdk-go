@@ -62,6 +62,21 @@ package awsmediaconnect
 //   			EncryptionKeyType: jsii.String("encryptionKeyType"),
 //   		},
 //   	},
+//   	MediaLiveChannel: &MediaLiveChannelRouterInputConfigurationProperty{
+//   		MediaLiveChannelArn: jsii.String("mediaLiveChannelArn"),
+//   		MediaLiveChannelOutputName: jsii.String("mediaLiveChannelOutputName"),
+//   		MediaLivePipelineId: jsii.String("mediaLivePipelineId"),
+//   		SourceTransitDecryption: &MediaLiveTransitEncryptionProperty{
+//   			EncryptionKeyConfiguration: &MediaLiveTransitEncryptionKeyConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   					RoleArn: jsii.String("roleArn"),
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//   			EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   		},
+//   	},
 //   	Merge: &MergeRouterInputConfigurationProperty{
 //   		MergeRecoveryWindowMilliseconds: jsii.Number(123),
 //   		NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
@@ -127,6 +142,10 @@ type CfnRouterInputPropsMixin_RouterInputConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-mediaconnectflow
 	//
 	MediaConnectFlow interface{} `field:"optional" json:"mediaConnectFlow" yaml:"mediaConnectFlow"`
+	// Configuration settings for connecting a router input to a MediaLive channel output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-medialivechannel
+	//
+	MediaLiveChannel interface{} `field:"optional" json:"mediaLiveChannel" yaml:"mediaLiveChannel"`
 	// Configuration settings for a merge router input that combines two input sources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-merge
 	//

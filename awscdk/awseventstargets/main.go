@@ -300,7 +300,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
-			return &jsiiProxy_LogGroupTargetInput{}
+			j := jsiiProxy_LogGroupTargetInput{}
+			_jsii_.InitJsiiProxy(&j.Type__awseventsRuleTargetInput)
+			return &j
 		},
 	)
 	_jsii_.RegisterStruct(

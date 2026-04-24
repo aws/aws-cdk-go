@@ -23,7 +23,7 @@ type CfnRouterOutput_MediaLiveTransitEncryptionKeyConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryptionkeyconfiguration.html#cfn-mediaconnect-routeroutput-medialivetransitencryptionkeyconfiguration-automatic
 	//
 	Automatic interface{} `field:"optional" json:"automatic" yaml:"automatic"`
-	// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+	// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryptionkeyconfiguration.html#cfn-mediaconnect-routeroutput-medialivetransitencryptionkeyconfiguration-secretsmanager
 	//
 	SecretsManager interface{} `field:"optional" json:"secretsManager" yaml:"secretsManager"`

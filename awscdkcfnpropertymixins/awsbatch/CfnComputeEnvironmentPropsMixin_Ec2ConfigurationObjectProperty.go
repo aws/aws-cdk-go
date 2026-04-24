@@ -13,6 +13,7 @@ package awsbatch
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   ec2ConfigurationObjectProperty := &Ec2ConfigurationObjectProperty{
+//   	BatchImageStatus: jsii.String("batchImageStatus"),
 //   	ImageIdOverride: jsii.String("imageIdOverride"),
 //   	ImageKubernetesVersion: jsii.String("imageKubernetesVersion"),
 //   	ImageType: jsii.String("imageType"),
@@ -21,6 +22,9 @@ package awsbatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html
 //
 type CfnComputeEnvironmentPropsMixin_Ec2ConfigurationObjectProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-batchimagestatus
+	//
+	BatchImageStatus *string `field:"optional" json:"batchImageStatus" yaml:"batchImageStatus"`
 	// The AMI ID used for instances launched in the compute environment that match the image type.
 	//
 	// This setting overrides the `imageId` set in the `computeResource` object.

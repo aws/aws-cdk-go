@@ -7,6 +7,7 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var colorSpacePassthroughSettings interface{}
+//   var hlg2020Settings interface{}
 //   var rec601Settings interface{}
 //   var rec709Settings interface{}
 //
@@ -21,6 +22,7 @@ package awsmedialive
 //   			MaxCll: jsii.Number(123),
 //   			MaxFall: jsii.Number(123),
 //   		},
+//   		Hlg2020Settings: hlg2020Settings,
 //   		Rec601Settings: rec601Settings,
 //   		Rec709Settings: rec709Settings,
 //   	},

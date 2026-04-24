@@ -20,6 +20,9 @@ import (
 //   	Bandwidth: jsii.String("bandwidth"),
 //   	Description: jsii.String("description"),
 //   	EnvironmentId: jsii.String("environmentId"),
+//   	RemoteAccount: &RemoteAccountProperty{
+//   		Identifier: jsii.String("identifier"),
+//   	},
 //   	RemoteOwnerAccount: jsii.String("remoteOwnerAccount"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -56,9 +59,15 @@ type CfnConnectionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-interconnect-connection.html#cfn-interconnect-connection-environmentid
 	//
 	EnvironmentId *string `field:"optional" json:"environmentId" yaml:"environmentId"`
-	// The account ID of the remote owner.
+	// The remote account identifier for the connection.
 	//
-	// Required when creating a connection through AWS.
+	// Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-interconnect-connection.html#cfn-interconnect-connection-remoteaccount
+	//
+	RemoteAccount interface{} `field:"optional" json:"remoteAccount" yaml:"remoteAccount"`
+	// Deprecated.
+	//
+	// Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-interconnect-connection.html#cfn-interconnect-connection-remoteowneraccount
 	//
 	RemoteOwnerAccount *string `field:"optional" json:"remoteOwnerAccount" yaml:"remoteOwnerAccount"`

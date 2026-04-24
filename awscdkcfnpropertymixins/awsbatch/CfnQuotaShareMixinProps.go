@@ -33,11 +33,13 @@ package awsbatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html
 //
 type CfnQuotaShareMixinProps struct {
-	// The capacity limits for the quota share.
+	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-capacitylimits
 	//
 	CapacityLimits interface{} `field:"optional" json:"capacityLimits" yaml:"capacityLimits"`
-	// The Amazon Resource Name (ARN) or name of the job queue.
+	// The AWS Batch job queue associated with the quota share.
+	//
+	// This can be the job queue name or ARN. A job queue must be in the `VALID` state before you can associate it with a quota share.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-jobqueue
 	//
 	JobQueue *string `field:"optional" json:"jobQueue" yaml:"jobQueue"`
@@ -45,6 +47,8 @@ type CfnQuotaShareMixinProps struct {
 	//
 	PreemptionConfiguration interface{} `field:"optional" json:"preemptionConfiguration" yaml:"preemptionConfiguration"`
 	// The name of the quota share.
+	//
+	// It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-quotasharename
 	//
 	QuotaShareName *string `field:"optional" json:"quotaShareName" yaml:"quotaShareName"`
@@ -52,10 +56,14 @@ type CfnQuotaShareMixinProps struct {
 	//
 	ResourceSharingConfiguration interface{} `field:"optional" json:"resourceSharingConfiguration" yaml:"resourceSharingConfiguration"`
 	// The state of the quota share.
+	//
+	// If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-state
 	//
 	State *string `field:"optional" json:"state" yaml:"state"`
-	// A key-value pair to associate with a resource.
+	// The tags that you apply to the quota share to help you categorize and organize your resources.
+	//
+	// Each tag consists of a key and an optional value.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

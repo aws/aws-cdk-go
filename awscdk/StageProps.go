@@ -93,6 +93,7 @@ type StageProps struct {
 	// synthesis will be interrupted and the report displayed to the user.
 	// Default: - no validation plugins are used.
 	//
+	// Deprecated: Use `Validations.of(stage).addPlugins()` instead.
 	PolicyValidationBeta1 *[]IPolicyValidationPluginBeta1 `field:"optional" json:"policyValidationBeta1" yaml:"policyValidationBeta1"`
 	// A list of IPropertyInjector attached to this Stage.
 	// Default: - no PropertyInjectors.

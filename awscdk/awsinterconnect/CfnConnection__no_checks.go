@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnConnection) validateSetAttachPointParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetRemoteAccountParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnection) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

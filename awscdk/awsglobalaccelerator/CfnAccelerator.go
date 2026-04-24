@@ -25,6 +25,9 @@ import (
 //
 //   	// the properties below are optional
 //   	Enabled: jsii.Boolean(false),
+//   	FlowLogsEnabled: jsii.Boolean(false),
+//   	FlowLogsS3Bucket: jsii.String("flowLogsS3Bucket"),
+//   	FlowLogsS3Prefix: jsii.String("flowLogsS3Prefix"),
 //   	IpAddresses: []*string{
 //   		jsii.String("ipAddresses"),
 //   	},
@@ -75,6 +78,15 @@ type CfnAccelerator interface {
 	Enabled() interface{}
 	SetEnabled(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Indicates whether flow logs are enabled for the accelerator.
+	FlowLogsEnabled() interface{}
+	SetFlowLogsEnabled(val interface{})
+	// The name of the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Bucket() *string
+	SetFlowLogsS3Bucket(val *string)
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Prefix() *string
+	SetFlowLogsS3Prefix(val *string)
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	IpAddresses() *[]*string
 	SetIpAddresses(val *[]*string)
@@ -385,6 +397,36 @@ func (j *jsiiProxy_CfnAccelerator) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccelerator) FlowLogsEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"flowLogsEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccelerator) FlowLogsS3Bucket() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"flowLogsS3Bucket",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAccelerator) FlowLogsS3Prefix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"flowLogsS3Prefix",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccelerator) IpAddresses() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -532,6 +574,33 @@ func (j *jsiiProxy_CfnAccelerator)SetEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"enabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccelerator)SetFlowLogsEnabled(val interface{}) {
+	if err := j.validateSetFlowLogsEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"flowLogsEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccelerator)SetFlowLogsS3Bucket(val *string) {
+	_jsii_.Set(
+		j,
+		"flowLogsS3Bucket",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccelerator)SetFlowLogsS3Prefix(val *string) {
+	_jsii_.Set(
+		j,
+		"flowLogsS3Prefix",
 		val,
 	)
 }

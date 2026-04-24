@@ -20,6 +20,10 @@ package awsbedrockagentcore
 //   					CredentialPrefix: jsii.String("credentialPrefix"),
 //   					ProviderArn: jsii.String("providerArn"),
 //   				},
+//   				IamCredentialProvider: &IamCredentialProviderProperty{
+//   					Region: jsii.String("region"),
+//   					Service: jsii.String("service"),
+//   				},
 //   				OauthCredentialProvider: &OAuthCredentialProviderProperty{
 //   					CustomParameters: map[string]*string{
 //   						"customParametersKey": jsii.String("customParameters"),

@@ -88,6 +88,14 @@ func init() {
 		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_BucketEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3express.CfnDirectoryBucketPropsMixin.DestinationProperty",
+		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3express.CfnDirectoryBucketPropsMixin.InventoryConfigurationProperty",
+		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_InventoryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3express.CfnDirectoryBucketPropsMixin.LifecycleConfigurationProperty",
 		reflect.TypeOf((*CfnDirectoryBucketPropsMixin_LifecycleConfigurationProperty)(nil)).Elem(),
 	)

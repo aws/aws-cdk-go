@@ -40,6 +40,14 @@ import (
 //   		},
 //   	},
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
+//   	EvaluationCriteria: &EvaluationCriteriaProperty{
+//   		PromQlCriteria: &AlarmPromQLCriteriaProperty{
+//   			PendingPeriod: jsii.Number(123),
+//   			Query: jsii.String("query"),
+//   			RecoveryPeriod: jsii.Number(123),
+//   		},
+//   	},
+//   	EvaluationInterval: jsii.Number(123),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{

@@ -24,6 +24,9 @@ import (
 //
 //   cfnAcceleratorPropsMixin := awscdkcfnpropertymixins.Aws_globalaccelerator.NewCfnAcceleratorPropsMixin(&CfnAcceleratorMixinProps{
 //   	Enabled: jsii.Boolean(false),
+//   	FlowLogsEnabled: jsii.Boolean(false),
+//   	FlowLogsS3Bucket: jsii.String("flowLogsS3Bucket"),
+//   	FlowLogsS3Prefix: jsii.String("flowLogsS3Prefix"),
 //   	IpAddresses: []*string{
 //   		jsii.String("ipAddresses"),
 //   	},

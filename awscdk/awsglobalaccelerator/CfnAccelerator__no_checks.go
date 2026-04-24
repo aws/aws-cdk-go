@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnAccelerator) validateSetEnabledParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnAccelerator) validateSetFlowLogsEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAccelerator) validateSetNameParameters(val *string) error {
 	return nil
 }

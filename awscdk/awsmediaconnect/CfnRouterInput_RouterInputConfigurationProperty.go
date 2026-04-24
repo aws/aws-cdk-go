@@ -74,6 +74,25 @@ package awsmediaconnect
 //   		FlowArn: jsii.String("flowArn"),
 //   		FlowOutputArn: jsii.String("flowOutputArn"),
 //   	},
+//   	MediaLiveChannel: &MediaLiveChannelRouterInputConfigurationProperty{
+//   		SourceTransitDecryption: &MediaLiveTransitEncryptionProperty{
+//   			EncryptionKeyConfiguration: &MediaLiveTransitEncryptionKeyConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   					RoleArn: jsii.String("roleArn"),
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   		},
+//
+//   		// the properties below are optional
+//   		MediaLiveChannelArn: jsii.String("mediaLiveChannelArn"),
+//   		MediaLiveChannelOutputName: jsii.String("mediaLiveChannelOutputName"),
+//   		MediaLivePipelineId: jsii.String("mediaLivePipelineId"),
+//   	},
 //   	Merge: &MergeRouterInputConfigurationProperty{
 //   		MergeRecoveryWindowMilliseconds: jsii.Number(123),
 //   		NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
@@ -149,6 +168,10 @@ type CfnRouterInput_RouterInputConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-mediaconnectflow
 	//
 	MediaConnectFlow interface{} `field:"optional" json:"mediaConnectFlow" yaml:"mediaConnectFlow"`
+	// Configuration settings for connecting a router input to a MediaLive channel output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-medialivechannel
+	//
+	MediaLiveChannel interface{} `field:"optional" json:"mediaLiveChannel" yaml:"mediaLiveChannel"`
 	// Configuration settings for a merge router input that combines two input sources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-merge
 	//

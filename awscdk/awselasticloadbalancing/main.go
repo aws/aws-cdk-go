@@ -25,7 +25,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCanonicalHostedZoneNameId", GoGetter: "AttrCanonicalHostedZoneNameId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDnsName", GoGetter: "AttrDnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrSourceSecurityGroup", GoGetter: "AttrSourceSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSecurityGroupGroupName", GoGetter: "AttrSourceSecurityGroupGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSecurityGroupOwnerAlias", GoGetter: "AttrSourceSecurityGroupOwnerAlias"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
@@ -109,10 +108,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.PoliciesProperty",
 		reflect.TypeOf((*CfnLoadBalancer_PoliciesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.SourceSecurityGroupProperty",
-		reflect.TypeOf((*CfnLoadBalancer_SourceSecurityGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancerProps",

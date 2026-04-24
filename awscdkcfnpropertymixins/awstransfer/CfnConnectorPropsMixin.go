@@ -35,6 +35,7 @@ import (
 //   		},
 //   	},
 //   	EgressType: jsii.String("egressType"),
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	LoggingRole: jsii.String("loggingRole"),
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{

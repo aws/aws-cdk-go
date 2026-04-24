@@ -607,6 +607,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTarget_CredentialProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.IamCredentialProviderProperty",
+		reflect.TypeOf((*CfnGatewayTarget_IamCredentialProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.McpLambdaTargetConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTarget_McpLambdaTargetConfigurationProperty)(nil)).Elem(),
 	)

@@ -16,6 +16,7 @@ package awsbatch
 //   	DesiredvCpus: jsii.Number(123),
 //   	Ec2Configuration: []interface{}{
 //   		&Ec2ConfigurationObjectProperty{
+//   			BatchImageStatus: jsii.String("batchImageStatus"),
 //   			ImageIdOverride: jsii.String("imageIdOverride"),
 //   			ImageKubernetesVersion: jsii.String("imageKubernetesVersion"),
 //   			ImageType: jsii.String("imageType"),

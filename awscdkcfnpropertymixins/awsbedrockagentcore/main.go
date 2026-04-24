@@ -304,6 +304,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_CredentialProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.IamCredentialProviderProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_IamCredentialProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.McpLambdaTargetConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_McpLambdaTargetConfigurationProperty)(nil)).Elem(),
 	)

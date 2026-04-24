@@ -29,6 +29,10 @@ package awsec2
 //   			VirtualName: jsii.String("virtualName"),
 //   		},
 //   	},
+//   	IamInstanceProfile: &IamInstanceProfileSpecificationProperty{
+//   		Arn: jsii.String("arn"),
+//   		Name: jsii.String("name"),
+//   	},
 //   	InstanceRequirements: &InstanceRequirementsRequestProperty{
 //   		AcceleratorCount: &AcceleratorCountRequestProperty{
 //   			Max: jsii.Number(123),
@@ -109,7 +113,42 @@ package awsec2
 //   		},
 //   	},
 //   	InstanceType: jsii.String("instanceType"),
+//   	KeyName: jsii.String("keyName"),
 //   	MaxPrice: jsii.String("maxPrice"),
+//   	MetadataOptions: &InstanceMetadataOptionsRequestProperty{
+//   		HttpEndpoint: jsii.String("httpEndpoint"),
+//   		HttpPutResponseHopLimit: jsii.Number(123),
+//   		HttpTokens: jsii.String("httpTokens"),
+//   	},
+//   	NetworkInterfaces: []interface{}{
+//   		&NetworkInterfaceSpecificationRequestProperty{
+//   			AssociatePublicIpAddress: jsii.Boolean(false),
+//   			DeleteOnTermination: jsii.Boolean(false),
+//   			Description: jsii.String("description"),
+//   			DeviceIndex: jsii.Number(123),
+//   			Groups: []*string{
+//   				jsii.String("groups"),
+//   			},
+//   			InterfaceType: jsii.String("interfaceType"),
+//   			Ipv6AddressCount: jsii.Number(123),
+//   			Ipv6Addresses: []interface{}{
+//   				&Ipv6AddressRequestProperty{
+//   					Ipv6Address: jsii.String("ipv6Address"),
+//   				},
+//   			},
+//   			NetworkCardIndex: jsii.Number(123),
+//   			NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   			PrivateIpAddress: jsii.String("privateIpAddress"),
+//   			PrivateIpAddresses: []interface{}{
+//   				&PrivateIpAddressSpecificationRequestProperty{
+//   					Primary: jsii.Boolean(false),
+//   					PrivateIpAddress: jsii.String("privateIpAddress"),
+//   				},
+//   			},
+//   			SecondaryPrivateIpAddressCount: jsii.Number(123),
+//   			SubnetId: jsii.String("subnetId"),
+//   		},
+//   	},
 //   	Placement: &PlacementProperty{
 //   		Affinity: jsii.String("affinity"),
 //   		AvailabilityZone: jsii.String("availabilityZone"),
@@ -148,6 +187,9 @@ type CfnEC2FleetPropsMixin_FleetLaunchTemplateOverridesRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-blockdevicemappings
 	//
 	BlockDeviceMappings interface{} `field:"optional" json:"blockDeviceMappings" yaml:"blockDeviceMappings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-iaminstanceprofile
+	//
+	IamInstanceProfile interface{} `field:"optional" json:"iamInstanceProfile" yaml:"iamInstanceProfile"`
 	// The attributes for the instance types.
 	//
 	// When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
@@ -164,6 +206,9 @@ type CfnEC2FleetPropsMixin_FleetLaunchTemplateOverridesRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-keyname
+	//
+	KeyName *string `field:"optional" json:"keyName" yaml:"keyName"`
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	//
 	// We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
@@ -174,6 +219,12 @@ type CfnEC2FleetPropsMixin_FleetLaunchTemplateOverridesRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice
 	//
 	MaxPrice *string `field:"optional" json:"maxPrice" yaml:"maxPrice"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-metadataoptions
+	//
+	MetadataOptions interface{} `field:"optional" json:"metadataOptions" yaml:"metadataOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-networkinterfaces
+	//
+	NetworkInterfaces interface{} `field:"optional" json:"networkInterfaces" yaml:"networkInterfaces"`
 	// The location where the instance launched, if applicable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-placement
 	//

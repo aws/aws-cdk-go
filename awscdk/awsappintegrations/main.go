@@ -21,6 +21,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "applicationConfig", GoGetter: "ApplicationConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationSourceConfig", GoGetter: "ApplicationSourceConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "applicationType", GoGetter: "ApplicationType"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrApplicationArn", GoGetter: "AttrApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},

@@ -23,7 +23,7 @@ type CfnRouterInputPropsMixin_FlowTransitEncryptionKeyConfigurationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-flowtransitencryptionkeyconfiguration.html#cfn-mediaconnect-routerinput-flowtransitencryptionkeyconfiguration-automatic
 	//
 	Automatic interface{} `field:"optional" json:"automatic" yaml:"automatic"`
-	// The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+	// The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-flowtransitencryptionkeyconfiguration.html#cfn-mediaconnect-routerinput-flowtransitencryptionkeyconfiguration-secretsmanager
 	//
 	SecretsManager interface{} `field:"optional" json:"secretsManager" yaml:"secretsManager"`

@@ -27,6 +27,14 @@ import (
 //   		},
 //   	},
 //   	EvaluateLowSampleCountPercentile: jsii.String("evaluateLowSampleCountPercentile"),
+//   	EvaluationCriteria: &EvaluationCriteriaProperty{
+//   		PromQlCriteria: &AlarmPromQLCriteriaProperty{
+//   			PendingPeriod: jsii.Number(123),
+//   			Query: jsii.String("query"),
+//   			RecoveryPeriod: jsii.Number(123),
+//   		},
+//   	},
+//   	EvaluationInterval: jsii.Number(123),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{
@@ -131,6 +139,12 @@ type CfnAlarmMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluatelowsamplecountpercentile
 	//
 	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationcriteria
+	//
+	EvaluationCriteria interface{} `field:"optional" json:"evaluationCriteria" yaml:"evaluationCriteria"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationinterval
+	//
+	EvaluationInterval *float64 `field:"optional" json:"evaluationInterval" yaml:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold.
 	//
 	// If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and `DatapointsToAlarm` is the M.

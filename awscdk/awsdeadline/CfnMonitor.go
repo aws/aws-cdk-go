@@ -27,6 +27,7 @@ import (
 //   	Subdomain: jsii.String("subdomain"),
 //
 //   	// the properties below are optional
+//   	IdentityCenterRegion: jsii.String("identityCenterRegion"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -70,6 +71,9 @@ type CfnMonitor interface {
 	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn() *string
 	SetIdentityCenterInstanceArn(val *string)
+	// The AWS region where IAM Identity Center is enabled.
+	IdentityCenterRegion() *string
+	SetIdentityCenterRegion(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -377,6 +381,16 @@ func (j *jsiiProxy_CfnMonitor) IdentityCenterInstanceArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMonitor) IdentityCenterRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"identityCenterRegion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMonitor) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -525,6 +539,14 @@ func (j *jsiiProxy_CfnMonitor)SetIdentityCenterInstanceArn(val *string) {
 	_jsii_.Set(
 		j,
 		"identityCenterInstanceArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMonitor)SetIdentityCenterRegion(val *string) {
+	_jsii_.Set(
+		j,
+		"identityCenterRegion",
 		val,
 	)
 }

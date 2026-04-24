@@ -27,6 +27,7 @@ import (
 //   		},
 //   	},
 //   	EgressType: jsii.String("egressType"),
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	LoggingRole: jsii.String("loggingRole"),
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
@@ -82,6 +83,10 @@ type CfnConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-egresstype
 	//
 	EgressType *string `field:"optional" json:"egressType" yaml:"egressType"`
+	// IP address type for Connector.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html#cfn-transfer-connector-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 	//
 	// When set, you can view connector activity in your CloudWatch logs.

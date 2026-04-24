@@ -68,6 +68,10 @@ func init() {
 		reflect.TypeOf((*CfnAssociationPropsMixin_AWSResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.AzureConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_AzureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.DynatraceConfigurationProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_DynatraceConfigurationProperty)(nil)).Elem(),
 	)
@@ -100,8 +104,16 @@ func init() {
 		reflect.TypeOf((*CfnAssociationPropsMixin_MCPServerNewRelicConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.MCPServerSigV4ConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_MCPServerSigV4ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.MCPServerSplunkConfigurationProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_MCPServerSplunkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.PagerDutyConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_PagerDutyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.ServiceConfigurationProperty",
@@ -126,6 +138,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.SourceAwsConfigurationProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_SourceAwsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnPrivateConnectionMixinProps",
+		reflect.TypeOf((*CfnPrivateConnectionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnPrivateConnectionPropsMixin",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPrivateConnectionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnPrivateConnectionPropsMixin.ConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin_ConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnPrivateConnectionPropsMixin.SelfManagedModeProperty",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin_SelfManagedModeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnPrivateConnectionPropsMixin.ServiceManagedModeProperty",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin_ServiceManagedModeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServiceMixinProps",
@@ -156,6 +200,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_ApiKeyDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.AzureIdentityServiceDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_AzureIdentityServiceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.BearerTokenDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_BearerTokenDetailsProperty)(nil)).Elem(),
 	)
@@ -184,6 +232,14 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_MCPServerOAuthClientCredentialsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.MCPServerSigV4AuthorizationConfigProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_MCPServerSigV4AuthorizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.MCPServerSigV4DetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_MCPServerSigV4DetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.MCPServerSplunkAuthorizationConfigProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_MCPServerSplunkAuthorizationConfigProperty)(nil)).Elem(),
 	)
@@ -208,6 +264,18 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_OAuthClientDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.PagerDutyAuthorizationConfigProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_PagerDutyAuthorizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.PagerDutyDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_PagerDutyDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredAzureIdentityDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_RegisteredAzureIdentityDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredDynatraceDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_RegisteredDynatraceDetailsProperty)(nil)).Elem(),
 	)
@@ -220,8 +288,16 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_RegisteredMCPServerDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredMCPServerSigV4DetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_RegisteredMCPServerSigV4DetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredNewRelicDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_RegisteredNewRelicDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredPagerDutyDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_RegisteredPagerDutyDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredServiceNowDetailsProperty",

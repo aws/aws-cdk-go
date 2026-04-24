@@ -19,21 +19,24 @@ import (
 // environments.
 //
 // Example:
-//   var pipeline CodePipeline
+//   var synth ShellStep
 //
-//   europeWave := pipeline.AddWave(jsii.String("Europe"))
-//   europeWave.AddStage(
-//   NewMyApplicationStage(this, jsii.String("Ireland"), &StageProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("eu-west-1"),
+//   stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
+//   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
+//   	Synth: Synth,
+//   })
+//
+//   pipeline.AddStage(stage, &AddStageOpts{
+//   	Post: []Step{
+//   		pipelines.NewShellStep(jsii.String("Approve"), &ShellStepProps{
+//   			// Use the contents of the 'integ' directory from the synth step as the input
+//   			Input: synth.AddOutputDirectory(jsii.String("integ")),
+//   			Commands: []*string{
+//   				jsii.String("cd integ && ./run.sh"),
+//   			},
+//   		}),
 //   	},
-//   }))
-//   europeWave.AddStage(
-//   NewMyApplicationStage(this, jsii.String("Germany"), &StageProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("eu-central-1"),
-//   	},
-//   }))
+//   })
 //
 type Stage interface {
 	constructs.Construct

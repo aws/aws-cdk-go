@@ -15,31 +15,27 @@ import (
 // Create a Route53 public hosted zone.
 //
 // Example:
-//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("us-east-1"),
-//   	},
-//   	CrossRegionReferences: jsii.Boolean(true),
-//   })
-//   cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
-//   	DomainName: jsii.String("*.example.com"),
-//   	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
+//   subZone := route53.NewPublicHostedZone(this, jsii.String("SubZone"), &PublicHostedZoneProps{
+//   	ZoneName: jsii.String("sub.someexample.com"),
 //   })
 //
-//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
-//   	Env: &Environment{
-//   		Region: jsii.String("us-east-2"),
-//   	},
-//   	CrossRegionReferences: jsii.Boolean(true),
+//   // import the delegation role by constructing the roleArn
+//   delegationRoleArn := awscdk.stack_Of(this).FormatArn(&ArnComponents{
+//   	Region: jsii.String(""),
+//   	 // IAM is global in each partition
+//   	Service: jsii.String("iam"),
+//   	Account: jsii.String("parent-account-id"),
+//   	Resource: jsii.String("role"),
+//   	ResourceName: jsii.String("MyDelegationRole"),
 //   })
-//   cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewHttpOrigin(jsii.String("example.com")),
-//   	},
-//   	DomainNames: []*string{
-//   		jsii.String("dev.example.com"),
-//   	},
-//   	Certificate: cert,
+//   delegationRole := iam.Role_FromRoleArn(this, jsii.String("DelegationRole"), delegationRoleArn)
+//
+//   route53.NewCrossAccountZoneDelegationRecord(this, jsii.String("delegate"), &CrossAccountZoneDelegationRecordProps{
+//   	DelegatedZone: subZone,
+//   	ParentHostedZoneName: jsii.String("someexample.com"),
+//   	 // or you can use parentHostedZoneId
+//   	DelegationRole: DelegationRole,
+//   	AssumeRoleRegion: jsii.String("us-east-1"),
 //   })
 //
 type PublicHostedZone interface {

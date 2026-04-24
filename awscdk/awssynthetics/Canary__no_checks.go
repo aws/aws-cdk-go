@@ -28,6 +28,14 @@ func (c *jsiiProxy_Canary) validateMetricSuccessPercentParameters(options *awscl
 	return nil
 }
 
+func validateCanary_FromCanaryArnParameters(scope constructs.Construct, id *string, canaryArn *string) error {
+	return nil
+}
+
+func validateCanary_FromCanaryNameParameters(scope constructs.Construct, id *string, canaryName *string) error {
+	return nil
+}
+
 func validateCanary_IsConstructParameters(x interface{}) error {
 	return nil
 }

@@ -11,3 +11,4 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawssyntheticsICanaryRef = interfacesawssynthetics.ICanaryRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawssyntheticsIGroupRef = interfacesawssynthetics.IGroupRef
+type Type__awscdkIResource = awscdk.IResource

@@ -12,6 +12,22 @@ package awsmsk
 //   	AmazonMskCluster: &AmazonMskClusterProperty{
 //   		MskClusterArn: jsii.String("mskClusterArn"),
 //   	},
+//   	ApacheKafkaCluster: &ApacheKafkaClusterProperty{
+//   		ApacheKafkaClusterId: jsii.String("apacheKafkaClusterId"),
+//   		BootstrapBrokerString: jsii.String("bootstrapBrokerString"),
+//   	},
+//   	ClientAuthentication: &KafkaClusterClientAuthenticationProperty{
+//   		SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
+//   			Mechanism: jsii.String("mechanism"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   	},
+//   	EncryptionInTransit: &KafkaClusterEncryptionInTransitProperty{
+//   		EncryptionType: jsii.String("encryptionType"),
+//
+//   		// the properties below are optional
+//   		RootCaCertificate: jsii.String("rootCaCertificate"),
+//   	},
 //   	VpcConfig: &KafkaClusterClientVpcConfigProperty{
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
@@ -30,10 +46,22 @@ type CfnReplicator_KafkaClusterProperty struct {
 	// Details of an Amazon MSK Cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-amazonmskcluster
 	//
-	AmazonMskCluster interface{} `field:"required" json:"amazonMskCluster" yaml:"amazonMskCluster"`
+	AmazonMskCluster interface{} `field:"optional" json:"amazonMskCluster" yaml:"amazonMskCluster"`
+	// Details of an Apache Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-apachekafkacluster
+	//
+	ApacheKafkaCluster interface{} `field:"optional" json:"apacheKafkaCluster" yaml:"apacheKafkaCluster"`
+	// Details of the client authentication used by the Apache Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-clientauthentication
+	//
+	ClientAuthentication interface{} `field:"optional" json:"clientAuthentication" yaml:"clientAuthentication"`
+	// Details of encryption in transit to the Apache Kafka cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-encryptionintransit
+	//
+	EncryptionInTransit interface{} `field:"optional" json:"encryptionInTransit" yaml:"encryptionInTransit"`
 	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkacluster.html#cfn-msk-replicator-kafkacluster-vpcconfig
 	//
-	VpcConfig interface{} `field:"required" json:"vpcConfig" yaml:"vpcConfig"`
+	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`
 }
 

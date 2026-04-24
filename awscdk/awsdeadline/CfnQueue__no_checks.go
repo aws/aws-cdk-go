@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnQueue) validateSetJobRunAsUserParameters(val interface{}) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnQueue) validateSetSchedulingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnQueue) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

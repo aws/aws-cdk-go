@@ -29,7 +29,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Namespace: jsii.String("namespace"),
 //
@@ -39,6 +38,8 @@ import (
 //   			Scope: jsii.String("scope"),
 //   		},
 //   	},
+//   	ApplicationType: jsii.String("applicationType"),
+//   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{
 //   			jsii.String("allow"),
@@ -74,6 +75,9 @@ type CfnApplication interface {
 	// The configuration for where the application should be loaded from.
 	ApplicationSourceConfig() interface{}
 	SetApplicationSourceConfig(val interface{})
+	// The type of application.
+	ApplicationType() *string
+	SetApplicationType(val *string)
 	// The Amazon Resource Name (ARN) of the Application.
 	AttrApplicationArn() *string
 	// A unique identifier for the Application.
@@ -314,6 +318,16 @@ func (j *jsiiProxy_CfnApplication) ApplicationSourceConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"applicationSourceConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) ApplicationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationType",
 		&returns,
 	)
 	return returns
@@ -591,10 +605,15 @@ func (j *jsiiProxy_CfnApplication)SetApplicationSourceConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnApplication)SetApplicationType(val *string) {
+	_jsii_.Set(
+		j,
+		"applicationType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApplication)SetDescription(val *string) {
-	if err := j.validateSetDescriptionParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"description",

@@ -317,6 +317,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEc2PlacementGroupIds", GoGetter: "AttrEc2PlacementGroupIds"},
 			_jsii_.MemberProperty{JsiiProperty: "attrManagedServices", GoGetter: "AttrManagedServices"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOciNetworkAnchorId", GoGetter: "AttrOciNetworkAnchorId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOciResourceAnchorName", GoGetter: "AttrOciResourceAnchorName"},

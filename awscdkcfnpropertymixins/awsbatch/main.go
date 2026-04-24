@@ -260,6 +260,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinitionPropsMixin_RuntimePlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.S3FilesVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnJobDefinitionPropsMixin_S3FilesVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.SecretProperty",
 		reflect.TypeOf((*CfnJobDefinitionPropsMixin_SecretProperty)(nil)).Elem(),
 	)

@@ -5,8 +5,10 @@ import (
 )
 
 // Context available to the validation plugin.
+// Deprecated: Use `IPolicyValidationContext` instead.
 type IPolicyValidationContextBeta1 interface {
 	// The absolute path of all templates to be processed.
+	// Deprecated: Use `IPolicyValidationContext` instead.
 	TemplatePaths() *[]*string
 }
 

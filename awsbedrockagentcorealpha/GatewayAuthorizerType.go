@@ -12,5 +12,8 @@ const (
 	// AWS IAM authorizer type.
 	// Experimental.
 	GatewayAuthorizerType_AWS_IAM GatewayAuthorizerType = "AWS_IAM"
+	// No authorization type.
+	// Experimental.
+	GatewayAuthorizerType_NONE GatewayAuthorizerType = "NONE"
 )
 

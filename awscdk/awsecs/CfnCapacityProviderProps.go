@@ -133,6 +133,9 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		AutoRepairConfiguration: &AutoRepairConfigurationProperty{
+//   			ActionsStatus: jsii.String("actionsStatus"),
+//   		},
 //   		InfrastructureOptimization: &InfrastructureOptimizationProperty{
 //   			ScaleInAfter: jsii.Number(123),
 //   		},

@@ -10,6 +10,7 @@ package awsbcmdataexports
 //
 //   s3DestinationProperty := &S3DestinationProperty{
 //   	S3Bucket: jsii.String("s3Bucket"),
+//   	S3BucketOwner: jsii.String("s3BucketOwner"),
 //   	S3OutputConfigurations: &S3OutputConfigurationsProperty{
 //   		Compression: jsii.String("compression"),
 //   		Format: jsii.String("format"),
@@ -27,6 +28,9 @@ type CfnExportPropsMixin_S3DestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3bucket
 	//
 	S3Bucket *string `field:"optional" json:"s3Bucket" yaml:"s3Bucket"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3bucketowner
+	//
+	S3BucketOwner *string `field:"optional" json:"s3BucketOwner" yaml:"s3BucketOwner"`
 	// The output configuration for the data export.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3outputconfigurations
 	//

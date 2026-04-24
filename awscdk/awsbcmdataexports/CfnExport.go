@@ -47,6 +47,9 @@ import (
 //   				},
 //   				S3Prefix: jsii.String("s3Prefix"),
 //   				S3Region: jsii.String("s3Region"),
+//
+//   				// the properties below are optional
+//   				S3BucketOwner: jsii.String("s3BucketOwner"),
 //   			},
 //   		},
 //   		Name: jsii.String("name"),

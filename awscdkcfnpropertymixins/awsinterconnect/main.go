@@ -35,4 +35,8 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_interconnect.CfnConnectionPropsMixin.ProviderProperty",
 		reflect.TypeOf((*CfnConnectionPropsMixin_ProviderProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_interconnect.CfnConnectionPropsMixin.RemoteAccountProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_RemoteAccountProperty)(nil)).Elem(),
+	)
 }

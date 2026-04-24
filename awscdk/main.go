@@ -2404,6 +2404,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IPolicyValidationContext",
+		reflect.TypeOf((*IPolicyValidationContext)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "templatePaths", GoGetter: "TemplatePaths"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IPolicyValidationContext{}
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.IPolicyValidationContextBeta1",
 		reflect.TypeOf((*IPolicyValidationContextBeta1)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2411,6 +2421,19 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IPolicyValidationContextBeta1{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IPolicyValidationPlugin",
+		reflect.TypeOf((*IPolicyValidationPlugin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "ruleIds", GoGetter: "RuleIds"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IPolicyValidationPlugin{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -2919,8 +2942,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.PolicyValidationPluginReport",
+		reflect.TypeOf((*PolicyValidationPluginReport)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.PolicyValidationPluginReportBeta1",
 		reflect.TypeOf((*PolicyValidationPluginReportBeta1)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.PolicyValidationReportStatus",
+		reflect.TypeOf((*PolicyValidationReportStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"SUCCESS": PolicyValidationReportStatus_SUCCESS,
+			"FAILURE": PolicyValidationReportStatus_FAILURE,
+		},
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.PolicyValidationReportStatusBeta1",
@@ -2931,8 +2966,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.PolicyViolatingResource",
+		reflect.TypeOf((*PolicyViolatingResource)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.PolicyViolatingResourceBeta1",
 		reflect.TypeOf((*PolicyViolatingResourceBeta1)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.PolicyViolation",
+		reflect.TypeOf((*PolicyViolation)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.PolicyViolationBeta1",
@@ -3455,6 +3498,16 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_ValidationResults{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.Validations",
+		reflect.TypeOf((*Validations)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addPlugins", GoMethod: "AddPlugins"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Validations{}
 		},
 	)
 }

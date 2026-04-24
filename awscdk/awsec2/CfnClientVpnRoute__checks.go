@@ -203,14 +203,6 @@ func (j *jsiiProxy_CfnClientVpnRoute) validateSetDestinationCidrBlockParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnClientVpnRoute) validateSetTargetVpcSubnetIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnClientVpnRouteParameters(scope constructs.Construct, id *string, props *CfnClientVpnRouteProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

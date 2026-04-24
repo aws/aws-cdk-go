@@ -96,10 +96,6 @@ func (j *jsiiProxy_CfnApplication) validateSetApplicationSourceConfigParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnApplication) validateSetDescriptionParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnApplication) validateSetIframeConfigParameters(val interface{}) error {
 	return nil
 }

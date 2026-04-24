@@ -26,6 +26,9 @@ import (
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
 //   	ManagedInstancesProvider: &ManagedInstancesProviderProperty{
+//   		AutoRepairConfiguration: &AutoRepairConfigurationProperty{
+//   			ActionsStatus: jsii.String("actionsStatus"),
+//   		},
 //   		InfrastructureOptimization: &InfrastructureOptimizationProperty{
 //   			ScaleInAfter: jsii.Number(123),
 //   		},

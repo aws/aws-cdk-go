@@ -75,6 +75,7 @@ import (
 //   			},
 //   			LifeCycleConfig: &ClusterLifeCycleConfigProperty{
 //   				OnCreate: jsii.String("onCreate"),
+//   				OnInitComplete: jsii.String("onInitComplete"),
 //   				SourceS3Uri: jsii.String("sourceS3Uri"),
 //   			},
 //   			MinInstanceCount: jsii.Number(123),

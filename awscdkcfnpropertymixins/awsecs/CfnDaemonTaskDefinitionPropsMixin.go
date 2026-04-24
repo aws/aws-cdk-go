@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Schema describing various properties for ECS DaemonTaskDefinition.
+// The details of a daemon task definition.
+//
+// A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -18,6 +18,9 @@ package awsbcmdataexports
 //   	},
 //   	S3Prefix: jsii.String("s3Prefix"),
 //   	S3Region: jsii.String("s3Region"),
+//
+//   	// the properties below are optional
+//   	S3BucketOwner: jsii.String("s3BucketOwner"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html
@@ -39,5 +42,8 @@ type CfnExport_S3DestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3region
 	//
 	S3Region *string `field:"required" json:"s3Region" yaml:"s3Region"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3destination.html#cfn-bcmdataexports-export-s3destination-s3bucketowner
+	//
+	S3BucketOwner *string `field:"optional" json:"s3BucketOwner" yaml:"s3BucketOwner"`
 }
 

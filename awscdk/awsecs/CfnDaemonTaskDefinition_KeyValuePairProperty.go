@@ -1,6 +1,8 @@
 package awsecs
 
 
+// A key-value pair object.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -14,9 +16,15 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-keyvaluepair.html
 //
 type CfnDaemonTaskDefinition_KeyValuePairProperty struct {
+	// The name of the key-value pair.
+	//
+	// For environment variables, this is the name of the environment variable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-keyvaluepair.html#cfn-ecs-daemontaskdefinition-keyvaluepair-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The value of the key-value pair.
+	//
+	// For environment variables, this is the value of the environment variable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-keyvaluepair.html#cfn-ecs-daemontaskdefinition-keyvaluepair-value
 	//
 	Value *string `field:"optional" json:"value" yaml:"value"`

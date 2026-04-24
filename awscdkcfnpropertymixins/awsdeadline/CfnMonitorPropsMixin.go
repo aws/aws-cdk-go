@@ -25,6 +25,7 @@ import (
 //   cfnMonitorPropsMixin := awscdkcfnpropertymixins.Aws_deadline.NewCfnMonitorPropsMixin(&CfnMonitorMixinProps{
 //   	DisplayName: jsii.String("displayName"),
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   	IdentityCenterRegion: jsii.String("identityCenterRegion"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Subdomain: jsii.String("subdomain"),
 //   	Tags: []CfnTag{

@@ -81,6 +81,25 @@ import (
 //   			FlowArn: jsii.String("flowArn"),
 //   			FlowOutputArn: jsii.String("flowOutputArn"),
 //   		},
+//   		MediaLiveChannel: &MediaLiveChannelRouterInputConfigurationProperty{
+//   			SourceTransitDecryption: &MediaLiveTransitEncryptionProperty{
+//   				EncryptionKeyConfiguration: &MediaLiveTransitEncryptionKeyConfigurationProperty{
+//   					Automatic: automatic,
+//   					SecretsManager: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   						RoleArn: jsii.String("roleArn"),
+//   						SecretArn: jsii.String("secretArn"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   			},
+//
+//   			// the properties below are optional
+//   			MediaLiveChannelArn: jsii.String("mediaLiveChannelArn"),
+//   			MediaLiveChannelOutputName: jsii.String("mediaLiveChannelOutputName"),
+//   			MediaLivePipelineId: jsii.String("mediaLivePipelineId"),
+//   		},
 //   		Merge: &MergeRouterInputConfigurationProperty{
 //   			MergeRecoveryWindowMilliseconds: jsii.Number(123),
 //   			NetworkInterfaceArn: jsii.String("networkInterfaceArn"),

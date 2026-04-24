@@ -25,6 +25,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ApplicationType: jsii.String("applicationType"),
 //   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{
@@ -59,6 +60,10 @@ type CfnApplicationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationsourceconfig
 	//
 	ApplicationSourceConfig interface{} `field:"optional" json:"applicationSourceConfig" yaml:"applicationSourceConfig"`
+	// The type of application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationtype
+	//
+	ApplicationType *string `field:"optional" json:"applicationType" yaml:"applicationType"`
 	// The description of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-description
 	//

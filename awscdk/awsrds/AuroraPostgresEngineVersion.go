@@ -942,6 +942,17 @@ func AuroraPostgresEngineVersion_VER_14_20() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_14_22() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_14_22",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_14_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -1069,6 +1080,17 @@ func AuroraPostgresEngineVersion_VER_15_15() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
 		"VER_15_15",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_15_17() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_15_17",
 		&returns,
 	)
 	return returns
@@ -1421,6 +1443,17 @@ func AuroraPostgresEngineVersion_VER_17_7() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
 		"VER_17_7",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_17_9() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"VER_17_9",
 		&returns,
 	)
 	return returns

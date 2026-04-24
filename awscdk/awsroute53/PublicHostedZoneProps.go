@@ -48,6 +48,17 @@ type PublicHostedZoneProps struct {
 	// Default: disabled.
 	//
 	QueryLogsLogGroupArn *string `field:"optional" json:"queryLogsLogGroupArn" yaml:"queryLogsLogGroupArn"`
+	// Whether to enable accelerated recovery for this hosted zone.
+	//
+	// Accelerated recovery reduces the time to recovery when a hosted zone
+	// becomes unavailable due to DNS resolution issues.
+	//
+	// This feature is only available for public hosted zones.
+	// See: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/accelerated-recovery.html
+	//
+	// Default: - no accelerated recovery.
+	//
+	AcceleratedRecoveryEnabled *bool `field:"optional" json:"acceleratedRecoveryEnabled" yaml:"acceleratedRecoveryEnabled"`
 	// Whether to create a CAA record to restrict certificate authorities allowed to issue certificates for this domain to Amazon only.
 	// Default: false.
 	//

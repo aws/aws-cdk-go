@@ -63,6 +63,7 @@ type AppProps struct {
 	// Validation plugins to run after synthesis.
 	// Default: - no validation plugins.
 	//
+	// Deprecated: Use `Validations.of(app).addPlugins()` instead.
 	PolicyValidationBeta1 *[]IPolicyValidationPluginBeta1 `field:"optional" json:"policyValidationBeta1" yaml:"policyValidationBeta1"`
 	// Additional context values for the application.
 	//

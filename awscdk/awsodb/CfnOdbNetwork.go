@@ -54,6 +54,8 @@ type CfnOdbNetwork interface {
 	awscdk.IInspectable
 	interfacesawsodb.IOdbNetworkRef
 	awscdk.ITaggableV2
+	// The list of EC2 placement group IDs associated with your ODB network.
+	AttrEc2PlacementGroupIds() *[]*string
 	// The managed services configuration for the ODB network.
 	AttrManagedServices() awscdk.IResolvable
 	// The unique identifier of the OCI network anchor for the ODB network.
@@ -305,6 +307,16 @@ type jsiiProxy_CfnOdbNetwork struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsodbIOdbNetworkRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnOdbNetwork) AttrEc2PlacementGroupIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEc2PlacementGroupIds",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnOdbNetwork) AttrManagedServices() awscdk.IResolvable {

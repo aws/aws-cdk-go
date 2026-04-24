@@ -11,6 +11,9 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   managedInstancesProviderProperty := &ManagedInstancesProviderProperty{
+//   	AutoRepairConfiguration: &AutoRepairConfigurationProperty{
+//   		ActionsStatus: jsii.String("actionsStatus"),
+//   	},
 //   	InfrastructureOptimization: &InfrastructureOptimizationProperty{
 //   		ScaleInAfter: jsii.Number(123),
 //   	},
@@ -115,6 +118,9 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesprovider.html
 //
 type CfnCapacityProviderPropsMixin_ManagedInstancesProviderProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesprovider.html#cfn-ecs-capacityprovider-managedinstancesprovider-autorepairconfiguration
+	//
+	AutoRepairConfiguration interface{} `field:"optional" json:"autoRepairConfiguration" yaml:"autoRepairConfiguration"`
 	// Defines how Amazon ECS Managed Instances optimizes the infrastastructure in your capacity provider.
 	//
 	// Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle or underutilized EC2 instances optimization delay.

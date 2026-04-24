@@ -129,6 +129,15 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
       * [Memory with Custom Execution Role](#memory-with-custom-execution-role)
     * [Memory with self-managed Strategies](#memory-with-self-managed-strategies)
     * [Memory Strategy Methods](#memory-strategy-methods)
+  * [Policy](#policy)
+
+    * [PolicyEngine Properties](#policyengine-properties)
+    * [Policy Properties](#policy-properties)
+    * [Basic PolicyEngine and Policy Creation](#basic-policyengine-and-policy-creation)
+    * [Associating a Policy Engine with a Gateway](#associating-a-policy-engine-with-a-gateway)
+    * [Type-Safe Policy Builder](#type-safe-policy-builder)
+    * [PolicyEngine with KMS Encryption](#policyengine-with-kms-encryption)
+    * [Policy Validation Modes](#policy-validation-modes)
 
 ## AgentCore Runtime
 
@@ -846,6 +855,52 @@ agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
 })
 ```
 
+#### Observability configuration
+
+The Runtime construct supports observability features including X-Ray tracing and logging to CloudWatch Logs, S3, or Kinesis Data Firehose. This allows you to monitor and debug your agent runtime invocations.
+
+You can configure:
+
+* tracingEnabled: Enable X-Ray tracing for the runtime
+* loggingConfigs: Send APPLICATION_LOGS (agent runtime invocations) and USAGE_LOGS (session-level resource consumption) to CloudWatch Logs, S3, or Kinesis Data Firehose
+
+For additional information, please refer to the [Set up logging and tracing for AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html).
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create logging destinations
+logGroup := logs.NewLogGroup(this, jsii.String("RuntimeLogGroup"))
+logBucket := s3.NewBucket(this, jsii.String("RuntimeLogBucket"))
+firehoseStream := firehose.NewDeliveryStream(this, jsii.String("RuntimeLogStream"), &DeliveryStreamProps{
+	Destination: firehose.NewS3Bucket(logBucket),
+})
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	TracingEnabled: jsii.Boolean(true),
+	LoggingConfigs: []LoggingConfig{
+		&LoggingConfig{
+			LogType: agentcore.LogType_APPLICATION_LOGS(),
+			Destination: agentcore.LoggingDestination_CloudWatchLogs(logGroup),
+		},
+		&LoggingConfig{
+			LogType: agentcore.LogType_APPLICATION_LOGS(),
+			Destination: agentcore.LoggingDestination_S3(logBucket),
+		},
+		&LoggingConfig{
+			LogType: agentcore.LogType_APPLICATION_LOGS(),
+			Destination: agentcore.LoggingDestination_Firehose(firehoseStream),
+		},
+	},
+})
+```
+
 ## Browser
 
 The Amazon Bedrock AgentCore Browser provides a secure, cloud-based browser that enables AI agents to interact with websites. It includes security features such as session isolation, built-in observability through live viewing, CloudTrail logging, and session replay capabilities.
@@ -1229,6 +1284,7 @@ The Gateway construct provides a way to create Amazon Bedrock Agent Core Gateway
 | `kmsKey` | `kms.IKey` | No | The AWS KMS key used to encrypt data associated with the gateway |
 | `role` | `iam.IRole` | No | The IAM role that provides permissions for the gateway to access AWS services. A new role will be created if not provided |
 | `tags` | `{ [key: string]: string }` | No | Tags for the gateway. A list of key:value pairs of tags to apply to this Gateway resource |
+| `policyEngineConfiguration` | `GatewayPolicyEngineConfig` | No | Associates a policy engine with this gateway. All agent requests are evaluated against the Cedar policies in the engine. The gateway role is automatically granted evaluate permissions. Default: no policy engine |
 
 ### Basic Gateway Creation
 
@@ -1329,6 +1385,20 @@ lambdaRole := iam.NewRole(this, jsii.String("LambdaRole"), &RoleProps{
 // The Lambda needs permission to invoke the gateway
 gateway.GrantInvoke(lambdaRole)
 ```
+
+**No Authorization** – Creates a gateway with no inbound authorization. This is useful for building public MCP servers,
+or when you want to skip gateway-level authentication and enforce tool execution-level authentication using Gateway Interceptors.
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_WithNoAuth(),
+})
+```
+
+> **⚠️ Important:** Do not use No Authorization gateways for production workloads unless you have implemented all the security best practices. No Authorization gateways are most appropriate for testing and development purposes. See [Security Best Practices](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-none) for required compensating controls.
+
+For more information, see [No Authorization](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-none).
 
 **Cognito with M2M (Machine-to-Machine) Authentication (Default)** – When no authorizer is specified, the construct automatically creates a Cognito User Pool configured for OAuth 2.0 client credentials flow. This enables machine-to-machine authentication suitable for AI agents and service-to-service communication.
 
@@ -2625,4 +2695,265 @@ memory := agentcore.NewMemory(this, jsii.String("test-memory"), &MemoryProps{
 // Add strategies after instantiation
 memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSummarization())
 memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSemantic())
+```
+
+## Policy Engine
+
+A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+
+### PolicyEngine Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `policyEngineName` | `string` | No | The name of the policy engine. Valid characters: a-z, A-Z, 0-9, _ (underscore). Must start with a letter, 1-48 characters. If not provided, a unique name will be auto-generated |
+| `description` | `string` | No | Optional description for the policy engine (max 4,096 characters). Default: no description |
+| `kmsKey` | `IKey` | No | Custom KMS key for encryption. **IMPORTANT**: Once set, cannot be changed (requires replacement). Must be symmetric ENCRYPT_DECRYPT key. If key becomes inaccessible, all authorization decisions will be DENIED. Default: AWS owned key |
+| `tags` | `{ [key: string]: string }` | No | Tags for the policy engine (max 50 tags). Default: no tags |
+
+### Understanding Cedar Policies in AgentCore
+
+Policies are constructed using [Cedar language](https://www.cedarpolicy.com/en/tutorial), an open source language for writing and enforcing authorization policies.
+Cedar policies in AgentCore follow a specific structure with three main components: **Principal**, **Action**, and **Resource**. Understanding how these components work together is critical for writing effective policies.
+
+#### Policy Structure
+
+Every Cedar policy has this basic structure:
+
+```cedar
+permit(              // or forbid
+  principal,         // Who is making the request
+  action,            // What operation they want to perform
+  resource           // What Gateway/tool they want to access
+)
+when {               // Optional conditions
+  // Additional constraints
+};
+```
+
+Example Policy
+
+```cedar
+permit(
+  principal,
+  action == AgentCore::Action::"ApplicationToolTarget___create_application",
+  resource == AgentCore::Gateway::"<gateway-arn>"
+) when {
+  context.input.coverage_amount <= 1000000
+};
+```
+
+### Basic PolicyEngine and Policy Creation
+
+Create a policy engine and add policies to it.
+
+```go
+// Create a Policy engine
+policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
+	PolicyEngineName: jsii.String("my_policy_engine"),
+	Description: jsii.String("Policy engine for access control"),
+})
+
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	PolicyEngineConfiguration: &GatewayPolicyEngineConfig{
+		PolicyEngine: policyEngine,
+	},
+})
+
+// Add policy to policy engine
+policyEngine.AddPolicy(jsii.String("AllowAllActions"), &AddPolicyOptions{
+	Definition: fmt.Sprintf("\n    permit(\n      principal,\n      action,\n      resource == AgentCore::Gateway::\"%v\"\n    );\n  ", gateway.GatewayArn),
+	Description: jsii.String("Allow all actions on specific gateway (development)"),
+	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
+})
+
+// you can add multiple policies to the policy engine
+policyEngine.AddPolicy(jsii.String("SpecificToolPolicy"), &AddPolicyOptions{
+	Definition: fmt.Sprintf("\n    permit(\n      principal is AgentCore::OAuthUser,\n      action == AgentCore::Action::\"WeatherTool__get_forecast\",\n      resource == AgentCore::Gateway::\"%v\"\n    );\n  ", gateway.*GatewayArn),
+	Description: jsii.String("Allow specific weather tool access"),
+	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+})
+```
+
+### Type-Safe Policy Builder
+
+For a more type-safe approach, use the `PolicyStatement` builder instead of writing raw Cedar syntax.
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
+	PolicyEngineName: jsii.String("my_policy_engine"),
+})
+
+allowAllPolicy := agentcore.NewPolicy(this, jsii.String("AllowAllPolicy"), &PolicyProps{
+	PolicyEngine: policyEngine,
+	PolicyName: jsii.String("allow_all"),
+	Statement: agentcore.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
+	Description: jsii.String("Allow all actions on specific gateway (development only)"),
+	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
+})
+```
+
+#### Policy with Specific Actions
+
+```go
+var policyEngine PolicyEngine
+var gateway Gateway
+
+
+// Allow specific tool actions on specific gateway
+// Action names follow pattern: "ToolName__operation"
+policyEngine.AddPolicy(jsii.String("SpecificToolPolicy"), &AddPolicyOptions{
+	Statement: agentcore.PolicyStatement_Permit().ForPrincipal(jsii.String("AgentCore::OAuthUser::your-client-id")).OnActions([]*string{
+		jsii.String("AgentCore::Action::WeatherTool__get_forecast"),
+		jsii.String("AgentCore::Action::WeatherTool__get_current"),
+	}).OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
+	Description: jsii.String("Allow specific weather tool operations"),
+	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+})
+```
+
+#### Policy with Conditions
+
+Use `when` clauses to add advanced conditions based on principal tags (from OAuth token) or context:
+
+```go
+var policyEngine PolicyEngine
+var gateway Gateway
+
+
+// Policy with when conditions using principal tags
+conditionalPolicy := agentcore.NewPolicy(this, jsii.String("ConditionalPolicy"), &PolicyProps{
+	PolicyEngine: policyEngine,
+	PolicyName: jsii.String("conditional_access"),
+	Statement: agentcore.PolicyStatement_Permit().ForPrincipal(jsii.String("AgentCore::OAuthUser")).OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn).When().PrincipalAttribute(jsii.String("department")).EqualTo(jsii.String("Engineering")).And().ContextAttribute(jsii.String("input.priority")).*EqualTo(jsii.String("high")).Done(),
+	Description: jsii.String("Allow engineers for high-priority requests"),
+	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+})
+```
+
+#### Forbid (Deny) Policy
+
+Use `forbid` to explicitly deny access. Forbid policies override permit policies.
+
+```go
+var policyEngine PolicyEngine
+var gateway Gateway
+
+
+// Explicitly deny dangerous tool operations
+policyEngine.AddPolicy(jsii.String("DenyDangerous"), &AddPolicyOptions{
+	Statement: agentcore.PolicyStatement_Forbid().ForAllPrincipals().OnAction(jsii.String("AgentCore::Action::DeleteTool__delete_all")).OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
+	Description: jsii.String("Forbid delete_all operation for all users"),
+	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+})
+```
+
+#### Raw Cedar for Advanced Cases
+
+For advanced Cedar features not supported by the builder, use raw Cedar strings:
+
+```go
+var policyEngine PolicyEngine
+
+
+// Option 1: Using definition property
+advancedPolicy := agentcore.NewPolicy(this, jsii.String("AdvancedPolicy"), &PolicyProps{
+	PolicyEngine: policyEngine,
+	Definition: jsii.String("permit(principal, action, resource) when { context.custom > 10 };"),
+	Description: jsii.String("Advanced policy with custom Cedar logic"),
+})
+
+// Option 2: Using fromCedar() with statement property
+policyEngine.AddPolicy(jsii.String("CustomPolicy"), &AddPolicyOptions{
+	Statement: agentcore.PolicyStatement_FromCedar(jsii.String("forbid(principal, action, resource) when { resource.confidential == true };")),
+	Description: jsii.String("Custom policy from Cedar string"),
+})
+```
+
+**Note**: You must specify **either** `definition` (raw Cedar string) **or** `statement` (PolicyStatement builder), but not both.
+
+#### Accessing Policies on PolicyEngine
+
+You can access the list of policies added to a PolicyEngine using policyEngine.policies.
+
+### PolicyEngine with KMS Encryption
+
+Encrypt policy data with a custom KMS key.
+
+```go
+// Create a custom KMS key
+policyKey := kms.NewKey(this, jsii.String("PolicyEngineKey"), &KeyProps{
+	EnableKeyRotation: jsii.Boolean(true),
+	Description: jsii.String("KMS key for policy engine encryption"),
+})
+
+// Create policy engine with encryption
+policyEngine := agentcore.NewPolicyEngine(this, jsii.String("EncryptedEngine"), &PolicyEngineProps{
+	PolicyEngineName: jsii.String("encrypted_engine"),
+	Description: jsii.String("Policy engine with KMS encryption"),
+	KmsKey: policyKey,
+})
+```
+
+### Importing Existing PolicyEngine
+
+Import an existing policy engine from its ARN:
+
+```go
+importedEngine := agentcore.PolicyEngine_FromPolicyEngineAttributes(this, jsii.String("ImportedEngine"), &PolicyEngineAttributes{
+	PolicyEngineArn: jsii.String("policy-engine-arn"),
+	KmsKeyArn: jsii.String("kms-arn"),
+})
+
+// Use the imported engine
+policy := agentcore.NewPolicy(this, jsii.String("PolicyForImportedEngine"), &PolicyProps{
+	PolicyEngine: importedEngine,
+	Definition: jsii.String("permit(principal, action, resource);"),
+})
+```
+
+### Importing Existing Policy
+
+Import an existing policy from its ARN:
+
+```go
+importedEngine := agentcore.PolicyEngine_FromPolicyEngineAttributes(this, jsii.String("ImportedEngine"), &PolicyEngineAttributes{
+	PolicyEngineArn: jsii.String("policy-engine/my-engine-id"),
+})
+
+importedPolicy := agentcore.Policy_FromPolicyAttributes(this, jsii.String("ImportedPolicy"), &PolicyAttributes{
+	PolicyArn: jsii.String("my-policy-arn"),
+	PolicyEngine: importedEngine,
+})
+
+// Grant permissions to the imported policy
+role := iam.NewRole(this, jsii.String("PolicyRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+importedPolicy.GrantRead(role)
+```
+
+### PolicyEngine IAM Permissions
+
+Grant various levels of access to policy engines:
+
+```go
+policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyEngine"), &PolicyEngineProps{
+	PolicyEngineName: jsii.String("my_engine"),
+})
+
+lambdaRole := iam.NewRole(this, jsii.String("LambdaRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+// Grant read permissions
+policyEngine.GrantRead(lambdaRole)
+
+// Grant evaluation permissions
+policyEngine.GrantEvaluate(lambdaRole)
 ```

@@ -757,6 +757,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "statusToUpdate", GoGetter: "StatusToUpdate"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "tlsPolicy", GoGetter: "TlsPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "trafficPolicyId", GoGetter: "TrafficPolicyId"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
@@ -789,6 +790,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.PublicNetworkConfigurationProperty",
 		reflect.TypeOf((*CfnMailManagerIngressPoint_PublicNetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.TlsAuthConfigurationProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPoint_TlsAuthConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPoint.TrustStoreProperty",
+		reflect.TypeOf((*CfnMailManagerIngressPoint_TrustStoreProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerIngressPointProps",
@@ -923,12 +932,20 @@ func init() {
 		reflect.TypeOf((*CfnMailManagerRuleSet_ArchiveActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.BounceActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_BounceActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.DeliverToMailboxActionProperty",
 		reflect.TypeOf((*CfnMailManagerRuleSet_DeliverToMailboxActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.DeliverToQBusinessActionProperty",
 		reflect.TypeOf((*CfnMailManagerRuleSet_DeliverToQBusinessActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.InvokeLambdaActionProperty",
+		reflect.TypeOf((*CfnMailManagerRuleSet_InvokeLambdaActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnMailManagerRuleSet.RelayActionProperty",

@@ -24,6 +24,22 @@ import (
 //   			AmazonMskCluster: &AmazonMskClusterProperty{
 //   				MskClusterArn: jsii.String("mskClusterArn"),
 //   			},
+//   			ApacheKafkaCluster: &ApacheKafkaClusterProperty{
+//   				ApacheKafkaClusterId: jsii.String("apacheKafkaClusterId"),
+//   				BootstrapBrokerString: jsii.String("bootstrapBrokerString"),
+//   			},
+//   			ClientAuthentication: &KafkaClusterClientAuthenticationProperty{
+//   				SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
+//   					Mechanism: jsii.String("mechanism"),
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//   			EncryptionInTransit: &KafkaClusterEncryptionInTransitProperty{
+//   				EncryptionType: jsii.String("encryptionType"),
+//
+//   				// the properties below are optional
+//   				RootCaCertificate: jsii.String("rootCaCertificate"),
+//   			},
 //   			VpcConfig: &KafkaClusterClientVpcConfigProperty{
 //   				SubnetIds: []*string{
 //   					jsii.String("subnetIds"),
@@ -44,15 +60,14 @@ import (
 //   				},
 //
 //   				// the properties below are optional
+//   				ConsumerGroupOffsetSyncMode: jsii.String("consumerGroupOffsetSyncMode"),
 //   				ConsumerGroupsToExclude: []*string{
 //   					jsii.String("consumerGroupsToExclude"),
 //   				},
 //   				DetectAndCopyNewConsumerGroups: jsii.Boolean(false),
 //   				SynchroniseConsumerGroupOffsets: jsii.Boolean(false),
 //   			},
-//   			SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
 //   			TargetCompressionType: jsii.String("targetCompressionType"),
-//   			TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
 //   			TopicReplication: &TopicReplicationProperty{
 //   				TopicsToReplicate: []*string{
 //   					jsii.String("topicsToReplicate"),
@@ -72,6 +87,12 @@ import (
 //   					jsii.String("topicsToExclude"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
+//   			SourceKafkaClusterId: jsii.String("sourceKafkaClusterId"),
+//   			TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
+//   			TargetKafkaClusterId: jsii.String("targetKafkaClusterId"),
 //   		},
 //   	},
 //   	ReplicatorName: jsii.String("replicatorName"),
@@ -79,6 +100,29 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	LogDelivery: &LogDeliveryProperty{
+//   		ReplicatorLogDelivery: &ReplicatorLogDeliveryProperty{
+//   			CloudWatchLogs: &CloudWatchLogsProperty{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				LogGroup: jsii.String("logGroup"),
+//   			},
+//   			Firehose: &FirehoseProperty{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				DeliveryStream: jsii.String("deliveryStream"),
+//   			},
+//   			S3: &S3Property{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				Bucket: jsii.String("bucket"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -116,6 +160,9 @@ type CfnReplicator interface {
 	// Kafka Clusters to use in setting up sources / targets for replication.
 	KafkaClusters() interface{}
 	SetKafkaClusters(val interface{})
+	// Configuration for log delivery for the replicator.
+	LogDelivery() interface{}
+	SetLogDelivery(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -406,6 +453,16 @@ func (j *jsiiProxy_CfnReplicator) KafkaClusters() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicator) LogDelivery() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logDelivery",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicator) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -561,6 +618,17 @@ func (j *jsiiProxy_CfnReplicator)SetKafkaClusters(val interface{}) {
 	_jsii_.Set(
 		j,
 		"kafkaClusters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReplicator)SetLogDelivery(val interface{}) {
+	if err := j.validateSetLogDeliveryParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"logDelivery",
 		val,
 	)
 }

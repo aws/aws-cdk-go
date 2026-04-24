@@ -29,16 +29,21 @@ package awscdk
 //   	Severity: jsii.String("severity"),
 //   }
 //
+// Deprecated: Use `PolicyViolation` instead.
 type PolicyViolationBeta1 struct {
 	// The description of the violation.
+	// Deprecated: Use `PolicyViolation` instead.
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The name of the rule.
+	// Deprecated: Use `PolicyViolation` instead.
 	RuleName *string `field:"required" json:"ruleName" yaml:"ruleName"`
 	// The resources violating this rule.
+	// Deprecated: Use `PolicyViolation` instead.
 	ViolatingResources *[]*PolicyViolatingResourceBeta1 `field:"required" json:"violatingResources" yaml:"violatingResources"`
 	// How to fix the violation.
 	// Default: - no fix is provided.
 	//
+	// Deprecated: Use `PolicyViolation` instead.
 	Fix *string `field:"optional" json:"fix" yaml:"fix"`
 	// Additional metadata to include with the rule results.
 	//
@@ -46,6 +51,7 @@ type PolicyViolationBeta1 struct {
 	// plugin specific. The data provided here will be rendered as is.
 	// Default: - no rule metadata.
 	//
+	// Deprecated: Use `PolicyViolation` instead.
 	RuleMetadata *map[string]*string `field:"optional" json:"ruleMetadata" yaml:"ruleMetadata"`
 	// The severity of the violation, only used for reporting purposes.
 	//
@@ -53,6 +59,7 @@ type PolicyViolationBeta1 struct {
 	// errors, information, etc.
 	// Default: - no severity.
 	//
+	// Deprecated: Use `PolicyViolation` instead.
 	Severity *string `field:"optional" json:"severity" yaml:"severity"`
 }
 

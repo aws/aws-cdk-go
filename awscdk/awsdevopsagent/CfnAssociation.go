@@ -45,6 +45,9 @@ import (
 //   				},
 //   			},
 //   		},
+//   		Azure: &AzureConfigurationProperty{
+//   			SubscriptionId: jsii.String("subscriptionId"),
+//   		},
 //   		Dynatrace: &DynatraceConfigurationProperty{
 //   			EnvId: jsii.String("envId"),
 //
@@ -94,12 +97,26 @@ import (
 //   			AccountId: jsii.String("accountId"),
 //   			Endpoint: jsii.String("endpoint"),
 //   		},
+//   		McpServerSigV4: &MCPServerSigV4ConfigurationProperty{
+//   			Tools: []*string{
+//   				jsii.String("tools"),
+//   			},
+//   		},
 //   		McpServerSplunk: &MCPServerSplunkConfigurationProperty{
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
 //   			Description: jsii.String("description"),
+//   			EnableWebhookUpdates: jsii.Boolean(false),
+//   		},
+//   		PagerDuty: &PagerDutyConfigurationProperty{
+//   			CustomerEmail: jsii.String("customerEmail"),
+//   			Services: []*string{
+//   				jsii.String("services"),
+//   			},
+//
+//   			// the properties below are optional
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   		},
 //   		ServiceNow: &ServiceNowConfigurationProperty{

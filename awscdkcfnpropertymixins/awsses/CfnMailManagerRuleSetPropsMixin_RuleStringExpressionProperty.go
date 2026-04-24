@@ -15,6 +15,7 @@ package awsses
 //   			ResultField: jsii.String("resultField"),
 //   		},
 //   		Attribute: jsii.String("attribute"),
+//   		ClientCertificateAttribute: jsii.String("clientCertificateAttribute"),
 //   		MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   	},
 //   	Operator: jsii.String("operator"),

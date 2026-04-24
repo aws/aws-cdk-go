@@ -23,6 +23,17 @@ package awsses
 //   		// the properties below are optional
 //   		ActionFailurePolicy: jsii.String("actionFailurePolicy"),
 //   	},
+//   	Bounce: &BounceActionProperty{
+//   		DiagnosticMessage: jsii.String("diagnosticMessage"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		Sender: jsii.String("sender"),
+//   		SmtpReplyCode: jsii.String("smtpReplyCode"),
+//   		StatusCode: jsii.String("statusCode"),
+//
+//   		// the properties below are optional
+//   		ActionFailurePolicy: jsii.String("actionFailurePolicy"),
+//   		Message: jsii.String("message"),
+//   	},
 //   	DeliverToMailbox: &DeliverToMailboxActionProperty{
 //   		MailboxArn: jsii.String("mailboxArn"),
 //   		RoleArn: jsii.String("roleArn"),
@@ -39,6 +50,15 @@ package awsses
 //   		ActionFailurePolicy: jsii.String("actionFailurePolicy"),
 //   	},
 //   	Drop: drop,
+//   	InvokeLambda: &InvokeLambdaActionProperty{
+//   		FunctionArn: jsii.String("functionArn"),
+//   		InvocationType: jsii.String("invocationType"),
+//   		RoleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		ActionFailurePolicy: jsii.String("actionFailurePolicy"),
+//   		RetryTimeMinutes: jsii.Number(123),
+//   	},
 //   	PublishToSns: &SnsActionProperty{
 //   		RoleArn: jsii.String("roleArn"),
 //   		TopicArn: jsii.String("topicArn"),
@@ -92,6 +112,9 @@ type CfnMailManagerRuleSet_RuleActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-archive
 	//
 	Archive interface{} `field:"optional" json:"archive" yaml:"archive"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-bounce
+	//
+	Bounce interface{} `field:"optional" json:"bounce" yaml:"bounce"`
 	// This action delivers an email to a WorkMail mailbox.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertomailbox
 	//
@@ -104,6 +127,9 @@ type CfnMailManagerRuleSet_RuleActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-drop
 	//
 	Drop interface{} `field:"optional" json:"drop" yaml:"drop"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-invokelambda
+	//
+	InvokeLambda interface{} `field:"optional" json:"invokeLambda" yaml:"invokeLambda"`
 	// This action publishes the email content to an Amazon SNS topic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-publishtosns
 	//

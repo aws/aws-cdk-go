@@ -7,6 +7,7 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var colorSpacePassthroughSettings interface{}
+//   var hlg2020Settings interface{}
 //   var rec601Settings interface{}
 //   var rec709Settings interface{}
 //
@@ -16,6 +17,7 @@ package awsmedialive
 //   		MaxCll: jsii.Number(123),
 //   		MaxFall: jsii.Number(123),
 //   	},
+//   	Hlg2020Settings: hlg2020Settings,
 //   	Rec601Settings: rec601Settings,
 //   	Rec709Settings: rec709Settings,
 //   }
@@ -29,6 +31,9 @@ type CfnChannelPropsMixin_Av1ColorSpaceSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-hdr10settings
 	//
 	Hdr10Settings interface{} `field:"optional" json:"hdr10Settings" yaml:"hdr10Settings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-hlg2020settings
+	//
+	Hlg2020Settings interface{} `field:"optional" json:"hlg2020Settings" yaml:"hlg2020Settings"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html#cfn-medialive-channel-av1colorspacesettings-rec601settings
 	//
 	Rec601Settings interface{} `field:"optional" json:"rec601Settings" yaml:"rec601Settings"`

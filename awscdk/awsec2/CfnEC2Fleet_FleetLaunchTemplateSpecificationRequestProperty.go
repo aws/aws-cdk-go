@@ -25,6 +25,7 @@ package awsec2
 //   	// the properties below are optional
 //   	LaunchTemplateId: jsii.String("launchTemplateId"),
 //   	LaunchTemplateName: jsii.String("launchTemplateName"),
+//   	LaunchTemplateSpecificationUserData: jsii.String("launchTemplateSpecificationUserData"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html
@@ -50,5 +51,8 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename
 	//
 	LaunchTemplateName *string `field:"optional" json:"launchTemplateName" yaml:"launchTemplateName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatespecificationuserdata
+	//
+	LaunchTemplateSpecificationUserData *string `field:"optional" json:"launchTemplateSpecificationUserData" yaml:"launchTemplateSpecificationUserData"`
 }
 

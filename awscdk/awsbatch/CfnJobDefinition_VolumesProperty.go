@@ -23,6 +23,14 @@ package awsbatch
 //   		SourcePath: jsii.String("sourcePath"),
 //   	},
 //   	Name: jsii.String("name"),
+//   	S3FilesVolumeConfiguration: &S3FilesVolumeConfigurationProperty{
+//   		FileSystemArn: jsii.String("fileSystemArn"),
+//
+//   		// the properties below are optional
+//   		AccessPointArn: jsii.String("accessPointArn"),
+//   		RootDirectory: jsii.String("rootDirectory"),
+//   		TransitEncryptionPort: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html
@@ -37,5 +45,8 @@ type CfnJobDefinition_VolumesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html#cfn-batch-jobdefinition-volumes-s3filesvolumeconfiguration
+	//
+	S3FilesVolumeConfiguration interface{} `field:"optional" json:"s3FilesVolumeConfiguration" yaml:"s3FilesVolumeConfiguration"`
 }
 

@@ -27,6 +27,7 @@ import (
 //   cfnGraphPropsMixin := awscdkcfnpropertymixins.Aws_neptunegraph.NewCfnGraphPropsMixin(&CfnGraphMixinProps{
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ProvisionedMemory: jsii.Number(123),
 //   	PublicConnectivity: jsii.Boolean(false),
 //   	ReplicaCount: jsii.Number(123),

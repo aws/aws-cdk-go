@@ -14,6 +14,7 @@ import (
 //   cfnMonitorMixinProps := &CfnMonitorMixinProps{
 //   	DisplayName: jsii.String("displayName"),
 //   	IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   	IdentityCenterRegion: jsii.String("identityCenterRegion"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Subdomain: jsii.String("subdomain"),
 //   	Tags: []CfnTag{
@@ -37,6 +38,12 @@ type CfnMonitorMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-identitycenterinstancearn
 	//
 	IdentityCenterInstanceArn *string `field:"optional" json:"identityCenterInstanceArn" yaml:"identityCenterInstanceArn"`
+	// The AWS region where IAM Identity Center is enabled.
+	//
+	// Required when Identity Center is in a different region than the monitor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-identitycenterregion
+	//
+	IdentityCenterRegion *string `field:"optional" json:"identityCenterRegion" yaml:"identityCenterRegion"`
 	// The Amazon Resource Name of the IAM role for the monitor.
 	//
 	// Users of the monitor use this role to access Deadline Cloud resources.

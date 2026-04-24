@@ -124,6 +124,12 @@ package awsbatch
 //   				SourcePath: jsii.String("sourcePath"),
 //   			},
 //   			Name: jsii.String("name"),
+//   			S3FilesVolumeConfiguration: &S3FilesVolumeConfigurationProperty{
+//   				AccessPointArn: jsii.String("accessPointArn"),
+//   				FileSystemArn: jsii.String("fileSystemArn"),
+//   				RootDirectory: jsii.String("rootDirectory"),
+//   				TransitEncryptionPort: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   }

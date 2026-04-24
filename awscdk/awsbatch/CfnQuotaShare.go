@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::Batch::QuotaShare.
+// Creates an AWS Batch quota share.
+//
+// Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -52,7 +54,7 @@ type CfnQuotaShare interface {
 	interfacesawsbatch.IQuotaShareRef
 	awscdk.ITaggableV2
 	AttrQuotaShareArn() *string
-	// The capacity limits for the quota share.
+	// A list that specifies the quantity and type of compute capacity allocated to the quota share.
 	CapacityLimits() interface{}
 	SetCapacityLimits(val interface{})
 	// Tag Manager which manages the tags for this resource.
@@ -67,7 +69,7 @@ type CfnQuotaShare interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
-	// The Amazon Resource Name (ARN) or name of the job queue.
+	// The AWS Batch job queue associated with the quota share.
 	JobQueue() *string
 	SetJobQueue(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -103,7 +105,7 @@ type CfnQuotaShare interface {
 	// The state of the quota share.
 	State() *string
 	SetState(val *string)
-	// A key-value pair to associate with a resource.
+	// The tags that you apply to the quota share to help you categorize and organize your resources.
 	Tags() *map[string]*string
 	SetTags(val *map[string]*string)
 	// Deprecated.

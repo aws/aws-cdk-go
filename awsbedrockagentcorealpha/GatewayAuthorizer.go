@@ -8,23 +8,20 @@ import (
 // Factory class for creating Gateway Authorizers.
 //
 // Example:
-//   // Create a KMS key for encryption
-//   encryptionKey := kms.NewKey(this, jsii.String("GatewayEncryptionKey"), &KeyProps{
-//   	EnableKeyRotation: jsii.Boolean(true),
-//   	Description: jsii.String("KMS key for gateway encryption"),
-//   })
+//   // Optional: Create custom claims (CustomClaimOperator and GatewayCustomClaim from agentcore)
+//   customClaims := []GatewayCustomClaim{
+//   	agentcore.GatewayCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+//   	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+//   		jsii.String("admin"),
+//   	}, agentcore.CustomClaimOperator_CONTAINS),
+//   	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+//   		jsii.String("read"),
+//   		jsii.String("write"),
+//   	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+//   }
 //
-//   // Create gateway with KMS encryption
 //   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-encrypted-gateway"),
-//   	Description: jsii.String("Gateway with KMS encryption"),
-//   	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
-//   		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
-//   		SearchType: agentcore.McpGatewaySearchType_SEMANTIC,
-//   		SupportedVersions: []MCPProtocolVersion{
-//   			agentcore.MCPProtocolVersion_MCP_2025_03_26,
-//   		},
-//   	}),
+//   	GatewayName: jsii.String("my-gateway"),
 //   	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
 //   		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
 //   		AllowedAudience: []*string{
@@ -37,9 +34,8 @@ import (
 //   			jsii.String("read"),
 //   			jsii.String("write"),
 //   		},
+//   		CustomClaims: customClaims,
 //   	}),
-//   	KmsKey: encryptionKey,
-//   	ExceptionLevel: agentcore.GatewayExceptionLevel_DEBUG,
 //   })
 //
 // Experimental.
@@ -117,6 +113,31 @@ func GatewayAuthorizer_UsingCustomJwt(configuration *CustomJwtConfiguration) IGa
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayAuthorizer",
 		"usingCustomJwt",
 		[]interface{}{configuration},
+		&returns,
+	)
+
+	return returns
+}
+
+// No authorization — the gateway will not perform any inbound authorization.
+//
+// The gateway endpoint will be publicly accessible without credentials.
+// Use this for testing/development, or for production gateways where you have
+// implemented compensating controls such as Gateway Interceptors.
+//
+// Returns: IGatewayAuthorizerConfig configured for no authorization.
+// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-none
+//
+// Experimental.
+func GatewayAuthorizer_WithNoAuth() IGatewayAuthorizerConfig {
+	_init_.Initialize()
+
+	var returns IGatewayAuthorizerConfig
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayAuthorizer",
+		"withNoAuth",
+		nil, // no parameters
 		&returns,
 	)
 

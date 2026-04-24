@@ -28,6 +28,17 @@ import (
 //   						// the properties below are optional
 //   						ActionFailurePolicy: jsii.String("actionFailurePolicy"),
 //   					},
+//   					Bounce: &BounceActionProperty{
+//   						DiagnosticMessage: jsii.String("diagnosticMessage"),
+//   						RoleArn: jsii.String("roleArn"),
+//   						Sender: jsii.String("sender"),
+//   						SmtpReplyCode: jsii.String("smtpReplyCode"),
+//   						StatusCode: jsii.String("statusCode"),
+//
+//   						// the properties below are optional
+//   						ActionFailurePolicy: jsii.String("actionFailurePolicy"),
+//   						Message: jsii.String("message"),
+//   					},
 //   					DeliverToMailbox: &DeliverToMailboxActionProperty{
 //   						MailboxArn: jsii.String("mailboxArn"),
 //   						RoleArn: jsii.String("roleArn"),
@@ -44,6 +55,15 @@ import (
 //   						ActionFailurePolicy: jsii.String("actionFailurePolicy"),
 //   					},
 //   					Drop: drop,
+//   					InvokeLambda: &InvokeLambdaActionProperty{
+//   						FunctionArn: jsii.String("functionArn"),
+//   						InvocationType: jsii.String("invocationType"),
+//   						RoleArn: jsii.String("roleArn"),
+//
+//   						// the properties below are optional
+//   						ActionFailurePolicy: jsii.String("actionFailurePolicy"),
+//   						RetryTimeMinutes: jsii.Number(123),
+//   					},
 //   					PublishToSns: &SnsActionProperty{
 //   						RoleArn: jsii.String("roleArn"),
 //   						TopicArn: jsii.String("topicArn"),
@@ -131,6 +151,7 @@ import (
 //   								ResultField: jsii.String("resultField"),
 //   							},
 //   							Attribute: jsii.String("attribute"),
+//   							ClientCertificateAttribute: jsii.String("clientCertificateAttribute"),
 //   							MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   						},
 //   						Operator: jsii.String("operator"),
@@ -201,6 +222,7 @@ import (
 //   								ResultField: jsii.String("resultField"),
 //   							},
 //   							Attribute: jsii.String("attribute"),
+//   							ClientCertificateAttribute: jsii.String("clientCertificateAttribute"),
 //   							MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   						},
 //   						Operator: jsii.String("operator"),

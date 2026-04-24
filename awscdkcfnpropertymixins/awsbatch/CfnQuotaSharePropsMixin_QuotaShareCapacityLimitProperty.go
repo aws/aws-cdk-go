@@ -15,12 +15,14 @@ package awsbatch
 //
 type CfnQuotaSharePropsMixin_QuotaShareCapacityLimitProperty struct {
 	// The unit of compute capacity for the capacityLimit.
+	//
+	// For example, `ml.m5.large`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-quotashare-quotasharecapacitylimit.html#cfn-batch-quotashare-quotasharecapacitylimit-capacityunit
 	//
 	CapacityUnit *string `field:"optional" json:"capacityUnit" yaml:"capacityUnit"`
 	// The maximum capacity available for the quota share.
 	//
-	// This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing.
+	// This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-quotashare-quotasharecapacitylimit.html#cfn-batch-quotashare-quotasharecapacitylimit-maxcapacity
 	//
 	MaxCapacity *float64 `field:"optional" json:"maxCapacity" yaml:"maxCapacity"`

@@ -7,6 +7,14 @@ package awsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   additionalServiceDetailsProperty := &AdditionalServiceDetailsProperty{
+//   	AzureIdentity: &RegisteredAzureIdentityDetailsProperty{
+//   		ClientId: jsii.String("clientId"),
+//   		TenantId: jsii.String("tenantId"),
+//   		WebIdentityRoleArn: jsii.String("webIdentityRoleArn"),
+//   		WebIdentityTokenAudiences: []*string{
+//   			jsii.String("webIdentityTokenAudiences"),
+//   		},
+//   	},
 //   	Dynatrace: &RegisteredDynatraceDetailsProperty{
 //   		AccountUrn: jsii.String("accountUrn"),
 //   	},
@@ -27,12 +35,28 @@ package awsdevopsagent
 //   		Description: jsii.String("description"),
 //   		Region: jsii.String("region"),
 //   	},
+//   	McpServerSigV4: &RegisteredMCPServerSigV4DetailsProperty{
+//   		CustomHeaders: map[string]*string{
+//   			"customHeadersKey": jsii.String("customHeaders"),
+//   		},
+//   		Description: jsii.String("description"),
+//   		Endpoint: jsii.String("endpoint"),
+//   		Name: jsii.String("name"),
+//   		Region: jsii.String("region"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		Service: jsii.String("service"),
+//   	},
 //   	McpServerSplunk: &RegisteredMCPServerDetailsProperty{
 //   		ApiKeyHeader: jsii.String("apiKeyHeader"),
 //   		AuthorizationMethod: jsii.String("authorizationMethod"),
 //   		Description: jsii.String("description"),
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),
+//   	},
+//   	PagerDuty: &RegisteredPagerDutyDetailsProperty{
+//   		Scopes: []*string{
+//   			jsii.String("scopes"),
+//   		},
 //   	},
 //   	ServiceNow: &RegisteredServiceNowDetailsProperty{
 //   		InstanceUrl: jsii.String("instanceUrl"),
@@ -42,6 +66,10 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html
 //
 type CfnServicePropsMixin_AdditionalServiceDetailsProperty struct {
+	// Azure Identity service details returned after registration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-azureidentity
+	//
+	AzureIdentity interface{} `field:"optional" json:"azureIdentity" yaml:"azureIdentity"`
 	// Dynatrace service details returned after registration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-dynatrace
 	//
@@ -58,10 +86,18 @@ type CfnServicePropsMixin_AdditionalServiceDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-mcpservernewrelic
 	//
 	McpServerNewRelic interface{} `field:"optional" json:"mcpServerNewRelic" yaml:"mcpServerNewRelic"`
+	// SigV4-authenticated MCP server details returned after registration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-mcpserversigv4
+	//
+	McpServerSigV4 interface{} `field:"optional" json:"mcpServerSigV4" yaml:"mcpServerSigV4"`
 	// MCP server details returned after registration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-mcpserversplunk
 	//
 	McpServerSplunk interface{} `field:"optional" json:"mcpServerSplunk" yaml:"mcpServerSplunk"`
+	// PagerDuty service details returned after registration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-pagerduty
+	//
+	PagerDuty interface{} `field:"optional" json:"pagerDuty" yaml:"pagerDuty"`
 	// ServiceNow service details returned after registration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-servicenow
 	//

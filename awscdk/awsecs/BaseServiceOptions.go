@@ -83,6 +83,12 @@ import (
 //   	MinHealthyPercent: jsii.Number(123),
 //   	PropagateTags: awscdk.*Aws_ecs.PropagatedTagSource_SERVICE,
 //   	ServiceConnectConfiguration: &ServiceConnectProps{
+//   		AccessLogConfiguration: &ServiceConnectAccessLogConfiguration{
+//   			Format: awscdk.*Aws_ecs.ServiceConnectAccessLogFormat_TEXT,
+//
+//   			// the properties below are optional
+//   			IncludeQueryParameters: jsii.Boolean(false),
+//   		},
 //   		LogDriver: logDriver,
 //   		Namespace: jsii.String("namespace"),
 //   		Services: []ServiceConnectService{

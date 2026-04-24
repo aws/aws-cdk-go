@@ -75,6 +75,28 @@ import (
 //   		},
 //   	},
 //   	BucketName: jsii.String("bucketName"),
+//   	InventoryConfigurations: []interface{}{
+//   		&InventoryConfigurationProperty{
+//   			Destination: &DestinationProperty{
+//   				BucketArn: jsii.String("bucketArn"),
+//   				Format: jsii.String("format"),
+//
+//   				// the properties below are optional
+//   				BucketAccountId: jsii.String("bucketAccountId"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Enabled: jsii.Boolean(false),
+//   			Id: jsii.String("id"),
+//   			IncludedObjectVersions: jsii.String("includedObjectVersions"),
+//   			ScheduleFrequency: jsii.String("scheduleFrequency"),
+//
+//   			// the properties below are optional
+//   			OptionalFields: []*string{
+//   				jsii.String("optionalFields"),
+//   			},
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		Rules: []interface{}{
 //   			&RuleProperty{
@@ -147,6 +169,9 @@ type CfnDirectoryBucket interface {
 	// A reference to a DirectoryBucket resource.
 	DirectoryBucketRef() *interfacesawss3express.DirectoryBucketReference
 	Env() *interfaces.ResourceEnvironment
+	// The inventory configuration for an Amazon S3 Express bucket.
+	InventoryConfigurations() interface{}
+	SetInventoryConfigurations(val interface{})
 	// Container for lifecycle rules.
 	//
 	// You can add as many as 1000 rules.
@@ -457,6 +482,16 @@ func (j *jsiiProxy_CfnDirectoryBucket) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDirectoryBucket) InventoryConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"inventoryConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDirectoryBucket) LifecycleConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -613,6 +648,17 @@ func (j *jsiiProxy_CfnDirectoryBucket)SetDataRedundancy(val *string) {
 	_jsii_.Set(
 		j,
 		"dataRedundancy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectoryBucket)SetInventoryConfigurations(val interface{}) {
+	if err := j.validateSetInventoryConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"inventoryConfigurations",
 		val,
 	)
 }

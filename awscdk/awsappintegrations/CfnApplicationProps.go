@@ -22,7 +22,6 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Namespace: jsii.String("namespace"),
 //
@@ -32,6 +31,8 @@ import (
 //   			Scope: jsii.String("scope"),
 //   		},
 //   	},
+//   	ApplicationType: jsii.String("applicationType"),
+//   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{
 //   			jsii.String("allow"),
@@ -60,10 +61,6 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationsourceconfig
 	//
 	ApplicationSourceConfig interface{} `field:"required" json:"applicationSourceConfig" yaml:"applicationSourceConfig"`
-	// The description of the application.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-description
-	//
-	Description *string `field:"required" json:"description" yaml:"description"`
 	// The name of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-name
 	//
@@ -75,6 +72,14 @@ type CfnApplicationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationconfig
 	//
 	ApplicationConfig interface{} `field:"optional" json:"applicationConfig" yaml:"applicationConfig"`
+	// The type of application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationtype
+	//
+	ApplicationType *string `field:"optional" json:"applicationType" yaml:"applicationType"`
+	// The description of the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-iframeconfig
 	//
 	IframeConfig interface{} `field:"optional" json:"iframeConfig" yaml:"iframeConfig"`

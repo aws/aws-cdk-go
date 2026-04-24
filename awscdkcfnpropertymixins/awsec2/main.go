@@ -332,8 +332,20 @@ func init() {
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_FleetLaunchTemplateSpecificationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.IamInstanceProfileSpecificationProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_IamInstanceProfileSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.InstanceMetadataOptionsRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_InstanceMetadataOptionsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.InstanceRequirementsRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_InstanceRequirementsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.Ipv6AddressRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_Ipv6AddressRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.MaintenanceStrategiesProperty",
@@ -356,6 +368,10 @@ func init() {
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.NetworkInterfaceSpecificationRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_NetworkInterfaceSpecificationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.OnDemandOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_OnDemandOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -366,6 +382,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.PlacementProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_PlacementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.PrivateIpAddressSpecificationRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_PrivateIpAddressSpecificationRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.ReservedCapacityOptionsRequestProperty",

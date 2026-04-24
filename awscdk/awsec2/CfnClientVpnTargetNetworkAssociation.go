@@ -22,6 +22,8 @@ import (
 //
 //   cfnClientVpnTargetNetworkAssociation := awscdk.Aws_ec2.NewCfnClientVpnTargetNetworkAssociation(this, jsii.String("MyCfnClientVpnTargetNetworkAssociation"), &CfnClientVpnTargetNetworkAssociationProps{
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
+//
+//   	// the properties below are optional
 //   	SubnetId: jsii.String("subnetId"),
 //   })
 //
@@ -417,9 +419,6 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation)SetClientVpnEndpointId(v
 }
 
 func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation)SetSubnetId(val *string) {
-	if err := j.validateSetSubnetIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"subnetId",

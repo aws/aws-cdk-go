@@ -18,6 +18,7 @@ type IResolvable interface {
 	//
 	// This may return an array with a single informational element indicating how
 	// to get this property populated, if it was skipped for performance reasons.
+	// Deprecated: creationStack has been deprecated for low usefulness and cost to capture.
 	CreationStack() *[]*string
 	// The type that this token will likely resolve to.
 	TypeHint() ResolutionTypeHint

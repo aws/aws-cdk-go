@@ -3,7 +3,7 @@ package awsmediaconnect
 
 // The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive.
 //
-// This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+// This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

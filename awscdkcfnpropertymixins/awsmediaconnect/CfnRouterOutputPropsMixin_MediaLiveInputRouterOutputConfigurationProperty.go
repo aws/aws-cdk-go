@@ -30,7 +30,7 @@ package awsmediaconnect
 type CfnRouterOutputPropsMixin_MediaLiveInputRouterOutputConfigurationProperty struct {
 	// The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive.
 	//
-	// This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+	// This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialiveinputrouteroutputconfiguration.html#cfn-mediaconnect-routeroutput-medialiveinputrouteroutputconfiguration-destinationtransitencryption
 	//
 	DestinationTransitEncryption interface{} `field:"optional" json:"destinationTransitEncryption" yaml:"destinationTransitEncryption"`

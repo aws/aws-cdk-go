@@ -38,7 +38,10 @@ const pageLoadBlueprint = async function () {
   const url = `https://api.example.com/${process.env.stage}/user/books/topbook/`;
 
   const page = await synthetics.getPage();
-  const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  const response = await page.goto(url, {
+    waitUntil: 'domcontentloaded',
+    timeout: 30000,
+  });
   // Wait for page to render. Increase or decrease wait time based on endpoint being monitored.
   await page.waitFor(15000);
   // This will take a screenshot that will be included in test output artifacts.
@@ -467,3 +470,62 @@ canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 ```
 
 When you specify `ResourceToReplicateTags.LAMBDA_FUNCTION` in the `resourcesToReplicateTags` property, CloudWatch Synthetics will keep the tags of the canary and the Lambda function synchronized. Any future changes you make to the canary's tags will also be applied to the function.
+
+## Groups
+
+You can create groups to associate canaries with each other, including cross-Region canaries. Using groups can help you with managing and automating your canaries, and you can also view aggregated run results and statistics for all canaries in a group.
+
+Groups are global resources. When you create a group, it is replicated across all AWS Regions that support groups, and you can add canaries from any of these Regions to it.
+
+### Creating a Group
+
+You can create a group and associate canaries with it:
+
+```go
+// First, declare your canaries
+var canary1 ICanary
+var canary2 ICanary
+
+
+group := synthetics.NewGroup(this, jsii.String("MyCanaryGroup"), &GroupProps{
+	GroupName: jsii.String("production-canaries"),
+	Canaries: []ICanary{
+		canary1,
+		canary2,
+	},
+})
+```
+
+### Adding Canaries to a Group
+
+You can add canaries to a group after creation:
+
+```go
+var canary ICanary
+
+
+group := synthetics.NewGroup(this, jsii.String("MyCanaryGroup"))
+
+// Add canary to group
+group.AddCanary(canary)
+```
+
+### Group Limitations
+
+* Each group can contain as many as 10 canaries
+* You can have as many as 20 groups in your account
+* Any single canary can be a member of up to 10 groups
+
+### Importing Existing Groups
+
+You can import existing groups by ARN or name:
+
+```go
+// Import by ARN
+importedGroupByArn := synthetics.Group_FromGroupArn(this, jsii.String("ImportedGroup"), jsii.String("arn:aws:synthetics:us-east-1:123456789012:group:my-group"))
+
+// Import by name
+importedGroupByName := synthetics.Group_FromGroupName(this, jsii.String("ImportedGroup"), jsii.String("my-group"))
+```
+
+For more information about groups, see the [CloudWatch Synthetics Groups documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Groups.html).

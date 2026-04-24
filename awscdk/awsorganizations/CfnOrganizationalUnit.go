@@ -54,6 +54,8 @@ type CfnOrganizationalUnit interface {
 	//
 	// For example: `ou-examplerootid111-exampleouid111` .
 	AttrId() *string
+	// The path in the organization where this OU exists.
+	AttrPath() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -268,6 +270,16 @@ func (j *jsiiProxy_CfnOrganizationalUnit) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOrganizationalUnit) AttrPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPath",
 		&returns,
 	)
 	return returns

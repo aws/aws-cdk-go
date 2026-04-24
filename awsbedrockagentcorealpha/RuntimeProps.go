@@ -59,6 +59,15 @@ type RuntimeProps struct {
 	//
 	// Experimental.
 	LifecycleConfiguration *LifecycleConfiguration `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
+	// Logging configuration for the runtime.
+	//
+	// Allows sending APPLICATION_LOGS and USAGE_LOGS to CloudWatch Logs, S3, or Kinesis Data Firehose.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html
+	//
+	// Default: - No logging configured.
+	//
+	// Experimental.
+	LoggingConfigs *[]*LoggingConfig `field:"optional" json:"loggingConfigs" yaml:"loggingConfigs"`
 	// Network configuration for the agent runtime.
 	// Default: - RuntimeNetworkConfiguration.usingPublicNetwork()
 	//
@@ -84,5 +93,14 @@ type RuntimeProps struct {
 	//
 	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// Whether to enable X-Ray tracing for this runtime.
+	//
+	// When enabled, traces will be delivered to AWS X-Ray.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html
+	//
+	// Default: false.
+	//
+	// Experimental.
+	TracingEnabled *bool `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 }
 

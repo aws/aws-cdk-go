@@ -413,6 +413,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "identityCenterInstanceArn", GoGetter: "IdentityCenterInstanceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "identityCenterRegion", GoGetter: "IdentityCenterRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "monitorRef", GoGetter: "MonitorRef"},
@@ -490,6 +491,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "requiredFileSystemLocationNames", GoGetter: "RequiredFileSystemLocationNames"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "schedulingConfiguration", GoGetter: "SchedulingConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -519,6 +521,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnQueue.PosixUserProperty",
 		reflect.TypeOf((*CfnQueue_PosixUserProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnQueue.PriorityBalancedSchedulingConfigurationProperty",
+		reflect.TypeOf((*CfnQueue_PriorityBalancedSchedulingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnQueue.SchedulingConfigurationProperty",
+		reflect.TypeOf((*CfnQueue_SchedulingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnQueue.SchedulingMaxPriorityOverrideProperty",
+		reflect.TypeOf((*CfnQueue_SchedulingMaxPriorityOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnQueue.SchedulingMinPriorityOverrideProperty",
+		reflect.TypeOf((*CfnQueue_SchedulingMinPriorityOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnQueue.WeightedBalancedSchedulingConfigurationProperty",
+		reflect.TypeOf((*CfnQueue_WeightedBalancedSchedulingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnQueue.WindowsUserProperty",

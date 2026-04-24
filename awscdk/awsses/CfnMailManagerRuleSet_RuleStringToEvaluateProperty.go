@@ -16,6 +16,7 @@ package awsses
 //   		ResultField: jsii.String("resultField"),
 //   	},
 //   	Attribute: jsii.String("attribute"),
+//   	ClientCertificateAttribute: jsii.String("clientCertificateAttribute"),
 //   	MimeHeaderAttribute: jsii.String("mimeHeaderAttribute"),
 //   }
 //
@@ -30,6 +31,9 @@ type CfnMailManagerRuleSet_RuleStringToEvaluateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-attribute
 	//
 	Attribute *string `field:"optional" json:"attribute" yaml:"attribute"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-clientcertificateattribute
+	//
+	ClientCertificateAttribute *string `field:"optional" json:"clientCertificateAttribute" yaml:"clientCertificateAttribute"`
 	// The email MIME X-Header attribute to evaluate in a string condition expression.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-mimeheaderattribute
 	//

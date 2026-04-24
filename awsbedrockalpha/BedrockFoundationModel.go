@@ -466,6 +466,17 @@ func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_6_V1() BedrockFoundationMode
 	return returns
 }
 
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_7() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_OPUS_4_7",
+		&returns,
+	)
+	return returns
+}
+
 func BedrockFoundationModel_ANTHROPIC_CLAUDE_OPUS_4_V1_0() BedrockFoundationModel {
 	_init_.Initialize()
 	var returns BedrockFoundationModel

@@ -396,6 +396,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kafkaClusters", GoGetter: "KafkaClusters"},
+			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -432,16 +433,44 @@ func init() {
 		reflect.TypeOf((*CfnReplicator_AmazonMskClusterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.ApacheKafkaClusterProperty",
+		reflect.TypeOf((*CfnReplicator_ApacheKafkaClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.CloudWatchLogsProperty",
+		reflect.TypeOf((*CfnReplicator_CloudWatchLogsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.ConsumerGroupReplicationProperty",
 		reflect.TypeOf((*CfnReplicator_ConsumerGroupReplicationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.FirehoseProperty",
+		reflect.TypeOf((*CfnReplicator_FirehoseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterClientAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterClientAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterClientVpcConfigProperty",
 		reflect.TypeOf((*CfnReplicator_KafkaClusterClientVpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterEncryptionInTransitProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterEncryptionInTransitProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterProperty",
 		reflect.TypeOf((*CfnReplicator_KafkaClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterSaslScramAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterSaslScramAuthenticationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.LogDeliveryProperty",
+		reflect.TypeOf((*CfnReplicator_LogDeliveryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.ReplicationInfoProperty",
@@ -454,6 +483,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.ReplicationTopicNameConfigurationProperty",
 		reflect.TypeOf((*CfnReplicator_ReplicationTopicNameConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.ReplicatorLogDeliveryProperty",
+		reflect.TypeOf((*CfnReplicator_ReplicatorLogDeliveryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.S3Property",
+		reflect.TypeOf((*CfnReplicator_S3Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.TopicReplicationProperty",

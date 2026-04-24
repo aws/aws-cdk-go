@@ -5,6 +5,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsevents"
 )
 
 // The input to send to the CloudWatch LogGroup target.
@@ -23,13 +25,14 @@ import (
 //   }))
 //
 type LogGroupTargetInput interface {
+	awsevents.RuleTargetInput
 	// Return the input properties for this input object.
-	Bind(rule awsevents.IRule) *awsevents.RuleTargetInputProperties
+	Bind(rule interfacesawsevents.IRuleRef) *awsevents.RuleTargetInputProperties
 }
 
 // The jsii proxy struct for LogGroupTargetInput
 type jsiiProxy_LogGroupTargetInput struct {
-	_ byte // padding
+	internal.Type__awseventsRuleTargetInput
 }
 
 func NewLogGroupTargetInput_Override(l LogGroupTargetInput) {
@@ -42,15 +45,59 @@ func NewLogGroupTargetInput_Override(l LogGroupTargetInput) {
 	)
 }
 
+// Take the event target input from a path in the event JSON.
+func LogGroupTargetInput_FromEventPath(path *string) awsevents.RuleTargetInput {
+	_init_.Initialize()
+
+	if err := validateLogGroupTargetInput_FromEventPathParameters(path); err != nil {
+		panic(err)
+	}
+	var returns awsevents.RuleTargetInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
+		"fromEventPath",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Pass text to the event target, splitting on newlines.
+//
+// This is only useful when passing to a target that does not
+// take a single argument.
+//
+// May contain strings returned by `EventField.from()` to substitute in parts
+// of the matched event.
+func LogGroupTargetInput_FromMultilineText(text *string) awsevents.RuleTargetInput {
+	_init_.Initialize()
+
+	if err := validateLogGroupTargetInput_FromMultilineTextParameters(text); err != nil {
+		panic(err)
+	}
+	var returns awsevents.RuleTargetInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
+		"fromMultilineText",
+		[]interface{}{text},
+		&returns,
+	)
+
+	return returns
+}
+
 // Pass a JSON object to the log group event target.
 //
 // May contain strings returned by `EventField.from()` to substitute in parts of the
 // matched event.
 // Deprecated: use fromObjectV2.
-func LogGroupTargetInput_FromObject(options *LogGroupTargetInputOptions) awsevents.RuleTargetInput {
+func LogGroupTargetInput_FromObject(obj interface{}) awsevents.RuleTargetInput {
 	_init_.Initialize()
 
-	if err := validateLogGroupTargetInput_FromObjectParameters(options); err != nil {
+	if err := validateLogGroupTargetInput_FromObjectParameters(obj); err != nil {
 		panic(err)
 	}
 	var returns awsevents.RuleTargetInput
@@ -58,7 +105,7 @@ func LogGroupTargetInput_FromObject(options *LogGroupTargetInputOptions) awseven
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
 		"fromObject",
-		[]interface{}{options},
+		[]interface{}{obj},
 		&returns,
 	)
 
@@ -87,7 +134,33 @@ func LogGroupTargetInput_FromObjectV2(options *LogGroupTargetInputOptions) LogGr
 	return returns
 }
 
-func (l *jsiiProxy_LogGroupTargetInput) Bind(rule awsevents.IRule) *awsevents.RuleTargetInputProperties {
+// Pass text to the event target.
+//
+// May contain strings returned by `EventField.from()` to substitute in parts of the
+// matched event.
+//
+// The Rule Target input value will be a single string: the string you pass
+// here.  Do not use this method to pass a complex value like a JSON object to
+// a Rule Target.  Use `RuleTargetInput.fromObject()` instead.
+func LogGroupTargetInput_FromText(text *string) awsevents.RuleTargetInput {
+	_init_.Initialize()
+
+	if err := validateLogGroupTargetInput_FromTextParameters(text); err != nil {
+		panic(err)
+	}
+	var returns awsevents.RuleTargetInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_events_targets.LogGroupTargetInput",
+		"fromText",
+		[]interface{}{text},
+		&returns,
+	)
+
+	return returns
+}
+
+func (l *jsiiProxy_LogGroupTargetInput) Bind(rule interfacesawsevents.IRuleRef) *awsevents.RuleTargetInputProperties {
 	if err := l.validateBindParameters(rule); err != nil {
 		panic(err)
 	}

@@ -18,6 +18,7 @@ import (
 //   	Subdomain: jsii.String("subdomain"),
 //
 //   	// the properties below are optional
+//   	IdentityCenterRegion: jsii.String("identityCenterRegion"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -51,6 +52,12 @@ type CfnMonitorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-subdomain
 	//
 	Subdomain *string `field:"required" json:"subdomain" yaml:"subdomain"`
+	// The AWS region where IAM Identity Center is enabled.
+	//
+	// Required when Identity Center is in a different region than the monitor.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-identitycenterregion
+	//
+	IdentityCenterRegion *string `field:"optional" json:"identityCenterRegion" yaml:"identityCenterRegion"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-tags
 	//

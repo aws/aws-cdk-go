@@ -1,5 +1,8 @@
 package awscloudfront
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnFunction`.
 //
@@ -27,6 +30,12 @@ package awscloudfront
 //   	AutoPublish: jsii.Boolean(false),
 //   	FunctionMetadata: &FunctionMetadataProperty{
 //   		FunctionArn: jsii.String("functionArn"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -57,5 +66,8 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
 	//
 	FunctionMetadata interface{} `field:"optional" json:"functionMetadata" yaml:"functionMetadata"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

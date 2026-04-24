@@ -35,6 +35,9 @@ package awsdevopsagent
 //   			},
 //   		},
 //   	},
+//   	Azure: &AzureConfigurationProperty{
+//   		SubscriptionId: jsii.String("subscriptionId"),
+//   	},
 //   	Dynatrace: &DynatraceConfigurationProperty{
 //   		EnvId: jsii.String("envId"),
 //
@@ -84,12 +87,26 @@ package awsdevopsagent
 //   		AccountId: jsii.String("accountId"),
 //   		Endpoint: jsii.String("endpoint"),
 //   	},
+//   	McpServerSigV4: &MCPServerSigV4ConfigurationProperty{
+//   		Tools: []*string{
+//   			jsii.String("tools"),
+//   		},
+//   	},
 //   	McpServerSplunk: &MCPServerSplunkConfigurationProperty{
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),
 //
 //   		// the properties below are optional
 //   		Description: jsii.String("description"),
+//   		EnableWebhookUpdates: jsii.Boolean(false),
+//   	},
+//   	PagerDuty: &PagerDutyConfigurationProperty{
+//   		CustomerEmail: jsii.String("customerEmail"),
+//   		Services: []*string{
+//   			jsii.String("services"),
+//   		},
+//
+//   		// the properties below are optional
 //   		EnableWebhookUpdates: jsii.Boolean(false),
 //   	},
 //   	ServiceNow: &ServiceNowConfigurationProperty{
@@ -141,6 +158,10 @@ type CfnAssociation_ServiceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-aws
 	//
 	Aws interface{} `field:"optional" json:"aws" yaml:"aws"`
+	// Azure subscription integration configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-azure
+	//
+	Azure interface{} `field:"optional" json:"azure" yaml:"azure"`
 	// Configuration for Dynatrace monitoring integration.
 	//
 	// Specifies the environment ID, resources to monitor, and webhook settings to enable the Agent Space to access Dynatrace metrics, traces, and logs.
@@ -183,12 +204,20 @@ type CfnAssociation_ServiceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpservernewrelic
 	//
 	McpServerNewRelic interface{} `field:"optional" json:"mcpServerNewRelic" yaml:"mcpServerNewRelic"`
+	// SigV4-authenticated MCP server configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserversigv4
+	//
+	McpServerSigV4 interface{} `field:"optional" json:"mcpServerSigV4" yaml:"mcpServerSigV4"`
 	// Configuration for Splunk MCP server integration.
 	//
 	// Specifies the server name, endpoint URL, optional description, and webhook settings to enable the Agent Space to query logs, metrics, and events from Splunk.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserversplunk
 	//
 	McpServerSplunk interface{} `field:"optional" json:"mcpServerSplunk" yaml:"mcpServerSplunk"`
+	// PagerDuty integration configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-pagerduty
+	//
+	PagerDuty interface{} `field:"optional" json:"pagerDuty" yaml:"pagerDuty"`
 	// Configuration for ServiceNow instance integration.
 	//
 	// Specifies the instance URL, instance ID, and webhook settings to enable the Agent Space to create, update, and manage ServiceNow incidents and change requests.

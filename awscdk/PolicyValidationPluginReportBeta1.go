@@ -40,18 +40,23 @@ package awscdk
 //   	PluginVersion: jsii.String("pluginVersion"),
 //   }
 //
+// Deprecated: Use `PolicyValidationPluginReport` instead.
 type PolicyValidationPluginReportBeta1 struct {
 	// Whether or not the report was successful.
+	// Deprecated: Use `PolicyValidationPluginReport` instead.
 	Success *bool `field:"required" json:"success" yaml:"success"`
 	// List of violations in the report.
+	// Deprecated: Use `PolicyValidationPluginReport` instead.
 	Violations *[]*PolicyViolationBeta1 `field:"required" json:"violations" yaml:"violations"`
 	// Arbitrary information about the report.
 	// Default: - no metadata.
 	//
+	// Deprecated: Use `PolicyValidationPluginReport` instead.
 	Metadata *map[string]*string `field:"optional" json:"metadata" yaml:"metadata"`
 	// The version of the plugin that created the report.
 	// Default: - no version.
 	//
+	// Deprecated: Use `PolicyValidationPluginReport` instead.
 	PluginVersion *string `field:"optional" json:"pluginVersion" yaml:"pluginVersion"`
 }
 

@@ -1,15 +1,15 @@
 package cloudassemblyschema
 
 
-// In what scenarios should the CLI ask for approval.
+// Specify what changes require manual approval.
 type RequireApproval string
 
 const (
-	// Never ask for approval.
+	// Approval is not required.
 	RequireApproval_NEVER RequireApproval = "NEVER"
-	// Prompt for approval for any type of change to the stack.
+	// Manual approval required for any change to the stack.
 	RequireApproval_ANYCHANGE RequireApproval = "ANYCHANGE"
-	// Only prompt for approval if there are security related changes.
+	// Manual approval required if changes involve a broadening of permissions or security group rules.
 	RequireApproval_BROADENING RequireApproval = "BROADENING"
 )
 

@@ -29,6 +29,10 @@ func init() {
 		reflect.TypeOf((*AddOpenApiTargetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AddPolicyOptions",
+		reflect.TypeOf((*AddPolicyOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AddSmithyTargetOptions",
 		reflect.TypeOf((*AddSmithyTargetOptions)(nil)).Elem(),
 	)
@@ -167,6 +171,24 @@ func init() {
 			j := jsiiProxy_AssetToolSchema{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ToolSchema)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AttributeAccessor",
+		reflect.TypeOf((*AttributeAccessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "contains", GoMethod: "Contains"},
+			_jsii_.MemberMethod{JsiiMethod: "equalTo", GoMethod: "EqualTo"},
+			_jsii_.MemberMethod{JsiiMethod: "greaterThan", GoMethod: "GreaterThan"},
+			_jsii_.MemberMethod{JsiiMethod: "greaterThanOrEqualTo", GoMethod: "GreaterThanOrEqualTo"},
+			_jsii_.MemberMethod{JsiiMethod: "isIn", GoMethod: "IsIn"},
+			_jsii_.MemberMethod{JsiiMethod: "isInRange", GoMethod: "IsInRange"},
+			_jsii_.MemberMethod{JsiiMethod: "lessThan", GoMethod: "LessThan"},
+			_jsii_.MemberMethod{JsiiMethod: "lessThanOrEqualTo", GoMethod: "LessThanOrEqualTo"},
+			_jsii_.MemberMethod{JsiiMethod: "notEqualTo", GoMethod: "NotEqualTo"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AttributeAccessor{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -421,6 +443,54 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CognitoAuthorizerProps",
 		reflect.TypeOf((*CognitoAuthorizerProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ConditionBuilder",
+		reflect.TypeOf((*ConditionBuilder)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "and", GoMethod: "And"},
+			_jsii_.MemberMethod{JsiiMethod: "contextAttribute", GoMethod: "ContextAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "or", GoMethod: "Or"},
+			_jsii_.MemberMethod{JsiiMethod: "principalAttribute", GoMethod: "PrincipalAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resourceAttribute", GoMethod: "ResourceAttribute"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ConditionBuilder{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ConditionalAttributeAccessor",
+		reflect.TypeOf((*ConditionalAttributeAccessor)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "contains", GoMethod: "Contains"},
+			_jsii_.MemberMethod{JsiiMethod: "equalTo", GoMethod: "EqualTo"},
+			_jsii_.MemberMethod{JsiiMethod: "greaterThan", GoMethod: "GreaterThan"},
+			_jsii_.MemberMethod{JsiiMethod: "greaterThanOrEqualTo", GoMethod: "GreaterThanOrEqualTo"},
+			_jsii_.MemberMethod{JsiiMethod: "isIn", GoMethod: "IsIn"},
+			_jsii_.MemberMethod{JsiiMethod: "isInRange", GoMethod: "IsInRange"},
+			_jsii_.MemberMethod{JsiiMethod: "lessThan", GoMethod: "LessThan"},
+			_jsii_.MemberMethod{JsiiMethod: "lessThanOrEqualTo", GoMethod: "LessThanOrEqualTo"},
+			_jsii_.MemberMethod{JsiiMethod: "notEqualTo", GoMethod: "NotEqualTo"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ConditionalAttributeAccessor{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ConditionalPolicyStatement",
+		reflect.TypeOf((*ConditionalPolicyStatement)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "and", GoMethod: "And"},
+			_jsii_.MemberMethod{JsiiMethod: "contextAttribute", GoMethod: "ContextAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "done", GoMethod: "Done"},
+			_jsii_.MemberMethod{JsiiMethod: "or", GoMethod: "Or"},
+			_jsii_.MemberMethod{JsiiMethod: "principalAttribute", GoMethod: "PrincipalAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "resourceAttribute", GoMethod: "ResourceAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "unless", GoMethod: "Unless"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ConditionalPolicyStatement{}
+		},
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CredentialProviderType",
 		reflect.TypeOf((*CredentialProviderType)(nil)).Elem(),
@@ -500,6 +570,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "oauthScopes", GoGetter: "OauthScopes"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineConfiguration", GoGetter: "PolicyEngineConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "protocolConfiguration", GoGetter: "ProtocolConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceServer", GoGetter: "ResourceServer"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
@@ -539,6 +610,7 @@ func init() {
 		map[string]interface{}{
 			"CUSTOM_JWT": GatewayAuthorizerType_CUSTOM_JWT,
 			"AWS_IAM": GatewayAuthorizerType_AWS_IAM,
+			"NONE": GatewayAuthorizerType_NONE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -613,6 +685,10 @@ func init() {
 		map[string]interface{}{
 			"DEBUG": GatewayExceptionLevel_DEBUG,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayPolicyEngineConfig",
+		reflect.TypeOf((*GatewayPolicyEngineConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayProps",
@@ -1078,6 +1154,70 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IPolicy",
+		reflect.TypeOf((*IPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEvaluationLatency", GoMethod: "MetricEvaluationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEvaluations", GoMethod: "MetricEvaluations"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "policyArn", GoGetter: "PolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngine", GoGetter: "PolicyEngine"},
+			_jsii_.MemberProperty{JsiiProperty: "policyId", GoGetter: "PolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "validationMode", GoGetter: "ValidationMode"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPolicy{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIPolicyRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IPolicyEngine",
+		reflect.TypeOf((*IPolicyEngine)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantEvaluate", GoMethod: "GrantEvaluate"},
+			_jsii_.MemberMethod{JsiiMethod: "grantEvaluateForGateway", GoMethod: "GrantEvaluateForGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAuthorizationLatency", GoMethod: "MetricAuthorizationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDeniedRequests", GoMethod: "MetricDeniedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricErrors", GoMethod: "MetricErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineArn", GoGetter: "PolicyEngineArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineId", GoGetter: "PolicyEngineId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineName", GoGetter: "PolicyEngineName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineRef", GoGetter: "PolicyEngineRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPolicyEngine{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIPolicyEngineRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.IRuntimeEndpoint",
 		reflect.TypeOf((*IRuntimeEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1210,6 +1350,28 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.LifecycleConfiguration",
 		reflect.TypeOf((*LifecycleConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LogType",
+		reflect.TypeOf((*LogType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_LogType{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LoggingConfig",
+		reflect.TypeOf((*LoggingConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LoggingDestination",
+		reflect.TypeOf((*LoggingDestination)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_LoggingDestination{}
+		},
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.MCPProtocolVersion",
@@ -1459,6 +1621,18 @@ func init() {
 			return &jsiiProxy_NetworkConfiguration{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.NoAuthAuthorizer",
+		reflect.TypeOf((*NoAuthAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "authorizerType", GoGetter: "AuthorizerType"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NoAuthAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGatewayAuthorizerConfig)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuthConfiguration",
 		reflect.TypeOf((*OAuthConfiguration)(nil)).Elem(),
@@ -1481,6 +1655,211 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.OverrideConfig",
 		reflect.TypeOf((*OverrideConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.Policy",
+		reflect.TypeOf((*Policy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEvaluationLatency", GoMethod: "MetricEvaluationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEvaluations", GoMethod: "MetricEvaluations"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyArn", GoGetter: "PolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngine", GoGetter: "PolicyEngine"},
+			_jsii_.MemberProperty{JsiiProperty: "policyId", GoGetter: "PolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "validationMode", GoGetter: "ValidationMode"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Policy{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PolicyBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyAttributes",
+		reflect.TypeOf((*PolicyAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyBase",
+		reflect.TypeOf((*PolicyBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEvaluationLatency", GoMethod: "MetricEvaluationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricEvaluations", GoMethod: "MetricEvaluations"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyArn", GoGetter: "PolicyArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngine", GoGetter: "PolicyEngine"},
+			_jsii_.MemberProperty{JsiiProperty: "policyId", GoGetter: "PolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyRef", GoGetter: "PolicyRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "validationMode", GoGetter: "ValidationMode"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PolicyBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPolicy)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyEngine",
+		reflect.TypeOf((*PolicyEngine)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addPolicy", GoMethod: "AddPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantEvaluate", GoMethod: "GrantEvaluate"},
+			_jsii_.MemberMethod{JsiiMethod: "grantEvaluateForGateway", GoMethod: "GrantEvaluateForGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAuthorizationLatency", GoMethod: "MetricAuthorizationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAuthorizations", GoMethod: "MetricAuthorizations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDeniedRequests", GoMethod: "MetricDeniedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricErrors", GoMethod: "MetricErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineArn", GoGetter: "PolicyEngineArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineId", GoGetter: "PolicyEngineId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineName", GoGetter: "PolicyEngineName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineRef", GoGetter: "PolicyEngineRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PolicyEngine{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PolicyEngineBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyEngineAttributes",
+		reflect.TypeOf((*PolicyEngineAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyEngineBase",
+		reflect.TypeOf((*PolicyEngineBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantEvaluate", GoMethod: "GrantEvaluate"},
+			_jsii_.MemberMethod{JsiiMethod: "grantEvaluateForGateway", GoMethod: "GrantEvaluateForGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAuthorizationLatency", GoMethod: "MetricAuthorizationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricAuthorizations", GoMethod: "MetricAuthorizations"},
+			_jsii_.MemberMethod{JsiiMethod: "metricDeniedRequests", GoMethod: "MetricDeniedRequests"},
+			_jsii_.MemberMethod{JsiiMethod: "metricErrors", GoMethod: "MetricErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineArn", GoGetter: "PolicyEngineArn"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineId", GoGetter: "PolicyEngineId"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineName", GoGetter: "PolicyEngineName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyEngineRef", GoGetter: "PolicyEngineRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PolicyEngineBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPolicyEngine)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyEngineMode",
+		reflect.TypeOf((*PolicyEngineMode)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PolicyEngineMode{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyEngineProps",
+		reflect.TypeOf((*PolicyEngineProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyProps",
+		reflect.TypeOf((*PolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyStatement",
+		reflect.TypeOf((*PolicyStatement)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "forAllPrincipals", GoMethod: "ForAllPrincipals"},
+			_jsii_.MemberMethod{JsiiMethod: "forPrincipal", GoMethod: "ForPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "forPrincipalInGroup", GoMethod: "ForPrincipalInGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "onAction", GoMethod: "OnAction"},
+			_jsii_.MemberMethod{JsiiMethod: "onActions", GoMethod: "OnActions"},
+			_jsii_.MemberMethod{JsiiMethod: "onAllActions", GoMethod: "OnAllActions"},
+			_jsii_.MemberMethod{JsiiMethod: "onAllResources", GoMethod: "OnAllResources"},
+			_jsii_.MemberMethod{JsiiMethod: "onResource", GoMethod: "OnResource"},
+			_jsii_.MemberMethod{JsiiMethod: "onResourceType", GoMethod: "OnResourceType"},
+			_jsii_.MemberMethod{JsiiMethod: "toCedar", GoMethod: "ToCedar"},
+			_jsii_.MemberMethod{JsiiMethod: "unless", GoMethod: "Unless"},
+			_jsii_.MemberMethod{JsiiMethod: "when", GoMethod: "When"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PolicyStatement{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.PolicyValidationMode",
+		reflect.TypeOf((*PolicyValidationMode)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PolicyValidationMode{}
+		},
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.ProtocolType",

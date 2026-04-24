@@ -7,4 +7,5 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsneptunegraphIGraphRef = interfacesawsneptunegraph.IGraphRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsneptunegraphIGraphSnapshotRef = interfacesawsneptunegraph.IGraphSnapshotRef
 type Type__interfacesawsneptunegraphIPrivateGraphEndpointRef = interfacesawsneptunegraph.IPrivateGraphEndpointRef

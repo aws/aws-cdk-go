@@ -88,10 +88,6 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateSetClientVpnEnd
 	return nil
 }
 
-func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) validateSetSubnetIdParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnClientVpnTargetNetworkAssociationParameters(scope constructs.Construct, id *string, props *CfnClientVpnTargetNetworkAssociationProps) error {
 	return nil
 }

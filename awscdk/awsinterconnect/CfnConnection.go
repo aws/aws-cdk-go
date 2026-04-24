@@ -31,6 +31,9 @@ import (
 //   	Bandwidth: jsii.String("bandwidth"),
 //   	Description: jsii.String("description"),
 //   	EnvironmentId: jsii.String("environmentId"),
+//   	RemoteAccount: &RemoteAccountProperty{
+//   		Identifier: jsii.String("identifier"),
+//   	},
 //   	RemoteOwnerAccount: jsii.String("remoteOwnerAccount"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -109,7 +112,10 @@ type CfnConnection interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The account ID of the remote owner.
+	// The remote account identifier for the connection.
+	RemoteAccount() interface{}
+	SetRemoteAccount(val interface{})
+	// Deprecated.
 	RemoteOwnerAccount() *string
 	SetRemoteOwnerAccount(val *string)
 	// The stack in which this element is defined.
@@ -504,6 +510,16 @@ func (j *jsiiProxy_CfnConnection) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) RemoteAccount() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"remoteAccount",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) RemoteOwnerAccount() *string {
 	var returns *string
 	_jsii_.Get(
@@ -623,6 +639,17 @@ func (j *jsiiProxy_CfnConnection)SetEnvironmentId(val *string) {
 	_jsii_.Set(
 		j,
 		"environmentId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetRemoteAccount(val interface{}) {
+	if err := j.validateSetRemoteAccountParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"remoteAccount",
 		val,
 	)
 }

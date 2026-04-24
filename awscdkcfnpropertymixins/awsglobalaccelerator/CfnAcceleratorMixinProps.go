@@ -13,6 +13,9 @@ import (
 //
 //   cfnAcceleratorMixinProps := &CfnAcceleratorMixinProps{
 //   	Enabled: jsii.Boolean(false),
+//   	FlowLogsEnabled: jsii.Boolean(false),
+//   	FlowLogsS3Bucket: jsii.String("flowLogsS3Bucket"),
+//   	FlowLogsS3Prefix: jsii.String("flowLogsS3Prefix"),
 //   	IpAddresses: []*string{
 //   		jsii.String("ipAddresses"),
 //   	},
@@ -37,6 +40,20 @@ type CfnAcceleratorMixinProps struct {
 	// Default: - true.
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// Indicates whether flow logs are enabled for the accelerator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-flowlogsenabled
+	//
+	// Default: - false.
+	//
+	FlowLogsEnabled interface{} `field:"optional" json:"flowLogsEnabled" yaml:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-flowlogss3bucket
+	//
+	FlowLogsS3Bucket *string `field:"optional" json:"flowLogsS3Bucket" yaml:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-flowlogss3prefix
+	//
+	FlowLogsS3Prefix *string `field:"optional" json:"flowLogsS3Prefix" yaml:"flowLogsS3Prefix"`
 	// Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator.
 	//
 	// You can specify one or two addresses, separated by a comma. Do not include the /32 suffix.

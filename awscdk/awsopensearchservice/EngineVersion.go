@@ -464,3 +464,14 @@ func EngineVersion_OPENSEARCH_3_3() EngineVersion {
 	return returns
 }
 
+func EngineVersion_OPENSEARCH_3_5() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_opensearchservice.EngineVersion",
+		"OPENSEARCH_3_5",
+		&returns,
+	)
+	return returns
+}
+

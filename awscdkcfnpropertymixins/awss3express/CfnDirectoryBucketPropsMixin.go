@@ -72,6 +72,24 @@ import (
 //   	},
 //   	BucketName: jsii.String("bucketName"),
 //   	DataRedundancy: jsii.String("dataRedundancy"),
+//   	InventoryConfigurations: []interface{}{
+//   		&InventoryConfigurationProperty{
+//   			Destination: &DestinationProperty{
+//   				BucketAccountId: jsii.String("bucketAccountId"),
+//   				BucketArn: jsii.String("bucketArn"),
+//   				Format: jsii.String("format"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Enabled: jsii.Boolean(false),
+//   			Id: jsii.String("id"),
+//   			IncludedObjectVersions: jsii.String("includedObjectVersions"),
+//   			OptionalFields: []*string{
+//   				jsii.String("optionalFields"),
+//   			},
+//   			Prefix: jsii.String("prefix"),
+//   			ScheduleFrequency: jsii.String("scheduleFrequency"),
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		Rules: []interface{}{
 //   			&RuleProperty{

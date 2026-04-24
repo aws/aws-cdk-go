@@ -29,6 +29,15 @@ import (
 //   	IngressPointConfiguration: &IngressPointConfigurationProperty{
 //   		SecretArn: jsii.String("secretArn"),
 //   		SmtpPassword: jsii.String("smtpPassword"),
+//   		TlsAuthConfiguration: &TlsAuthConfigurationProperty{
+//   			TrustStore: &TrustStoreProperty{
+//   				CaContent: jsii.String("caContent"),
+//
+//   				// the properties below are optional
+//   				CrlContent: jsii.String("crlContent"),
+//   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   		},
 //   	},
 //   	IngressPointName: jsii.String("ingressPointName"),
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
@@ -46,6 +55,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TlsPolicy: jsii.String("tlsPolicy"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html
@@ -118,6 +128,8 @@ type CfnMailManagerIngressPoint interface {
 	// The tags used to organize, track, or control access for the resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	TlsPolicy() *string
+	SetTlsPolicy(val *string)
 	// The identifier of an existing traffic policy that you attach to an ingress endpoint resource.
 	TrafficPolicyId() *string
 	SetTrafficPolicyId(val *string)
@@ -489,6 +501,16 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMailManagerIngressPoint) TlsPolicy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tlsPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMailManagerIngressPoint) TrafficPolicyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -615,6 +637,14 @@ func (j *jsiiProxy_CfnMailManagerIngressPoint)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMailManagerIngressPoint)SetTlsPolicy(val *string) {
+	_jsii_.Set(
+		j,
+		"tlsPolicy",
 		val,
 	)
 }

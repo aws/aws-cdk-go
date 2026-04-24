@@ -18,6 +18,20 @@ import (
 //   			AmazonMskCluster: &AmazonMskClusterProperty{
 //   				MskClusterArn: jsii.String("mskClusterArn"),
 //   			},
+//   			ApacheKafkaCluster: &ApacheKafkaClusterProperty{
+//   				ApacheKafkaClusterId: jsii.String("apacheKafkaClusterId"),
+//   				BootstrapBrokerString: jsii.String("bootstrapBrokerString"),
+//   			},
+//   			ClientAuthentication: &KafkaClusterClientAuthenticationProperty{
+//   				SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
+//   					Mechanism: jsii.String("mechanism"),
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//   			EncryptionInTransit: &KafkaClusterEncryptionInTransitProperty{
+//   				EncryptionType: jsii.String("encryptionType"),
+//   				RootCaCertificate: jsii.String("rootCaCertificate"),
+//   			},
 //   			VpcConfig: &KafkaClusterClientVpcConfigProperty{
 //   				SecurityGroupIds: []*string{
 //   					jsii.String("securityGroupIds"),
@@ -28,9 +42,27 @@ import (
 //   			},
 //   		},
 //   	},
+//   	LogDelivery: &LogDeliveryProperty{
+//   		ReplicatorLogDelivery: &ReplicatorLogDeliveryProperty{
+//   			CloudWatchLogs: &CloudWatchLogsProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				LogGroup: jsii.String("logGroup"),
+//   			},
+//   			Firehose: &FirehoseProperty{
+//   				DeliveryStream: jsii.String("deliveryStream"),
+//   				Enabled: jsii.Boolean(false),
+//   			},
+//   			S3: &S3Property{
+//   				Bucket: jsii.String("bucket"),
+//   				Enabled: jsii.Boolean(false),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
+//   	},
 //   	ReplicationInfoList: []interface{}{
 //   		&ReplicationInfoProperty{
 //   			ConsumerGroupReplication: &ConsumerGroupReplicationProperty{
+//   				ConsumerGroupOffsetSyncMode: jsii.String("consumerGroupOffsetSyncMode"),
 //   				ConsumerGroupsToExclude: []*string{
 //   					jsii.String("consumerGroupsToExclude"),
 //   				},
@@ -41,8 +73,10 @@ import (
 //   				SynchroniseConsumerGroupOffsets: jsii.Boolean(false),
 //   			},
 //   			SourceKafkaClusterArn: jsii.String("sourceKafkaClusterArn"),
+//   			SourceKafkaClusterId: jsii.String("sourceKafkaClusterId"),
 //   			TargetCompressionType: jsii.String("targetCompressionType"),
 //   			TargetKafkaClusterArn: jsii.String("targetKafkaClusterArn"),
+//   			TargetKafkaClusterId: jsii.String("targetKafkaClusterId"),
 //   			TopicReplication: &TopicReplicationProperty{
 //   				CopyAccessControlListsForTopics: jsii.Boolean(false),
 //   				CopyTopicConfigurations: jsii.Boolean(false),
@@ -83,6 +117,10 @@ type CfnReplicatorMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-kafkaclusters
 	//
 	KafkaClusters interface{} `field:"optional" json:"kafkaClusters" yaml:"kafkaClusters"`
+	// Configuration for log delivery for the replicator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-logdelivery
+	//
+	LogDelivery interface{} `field:"optional" json:"logDelivery" yaml:"logDelivery"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-replicationinfolist
 	//

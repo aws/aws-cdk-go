@@ -26,6 +26,7 @@ package awsbatch
 //   			ImageType: jsii.String("imageType"),
 //
 //   			// the properties below are optional
+//   			BatchImageStatus: jsii.String("batchImageStatus"),
 //   			ImageIdOverride: jsii.String("imageIdOverride"),
 //   			ImageKubernetesVersion: jsii.String("imageKubernetesVersion"),
 //   		},

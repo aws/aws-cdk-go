@@ -2351,6 +2351,47 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 
 > Visit [Amazon ECS support for configurable timeout for services running with Service Connect](https://aws.amazon.com/about-aws/whats-new/2024/01/amazon-ecs-configurable-timeout-service-connect/) for more details.
 
+### Service Connect Access Logs
+
+[Service Connect access logs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) provide detailed telemetry about individual requests processed by the Service Connect proxy, including HTTP methods, paths, response codes, and timing information.
+These logs complement application logs by capturing per-request traffic metadata.
+
+```go
+var cluster Cluster
+var taskDefinition TaskDefinition
+
+
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	ServiceConnectConfiguration: &ServiceConnectProps{
+		Services: []ServiceConnectService{
+			&ServiceConnectService{
+				PortMappingName: jsii.String("api"),
+			},
+		},
+		AccessLogConfiguration: &ServiceConnectAccessLogConfiguration{
+			Format: ecs.ServiceConnectAccessLogFormat_JSON,
+			IncludeQueryParameters: jsii.Boolean(true),
+		},
+		// When configuring access log,
+		// you also need to configure the log driver accordingly.
+		LogDriver: ecs.LogDrivers_AwsLogs(&AwsLogDriverProps{
+			StreamPrefix: jsii.String("prefix"),
+		}),
+	},
+})
+```
+
+The `format` option determines the format of the access log output:
+
+* `ServiceConnectAccessLogFormat.TEXT` - Human-readable text format
+* `ServiceConnectAccessLogFormat.JSON` - Structured JSON format for log analysis tools
+
+The `includeQueryParameters` option specifies whether to include query parameters in the access logs.
+When enabled, query parameters from HTTP requests are included in the logs. Consider security and privacy implications, as query parameters may contain sensitive information such as request IDs and tokens.
+By default, this parameter is `false`.
+
 ## ServiceManagedVolume
 
 Amazon ECS now supports the attachment of Amazon Elastic Block Store (EBS) volumes to ECS tasks,
