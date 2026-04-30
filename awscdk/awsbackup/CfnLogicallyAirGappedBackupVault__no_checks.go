@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateApplyRemovalPolicyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

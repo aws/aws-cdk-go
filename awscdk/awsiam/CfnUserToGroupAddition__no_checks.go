@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateApplyRemovalPolicyParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserToGroupAddition) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserToGroupAddition) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

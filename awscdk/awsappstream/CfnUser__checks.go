@@ -87,6 +87,14 @@ func (c *jsiiProxy_CfnUser) validateApplyRemovalPolicyParameters(options *awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnUser) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	if cdkPropertyName == nil {
+		return fmt.Errorf("parameter cdkPropertyName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnUser) validateGetAttParameters(attributeName *string) error {
 	if attributeName == nil {
 		return fmt.Errorf("parameter attributeName is required, but nil was provided")

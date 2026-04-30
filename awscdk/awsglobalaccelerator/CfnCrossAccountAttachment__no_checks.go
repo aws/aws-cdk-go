@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCrossAccountAttachment) validateApplyRemovalPolicyParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnCrossAccountAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCrossAccountAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

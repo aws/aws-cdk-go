@@ -320,6 +320,7 @@ type CfnTemplate interface {
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
@@ -461,6 +462,7 @@ type CfnTemplate interface {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
 	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	CfnPropertyName(cdkPropertyName *string) *string
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
@@ -555,6 +557,16 @@ func (j *jsiiProxy_CfnTemplate) CfnProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTemplate) CfnPropertyNames() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"cfnPropertyNames",
 		&returns,
 	)
 	return returns
@@ -1004,6 +1016,22 @@ func (c *jsiiProxy_CfnTemplate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 		"applyRemovalPolicy",
 		[]interface{}{policy, options},
 	)
+}
+
+func (c *jsiiProxy_CfnTemplate) CfnPropertyName(cdkPropertyName *string) *string {
+	if err := c.validateCfnPropertyNameParameters(cdkPropertyName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"cfnPropertyName",
+		[]interface{}{cdkPropertyName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnTemplate) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {

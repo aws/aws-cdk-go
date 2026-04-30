@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnStackSetConstraint) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (c *jsiiProxy_CfnStackSetConstraint) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStackSetConstraint) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

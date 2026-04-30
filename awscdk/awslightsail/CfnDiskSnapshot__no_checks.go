@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnDiskSnapshot) validateApplyRemovalPolicyParameters(options
 	return nil
 }
 
+func (c *jsiiProxy_CfnDiskSnapshot) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDiskSnapshot) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

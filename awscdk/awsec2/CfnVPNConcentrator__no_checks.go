@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVPNConcentrator) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPNConcentrator) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPNConcentrator) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

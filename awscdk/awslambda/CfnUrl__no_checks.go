@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnUrl) validateApplyRemovalPolicyParameters(options *awscdk.
 	return nil
 }
 
+func (c *jsiiProxy_CfnUrl) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUrl) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

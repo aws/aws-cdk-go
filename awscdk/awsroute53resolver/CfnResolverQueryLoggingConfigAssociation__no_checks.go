@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateApplyRemova
 	return nil
 }
 
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

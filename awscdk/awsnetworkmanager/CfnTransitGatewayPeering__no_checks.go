@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTransitGatewayPeering) validateApplyRemovalPolicyParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayPeering) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayPeering) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSizeConstraintSet) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnSizeConstraintSet) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSizeConstraintSet) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

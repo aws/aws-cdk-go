@@ -106,6 +106,7 @@ type CfnCustomLineItem interface {
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
 	// The computation rule that determines how the custom line item charges are computed and reflected in the bill.
@@ -252,6 +253,7 @@ type CfnCustomLineItem interface {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
 	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	CfnPropertyName(cdkPropertyName *string) *string
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
@@ -416,6 +418,16 @@ func (j *jsiiProxy_CfnCustomLineItem) CfnProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCustomLineItem) CfnPropertyNames() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"cfnPropertyNames",
 		&returns,
 	)
 	return returns
@@ -923,6 +935,22 @@ func (c *jsiiProxy_CfnCustomLineItem) ApplyRemovalPolicy(policy awscdk.RemovalPo
 		"applyRemovalPolicy",
 		[]interface{}{policy, options},
 	)
+}
+
+func (c *jsiiProxy_CfnCustomLineItem) CfnPropertyName(cdkPropertyName *string) *string {
+	if err := c.validateCfnPropertyNameParameters(cdkPropertyName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"cfnPropertyName",
+		[]interface{}{cdkPropertyName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnCustomLineItem) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {

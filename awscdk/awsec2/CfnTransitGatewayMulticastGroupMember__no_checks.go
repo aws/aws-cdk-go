@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateApplyRemovalPo
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

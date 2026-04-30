@@ -36,6 +36,10 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (x *jsiiProxy_XRayDeliveryDestination) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (x *jsiiProxy_XRayDeliveryDestination) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnKeyspace) validateApplyRemovalPolicyParameters(options *aw
 	return nil
 }
 
+func (c *jsiiProxy_CfnKeyspace) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnKeyspace) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

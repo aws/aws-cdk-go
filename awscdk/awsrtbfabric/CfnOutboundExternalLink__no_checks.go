@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnOutboundExternalLink) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnOutboundExternalLink) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOutboundExternalLink) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

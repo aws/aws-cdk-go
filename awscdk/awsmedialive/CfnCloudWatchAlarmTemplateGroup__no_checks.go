@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) validateApplyRemovalPolicyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudWatchAlarmTemplateGroup) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

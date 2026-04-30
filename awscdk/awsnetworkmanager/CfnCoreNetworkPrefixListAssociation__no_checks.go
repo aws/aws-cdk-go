@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCoreNetworkPrefixListAssociation) validateApplyRemovalPoli
 	return nil
 }
 
+func (c *jsiiProxy_CfnCoreNetworkPrefixListAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCoreNetworkPrefixListAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

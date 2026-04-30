@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) validateApplyRemovalPolicyParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnSlackChannelConfiguration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSlackChannelConfiguration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

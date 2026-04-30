@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateApplyRemoval
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

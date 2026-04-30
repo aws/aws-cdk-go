@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnOdbPeeringConnection) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnOdbPeeringConnection) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOdbPeeringConnection) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

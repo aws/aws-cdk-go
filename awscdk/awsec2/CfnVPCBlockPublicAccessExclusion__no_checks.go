@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVPCBlockPublicAccessExclusion) validateApplyRemovalPolicyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCBlockPublicAccessExclusion) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCBlockPublicAccessExclusion) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

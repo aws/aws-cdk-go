@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (c *jsiiProxy_CfnAPNSSandboxChannel) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAPNSSandboxChannel) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

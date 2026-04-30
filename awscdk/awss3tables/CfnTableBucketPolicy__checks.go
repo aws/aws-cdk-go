@@ -87,6 +87,14 @@ func (c *jsiiProxy_CfnTableBucketPolicy) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnTableBucketPolicy) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	if cdkPropertyName == nil {
+		return fmt.Errorf("parameter cdkPropertyName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTableBucketPolicy) validateGetAttParameters(attributeName *string) error {
 	if attributeName == nil {
 		return fmt.Errorf("parameter attributeName is required, but nil was provided")

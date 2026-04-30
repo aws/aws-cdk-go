@@ -77,6 +77,7 @@ type Annotations interface {
 	// Adds an { "error": <message> } metadata entry to this construct.
 	//
 	// The toolkit will fail deployment of any stack that has errors reported against it.
+	// Prefer using `Validations.of(scope).addError()` instead.
 	AddError(message *string)
 	// Adds an info metadata entry to this construct.
 	//
@@ -94,7 +95,7 @@ type Annotations interface {
 	//   awscdk.Annotations_Of(myConstruct).AddInfoV2(jsii.String("my-library:Construct.someInfo"), jsii.String("Some message explaining the info"))
 	//
 	AddInfoV2(id *string, message *string)
-	// Adds a warning metadata entry to this construct. Prefer using `addWarningV2`.
+	// Adds a warning metadata entry to this construct. Prefer using `Validations.of(scope).addWarning()`.
 	//
 	// The CLI will display the warning when an app is synthesized, or fail if run
 	// in `--strict` mode.
@@ -110,6 +111,8 @@ type Annotations interface {
 	//
 	// If the warning is acknowledged using `acknowledgeWarning()`, it will not be shown by
 	// the CLI, and will not cause `--strict` mode to fail synthesis.
+	//
+	// Prefer using `Validations.of(scope).addWarning()` instead.
 	//
 	// Example:
 	//   var myConstruct Construct

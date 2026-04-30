@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) validateApplyRemovalPolicyParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnRuleGroupsNamespace) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRuleGroupsNamespace) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLocationAzureBlob) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationAzureBlob) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationAzureBlob) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

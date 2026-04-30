@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) validateApplyRemovalPolicyParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelBiasJobDefinition) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelBiasJobDefinition) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

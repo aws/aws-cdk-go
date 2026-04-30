@@ -36,6 +36,10 @@ func (s *jsiiProxy_S3DeliveryDestination) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (s *jsiiProxy_S3DeliveryDestination) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (s *jsiiProxy_S3DeliveryDestination) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

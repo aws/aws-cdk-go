@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateApplyRemovalPolicyParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

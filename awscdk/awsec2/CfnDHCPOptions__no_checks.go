@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnDHCPOptions) validateApplyRemovalPolicyParameters(options 
 	return nil
 }
 
+func (c *jsiiProxy_CfnDHCPOptions) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDHCPOptions) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

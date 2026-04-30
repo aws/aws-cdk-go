@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnUserHierarchyStructure) validateApplyRemovalPolicyParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserHierarchyStructure) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserHierarchyStructure) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

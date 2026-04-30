@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnFargateProfile) validateApplyRemovalPolicyParameters(optio
 	return nil
 }
 
+func (c *jsiiProxy_CfnFargateProfile) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFargateProfile) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

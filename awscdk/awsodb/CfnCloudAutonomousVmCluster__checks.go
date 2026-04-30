@@ -88,6 +88,14 @@ func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateApplyRemovalPolicyParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	if cdkPropertyName == nil {
+		return fmt.Errorf("parameter cdkPropertyName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateGetAttParameters(attributeName *string) error {
 	if attributeName == nil {
 		return fmt.Errorf("parameter attributeName is required, but nil was provided")

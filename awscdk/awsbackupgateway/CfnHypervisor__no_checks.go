@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnHypervisor) validateApplyRemovalPolicyParameters(options *
 	return nil
 }
 
+func (c *jsiiProxy_CfnHypervisor) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnHypervisor) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

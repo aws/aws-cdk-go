@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCPeeringConnection) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCPeeringConnection) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateApplyRemovalPolicyParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

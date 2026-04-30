@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSqlInjectionMatchSet) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

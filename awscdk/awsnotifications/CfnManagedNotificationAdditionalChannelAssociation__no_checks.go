@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateA
 	return nil
 }
 
+func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateApplyRemoval
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnAnycastIpList) validateApplyRemovalPolicyParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_CfnAnycastIpList) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAnycastIpList) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

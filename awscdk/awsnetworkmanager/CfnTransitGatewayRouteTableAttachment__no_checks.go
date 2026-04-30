@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateApplyRemovalPo
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

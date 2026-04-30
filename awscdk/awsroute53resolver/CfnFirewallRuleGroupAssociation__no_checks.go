@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateApplyRemovalPolicyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

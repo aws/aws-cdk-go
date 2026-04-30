@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnQueueInlinePolicy) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnQueueInlinePolicy) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnQueueInlinePolicy) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

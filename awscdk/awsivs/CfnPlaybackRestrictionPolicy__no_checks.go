@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateApplyRemovalPolicyParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

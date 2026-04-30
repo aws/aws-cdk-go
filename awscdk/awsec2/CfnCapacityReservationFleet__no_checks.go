@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) validateApplyRemovalPolicyParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnCapacityReservationFleet) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCapacityReservationFleet) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

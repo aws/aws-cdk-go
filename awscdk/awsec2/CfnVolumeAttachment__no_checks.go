@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVolumeAttachment) validateApplyRemovalPolicyParameters(opt
 	return nil
 }
 
+func (c *jsiiProxy_CfnVolumeAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVolumeAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

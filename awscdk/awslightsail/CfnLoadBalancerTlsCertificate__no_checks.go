@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateApplyRemovalPolicyPara
 	return nil
 }
 
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

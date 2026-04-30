@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateApplyRemovalP
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

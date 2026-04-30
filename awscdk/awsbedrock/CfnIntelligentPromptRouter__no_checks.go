@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnIntelligentPromptRouter) validateApplyRemovalPolicyParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnIntelligentPromptRouter) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIntelligentPromptRouter) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

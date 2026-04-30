@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnQuotaShare) validateApplyRemovalPolicyParameters(options *
 	return nil
 }
 
+func (c *jsiiProxy_CfnQuotaShare) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnQuotaShare) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

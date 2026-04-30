@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLocationFSxLustre) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationFSxLustre) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationFSxLustre) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

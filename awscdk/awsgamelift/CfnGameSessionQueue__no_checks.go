@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateApplyRemovalPolicyParameters(opt
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameSessionQueue) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameSessionQueue) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

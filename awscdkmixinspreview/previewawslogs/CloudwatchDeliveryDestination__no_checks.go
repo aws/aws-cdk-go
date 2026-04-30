@@ -36,6 +36,10 @@ func (c *jsiiProxy_CloudwatchDeliveryDestination) validateApplyRemovalPolicyPara
 	return nil
 }
 
+func (c *jsiiProxy_CloudwatchDeliveryDestination) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CloudwatchDeliveryDestination) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

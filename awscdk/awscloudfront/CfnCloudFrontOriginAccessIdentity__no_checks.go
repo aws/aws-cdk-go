@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateApplyRemovalPolicy
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

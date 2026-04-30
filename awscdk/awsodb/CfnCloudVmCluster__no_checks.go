@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCloudVmCluster) validateApplyRemovalPolicyParameters(optio
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudVmCluster) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudVmCluster) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

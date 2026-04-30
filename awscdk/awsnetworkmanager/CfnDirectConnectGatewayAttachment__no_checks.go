@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnDirectConnectGatewayAttachment) validateApplyRemovalPolicy
 	return nil
 }
 
+func (c *jsiiProxy_CfnDirectConnectGatewayAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDirectConnectGatewayAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

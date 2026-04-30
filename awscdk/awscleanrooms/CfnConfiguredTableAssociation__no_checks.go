@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnConfiguredTableAssociation) validateApplyRemovalPolicyPara
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfiguredTableAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfiguredTableAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

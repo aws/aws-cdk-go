@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnStorageProfile) validateApplyRemovalPolicyParameters(optio
 	return nil
 }
 
+func (c *jsiiProxy_CfnStorageProfile) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStorageProfile) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

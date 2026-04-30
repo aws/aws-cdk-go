@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnCustomDBEngineVersion) validateApplyRemovalPolicyParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnCustomDBEngineVersion) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCustomDBEngineVersion) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

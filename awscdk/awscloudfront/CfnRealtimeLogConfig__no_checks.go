@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRealtimeLogConfig) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

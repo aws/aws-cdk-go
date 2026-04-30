@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationFSxOpenZFS) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

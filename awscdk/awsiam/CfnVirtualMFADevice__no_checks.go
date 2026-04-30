@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVirtualMFADevice) validateApplyRemovalPolicyParameters(opt
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualMFADevice) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualMFADevice) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

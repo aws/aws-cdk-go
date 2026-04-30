@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) validateApplyRemovalPolicyParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnSecretTargetAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSecretTargetAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

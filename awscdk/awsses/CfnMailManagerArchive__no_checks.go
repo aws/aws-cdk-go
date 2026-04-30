@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnMailManagerArchive) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (c *jsiiProxy_CfnMailManagerArchive) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMailManagerArchive) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

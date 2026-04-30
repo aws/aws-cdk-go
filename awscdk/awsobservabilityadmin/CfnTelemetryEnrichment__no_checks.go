@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTelemetryEnrichment) validateApplyRemovalPolicyParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnTelemetryEnrichment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTelemetryEnrichment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

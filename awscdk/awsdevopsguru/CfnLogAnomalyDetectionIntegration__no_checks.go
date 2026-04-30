@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateApplyRemovalPolicy
 	return nil
 }
 
+func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLogAnomalyDetectionIntegration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

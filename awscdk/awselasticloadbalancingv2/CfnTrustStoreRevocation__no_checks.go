@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTrustStoreRevocation) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrustStoreRevocation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrustStoreRevocation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

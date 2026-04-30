@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnBaiduChannel) validateApplyRemovalPolicyParameters(options
 	return nil
 }
 
+func (c *jsiiProxy_CfnBaiduChannel) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBaiduChannel) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

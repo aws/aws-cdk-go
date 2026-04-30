@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

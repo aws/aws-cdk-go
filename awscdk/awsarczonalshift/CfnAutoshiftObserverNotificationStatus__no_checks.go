@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateApplyRemovalP
 	return nil
 }
 
+func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

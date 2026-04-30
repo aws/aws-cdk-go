@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateApplyRemovalPol
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

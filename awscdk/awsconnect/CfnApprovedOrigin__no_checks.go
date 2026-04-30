@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnApprovedOrigin) validateApplyRemovalPolicyParameters(optio
 	return nil
 }
 
+func (c *jsiiProxy_CfnApprovedOrigin) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApprovedOrigin) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

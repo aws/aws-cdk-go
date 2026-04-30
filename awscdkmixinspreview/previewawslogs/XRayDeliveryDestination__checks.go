@@ -89,6 +89,14 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (x *jsiiProxy_XRayDeliveryDestination) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	if cdkPropertyName == nil {
+		return fmt.Errorf("parameter cdkPropertyName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (x *jsiiProxy_XRayDeliveryDestination) validateGetAttParameters(attributeName *string) error {
 	if attributeName == nil {
 		return fmt.Errorf("parameter attributeName is required, but nil was provided")

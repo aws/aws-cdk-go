@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSqlHaStandbyDetectedInstance) validateApplyRemovalPolicyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnSqlHaStandbyDetectedInstance) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSqlHaStandbyDetectedInstance) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

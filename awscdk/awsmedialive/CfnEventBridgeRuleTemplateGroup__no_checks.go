@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateApplyRemovalPolicyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

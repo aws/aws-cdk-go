@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTieringConfiguration) validateApplyRemovalPolicyParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTieringConfiguration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTieringConfiguration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

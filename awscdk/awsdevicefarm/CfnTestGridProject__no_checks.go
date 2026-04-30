@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTestGridProject) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnTestGridProject) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTestGridProject) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

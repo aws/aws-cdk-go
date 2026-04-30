@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateApplyRemovalPolicyParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficMirrorFilterRule) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

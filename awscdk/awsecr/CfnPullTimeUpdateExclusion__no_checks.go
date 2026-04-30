@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnPullTimeUpdateExclusion) validateApplyRemovalPolicyParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnPullTimeUpdateExclusion) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPullTimeUpdateExclusion) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

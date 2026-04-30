@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateApplyRemovalPolicyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

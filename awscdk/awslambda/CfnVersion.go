@@ -52,6 +52,7 @@ type CfnVersion interface {
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
 	// Only publish a version if the hash value matches the value that's specified.
@@ -196,6 +197,7 @@ type CfnVersion interface {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
 	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	CfnPropertyName(cdkPropertyName *string) *string
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
@@ -289,6 +291,16 @@ func (j *jsiiProxy_CfnVersion) CfnProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVersion) CfnPropertyNames() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"cfnPropertyNames",
 		&returns,
 	)
 	return returns
@@ -738,6 +750,22 @@ func (c *jsiiProxy_CfnVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 		"applyRemovalPolicy",
 		[]interface{}{policy, options},
 	)
+}
+
+func (c *jsiiProxy_CfnVersion) CfnPropertyName(cdkPropertyName *string) *string {
+	if err := c.validateCfnPropertyNameParameters(cdkPropertyName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"cfnPropertyName",
+		[]interface{}{cdkPropertyName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnVersion) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnRouteResponse) validateApplyRemovalPolicyParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_CfnRouteResponse) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRouteResponse) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

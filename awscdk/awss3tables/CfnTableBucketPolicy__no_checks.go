@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnTableBucketPolicy) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnTableBucketPolicy) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTableBucketPolicy) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

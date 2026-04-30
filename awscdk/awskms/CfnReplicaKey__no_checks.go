@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnReplicaKey) validateApplyRemovalPolicyParameters(options *
 	return nil
 }
 
+func (c *jsiiProxy_CfnReplicaKey) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnReplicaKey) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

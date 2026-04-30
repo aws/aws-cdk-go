@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnDedicatedIpPool) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnDedicatedIpPool) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDedicatedIpPool) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnLocationHDFS) validateApplyRemovalPolicyParameters(options
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationHDFS) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationHDFS) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

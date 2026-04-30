@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateApplyRemovalPolicyPar
 	return nil
 }
 
+func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

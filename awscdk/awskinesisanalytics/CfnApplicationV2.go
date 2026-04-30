@@ -252,6 +252,8 @@ type CfnApplicationV2 interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CfnProperties() *map[string]interface{}
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
+	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	CfnResourceType() *string
@@ -414,6 +416,8 @@ type CfnApplicationV2 interface {
 	//
 	// Deprecated: use `aws-kinesisanalyticsv2` instead.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Deprecated: use `aws-kinesisanalyticsv2` instead.
+	CfnPropertyName(cdkPropertyName *string) *string
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
@@ -561,6 +565,16 @@ func (j *jsiiProxy_CfnApplicationV2) CfnProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationV2) CfnPropertyNames() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"cfnPropertyNames",
 		&returns,
 	)
 	return returns
@@ -1065,6 +1079,22 @@ func (c *jsiiProxy_CfnApplicationV2) ApplyRemovalPolicy(policy awscdk.RemovalPol
 		"applyRemovalPolicy",
 		[]interface{}{policy, options},
 	)
+}
+
+func (c *jsiiProxy_CfnApplicationV2) CfnPropertyName(cdkPropertyName *string) *string {
+	if err := c.validateCfnPropertyNameParameters(cdkPropertyName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"cfnPropertyName",
+		[]interface{}{cdkPropertyName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnApplicationV2) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {

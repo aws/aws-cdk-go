@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnSubnetCidrBlock) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnSubnetCidrBlock) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSubnetCidrBlock) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

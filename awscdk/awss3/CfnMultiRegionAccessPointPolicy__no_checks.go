@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateApplyRemovalPolicyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

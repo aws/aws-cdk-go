@@ -88,6 +88,14 @@ func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateApplyRemovalPolicyParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	if cdkPropertyName == nil {
+		return fmt.Errorf("parameter cdkPropertyName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateGetAttParameters(attributeName *string) error {
 	if attributeName == nil {
 		return fmt.Errorf("parameter attributeName is required, but nil was provided")

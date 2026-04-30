@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnAlarmModel) validateApplyRemovalPolicyParameters(options *
 	return nil
 }
 
+func (c *jsiiProxy_CfnAlarmModel) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAlarmModel) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

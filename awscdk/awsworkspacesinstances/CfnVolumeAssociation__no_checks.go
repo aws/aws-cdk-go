@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVolumeAssociation) validateApplyRemovalPolicyParameters(op
 	return nil
 }
 
+func (c *jsiiProxy_CfnVolumeAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVolumeAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

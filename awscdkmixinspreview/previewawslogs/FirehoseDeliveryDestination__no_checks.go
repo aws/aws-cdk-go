@@ -36,6 +36,10 @@ func (f *jsiiProxy_FirehoseDeliveryDestination) validateApplyRemovalPolicyParame
 	return nil
 }
 
+func (f *jsiiProxy_FirehoseDeliveryDestination) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirehoseDeliveryDestination) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

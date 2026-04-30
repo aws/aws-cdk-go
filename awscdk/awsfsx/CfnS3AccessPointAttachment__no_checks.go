@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnS3AccessPointAttachment) validateApplyRemovalPolicyParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnS3AccessPointAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnS3AccessPointAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

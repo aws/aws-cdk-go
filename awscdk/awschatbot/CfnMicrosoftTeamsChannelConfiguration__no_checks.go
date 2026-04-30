@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateApplyRemovalPo
 	return nil
 }
 
+func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

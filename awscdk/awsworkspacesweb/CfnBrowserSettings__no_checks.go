@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnBrowserSettings) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnBrowserSettings) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBrowserSettings) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackKeyPair) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackKeyPair) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

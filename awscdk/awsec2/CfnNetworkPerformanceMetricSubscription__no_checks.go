@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateApplyRemoval
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkPerformanceMetricSubscription) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnWebhook) validateApplyRemovalPolicyParameters(options *aws
 	return nil
 }
 
+func (c *jsiiProxy_CfnWebhook) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWebhook) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

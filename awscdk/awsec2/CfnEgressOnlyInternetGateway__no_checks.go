@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateApplyRemovalPolicyParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEgressOnlyInternetGateway) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

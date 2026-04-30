@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateApplyRemovalPolicyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

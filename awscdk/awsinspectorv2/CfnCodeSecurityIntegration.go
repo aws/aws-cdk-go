@@ -65,6 +65,7 @@ type CfnCodeSecurityIntegration interface {
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
+	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
 	// A reference to a CodeSecurityIntegration resource.
@@ -206,6 +207,7 @@ type CfnCodeSecurityIntegration interface {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html#aws-attribute-deletionpolicy-options
 	//
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	CfnPropertyName(cdkPropertyName *string) *string
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
@@ -350,6 +352,16 @@ func (j *jsiiProxy_CfnCodeSecurityIntegration) CfnProperties() *map[string]inter
 	_jsii_.Get(
 		j,
 		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCodeSecurityIntegration) CfnPropertyNames() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"cfnPropertyNames",
 		&returns,
 	)
 	return returns
@@ -793,6 +805,22 @@ func (c *jsiiProxy_CfnCodeSecurityIntegration) ApplyRemovalPolicy(policy awscdk.
 		"applyRemovalPolicy",
 		[]interface{}{policy, options},
 	)
+}
+
+func (c *jsiiProxy_CfnCodeSecurityIntegration) CfnPropertyName(cdkPropertyName *string) *string {
+	if err := c.validateCfnPropertyNameParameters(cdkPropertyName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"cfnPropertyName",
+		[]interface{}{cdkPropertyName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CfnCodeSecurityIntegration) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {

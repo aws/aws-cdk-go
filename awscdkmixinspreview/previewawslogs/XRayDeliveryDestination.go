@@ -37,6 +37,8 @@ type XRayDeliveryDestination interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	// Experimental.
 	CfnProperties() *map[string]interface{}
+	// Experimental.
+	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	// Experimental.
 	CfnResourceType() *string
@@ -209,6 +211,8 @@ type XRayDeliveryDestination interface {
 	//
 	// Experimental.
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	// Experimental.
+	CfnPropertyName(cdkPropertyName *string) *string
 	// Returns a token for an runtime attribute of this resource.
 	//
 	// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
@@ -313,6 +317,16 @@ func (j *jsiiProxy_XRayDeliveryDestination) CfnProperties() *map[string]interfac
 	_jsii_.Get(
 		j,
 		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_XRayDeliveryDestination) CfnPropertyNames() *map[string]*string {
+	var returns *map[string]*string
+	_jsii_.Get(
+		j,
+		"cfnPropertyNames",
 		&returns,
 	)
 	return returns
@@ -822,6 +836,22 @@ func (x *jsiiProxy_XRayDeliveryDestination) ApplyRemovalPolicy(policy awscdk.Rem
 		"applyRemovalPolicy",
 		[]interface{}{policy, options},
 	)
+}
+
+func (x *jsiiProxy_XRayDeliveryDestination) CfnPropertyName(cdkPropertyName *string) *string {
+	if err := x.validateCfnPropertyNameParameters(cdkPropertyName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.Invoke(
+		x,
+		"cfnPropertyName",
+		[]interface{}{cdkPropertyName},
+		&returns,
+	)
+
+	return returns
 }
 
 func (x *jsiiProxy_XRayDeliveryDestination) GetAtt(attributeName *string, typeHint awscdk.ResolutionTypeHint) awscdk.Reference {

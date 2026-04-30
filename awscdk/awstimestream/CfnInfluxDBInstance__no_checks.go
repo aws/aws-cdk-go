@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnInfluxDBInstance) validateApplyRemovalPolicyParameters(opt
 	return nil
 }
 
+func (c *jsiiProxy_CfnInfluxDBInstance) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInfluxDBInstance) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnVectorBucket) validateApplyRemovalPolicyParameters(options
 	return nil
 }
 
+func (c *jsiiProxy_CfnVectorBucket) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVectorBucket) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

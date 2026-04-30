@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnGraphQLSchema) validateApplyRemovalPolicyParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_CfnGraphQLSchema) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGraphQLSchema) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

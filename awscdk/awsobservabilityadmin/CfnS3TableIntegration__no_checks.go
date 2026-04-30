@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnS3TableIntegration) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (c *jsiiProxy_CfnS3TableIntegration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnS3TableIntegration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnApplicationEntitlementAssociation) validateApplyRemovalPol
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationEntitlementAssociation) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationEntitlementAssociation) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

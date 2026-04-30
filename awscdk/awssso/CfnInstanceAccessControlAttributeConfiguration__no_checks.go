@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateApply
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

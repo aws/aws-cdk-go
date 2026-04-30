@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnGeoMatchSet) validateApplyRemovalPolicyParameters(options 
 	return nil
 }
 
+func (c *jsiiProxy_CfnGeoMatchSet) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGeoMatchSet) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

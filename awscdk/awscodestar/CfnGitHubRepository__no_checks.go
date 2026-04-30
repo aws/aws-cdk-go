@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnGitHubRepository) validateApplyRemovalPolicyParameters(opt
 	return nil
 }
 
+func (c *jsiiProxy_CfnGitHubRepository) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGitHubRepository) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

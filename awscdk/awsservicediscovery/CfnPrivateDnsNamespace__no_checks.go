@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) validateApplyRemovalPolicyParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateDnsNamespace) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateDnsNamespace) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

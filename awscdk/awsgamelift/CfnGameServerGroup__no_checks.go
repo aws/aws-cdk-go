@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnGameServerGroup) validateApplyRemovalPolicyParameters(opti
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameServerGroup) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameServerGroup) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnGraphSnapshot) validateApplyRemovalPolicyParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_CfnGraphSnapshot) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGraphSnapshot) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

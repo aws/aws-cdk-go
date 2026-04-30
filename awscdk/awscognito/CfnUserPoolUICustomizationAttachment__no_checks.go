@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateApplyRemovalPol
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateGetAttParameters(attributeName *string) error {
 	return nil
 }

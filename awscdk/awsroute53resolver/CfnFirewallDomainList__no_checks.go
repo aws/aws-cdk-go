@@ -36,6 +36,10 @@ func (c *jsiiProxy_CfnFirewallDomainList) validateApplyRemovalPolicyParameters(o
 	return nil
 }
 
+func (c *jsiiProxy_CfnFirewallDomainList) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnFirewallDomainList) validateGetAttParameters(attributeName *string) error {
 	return nil
 }
