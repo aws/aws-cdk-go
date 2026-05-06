@@ -484,6 +484,30 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTransitGatewayConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnClientVpnEndpoint_TransitGatewayConfigurationProperty:
+		val := val.(*CfnClientVpnEndpoint_TransitGatewayConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnClientVpnEndpoint_TransitGatewayConfigurationProperty:
+		val_ := val.(CfnClientVpnEndpoint_TransitGatewayConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_TransitGatewayConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnClientVpnEndpointParameters(scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

@@ -184,6 +184,10 @@ func init() {
 		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_TagSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.TransitGatewayConfigurationProperty",
+		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_TransitGatewayConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnRouteMixinProps",
 		reflect.TypeOf((*CfnClientVpnRouteMixinProps)(nil)).Elem(),
 	)

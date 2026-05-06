@@ -83,6 +83,22 @@ package awsglue
 //   		Name: jsii.String("name"),
 //   		Region: jsii.String("region"),
 //   	},
+//   	ViewDefinition: &ViewDefinitionProperty{
+//   		Definer: jsii.String("definer"),
+//   		IsProtected: jsii.Boolean(false),
+//   		Representations: []interface{}{
+//   			&ViewRepresentationProperty{
+//   				Dialect: jsii.String("dialect"),
+//   				DialectVersion: jsii.String("dialectVersion"),
+//   				ValidationConnection: jsii.String("validationConnection"),
+//   				ViewExpandedText: jsii.String("viewExpandedText"),
+//   				ViewOriginalText: jsii.String("viewOriginalText"),
+//   			},
+//   		},
+//   		SubObjects: []*string{
+//   			jsii.String("subObjects"),
+//   		},
+//   	},
 //   	ViewExpandedText: jsii.String("viewExpandedText"),
 //   	ViewOriginalText: jsii.String("viewOriginalText"),
 //   }
@@ -141,6 +157,9 @@ type CfnTable_TableInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
 	//
 	TargetTable interface{} `field:"optional" json:"targetTable" yaml:"targetTable"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewdefinition
+	//
+	ViewDefinition interface{} `field:"optional" json:"viewDefinition" yaml:"viewDefinition"`
 	// Included for Apache Hive compatibility.
 	//
 	// Not used in the normal course of AWS Glue operations.

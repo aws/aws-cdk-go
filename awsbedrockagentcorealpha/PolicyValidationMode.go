@@ -8,20 +8,17 @@ import (
 // Validation mode for Cedar policy definitions.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   var policyEngine PolicyEngine
+//   var gateway Gateway
 //
-//   policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
-//   	PolicyEngineName: jsii.String("my_policy_engine"),
-//   })
 //
-//   allowAllPolicy := agentcore.NewPolicy(this, jsii.String("AllowAllPolicy"), &PolicyProps{
+//   // Allow access unless the user is suspended
+//   policyWithUnless := agentcore.NewPolicy(this, jsii.String("UnlessPolicy"), &PolicyProps{
 //   	PolicyEngine: policyEngine,
-//   	PolicyName: jsii.String("allow_all"),
-//   	Statement: agentcore.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
-//   	Description: jsii.String("Allow all actions on specific gateway (development only)"),
-//   	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
+//   	PolicyName: jsii.String("unless_suspended"),
+//   	Statement: agentcore.PolicyStatement_Permit().ForPrincipal(jsii.String("AgentCore::OAuthUser")).OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn).Unless().PrincipalAttribute(jsii.String("suspended")).EqualTo(jsii.Boolean(true)).Done(),
+//   	Description: jsii.String("Allow all actions unless user is suspended"),
+//   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 //   })
 //
 // Experimental.

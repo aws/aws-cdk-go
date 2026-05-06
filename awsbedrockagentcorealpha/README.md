@@ -138,6 +138,20 @@ This construct library facilitates the deployment of Bedrock AgentCore primitive
     * [Type-Safe Policy Builder](#type-safe-policy-builder)
     * [PolicyEngine with KMS Encryption](#policyengine-with-kms-encryption)
     * [Policy Validation Modes](#policy-validation-modes)
+  * [Online Evaluation](#online-evaluation)
+
+    * [Online Evaluation Properties](#online-evaluation-properties)
+    * [Basic Online Evaluation Creation](#basic-online-evaluation-creation)
+    * [Built-in Evaluators](#built-in-evaluators)
+    * [Custom Evaluators](#custom-evaluators)
+
+      * [LLM-as-a-Judge Evaluator](#llm-as-a-judge-evaluator)
+      * [Code-Based Evaluator](#code-based-evaluator)
+      * [Using Custom Evaluators with Online Evaluation](#using-custom-evaluators-with-online-evaluation)
+    * [Data Source Configuration](#data-source-configuration)
+    * [Sampling and Filtering](#sampling-and-filtering)
+    * [Online Evaluation with Custom Execution Role](#online-evaluation-with-custom-execution-role)
+    * [Online Evaluation IAM Permissions](#online-evaluation-iam-permissions)
 
 ## AgentCore Runtime
 
@@ -2701,6 +2715,8 @@ memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSemantic())
 
 A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
 
+For more information, see the [Policy in Amazon Bedrock AgentCore documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html).
+
 ### PolicyEngine Properties
 
 | Name | Type | Required | Description |
@@ -2746,6 +2762,13 @@ permit(
 
 Create a policy engine and add policies to it.
 
+#### Policy Engine Mode
+
+When associating a policy engine with a gateway, you can control the enforcement behavior using `PolicyEngineMode`:
+
+* `PolicyEngineMode.LOG_ONLY` (default) — evaluates actions and adds traces but does not enforce decisions. Use this mode for testing and validation before enabling enforcement.
+* `PolicyEngineMode.ENFORCE` — actively allows or denies agent operations based on Cedar policy evaluation.
+
 ```go
 // Create a Policy engine
 policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
@@ -2757,6 +2780,7 @@ gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
 	GatewayName: jsii.String("my-gateway"),
 	PolicyEngineConfiguration: &GatewayPolicyEngineConfig{
 		PolicyEngine: policyEngine,
+		Mode: agentcore.PolicyEngineMode_ENFORCE(),
 	},
 })
 
@@ -2831,6 +2855,40 @@ conditionalPolicy := agentcore.NewPolicy(this, jsii.String("ConditionalPolicy"),
 	PolicyName: jsii.String("conditional_access"),
 	Statement: agentcore.PolicyStatement_Permit().ForPrincipal(jsii.String("AgentCore::OAuthUser")).OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn).When().PrincipalAttribute(jsii.String("department")).EqualTo(jsii.String("Engineering")).And().ContextAttribute(jsii.String("input.priority")).*EqualTo(jsii.String("high")).Done(),
 	Description: jsii.String("Allow engineers for high-priority requests"),
+	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+})
+```
+
+#### Policy with Exclusions (unless)
+
+Use `unless` clauses to exclude specific conditions from a policy. The policy applies when the `unless` conditions are NOT met:
+
+```go
+var policyEngine PolicyEngine
+var gateway Gateway
+
+
+// Allow access unless the user is suspended
+policyWithUnless := agentcore.NewPolicy(this, jsii.String("UnlessPolicy"), &PolicyProps{
+	PolicyEngine: policyEngine,
+	PolicyName: jsii.String("unless_suspended"),
+	Statement: agentcore.PolicyStatement_Permit().ForPrincipal(jsii.String("AgentCore::OAuthUser")).OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn).Unless().PrincipalAttribute(jsii.String("suspended")).EqualTo(jsii.Boolean(true)).Done(),
+	Description: jsii.String("Allow all actions unless user is suspended"),
+	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+})
+```
+
+You can combine `when` and `unless` clauses in the same policy:
+
+```go
+var policyEngine PolicyEngine
+var gateway Gateway
+
+
+// Allow engineers unless they are on probation
+policyEngine.AddPolicy(jsii.String("CombinedConditions"), &AddPolicyOptions{
+	Statement: agentcore.PolicyStatement_Permit().ForPrincipal(jsii.String("AgentCore::OAuthUser")).OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn).When().PrincipalAttribute(jsii.String("department")).EqualTo(jsii.String("Engineering")).Done().Unless().*PrincipalAttribute(jsii.String("status")).*EqualTo(jsii.String("probation")).*Done(),
+	Description: jsii.String("Allow engineers unless on probation"),
 	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 })
 ```
@@ -2956,4 +3014,392 @@ policyEngine.GrantRead(lambdaRole)
 
 // Grant evaluation permissions
 policyEngine.GrantEvaluate(lambdaRole)
+```
+
+## Online Evaluation
+
+The Online Evaluation construct enables continuous monitoring and assessment of your agent's performance using live traffic. It automatically samples agent traces from CloudWatch Logs or Agent Endpoints and applies built-in evaluators to assess quality metrics like helpfulness, correctness, and safety.
+
+### Online Evaluation Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `onlineEvaluationConfigName` | `string` | Yes | The name of the online evaluation configuration. Must start with a letter and can contain a-z, A-Z, 0-9, _ (underscore). Maximum 48 characters |
+| `evaluators` | `EvaluatorReference[]` | Yes | The list of built-in evaluators to apply during evaluation. Minimum 1, maximum 10 |
+| `dataSource` | `DataSourceConfig` | Yes | The data source configuration specifying where to read agent traces from |
+| `executionRole` | `iam.IRole` | No | The IAM role for evaluation. If not provided, a role will be created automatically |
+| `description` | `string` | No | Description of the evaluation configuration. Maximum 200 characters |
+| `samplingPercentage` | `number` | No | Percentage of traces to sample (0.01-100). Default: 10 |
+| `filters` | `FilterConfig[]` | No | Filters to determine which traces to evaluate. Use `FilterValue.string()`, `FilterValue.number()`, or `FilterValue.boolean()` for typed filter values. Maximum 5 |
+| `sessionTimeout` | `Duration` | No | Duration of inactivity before a session is considered complete (1-1440 minutes). Default: `Duration.minutes(15)` |
+| `tags` | `{ [key: string]: string }` | No | Tags for the evaluation configuration |
+
+### Basic Online Evaluation Creation
+
+Create an online evaluation configuration with built-in evaluators:
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MyEvaluation"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("my_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+})
+```
+
+### Built-in Evaluators
+
+Amazon Bedrock AgentCore provides 13 built-in evaluators that assess different aspects of agent performance:
+
+**Session-Level Evaluators:**
+
+* `GOAL_SUCCESS_RATE` - Evaluates whether the conversation successfully meets the user's goals
+
+**Trace-Level Evaluators:**
+
+* `HELPFULNESS` - How useful and valuable the agent's response is
+* `CORRECTNESS` - Whether the information is factually accurate
+* `FAITHFULNESS` - Whether the response is faithful to the provided context
+* `HARMFULNESS` - Whether the response contains harmful content
+* `STEREOTYPING` - Detects content that makes generalizations about individuals or groups
+* `REFUSAL` - Whether the agent appropriately refuses harmful requests
+* `COHERENCE` - Whether the response is logically coherent
+* `RESPONSE_RELEVANCE` - Whether the response appropriately addresses the user's query
+* `CONCISENESS` - Whether the response is appropriately concise
+* `INSTRUCTION_FOLLOWING` - How well the agent follows system instructions
+
+**Tool Call-Level Evaluators:**
+
+* `TOOL_SELECTION_ACCURACY` - Whether the agent selected the appropriate tool
+* `TOOL_PARAMETER_ACCURACY` - How accurately the agent extracts parameters from user queries
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("ComprehensiveEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("comprehensive_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_GOAL_SUCCESS_RATE()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_COHERENCE()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_HARMFULNESS()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_STEREOTYPING()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_TOOL_SELECTION_ACCURACY()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+})
+```
+
+### Custom Evaluators
+
+Custom evaluators let you define evaluation logic tailored to your specific use cases. You can create custom evaluators using two strategies:
+
+* **LLM-as-a-Judge**: Uses a foundation model with custom instructions and a rating scale to assess agent performance.
+* **Code-based**: Uses a Lambda function for custom evaluation logic.
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `evaluatorName` | `string` | Yes | Name of the evaluator. Must start with a letter, a-z, A-Z, 0-9, _ only. Maximum 48 characters |
+| `evaluatorConfig` | `EvaluatorConfig` | Yes | Configuration defining how the evaluator assesses performance |
+| `level` | `EvaluationLevel` | Yes | The level at which the evaluator operates: `TOOL_CALL`, `TRACE`, or `SESSION` |
+| `description` | `string` | No | Description of the evaluator. Maximum 200 characters |
+
+#### LLM-as-a-Judge Evaluator
+
+Create a custom evaluator that uses a foundation model to assess agent performance:
+
+```go
+// LLM-as-a-Judge with categorical rating scale
+categoricalEvaluator := agentcore.NewEvaluator(this, jsii.String("CategoricalEvaluator"), &EvaluatorProps{
+	EvaluatorName: jsii.String("domain_accuracy_evaluator"),
+	Level: agentcore.EvaluationLevel_SESSION(),
+	Description: jsii.String("Evaluates domain-specific accuracy of agent responses"),
+	EvaluatorConfig: agentcore.EvaluatorConfig_LlmAsAJudge(&LlmAsAJudgeOptions{
+		Instructions: jsii.String("Evaluate whether the agent response is accurate within the healthcare domain."),
+		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
+		RatingScale: agentcore.EvaluatorRatingScale_Categorical([]CategoricalRatingOption{
+			&CategoricalRatingOption{
+				Label: jsii.String("Accurate"),
+				Definition: jsii.String("The response contains factually correct healthcare information."),
+			},
+			&CategoricalRatingOption{
+				Label: jsii.String("Inaccurate"),
+				Definition: jsii.String("The response contains incorrect or misleading healthcare information."),
+			},
+		}),
+	}),
+})
+
+// LLM-as-a-Judge with numerical rating scale and inference config
+numericalEvaluator := agentcore.NewEvaluator(this, jsii.String("NumericalEvaluator"), &EvaluatorProps{
+	EvaluatorName: jsii.String("response_quality_evaluator"),
+	Level: agentcore.EvaluationLevel_TRACE(),
+	EvaluatorConfig: agentcore.EvaluatorConfig_*LlmAsAJudge(&LlmAsAJudgeOptions{
+		Instructions: jsii.String("Rate the overall quality of the agent response on a scale of 1 to 5."),
+		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
+		RatingScale: agentcore.EvaluatorRatingScale_Numerical([]NumericalRatingOption{
+			&NumericalRatingOption{
+				Label: jsii.String("Poor"),
+				Definition: jsii.String("Inadequate response."),
+				Value: jsii.Number(1),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Below Average"),
+				Definition: jsii.String("Partially addresses the query."),
+				Value: jsii.Number(2),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Average"),
+				Definition: jsii.String("Adequately addresses the query."),
+				Value: jsii.Number(3),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Good"),
+				Definition: jsii.String("Well-structured and accurate response."),
+				Value: jsii.Number(4),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Excellent"),
+				Definition: jsii.String("Outstanding response exceeding expectations."),
+				Value: jsii.Number(5),
+			},
+		}),
+		InferenceConfig: &EvaluatorInferenceConfig{
+			MaxTokens: jsii.Number(1024),
+			Temperature: jsii.Number(0.1),
+		},
+	}),
+})
+```
+
+The `modelId` accepts standard Bedrock model IDs and cross-region inference profile IDs with region prefixes (e.g., `us.`, `eu.`, `global.`).
+
+> **Instructions placeholders:** Instructions must contain placeholders appropriate for the evaluation level (e.g., `{context}`, `{available_tools}` for SESSION level). Evaluators using reference-input placeholders (e.g., `{expected_tool_trajectory}`, `{assertions}`) are only compatible with on-demand evaluation, not online evaluation. See the [custom evaluators documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/custom-evaluators.html) for allowed placeholders per level.
+
+#### Code-Based Evaluator
+
+Create a custom evaluator that uses a Lambda function for evaluation logic:
+
+```go
+var evalFunction IFunction
+
+
+codeEvaluator := agentcore.NewEvaluator(this, jsii.String("CodeEvaluator"), &EvaluatorProps{
+	EvaluatorName: jsii.String("custom_code_evaluator"),
+	Level: agentcore.EvaluationLevel_TOOL_CALL(),
+	Description: jsii.String("Evaluates tool call accuracy using custom logic"),
+	EvaluatorConfig: agentcore.EvaluatorConfig_CodeBased(&CodeBasedOptions{
+		LambdaFunction: evalFunction,
+		Timeout: cdk.Duration_Seconds(jsii.Number(30)),
+	}),
+})
+```
+
+For code-based evaluators, the construct automatically grants the `bedrock-agentcore.amazonaws.com` service principal permission to invoke the Lambda function, scoped to the specific evaluator resource with `aws:SourceAccount` and `aws:SourceArn` conditions for confused deputy prevention.
+
+#### Using Custom Evaluators with Online Evaluation
+
+Custom evaluators are used in `OnlineEvaluationConfig` via `EvaluatorReference.custom()`, alongside built-in evaluators:
+
+```go
+var customEvaluator Evaluator
+
+
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MixedEvaluation"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("mixed_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+		agentcore.EvaluatorReference_Custom(customEvaluator),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+})
+```
+
+### Data Source Configuration
+
+Online evaluation supports two types of data sources:
+
+**AgentCore Runtime Data Source (Recommended):**
+
+For runtimes created within your CDK app, use `fromAgentRuntimeEndpoint()` which automatically derives the CloudWatch log group and service name:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("my_agent"),
+	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+})
+
+// Using default endpoint (simplest)
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("RuntimeEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("runtime_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime),
+})
+```
+
+You can also specify a specific endpoint:
+
+```go
+var runtime Runtime
+
+
+// Using a specific endpoint construct
+prodEndpoint := runtime.AddEndpoint(jsii.String("PROD"))
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("ProdEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("prod_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime, prodEndpoint),
+})
+
+// Or using endpoint name as string
+stagingEval := agentcore.NewOnlineEvaluationConfig(this, jsii.String("StagingEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("staging_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpointName(runtime, jsii.String("STAGING")),
+})
+```
+
+**CloudWatch Logs Data Source:**
+
+For external agents or when you need to specify log groups directly:
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("CloudWatchEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("cloudwatch_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/agent1"),
+			jsii.String("/aws/bedrock-agentcore/agent2"),
+		},
+		ServiceNames: []*string{
+			jsii.String("agent1.default"),
+		},
+	}),
+})
+```
+
+### Sampling and Filtering
+
+Configure sampling percentage and filters to control which traces are evaluated:
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("FilteredEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("filtered_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+	// Sample 25% of traces
+	SamplingPercentage: jsii.Number(25),
+	// Only evaluate traces matching these filters
+	Filters: []FilterConfig{
+		&FilterConfig{
+			Key: jsii.String("user.region"),
+			Operator: agentcore.FilterOperator_EQUAL(),
+			Value: agentcore.FilterValue_String(jsii.String("us-east-1")),
+		},
+		&FilterConfig{
+			Key: jsii.String("session.duration"),
+			Operator: agentcore.FilterOperator_GREATER_THAN(),
+			Value: agentcore.FilterValue_Number(jsii.Number(60)),
+		},
+	},
+	// Consider sessions complete after 30 minutes of inactivity
+	SessionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+})
+```
+
+### Online Evaluation with Custom Execution Role
+
+Provide a custom IAM role for the evaluation execution:
+
+```go
+executionRole := iam.NewRole(this, jsii.String("EvaluationRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+	Description: jsii.String("Custom role for online evaluation"),
+})
+
+// Add required permissions
+executionRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("logs:DescribeLogGroups"),
+		jsii.String("logs:GetQueryResults"),
+		jsii.String("logs:StartQuery"),
+	},
+	Resources: []*string{
+		jsii.String("arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/*"),
+	},
+}))
+
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("CustomRoleEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("custom_role_evaluation"),
+	Evaluators: []EvaluatorReference{
+		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+	ExecutionRole: executionRole,
+})
+```
+
+### Online Evaluation IAM Permissions
+
+Grant IAM permissions to manage or read evaluation configurations:
+
+```go
+var evaluation OnlineEvaluationConfig
+var role IRole
+
+
+// Grant specific permissions
+evaluation.Grant(role, jsii.String("bedrock-agentcore:GetOnlineEvaluationConfig"), jsii.String("bedrock-agentcore:UpdateOnlineEvaluationConfig"))
 ```

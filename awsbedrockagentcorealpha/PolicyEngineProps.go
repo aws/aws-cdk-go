@@ -7,19 +7,21 @@ import (
 // Properties for creating a PolicyEngine resource.
 //
 // Example:
-//   policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyEngine"), &PolicyEngineProps{
-//   	PolicyEngineName: jsii.String("my_engine"),
+//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   lambdaRole := iam.NewRole(this, jsii.String("LambdaRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+//   policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
+//   	PolicyEngineName: jsii.String("my_policy_engine"),
 //   })
 //
-//   // Grant read permissions
-//   policyEngine.GrantRead(lambdaRole)
-//
-//   // Grant evaluation permissions
-//   policyEngine.GrantEvaluate(lambdaRole)
+//   allowAllPolicy := agentcore.NewPolicy(this, jsii.String("AllowAllPolicy"), &PolicyProps{
+//   	PolicyEngine: policyEngine,
+//   	PolicyName: jsii.String("allow_all"),
+//   	Statement: agentcore.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
+//   	Description: jsii.String("Allow all actions on specific gateway (development only)"),
+//   	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
+//   })
 //
 // Experimental.
 type PolicyEngineProps struct {

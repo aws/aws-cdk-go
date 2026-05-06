@@ -117,6 +117,16 @@ type PythonShellJobProps struct {
 	//
 	// Experimental.
 	WorkerType WorkerType `field:"optional" json:"workerType" yaml:"workerType"`
+	// Additional Python files that AWS Glue adds to the Python path before executing your script.
+	//
+	// Only individual files are supported, directories are not supported.
+	// Equivalent to the `--extra-py-files` job argument.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Default: - no extra Python files.
+	//
+	// Experimental.
+	ExtraPythonFiles *[]Code `field:"optional" json:"extraPythonFiles" yaml:"extraPythonFiles"`
 	// Specifies whether job run queuing is enabled for the job runs for this job.
 	//
 	// A value of true means job run queuing is enabled for the job runs.

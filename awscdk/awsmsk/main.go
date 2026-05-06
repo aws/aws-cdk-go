@@ -117,6 +117,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "zookeeperAccess", GoGetter: "ZookeeperAccess"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnCluster{}
@@ -254,6 +255,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnCluster.VpcConnectivityTlsProperty",
 		reflect.TypeOf((*CfnCluster_VpcConnectivityTlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnCluster.ZookeeperAccessProperty",
+		reflect.TypeOf((*CfnCluster_ZookeeperAccessProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_msk.CfnClusterPolicy",

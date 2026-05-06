@@ -126,6 +126,18 @@ func validateFn_GetAttParameters(logicalNameOfResource *string, attributeName *s
 	return nil
 }
 
+func validateFn_GetStackOutputParameters(stackName *string, outputName *string) error {
+	if stackName == nil {
+		return fmt.Errorf("parameter stackName is required, but nil was provided")
+	}
+
+	if outputName == nil {
+		return fmt.Errorf("parameter outputName is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateFn_ImportListValueParameters(sharedValueToImport *string, assumedLength *float64) error {
 	if sharedValueToImport == nil {
 		return fmt.Errorf("parameter sharedValueToImport is required, but nil was provided")

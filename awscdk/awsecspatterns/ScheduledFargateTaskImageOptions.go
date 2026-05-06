@@ -49,6 +49,13 @@ type ScheduledFargateTaskImageOptions struct {
 	// Default: - No secret environment variables.
 	//
 	Secrets *map[string]awsecs.Secret `field:"optional" json:"secrets" yaml:"secrets"`
+	// Whether to enable the deployment circuit breaker.
+	//
+	// If this property is defined, circuit breaker will be implicitly
+	// enabled.
+	// Default: - disabled.
+	//
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `field:"optional" json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:

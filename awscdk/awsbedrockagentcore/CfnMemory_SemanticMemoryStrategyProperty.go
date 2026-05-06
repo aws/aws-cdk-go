@@ -14,6 +14,41 @@ package awsbedrockagentcore
 //   	// the properties below are optional
 //   	CreatedAt: jsii.String("createdAt"),
 //   	Description: jsii.String("description"),
+//   	MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   		MetadataSchema: []interface{}{
+//   			&MetadataSchemaEntryProperty{
+//   				Key: jsii.String("key"),
+//
+//   				// the properties below are optional
+//   				ExtractionConfig: &ExtractionConfigProperty{
+//   					LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   						Definition: jsii.String("definition"),
+//
+//   						// the properties below are optional
+//   						LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   						Validation: &ValidationProperty{
+//   							NumberValidation: &NumberValidationProperty{
+//   								MaxValue: jsii.Number(123),
+//   								MinValue: jsii.Number(123),
+//   							},
+//   							StringListValidation: &StringListValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   								MaxItems: jsii.Number(123),
+//   							},
+//   							StringValidation: &StringValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
@@ -41,6 +76,9 @@ type CfnMemory_SemanticMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-semanticmemorystrategy.html#cfn-bedrockagentcore-memory-semanticmemorystrategy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-semanticmemorystrategy.html#cfn-bedrockagentcore-memory-semanticmemorystrategy-memoryrecordschema
+	//
+	MemoryRecordSchema interface{} `field:"optional" json:"memoryRecordSchema" yaml:"memoryRecordSchema"`
 	// The memory strategy namespaces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-semanticmemorystrategy.html#cfn-bedrockagentcore-memory-semanticmemorystrategy-namespaces
 	//

@@ -11,6 +11,7 @@ package awscdkgluealpha
 //   var stack Stack
 //   var role IRole
 //   var script Code
+//   var extraPythonFile Code
 //
 //   glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProps{
 //   	JobName: jsii.String("PythonShellJobCustomName"),
@@ -19,6 +20,9 @@ package awscdkgluealpha
 //   	MaxCapacity: glue.MaxCapacity_DPU_1,
 //   	Role: Role,
 //   	Script: Script,
+//   	ExtraPythonFiles: []Code{
+//   		extraPythonFile,
+//   	},
 //   	GlueVersion: glue.GlueVersion_V2_0,
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),

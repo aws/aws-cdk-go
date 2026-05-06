@@ -8,6 +8,7 @@ package awsbedrockagentcore
 //
 //   mcpServerTargetConfigurationProperty := &McpServerTargetConfigurationProperty{
 //   	Endpoint: jsii.String("endpoint"),
+//   	ListingMode: jsii.String("listingMode"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html
@@ -16,5 +17,8 @@ type CfnGatewayTargetPropsMixin_McpServerTargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration-endpoint
 	//
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration-listingmode
+	//
+	ListingMode *string `field:"optional" json:"listingMode" yaml:"listingMode"`
 }
 

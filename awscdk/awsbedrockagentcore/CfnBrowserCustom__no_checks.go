@@ -104,6 +104,14 @@ func (j *jsiiProxy_CfnBrowserCustom) validateSetBrowserSigningParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnBrowserCustom) validateSetCertificatesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBrowserCustom) validateSetEnterprisePoliciesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBrowserCustom) validateSetNameParameters(val *string) error {
 	return nil
 }

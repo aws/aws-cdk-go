@@ -619,6 +619,10 @@ func init() {
 		reflect.TypeOf((*CfnDistribution_CacheBehaviorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.CfnDistribution.CacheTagConfigProperty",
+		reflect.TypeOf((*CfnDistribution_CacheTagConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.CfnDistribution.ConnectionFunctionAssociationProperty",
 		reflect.TypeOf((*CfnDistribution_ConnectionFunctionAssociationProperty)(nil)).Elem(),
 	)

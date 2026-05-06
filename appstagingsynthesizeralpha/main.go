@@ -18,6 +18,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 			_jsii_.MemberProperty{JsiiProperty: "bootstrapQualifier", GoGetter: "BootstrapQualifier"},
 			_jsii_.MemberProperty{JsiiProperty: "boundStack", GoGetter: "BoundStack"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudFormationExecutionRole", GoGetter: "CloudFormationExecutionRole"},
 			_jsii_.MemberMethod{JsiiMethod: "cloudFormationLocationFromDockerImageAsset", GoMethod: "CloudFormationLocationFromDockerImageAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "cloudFormationLocationFromFileAsset", GoMethod: "CloudFormationLocationFromFileAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "emitArtifact", GoMethod: "EmitArtifact"},

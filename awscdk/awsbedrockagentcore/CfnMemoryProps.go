@@ -15,6 +15,12 @@ package awsbedrockagentcore
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	IndexedKeys: []interface{}{
+//   		&IndexedKeyProperty{
+//   			Key: jsii.String("key"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	MemoryExecutionRoleArn: jsii.String("memoryExecutionRoleArn"),
 //   	MemoryStrategies: []interface{}{
 //   		&MemoryStrategyProperty{
@@ -37,6 +43,41 @@ package awsbedrockagentcore
 //   							ModelId: jsii.String("modelId"),
 //
 //   							// the properties below are optional
+//   							MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   								MetadataSchema: []interface{}{
+//   									&MetadataSchemaEntryProperty{
+//   										Key: jsii.String("key"),
+//
+//   										// the properties below are optional
+//   										ExtractionConfig: &ExtractionConfigProperty{
+//   											LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   												Definition: jsii.String("definition"),
+//
+//   												// the properties below are optional
+//   												LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   												Validation: &ValidationProperty{
+//   													NumberValidation: &NumberValidationProperty{
+//   														MaxValue: jsii.Number(123),
+//   														MinValue: jsii.Number(123),
+//   													},
+//   													StringListValidation: &StringListValidationProperty{
+//   														AllowedValues: []*string{
+//   															jsii.String("allowedValues"),
+//   														},
+//   														MaxItems: jsii.Number(123),
+//   													},
+//   													StringValidation: &StringValidationProperty{
+//   														AllowedValues: []*string{
+//   															jsii.String("allowedValues"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
 //   							Namespaces: []*string{
 //   								jsii.String("namespaces"),
 //   							},
@@ -94,6 +135,41 @@ package awsbedrockagentcore
 //   				},
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -111,6 +187,41 @@ package awsbedrockagentcore
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -118,6 +229,41 @@ package awsbedrockagentcore
 //   					jsii.String("namespaceTemplates"),
 //   				},
 //   				ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
+//   					MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   						MetadataSchema: []interface{}{
+//   							&MetadataSchemaEntryProperty{
+//   								Key: jsii.String("key"),
+//
+//   								// the properties below are optional
+//   								ExtractionConfig: &ExtractionConfigProperty{
+//   									LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   										Definition: jsii.String("definition"),
+//
+//   										// the properties below are optional
+//   										LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   										Validation: &ValidationProperty{
+//   											NumberValidation: &NumberValidationProperty{
+//   												MaxValue: jsii.Number(123),
+//   												MinValue: jsii.Number(123),
+//   											},
+//   											StringListValidation: &StringListValidationProperty{
+//   												AllowedValues: []*string{
+//   													jsii.String("allowedValues"),
+//   												},
+//   												MaxItems: jsii.Number(123),
+//   											},
+//   											StringValidation: &StringValidationProperty{
+//   												AllowedValues: []*string{
+//   													jsii.String("allowedValues"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
 //   					Namespaces: []*string{
 //   						jsii.String("namespaces"),
 //   					},
@@ -136,6 +282,41 @@ package awsbedrockagentcore
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -153,6 +334,41 @@ package awsbedrockagentcore
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -170,6 +386,41 @@ package awsbedrockagentcore
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -224,6 +475,10 @@ type CfnMemoryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-encryptionkeyarn
 	//
 	EncryptionKeyArn *string `field:"optional" json:"encryptionKeyArn" yaml:"encryptionKeyArn"`
+	// List of indexed keys for the memory.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-indexedkeys
+	//
+	IndexedKeys interface{} `field:"optional" json:"indexedKeys" yaml:"indexedKeys"`
 	// The memory role ARN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-memoryexecutionrolearn
 	//

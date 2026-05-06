@@ -40,6 +40,9 @@ type AppStagingSynthesizer interface {
 	// Fails if the stack hasn't been bound yet.
 	// Experimental.
 	BoundStack() awscdk.Stack
+	// The role that is passed to CloudFormation to execute the change set.
+	// Experimental.
+	CloudFormationExecutionRole() *string
 	// The role used to lookup for this stack.
 	// Experimental.
 	LookupRole() *string
@@ -137,6 +140,16 @@ func (j *jsiiProxy_AppStagingSynthesizer) BoundStack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"boundStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AppStagingSynthesizer) CloudFormationExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cloudFormationExecutionRole",
 		&returns,
 	)
 	return returns

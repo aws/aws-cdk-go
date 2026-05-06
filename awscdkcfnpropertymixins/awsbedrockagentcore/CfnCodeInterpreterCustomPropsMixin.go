@@ -27,6 +27,13 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnCodeInterpreterCustomPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnCodeInterpreterCustomPropsMixin(&CfnCodeInterpreterCustomMixinProps{
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),

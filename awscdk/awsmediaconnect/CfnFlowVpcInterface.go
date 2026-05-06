@@ -36,6 +36,14 @@ import (
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
+//
+//   	// the properties below are optional
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
@@ -44,8 +52,11 @@ type CfnFlowVpcInterface interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsmediaconnect.IFlowVpcInterfaceRef
+	awscdk.ITaggableV2
 	// The IDs of the network interfaces that MediaConnect created in your account.
 	AttrNetworkInterfaceIds() *[]*string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -95,6 +106,9 @@ type CfnFlowVpcInterface interface {
 	// The subnet IDs that you want to use for your VPC interface.
 	SubnetId() *string
 	SetSubnetId(val *string)
+	// Key-value pairs that can be used to tag and organize this VPC network interface.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -248,6 +262,7 @@ type jsiiProxy_CfnFlowVpcInterface struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsmediaconnectIFlowVpcInterfaceRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnFlowVpcInterface) AttrNetworkInterfaceIds() *[]*string {
@@ -255,6 +270,16 @@ func (j *jsiiProxy_CfnFlowVpcInterface) AttrNetworkInterfaceIds() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrNetworkInterfaceIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowVpcInterface) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -420,6 +445,16 @@ func (j *jsiiProxy_CfnFlowVpcInterface) SubnetId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowVpcInterface) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowVpcInterface) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -521,6 +556,17 @@ func (j *jsiiProxy_CfnFlowVpcInterface)SetSubnetId(val *string) {
 	_jsii_.Set(
 		j,
 		"subnetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowVpcInterface)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

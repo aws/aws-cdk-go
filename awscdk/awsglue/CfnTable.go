@@ -61,6 +61,8 @@ type CfnTable interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	Name() *string
+	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies an `OpenTableFormatInput` structure when creating an open format table.
@@ -335,6 +337,16 @@ func (j *jsiiProxy_CfnTable) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -463,6 +475,14 @@ func (j *jsiiProxy_CfnTable)SetDatabaseName(val *string) {
 	_jsii_.Set(
 		j,
 		"databaseName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
 		val,
 	)
 }

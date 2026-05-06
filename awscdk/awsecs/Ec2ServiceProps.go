@@ -19,7 +19,6 @@ import (
 //   // Add capacity to it
 //   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-//   	DesiredCapacity: jsii.Number(3),
 //   })
 //
 //   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -34,6 +33,9 @@ import (
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
+//   	CircuitBreaker: &DeploymentCircuitBreaker{
+//   		Enable: jsii.Boolean(true),
+//   	},
 //   })
 //
 type Ec2ServiceProps struct {

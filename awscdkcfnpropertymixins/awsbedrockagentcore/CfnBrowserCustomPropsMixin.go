@@ -28,7 +28,23 @@ import (
 //   	BrowserSigning: &BrowserSigningProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	EnterprisePolicies: []interface{}{
+//   		&BrowserEnterprisePolicyProperty{
+//   			Location: &S3LocationProperty{
+//   				Bucket: jsii.String("bucket"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),
 //   	NetworkConfiguration: &BrowserNetworkConfigurationProperty{

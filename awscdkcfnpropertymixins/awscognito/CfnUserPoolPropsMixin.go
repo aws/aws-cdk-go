@@ -166,6 +166,7 @@ import (
 //   		EmailSubjectByLink: jsii.String("emailSubjectByLink"),
 //   		SmsMessage: jsii.String("smsMessage"),
 //   	},
+//   	WebAuthnFactorConfiguration: jsii.String("webAuthnFactorConfiguration"),
 //   	WebAuthnRelyingPartyId: jsii.String("webAuthnRelyingPartyId"),
 //   	WebAuthnUserVerification: jsii.String("webAuthnUserVerification"),
 //   }, &CfnPropertyMixinOptions{

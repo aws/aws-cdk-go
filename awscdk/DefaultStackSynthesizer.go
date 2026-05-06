@@ -59,6 +59,8 @@ type DefaultStackSynthesizer interface {
 	//
 	// Fails if the stack hasn't been bound yet.
 	BoundStack() Stack
+	// The role that is passed to CloudFormation to execute the change set.
+	CloudFormationExecutionRole() *string
 	// Returns the ARN of the CFN execution Role.
 	CloudFormationExecutionRoleArn() *string
 	// Returns the ARN of the deploy Role.
@@ -164,6 +166,16 @@ func (j *jsiiProxy_DefaultStackSynthesizer) BoundStack() Stack {
 	_jsii_.Get(
 		j,
 		"boundStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DefaultStackSynthesizer) CloudFormationExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cloudFormationExecutionRole",
 		&returns,
 	)
 	return returns

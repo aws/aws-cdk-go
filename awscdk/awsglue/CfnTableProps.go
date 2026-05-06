@@ -9,11 +9,73 @@ package awsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
+//   var properties interface{}
 //   var skewedColumnValueLocationMaps interface{}
 //
 //   cfnTableProps := &CfnTableProps{
 //   	CatalogId: jsii.String("catalogId"),
 //   	DatabaseName: jsii.String("databaseName"),
+//
+//   	// the properties below are optional
+//   	Name: jsii.String("name"),
+//   	OpenTableFormatInput: &OpenTableFormatInputProperty{
+//   		IcebergInput: &IcebergInputProperty{
+//   			IcebergTableInput: &IcebergTableInputProperty{
+//   				Location: jsii.String("location"),
+//   				Schema: &IcebergSchemaProperty{
+//   					Fields: []interface{}{
+//   						&IcebergStructFieldProperty{
+//   							Id: jsii.Number(123),
+//   							Name: jsii.String("name"),
+//   							Required: jsii.Boolean(false),
+//   							Type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							Doc: jsii.String("doc"),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					IdentifierFieldIds: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					SchemaId: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//
+//   				// the properties below are optional
+//   				PartitionSpec: &IcebergPartitionSpecProperty{
+//   					Fields: []interface{}{
+//   						&IcebergPartitionFieldProperty{
+//   							Name: jsii.String("name"),
+//   							SourceId: jsii.Number(123),
+//   							Transform: jsii.String("transform"),
+//
+//   							// the properties below are optional
+//   							FieldId: jsii.Number(123),
+//   						},
+//   					},
+//
+//   					// the properties below are optional
+//   					SpecId: jsii.Number(123),
+//   				},
+//   				Properties: properties,
+//   				WriteOrder: &IcebergSortOrderProperty{
+//   					Fields: []interface{}{
+//   						&IcebergSortFieldProperty{
+//   							Direction: jsii.String("direction"),
+//   							NullOrder: jsii.String("nullOrder"),
+//   							SourceId: jsii.Number(123),
+//   							Transform: jsii.String("transform"),
+//   						},
+//   					},
+//   					OrderId: jsii.Number(123),
+//   				},
+//   			},
+//   			MetadataOperation: jsii.String("metadataOperation"),
+//   			Version: jsii.String("version"),
+//   		},
+//   	},
 //   	TableInput: &TableInputProperty{
 //   		Description: jsii.String("description"),
 //   		Name: jsii.String("name"),
@@ -86,16 +148,24 @@ package awsglue
 //   			Name: jsii.String("name"),
 //   			Region: jsii.String("region"),
 //   		},
+//   		ViewDefinition: &ViewDefinitionProperty{
+//   			Definer: jsii.String("definer"),
+//   			IsProtected: jsii.Boolean(false),
+//   			Representations: []interface{}{
+//   				&ViewRepresentationProperty{
+//   					Dialect: jsii.String("dialect"),
+//   					DialectVersion: jsii.String("dialectVersion"),
+//   					ValidationConnection: jsii.String("validationConnection"),
+//   					ViewExpandedText: jsii.String("viewExpandedText"),
+//   					ViewOriginalText: jsii.String("viewOriginalText"),
+//   				},
+//   			},
+//   			SubObjects: []*string{
+//   				jsii.String("subObjects"),
+//   			},
+//   		},
 //   		ViewExpandedText: jsii.String("viewExpandedText"),
 //   		ViewOriginalText: jsii.String("viewOriginalText"),
-//   	},
-//
-//   	// the properties below are optional
-//   	OpenTableFormatInput: &OpenTableFormatInputProperty{
-//   		IcebergInput: &IcebergInputProperty{
-//   			MetadataOperation: jsii.String("metadataOperation"),
-//   			Version: jsii.String("version"),
-//   		},
 //   	},
 //   }
 //
@@ -112,13 +182,16 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-databasename
 	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
-	// A structure used to define a table.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-name
 	//
-	TableInput interface{} `field:"required" json:"tableInput" yaml:"tableInput"`
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies an `OpenTableFormatInput` structure when creating an open format table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-opentableformatinput
 	//
 	OpenTableFormatInput interface{} `field:"optional" json:"openTableFormatInput" yaml:"openTableFormatInput"`
+	// A structure used to define a table.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-tableinput
+	//
+	TableInput interface{} `field:"optional" json:"tableInput" yaml:"tableInput"`
 }
 

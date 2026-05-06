@@ -12,7 +12,23 @@ package awsbedrockagentcore
 //   	BrowserSigning: &BrowserSigningProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	EnterprisePolicies: []interface{}{
+//   		&BrowserEnterprisePolicyProperty{
+//   			Location: &S3LocationProperty{
+//   				Bucket: jsii.String("bucket"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),
 //   	NetworkConfiguration: &BrowserNetworkConfigurationProperty{
@@ -45,10 +61,18 @@ type CfnBrowserCustomMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-browsersigning
 	//
 	BrowserSigning interface{} `field:"optional" json:"browserSigning" yaml:"browserSigning"`
+	// List of root CA certificates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-certificates
+	//
+	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
 	// The custom browser.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// List of browser enterprise policies.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-enterprisepolicies
+	//
+	EnterprisePolicies interface{} `field:"optional" json:"enterprisePolicies" yaml:"enterprisePolicies"`
 	// The Amazon Resource Name (ARN) of the execution role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html#cfn-bedrockagentcore-browsercustom-executionrolearn
 	//

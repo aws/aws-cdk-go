@@ -24,6 +24,8 @@ import (
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //
 //   	// the properties below are optional
+//   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	SubnetId: jsii.String("subnetId"),
 //   })
 //
@@ -34,6 +36,10 @@ type CfnClientVpnTargetNetworkAssociation interface {
 	awscdk.IInspectable
 	interfacesawsec2.IClientVpnTargetNetworkAssociationRef
 	AttrId() *string
+	AvailabilityZone() *string
+	SetAvailabilityZone(val *string)
+	AvailabilityZoneId() *string
+	SetAvailabilityZoneId(val *string)
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -239,6 +245,26 @@ func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AvailabilityZone() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZone",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AvailabilityZoneId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZoneId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -416,6 +442,22 @@ func NewCfnClientVpnTargetNetworkAssociation_Override(c CfnClientVpnTargetNetwor
 		"aws-cdk-lib.aws_ec2.CfnClientVpnTargetNetworkAssociation",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation)SetAvailabilityZone(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation)SetAvailabilityZoneId(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneId",
+		val,
 	)
 }
 

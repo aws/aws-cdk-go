@@ -212,6 +212,10 @@ func init() {
 		reflect.TypeOf((*CfnResponderGatewayPropsMixin_EksEndpointsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_rtbfabric.CfnResponderGatewayPropsMixin.HealthCheckConfigProperty",
+		reflect.TypeOf((*CfnResponderGatewayPropsMixin_HealthCheckConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_rtbfabric.CfnResponderGatewayPropsMixin.ManagedEndpointConfigurationProperty",
 		reflect.TypeOf((*CfnResponderGatewayPropsMixin_ManagedEndpointConfigurationProperty)(nil)).Elem(),
 	)

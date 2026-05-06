@@ -46,10 +46,15 @@ type HttpEventBridgeIntegrationProps struct {
 	// When not provided, a default mapping will be used that expects the
 	// incoming request body to contain the fields `Detail`, `DetailType`, and
 	// `Source`.
+	//
+	// The `EventBusName` is automatically included from `eventBusRef` in all cases,
+	// even when a custom `parameterMapping` is provided (unless explicitly overridden).
+	// This ensures consistency and eliminates redundant configuration.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html
 	//
 	// Default: - set `Detail` to `$request.body.Detail`,
-	// `DetailType` to `$request.body.DetailType`, and `Source` to `$request.body.Source`.
+	// `DetailType` to `$request.body.DetailType`, `Source` to `$request.body.Source`,
+	// and `EventBusName` to the event bus name from `eventBusRef`.
 	//
 	ParameterMapping awsapigatewayv2.ParameterMapping `field:"optional" json:"parameterMapping" yaml:"parameterMapping"`
 	// The subtype of the HTTP integration.

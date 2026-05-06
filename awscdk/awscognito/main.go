@@ -531,6 +531,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "userPoolTier", GoGetter: "UserPoolTier"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "verificationMessageTemplate", GoGetter: "VerificationMessageTemplate"},
+			_jsii_.MemberProperty{JsiiProperty: "webAuthnFactorConfiguration", GoGetter: "WebAuthnFactorConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "webAuthnRelyingPartyId", GoGetter: "WebAuthnRelyingPartyId"},
 			_jsii_.MemberProperty{JsiiProperty: "webAuthnUserVerification", GoGetter: "WebAuthnUserVerification"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},

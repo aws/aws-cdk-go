@@ -1529,6 +1529,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
@@ -1565,6 +1566,34 @@ func init() {
 		reflect.TypeOf((*CfnTable_IcebergInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergPartitionFieldProperty",
+		reflect.TypeOf((*CfnTable_IcebergPartitionFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergPartitionSpecProperty",
+		reflect.TypeOf((*CfnTable_IcebergPartitionSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergSchemaProperty",
+		reflect.TypeOf((*CfnTable_IcebergSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergSortFieldProperty",
+		reflect.TypeOf((*CfnTable_IcebergSortFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergSortOrderProperty",
+		reflect.TypeOf((*CfnTable_IcebergSortOrderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergStructFieldProperty",
+		reflect.TypeOf((*CfnTable_IcebergStructFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.IcebergTableInputProperty",
+		reflect.TypeOf((*CfnTable_IcebergTableInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTable.OpenTableFormatInputProperty",
 		reflect.TypeOf((*CfnTable_OpenTableFormatInputProperty)(nil)).Elem(),
 	)
@@ -1599,6 +1628,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnTable.TableInputProperty",
 		reflect.TypeOf((*CfnTable_TableInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.ViewDefinitionProperty",
+		reflect.TypeOf((*CfnTable_ViewDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnTable.ViewRepresentationProperty",
+		reflect.TypeOf((*CfnTable_ViewRepresentationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_glue.CfnTableOptimizer",

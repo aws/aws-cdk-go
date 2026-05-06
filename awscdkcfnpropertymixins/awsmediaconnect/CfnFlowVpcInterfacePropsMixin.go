@@ -38,6 +38,12 @@ import (
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SubnetId: jsii.String("subnetId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

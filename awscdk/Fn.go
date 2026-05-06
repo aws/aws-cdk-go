@@ -340,6 +340,29 @@ func Fn_GetAzs(region *string) *[]*string {
 	return returns
 }
 
+// The intrinsic function `Fn::GetStackOutput` returns the value of an output from another stack.
+//
+// This is similar to `Fn::ImportValue`, but it can reference
+// a normal output, without the need to export anything. As with `Fn::ImportValue`,
+// you typically use this function to create cross-stack references.
+func Fn_GetStackOutput(stackName *string, outputName *string, region *string, roleArn *string) *string {
+	_init_.Initialize()
+
+	if err := validateFn_GetStackOutputParameters(stackName, outputName); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.Fn",
+		"getStackOutput",
+		[]interface{}{stackName, outputName, region, roleArn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Like `Fn.importValue`, but import a list with a known length.
 //
 // If you explicitly want a list with an unknown length, call `Fn.split(',',

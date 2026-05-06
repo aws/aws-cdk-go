@@ -276,6 +276,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_ClusterLifeCycleConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterNetworkInterfaceProperty",
+		reflect.TypeOf((*CfnCluster_ClusterNetworkInterfaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterOrchestratorEksConfigProperty",
 		reflect.TypeOf((*CfnCluster_ClusterOrchestratorEksConfigProperty)(nil)).Elem(),
 	)
@@ -302,6 +306,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.FSxLustreConfigProperty",
 		reflect.TypeOf((*CfnCluster_FSxLustreConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnCluster_InstanceRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.OrchestratorProperty",

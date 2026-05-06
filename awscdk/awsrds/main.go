@@ -108,6 +108,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customDbEngineVersionRef", GoGetter: "CustomDbEngineVersionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseInstallationFiles", GoGetter: "DatabaseInstallationFiles"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseInstallationFilesS3BucketName", GoGetter: "DatabaseInstallationFilesS3BucketName"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseInstallationFilesS3Prefix", GoGetter: "DatabaseInstallationFilesS3Prefix"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},

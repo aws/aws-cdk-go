@@ -9,6 +9,13 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnCodeInterpreterCustomMixinProps := &CfnCodeInterpreterCustomMixinProps{
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),
@@ -31,6 +38,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html
 //
 type CfnCodeInterpreterCustomMixinProps struct {
+	// List of root CA certificates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html#cfn-bedrockagentcore-codeinterpretercustom-certificates
+	//
+	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
 	// The code interpreter description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html#cfn-bedrockagentcore-codeinterpretercustom-description
 	//

@@ -22,13 +22,57 @@ import (
 //
 //   var mergeStrategy IMergeStrategy
 //   var parameters interface{}
+//   var properties interface{}
 //   var skewedColumnValueLocationMaps interface{}
 //
 //   cfnTablePropsMixin := awscdkcfnpropertymixins.Aws_glue.NewCfnTablePropsMixin(&CfnTableMixinProps{
 //   	CatalogId: jsii.String("catalogId"),
 //   	DatabaseName: jsii.String("databaseName"),
+//   	Name: jsii.String("name"),
 //   	OpenTableFormatInput: &OpenTableFormatInputProperty{
 //   		IcebergInput: &IcebergInputProperty{
+//   			IcebergTableInput: &IcebergTableInputProperty{
+//   				Location: jsii.String("location"),
+//   				PartitionSpec: &IcebergPartitionSpecProperty{
+//   					Fields: []interface{}{
+//   						&IcebergPartitionFieldProperty{
+//   							FieldId: jsii.Number(123),
+//   							Name: jsii.String("name"),
+//   							SourceId: jsii.Number(123),
+//   							Transform: jsii.String("transform"),
+//   						},
+//   					},
+//   					SpecId: jsii.Number(123),
+//   				},
+//   				Properties: properties,
+//   				Schema: &IcebergSchemaProperty{
+//   					Fields: []interface{}{
+//   						&IcebergStructFieldProperty{
+//   							Doc: jsii.String("doc"),
+//   							Id: jsii.Number(123),
+//   							Name: jsii.String("name"),
+//   							Required: jsii.Boolean(false),
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   					IdentifierFieldIds: []interface{}{
+//   						jsii.Number(123),
+//   					},
+//   					SchemaId: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   				WriteOrder: &IcebergSortOrderProperty{
+//   					Fields: []interface{}{
+//   						&IcebergSortFieldProperty{
+//   							Direction: jsii.String("direction"),
+//   							NullOrder: jsii.String("nullOrder"),
+//   							SourceId: jsii.Number(123),
+//   							Transform: jsii.String("transform"),
+//   						},
+//   					},
+//   					OrderId: jsii.Number(123),
+//   				},
+//   			},
 //   			MetadataOperation: jsii.String("metadataOperation"),
 //   			Version: jsii.String("version"),
 //   		},
@@ -100,6 +144,22 @@ import (
 //   			DatabaseName: jsii.String("databaseName"),
 //   			Name: jsii.String("name"),
 //   			Region: jsii.String("region"),
+//   		},
+//   		ViewDefinition: &ViewDefinitionProperty{
+//   			Definer: jsii.String("definer"),
+//   			IsProtected: jsii.Boolean(false),
+//   			Representations: []interface{}{
+//   				&ViewRepresentationProperty{
+//   					Dialect: jsii.String("dialect"),
+//   					DialectVersion: jsii.String("dialectVersion"),
+//   					ValidationConnection: jsii.String("validationConnection"),
+//   					ViewExpandedText: jsii.String("viewExpandedText"),
+//   					ViewOriginalText: jsii.String("viewOriginalText"),
+//   				},
+//   			},
+//   			SubObjects: []*string{
+//   				jsii.String("subObjects"),
+//   			},
 //   		},
 //   		ViewExpandedText: jsii.String("viewExpandedText"),
 //   		ViewOriginalText: jsii.String("viewOriginalText"),

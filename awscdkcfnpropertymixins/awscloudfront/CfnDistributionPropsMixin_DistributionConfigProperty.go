@@ -73,6 +73,9 @@ package awscloudfront
 //   			ViewerProtocolPolicy: jsii.String("viewerProtocolPolicy"),
 //   		},
 //   	},
+//   	CacheTagConfig: &CacheTagConfigProperty{
+//   		HeaderName: jsii.String("headerName"),
+//   	},
 //   	CnamEs: []*string{
 //   		jsii.String("cnamEs"),
 //   	},
@@ -304,6 +307,9 @@ type CfnDistributionPropsMixin_DistributionConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
 	//
 	CacheBehaviors interface{} `field:"optional" json:"cacheBehaviors" yaml:"cacheBehaviors"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachetagconfig
+	//
+	CacheTagConfig interface{} `field:"optional" json:"cacheTagConfig" yaml:"cacheTagConfig"`
 	// An alias for the CloudFront distribution's domain name.
 	//
 	// > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.

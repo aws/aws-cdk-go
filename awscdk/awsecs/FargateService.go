@@ -71,7 +71,6 @@ type FargateService interface {
 	Cluster() ICluster
 	// The security groups which manage the allowed network traffic for the service.
 	Connections() awsec2.Connections
-	// The deployment alarms property - this will be rendered directly and lazily as the CfnService.alarms property.
 	DeploymentAlarms() *CfnService_DeploymentAlarmsProperty
 	SetDeploymentAlarms(val *CfnService_DeploymentAlarmsProperty)
 	// The environment this resource belongs to.

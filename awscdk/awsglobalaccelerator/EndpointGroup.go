@@ -45,7 +45,6 @@ type EndpointGroup interface {
 	EndpointGroupName() *string
 	// A reference to a EndpointGroup resource.
 	EndpointGroupRef() *interfacesawsglobalaccelerator.EndpointGroupReference
-	// The array of the endpoints in this endpoint group.
 	Endpoints() *[]IEndpoint
 	// The environment this resource belongs to.
 	//

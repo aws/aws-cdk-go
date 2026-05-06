@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTagSpecificationsParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetTransitGatewayConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnClientVpnEndpointParameters(scope constructs.Construct, id *string, props *CfnClientVpnEndpointProps) error {
 	return nil
 }

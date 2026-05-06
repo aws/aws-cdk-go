@@ -7,6 +7,41 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   episodicReflectionConfigurationInputProperty := &EpisodicReflectionConfigurationInputProperty{
+//   	MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   		MetadataSchema: []interface{}{
+//   			&MetadataSchemaEntryProperty{
+//   				Key: jsii.String("key"),
+//
+//   				// the properties below are optional
+//   				ExtractionConfig: &ExtractionConfigProperty{
+//   					LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   						Definition: jsii.String("definition"),
+//
+//   						// the properties below are optional
+//   						LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   						Validation: &ValidationProperty{
+//   							NumberValidation: &NumberValidationProperty{
+//   								MaxValue: jsii.Number(123),
+//   								MinValue: jsii.Number(123),
+//   							},
+//   							StringListValidation: &StringListValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   								MaxItems: jsii.Number(123),
+//   							},
+//   							StringValidation: &StringValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
 //   	},
@@ -18,6 +53,9 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html
 //
 type CfnMemory_EpisodicReflectionConfigurationInputProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html#cfn-bedrockagentcore-memory-episodicreflectionconfigurationinput-memoryrecordschema
+	//
+	MemoryRecordSchema interface{} `field:"optional" json:"memoryRecordSchema" yaml:"memoryRecordSchema"`
 	// List of namespaces for memory strategy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html#cfn-bedrockagentcore-memory-episodicreflectionconfigurationinput-namespaces
 	//

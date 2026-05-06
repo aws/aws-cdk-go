@@ -51,6 +51,7 @@ package awsstepfunctionstasks
 //   				},
 //   				EbsOptimized: jsii.Boolean(false),
 //   			},
+//   			Priority: jsii.Number(123),
 //   			WeightedCapacity: jsii.Number(123),
 //   		},
 //   	},

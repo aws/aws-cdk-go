@@ -439,6 +439,10 @@ func init() {
 		reflect.TypeOf((*CfnResponderGateway_EksEndpointsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_rtbfabric.CfnResponderGateway.HealthCheckConfigProperty",
+		reflect.TypeOf((*CfnResponderGateway_HealthCheckConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rtbfabric.CfnResponderGateway.ManagedEndpointConfigurationProperty",
 		reflect.TypeOf((*CfnResponderGateway_ManagedEndpointConfigurationProperty)(nil)).Elem(),
 	)

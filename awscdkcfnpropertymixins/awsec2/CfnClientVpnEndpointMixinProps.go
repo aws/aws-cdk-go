@@ -66,6 +66,15 @@ package awsec2
 //   		},
 //   	},
 //   	TrafficIpAddressType: jsii.String("trafficIpAddressType"),
+//   	TransitGatewayConfiguration: &TransitGatewayConfigurationProperty{
+//   		AvailabilityZoneIds: []*string{
+//   			jsii.String("availabilityZoneIds"),
+//   		},
+//   		AvailabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		TransitGatewayId: jsii.String("transitGatewayId"),
+//   	},
 //   	TransportProtocol: jsii.String("transportProtocol"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpnPort: jsii.Number(123),
@@ -177,6 +186,9 @@ type CfnClientVpnEndpointMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-trafficipaddresstype
 	//
 	TrafficIpAddressType *string `field:"optional" json:"trafficIpAddressType" yaml:"trafficIpAddressType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-transitgatewayconfiguration
+	//
+	TransitGatewayConfiguration interface{} `field:"optional" json:"transitGatewayConfiguration" yaml:"transitGatewayConfiguration"`
 	// The transport protocol to be used by the VPN session.
 	//
 	// Default value: `udp`.

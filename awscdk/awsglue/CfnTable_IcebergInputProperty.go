@@ -8,7 +8,61 @@ package awsglue
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var properties interface{}
+//
 //   icebergInputProperty := &IcebergInputProperty{
+//   	IcebergTableInput: &IcebergTableInputProperty{
+//   		Location: jsii.String("location"),
+//   		Schema: &IcebergSchemaProperty{
+//   			Fields: []interface{}{
+//   				&IcebergStructFieldProperty{
+//   					Id: jsii.Number(123),
+//   					Name: jsii.String("name"),
+//   					Required: jsii.Boolean(false),
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Doc: jsii.String("doc"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			IdentifierFieldIds: []interface{}{
+//   				jsii.Number(123),
+//   			},
+//   			SchemaId: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//
+//   		// the properties below are optional
+//   		PartitionSpec: &IcebergPartitionSpecProperty{
+//   			Fields: []interface{}{
+//   				&IcebergPartitionFieldProperty{
+//   					Name: jsii.String("name"),
+//   					SourceId: jsii.Number(123),
+//   					Transform: jsii.String("transform"),
+//
+//   					// the properties below are optional
+//   					FieldId: jsii.Number(123),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			SpecId: jsii.Number(123),
+//   		},
+//   		Properties: properties,
+//   		WriteOrder: &IcebergSortOrderProperty{
+//   			Fields: []interface{}{
+//   				&IcebergSortFieldProperty{
+//   					Direction: jsii.String("direction"),
+//   					NullOrder: jsii.String("nullOrder"),
+//   					SourceId: jsii.Number(123),
+//   					Transform: jsii.String("transform"),
+//   				},
+//   			},
+//   			OrderId: jsii.Number(123),
+//   		},
+//   	},
 //   	MetadataOperation: jsii.String("metadataOperation"),
 //   	Version: jsii.String("version"),
 //   }
@@ -16,6 +70,9 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html
 //
 type CfnTable_IcebergInputProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html#cfn-glue-table-iceberginput-icebergtableinput
+	//
+	IcebergTableInput interface{} `field:"optional" json:"icebergTableInput" yaml:"icebergTableInput"`
 	// A required metadata operation.
 	//
 	// Can only be set to CREATE.

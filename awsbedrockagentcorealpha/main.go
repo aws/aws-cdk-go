@@ -320,9 +320,31 @@ func init() {
 			"DISABLED": BrowserSigning_DISABLED,
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.BuiltinEvaluator",
+		reflect.TypeOf((*BuiltinEvaluator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_BuiltinEvaluator{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.CategoricalRatingOption",
+		reflect.TypeOf((*CategoricalRatingOption)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.CloudWatchLogsDataSourceConfig",
+		reflect.TypeOf((*CloudWatchLogsDataSourceConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CodeAssetOptions",
 		reflect.TypeOf((*CodeAssetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.CodeBasedOptions",
+		reflect.TypeOf((*CodeBasedOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CodeInterpreterCustom",
@@ -525,9 +547,170 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CustomJwtConfiguration",
 		reflect.TypeOf((*CustomJwtConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.DataSourceConfig",
+		reflect.TypeOf((*DataSourceConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudWatchLogsConfig", GoGetter: "CloudWatchLogsConfig"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DataSourceConfig{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.DataSourceConfigBindResult",
+		reflect.TypeOf((*DataSourceConfigBindResult)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.EpisodicReflectionConfiguration",
 		reflect.TypeOf((*EpisodicReflectionConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluationLevel",
+		reflect.TypeOf((*EvaluationLevel)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EvaluationLevel{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.Evaluator",
+		reflect.TypeOf((*Evaluator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorArn", GoGetter: "EvaluatorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorId", GoGetter: "EvaluatorId"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorName", GoGetter: "EvaluatorName"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorRef", GoGetter: "EvaluatorRef"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Evaluator{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_EvaluatorBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorAttributes",
+		reflect.TypeOf((*EvaluatorAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorBase",
+		reflect.TypeOf((*EvaluatorBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorArn", GoGetter: "EvaluatorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorId", GoGetter: "EvaluatorId"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorName", GoGetter: "EvaluatorName"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorRef", GoGetter: "EvaluatorRef"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EvaluatorBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEvaluator)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorConfig",
+		reflect.TypeOf((*EvaluatorConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "lambdaFunction", GoGetter: "LambdaFunction"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EvaluatorConfig{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorInferenceConfig",
+		reflect.TypeOf((*EvaluatorInferenceConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorProps",
+		reflect.TypeOf((*EvaluatorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorRatingScale",
+		reflect.TypeOf((*EvaluatorRatingScale)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_EvaluatorRatingScale{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorReference",
+		reflect.TypeOf((*EvaluatorReference)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorId", GoGetter: "EvaluatorId"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EvaluatorReference{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.EvaluatorReferenceBindResult",
+		reflect.TypeOf((*EvaluatorReferenceBindResult)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ExecutionStatus",
+		reflect.TypeOf((*ExecutionStatus)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ExecutionStatus{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.FilterConfig",
+		reflect.TypeOf((*FilterConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.FilterOperator",
+		reflect.TypeOf((*FilterOperator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_FilterOperator{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.FilterValue",
+		reflect.TypeOf((*FilterValue)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_FilterValue{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.Gateway",
@@ -957,6 +1140,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IEvaluator",
+		reflect.TypeOf((*IEvaluator)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorArn", GoGetter: "EvaluatorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorId", GoGetter: "EvaluatorId"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorName", GoGetter: "EvaluatorName"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluatorRef", GoGetter: "EvaluatorRef"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEvaluator{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIEvaluatorRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.IGateway",
 		reflect.TypeOf((*IGateway)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1151,6 +1359,35 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IMemoryStrategy{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IOnlineEvaluationConfig",
+		reflect.TypeOf((*IOnlineEvaluationConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberProperty{JsiiProperty: "executionStatus", GoGetter: "ExecutionStatus"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigArn", GoGetter: "OnlineEvaluationConfigArn"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigId", GoGetter: "OnlineEvaluationConfigId"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigName", GoGetter: "OnlineEvaluationConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigRef", GoGetter: "OnlineEvaluationConfigRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOnlineEvaluationConfig{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIOnlineEvaluationConfigRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1350,6 +1587,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.LifecycleConfiguration",
 		reflect.TypeOf((*LifecycleConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LlmAsAJudgeOptions",
+		reflect.TypeOf((*LlmAsAJudgeOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.LogType",
@@ -1634,8 +1875,89 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.NumericalRatingOption",
+		reflect.TypeOf((*NumericalRatingOption)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuthConfiguration",
 		reflect.TypeOf((*OAuthConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OnlineEvaluationBase",
+		reflect.TypeOf((*OnlineEvaluationBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberProperty{JsiiProperty: "executionStatus", GoGetter: "ExecutionStatus"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigArn", GoGetter: "OnlineEvaluationConfigArn"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigId", GoGetter: "OnlineEvaluationConfigId"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigName", GoGetter: "OnlineEvaluationConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigRef", GoGetter: "OnlineEvaluationConfigRef"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OnlineEvaluationBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOnlineEvaluationConfig)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OnlineEvaluationBaseProps",
+		reflect.TypeOf((*OnlineEvaluationBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OnlineEvaluationConfig",
+		reflect.TypeOf((*OnlineEvaluationConfig)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberProperty{JsiiProperty: "executionStatus", GoGetter: "ExecutionStatus"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigArn", GoGetter: "OnlineEvaluationConfigArn"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigId", GoGetter: "OnlineEvaluationConfigId"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigName", GoGetter: "OnlineEvaluationConfigName"},
+			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigRef", GoGetter: "OnlineEvaluationConfigRef"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OnlineEvaluationConfig{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_OnlineEvaluationBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OnlineEvaluationConfigAttributes",
+		reflect.TypeOf((*OnlineEvaluationConfigAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OnlineEvaluationConfigProps",
+		reflect.TypeOf((*OnlineEvaluationConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.OpenApiTargetConfiguration",

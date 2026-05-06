@@ -11,6 +11,37 @@ package awsbedrockagentcore
 //   userPreferenceMemoryStrategyProperty := &UserPreferenceMemoryStrategyProperty{
 //   	CreatedAt: jsii.String("createdAt"),
 //   	Description: jsii.String("description"),
+//   	MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   		MetadataSchema: []interface{}{
+//   			&MetadataSchemaEntryProperty{
+//   				ExtractionConfig: &ExtractionConfigProperty{
+//   					LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   						Definition: jsii.String("definition"),
+//   						LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   						Validation: &ValidationProperty{
+//   							NumberValidation: &NumberValidationProperty{
+//   								MaxValue: jsii.Number(123),
+//   								MinValue: jsii.Number(123),
+//   							},
+//   							StringListValidation: &StringListValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   								MaxItems: jsii.Number(123),
+//   							},
+//   							StringValidation: &StringValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Key: jsii.String("key"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
@@ -35,6 +66,9 @@ type CfnMemoryPropsMixin_UserPreferenceMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-memoryrecordschema
+	//
+	MemoryRecordSchema interface{} `field:"optional" json:"memoryRecordSchema" yaml:"memoryRecordSchema"`
 	// The memory strategy name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html#cfn-bedrockagentcore-memory-userpreferencememorystrategy-name
 	//

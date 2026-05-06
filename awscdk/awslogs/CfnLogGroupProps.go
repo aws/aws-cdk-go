@@ -38,6 +38,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 //
 type CfnLogGroupProps struct {
+	// Indicates whether bearer token authentication is enabled for this log group.
+	//
+	// When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-bearertokenauthenticationenabled
 	//
 	// Default: - false.

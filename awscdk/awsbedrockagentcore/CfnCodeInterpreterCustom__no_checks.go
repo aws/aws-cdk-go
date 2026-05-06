@@ -100,6 +100,10 @@ func validateCfnCodeInterpreterCustom_IsConstructParameters(x interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnCodeInterpreterCustom) validateSetCertificatesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCodeInterpreterCustom) validateSetNameParameters(val *string) error {
 	return nil
 }

@@ -19,6 +19,9 @@ package awscdk
 //   					Locations: []*string{
 //   						jsii.String("locations"),
 //   					},
+//
+//   					// the properties below are optional
+//   					ConstructPath: jsii.String("constructPath"),
 //   					ResourceLogicalId: jsii.String("resourceLogicalId"),
 //   					TemplatePath: jsii.String("templatePath"),
 //   				},

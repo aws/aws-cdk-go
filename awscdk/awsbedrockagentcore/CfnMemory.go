@@ -29,6 +29,12 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   	IndexedKeys: []interface{}{
+//   		&IndexedKeyProperty{
+//   			Key: jsii.String("key"),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	MemoryExecutionRoleArn: jsii.String("memoryExecutionRoleArn"),
 //   	MemoryStrategies: []interface{}{
 //   		&MemoryStrategyProperty{
@@ -51,6 +57,41 @@ import (
 //   							ModelId: jsii.String("modelId"),
 //
 //   							// the properties below are optional
+//   							MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   								MetadataSchema: []interface{}{
+//   									&MetadataSchemaEntryProperty{
+//   										Key: jsii.String("key"),
+//
+//   										// the properties below are optional
+//   										ExtractionConfig: &ExtractionConfigProperty{
+//   											LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   												Definition: jsii.String("definition"),
+//
+//   												// the properties below are optional
+//   												LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   												Validation: &ValidationProperty{
+//   													NumberValidation: &NumberValidationProperty{
+//   														MaxValue: jsii.Number(123),
+//   														MinValue: jsii.Number(123),
+//   													},
+//   													StringListValidation: &StringListValidationProperty{
+//   														AllowedValues: []*string{
+//   															jsii.String("allowedValues"),
+//   														},
+//   														MaxItems: jsii.Number(123),
+//   													},
+//   													StringValidation: &StringValidationProperty{
+//   														AllowedValues: []*string{
+//   															jsii.String("allowedValues"),
+//   														},
+//   													},
+//   												},
+//   											},
+//   										},
+//   										Type: jsii.String("type"),
+//   									},
+//   								},
+//   							},
 //   							Namespaces: []*string{
 //   								jsii.String("namespaces"),
 //   							},
@@ -108,6 +149,41 @@ import (
 //   				},
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -125,6 +201,41 @@ import (
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -132,6 +243,41 @@ import (
 //   					jsii.String("namespaceTemplates"),
 //   				},
 //   				ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
+//   					MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   						MetadataSchema: []interface{}{
+//   							&MetadataSchemaEntryProperty{
+//   								Key: jsii.String("key"),
+//
+//   								// the properties below are optional
+//   								ExtractionConfig: &ExtractionConfigProperty{
+//   									LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   										Definition: jsii.String("definition"),
+//
+//   										// the properties below are optional
+//   										LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   										Validation: &ValidationProperty{
+//   											NumberValidation: &NumberValidationProperty{
+//   												MaxValue: jsii.Number(123),
+//   												MinValue: jsii.Number(123),
+//   											},
+//   											StringListValidation: &StringListValidationProperty{
+//   												AllowedValues: []*string{
+//   													jsii.String("allowedValues"),
+//   												},
+//   												MaxItems: jsii.Number(123),
+//   											},
+//   											StringValidation: &StringValidationProperty{
+//   												AllowedValues: []*string{
+//   													jsii.String("allowedValues"),
+//   												},
+//   											},
+//   										},
+//   									},
+//   								},
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
+//   					},
 //   					Namespaces: []*string{
 //   						jsii.String("namespaces"),
 //   					},
@@ -150,6 +296,41 @@ import (
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -167,6 +348,41 @@ import (
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -184,6 +400,41 @@ import (
 //   				// the properties below are optional
 //   				CreatedAt: jsii.String("createdAt"),
 //   				Description: jsii.String("description"),
+//   				MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   					MetadataSchema: []interface{}{
+//   						&MetadataSchemaEntryProperty{
+//   							Key: jsii.String("key"),
+//
+//   							// the properties below are optional
+//   							ExtractionConfig: &ExtractionConfigProperty{
+//   								LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   									Definition: jsii.String("definition"),
+//
+//   									// the properties below are optional
+//   									LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   									Validation: &ValidationProperty{
+//   										NumberValidation: &NumberValidationProperty{
+//   											MaxValue: jsii.Number(123),
+//   											MinValue: jsii.Number(123),
+//   										},
+//   										StringListValidation: &StringListValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   											MaxItems: jsii.Number(123),
+//   										},
+//   										StringValidation: &StringValidationProperty{
+//   											AllowedValues: []*string{
+//   												jsii.String("allowedValues"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							Type: jsii.String("type"),
+//   						},
+//   					},
+//   				},
 //   				Namespaces: []*string{
 //   					jsii.String("namespaces"),
 //   				},
@@ -258,6 +509,9 @@ type CfnMemory interface {
 	// The event expiry configuration.
 	EventExpiryDuration() *float64
 	SetEventExpiryDuration(val *float64)
+	// List of indexed keys for the memory.
+	IndexedKeys() interface{}
+	SetIndexedKeys(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -611,6 +865,16 @@ func (j *jsiiProxy_CfnMemory) EventExpiryDuration() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMemory) IndexedKeys() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"indexedKeys",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMemory) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -784,6 +1048,17 @@ func (j *jsiiProxy_CfnMemory)SetEventExpiryDuration(val *float64) {
 	_jsii_.Set(
 		j,
 		"eventExpiryDuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMemory)SetIndexedKeys(val interface{}) {
+	if err := j.validateSetIndexedKeysParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"indexedKeys",
 		val,
 	)
 }

@@ -4,40 +4,40 @@ package awsstepfunctionstasks
 // Instance Role Types.
 //
 // Example:
-//   tasks.NewEmrCreateCluster(this, jsii.String("OnDemandSpecification"), &EmrCreateClusterProps{
+//   tasks.NewEmrCreateCluster(this, jsii.String("CreateCluster"), &EmrCreateClusterProps{
 //   	Instances: &InstancesConfigProperty{
 //   		InstanceFleets: []InstanceFleetConfigProperty{
 //   			&InstanceFleetConfigProperty{
-//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
-//   				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
-//   					OnDemandSpecification: &OnDemandProvisioningSpecificationProperty{
-//   						AllocationStrategy: tasks.EmrCreateCluster.OnDemandAllocationStrategy_LOWEST_PRICE,
+//   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_CORE,
+//   				InstanceTypeConfigs: []InstanceTypeConfigProperty{
+//   					&InstanceTypeConfigProperty{
+//   						InstanceType: jsii.String("m5.xlarge"),
 //   					},
 //   				},
+//   				TargetOnDemandCapacity: jsii.Number(1),
 //   			},
-//   		},
-//   	},
-//   	Name: jsii.String("OnDemandCluster"),
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
-//   })
-//
-//   tasks.NewEmrCreateCluster(this, jsii.String("SpotSpecification"), &EmrCreateClusterProps{
-//   	Instances: &InstancesConfigProperty{
-//   		InstanceFleets: []InstanceFleetConfigProperty{
 //   			&InstanceFleetConfigProperty{
 //   				InstanceFleetType: tasks.EmrCreateCluster.InstanceRoleType_MASTER,
-//   				LaunchSpecifications: &InstanceFleetProvisioningSpecificationsProperty{
-//   					SpotSpecification: &SpotProvisioningSpecificationProperty{
-//   						AllocationStrategy: tasks.EmrCreateCluster.SpotAllocationStrategy_CAPACITY_OPTIMIZED,
-//   						TimeoutAction: tasks.EmrCreateCluster.SpotTimeoutAction_TERMINATE_CLUSTER,
-//   						Timeout: awscdk.Duration_Minutes(jsii.Number(5)),
+//   				InstanceTypeConfigs: []InstanceTypeConfigProperty{
+//   					&InstanceTypeConfigProperty{
+//   						InstanceType: jsii.String("m5.xlarge"),
 //   					},
 //   				},
+//   				TargetOnDemandCapacity: jsii.Number(1),
 //   			},
 //   		},
 //   	},
-//   	Name: jsii.String("SpotCluster"),
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   	Name: jsii.String("ClusterName"),
+//   	ReleaseLabel: jsii.String("emr-7.9.0"),
+//   	ManagedScalingPolicy: &ManagedScalingPolicyProperty{
+//   		ComputeLimits: &ManagedScalingComputeLimitsProperty{
+//   			UnitType: tasks.EmrCreateCluster.ComputeLimitsUnitType_INSTANCE_FLEET_UNITS,
+//   			MaximumCapacityUnits: jsii.Number(4),
+//   			MinimumCapacityUnits: jsii.Number(1),
+//   			MaximumOnDemandCapacityUnits: jsii.Number(4),
+//   			MaximumCoreCapacityUnits: jsii.Number(2),
+//   		},
+//   	},
 //   })
 //
 type EmrCreateCluster_InstanceRoleType string

@@ -15,6 +15,10 @@ import (
 //   var operatingSystemFamily OperatingSystemFamily
 //
 //   fargateServiceBaseProps := &FargateServiceBaseProps{
+//   	CircuitBreaker: &DeploymentCircuitBreaker{
+//   		Enable: jsii.Boolean(false),
+//   		Rollback: jsii.Boolean(false),
+//   	},
 //   	Cpu: jsii.Number(123),
 //   	EphemeralStorageGiB: jsii.Number(123),
 //   	MemoryLimitMiB: jsii.Number(123),
@@ -27,6 +31,13 @@ import (
 //   }
 //
 type FargateServiceBaseProps struct {
+	// Whether to enable the deployment circuit breaker.
+	//
+	// If this property is defined, circuit breaker will be implicitly
+	// enabled.
+	// Default: - disabled.
+	//
+	CircuitBreaker *awsecs.DeploymentCircuitBreaker `field:"optional" json:"circuitBreaker" yaml:"circuitBreaker"`
 	// The number of cpu units used by the task.
 	//
 	// Valid values, which determines your range of valid values for the memory parameter:

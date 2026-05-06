@@ -5,14 +5,17 @@ package awsecs
 //
 // Example:
 //   var cluster Cluster
-//   var taskDefinition TaskDefinition
 //
-//   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+//   service := ecsPatterns.NewApplicationLoadBalancedFargateService(this, jsii.String("Service"), &ApplicationLoadBalancedFargateServiceProps{
 //   	Cluster: Cluster,
-//   	TaskDefinition: TaskDefinition,
+//   	MemoryLimitMiB: jsii.Number(1024),
+//   	DesiredCount: jsii.Number(1),
+//   	Cpu: jsii.Number(512),
+//   	TaskImageOptions: &ApplicationLoadBalancedTaskImageOptions{
+//   		Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	},
 //   	MinHealthyPercent: jsii.Number(100),
 //   	CircuitBreaker: &DeploymentCircuitBreaker{
-//   		Enable: jsii.Boolean(true),
 //   		Rollback: jsii.Boolean(true),
 //   	},
 //   })

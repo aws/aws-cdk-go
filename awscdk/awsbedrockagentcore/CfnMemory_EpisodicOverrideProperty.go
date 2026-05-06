@@ -20,6 +20,41 @@ package awsbedrockagentcore
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   			MetadataSchema: []interface{}{
+//   				&MetadataSchemaEntryProperty{
+//   					Key: jsii.String("key"),
+//
+//   					// the properties below are optional
+//   					ExtractionConfig: &ExtractionConfigProperty{
+//   						LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   							Definition: jsii.String("definition"),
+//
+//   							// the properties below are optional
+//   							LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   							Validation: &ValidationProperty{
+//   								NumberValidation: &NumberValidationProperty{
+//   									MaxValue: jsii.Number(123),
+//   									MinValue: jsii.Number(123),
+//   								},
+//   								StringListValidation: &StringListValidationProperty{
+//   									AllowedValues: []*string{
+//   										jsii.String("allowedValues"),
+//   									},
+//   									MaxItems: jsii.Number(123),
+//   								},
+//   								StringValidation: &StringValidationProperty{
+//   									AllowedValues: []*string{
+//   										jsii.String("allowedValues"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
 //   		Namespaces: []*string{
 //   			jsii.String("namespaces"),
 //   		},

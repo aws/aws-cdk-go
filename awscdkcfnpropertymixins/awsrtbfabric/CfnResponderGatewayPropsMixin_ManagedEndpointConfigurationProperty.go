@@ -13,6 +13,16 @@ package awsrtbfabric
 //   		AutoScalingGroupNameList: []*string{
 //   			jsii.String("autoScalingGroupNameList"),
 //   		},
+//   		HealthCheckConfig: &HealthCheckConfigProperty{
+//   			HealthyThresholdCount: jsii.Number(123),
+//   			IntervalSeconds: jsii.Number(123),
+//   			Path: jsii.String("path"),
+//   			Port: jsii.Number(123),
+//   			Protocol: jsii.String("protocol"),
+//   			StatusCodeMatcher: jsii.String("statusCodeMatcher"),
+//   			TimeoutMs: jsii.Number(123),
+//   			UnhealthyThresholdCount: jsii.Number(123),
+//   		},
 //   		RoleArn: jsii.String("roleArn"),
 //   	},
 //   	EksEndpointsConfiguration: &EksEndpointsConfigurationProperty{

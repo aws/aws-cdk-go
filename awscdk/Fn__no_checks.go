@@ -44,6 +44,10 @@ func validateFn_GetAttParameters(logicalNameOfResource *string, attributeName *s
 	return nil
 }
 
+func validateFn_GetStackOutputParameters(stackName *string, outputName *string) error {
+	return nil
+}
+
 func validateFn_ImportListValueParameters(sharedValueToImport *string, assumedLength *float64) error {
 	return nil
 }

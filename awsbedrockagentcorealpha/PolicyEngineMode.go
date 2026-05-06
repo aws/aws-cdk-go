@@ -8,11 +8,33 @@ import (
 // The enforcement mode for a policy engine associated with a gateway.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   // Create a Policy engine
+//   policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
+//   	PolicyEngineName: jsii.String("my_policy_engine"),
+//   	Description: jsii.String("Policy engine for access control"),
+//   })
 //
-//   policyEngineMode := bedrock_agentcore_alpha.NewPolicyEngineMode(jsii.String("value"))
+//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
+//   	PolicyEngineConfiguration: &GatewayPolicyEngineConfig{
+//   		PolicyEngine: policyEngine,
+//   		Mode: agentcore.PolicyEngineMode_ENFORCE(),
+//   	},
+//   })
+//
+//   // Add policy to policy engine
+//   policyEngine.AddPolicy(jsii.String("AllowAllActions"), &AddPolicyOptions{
+//   	Definition: fmt.Sprintf("\n    permit(\n      principal,\n      action,\n      resource == AgentCore::Gateway::\"%v\"\n    );\n  ", gateway.GatewayArn),
+//   	Description: jsii.String("Allow all actions on specific gateway (development)"),
+//   	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
+//   })
+//
+//   // you can add multiple policies to the policy engine
+//   policyEngine.AddPolicy(jsii.String("SpecificToolPolicy"), &AddPolicyOptions{
+//   	Definition: fmt.Sprintf("\n    permit(\n      principal is AgentCore::OAuthUser,\n      action == AgentCore::Action::\"WeatherTool__get_forecast\",\n      resource == AgentCore::Gateway::\"%v\"\n    );\n  ", gateway.*GatewayArn),
+//   	Description: jsii.String("Allow specific weather tool access"),
+//   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
+//   })
 //
 // Experimental.
 type PolicyEngineMode interface {

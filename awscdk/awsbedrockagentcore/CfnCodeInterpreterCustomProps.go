@@ -25,6 +25,13 @@ package awsbedrockagentcore
 //   	},
 //
 //   	// the properties below are optional
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Tags: map[string]*string{
@@ -45,6 +52,10 @@ type CfnCodeInterpreterCustomProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html#cfn-bedrockagentcore-codeinterpretercustom-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"required" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// List of root CA certificates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html#cfn-bedrockagentcore-codeinterpretercustom-certificates
+	//
+	Certificates interface{} `field:"optional" json:"certificates" yaml:"certificates"`
 	// The code interpreter description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html#cfn-bedrockagentcore-codeinterpretercustom-description
 	//

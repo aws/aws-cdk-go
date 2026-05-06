@@ -196,6 +196,10 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_VpcConnectivityTlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnClusterPropsMixin.ZookeeperAccessProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ZookeeperAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnConfigurationMixinProps",
 		reflect.TypeOf((*CfnConfigurationMixinProps)(nil)).Elem(),
 	)

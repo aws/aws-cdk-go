@@ -83,6 +83,9 @@ package awsbedrockagentcore
 //   		},
 //   		McpServer: &McpServerTargetConfigurationProperty{
 //   			Endpoint: jsii.String("endpoint"),
+//
+//   			// the properties below are optional
+//   			ListingMode: jsii.String("listingMode"),
 //   		},
 //   		OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   			InlinePayload: jsii.String("inlinePayload"),

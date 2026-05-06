@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnFlowVpcInterface) validateSetSubnetIdParameters(val *strin
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowVpcInterface) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnFlowVpcInterfaceParameters(scope constructs.Construct, id *string, props *CfnFlowVpcInterfaceProps) error {
 	return nil
 }

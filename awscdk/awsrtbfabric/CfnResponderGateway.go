@@ -40,6 +40,20 @@ import (
 //   				jsii.String("autoScalingGroupNameList"),
 //   			},
 //   			RoleArn: jsii.String("roleArn"),
+//
+//   			// the properties below are optional
+//   			HealthCheckConfig: &HealthCheckConfigProperty{
+//   				Path: jsii.String("path"),
+//   				Port: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				HealthyThresholdCount: jsii.Number(123),
+//   				IntervalSeconds: jsii.Number(123),
+//   				Protocol: jsii.String("protocol"),
+//   				StatusCodeMatcher: jsii.String("statusCodeMatcher"),
+//   				TimeoutMs: jsii.Number(123),
+//   				UnhealthyThresholdCount: jsii.Number(123),
+//   			},
 //   		},
 //   		EksEndpointsConfiguration: &EksEndpointsConfigurationProperty{
 //   			ClusterApiServerCaCertificateChain: jsii.String("clusterApiServerCaCertificateChain"),

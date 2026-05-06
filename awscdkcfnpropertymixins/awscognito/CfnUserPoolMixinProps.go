@@ -151,6 +151,7 @@ package awscognito
 //   		EmailSubjectByLink: jsii.String("emailSubjectByLink"),
 //   		SmsMessage: jsii.String("smsMessage"),
 //   	},
+//   	WebAuthnFactorConfiguration: jsii.String("webAuthnFactorConfiguration"),
 //   	WebAuthnRelyingPartyId: jsii.String("webAuthnRelyingPartyId"),
 //   	WebAuthnUserVerification: jsii.String("webAuthnUserVerification"),
 //   }
@@ -327,6 +328,9 @@ type CfnUserPoolMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate
 	//
 	VerificationMessageTemplate interface{} `field:"optional" json:"verificationMessageTemplate" yaml:"verificationMessageTemplate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-webauthnfactorconfiguration
+	//
+	WebAuthnFactorConfiguration *string `field:"optional" json:"webAuthnFactorConfiguration" yaml:"webAuthnFactorConfiguration"`
 	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 	//
 	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:

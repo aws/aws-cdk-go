@@ -21,6 +21,11 @@ package awssagemaker
 //   	ImageId: jsii.String("imageId"),
 //   	InstanceCount: jsii.Number(123),
 //   	InstanceGroupName: jsii.String("instanceGroupName"),
+//   	InstanceRequirements: &InstanceRequirementsProperty{
+//   		InstanceTypes: []*string{
+//   			jsii.String("instanceTypes"),
+//   		},
+//   	},
 //   	InstanceStorageConfigs: []interface{}{
 //   		&ClusterInstanceStorageConfigProperty{
 //   			EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
@@ -58,6 +63,9 @@ package awssagemaker
 //   		SourceS3Uri: jsii.String("sourceS3Uri"),
 //   	},
 //   	MinInstanceCount: jsii.Number(123),
+//   	NetworkInterface: &ClusterNetworkInterfaceProperty{
+//   		InterfaceType: jsii.String("interfaceType"),
+//   	},
 //   	OnStartDeepHealthChecks: []*string{
 //   		jsii.String("onStartDeepHealthChecks"),
 //   	},
@@ -127,6 +135,12 @@ type CfnClusterPropsMixin_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancegroupname
 	//
 	InstanceGroupName *string `field:"optional" json:"instanceGroupName" yaml:"instanceGroupName"`
+	// The instance requirements for the instance group.
+	//
+	// Specifies a list of instance types that can be used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancerequirements
+	//
+	InstanceRequirements interface{} `field:"optional" json:"instanceRequirements" yaml:"instanceRequirements"`
 	// The configurations of additional storage specified to the instance group where the instance (node) is launched.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancestorageconfigs
 	//
@@ -149,6 +163,10 @@ type CfnClusterPropsMixin_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-mininstancecount
 	//
 	MinInstanceCount *float64 `field:"optional" json:"minInstanceCount" yaml:"minInstanceCount"`
+	// Specifies the network interface configuration for the instance group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-networkinterface
+	//
+	NetworkInterface interface{} `field:"optional" json:"networkInterface" yaml:"networkInterface"`
 	// A flag indicating whether deep health checks should be performed when the HyperPod cluster instance group is created or updated.
 	//
 	// Deep health checks are comprehensive, invasive tests that validate the health of the underlying hardware and infrastructure components.

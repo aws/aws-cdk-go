@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnCluster) validateSetRebalancingParameters(val interface{})
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetZookeeperAccessParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnClusterParameters(scope constructs.Construct, id *string, props *CfnClusterProps) error {
 	return nil
 }

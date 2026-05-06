@@ -42,7 +42,23 @@ import (
 //   	BrowserSigning: &BrowserSigningProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	EnterprisePolicies: []interface{}{
+//   		&BrowserEnterprisePolicyProperty{
+//   			Location: &S3LocationProperty{
+//   				Bucket: jsii.String("bucket"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	RecordingConfig: &RecordingConfigProperty{
 //   		Enabled: jsii.Boolean(false),
@@ -82,6 +98,9 @@ type CfnBrowserCustom interface {
 	SetBrowserSigning(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
+	// List of root CA certificates.
+	Certificates() interface{}
+	SetCertificates(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -95,6 +114,9 @@ type CfnBrowserCustom interface {
 	// The custom browser.
 	Description() *string
 	SetDescription(val *string)
+	// List of browser enterprise policies.
+	EnterprisePolicies() interface{}
+	SetEnterprisePolicies(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The Amazon Resource Name (ARN) of the execution role.
 	ExecutionRoleArn() *string
@@ -378,6 +400,16 @@ func (j *jsiiProxy_CfnBrowserCustom) CdkTagManager() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBrowserCustom) Certificates() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificates",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBrowserCustom) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -433,6 +465,16 @@ func (j *jsiiProxy_CfnBrowserCustom) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBrowserCustom) EnterprisePolicies() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enterprisePolicies",
 		&returns,
 	)
 	return returns
@@ -599,10 +641,32 @@ func (j *jsiiProxy_CfnBrowserCustom)SetBrowserSigning(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnBrowserCustom)SetCertificates(val interface{}) {
+	if err := j.validateSetCertificatesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificates",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnBrowserCustom)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBrowserCustom)SetEnterprisePolicies(val interface{}) {
+	if err := j.validateSetEnterprisePoliciesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"enterprisePolicies",
 		val,
 	)
 }

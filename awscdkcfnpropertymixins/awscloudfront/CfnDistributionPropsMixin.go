@@ -86,6 +86,9 @@ import (
 //   				ViewerProtocolPolicy: jsii.String("viewerProtocolPolicy"),
 //   			},
 //   		},
+//   		CacheTagConfig: &CacheTagConfigProperty{
+//   			HeaderName: jsii.String("headerName"),
+//   		},
 //   		CnamEs: []*string{
 //   			jsii.String("cnamEs"),
 //   		},

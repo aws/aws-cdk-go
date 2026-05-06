@@ -23,7 +23,6 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 // Add capacity to it
 cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
 	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-	DesiredCapacity: jsii.Number(3),
 })
 
 taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
@@ -38,6 +37,9 @@ ecsService := ecs.NewEc2Service(this, jsii.String("Service"), &Ec2ServiceProps{
 	Cluster: Cluster,
 	TaskDefinition: TaskDefinition,
 	MinHealthyPercent: jsii.Number(100),
+	CircuitBreaker: &DeploymentCircuitBreaker{
+		Enable: jsii.Boolean(true),
+	},
 })
 ```
 
@@ -133,7 +135,6 @@ cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 // Either add default capacity
 cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
 	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-	DesiredCapacity: jsii.Number(3),
 })
 
 // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.
@@ -873,6 +874,9 @@ service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServicePr
 	TaskDefinition: TaskDefinition,
 	DesiredCount: jsii.Number(5),
 	MinHealthyPercent: jsii.Number(100),
+	CircuitBreaker: &DeploymentCircuitBreaker{
+		Enable: jsii.Boolean(true),
+	},
 })
 ```
 

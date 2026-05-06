@@ -96,6 +96,10 @@ func (j *jsiiProxy_CfnMemory) validateSetEventExpiryDurationParameters(val *floa
 	return nil
 }
 
+func (j *jsiiProxy_CfnMemory) validateSetIndexedKeysParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMemory) validateSetMemoryStrategiesParameters(val interface{}) error {
 	return nil
 }

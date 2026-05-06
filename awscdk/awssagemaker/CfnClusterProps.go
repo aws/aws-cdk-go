@@ -37,6 +37,11 @@ import (
 //   			},
 //   			CurrentCount: jsii.Number(123),
 //   			ImageId: jsii.String("imageId"),
+//   			InstanceRequirements: &InstanceRequirementsProperty{
+//   				InstanceTypes: []*string{
+//   					jsii.String("instanceTypes"),
+//   				},
+//   			},
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
@@ -79,6 +84,9 @@ import (
 //   				SourceS3Uri: jsii.String("sourceS3Uri"),
 //   			},
 //   			MinInstanceCount: jsii.Number(123),
+//   			NetworkInterface: &ClusterNetworkInterfaceProperty{
+//   				InterfaceType: jsii.String("interfaceType"),
+//   			},
 //   			OnStartDeepHealthChecks: []*string{
 //   				jsii.String("onStartDeepHealthChecks"),
 //   			},

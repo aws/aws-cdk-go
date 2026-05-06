@@ -24,6 +24,10 @@ type IStackSynthesizer interface {
 	// Default: - no qualifier.
 	//
 	BootstrapQualifier() *string
+	// The role that is passed to CloudFormation to execute the change set.
+	// Default: - no role.
+	//
+	CloudFormationExecutionRole() *string
 	// The role used to lookup for this stack.
 	// Default: - no role.
 	//
@@ -94,6 +98,16 @@ func (j *jsiiProxy_IStackSynthesizer) BootstrapQualifier() *string {
 	_jsii_.Get(
 		j,
 		"bootstrapQualifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IStackSynthesizer) CloudFormationExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cloudFormationExecutionRole",
 		&returns,
 	)
 	return returns

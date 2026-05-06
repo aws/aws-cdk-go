@@ -54,6 +54,7 @@ import (
 //   	},
 //   	InteractiveConfiguration: &InteractiveConfigurationProperty{
 //   		LivyEndpointEnabled: jsii.Boolean(false),
+//   		SessionEnabled: jsii.Boolean(false),
 //   		StudioEnabled: jsii.Boolean(false),
 //   	},
 //   	MaximumCapacity: &MaximumAllowedResourcesProperty{

@@ -752,6 +752,34 @@ func init() {
 		reflect.TypeOf((*CfnTablePropsMixin_IcebergInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergPartitionFieldProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergPartitionFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergPartitionSpecProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergPartitionSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergSchemaProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergSortFieldProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergSortFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergSortOrderProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergSortOrderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergStructFieldProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergStructFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.IcebergTableInputProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_IcebergTableInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.OpenTableFormatInputProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_OpenTableFormatInputProperty)(nil)).Elem(),
 	)
@@ -786,6 +814,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.TableInputProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_TableInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.ViewDefinitionProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ViewDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTablePropsMixin.ViewRepresentationProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_ViewRepresentationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTriggerMixinProps",

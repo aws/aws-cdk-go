@@ -59,6 +59,30 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnDomainMixinProps",
 		reflect.TypeOf((*CfnDomainMixinProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnDomainObjectTypeMixinProps",
+		reflect.TypeOf((*CfnDomainObjectTypeMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnDomainObjectTypePropsMixin",
+		reflect.TypeOf((*CfnDomainObjectTypePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDomainObjectTypePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnDomainObjectTypePropsMixin.DomainObjectTypeFieldProperty",
+		reflect.TypeOf((*CfnDomainObjectTypePropsMixin_DomainObjectTypeFieldProperty)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnDomainPropsMixin",
 		reflect.TypeOf((*CfnDomainPropsMixin)(nil)).Elem(),

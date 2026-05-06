@@ -17,14 +17,16 @@ import (
 //   	RepositoryName: jsii.String("test-agent-runtime"),
 //   })
 //
+//   agentRuntimeArtifactNew := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v2.0.0"))
+//
 //   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
 //   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+//   	AgentRuntimeArtifact: agentRuntimeArtifactNew,
 //   })
 //
-//   prodEndpoint := runtime.AddEndpoint(jsii.String("production"), &AddEndpointOptions{
-//   	Version: jsii.String("1"),
-//   	Description: jsii.String("Stable production endpoint - pinned to v1"),
+//   stagingEndpoint := runtime.AddEndpoint(jsii.String("staging"), &AddEndpointOptions{
+//   	Version: jsii.String("2"),
+//   	Description: jsii.String("Staging environment for testing new version"),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-endpoint.html

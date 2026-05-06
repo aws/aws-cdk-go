@@ -90,6 +90,17 @@ import (
 //   		},
 //   	},
 //   	TrafficIpAddressType: jsii.String("trafficIpAddressType"),
+//   	TransitGatewayConfiguration: &TransitGatewayConfigurationProperty{
+//   		TransitGatewayId: jsii.String("transitGatewayId"),
+//
+//   		// the properties below are optional
+//   		AvailabilityZoneIds: []*string{
+//   			jsii.String("availabilityZoneIds"),
+//   		},
+//   		AvailabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   	},
 //   	TransportProtocol: jsii.String("transportProtocol"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpnPort: jsii.Number(123),
@@ -187,6 +198,8 @@ type CfnClientVpnEndpoint interface {
 	// The IP address type of the Client VPN endpoint.
 	TrafficIpAddressType() *string
 	SetTrafficIpAddressType(val *string)
+	TransitGatewayConfiguration() interface{}
+	SetTransitGatewayConfiguration(val interface{})
 	// The transport protocol to be used by the VPN session.
 	TransportProtocol() *string
 	SetTransportProtocol(val *string)
@@ -641,6 +654,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) TrafficIpAddressType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) TransitGatewayConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"transitGatewayConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) TransportProtocol() *string {
 	var returns *string
 	_jsii_.Get(
@@ -880,6 +903,17 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetTrafficIpAddressType(val *string) {
 	_jsii_.Set(
 		j,
 		"trafficIpAddressType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetTransitGatewayConfiguration(val interface{}) {
+	if err := j.validateSetTransitGatewayConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"transitGatewayConfiguration",
 		val,
 	)
 }

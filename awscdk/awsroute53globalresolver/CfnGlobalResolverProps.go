@@ -36,6 +36,9 @@ type CfnGlobalResolverProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53globalresolver-globalresolver.html#cfn-route53globalresolver-globalresolver-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// A list of regions the Global Resolver will exist in.
+	//
+	// This list cannot be updated and will stay fixed for the duration of the Global Resolver.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53globalresolver-globalresolver.html#cfn-route53globalresolver-globalresolver-regions
 	//
 	Regions *[]*string `field:"required" json:"regions" yaml:"regions"`

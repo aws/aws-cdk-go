@@ -165,6 +165,7 @@ import (
 //   		EmailSubjectByLink: jsii.String("emailSubjectByLink"),
 //   		SmsMessage: jsii.String("smsMessage"),
 //   	},
+//   	WebAuthnFactorConfiguration: jsii.String("webAuthnFactorConfiguration"),
 //   	WebAuthnRelyingPartyId: jsii.String("webAuthnRelyingPartyId"),
 //   	WebAuthnUserVerification: jsii.String("webAuthnUserVerification"),
 //   })
@@ -312,6 +313,8 @@ type CfnUserPool interface {
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	VerificationMessageTemplate() interface{}
 	SetVerificationMessageTemplate(val interface{})
+	WebAuthnFactorConfiguration() *string
+	SetWebAuthnFactorConfiguration(val *string)
 	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
 	WebAuthnRelyingPartyId() *string
 	SetWebAuthnRelyingPartyId(val *string)
@@ -911,6 +914,16 @@ func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPool) WebAuthnFactorConfiguration() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"webAuthnFactorConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPool) WebAuthnRelyingPartyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1212,6 +1225,14 @@ func (j *jsiiProxy_CfnUserPool)SetVerificationMessageTemplate(val interface{}) {
 	_jsii_.Set(
 		j,
 		"verificationMessageTemplate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPool)SetWebAuthnFactorConfiguration(val *string) {
+	_jsii_.Set(
+		j,
+		"webAuthnFactorConfiguration",
 		val,
 	)
 }

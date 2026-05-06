@@ -59,6 +59,7 @@ type CfnLogGroup interface {
 	awscdk.ITaggable
 	// The ARN of the log group, such as `arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*`.
 	AttrArn() *string
+	// Indicates whether bearer token authentication is enabled for this log group.
 	BearerTokenAuthenticationEnabled() interface{}
 	SetBearerTokenAuthenticationEnabled(val interface{})
 	// Options for this resource, such as condition, update policy etc.

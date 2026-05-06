@@ -132,6 +132,9 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	ZookeeperAccess: &ZookeeperAccessProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

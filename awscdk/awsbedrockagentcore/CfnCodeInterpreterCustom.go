@@ -41,6 +41,13 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	Certificates: []interface{}{
+//   		&CertificateProperty{
+//   			CertificateLocation: &CertificateLocationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Tags: map[string]*string{
@@ -69,6 +76,9 @@ type CfnCodeInterpreterCustom interface {
 	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
+	// List of root CA certificates.
+	Certificates() interface{}
+	SetCertificates(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -344,6 +354,16 @@ func (j *jsiiProxy_CfnCodeInterpreterCustom) CdkTagManager() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCodeInterpreterCustom) Certificates() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificates",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCodeInterpreterCustom) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -551,6 +571,17 @@ func NewCfnCodeInterpreterCustom_Override(c CfnCodeInterpreterCustom, scope cons
 		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCodeInterpreterCustom)SetCertificates(val interface{}) {
+	if err := j.validateSetCertificatesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificates",
+		val,
 	)
 }
 

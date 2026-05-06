@@ -20,6 +20,8 @@ type StackSynthesizer interface {
 	//
 	// Fails if the stack hasn't been bound yet.
 	BoundStack() Stack
+	// The role that is passed to CloudFormation to execute the change set.
+	CloudFormationExecutionRole() *string
 	// The role used to lookup for this stack.
 	LookupRole() *string
 	// Add a CfnRule to the bound stack that checks whether an SSM parameter exceeds a given version.
@@ -113,6 +115,16 @@ func (j *jsiiProxy_StackSynthesizer) BoundStack() Stack {
 	_jsii_.Get(
 		j,
 		"boundStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StackSynthesizer) CloudFormationExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cloudFormationExecutionRole",
 		&returns,
 	)
 	return returns

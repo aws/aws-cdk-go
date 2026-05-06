@@ -321,15 +321,19 @@ httpApi.AddRoutes(&AddRoutesOptions{
 
 You can configure the custom parameter mappings of the EventBridge integration using the `parameterMapping` property of the `HttpEventBridgeIntegration` object.
 
-By default, the integration expects the request body to contain `Detail`, `DetailType`, and `Source` fields.
+By default, the integration expects the request body to contain `Detail`, `DetailType`, and `Source` fields. The `EventBusName` is automatically included from `eventBusRef` in all cases, even when a custom `parameterMapping` is provided (unless explicitly overridden). This ensures consistency and eliminates redundant configuration.
+
+The default parameter mapping is as follows:
 
 ```go
 import events "github.com/aws/aws-cdk-go/awscdk"
 var bus IEventBus
 
 
-apigwv2.NewParameterMapping().Custom(jsii.String("Detail"), jsii.String("$request.body.Detail")).Custom(jsii.String("DetailType"), jsii.String("$request.body.DetailType")).Custom(jsii.String("Source"), jsii.String("$request.body.Source"))
+apigwv2.NewParameterMapping().Custom(jsii.String("Detail"), jsii.String("$request.body.Detail")).Custom(jsii.String("DetailType"), jsii.String("$request.body.DetailType")).Custom(jsii.String("Source"), jsii.String("$request.body.Source")).Custom(jsii.String("EventBusName"), bus.EventBusName)
 ```
+
+When providing a custom `parameterMapping`, you don't need to include `EventBusName` - it will be automatically added from `eventBusRef`:
 
 ### Private Integration
 

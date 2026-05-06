@@ -2556,6 +2556,7 @@ func init() {
 		reflect.TypeOf((*EmrCreateCluster_OnDemandAllocationStrategy)(nil)).Elem(),
 		map[string]interface{}{
 			"LOWEST_PRICE": EmrCreateCluster_OnDemandAllocationStrategy_LOWEST_PRICE,
+			"PRIORITIZED": EmrCreateCluster_OnDemandAllocationStrategy_PRIORITIZED,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -16,6 +16,9 @@ import (
 //   	EngineVersion: jsii.String("engineVersion"),
 //
 //   	// the properties below are optional
+//   	DatabaseInstallationFiles: []*string{
+//   		jsii.String("databaseInstallationFiles"),
+//   	},
 //   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	DatabaseInstallationFilesS3Prefix: jsii.String("databaseInstallationFilesS3Prefix"),
 //   	Description: jsii.String("description"),
@@ -55,6 +58,9 @@ type CfnCustomDBEngineVersionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-engineversion
 	//
 	EngineVersion *string `field:"required" json:"engineVersion" yaml:"engineVersion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiles
+	//
+	DatabaseInstallationFiles *[]*string `field:"optional" json:"databaseInstallationFiles" yaml:"databaseInstallationFiles"`
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
 	//
 	// For example, a valid bucket name is `my-custom-installation-files` .

@@ -65,7 +65,6 @@ type PrivateHostedZone interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
-	// VPCs to which this hosted zone will be added.
 	Vpcs() *[]*CfnHostedZone_VPCProperty
 	// FQDN of this hosted zone.
 	ZoneName() *string

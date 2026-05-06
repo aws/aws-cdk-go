@@ -80,6 +80,15 @@ import (
 //   		},
 //   	},
 //   	TrafficIpAddressType: jsii.String("trafficIpAddressType"),
+//   	TransitGatewayConfiguration: &TransitGatewayConfigurationProperty{
+//   		AvailabilityZoneIds: []*string{
+//   			jsii.String("availabilityZoneIds"),
+//   		},
+//   		AvailabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		TransitGatewayId: jsii.String("transitGatewayId"),
+//   	},
 //   	TransportProtocol: jsii.String("transportProtocol"),
 //   	VpcId: jsii.String("vpcId"),
 //   	VpnPort: jsii.Number(123),

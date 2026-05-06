@@ -12,6 +12,16 @@ package awsrtbfabric
 //   	AutoScalingGroupNameList: []*string{
 //   		jsii.String("autoScalingGroupNameList"),
 //   	},
+//   	HealthCheckConfig: &HealthCheckConfigProperty{
+//   		HealthyThresholdCount: jsii.Number(123),
+//   		IntervalSeconds: jsii.Number(123),
+//   		Path: jsii.String("path"),
+//   		Port: jsii.Number(123),
+//   		Protocol: jsii.String("protocol"),
+//   		StatusCodeMatcher: jsii.String("statusCodeMatcher"),
+//   		TimeoutMs: jsii.Number(123),
+//   		UnhealthyThresholdCount: jsii.Number(123),
+//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //   }
 //
@@ -22,6 +32,9 @@ type CfnResponderGatewayPropsMixin_AutoScalingGroupsConfigurationProperty struct
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html#cfn-rtbfabric-respondergateway-autoscalinggroupsconfiguration-autoscalinggroupnamelist
 	//
 	AutoScalingGroupNameList *[]*string `field:"optional" json:"autoScalingGroupNameList" yaml:"autoScalingGroupNameList"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html#cfn-rtbfabric-respondergateway-autoscalinggroupsconfiguration-healthcheckconfig
+	//
+	HealthCheckConfig interface{} `field:"optional" json:"healthCheckConfig" yaml:"healthCheckConfig"`
 	// The role ARN of the auto scaling group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-autoscalinggroupsconfiguration.html#cfn-rtbfabric-respondergateway-autoscalinggroupsconfiguration-rolearn
 	//

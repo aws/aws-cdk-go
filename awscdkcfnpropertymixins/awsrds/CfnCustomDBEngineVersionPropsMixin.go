@@ -21,6 +21,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnCustomDBEngineVersionPropsMixin := awscdkcfnpropertymixins.Aws_rds.NewCfnCustomDBEngineVersionPropsMixin(&CfnCustomDBEngineVersionMixinProps{
+//   	DatabaseInstallationFiles: []*string{
+//   		jsii.String("databaseInstallationFiles"),
+//   	},
 //   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	DatabaseInstallationFilesS3Prefix: jsii.String("databaseInstallationFilesS3Prefix"),
 //   	Description: jsii.String("description"),

@@ -23,6 +23,9 @@ import (
 //   	EngineVersion: jsii.String("engineVersion"),
 //
 //   	// the properties below are optional
+//   	DatabaseInstallationFiles: []*string{
+//   		jsii.String("databaseInstallationFiles"),
+//   	},
 //   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	DatabaseInstallationFilesS3Prefix: jsii.String("databaseInstallationFilesS3Prefix"),
 //   	Description: jsii.String("description"),
@@ -63,6 +66,8 @@ type CfnCustomDBEngineVersion interface {
 	CreationStack() *[]*string
 	// A reference to a CustomDBEngineVersion resource.
 	CustomDbEngineVersionRef() *interfacesawsrds.CustomDBEngineVersionReference
+	DatabaseInstallationFiles() *[]*string
+	SetDatabaseInstallationFiles(val *[]*string)
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
 	DatabaseInstallationFilesS3BucketName() *string
 	SetDatabaseInstallationFilesS3BucketName(val *string)
@@ -357,6 +362,16 @@ func (j *jsiiProxy_CfnCustomDBEngineVersion) CustomDbEngineVersionRef() *interfa
 	return returns
 }
 
+func (j *jsiiProxy_CfnCustomDBEngineVersion) DatabaseInstallationFiles() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"databaseInstallationFiles",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCustomDBEngineVersion) DatabaseInstallationFilesS3BucketName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -574,6 +589,14 @@ func NewCfnCustomDBEngineVersion_Override(c CfnCustomDBEngineVersion, scope cons
 		"aws-cdk-lib.aws_rds.CfnCustomDBEngineVersion",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCustomDBEngineVersion)SetDatabaseInstallationFiles(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"databaseInstallationFiles",
+		val,
 	)
 }
 

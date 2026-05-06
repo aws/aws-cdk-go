@@ -23,6 +23,8 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnClientVpnTargetNetworkAssociationPropsMixin := awscdkcfnpropertymixins.Aws_ec2.NewCfnClientVpnTargetNetworkAssociationPropsMixin(&CfnClientVpnTargetNetworkAssociationMixinProps{
+//   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	AvailabilityZoneId: jsii.String("availabilityZoneId"),
 //   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   	SubnetId: jsii.String("subnetId"),
 //   }, &CfnPropertyMixinOptions{

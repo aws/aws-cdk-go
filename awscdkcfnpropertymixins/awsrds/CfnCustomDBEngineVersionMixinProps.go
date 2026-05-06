@@ -12,6 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnCustomDBEngineVersionMixinProps := &CfnCustomDBEngineVersionMixinProps{
+//   	DatabaseInstallationFiles: []*string{
+//   		jsii.String("databaseInstallationFiles"),
+//   	},
 //   	DatabaseInstallationFilesS3BucketName: jsii.String("databaseInstallationFilesS3BucketName"),
 //   	DatabaseInstallationFilesS3Prefix: jsii.String("databaseInstallationFilesS3Prefix"),
 //   	Description: jsii.String("description"),
@@ -34,6 +37,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html
 //
 type CfnCustomDBEngineVersionMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#cfn-rds-customdbengineversion-databaseinstallationfiles
+	//
+	DatabaseInstallationFiles *[]*string `field:"optional" json:"databaseInstallationFiles" yaml:"databaseInstallationFiles"`
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV.
 	//
 	// For example, a valid bucket name is `my-custom-installation-files` .

@@ -18,6 +18,7 @@ package awsbedrockagentcorealpha
 //   	GatewayName: jsii.String("my-gateway"),
 //   	PolicyEngineConfiguration: &GatewayPolicyEngineConfig{
 //   		PolicyEngine: policyEngine,
+//   		Mode: agentcore.PolicyEngineMode_ENFORCE(),
 //   	},
 //   })
 //

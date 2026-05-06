@@ -49,5 +49,9 @@ type EmrCreateCluster_OnDemandAllocationStrategy string
 const (
 	// Lowest-price, which launches instances from the lowest priced pool that has available capacity.
 	EmrCreateCluster_OnDemandAllocationStrategy_LOWEST_PRICE EmrCreateCluster_OnDemandAllocationStrategy = "LOWEST_PRICE"
+	// Prioritized, which launches instances based on the priority that you assign to each instance type configuration.
+	//
+	// When using this strategy, you must configure the priority for at least one instance type in the fleet.
+	EmrCreateCluster_OnDemandAllocationStrategy_PRIORITIZED EmrCreateCluster_OnDemandAllocationStrategy = "PRIORITIZED"
 )
 

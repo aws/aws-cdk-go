@@ -63,6 +63,7 @@ type StepFunctionsRestApi interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// A policy document that contains the resource policy for this RestApi.
 	ResourcePolicy() awsiam.PolicyDocument
 	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The ID of this API Gateway RestApi.

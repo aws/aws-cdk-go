@@ -28,7 +28,6 @@ import (
 //   // Either add default capacity
 //   cluster.AddCapacity(jsii.String("DefaultAutoScalingGroupCapacity"), &AddCapacityOptions{
 //   	InstanceType: ec2.NewInstanceType(jsii.String("t2.xlarge")),
-//   	DesiredCapacity: jsii.Number(3),
 //   })
 //
 //   // Or add customized capacity. Be sure to start the Amazon ECS-optimized AMI.

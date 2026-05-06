@@ -46,6 +46,7 @@ package awsstepfunctionstasks
 //   		},
 //   		EbsOptimized: jsii.Boolean(false),
 //   	},
+//   	Priority: jsii.Number(123),
 //   	WeightedCapacity: jsii.Number(123),
 //   }
 //
@@ -74,6 +75,14 @@ type EmrCreateCluster_InstanceTypeConfigProperty struct {
 	// Default: - None.
 	//
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `field:"optional" json:"ebsConfiguration" yaml:"ebsConfiguration"`
+	// The priority at which Amazon EMR launches the EC2 instance with this instance type.
+	//
+	// Priority starts at 0, which is the highest priority. Amazon EMR considers the highest priority first.
+	// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html
+	//
+	// Default: - No priority is assigned.
+	//
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in the InstanceFleetConfig.
 	// Default: - None.
 	//

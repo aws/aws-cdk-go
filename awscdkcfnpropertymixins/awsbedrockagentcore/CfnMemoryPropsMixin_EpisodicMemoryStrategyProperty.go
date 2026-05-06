@@ -9,6 +9,37 @@ package awsbedrockagentcore
 //   episodicMemoryStrategyProperty := &EpisodicMemoryStrategyProperty{
 //   	CreatedAt: jsii.String("createdAt"),
 //   	Description: jsii.String("description"),
+//   	MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   		MetadataSchema: []interface{}{
+//   			&MetadataSchemaEntryProperty{
+//   				ExtractionConfig: &ExtractionConfigProperty{
+//   					LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   						Definition: jsii.String("definition"),
+//   						LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   						Validation: &ValidationProperty{
+//   							NumberValidation: &NumberValidationProperty{
+//   								MaxValue: jsii.Number(123),
+//   								MinValue: jsii.Number(123),
+//   							},
+//   							StringListValidation: &StringListValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   								MaxItems: jsii.Number(123),
+//   							},
+//   							StringValidation: &StringValidationProperty{
+//   								AllowedValues: []*string{
+//   									jsii.String("allowedValues"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Key: jsii.String("key"),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	Namespaces: []*string{
 //   		jsii.String("namespaces"),
@@ -17,6 +48,37 @@ package awsbedrockagentcore
 //   		jsii.String("namespaceTemplates"),
 //   	},
 //   	ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
+//   		MemoryRecordSchema: &MemoryRecordSchemaProperty{
+//   			MetadataSchema: []interface{}{
+//   				&MetadataSchemaEntryProperty{
+//   					ExtractionConfig: &ExtractionConfigProperty{
+//   						LlmExtractionConfig: &LlmExtractionConfigProperty{
+//   							Definition: jsii.String("definition"),
+//   							LlmExtractionInstruction: jsii.String("llmExtractionInstruction"),
+//   							Validation: &ValidationProperty{
+//   								NumberValidation: &NumberValidationProperty{
+//   									MaxValue: jsii.Number(123),
+//   									MinValue: jsii.Number(123),
+//   								},
+//   								StringListValidation: &StringListValidationProperty{
+//   									AllowedValues: []*string{
+//   										jsii.String("allowedValues"),
+//   									},
+//   									MaxItems: jsii.Number(123),
+//   								},
+//   								StringValidation: &StringValidationProperty{
+//   									AllowedValues: []*string{
+//   										jsii.String("allowedValues"),
+//   									},
+//   								},
+//   							},
+//   						},
+//   					},
+//   					Key: jsii.String("key"),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
+//   		},
 //   		Namespaces: []*string{
 //   			jsii.String("namespaces"),
 //   		},
@@ -41,6 +103,9 @@ type CfnMemoryPropsMixin_EpisodicMemoryStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html#cfn-bedrockagentcore-memory-episodicmemorystrategy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html#cfn-bedrockagentcore-memory-episodicmemorystrategy-memoryrecordschema
+	//
+	MemoryRecordSchema interface{} `field:"optional" json:"memoryRecordSchema" yaml:"memoryRecordSchema"`
 	// Name of the Memory resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html#cfn-bedrockagentcore-memory-episodicmemorystrategy-name
 	//

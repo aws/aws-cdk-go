@@ -10,6 +10,7 @@ package awsemrserverless
 //
 //   interactiveConfigurationProperty := &InteractiveConfigurationProperty{
 //   	LivyEndpointEnabled: jsii.Boolean(false),
+//   	SessionEnabled: jsii.Boolean(false),
 //   	StudioEnabled: jsii.Boolean(false),
 //   }
 //
@@ -22,6 +23,12 @@ type CfnApplication_InteractiveConfigurationProperty struct {
 	// Default: - false.
 	//
 	LivyEndpointEnabled interface{} `field:"optional" json:"livyEndpointEnabled" yaml:"livyEndpointEnabled"`
+	// Enables interactive sessions on the application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html#cfn-emrserverless-application-interactiveconfiguration-sessionenabled
+	//
+	// Default: - false.
+	//
+	SessionEnabled interface{} `field:"optional" json:"sessionEnabled" yaml:"sessionEnabled"`
 	// Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html#cfn-emrserverless-application-interactiveconfiguration-studioenabled
 	//
