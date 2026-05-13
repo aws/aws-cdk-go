@@ -29,7 +29,18 @@ import (
 //   	GlossaryTerms: []*string{
 //   		jsii.String("glossaryTerms"),
 //   	},
+//   	MembershipAssignments: []interface{}{
+//   		&ProjectMembershipAssignmentProperty{
+//   			Designation: jsii.String("designation"),
+//   			Member: &MemberProperty{
+//   				GroupIdentifier: jsii.String("groupIdentifier"),
+//   				UserIdentifier: jsii.String("userIdentifier"),
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
+//   	ProjectCategory: jsii.String("projectCategory"),
+//   	ProjectExecutionRole: jsii.String("projectExecutionRole"),
 //   	ProjectProfileId: jsii.String("projectProfileId"),
 //   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
 //   	ResourceTags: []interface{}{

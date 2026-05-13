@@ -8,7 +8,7 @@ package awsbedrockagentcorealpha
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // outbound auth (Use AWS console to create it, Once Identity L2 construct is available you can use it to create identity)
+//   // Outbound auth: ApiKeyCredentialProvider + bindForGatewayApiKeyTarget, or ARNs from console/API
 //   apiKeyIdentityArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
 //   apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
 //

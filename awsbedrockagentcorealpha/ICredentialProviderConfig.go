@@ -9,9 +9,9 @@ import (
 // Abstract interface for gateway credential provider configuration.
 // Experimental.
 type ICredentialProviderConfig interface {
-	// Grant the role the permissions.
+	// Grant the gateway's execution role the permissions needed for outbound authentication.
 	// Experimental.
-	GrantNeededPermissionsToRole(role awsiam.IRole) awsiam.Grant
+	GrantNeededPermissionsToRole(gateway IGateway) awsiam.Grant
 	// The credential provider type.
 	// Experimental.
 	CredentialProviderType() CredentialProviderType
@@ -22,8 +22,8 @@ type jsiiProxy_ICredentialProviderConfig struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ICredentialProviderConfig) GrantNeededPermissionsToRole(role awsiam.IRole) awsiam.Grant {
-	if err := i.validateGrantNeededPermissionsToRoleParameters(role); err != nil {
+func (i *jsiiProxy_ICredentialProviderConfig) GrantNeededPermissionsToRole(gateway IGateway) awsiam.Grant {
+	if err := i.validateGrantNeededPermissionsToRoleParameters(gateway); err != nil {
 		panic(err)
 	}
 	var returns awsiam.Grant
@@ -31,7 +31,7 @@ func (i *jsiiProxy_ICredentialProviderConfig) GrantNeededPermissionsToRole(role 
 	_jsii_.Invoke(
 		i,
 		"grantNeededPermissionsToRole",
-		[]interface{}{role},
+		[]interface{}{gateway},
 		&returns,
 	)
 

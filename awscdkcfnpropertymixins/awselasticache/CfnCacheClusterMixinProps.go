@@ -153,6 +153,7 @@ type CfnCacheClusterMixinProps struct {
 	// Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-cachecluster.html#cfn-elasticache-cachecluster-cachesecuritygroupnames
 	//
+	// Deprecated: this property has been deprecated.
 	CacheSecurityGroupNames *[]*string `field:"optional" json:"cacheSecurityGroupNames" yaml:"cacheSecurityGroupNames"`
 	// The name of the subnet group to be used for the cluster.
 	//

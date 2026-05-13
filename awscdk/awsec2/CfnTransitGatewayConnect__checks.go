@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -158,6 +159,30 @@ func (c *jsiiProxy_CfnTransitGatewayConnect) validateReplaceDependencyParameters
 func (c *jsiiProxy_CfnTransitGatewayConnect) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitGatewayConnect_ArnForTransitGatewayConnectParameters(resource interfacesawsec2.ITransitGatewayConnectRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitGatewayConnect_FromTransitGatewayAttachmentIdParameters(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if transitGatewayAttachmentId == nil {
+		return fmt.Errorf("parameter transitGatewayAttachmentId is required, but nil was provided")
 	}
 
 	return nil

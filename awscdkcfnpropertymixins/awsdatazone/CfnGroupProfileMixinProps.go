@@ -11,6 +11,8 @@ package awsdatazone
 //   cfnGroupProfileMixinProps := &CfnGroupProfileMixinProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	GroupIdentifier: jsii.String("groupIdentifier"),
+//   	GroupType: jsii.String("groupType"),
+//   	RolePrincipalArn: jsii.String("rolePrincipalArn"),
 //   	Status: jsii.String("status"),
 //   }
 //
@@ -25,6 +27,14 @@ type CfnGroupProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-groupidentifier
 	//
 	GroupIdentifier *string `field:"optional" json:"groupIdentifier" yaml:"groupIdentifier"`
+	// The type of the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-grouptype
+	//
+	GroupType *string `field:"optional" json:"groupType" yaml:"groupType"`
+	// The ARN of the role principal for the group profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-roleprincipalarn
+	//
+	RolePrincipalArn *string `field:"optional" json:"rolePrincipalArn" yaml:"rolePrincipalArn"`
 	// The status of a group profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html#cfn-datazone-groupprofile-status
 	//

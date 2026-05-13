@@ -583,6 +583,44 @@ func CfnDomainName_ArnForDomainName(resource interfacesawsapigatewayv2.IDomainNa
 	return returns
 }
 
+// Creates a new IDomainNameRef from a domainName.
+func CfnDomainName_FromDomainName(scope constructs.Construct, id *string, domainName *string) interfacesawsapigatewayv2.IDomainNameRef {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_FromDomainNameParameters(scope, id, domainName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsapigatewayv2.IDomainNameRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigatewayv2.CfnDomainName",
+		"fromDomainName",
+		[]interface{}{scope, id, domainName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDomainNameRef from an ARN.
+func CfnDomainName_FromDomainNameArn(scope constructs.Construct, id *string, arn *string) interfacesawsapigatewayv2.IDomainNameRef {
+	_init_.Initialize()
+
+	if err := validateCfnDomainName_FromDomainNameArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsapigatewayv2.IDomainNameRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigatewayv2.CfnDomainName",
+		"fromDomainNameArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnDomainName.
 func CfnDomainName_IsCfnDomainName(x interface{}) *bool {
 	_init_.Initialize()

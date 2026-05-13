@@ -29,8 +29,6 @@ import (
 //   			ClientSecret: jsii.String("clientSecret"),
 //   		},
 //   		CustomOauth2ProviderConfig: &CustomOauth2ProviderConfigInputProperty{
-//   			ClientId: jsii.String("clientId"),
-//   			ClientSecret: jsii.String("clientSecret"),
 //   			OauthDiscovery: &Oauth2DiscoveryProperty{
 //   				AuthorizationServerMetadata: &Oauth2AuthorizationServerMetadataProperty{
 //   					AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
@@ -43,6 +41,23 @@ import (
 //   					},
 //   				},
 //   				DiscoveryUrl: jsii.String("discoveryUrl"),
+//   			},
+//
+//   			// the properties below are optional
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   			OnBehalfOfTokenExchangeConfig: &OnBehalfOfTokenExchangeConfigProperty{
+//   				GrantType: jsii.String("grantType"),
+//
+//   				// the properties below are optional
+//   				TokenExchangeGrantTypeConfig: &TokenExchangeGrantTypeConfigProperty{
+//   					ActorTokenContent: jsii.String("actorTokenContent"),
+//
+//   					// the properties below are optional
+//   					ActorTokenScopes: []*string{
+//   						jsii.String("actorTokenScopes"),
+//   					},
+//   				},
 //   			},
 //   		},
 //   		GithubOauth2ProviderConfig: &GithubOauth2ProviderConfigInputProperty{

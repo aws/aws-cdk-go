@@ -8,8 +8,7 @@ package awsbedrockagentcorealpha
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // OAuth2 authentication (recommended)
-//   // Note: Create the OAuth provider using AWS console or Identity L2 construct when available
+//   // OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
 //   oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
 //   oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
 //

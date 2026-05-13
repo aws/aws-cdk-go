@@ -72,6 +72,14 @@ func (c *jsiiProxy_CfnTransitGatewayConnect) validateValidatePropertiesParameter
 	return nil
 }
 
+func validateCfnTransitGatewayConnect_ArnForTransitGatewayConnectParameters(resource interfacesawsec2.ITransitGatewayConnectRef) error {
+	return nil
+}
+
+func validateCfnTransitGatewayConnect_FromTransitGatewayAttachmentIdParameters(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) error {
+	return nil
+}
+
 func validateCfnTransitGatewayConnect_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

@@ -22,6 +22,7 @@ import (
 //
 //   cfnUserProfilePropsMixin := awscdkcfnpropertymixins.Aws_datazone.NewCfnUserProfilePropsMixin(&CfnUserProfileMixinProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
+//   	SessionName: jsii.String("sessionName"),
 //   	Status: jsii.String("status"),
 //   	UserIdentifier: jsii.String("userIdentifier"),
 //   	UserType: jsii.String("userType"),

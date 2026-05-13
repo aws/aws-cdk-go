@@ -8,45 +8,24 @@ package awsbedrockagentcorealpha
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // OAuth2 authentication (recommended)
-//   // Note: Create the OAuth provider using AWS console or Identity L2 construct when available
-//   oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
-//   oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
+//   oauth := agentcore.OAuth2CredentialProvider_UsingGithub(this, jsii.String("GhOAuth"), &GithubOAuth2CredentialProviderProps{
+//   	OAuth2CredentialProviderName: jsii.String("github-oauth"),
+//   	ClientId: jsii.String("your-client-id"),
+//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
+//   })
 //
-//   // Add an MCP server target directly to the gateway
-//   mcpTarget := gateway.AddMcpServerTarget(jsii.String("MyMcpServer"), &AddMcpServerTargetOptions{
-//   	GatewayTargetName: jsii.String("my-mcp-server"),
-//   	Description: jsii.String("External MCP server integration"),
+//   gateway.AddMcpServerTarget(jsii.String("Mcp"), &AddMcpServerTargetOptions{
+//   	GatewayTargetName: jsii.String("mcp-server"),
+//   	Description: jsii.String("MCP with GitHub OAuth"),
 //   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentityArn(&OAuthConfiguration{
-//   			ProviderArn: oauthProviderArn,
-//   			SecretArn: oauthSecretArn,
+//   		agentcore.GatewayCredentialProvider_FromOauthIdentity(oauth, &FromOauthIdentityOptions{
 //   			Scopes: []*string{
-//   				jsii.String("mcp-runtime-server/invoke"),
+//   				jsii.String("read:user"),
 //   			},
 //   		}),
 //   	},
 //   })
-//
-//   // Grant sync permission to a Lambda function that will trigger synchronization
-//   syncFunction := lambda.NewFunction(this, jsii.String("SyncFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	import boto3
-//
-//   	def handler(event, context):
-//   	    client = boto3.client('bedrock-agentcore')
-//   	    response = client.synchronize_gateway_targets(
-//   	        gatewayIdentifier=event['gatewayId'],
-//   	        targetIds=[event['targetId']]
-//   	    )
-//   	    return response
-//   	  `)),
-//   })
-//
-//   mcpTarget.GrantSync(syncFunction)
 //
 // Experimental.
 type AddMcpServerTargetOptions struct {

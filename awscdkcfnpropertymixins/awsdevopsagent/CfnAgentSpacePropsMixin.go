@@ -23,6 +23,7 @@ import (
 //   cfnAgentSpacePropsMixin := awscdkcfnpropertymixins.Aws_devopsagent.NewCfnAgentSpacePropsMixin(&CfnAgentSpaceMixinProps{
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Locale: jsii.String("locale"),
 //   	Name: jsii.String("name"),
 //   	OperatorApp: &OperatorAppProperty{
 //   		Iam: &IamAuthConfigurationProperty{

@@ -31,6 +31,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseClientCertificateOcspEndpoint: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html
@@ -48,5 +49,8 @@ type CfnTrustStoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html#cfn-cloudfront-truststore-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html#cfn-cloudfront-truststore-useclientcertificateocspendpoint
+	//
+	UseClientCertificateOcspEndpoint interface{} `field:"optional" json:"useClientCertificateOcspEndpoint" yaml:"useClientCertificateOcspEndpoint"`
 }
 

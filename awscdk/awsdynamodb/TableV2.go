@@ -73,6 +73,9 @@ type TableV2 interface {
 	SetResourcePolicy(val awsiam.PolicyDocument)
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Resource policy associated with this table's stream.
+	StreamResourcePolicy() awsiam.PolicyDocument
+	SetStreamResourcePolicy(val awsiam.PolicyDocument)
 	// The ARN of the table.
 	TableArn() *string
 	// The ID of the table.
@@ -102,6 +105,12 @@ type TableV2 interface {
 	//
 	// Note that this does not work with imported tables.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Adds a statement to the resource policy associated with this table's stream.
+	//
+	// A stream resource policy will be automatically created upon the first call to `addToStreamResourcePolicy`.
+	//
+	// Note that this does not work with imported tables.
+	AddToStreamResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -357,6 +366,16 @@ func (j *jsiiProxy_TableV2) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_TableV2) StreamResourcePolicy() awsiam.PolicyDocument {
+	var returns awsiam.PolicyDocument
+	_jsii_.Get(
+		j,
+		"streamResourcePolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_TableV2) TableArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -449,6 +468,14 @@ func (j *jsiiProxy_TableV2)SetResourcePolicy(val awsiam.PolicyDocument) {
 	_jsii_.Set(
 		j,
 		"resourcePolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_TableV2)SetStreamResourcePolicy(val awsiam.PolicyDocument) {
+	_jsii_.Set(
+		j,
+		"streamResourcePolicy",
 		val,
 	)
 }
@@ -636,6 +663,22 @@ func (t *jsiiProxy_TableV2) AddToResourcePolicy(statement awsiam.PolicyStatement
 	_jsii_.Invoke(
 		t,
 		"addToResourcePolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
+func (t *jsiiProxy_TableV2) AddToStreamResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := t.validateAddToStreamResourcePolicyParameters(statement); err != nil {
+		panic(err)
+	}
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		t,
+		"addToStreamResourcePolicy",
 		[]interface{}{statement},
 		&returns,
 	)

@@ -23,6 +23,8 @@ import (
 //   cfnGroupProfilePropsMixin := awscdkcfnpropertymixins.Aws_datazone.NewCfnGroupProfilePropsMixin(&CfnGroupProfileMixinProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	GroupIdentifier: jsii.String("groupIdentifier"),
+//   	GroupType: jsii.String("groupType"),
+//   	RolePrincipalArn: jsii.String("rolePrincipalArn"),
 //   	Status: jsii.String("status"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

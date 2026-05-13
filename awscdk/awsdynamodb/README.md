@@ -1423,6 +1423,73 @@ This behavior follows the same pattern as other AWS services like KMS and S3, wh
 
 **To avoid wildcards in resource policies:** If you need scoped resource ARNs instead of wildcards, use `addToResourcePolicy()` directly with an explicit table name instead of grant methods. See the "Scoped Resource Policies (Advanced)" section above for details.
 
+### Stream Resource Policy
+
+You can attach a resource policy to a DynamoDB stream using `streamResourcePolicy`. This applies per-replica, so you can set different policies for the primary table and each replica:
+
+```go
+streamPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+	Statements: []PolicyStatement{
+		iam.NewPolicyStatement(&PolicyStatementProps{
+			Actions: []*string{
+				jsii.String("dynamodb:DescribeStream"),
+				jsii.String("dynamodb:GetRecords"),
+				jsii.String("dynamodb:GetShardIterator"),
+			},
+			Principals: []IPrincipal{
+				iam.NewAccountRootPrincipal(),
+			},
+			Resources: []*string{
+				jsii.String("*"),
+			},
+		}),
+	},
+})
+
+dynamodb.NewTableV2(this, jsii.String("GlobalTable"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	DynamoStream: dynamodb.StreamViewType_NEW_AND_OLD_IMAGES,
+	StreamResourcePolicy: streamPolicy,
+	Replicas: []ReplicaTableProps{
+		&ReplicaTableProps{
+			Region: jsii.String("us-west-2"),
+			StreamResourcePolicy: streamPolicy,
+		},
+	},
+})
+```
+
+You can also add stream resource policy statements dynamically using `addToStreamResourcePolicy`:
+
+```go
+table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
+	PartitionKey: &Attribute{
+		Name: jsii.String("pk"),
+		Type: dynamodb.AttributeType_STRING,
+	},
+	DynamoStream: dynamodb.StreamViewType_NEW_AND_OLD_IMAGES,
+})
+
+table.AddToStreamResourcePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("dynamodb:DescribeStream"),
+		jsii.String("dynamodb:GetRecords"),
+		jsii.String("dynamodb:GetShardIterator"),
+	},
+	Principals: []IPrincipal{
+		iam.NewAccountRootPrincipal(),
+	},
+	Resources: []*string{
+		jsii.String("*"),
+	},
+}))
+```
+
+Note: `addToStreamResourcePolicy` applies to the primary table's stream only. To set a stream resource policy on a replica, pass `streamResourcePolicy` in the replica props.
+
 ## Grants
 
 Using any of the `grant*` methods on an instance of the `TableV2` construct will only apply to the primary table, its indexes, and any associated `encryptionKey`. As an example, `grantReadData` used below will only apply the table in `us-west-2`:

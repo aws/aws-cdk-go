@@ -19,9 +19,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationEndpoint", GoGetter: "AttrConfigurationEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationEndpointAddress", GoGetter: "AttrConfigurationEndpointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConfigurationEndpointPort", GoGetter: "AttrConfigurationEndpointPort"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRedisEndpoint", GoGetter: "AttrRedisEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRedisEndpointAddress", GoGetter: "AttrRedisEndpointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRedisEndpointPort", GoGetter: "AttrRedisEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},
@@ -94,6 +95,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticache.CfnCacheCluster.DestinationDetailsProperty",
 		reflect.TypeOf((*CfnCacheCluster_DestinationDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticache.CfnCacheCluster.EndpointProperty",
+		reflect.TypeOf((*CfnCacheCluster_EndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticache.CfnCacheCluster.KinesisFirehoseDestinationDetailsProperty",

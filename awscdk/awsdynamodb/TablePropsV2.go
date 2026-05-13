@@ -29,10 +29,8 @@ import (
 //   		&ReplicaTableProps{
 //   			Region: jsii.String("us-east-1"),
 //   		},
-//   		&ReplicaTableProps{
-//   			Region: jsii.String("us-east-2"),
-//   		},
 //   	},
+//   	WitnessRegion: jsii.String("us-east-2"),
 //   })
 //
 type TablePropsV2 struct {
@@ -68,6 +66,12 @@ type TablePropsV2 struct {
 	// Default: - No resource policy statements are added to the created table.
 	//
 	ResourcePolicy awsiam.PolicyDocument `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
+	// Resource policy to assign to DynamoDB Stream.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html#cfn-dynamodb-globaltable-replicastreamspecification-resourcepolicy
+	//
+	// Default: - No resource policy statements are added to the stream.
+	//
+	StreamResourcePolicy awsiam.PolicyDocument `field:"optional" json:"streamResourcePolicy" yaml:"streamResourcePolicy"`
 	// The table class.
 	// Default: TableClass.STANDARD
 	//

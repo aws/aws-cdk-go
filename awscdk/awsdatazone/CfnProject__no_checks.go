@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnProject) validateSetDomainIdentifierParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnProject) validateSetMembershipAssignmentsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnProject) validateSetNameParameters(val *string) error {
 	return nil
 }

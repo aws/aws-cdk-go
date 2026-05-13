@@ -16,11 +16,19 @@ package awslambda
 //
 type ProvisionedPollerConfig struct {
 	// The maximum number of pollers that can be provisioned.
-	// Default: - 200.
+	//
+	// Valid Range:
+	// * For Amazon SQS: Minimum value of 2. Maximum value of 2000. Default: 200.
+	// * For Amazon MSK, self-managed Apache Kafka, and Amazon MQ: Minimum value of 1. Maximum value of 2000. Default: 200.
+	// Default: 200.
 	//
 	MaximumPollers *float64 `field:"optional" json:"maximumPollers" yaml:"maximumPollers"`
 	// The minimum number of pollers that should be provisioned.
-	// Default: - 1.
+	//
+	// Valid Range:
+	// * For Amazon SQS: Minimum value of 2. Maximum value of 200. Default: 2.
+	// * For Amazon MSK, self-managed Apache Kafka, and Amazon MQ: Minimum value of 1. Maximum value of 200. Default: 1.
+	// Default: - 2 for SQS, 1 for MSK/Kafka/MQ.
 	//
 	MinimumPollers *float64 `field:"optional" json:"minimumPollers" yaml:"minimumPollers"`
 	// An optional identifier that groups multiple ESMs to share EPU capacity and reduce costs.

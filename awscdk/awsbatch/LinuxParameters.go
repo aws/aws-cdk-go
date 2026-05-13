@@ -28,7 +28,7 @@ import (
 //
 type LinuxParameters interface {
 	constructs.Construct
-	// Device mounts.
+	// Deprecated: - use addDevices instead.
 	Devices() *[]*Device
 	// Whether the init process is enabled.
 	InitProcessEnabled() *bool
@@ -42,7 +42,7 @@ type LinuxParameters interface {
 	SharedMemorySize() awscdk.Size
 	// The swappiness behavior.
 	Swappiness() *float64
-	// TmpFs mounts.
+	// Deprecated: - use addTmpfs instead.
 	Tmpfs() *[]*Tmpfs
 	// Adds one or more host devices to a container.
 	AddDevices(device ...*Device)

@@ -92,10 +92,6 @@ func (j *jsiiProxy_CfnGroupProfile) validateSetDomainIdentifierParameters(val *s
 	return nil
 }
 
-func (j *jsiiProxy_CfnGroupProfile) validateSetGroupIdentifierParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnGroupProfileParameters(scope constructs.Construct, id *string, props *CfnGroupProfileProps) error {
 	return nil
 }

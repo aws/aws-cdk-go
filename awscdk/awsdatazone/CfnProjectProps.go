@@ -18,6 +18,17 @@ package awsdatazone
 //   	GlossaryTerms: []*string{
 //   		jsii.String("glossaryTerms"),
 //   	},
+//   	MembershipAssignments: []interface{}{
+//   		&ProjectMembershipAssignmentProperty{
+//   			Designation: jsii.String("designation"),
+//   			Member: &MemberProperty{
+//   				GroupIdentifier: jsii.String("groupIdentifier"),
+//   				UserIdentifier: jsii.String("userIdentifier"),
+//   			},
+//   		},
+//   	},
+//   	ProjectCategory: jsii.String("projectCategory"),
+//   	ProjectExecutionRole: jsii.String("projectExecutionRole"),
 //   	ProjectProfileId: jsii.String("projectProfileId"),
 //   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
 //   	ResourceTags: []interface{}{
@@ -65,6 +76,18 @@ type CfnProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-glossaryterms
 	//
 	GlossaryTerms *[]*string `field:"optional" json:"glossaryTerms" yaml:"glossaryTerms"`
+	// The project membership assignments.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-membershipassignments
+	//
+	MembershipAssignments interface{} `field:"optional" json:"membershipAssignments" yaml:"membershipAssignments"`
+	// The project category.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectcategory
+	//
+	ProjectCategory *string `field:"optional" json:"projectCategory" yaml:"projectCategory"`
+	// The project execution role ARN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectexecutionrole
+	//
+	ProjectExecutionRole *string `field:"optional" json:"projectExecutionRole" yaml:"projectExecutionRole"`
 	// The ID of the project profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectprofileid
 	//

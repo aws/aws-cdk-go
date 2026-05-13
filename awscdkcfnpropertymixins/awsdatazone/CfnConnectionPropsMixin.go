@@ -28,6 +28,14 @@ import (
 //   		AwsRegion: jsii.String("awsRegion"),
 //   		IamConnectionId: jsii.String("iamConnectionId"),
 //   	},
+//   	Configurations: []interface{}{
+//   		&ConnectionConfigurationProperty{
+//   			Classification: jsii.String("classification"),
+//   			Properties: map[string]*string{
+//   				"propertiesKey": jsii.String("properties"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnableTrustedIdentityPropagation: jsii.Boolean(false),
@@ -116,6 +124,9 @@ import (
 //   		IamProperties: &IamPropertiesInputProperty{
 //   			GlueLineageSyncEnabled: jsii.Boolean(false),
 //   		},
+//   		LakehouseProperties: &LakehousePropertiesInputProperty{
+//   			GlueLineageSyncEnabled: jsii.Boolean(false),
+//   		},
 //   		MlflowProperties: &MlflowPropertiesInputProperty{
 //   			TrackingServerArn: jsii.String("trackingServerArn"),
 //   		},
@@ -142,6 +153,7 @@ import (
 //   			},
 //   		},
 //   		S3Properties: &S3PropertiesInputProperty{
+//   			RegisterS3AccessGrantLocation: jsii.Boolean(false),
 //   			S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
 //   			S3Uri: jsii.String("s3Uri"),
 //   		},

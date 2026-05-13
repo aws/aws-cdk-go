@@ -68,6 +68,8 @@ type ManagedKafkaEventSourceProps struct {
 	//
 	// When specified, allows control over the minimum and maximum number of pollers
 	// that can be provisioned to process events from the source.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/kafka-scaling-modes.html
+	//
 	// Default: - no provisioned pollers.
 	//
 	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`

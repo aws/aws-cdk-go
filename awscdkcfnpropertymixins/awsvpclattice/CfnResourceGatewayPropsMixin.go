@@ -26,6 +26,7 @@ import (
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	ResourceConfigDnsResolution: jsii.String("resourceConfigDnsResolution"),
 //   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},

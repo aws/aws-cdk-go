@@ -52,6 +52,10 @@ func init() {
 		reflect.TypeOf((*CfnConnectionPropsMixin_BasicAuthenticationCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnConnectionPropsMixin.ConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_ConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnConnectionPropsMixin.ConnectionPropertiesInputProperty",
 		reflect.TypeOf((*CfnConnectionPropsMixin_ConnectionPropertiesInputProperty)(nil)).Elem(),
 	)
@@ -74,6 +78,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnConnectionPropsMixin.IamPropertiesInputProperty",
 		reflect.TypeOf((*CfnConnectionPropsMixin_IamPropertiesInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnConnectionPropsMixin.LakehousePropertiesInputProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_LakehousePropertiesInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnConnectionPropsMixin.LineageSyncScheduleProperty",
@@ -622,6 +630,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin.EnvironmentParameterProperty",
 		reflect.TypeOf((*CfnProjectPropsMixin_EnvironmentParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin.MemberProperty",
+		reflect.TypeOf((*CfnProjectPropsMixin_MemberProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin.ProjectMembershipAssignmentProperty",
+		reflect.TypeOf((*CfnProjectPropsMixin_ProjectMembershipAssignmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datazone.CfnProjectPropsMixin.ResourceTagProperty",

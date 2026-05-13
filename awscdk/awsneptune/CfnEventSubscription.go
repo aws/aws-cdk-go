@@ -570,6 +570,43 @@ func (j *jsiiProxy_CfnEventSubscription)SetTags(val *[]*awscdk.CfnTag) {
 	)
 }
 
+func CfnEventSubscription_ArnForEventSubscription(resource interfacesawsneptune.IEventSubscriptionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventSubscription_ArnForEventSubscriptionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_neptune.CfnEventSubscription",
+		"arnForEventSubscription",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IEventSubscriptionRef from a subscriptionName.
+func CfnEventSubscription_FromSubscriptionName(scope constructs.Construct, id *string, subscriptionName *string) interfacesawsneptune.IEventSubscriptionRef {
+	_init_.Initialize()
+
+	if err := validateCfnEventSubscription_FromSubscriptionNameParameters(scope, id, subscriptionName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsneptune.IEventSubscriptionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_neptune.CfnEventSubscription",
+		"fromSubscriptionName",
+		[]interface{}{scope, id, subscriptionName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

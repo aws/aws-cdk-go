@@ -8,22 +8,21 @@ package awsbedrockagentcorealpha
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // These ARNs are returned when creating the API key credential provider via Console or API
-//   apiKeyProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
-//   apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
+//   // Create an API key credential provider in Token Vault
+//   apiKeyProvider := agentcore.NewApiKeyCredentialProvider(this, jsii.String("MyApiKeyProvider"), &ApiKeyCredentialProviderResourceProps{
+//   	ApiKeyCredentialProviderName: jsii.String("my-apikey"),
+//   })
 //
 //   bucket := s3.Bucket_FromBucketName(this, jsii.String("ExistingBucket"), jsii.String("my-schema-bucket"))
 //   s3mySchema := agentcore.ApiSchema_FromS3File(bucket, jsii.String("schemas/myschema.yaml"))
 //
-//   // Add an OpenAPI target directly to the gateway
+//   // Add an OpenAPI target using the L2 construct directly
 //   target := gateway.AddOpenApiTarget(jsii.String("MyTarget"), &AddOpenApiTargetOptions{
 //   	GatewayTargetName: jsii.String("my-api-target"),
 //   	Description: jsii.String("Target for external API integration"),
 //   	ApiSchema: s3mySchema,
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderProps{
-//   			ProviderArn: apiKeyProviderArn,
-//   			SecretArn: apiKeySecretArn,
+//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentity(apiKeyProvider, &FromApiKeyIdentityOptions{
 //   			CredentialLocation: agentcore.ApiKeyCredentialLocation_Header(&ApiKeyAdditionalConfiguration{
 //   				CredentialParameterName: jsii.String("X-API-Key"),
 //   			}),
@@ -31,7 +30,7 @@ package awsbedrockagentcorealpha
 //   	},
 //   })
 //
-//   // This make sure your s3 bucket is available before target
+//   // This makes sure your s3 bucket is available before target
 //   target.Node.AddDependency(bucket)
 //
 // Experimental.
@@ -39,8 +38,8 @@ type AddOpenApiTargetOptions struct {
 	// The OpenAPI schema defining the API.
 	// Experimental.
 	ApiSchema ApiSchema `field:"required" json:"apiSchema" yaml:"apiSchema"`
-	// Credential providers for authentication.
-	// Default: - [GatewayCredentialProvider.iamRole()]
+	// Credential providers for outbound authentication (OpenAPI targets use API Key or OAuth, not IAM).
+	// Default: - none (no credential configuration on the target; supply providers for secured backends).
 	//
 	// Experimental.
 	CredentialProviderConfigurations *[]ICredentialProviderConfig `field:"optional" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`

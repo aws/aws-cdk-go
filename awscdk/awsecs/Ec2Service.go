@@ -76,7 +76,6 @@ type Ec2Service interface {
 	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
 	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
-	// A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
 	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
 	// The tree node.

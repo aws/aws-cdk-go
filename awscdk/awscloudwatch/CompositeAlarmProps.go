@@ -10,15 +10,19 @@ import (
 // Example:
 //   var alarm1 Alarm
 //   var alarm2 Alarm
-//   var alarm3 Alarm
-//   var alarm4 Alarm
+//   var onAlarmAction IAlarmAction
+//   var onOkAction IAlarmAction
+//   var actionsSuppressor Alarm
 //
 //
-//   alarmRule := cloudwatch.AlarmRule_AnyOf(cloudwatch.AlarmRule_AllOf(cloudwatch.AlarmRule_AnyOf(alarm1, cloudwatch.AlarmRule_FromAlarm(alarm2, cloudwatch.AlarmState_OK), alarm3), cloudwatch.AlarmRule_Not(cloudwatch.AlarmRule_FromAlarm(alarm4, cloudwatch.AlarmState_INSUFFICIENT_DATA))), cloudwatch.AlarmRule_FromBoolean(jsii.Boolean(false)))
+//   alarmRule := cloudwatch.AlarmRule_AnyOf(alarm1, alarm2)
 //
-//   cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &CompositeAlarmProps{
+//   myCompositeAlarm := cloudwatch.NewCompositeAlarm(this, jsii.String("MyAwesomeCompositeAlarm"), &CompositeAlarmProps{
 //   	AlarmRule: AlarmRule,
+//   	ActionsSuppressor: ActionsSuppressor,
 //   })
+//   myCompositeAlarm.AddAlarmAction(onAlarmAction)
+//   myCompositeAlarm.AddOkAction(onOkAction)
 //
 type CompositeAlarmProps struct {
 	// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.

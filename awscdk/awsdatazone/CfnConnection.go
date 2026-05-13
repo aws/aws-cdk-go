@@ -31,6 +31,14 @@ import (
 //   		AwsRegion: jsii.String("awsRegion"),
 //   		IamConnectionId: jsii.String("iamConnectionId"),
 //   	},
+//   	Configurations: []interface{}{
+//   		&ConnectionConfigurationProperty{
+//   			Classification: jsii.String("classification"),
+//   			Properties: map[string]*string{
+//   				"propertiesKey": jsii.String("properties"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	EnableTrustedIdentityPropagation: jsii.Boolean(false),
 //   	EnvironmentIdentifier: jsii.String("environmentIdentifier"),
@@ -117,6 +125,9 @@ import (
 //   		IamProperties: &IamPropertiesInputProperty{
 //   			GlueLineageSyncEnabled: jsii.Boolean(false),
 //   		},
+//   		LakehouseProperties: &LakehousePropertiesInputProperty{
+//   			GlueLineageSyncEnabled: jsii.Boolean(false),
+//   		},
 //   		MlflowProperties: &MlflowPropertiesInputProperty{
 //   			TrackingServerArn: jsii.String("trackingServerArn"),
 //   		},
@@ -146,6 +157,7 @@ import (
 //   			S3Uri: jsii.String("s3Uri"),
 //
 //   			// the properties below are optional
+//   			RegisterS3AccessGrantLocation: jsii.Boolean(false),
 //   			S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
 //   		},
 //   		SparkEmrProperties: &SparkEmrPropertiesInputProperty{
@@ -207,6 +219,9 @@ type CfnConnection interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// The configurations of the connection.
+	Configurations() interface{}
+	SetConfigurations(val interface{})
 	// A reference to a Connection resource.
 	ConnectionRef() *interfacesawsdatazone.ConnectionReference
 	// Returns: the stack trace of the point where this Resource was created from, sourced
@@ -534,6 +549,16 @@ func (j *jsiiProxy_CfnConnection) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) Configurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"configurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) ConnectionRef() *interfacesawsdatazone.ConnectionReference {
 	var returns *interfacesawsdatazone.ConnectionReference
 	_jsii_.Get(
@@ -741,6 +766,17 @@ func (j *jsiiProxy_CfnConnection)SetAwsLocation(val interface{}) {
 	_jsii_.Set(
 		j,
 		"awsLocation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetConfigurations(val interface{}) {
+	if err := j.validateSetConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"configurations",
 		val,
 	)
 }

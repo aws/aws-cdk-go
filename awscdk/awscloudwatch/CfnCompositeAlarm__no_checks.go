@@ -76,6 +76,14 @@ func validateCfnCompositeAlarm_ArnForCompositeAlarmParameters(resource interface
 	return nil
 }
 
+func validateCfnCompositeAlarm_FromAlarmNameParameters(scope constructs.Construct, id *string, alarmName *string) error {
+	return nil
+}
+
+func validateCfnCompositeAlarm_FromCompositeAlarmArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnCompositeAlarm_IsCfnCompositeAlarmParameters(x interface{}) error {
 	return nil
 }

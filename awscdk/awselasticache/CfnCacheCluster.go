@@ -82,6 +82,7 @@ type CfnCacheCluster interface {
 	awscdk.IInspectable
 	interfacesawselasticache.ICacheClusterRef
 	awscdk.ITaggable
+	AttrConfigurationEndpoint() awscdk.IResolvable
 	// The DNS hostname of the cache node.
 	//
 	// > Valkey and Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
@@ -90,8 +91,7 @@ type CfnCacheCluster interface {
 	//
 	// > Valkey and Redis OSS (cluster mode disabled) replication groups don't have this attribute. Therefore, `Fn::GetAtt` returns a value for this attribute only if the replication group is clustered. Otherwise, `Fn::GetAtt` fails.
 	AttrConfigurationEndpointPort() *string
-	// The resource name.
-	AttrId() *string
+	AttrRedisEndpoint() awscdk.IResolvable
 	// The DNS address of the configuration endpoint for the Valkey or Redis OSS cache cluster.
 	AttrRedisEndpointAddress() *string
 	// The port number of the configuration endpoint for the Valkey or Redis OSS cache cluster.
@@ -111,7 +111,9 @@ type CfnCacheCluster interface {
 	CacheParameterGroupName() *string
 	SetCacheParameterGroupName(val *string)
 	// A list of security group names to associate with this cluster.
+	// Deprecated: this property has been deprecated.
 	CacheSecurityGroupNames() *[]*string
+	// Deprecated: this property has been deprecated.
 	SetCacheSecurityGroupNames(val *[]*string)
 	// The name of the subnet group to be used for the cluster.
 	CacheSubnetGroupName() *string
@@ -363,6 +365,16 @@ type jsiiProxy_CfnCacheCluster struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnCacheCluster) AttrConfigurationEndpoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrConfigurationEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCacheCluster) AttrConfigurationEndpointAddress() *string {
 	var returns *string
 	_jsii_.Get(
@@ -383,11 +395,11 @@ func (j *jsiiProxy_CfnCacheCluster) AttrConfigurationEndpointPort() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCacheCluster) AttrId() *string {
-	var returns *string
+func (j *jsiiProxy_CfnCacheCluster) AttrRedisEndpoint() awscdk.IResolvable {
+	var returns awscdk.IResolvable
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrRedisEndpoint",
 		&returns,
 	)
 	return returns

@@ -17,6 +17,14 @@ package awsdatazone
 //   		AwsRegion: jsii.String("awsRegion"),
 //   		IamConnectionId: jsii.String("iamConnectionId"),
 //   	},
+//   	Configurations: []interface{}{
+//   		&ConnectionConfigurationProperty{
+//   			Classification: jsii.String("classification"),
+//   			Properties: map[string]*string{
+//   				"propertiesKey": jsii.String("properties"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
 //   	EnableTrustedIdentityPropagation: jsii.Boolean(false),
@@ -105,6 +113,9 @@ package awsdatazone
 //   		IamProperties: &IamPropertiesInputProperty{
 //   			GlueLineageSyncEnabled: jsii.Boolean(false),
 //   		},
+//   		LakehouseProperties: &LakehousePropertiesInputProperty{
+//   			GlueLineageSyncEnabled: jsii.Boolean(false),
+//   		},
 //   		MlflowProperties: &MlflowPropertiesInputProperty{
 //   			TrackingServerArn: jsii.String("trackingServerArn"),
 //   		},
@@ -131,6 +142,7 @@ package awsdatazone
 //   			},
 //   		},
 //   		S3Properties: &S3PropertiesInputProperty{
+//   			RegisterS3AccessGrantLocation: jsii.Boolean(false),
 //   			S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
 //   			S3Uri: jsii.String("s3Uri"),
 //   		},
@@ -171,6 +183,10 @@ type CfnConnectionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-awslocation
 	//
 	AwsLocation interface{} `field:"optional" json:"awsLocation" yaml:"awsLocation"`
+	// The configurations of the connection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-configurations
+	//
+	Configurations interface{} `field:"optional" json:"configurations" yaml:"configurations"`
 	// Connection description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html#cfn-datazone-connection-description
 	//

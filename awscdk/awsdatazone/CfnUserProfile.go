@@ -23,6 +23,7 @@ import (
 //   	UserIdentifier: jsii.String("userIdentifier"),
 //
 //   	// the properties below are optional
+//   	SessionName: jsii.String("sessionName"),
 //   	Status: jsii.String("status"),
 //   	UserType: jsii.String("userType"),
 //   })
@@ -71,6 +72,9 @@ type CfnUserProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The session name of the user profile.
+	SessionName() *string
+	SetSessionName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -381,6 +385,16 @@ func (j *jsiiProxy_CfnUserProfile) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserProfile) SessionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sessionName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserProfile) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -488,6 +502,14 @@ func (j *jsiiProxy_CfnUserProfile)SetDomainIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"domainIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserProfile)SetSessionName(val *string) {
+	_jsii_.Set(
+		j,
+		"sessionName",
 		val,
 	)
 }

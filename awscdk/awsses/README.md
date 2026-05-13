@@ -268,6 +268,34 @@ ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSet
 })
 ```
 
+#### Auto Validation threshold
+
+Auto validation automatically reviews all outbound email addresses before sending and only delivers messages to recipients meeting your selected validation threshold. This protects sender reputation by preventing sends to invalid or risky addresses.
+
+You can override the account-level Auto Validation settings at the configuration set level using `autoValidationThreshold`:
+
+* `MANAGED` - Amazon SES automatically optimizes threshold based on sending patterns and reputation (recommended)
+* `HIGH` - Only addresses with high delivery likelihood (maximum reputation protection)
+* `MEDIUM` - Addresses with medium or high delivery likelihood (balances protection with reach)
+
+For more details, see [Auto Validation](https://docs.aws.amazon.com/ses/latest/dg/email-validation-auto.html).
+
+```go
+ses.NewConfigurationSet(this, jsii.String("ConfigurationSet"), &ConfigurationSetProps{
+	AutoValidationThreshold: ses.AutoValidationThreshold_HIGH,
+})
+```
+
+Use `disableAutoValidation` to turn the feature on or off for this configuration set, regardless of the account-level setting:
+
+```go
+// Explicitly disable Auto Validation for this configuration set.
+// Explicitly disable Auto Validation for this configuration set.
+ses.NewConfigurationSet(this, jsii.String("NoAutoValidation"), &ConfigurationSetProps{
+	DisableAutoValidation: jsii.Boolean(true),
+})
+```
+
 ### Email identity
 
 In Amazon SES, a verified identity is a domain or email address that you use to send or receive email. Before you

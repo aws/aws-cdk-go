@@ -19,15 +19,18 @@ type jsiiProxy_PropertyMergeStrategy struct {
 // When both the existing and new value for a key are plain objects,
 // their properties are merged recursively. Primitives, arrays, and
 // mismatched types are overridden by the source value.
-func PropertyMergeStrategy_Combine() IMergeStrategy {
+func PropertyMergeStrategy_Combine(options *CombineStrategyOptions) IMergeStrategy {
 	_init_.Initialize()
 
+	if err := validatePropertyMergeStrategy_CombineParameters(options); err != nil {
+		panic(err)
+	}
 	var returns IMergeStrategy
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.PropertyMergeStrategy",
 		"combine",
-		nil, // no parameters
+		[]interface{}{options},
 		&returns,
 	)
 

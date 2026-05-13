@@ -17,6 +17,7 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Locale: jsii.String("locale"),
 //   	OperatorApp: &OperatorAppProperty{
 //   		Iam: &IamAuthConfigurationProperty{
 //   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
@@ -58,6 +59,10 @@ type CfnAgentSpaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The locale for the AgentSpace, which determines the language used in agent responses.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-locale
+	//
+	Locale *string `field:"optional" json:"locale" yaml:"locale"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-operatorapp
 	//
 	OperatorApp interface{} `field:"optional" json:"operatorApp" yaml:"operatorApp"`

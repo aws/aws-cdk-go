@@ -13,6 +13,7 @@ package awsdatazone
 //   	UserIdentifier: jsii.String("userIdentifier"),
 //
 //   	// the properties below are optional
+//   	SessionName: jsii.String("sessionName"),
 //   	Status: jsii.String("status"),
 //   	UserType: jsii.String("userType"),
 //   }
@@ -28,6 +29,10 @@ type CfnUserProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-useridentifier
 	//
 	UserIdentifier *string `field:"required" json:"userIdentifier" yaml:"userIdentifier"`
+	// The session name of the user profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-sessionname
+	//
+	SessionName *string `field:"optional" json:"sessionName" yaml:"sessionName"`
 	// The status of the user profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-status
 	//

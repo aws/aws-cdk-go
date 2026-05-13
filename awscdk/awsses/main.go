@@ -29,6 +29,15 @@ func init() {
 		"aws-cdk-lib.aws_ses.AllowListReceiptFilterProps",
 		reflect.TypeOf((*AllowListReceiptFilterProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_ses.AutoValidationThreshold",
+		reflect.TypeOf((*AutoValidationThreshold)(nil)).Elem(),
+		map[string]interface{}{
+			"MEDIUM": AutoValidationThreshold_MEDIUM,
+			"HIGH": AutoValidationThreshold_HIGH,
+			"MANAGED": AutoValidationThreshold_MANAGED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.BounceActionConfig",
 		reflect.TypeOf((*BounceActionConfig)(nil)).Elem(),

@@ -292,6 +292,7 @@ type CfnAutoScalingGroup interface {
 	// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
 	AvailabilityZoneDistribution() interface{}
 	SetAvailabilityZoneDistribution(val interface{})
+	// The Availability Zone IDs where the Auto Scaling group can launch instances.
 	AvailabilityZoneIds() *[]*string
 	SetAvailabilityZoneIds(val *[]*string)
 	// The Availability Zone impairment policy for the Auto Scaling group.

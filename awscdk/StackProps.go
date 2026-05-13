@@ -6,7 +6,6 @@ package awscdk
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-1"),
 //   	},
-//   	CrossRegionReferences: jsii.Boolean(true),
 //   })
 //   cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
 //   	DomainName: jsii.String("*.example.com"),
@@ -17,7 +16,6 @@ package awscdk
 //   	Env: &Environment{
 //   		Region: jsii.String("us-east-2"),
 //   	},
-//   	CrossRegionReferences: jsii.Boolean(true),
 //   })
 //   cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{

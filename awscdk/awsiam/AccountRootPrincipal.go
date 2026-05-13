@@ -8,18 +8,30 @@ import (
 // Use the AWS account into which a stack is deployed as the principal entity in a policy.
 //
 // Example:
-//   // Adds to IAM user's policy (not resource policy)
-//   var user User
-//   table := dynamodb.NewTableV2(this, jsii.String("Table"), &TablePropsV2{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("pk"),
-//   		Type: dynamodb.AttributeType_STRING,
+//   myTrustedAdminRole := iam.Role_FromRoleArn(this, jsii.String("TrustedRole"), jsii.String("arn:aws:iam:...."))
+//   // Creates a limited admin policy and assigns to the account root.
+//   myCustomPolicy := iam.NewPolicyDocument(&PolicyDocumentProps{
+//   	Statements: []PolicyStatement{
+//   		iam.NewPolicyStatement(&PolicyStatementProps{
+//   			Actions: []*string{
+//   				jsii.String("kms:Create*"),
+//   				jsii.String("kms:Describe*"),
+//   				jsii.String("kms:Enable*"),
+//   				jsii.String("kms:List*"),
+//   				jsii.String("kms:Put*"),
+//   			},
+//   			Principals: []IPrincipal{
+//   				iam.NewAccountRootPrincipal(),
+//   			},
+//   			Resources: []*string{
+//   				jsii.String("*"),
+//   			},
+//   		}),
 //   	},
 //   })
-//
-//   // Automatically adds to table's resource policy (same account)
-//   table.GrantReadData(iam.NewAccountRootPrincipal())
-//   table.GrantReadData(user)
+//   key := kms.NewKey(this, jsii.String("MyKey"), &KeyProps{
+//   	Policy: myCustomPolicy,
+//   })
 //
 type AccountRootPrincipal interface {
 	AccountPrincipal

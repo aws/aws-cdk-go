@@ -20,9 +20,11 @@ import (
 //
 //   cfnGroupProfile := awscdk.Aws_datazone.NewCfnGroupProfile(this, jsii.String("MyCfnGroupProfile"), &CfnGroupProfileProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	GroupIdentifier: jsii.String("groupIdentifier"),
 //
 //   	// the properties below are optional
+//   	GroupIdentifier: jsii.String("groupIdentifier"),
+//   	GroupType: jsii.String("groupType"),
+//   	RolePrincipalArn: jsii.String("rolePrincipalArn"),
 //   	Status: jsii.String("status"),
 //   })
 //
@@ -38,6 +40,8 @@ type CfnGroupProfile interface {
 	AttrGroupName() *string
 	// The ID of a group profile.
 	AttrId() *string
+	// The ID of the role principal for the group profile.
+	AttrRolePrincipalId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -57,6 +61,9 @@ type CfnGroupProfile interface {
 	SetGroupIdentifier(val *string)
 	// A reference to a GroupProfile resource.
 	GroupProfileRef() *interfacesawsdatazone.GroupProfileReference
+	// The type of the group.
+	GroupType() *string
+	SetGroupType(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -74,6 +81,9 @@ type CfnGroupProfile interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARN of the role principal for the group profile.
+	RolePrincipalArn() *string
+	SetRolePrincipalArn(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -266,6 +276,16 @@ func (j *jsiiProxy_CfnGroupProfile) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGroupProfile) AttrRolePrincipalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRolePrincipalId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGroupProfile) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -356,6 +376,16 @@ func (j *jsiiProxy_CfnGroupProfile) GroupProfileRef() *interfacesawsdatazone.Gro
 	return returns
 }
 
+func (j *jsiiProxy_CfnGroupProfile) GroupType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"groupType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGroupProfile) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -381,6 +411,16 @@ func (j *jsiiProxy_CfnGroupProfile) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGroupProfile) RolePrincipalArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"rolePrincipalArn",
 		&returns,
 	)
 	return returns
@@ -468,12 +508,25 @@ func (j *jsiiProxy_CfnGroupProfile)SetDomainIdentifier(val *string) {
 }
 
 func (j *jsiiProxy_CfnGroupProfile)SetGroupIdentifier(val *string) {
-	if err := j.validateSetGroupIdentifierParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"groupIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGroupProfile)SetGroupType(val *string) {
+	_jsii_.Set(
+		j,
+		"groupType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGroupProfile)SetRolePrincipalArn(val *string) {
+	_jsii_.Set(
+		j,
+		"rolePrincipalArn",
 		val,
 	)
 }

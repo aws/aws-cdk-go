@@ -32,6 +32,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "configurations", GoGetter: "Configurations"},
 			_jsii_.MemberProperty{JsiiProperty: "connectionRef", GoGetter: "ConnectionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -96,6 +97,10 @@ func init() {
 		reflect.TypeOf((*CfnConnection_BasicAuthenticationCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnConnection.ConnectionConfigurationProperty",
+		reflect.TypeOf((*CfnConnection_ConnectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnection.ConnectionPropertiesInputProperty",
 		reflect.TypeOf((*CfnConnection_ConnectionPropertiesInputProperty)(nil)).Elem(),
 	)
@@ -118,6 +123,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnection.IamPropertiesInputProperty",
 		reflect.TypeOf((*CfnConnection_IamPropertiesInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnConnection.LakehousePropertiesInputProperty",
+		reflect.TypeOf((*CfnConnection_LakehousePropertiesInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnConnection.LineageSyncScheduleProperty",
@@ -824,6 +833,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainId", GoGetter: "AttrDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrGroupName", GoGetter: "AttrGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRolePrincipalId", GoGetter: "AttrRolePrincipalId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -836,6 +846,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "groupIdentifier", GoGetter: "GroupIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "groupProfileRef", GoGetter: "GroupProfileRef"},
+			_jsii_.MemberProperty{JsiiProperty: "groupType", GoGetter: "GroupType"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -846,6 +857,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "rolePrincipalArn", GoGetter: "RolePrincipalArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
@@ -1107,11 +1119,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "glossaryTerms", GoGetter: "GlossaryTerms"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "membershipAssignments", GoGetter: "MembershipAssignments"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainResourceDependencies", GoMethod: "ObtainResourceDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "projectCategory", GoGetter: "ProjectCategory"},
+			_jsii_.MemberProperty{JsiiProperty: "projectExecutionRole", GoGetter: "ProjectExecutionRole"},
 			_jsii_.MemberProperty{JsiiProperty: "projectProfileId", GoGetter: "ProjectProfileId"},
 			_jsii_.MemberProperty{JsiiProperty: "projectProfileVersion", GoGetter: "ProjectProfileVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "projectRef", GoGetter: "ProjectRef"},
@@ -1144,6 +1159,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnProject.EnvironmentParameterProperty",
 		reflect.TypeOf((*CfnProject_EnvironmentParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProject.MemberProperty",
+		reflect.TypeOf((*CfnProject_MemberProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datazone.CfnProject.ProjectMembershipAssignmentProperty",
+		reflect.TypeOf((*CfnProject_ProjectMembershipAssignmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datazone.CfnProject.ResourceTagProperty",
@@ -1417,6 +1440,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "sessionName", GoGetter: "SessionName"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},

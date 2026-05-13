@@ -52,6 +52,7 @@ behavior:
 * **batchSize**: Determines how many records are buffered before invoking your lambda function.
 * **maxBatchingWindow**: The maximum amount of time to gather records before invoking the lambda. This increases the likelihood of a full batch at the cost of delayed processing.
 * **maxConcurrency**: The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS event source can invoke.
+* **provisionedPollerConfig**: Controls the number of pollers that can be provisioned to read from the queue. Valid ranges: `minimumPollers` 2–200 (default: 2), `maximumPollers` 2–2000 (default: 200).
 * **enabled**: If the SQS event source mapping should be enabled. The default is true.
 
 ```go
@@ -313,6 +314,7 @@ You can write Lambda functions to process data either from [Amazon MSK](https://
 * **reportBatchItemFailures**: Allow functions to return partially successful responses for a batch of records. Available in provisioned mode only.
 * **retryAttempts**: The maximum number of times a record should be retried in the event of failure. Available in provisioned mode only.
 * **maxRecordAge**: The maximum age of a record that will be sent to the function for processing. Records that exceed the max age will be treated as failures. Available in provisioned mode only.
+* **provisionedPollerConfig**: Controls the number of pollers that can be provisioned to read from the event source. Valid ranges: `minimumPollers` 1–200 (default: 1), `maximumPollers` 1–2000 (default: 200).
 
 The following code sets up Amazon MSK as an event source for a lambda function. Credentials will need to be configured to access the
 MSK cluster, as described in [Username/Password authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html).

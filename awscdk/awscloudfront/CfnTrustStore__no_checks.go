@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnTrustStore) validateSetTagsParameters(val *[]*awscdk.CfnTa
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrustStore) validateSetUseClientCertificateOcspEndpointParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnTrustStoreParameters(scope constructs.Construct, id *string, props *CfnTrustStoreProps) error {
 	return nil
 }

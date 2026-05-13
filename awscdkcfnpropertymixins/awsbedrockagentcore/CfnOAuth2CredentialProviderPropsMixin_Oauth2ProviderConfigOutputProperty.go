@@ -21,6 +21,15 @@ package awsbedrockagentcore
 //   		},
 //   		DiscoveryUrl: jsii.String("discoveryUrl"),
 //   	},
+//   	OnBehalfOfTokenExchangeConfig: &OnBehalfOfTokenExchangeConfigProperty{
+//   		GrantType: jsii.String("grantType"),
+//   		TokenExchangeGrantTypeConfig: &TokenExchangeGrantTypeConfigProperty{
+//   			ActorTokenContent: jsii.String("actorTokenContent"),
+//   			ActorTokenScopes: []*string{
+//   				jsii.String("actorTokenScopes"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html
@@ -33,5 +42,9 @@ type CfnOAuth2CredentialProviderPropsMixin_Oauth2ProviderConfigOutputProperty st
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html#cfn-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput-oauthdiscovery
 	//
 	OauthDiscovery interface{} `field:"optional" json:"oauthDiscovery" yaml:"oauthDiscovery"`
+	// Configuration for on-behalf-of token exchange.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html#cfn-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput-onbehalfoftokenexchangeconfig
+	//
+	OnBehalfOfTokenExchangeConfig interface{} `field:"optional" json:"onBehalfOfTokenExchangeConfig" yaml:"onBehalfOfTokenExchangeConfig"`
 }
 

@@ -35,22 +35,13 @@ import (
 // your Lamba's code, instead of using environment variables.)
 //
 // Example:
-//   // Read the secret from Secrets Manager
-//   pipeline := codepipeline.NewPipeline(this, jsii.String("MyPipeline"))
-//   sourceOutput := codepipeline.NewArtifact()
-//   sourceAction := codepipeline_actions.NewGitHubSourceAction(&GitHubSourceActionProps{
-//   	ActionName: jsii.String("GitHub_Source"),
-//   	Owner: jsii.String("awslabs"),
-//   	Repo: jsii.String("aws-cdk"),
-//   	OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
-//   	Output: sourceOutput,
-//   	Branch: jsii.String("develop"),
-//   })
-//   pipeline.AddStage(&StageOptions{
-//   	StageName: jsii.String("Source"),
-//   	Actions: []IAction{
-//   		sourceAction,
-//   	},
+//   amplifyApp := amplify.NewApp(this, jsii.String("MyApp"), &AppProps{
+//   	SourceCodeProvider: amplify.NewGitHubSourceCodeProvider(&GitHubSourceCodeProviderProps{
+//   		Owner: jsii.String("<user>"),
+//   		Repository: jsii.String("<repo>"),
+//   		OauthToken: awscdk.SecretValue_SecretsManager(jsii.String("my-github-token")),
+//   	}),
+//   	BasicAuth: amplify.BasicAuth_FromCredentials(jsii.String("username"), awscdk.SecretValue_*SecretsManager(jsii.String("my-github-token"))),
 //   })
 //
 type SecretValue interface {

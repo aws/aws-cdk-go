@@ -13,6 +13,7 @@ import (
 //
 //   cfnResolverEndpointMixinProps := &CfnResolverEndpointMixinProps{
 //   	Direction: jsii.String("direction"),
+//   	Dns64Enabled: jsii.Boolean(false),
 //   	IpAddresses: []interface{}{
 //   		&IpAddressRequestProperty{
 //   			Ip: jsii.String("ip"),
@@ -20,6 +21,7 @@ import (
 //   			SubnetId: jsii.String("subnetId"),
 //   		},
 //   	},
+//   	Ipv6InternetAccessEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PreferredInstanceType: jsii.String("preferredInstanceType"),
@@ -51,6 +53,12 @@ type CfnResolverEndpointMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-direction
 	//
 	Direction *string `field:"optional" json:"direction" yaml:"direction"`
+	// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint.
+	//
+	// When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-dns64enabled
+	//
+	Dns64Enabled interface{} `field:"optional" json:"dns64Enabled" yaml:"dns64Enabled"`
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	//
 	// The subnet ID uniquely identifies a VPC.
@@ -59,6 +67,12 @@ type CfnResolverEndpointMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-ipaddresses
 	//
 	IpAddresses interface{} `field:"optional" json:"ipAddresses" yaml:"ipAddresses"`
+	// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint.
+	//
+	// When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-ipv6internetaccessenabled
+	//
+	Ipv6InternetAccessEnabled interface{} `field:"optional" json:"ipv6InternetAccessEnabled" yaml:"ipv6InternetAccessEnabled"`
 	// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-name
 	//

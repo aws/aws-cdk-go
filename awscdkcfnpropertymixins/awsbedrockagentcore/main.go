@@ -612,12 +612,20 @@ func init() {
 		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_Oauth2ProviderConfigOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.OnBehalfOfTokenExchangeConfigProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_OnBehalfOfTokenExchangeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.SalesforceOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_SalesforceOauth2ProviderConfigInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.SlackOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_SlackOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOAuth2CredentialProviderPropsMixin.TokenExchangeGrantTypeConfigProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProviderPropsMixin_TokenExchangeGrantTypeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnOnlineEvaluationConfigMixinProps",

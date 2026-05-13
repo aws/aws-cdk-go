@@ -21,11 +21,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDomain := awscdk.Aws_datazone.NewCfnDomain(this, jsii.String("MyCfnDomain"), &CfnDomainProps{
-//   	DomainExecutionRole: jsii.String("domainExecutionRole"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	DomainExecutionRole: jsii.String("domainExecutionRole"),
 //   	DomainVersion: jsii.String("domainVersion"),
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ServiceRole: jsii.String("serviceRole"),
@@ -620,9 +620,6 @@ func (j *jsiiProxy_CfnDomain)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnDomain)SetDomainExecutionRole(val *string) {
-	if err := j.validateSetDomainExecutionRoleParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"domainExecutionRole",

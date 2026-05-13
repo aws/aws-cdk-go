@@ -27,6 +27,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	Dns64Enabled: jsii.Boolean(false),
+//   	Ipv6InternetAccessEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PreferredInstanceType: jsii.String("preferredInstanceType"),
@@ -69,6 +71,18 @@ type CfnResolverEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`
+	// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint.
+	//
+	// When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-dns64enabled
+	//
+	Dns64Enabled interface{} `field:"optional" json:"dns64Enabled" yaml:"dns64Enabled"`
+	// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint.
+	//
+	// When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-ipv6internetaccessenabled
+	//
+	Ipv6InternetAccessEnabled interface{} `field:"optional" json:"ipv6InternetAccessEnabled" yaml:"ipv6InternetAccessEnabled"`
 	// A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-name
 	//

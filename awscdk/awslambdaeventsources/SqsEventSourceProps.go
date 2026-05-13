@@ -65,6 +65,15 @@ type SqsEventSourceProps struct {
 	// Default: - Enhanced monitoring is disabled.
 	//
 	MetricsConfig *awslambda.MetricsConfig `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
+	// Configuration for provisioned pollers that read from the event source.
+	//
+	// When specified, allows control over the minimum and maximum number of pollers
+	// that can be provisioned to process events from the queue.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html
+	//
+	// Default: - no provisioned pollers.
+	//
+	ProvisionedPollerConfig *awslambda.ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
 	//

@@ -2,6 +2,8 @@ package awsbedrockagentcorealpha
 
 
 // Protocol configuration for Agent Runtime.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-protocolconfiguration
+//
 // Experimental.
 type ProtocolType string
 
@@ -15,5 +17,8 @@ const (
 	// A2A protocol.
 	// Experimental.
 	ProtocolType_A2A ProtocolType = "A2A"
+	// Agent User Interaction (AGUI) protocol.
+	// Experimental.
+	ProtocolType_AGUI ProtocolType = "AGUI"
 )
 

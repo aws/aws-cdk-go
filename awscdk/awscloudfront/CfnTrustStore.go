@@ -38,6 +38,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseClientCertificateOcspEndpoint: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html
@@ -117,6 +118,8 @@ type CfnTrustStore interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	UseClientCertificateOcspEndpoint() interface{}
+	SetUseClientCertificateOcspEndpoint(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -490,6 +493,16 @@ func (j *jsiiProxy_CfnTrustStore) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrustStore) UseClientCertificateOcspEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"useClientCertificateOcspEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::CloudFront::TrustStore`.
 func NewCfnTrustStore(scope constructs.Construct, id *string, props *CfnTrustStoreProps) CfnTrustStore {
@@ -549,6 +562,17 @@ func (j *jsiiProxy_CfnTrustStore)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrustStore)SetUseClientCertificateOcspEndpoint(val interface{}) {
+	if err := j.validateSetUseClientCertificateOcspEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"useClientCertificateOcspEndpoint",
 		val,
 	)
 }

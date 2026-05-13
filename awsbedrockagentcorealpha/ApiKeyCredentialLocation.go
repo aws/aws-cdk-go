@@ -12,22 +12,21 @@ import (
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // These ARNs are returned when creating the API key credential provider via Console or API
-//   apiKeyProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
-//   apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
+//   // Create an API key credential provider in Token Vault
+//   apiKeyProvider := agentcore.NewApiKeyCredentialProvider(this, jsii.String("MyApiKeyProvider"), &ApiKeyCredentialProviderResourceProps{
+//   	ApiKeyCredentialProviderName: jsii.String("my-apikey"),
+//   })
 //
 //   bucket := s3.Bucket_FromBucketName(this, jsii.String("ExistingBucket"), jsii.String("my-schema-bucket"))
 //   s3mySchema := agentcore.ApiSchema_FromS3File(bucket, jsii.String("schemas/myschema.yaml"))
 //
-//   // Add an OpenAPI target directly to the gateway
+//   // Add an OpenAPI target using the L2 construct directly
 //   target := gateway.AddOpenApiTarget(jsii.String("MyTarget"), &AddOpenApiTargetOptions{
 //   	GatewayTargetName: jsii.String("my-api-target"),
 //   	Description: jsii.String("Target for external API integration"),
 //   	ApiSchema: s3mySchema,
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderProps{
-//   			ProviderArn: apiKeyProviderArn,
-//   			SecretArn: apiKeySecretArn,
+//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentity(apiKeyProvider, &FromApiKeyIdentityOptions{
 //   			CredentialLocation: agentcore.ApiKeyCredentialLocation_Header(&ApiKeyAdditionalConfiguration{
 //   				CredentialParameterName: jsii.String("X-API-Key"),
 //   			}),
@@ -35,7 +34,7 @@ import (
 //   	},
 //   })
 //
-//   // This make sure your s3 bucket is available before target
+//   // This makes sure your s3 bucket is available before target
 //   target.Node.AddDependency(bucket)
 //
 // Experimental.

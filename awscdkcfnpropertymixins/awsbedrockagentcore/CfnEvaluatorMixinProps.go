@@ -53,6 +53,7 @@ import (
 //   		},
 //   	},
 //   	EvaluatorName: jsii.String("evaluatorName"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Level: jsii.String("level"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -79,6 +80,10 @@ type CfnEvaluatorMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-evaluator.html#cfn-bedrockagentcore-evaluator-evaluatorname
 	//
 	EvaluatorName *string `field:"optional" json:"evaluatorName" yaml:"evaluatorName"`
+	// The ARN of the KMS key used to encrypt evaluator data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-evaluator.html#cfn-bedrockagentcore-evaluator-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-evaluator.html#cfn-bedrockagentcore-evaluator-level
 	//
 	Level *string `field:"optional" json:"level" yaml:"level"`

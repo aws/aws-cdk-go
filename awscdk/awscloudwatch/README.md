@@ -508,6 +508,87 @@ When creating an anomaly detection alarm, you must use one of the following comp
 
 For more information on anomaly detection in CloudWatch, see the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html).
 
+## PromQL Alarms
+
+PromQL alarms evaluate a [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) instant query against metrics ingested through the CloudWatch OTLP endpoint on a recurring schedule. All matching time series returned by the query are considered breaching, and each is tracked independently as a *contributor*.
+
+### How PromQL Alarms Differ from Standard CloudWatch Alarms
+
+The existing `Alarm` construct is designed around the standard CloudWatch alarm model: a metric, a comparison operator, a threshold, and evaluation periods. PromQL alarms have a fundamentally different configuration model:
+
+* Instead of using alarm condition (threshold + comparison), all matching time series returned by the PromQL alarm query are considered to be breaching.
+* Instead of `evaluationPeriods` and `period`, PromQL alarms use `evaluationInterval`, `pendingPeriod`, and `recoveryPeriod`.
+* PromQL alarms do not use `MetricName`, `Namespace`, `Statistic`, `Dimensions`, or `Threshold` properties.
+* PromQL alarms only work with metrics ingested through the CloudWatch OTLP endpoint. Standard CloudWatch namespace metrics (e.g., `AWS/EC2`, `AWS/Lambda`) are not queryable via PromQL.
+
+### Creating a PromQL Alarm
+
+```go
+cloudwatch.NewPromQLAlarm(this, jsii.String("HighCpuAlarm"), &PromQLAlarmProps{
+	AlarmName: jsii.String("HighCpuAlarm"),
+	AlarmDescription: jsii.String("Alarm when average CPU exceeds 80%"),
+	Query: jsii.String("avg(cpu_utilization_percent) > 80"),
+	EvaluationInterval: awscdk.Duration_Seconds(jsii.Number(60)),
+})
+```
+
+### Pending and Recovery Periods
+
+Use `pendingPeriod` to require a contributor to breach continuously for a duration before entering ALARM state (equivalent to Prometheus `for` duration). Use `recoveryPeriod` to require a contributor to stop breaching for a duration before returning to OK state (equivalent to Prometheus `keep_firing_for` duration).
+
+```go
+cloudwatch.NewPromQLAlarm(this, jsii.String("HighLatencyAlarm"), &PromQLAlarmProps{
+	AlarmDescription: jsii.String("P99 latency exceeds 500ms for 5 minutes"),
+	Query: jsii.String("histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m])) > 0.5"),
+	EvaluationInterval: awscdk.Duration_Seconds(jsii.Number(60)),
+	PendingPeriod: awscdk.Duration_*Seconds(jsii.Number(300)),
+	RecoveryPeriod: awscdk.Duration_*Seconds(jsii.Number(600)),
+})
+```
+
+### Adding Actions
+
+`PromQLAlarm` extends `AlarmBase`, so you can add alarm, OK, and insufficient-data actions the same way as standard alarms:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var topic Topic
+
+
+alarm := cloudwatch.NewPromQLAlarm(this, jsii.String("ServiceDownAlarm"), &PromQLAlarmProps{
+	Query: jsii.String("up == 0"),
+	EvaluationInterval: awscdk.Duration_Seconds(jsii.Number(60)),
+	PendingPeriod: awscdk.Duration_*Seconds(jsii.Number(300)),
+	RecoveryPeriod: awscdk.Duration_*Seconds(jsii.Number(300)),
+})
+
+alarm.AddAlarmAction(cloudwatch_actions.NewSnsAction(topic))
+alarm.AddOkAction(cloudwatch_actions.NewSnsAction(topic))
+```
+
+### Importing an Existing PromQL Alarm
+
+```go
+importedByArn := cloudwatch.PromQLAlarm_FromPromQLAlarmArn(this, jsii.String("ImportedAlarm"), jsii.String("arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyPromQLAlarm"))
+
+importedByName := cloudwatch.PromQLAlarm_FromPromQLAlarmName(this, jsii.String("ImportedByName"), jsii.String("MyPromQLAlarm"))
+```
+
+### Using in Composite Alarms
+
+Since `PromQLAlarm` implements `IAlarm`, it can be used in composite alarm rules alongside standard alarms:
+
+```go
+var promqlAlarm PromQLAlarm
+var standardAlarm Alarm
+
+
+cloudwatch.NewCompositeAlarm(this, jsii.String("CompositeAlarm"), &CompositeAlarmProps{
+	AlarmRule: cloudwatch.AlarmRule_AllOf(promqlAlarm, standardAlarm),
+})
+```
+
 ## Dashboards
 
 Dashboards are set of Widgets stored server-side which can be accessed quickly

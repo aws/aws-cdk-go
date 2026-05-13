@@ -535,6 +535,26 @@ func init() {
 			return &jsiiProxy_ManifestFilter{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-mediapackagev2-alpha.MediaPackageV2Origin",
+		reflect.TypeOf((*MediaPackageV2Origin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "renderCustomOriginConfig", GoMethod: "RenderCustomOriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "renderS3OriginConfig", GoMethod: "RenderS3OriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "renderVpcOriginConfig", GoMethod: "RenderVpcOriginConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "validateResponseCompletionTimeoutWithReadTimeout", GoMethod: "ValidateResponseCompletionTimeoutWithReadTimeout"},
+		},
+		func() interface{} {
+			j := jsiiProxy_MediaPackageV2Origin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscloudfrontOriginBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-mediapackagev2-alpha.MediaPackageV2OriginProps",
+		reflect.TypeOf((*MediaPackageV2OriginProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-mediapackagev2-alpha.MssManifestConfiguration",
 		reflect.TypeOf((*MssManifestConfiguration)(nil)).Elem(),

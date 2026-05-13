@@ -36,6 +36,10 @@ func init() {
 		reflect.TypeOf((*CfnCacheClusterPropsMixin_DestinationDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnCacheClusterPropsMixin.EndpointProperty",
+		reflect.TypeOf((*CfnCacheClusterPropsMixin_EndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnCacheClusterPropsMixin.KinesisFirehoseDestinationDetailsProperty",
 		reflect.TypeOf((*CfnCacheClusterPropsMixin_KinesisFirehoseDestinationDetailsProperty)(nil)).Elem(),
 	)

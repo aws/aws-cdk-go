@@ -67,6 +67,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -115,6 +116,9 @@ type CfnEvaluator interface {
 	SetEvaluatorName(val *string)
 	// A reference to a Evaluator resource.
 	EvaluatorRef() *interfacesawsbedrockagentcore.EvaluatorReference
+	// The ARN of the KMS key used to encrypt evaluator data.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	Level() *string
 	SetLevel(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -457,6 +461,16 @@ func (j *jsiiProxy_CfnEvaluator) EvaluatorRef() *interfacesawsbedrockagentcore.E
 	return returns
 }
 
+func (j *jsiiProxy_CfnEvaluator) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEvaluator) Level() *string {
 	var returns *string
 	_jsii_.Get(
@@ -593,6 +607,14 @@ func (j *jsiiProxy_CfnEvaluator)SetEvaluatorName(val *string) {
 	_jsii_.Set(
 		j,
 		"evaluatorName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEvaluator)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
 		val,
 	)
 }

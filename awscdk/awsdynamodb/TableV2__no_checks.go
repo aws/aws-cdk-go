@@ -20,6 +20,10 @@ func (t *jsiiProxy_TableV2) validateAddToResourcePolicyParameters(statement awsi
 	return nil
 }
 
+func (t *jsiiProxy_TableV2) validateAddToStreamResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

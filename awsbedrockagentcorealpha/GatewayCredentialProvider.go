@@ -12,8 +12,7 @@ import (
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // OAuth2 authentication (recommended)
-//   // Note: Create the OAuth provider using AWS console or Identity L2 construct when available
+//   // OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
 //   oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
 //   oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
 //
@@ -72,6 +71,28 @@ func NewGatewayCredentialProvider_Override(g GatewayCredentialProvider) {
 	)
 }
 
+// Create an API key outbound auth configuration from a Token Vault {@link IApiKeyCredentialProvider} construct.
+//
+// Prefer this over {@link GatewayCredentialProvider.fromApiKeyIdentityArn} when the provider is defined in CDK.
+// Experimental.
+func GatewayCredentialProvider_FromApiKeyIdentity(provider IApiKeyCredentialProvider, options *FromApiKeyIdentityOptions) ICredentialProviderConfig {
+	_init_.Initialize()
+
+	if err := validateGatewayCredentialProvider_FromApiKeyIdentityParameters(provider, options); err != nil {
+		panic(err)
+	}
+	var returns ICredentialProviderConfig
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayCredentialProvider",
+		"fromApiKeyIdentity",
+		[]interface{}{provider, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Create an API key credential provider from Identity ARN Use this method when you have the Identity ARN as a string.
 //
 // Returns: ICredentialProviderConfig configured for API key authentication.
@@ -107,6 +128,28 @@ func GatewayCredentialProvider_FromIamRole() ICredentialProviderConfig {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayCredentialProvider",
 		"fromIamRole",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Create an OAuth outbound auth configuration from a Token Vault {@link IOAuth2CredentialProvider} construct.
+//
+// Prefer this over {@link GatewayCredentialProvider.fromOauthIdentityArn} when the provider is defined in CDK.
+// Experimental.
+func GatewayCredentialProvider_FromOauthIdentity(provider IOAuth2CredentialProvider, options *FromOauthIdentityOptions) ICredentialProviderConfig {
+	_init_.Initialize()
+
+	if err := validateGatewayCredentialProvider_FromOauthIdentityParameters(provider, options); err != nil {
+		panic(err)
+	}
+	var returns ICredentialProviderConfig
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayCredentialProvider",
+		"fromOauthIdentity",
+		[]interface{}{provider, options},
 		&returns,
 	)
 

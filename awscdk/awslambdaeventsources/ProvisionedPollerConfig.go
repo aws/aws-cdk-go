@@ -32,13 +32,17 @@ package awslambdaeventsources
 //
 type ProvisionedPollerConfig struct {
 	// The maximum number of pollers that can be provisioned.
+	//
+	// Valid Range: Minimum value of 1. Maximum value of 2000.
 	// Default: 200.
 	//
-	MaximumPollers *float64 `field:"required" json:"maximumPollers" yaml:"maximumPollers"`
+	MaximumPollers *float64 `field:"optional" json:"maximumPollers" yaml:"maximumPollers"`
 	// The minimum number of pollers that should be provisioned.
+	//
+	// Valid Range: Minimum value of 1. Maximum value of 200.
 	// Default: 1.
 	//
-	MinimumPollers *float64 `field:"required" json:"minimumPollers" yaml:"minimumPollers"`
+	MinimumPollers *float64 `field:"optional" json:"minimumPollers" yaml:"minimumPollers"`
 	// An optional identifier that groups multiple ESMs to share EPU capacity and reduce costs.
 	//
 	// ESMs with the same PollerGroupName share compute

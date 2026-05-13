@@ -9,6 +9,8 @@ package awsdatazone
 //   userProfileDetailsProperty := &UserProfileDetailsProperty{
 //   	Iam: &IamUserProfileDetailsProperty{
 //   		Arn: jsii.String("arn"),
+//   		GroupProfileId: jsii.String("groupProfileId"),
+//   		SessionName: jsii.String("sessionName"),
 //   	},
 //   	Sso: &SsoUserProfileDetailsProperty{
 //   		FirstName: jsii.String("firstName"),

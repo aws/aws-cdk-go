@@ -33,6 +33,15 @@ import (
 //   				},
 //   				DiscoveryUrl: jsii.String("discoveryUrl"),
 //   			},
+//   			OnBehalfOfTokenExchangeConfig: &OnBehalfOfTokenExchangeConfigProperty{
+//   				GrantType: jsii.String("grantType"),
+//   				TokenExchangeGrantTypeConfig: &TokenExchangeGrantTypeConfigProperty{
+//   					ActorTokenContent: jsii.String("actorTokenContent"),
+//   					ActorTokenScopes: []*string{
+//   						jsii.String("actorTokenScopes"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   		GithubOauth2ProviderConfig: &GithubOauth2ProviderConfigInputProperty{
 //   			ClientId: jsii.String("clientId"),

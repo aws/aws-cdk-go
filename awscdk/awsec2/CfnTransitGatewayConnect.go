@@ -526,6 +526,43 @@ func (j *jsiiProxy_CfnTransitGatewayConnect)SetTransportTransitGatewayAttachment
 	)
 }
 
+func CfnTransitGatewayConnect_ArnForTransitGatewayConnect(resource interfacesawsec2.ITransitGatewayConnectRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayConnect_ArnForTransitGatewayConnectParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnect",
+		"arnForTransitGatewayConnect",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ITransitGatewayConnectRef from a transitGatewayAttachmentId.
+func CfnTransitGatewayConnect_FromTransitGatewayAttachmentId(scope constructs.Construct, id *string, transitGatewayAttachmentId *string) interfacesawsec2.ITransitGatewayConnectRef {
+	_init_.Initialize()
+
+	if err := validateCfnTransitGatewayConnect_FromTransitGatewayAttachmentIdParameters(scope, id, transitGatewayAttachmentId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsec2.ITransitGatewayConnectRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayConnect",
+		"fromTransitGatewayAttachmentId",
+		[]interface{}{scope, id, transitGatewayAttachmentId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

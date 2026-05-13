@@ -83,5 +83,12 @@ type OnlineEvaluationConfigProps struct {
 	// Can include both built-in evaluators and custom evaluators.
 	// Experimental.
 	Evaluators *[]EvaluatorReference `field:"required" json:"evaluators" yaml:"evaluators"`
+	// Tags for the online evaluation configuration.
+	//
+	// A list of key:value pairs of tags to apply to this OnlineEvaluationConfig resource.
+	// Default: - No tags.
+	//
+	// Experimental.
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

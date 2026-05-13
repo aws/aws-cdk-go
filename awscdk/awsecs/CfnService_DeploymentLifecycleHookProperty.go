@@ -15,25 +15,19 @@ package awsecs
 //   var hookDetails interface{}
 //
 //   deploymentLifecycleHookProperty := &DeploymentLifecycleHookProperty{
-//   	HookTargetArn: jsii.String("hookTargetArn"),
 //   	LifecycleStages: []*string{
 //   		jsii.String("lifecycleStages"),
 //   	},
-//   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
 //   	HookDetails: hookDetails,
+//   	HookTargetArn: jsii.String("hookTargetArn"),
+//   	RoleArn: jsii.String("roleArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html
 //
 type CfnService_DeploymentLifecycleHookProperty struct {
-	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-	//
-	// You must provide this parameter when configuring a deployment lifecycle hook.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-hooktargetarn
-	//
-	HookTargetArn *string `field:"required" json:"hookTargetArn" yaml:"hookTargetArn"`
 	// The lifecycle stages at which to run the hook. Choose from these valid values:.
 	//
 	// - RECONCILE_SERVICE
@@ -76,17 +70,23 @@ type CfnService_DeploymentLifecycleHookProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-lifecyclestages
 	//
 	LifecycleStages *[]*string `field:"required" json:"lifecycleStages" yaml:"lifecycleStages"`
-	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
-	//
-	// For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-rolearn
-	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// Use this field to specify custom parameters that Amazon ECS passes to your hook target invocations (such as a Lambda function).
 	//
 	// This field must be a JSON object as a string.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-hookdetails
 	//
 	HookDetails interface{} `field:"optional" json:"hookDetails" yaml:"hookDetails"`
+	// The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
+	//
+	// You must provide this parameter when configuring a deployment lifecycle hook.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-hooktargetarn
+	//
+	HookTargetArn *string `field:"optional" json:"hookTargetArn" yaml:"hookTargetArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
+	//
+	// For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-rolearn
+	//
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

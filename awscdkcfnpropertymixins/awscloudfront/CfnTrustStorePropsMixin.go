@@ -36,6 +36,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseClientCertificateOcspEndpoint: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

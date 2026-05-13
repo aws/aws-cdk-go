@@ -96,7 +96,15 @@ func (j *jsiiProxy_CfnResolverEndpoint) validateSetDirectionParameters(val *stri
 	return nil
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) validateSetDns64EnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) validateSetIpAddressesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) validateSetIpv6InternetAccessEnabledParameters(val interface{}) error {
 	return nil
 }
 

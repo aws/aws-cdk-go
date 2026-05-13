@@ -12,11 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDomainProps := &CfnDomainProps{
-//   	DomainExecutionRole: jsii.String("domainExecutionRole"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	DomainExecutionRole: jsii.String("domainExecutionRole"),
 //   	DomainVersion: jsii.String("domainVersion"),
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ServiceRole: jsii.String("serviceRole"),
@@ -36,12 +36,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html
 //
 type CfnDomainProps struct {
-	// The domain execution role that is created when an Amazon DataZone domain is created.
-	//
-	// The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-domainexecutionrole
-	//
-	DomainExecutionRole *string `field:"required" json:"domainExecutionRole" yaml:"domainExecutionRole"`
 	// The name of the Amazon DataZone domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-name
 	//
@@ -50,6 +44,12 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The domain execution role that is created when an Amazon DataZone domain is created.
+	//
+	// The domain execution role is created in the AWS account that houses the Amazon DataZone domain.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-domainexecutionrole
+	//
+	DomainExecutionRole *string `field:"optional" json:"domainExecutionRole" yaml:"domainExecutionRole"`
 	// The domain version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-domain.html#cfn-datazone-domain-domainversion
 	//

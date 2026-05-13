@@ -40,6 +40,8 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	Dns64Enabled: jsii.Boolean(false),
+//   	Ipv6InternetAccessEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PreferredInstanceType: jsii.String("preferredInstanceType"),
@@ -92,10 +94,16 @@ type CfnResolverEndpoint interface {
 	// Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:.
 	Direction() *string
 	SetDirection(val *string)
+	// Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint.
+	Dns64Enabled() interface{}
+	SetDns64Enabled(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
 	IpAddresses() interface{}
 	SetIpAddresses(val interface{})
+	// Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint.
+	Ipv6InternetAccessEnabled() interface{}
+	SetIpv6InternetAccessEnabled(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -456,6 +464,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) Direction() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint) Dns64Enabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dns64Enabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -471,6 +489,16 @@ func (j *jsiiProxy_CfnResolverEndpoint) IpAddresses() interface{} {
 	_jsii_.Get(
 		j,
 		"ipAddresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint) Ipv6InternetAccessEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ipv6InternetAccessEnabled",
 		&returns,
 	)
 	return returns
@@ -687,6 +715,17 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetDirection(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnResolverEndpoint)SetDns64Enabled(val interface{}) {
+	if err := j.validateSetDns64EnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"dns64Enabled",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnResolverEndpoint)SetIpAddresses(val interface{}) {
 	if err := j.validateSetIpAddressesParameters(val); err != nil {
 		panic(err)
@@ -694,6 +733,17 @@ func (j *jsiiProxy_CfnResolverEndpoint)SetIpAddresses(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ipAddresses",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResolverEndpoint)SetIpv6InternetAccessEnabled(val interface{}) {
+	if err := j.validateSetIpv6InternetAccessEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ipv6InternetAccessEnabled",
 		val,
 	)
 }

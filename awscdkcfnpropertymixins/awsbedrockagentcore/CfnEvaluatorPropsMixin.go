@@ -61,6 +61,7 @@ import (
 //   		},
 //   	},
 //   	EvaluatorName: jsii.String("evaluatorName"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Level: jsii.String("level"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

@@ -42,14 +42,14 @@ import (
 //   		},
 //   		LifecycleHooks: []interface{}{
 //   			&DeploymentLifecycleHookProperty{
-//   				HookTargetArn: jsii.String("hookTargetArn"),
 //   				LifecycleStages: []*string{
 //   					jsii.String("lifecycleStages"),
 //   				},
-//   				RoleArn: jsii.String("roleArn"),
 //
 //   				// the properties below are optional
 //   				HookDetails: hookDetails,
+//   				HookTargetArn: jsii.String("hookTargetArn"),
+//   				RoleArn: jsii.String("roleArn"),
 //   			},
 //   		},
 //   		LinearConfiguration: &LinearConfigurationProperty{

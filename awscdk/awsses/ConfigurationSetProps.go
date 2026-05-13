@@ -14,6 +14,15 @@ import (
 //   })
 //
 type ConfigurationSetProps struct {
+	// The Auto Validation threshold for this configuration set.
+	//
+	// When set, Auto Validation is enabled for this configuration set with the specified
+	// confidence threshold. Cannot be combined with `disableAutoValidation: true`.
+	// See: https://docs.aws.amazon.com/ses/latest/dg/email-validation-auto.html
+	//
+	// Default: - inherit the account-level Auto Validation settings.
+	//
+	AutoValidationThreshold AutoValidationThreshold `field:"optional" json:"autoValidationThreshold" yaml:"autoValidationThreshold"`
 	// A name for the configuration set.
 	// Default: - a CloudFormation generated name.
 	//
@@ -30,6 +39,19 @@ type ConfigurationSetProps struct {
 	// Default: - do not use a dedicated IP pool.
 	//
 	DedicatedIpPool interfacesawsses.IDedicatedIpPoolRef `field:"optional" json:"dedicatedIpPool" yaml:"dedicatedIpPool"`
+	// Override the account-level Auto Validation setting for this configuration set.
+	//
+	// - `true`: explicitly disable Auto Validation for this configuration set.
+	//   Cannot be combined with `autoValidationThreshold`.
+	// - `false`: explicitly enable Auto Validation for this configuration set even if
+	//   it is disabled at the account level. The threshold falls back to the SES default
+	//   unless `autoValidationThreshold` is also specified.
+	// - `undefined`: inherit the account-level setting when `autoValidationThreshold` is also not specified.
+	// See: https://docs.aws.amazon.com/ses/latest/dg/email-validation-auto.html
+	//
+	// Default: - inherit the account-level Auto Validation settings when autoValidationThreshold is also unspecified.
+	//
+	DisableAutoValidation *bool `field:"optional" json:"disableAutoValidation" yaml:"disableAutoValidation"`
 	// If true, account-level suppression list is disabled;
 	//
 	// email sent with this configuration set

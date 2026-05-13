@@ -10,6 +10,7 @@ package awsdatazone
 //
 //   cfnUserProfileMixinProps := &CfnUserProfileMixinProps{
 //   	DomainIdentifier: jsii.String("domainIdentifier"),
+//   	SessionName: jsii.String("sessionName"),
 //   	Status: jsii.String("status"),
 //   	UserIdentifier: jsii.String("userIdentifier"),
 //   	UserType: jsii.String("userType"),
@@ -22,6 +23,10 @@ type CfnUserProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-domainidentifier
 	//
 	DomainIdentifier *string `field:"optional" json:"domainIdentifier" yaml:"domainIdentifier"`
+	// The session name of the user profile.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-sessionname
+	//
+	SessionName *string `field:"optional" json:"sessionName" yaml:"sessionName"`
 	// The status of the user profile.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html#cfn-datazone-userprofile-status
 	//

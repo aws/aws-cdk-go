@@ -44,6 +44,8 @@ func init() {
 			"PYTHON_3_11": AgentCoreRuntime_PYTHON_3_11,
 			"PYTHON_3_12": AgentCoreRuntime_PYTHON_3_12,
 			"PYTHON_3_13": AgentCoreRuntime_PYTHON_3_13,
+			"PYTHON_3_14": AgentCoreRuntime_PYTHON_3_14,
+			"NODE_22": AgentCoreRuntime_NODE_22,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -123,9 +125,60 @@ func init() {
 			return &jsiiProxy_ApiKeyCredentialLocation{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiKeyCredentialProvider",
+		reflect.TypeOf((*ApiKeyCredentialProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyCredentialProviderName", GoGetter: "ApiKeyCredentialProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyCredentialProviderRef", GoGetter: "ApiKeyCredentialProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeySecretArn", GoGetter: "ApiKeySecretArn"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "bindForGatewayApiKeyTarget", GoMethod: "BindForGatewayApiKeyTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "createdTime", GoGetter: "CreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialProviderArn", GoGetter: "CredentialProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAdmin", GoMethod: "GrantAdmin"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUse", GoMethod: "GrantUse"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdatedTime", GoGetter: "LastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiKeyCredentialProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApiKeyCredentialProvider)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiKeyCredentialProviderAttributes",
+		reflect.TypeOf((*ApiKeyCredentialProviderAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiKeyCredentialProviderIdentityPerms",
+		reflect.TypeOf((*ApiKeyCredentialProviderIdentityPerms)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ApiKeyCredentialProviderIdentityPerms{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiKeyCredentialProviderProps",
 		reflect.TypeOf((*ApiKeyCredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiKeyCredentialProviderResourceProps",
+		reflect.TypeOf((*ApiKeyCredentialProviderResourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.ApiSchema",
@@ -172,6 +225,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ToolSchema)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.AtlassianOAuth2CredentialProviderProps",
+		reflect.TypeOf((*AtlassianOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.AttributeAccessor",
@@ -547,6 +604,10 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.CustomJwtConfiguration",
 		reflect.TypeOf((*CustomJwtConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.CustomOAuth2CredentialProviderProps",
+		reflect.TypeOf((*CustomOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.DataSourceConfig",
 		reflect.TypeOf((*DataSourceConfig)(nil)).Elem(),
@@ -561,6 +622,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.DataSourceConfigBindResult",
 		reflect.TypeOf((*DataSourceConfigBindResult)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.DropboxOAuth2CredentialProviderProps",
+		reflect.TypeOf((*DropboxOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.EpisodicReflectionConfiguration",
@@ -691,6 +756,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.FacebookOAuth2CredentialProviderProps",
+		reflect.TypeOf((*FacebookOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.FilterConfig",
 		reflect.TypeOf((*FilterConfig)(nil)).Elem(),
 	)
@@ -711,6 +780,14 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_FilterValue{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.FromApiKeyIdentityOptions",
+		reflect.TypeOf((*FromApiKeyIdentityOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.FromOauthIdentityOptions",
+		reflect.TypeOf((*FromOauthIdentityOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.Gateway",
@@ -774,6 +851,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_GatewayBase)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayApiKeyIdentityBinding",
+		reflect.TypeOf((*GatewayApiKeyIdentityBinding)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayAttributes",
@@ -868,6 +949,10 @@ func init() {
 		map[string]interface{}{
 			"DEBUG": GatewayExceptionLevel_DEBUG,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayOAuth2IdentityBinding",
+		reflect.TypeOf((*GatewayOAuth2IdentityBinding)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayPolicyEngineConfig",
@@ -999,6 +1084,48 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.GatewayTargetSmithyProps",
 		reflect.TypeOf((*GatewayTargetSmithyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GithubOAuth2CredentialProviderProps",
+		reflect.TypeOf((*GithubOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.GoogleOAuth2CredentialProviderProps",
+		reflect.TypeOf((*GoogleOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.HubspotOAuth2CredentialProviderProps",
+		reflect.TypeOf((*HubspotOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IApiKeyCredentialProvider",
+		reflect.TypeOf((*IApiKeyCredentialProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "apiKeyCredentialProviderRef", GoGetter: "ApiKeyCredentialProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "apiKeySecretArn", GoGetter: "ApiKeySecretArn"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "bindForGatewayApiKeyTarget", GoMethod: "BindForGatewayApiKeyTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "createdTime", GoGetter: "CreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialProviderArn", GoGetter: "CredentialProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAdmin", GoMethod: "GrantAdmin"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUse", GoMethod: "GrantUse"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdatedTime", GoGetter: "LastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApiKeyCredentialProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIApiKeyCredentialProviderRef)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.IBedrockAgentRuntime",
@@ -1362,6 +1489,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IOAuth2CredentialProvider",
+		reflect.TypeOf((*IOAuth2CredentialProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "bindForGatewayOAuthTarget", GoMethod: "BindForGatewayOAuthTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "callbackUrl", GoGetter: "CallbackUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "clientSecretArn", GoGetter: "ClientSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "createdTime", GoGetter: "CreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialProviderArn", GoGetter: "CredentialProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialProviderVendor", GoGetter: "CredentialProviderVendor"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAdmin", GoMethod: "GrantAdmin"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUse", GoMethod: "GrantUse"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdatedTime", GoGetter: "LastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "oAuth2CredentialProviderRef", GoGetter: "OAuth2CredentialProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOAuth2CredentialProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIOAuth2CredentialProviderRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.IOnlineEvaluationConfig",
 		reflect.TypeOf((*IOnlineEvaluationConfig)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1491,6 +1650,35 @@ func init() {
 			return &jsiiProxy_ITargetConfiguration{}
 		},
 	)
+	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IWorkloadIdentity",
+		reflect.TypeOf((*IWorkloadIdentity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdTime", GoGetter: "CreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAdmin", GoMethod: "GrantAdmin"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUse", GoMethod: "GrantUse"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdatedTime", GoGetter: "LastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadIdentityArn", GoGetter: "WorkloadIdentityArn"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadIdentityName", GoGetter: "WorkloadIdentityName"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadIdentityRef", GoGetter: "WorkloadIdentityRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkloadIdentity{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIWorkloadIdentityRef)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.IamAuthorizer",
 		reflect.TypeOf((*IamAuthorizer)(nil)).Elem(),
@@ -1502,6 +1690,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IGatewayAuthorizerConfig)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IncludedOauth2TenantCredentialProviderProps",
+		reflect.TypeOf((*IncludedOauth2TenantCredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.IncludedOauth2TenantEndpoints",
+		reflect.TypeOf((*IncludedOauth2TenantEndpoints)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.InlineApiSchema",
@@ -1587,6 +1783,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.LifecycleConfiguration",
 		reflect.TypeOf((*LifecycleConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.LinkedinOAuth2CredentialProviderProps",
+		reflect.TypeOf((*LinkedinOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.LlmAsAJudgeOptions",
@@ -1849,6 +2049,10 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.MetadataConfiguration",
 		reflect.TypeOf((*MetadataConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.MicrosoftOAuth2CredentialProviderProps",
+		reflect.TypeOf((*MicrosoftOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.NetworkConfiguration",
 		reflect.TypeOf((*NetworkConfiguration)(nil)).Elem(),
@@ -1875,8 +2079,112 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.NotionOAuth2CredentialProviderProps",
+		reflect.TypeOf((*NotionOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.NumericalRatingOption",
 		reflect.TypeOf((*NumericalRatingOption)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2AuthorizationServerMetadata",
+		reflect.TypeOf((*OAuth2AuthorizationServerMetadata)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2ClientCredentials",
+		reflect.TypeOf((*OAuth2ClientCredentials)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProvider",
+		reflect.TypeOf((*OAuth2CredentialProvider)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "bindForGatewayOAuthTarget", GoMethod: "BindForGatewayOAuthTarget"},
+			_jsii_.MemberProperty{JsiiProperty: "callbackUrl", GoGetter: "CallbackUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "clientSecretArn", GoGetter: "ClientSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "createdTime", GoGetter: "CreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialProviderArn", GoGetter: "CredentialProviderArn"},
+			_jsii_.MemberProperty{JsiiProperty: "credentialProviderVendor", GoGetter: "CredentialProviderVendor"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAdmin", GoMethod: "GrantAdmin"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUse", GoMethod: "GrantUse"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdatedTime", GoGetter: "LastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "oAuth2CredentialProviderName", GoGetter: "OAuth2CredentialProviderName"},
+			_jsii_.MemberProperty{JsiiProperty: "oAuth2CredentialProviderRef", GoGetter: "OAuth2CredentialProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_OAuth2CredentialProvider{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IOAuth2CredentialProvider)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProviderAttributes",
+		reflect.TypeOf((*OAuth2CredentialProviderAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProviderBaseProps",
+		reflect.TypeOf((*OAuth2CredentialProviderBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProviderFactoryBaseProps",
+		reflect.TypeOf((*OAuth2CredentialProviderFactoryBaseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProviderIdentityPerms",
+		reflect.TypeOf((*OAuth2CredentialProviderIdentityPerms)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_OAuth2CredentialProviderIdentityPerms{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProviderProps",
+		reflect.TypeOf((*OAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuth2CredentialProviderVendor",
+		reflect.TypeOf((*OAuth2CredentialProviderVendor)(nil)).Elem(),
+		map[string]interface{}{
+			"GOOGLE": OAuth2CredentialProviderVendor_GOOGLE,
+			"GITHUB": OAuth2CredentialProviderVendor_GITHUB,
+			"SLACK": OAuth2CredentialProviderVendor_SLACK,
+			"SALESFORCE": OAuth2CredentialProviderVendor_SALESFORCE,
+			"MICROSOFT": OAuth2CredentialProviderVendor_MICROSOFT,
+			"CUSTOM": OAuth2CredentialProviderVendor_CUSTOM,
+			"ATLASSIAN": OAuth2CredentialProviderVendor_ATLASSIAN,
+			"LINKEDIN": OAuth2CredentialProviderVendor_LINKEDIN,
+			"X": OAuth2CredentialProviderVendor_X,
+			"OKTA": OAuth2CredentialProviderVendor_OKTA,
+			"ONE_LOGIN": OAuth2CredentialProviderVendor_ONE_LOGIN,
+			"PING_ONE": OAuth2CredentialProviderVendor_PING_ONE,
+			"FACEBOOK": OAuth2CredentialProviderVendor_FACEBOOK,
+			"YANDEX": OAuth2CredentialProviderVendor_YANDEX,
+			"REDDIT": OAuth2CredentialProviderVendor_REDDIT,
+			"ZOOM": OAuth2CredentialProviderVendor_ZOOM,
+			"TWITCH": OAuth2CredentialProviderVendor_TWITCH,
+			"SPOTIFY": OAuth2CredentialProviderVendor_SPOTIFY,
+			"DROPBOX": OAuth2CredentialProviderVendor_DROPBOX,
+			"NOTION": OAuth2CredentialProviderVendor_NOTION,
+			"HUBSPOT": OAuth2CredentialProviderVendor_HUBSPOT,
+			"CYBER_ARK": OAuth2CredentialProviderVendor_CYBER_ARK,
+			"FUSION_AUTH": OAuth2CredentialProviderVendor_FUSION_AUTH,
+			"AUTH0": OAuth2CredentialProviderVendor_AUTH0,
+			"COGNITO": OAuth2CredentialProviderVendor_COGNITO,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.OAuthConfiguration",
@@ -2190,11 +2498,16 @@ func init() {
 			"MCP": ProtocolType_MCP,
 			"HTTP": ProtocolType_HTTP,
 			"A2A": ProtocolType_A2A,
+			"AGUI": ProtocolType_AGUI,
 		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RecordingConfig",
 		reflect.TypeOf((*RecordingConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.RedditOAuth2CredentialProviderProps",
+		reflect.TypeOf((*RedditOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.RequestHeaderConfiguration",
@@ -2439,6 +2752,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.SalesforceOAuth2CredentialProviderProps",
+		reflect.TypeOf((*SalesforceOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.SchemaDefinition",
 		reflect.TypeOf((*SchemaDefinition)(nil)).Elem(),
 	)
@@ -2477,6 +2794,10 @@ func init() {
 		"@aws-cdk/aws-bedrock-agentcore-alpha.SelfManagedStrategyProps",
 		reflect.TypeOf((*SelfManagedStrategyProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.SlackOAuth2CredentialProviderProps",
+		reflect.TypeOf((*SlackOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.SmithyTargetConfiguration",
 		reflect.TypeOf((*SmithyTargetConfiguration)(nil)).Elem(),
@@ -2491,6 +2812,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_McpTargetConfiguration)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.SpotifyOAuth2CredentialProviderProps",
+		reflect.TypeOf((*SpotifyOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.TargetConfigurationConfig",
@@ -2519,7 +2844,72 @@ func init() {
 		reflect.TypeOf((*TriggerConditions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.TwitchOAuth2CredentialProviderProps",
+		reflect.TypeOf((*TwitchOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-bedrock-agentcore-alpha.VpcConfigProps",
 		reflect.TypeOf((*VpcConfigProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.WorkloadIdentity",
+		reflect.TypeOf((*WorkloadIdentity)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "createdTime", GoGetter: "CreatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberMethod{JsiiMethod: "grantAdmin", GoMethod: "GrantAdmin"},
+			_jsii_.MemberMethod{JsiiMethod: "grantFullAccess", GoMethod: "GrantFullAccess"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
+			_jsii_.MemberMethod{JsiiMethod: "grantUse", GoMethod: "GrantUse"},
+			_jsii_.MemberProperty{JsiiProperty: "lastUpdatedTime", GoGetter: "LastUpdatedTime"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadIdentityArn", GoGetter: "WorkloadIdentityArn"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadIdentityName", GoGetter: "WorkloadIdentityName"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadIdentityRef", GoGetter: "WorkloadIdentityRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WorkloadIdentity{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWorkloadIdentity)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.WorkloadIdentityAttributes",
+		reflect.TypeOf((*WorkloadIdentityAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.WorkloadIdentityPerms",
+		reflect.TypeOf((*WorkloadIdentityPerms)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_WorkloadIdentityPerms{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.WorkloadIdentityProps",
+		reflect.TypeOf((*WorkloadIdentityProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.XOAuth2CredentialProviderProps",
+		reflect.TypeOf((*XOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.YandexOAuth2CredentialProviderProps",
+		reflect.TypeOf((*YandexOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-bedrock-agentcore-alpha.ZoomOAuth2CredentialProviderProps",
+		reflect.TypeOf((*ZoomOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 }

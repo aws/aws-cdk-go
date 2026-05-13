@@ -100,10 +100,6 @@ func validateCfnDomain_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDomain) validateSetDomainExecutionRoleParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnDomain) validateSetNameParameters(val *string) error {
 	return nil
 }

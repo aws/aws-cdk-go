@@ -92,6 +92,9 @@ package awsdatazone
 //   	IamProperties: &IamPropertiesInputProperty{
 //   		GlueLineageSyncEnabled: jsii.Boolean(false),
 //   	},
+//   	LakehouseProperties: &LakehousePropertiesInputProperty{
+//   		GlueLineageSyncEnabled: jsii.Boolean(false),
+//   	},
 //   	MlflowProperties: &MlflowPropertiesInputProperty{
 //   		TrackingServerArn: jsii.String("trackingServerArn"),
 //   	},
@@ -121,6 +124,7 @@ package awsdatazone
 //   		S3Uri: jsii.String("s3Uri"),
 //
 //   		// the properties below are optional
+//   		RegisterS3AccessGrantLocation: jsii.Boolean(false),
 //   		S3AccessGrantLocationId: jsii.String("s3AccessGrantLocationId"),
 //   	},
 //   	SparkEmrProperties: &SparkEmrPropertiesInputProperty{
@@ -174,6 +178,10 @@ type CfnConnection_ConnectionPropertiesInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-iamproperties
 	//
 	IamProperties interface{} `field:"optional" json:"iamProperties" yaml:"iamProperties"`
+	// Lakehouse Properties Input.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-lakehouseproperties
+	//
+	LakehouseProperties interface{} `field:"optional" json:"lakehouseProperties" yaml:"lakehouseProperties"`
 	// MLflow Properties Input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html#cfn-datazone-connection-connectionpropertiesinput-mlflowproperties
 	//

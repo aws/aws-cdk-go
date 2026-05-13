@@ -67,6 +67,7 @@ package awsiot
 //   			},
 //   		},
 //   		BatchConfig: &BatchConfigProperty{
+//   			BatchAcrossTopics: jsii.Boolean(false),
 //   			MaxBatchOpenMs: jsii.Number(123),
 //   			MaxBatchSize: jsii.Number(123),
 //   			MaxBatchSizeBytes: jsii.Number(123),

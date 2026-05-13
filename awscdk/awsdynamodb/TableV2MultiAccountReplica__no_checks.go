@@ -8,6 +8,10 @@ func (t *jsiiProxy_TableV2MultiAccountReplica) validateAddToResourcePolicyParame
 	return nil
 }
 
+func (t *jsiiProxy_TableV2MultiAccountReplica) validateAddToStreamResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableV2MultiAccountReplica) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

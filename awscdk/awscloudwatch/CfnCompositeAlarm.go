@@ -694,6 +694,44 @@ func CfnCompositeAlarm_ArnForCompositeAlarm(resource interfacesawscloudwatch.ICo
 	return returns
 }
 
+// Creates a new ICompositeAlarmRef from a alarmName.
+func CfnCompositeAlarm_FromAlarmName(scope constructs.Construct, id *string, alarmName *string) interfacesawscloudwatch.ICompositeAlarmRef {
+	_init_.Initialize()
+
+	if err := validateCfnCompositeAlarm_FromAlarmNameParameters(scope, id, alarmName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawscloudwatch.ICompositeAlarmRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnCompositeAlarm",
+		"fromAlarmName",
+		[]interface{}{scope, id, alarmName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new ICompositeAlarmRef from an ARN.
+func CfnCompositeAlarm_FromCompositeAlarmArn(scope constructs.Construct, id *string, arn *string) interfacesawscloudwatch.ICompositeAlarmRef {
+	_init_.Initialize()
+
+	if err := validateCfnCompositeAlarm_FromCompositeAlarmArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawscloudwatch.ICompositeAlarmRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.CfnCompositeAlarm",
+		"fromCompositeAlarmArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnCompositeAlarm.
 func CfnCompositeAlarm_IsCfnCompositeAlarm(x interface{}) *bool {
 	_init_.Initialize()

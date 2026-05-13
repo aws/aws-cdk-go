@@ -92,6 +92,10 @@ func (j *jsiiProxy_CfnConnection) validateSetAwsLocationParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnection) validateSetConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnection) validateSetDomainIdentifierParameters(val *string) error {
 	return nil
 }

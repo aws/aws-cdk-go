@@ -15,6 +15,7 @@ import (
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	ResourceConfigDnsResolution: jsii.String("resourceConfigDnsResolution"),
 //   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -45,6 +46,9 @@ type CfnResourceGatewayMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html#cfn-vpclattice-resourcegateway-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html#cfn-vpclattice-resourcegateway-resourceconfigdnsresolution
+	//
+	ResourceConfigDnsResolution *string `field:"optional" json:"resourceConfigDnsResolution" yaml:"resourceConfigDnsResolution"`
 	// The IDs of the security groups applied to the resource gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html#cfn-vpclattice-resourcegateway-securitygroupids
 	//

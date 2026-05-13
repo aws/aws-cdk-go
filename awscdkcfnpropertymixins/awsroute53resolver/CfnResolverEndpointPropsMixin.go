@@ -28,6 +28,7 @@ import (
 //
 //   cfnResolverEndpointPropsMixin := awscdkcfnpropertymixins.Aws_route53resolver.NewCfnResolverEndpointPropsMixin(&CfnResolverEndpointMixinProps{
 //   	Direction: jsii.String("direction"),
+//   	Dns64Enabled: jsii.Boolean(false),
 //   	IpAddresses: []interface{}{
 //   		&IpAddressRequestProperty{
 //   			Ip: jsii.String("ip"),
@@ -35,6 +36,7 @@ import (
 //   			SubnetId: jsii.String("subnetId"),
 //   		},
 //   	},
+//   	Ipv6InternetAccessEnabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	OutpostArn: jsii.String("outpostArn"),
 //   	PreferredInstanceType: jsii.String("preferredInstanceType"),

@@ -4,13 +4,11 @@ package awsbedrockagentcorealpha
 
 import (
 	"fmt"
-
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-func (i *jsiiProxy_ICredentialProviderConfig) validateGrantNeededPermissionsToRoleParameters(role awsiam.IRole) error {
-	if role == nil {
-		return fmt.Errorf("parameter role is required, but nil was provided")
+func (i *jsiiProxy_ICredentialProviderConfig) validateGrantNeededPermissionsToRoleParameters(gateway IGateway) error {
+	if gateway == nil {
+		return fmt.Errorf("parameter gateway is required, but nil was provided")
 	}
 
 	return nil

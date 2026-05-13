@@ -30,6 +30,17 @@ import (
 //   	GlossaryTerms: []*string{
 //   		jsii.String("glossaryTerms"),
 //   	},
+//   	MembershipAssignments: []interface{}{
+//   		&ProjectMembershipAssignmentProperty{
+//   			Designation: jsii.String("designation"),
+//   			Member: &MemberProperty{
+//   				GroupIdentifier: jsii.String("groupIdentifier"),
+//   				UserIdentifier: jsii.String("userIdentifier"),
+//   			},
+//   		},
+//   	},
+//   	ProjectCategory: jsii.String("projectCategory"),
+//   	ProjectExecutionRole: jsii.String("projectExecutionRole"),
 //   	ProjectProfileId: jsii.String("projectProfileId"),
 //   	ProjectProfileVersion: jsii.String("projectProfileVersion"),
 //   	ResourceTags: []interface{}{
@@ -103,11 +114,20 @@ type CfnProject interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The project membership assignments.
+	MembershipAssignments() interface{}
+	SetMembershipAssignments(val interface{})
 	// The name of a project.
 	Name() *string
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The project category.
+	ProjectCategory() *string
+	SetProjectCategory(val *string)
+	// The project execution role ARN.
+	ProjectExecutionRole() *string
+	SetProjectExecutionRole(val *string)
 	// The ID of the project profile.
 	ProjectProfileId() *string
 	SetProjectProfileId(val *string)
@@ -456,6 +476,16 @@ func (j *jsiiProxy_CfnProject) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) MembershipAssignments() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"membershipAssignments",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -471,6 +501,26 @@ func (j *jsiiProxy_CfnProject) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) ProjectCategory() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectCategory",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) ProjectExecutionRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"projectExecutionRole",
 		&returns,
 	)
 	return returns
@@ -631,6 +681,17 @@ func (j *jsiiProxy_CfnProject)SetGlossaryTerms(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnProject)SetMembershipAssignments(val interface{}) {
+	if err := j.validateSetMembershipAssignmentsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"membershipAssignments",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnProject)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -638,6 +699,22 @@ func (j *jsiiProxy_CfnProject)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetProjectCategory(val *string) {
+	_jsii_.Set(
+		j,
+		"projectCategory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject)SetProjectExecutionRole(val *string) {
+	_jsii_.Set(
+		j,
+		"projectExecutionRole",
 		val,
 	)
 }

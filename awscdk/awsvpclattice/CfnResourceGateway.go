@@ -30,6 +30,7 @@ import (
 //   	// the properties below are optional
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
+//   	ResourceConfigDnsResolution: jsii.String("resourceConfigDnsResolution"),
 //   	SecurityGroupIds: []interface{}{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -91,6 +92,8 @@ type CfnResourceGateway interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	ResourceConfigDnsResolution() *string
+	SetResourceConfigDnsResolution(val *string)
 	// A reference to a ResourceGateway resource.
 	ResourceGatewayRef() *interfacesawsvpclattice.ResourceGatewayReference
 	// The IDs of the security groups applied to the resource gateway.
@@ -415,6 +418,16 @@ func (j *jsiiProxy_CfnResourceGateway) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceGateway) ResourceConfigDnsResolution() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resourceConfigDnsResolution",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceGateway) ResourceGatewayRef() *interfacesawsvpclattice.ResourceGatewayReference {
 	var returns *interfacesawsvpclattice.ResourceGatewayReference
 	_jsii_.Get(
@@ -548,6 +561,14 @@ func (j *jsiiProxy_CfnResourceGateway)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceGateway)SetResourceConfigDnsResolution(val *string) {
+	_jsii_.Set(
+		j,
+		"resourceConfigDnsResolution",
 		val,
 	)
 }

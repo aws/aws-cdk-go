@@ -91,6 +91,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.ArrayMergeStrategy",
+		reflect.TypeOf((*ArrayMergeStrategy)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ArrayMergeStrategy{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.AspectApplication",
 		reflect.TypeOf((*AspectApplication)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1900,6 +1908,10 @@ func init() {
 		"aws-cdk-lib.CliCredentialsStackSynthesizerProps",
 		reflect.TypeOf((*CliCredentialsStackSynthesizerProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CombineStrategyOptions",
+		reflect.TypeOf((*CombineStrategyOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.ConstructSelector",
 		reflect.TypeOf((*ConstructSelector)(nil)).Elem(),
@@ -2291,6 +2303,16 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IAnyProducer{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.IArrayMergeStrategy",
+		reflect.TypeOf((*IArrayMergeStrategy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "merge", GoMethod: "Merge"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IArrayMergeStrategy{}
 		},
 	)
 	_jsii_.RegisterInterface(

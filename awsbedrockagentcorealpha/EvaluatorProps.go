@@ -67,5 +67,12 @@ type EvaluatorProps struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Tags for the evaluator.
+	//
+	// A list of key:value pairs of tags to apply to this Evaluator resource.
+	// Default: - No tags.
+	//
+	// Experimental.
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -46,6 +46,8 @@ type CfnTargetDomain interface {
 	AttrVerificationDetails() awscdk.IResolvable
 	// Current verification status of the registered target domain.
 	AttrVerificationStatus() *string
+	// Reason for the current target domain verification status.
+	AttrVerificationStatusReason() *string
 	// Timestamp when the target domain was last successfully verified.
 	AttrVerifiedAt() *string
 	// Tag Manager which manages the tags for this resource.
@@ -284,6 +286,16 @@ func (j *jsiiProxy_CfnTargetDomain) AttrVerificationStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrVerificationStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTargetDomain) AttrVerificationStatusReason() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVerificationStatusReason",
 		&returns,
 	)
 	return returns

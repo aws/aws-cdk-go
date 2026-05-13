@@ -352,6 +352,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "level", GoGetter: "Level"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1025,12 +1026,20 @@ func init() {
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_Oauth2ProviderConfigOutputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.OnBehalfOfTokenExchangeConfigProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_OnBehalfOfTokenExchangeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SalesforceOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_SalesforceOauth2ProviderConfigInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SlackOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_SlackOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.TokenExchangeGrantTypeConfigProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_TokenExchangeGrantTypeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProviderProps",

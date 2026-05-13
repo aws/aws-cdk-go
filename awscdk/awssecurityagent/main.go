@@ -282,6 +282,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrTargetDomainId", GoGetter: "AttrTargetDomainId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVerificationDetails", GoGetter: "AttrVerificationDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVerificationStatus", GoGetter: "AttrVerificationStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVerificationStatusReason", GoGetter: "AttrVerificationStatusReason"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVerifiedAt", GoGetter: "AttrVerifiedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

@@ -24,6 +24,7 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Locale: jsii.String("locale"),
 //   	OperatorApp: &OperatorAppProperty{
 //   		Iam: &IamAuthConfigurationProperty{
 //   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
@@ -91,6 +92,9 @@ type CfnAgentSpace interface {
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
+	// The locale for the AgentSpace, which determines the language used in agent responses.
+	Locale() *string
+	SetLocale(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -466,6 +470,16 @@ func (j *jsiiProxy_CfnAgentSpace) KmsKeyArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgentSpace) Locale() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"locale",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgentSpace) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -598,6 +612,14 @@ func (j *jsiiProxy_CfnAgentSpace)SetKmsKeyArn(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgentSpace)SetLocale(val *string) {
+	_jsii_.Set(
+		j,
+		"locale",
 		val,
 	)
 }
