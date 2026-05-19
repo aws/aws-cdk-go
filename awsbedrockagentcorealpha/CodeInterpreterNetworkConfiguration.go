@@ -11,18 +11,11 @@ import (
 // Network configuration for the Code Interpreter tool.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("CodeInterpreterExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create code interpreter with custom execution role
-//   codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
-//   	CodeInterpreterCustomName: jsii.String("my_code_interpreter"),
-//   	Description: jsii.String("Code interpreter with custom execution role"),
-//   	NetworkConfiguration: agentcore.CodeInterpreterNetworkConfiguration_UsingPublicNetwork(),
-//   	ExecutionRole: executionRole,
-//   })
+//   codeInterpreterNetworkConfiguration := bedrock_agentcore_alpha.CodeInterpreterNetworkConfiguration_UsingPublicNetwork()
 //
 // Experimental.
 type CodeInterpreterNetworkConfiguration interface {

@@ -4,6 +4,7 @@ package awsbedrockagentcorealpha
 // Configuration for CloudWatch Logs data source.
 //
 // Example:
+//   // Basic usage with built-in evaluators
 //   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MyEvaluation"), &OnlineEvaluationConfigProps{
 //   	OnlineEvaluationConfigName: jsii.String("my_evaluation"),
 //   	Evaluators: []EvaluatorReference{

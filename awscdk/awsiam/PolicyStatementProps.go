@@ -4,37 +4,39 @@ package awsiam
 // Interface for creating a policy statement.
 //
 // Example:
-//   executionRole := iam.NewRole(this, jsii.String("EvaluationRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	Description: jsii.String("Custom role for online evaluation"),
+//   // Add gateway endpoints when creating the VPC
+//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
+//   	GatewayEndpoints: map[string]GatewayVpcEndpointOptions{
+//   		"S3": &GatewayVpcEndpointOptions{
+//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
+//   		},
+//   	},
 //   })
 //
-//   // Add required permissions
-//   executionRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   // Alternatively gateway endpoints can be added on the VPC
+//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &GatewayVpcEndpointOptions{
+//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
+//   })
+//
+//   // This allows to customize the endpoint policy
+//   dynamoDbEndpoint.AddToPolicy(
+//   iam.NewPolicyStatement(&PolicyStatementProps{
+//   	 // Restrict to listing and describing tables
+//   	Principals: []IPrincipal{
+//   		iam.NewAnyPrincipal(),
+//   	},
 //   	Actions: []*string{
-//   		jsii.String("logs:DescribeLogGroups"),
-//   		jsii.String("logs:GetQueryResults"),
-//   		jsii.String("logs:StartQuery"),
+//   		jsii.String("dynamodb:DescribeTable"),
+//   		jsii.String("dynamodb:ListTables"),
 //   	},
 //   	Resources: []*string{
-//   		jsii.String("arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/*"),
+//   		jsii.String("*"),
 //   	},
 //   }))
 //
-//   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("CustomRoleEval"), &OnlineEvaluationConfigProps{
-//   	OnlineEvaluationConfigName: jsii.String("custom_role_evaluation"),
-//   	Evaluators: []EvaluatorReference{
-//   		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
-//   	},
-//   	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
-//   		LogGroupNames: []*string{
-//   			jsii.String("/aws/bedrock-agentcore/my-agent"),
-//   		},
-//   		ServiceNames: []*string{
-//   			jsii.String("my-agent.default"),
-//   		},
-//   	}),
-//   	ExecutionRole: executionRole,
+//   // Add an interface endpoint
+//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
+//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
 //   })
 //
 type PolicyStatementProps struct {
@@ -75,7 +77,8 @@ type PolicyStatementProps struct {
 	// You can assign a Sid value to each statement in a
 	// statement array. In services that let you specify an ID element, such as
 	// SQS and SNS, the Sid value is just a sub-ID of the policy document's ID. In
-	// IAM, the Sid value must be unique within a JSON policy.
+	// IAM, the Sid value must be unique within a JSON policy. In IAM identity
+	// policies, the Sid value must contain only alphanumeric characters.
 	// Default: - no sid.
 	//
 	Sid *string `field:"optional" json:"sid" yaml:"sid"`

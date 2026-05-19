@@ -1,0 +1,40 @@
+package awsbedrockagentcore
+
+
+// Properties for creating a Smithy-based Gateway Target.
+//
+// Example:
+//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
+//   })
+//
+//   smithySchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("models"), jsii.String("smithy-model.json")))
+//   smithySchema.Bind(this)
+//
+//   // Create a gateway target with Smithy Model and OAuth
+//   target := agentcore.GatewayTarget_ForSmithy(this, jsii.String("MySmithyTarget"), &GatewayTargetSmithyProps{
+//   	GatewayTargetName: jsii.String("my-smithy-target"),
+//   	Description: jsii.String("Target for Smithy model integration"),
+//   	Gateway: gateway,
+//   	SmithyModel: smithySchema,
+//   })
+//
+type GatewayTargetSmithyProps struct {
+	// Optional description for the gateway target The description can have up to 200 characters.
+	// Default: - No description.
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The name of the gateway target The name must be unique within the gateway Pattern: ^([0-9a-zA-Z][-]?){1,100}$.
+	// Default: - auto generate.
+	//
+	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
+	// The gateway this target belongs to.
+	Gateway IGateway `field:"required" json:"gateway" yaml:"gateway"`
+	// The Smithy model defining the API.
+	SmithyModel ApiSchema `field:"required" json:"smithyModel" yaml:"smithyModel"`
+	// Credential providers for authentication Smithy targets only support IAM role authentication.
+	// Default: - [GatewayCredentialProvider.fromIamRole()]
+	//
+	CredentialProviderConfigurations *[]ICredentialProviderConfig `field:"optional" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`
+}
+

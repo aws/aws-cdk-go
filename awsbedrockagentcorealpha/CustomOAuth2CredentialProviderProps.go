@@ -10,12 +10,34 @@ import (
 // (static OAuth2 server metadata). Do not pass both.
 //
 // Example:
-//   agentcore.OAuth2CredentialProvider_UsingCustom(this, jsii.String("CustomOAuth"), &CustomOAuth2CredentialProviderProps{
-//   	OAuth2CredentialProviderName: jsii.String("custom-idp"),
-//   	ClientId: jsii.String("your-client-id"),
-//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
-//   	DiscoveryUrl: jsii.String("https://idp.example.com/.well-known/openid-configuration"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var secretValue SecretValue
+//
+//   customOAuth2CredentialProviderProps := &CustomOAuth2CredentialProviderProps{
+//   	ClientId: jsii.String("clientId"),
+//   	ClientSecret: secretValue,
+//
+//   	// the properties below are optional
+//   	AuthorizationServerMetadata: &OAuth2AuthorizationServerMetadata{
+//   		AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   		Issuer: jsii.String("issuer"),
+//   		TokenEndpoint: jsii.String("tokenEndpoint"),
+//
+//   		// the properties below are optional
+//   		ResponseTypes: []*string{
+//   			jsii.String("responseTypes"),
+//   		},
+//   	},
+//   	DiscoveryUrl: jsii.String("discoveryUrl"),
+//   	OAuth2CredentialProviderName: jsii.String("oAuth2CredentialProviderName"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 // Experimental.
 type CustomOAuth2CredentialProviderProps struct {

@@ -347,6 +347,10 @@ const (
 	InstanceClass_COMPUTE7_AMD InstanceClass = "COMPUTE7_AMD"
 	// Compute optimized instances based on 4th generation AMD EPYC (codename Genoa), 7th generation.
 	InstanceClass_C7A InstanceClass = "C7A"
+	// Compute optimized instances based on 5th generation AMD EPYC (formerly code named Turin), 8th generation.
+	InstanceClass_COMPUTE8_AMD InstanceClass = "COMPUTE8_AMD"
+	// Compute optimized instances based on 5th generation AMD EPYC (formerly code named Turin), 8th generation.
+	InstanceClass_C8A InstanceClass = "C8A"
 	// Storage-optimized instances, 2nd generation.
 	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
 	// Storage-optimized instances, 2nd generation.
@@ -531,9 +535,9 @@ const (
 	InstanceClass_PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "PARALLEL3_NVME_DRIVE_HIGH_PERFORMANCE"
 	// Parallel-processing optimized instances with local NVME drive for high performance computing, 3rd generation.
 	InstanceClass_P3DN InstanceClass = "P3DN"
-	// Parallel-processing optimized instances with local NVME drive, extended, 4th generation (in developer preview).
+	// Parallel-processing optimized instances with local NVME drive, extended, 4th generation.
 	InstanceClass_PARALLEL4_NVME_DRIVE_EXTENDED InstanceClass = "PARALLEL4_NVME_DRIVE_EXTENDED"
-	// Parallel-processing optimized instances with local NVME drive, extended, 4th generation (in developer preview).
+	// Parallel-processing optimized instances with local NVME drive, extended, 4th generation.
 	InstanceClass_P4DE InstanceClass = "P4DE"
 	// Parallel-processing optimized instances, 4th generation.
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"

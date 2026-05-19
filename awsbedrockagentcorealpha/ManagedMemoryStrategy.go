@@ -14,30 +14,33 @@ import (
 // with specific models and prompt templates.
 //
 // Example:
-//   // Create a custom semantic memory strategy
-//   customSemanticStrategy := agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
-//   	Name: jsii.String("customSemanticStrategy"),
-//   	Description: jsii.String("Custom semantic memory strategy"),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
+//
+//   var bedrockInvokable IBedrockInvokable
+//
+//   managedMemoryStrategy := bedrock_agentcore_alpha.NewManagedMemoryStrategy(bedrock_agentcore_alpha.MemoryStrategyType_SUMMARIZATION, &ManagedStrategyProps{
+//   	Name: jsii.String("name"),
 //   	Namespaces: []*string{
-//   		jsii.String("/custom/strategies/{memoryStrategyId}/actors/{actorId}"),
+//   		jsii.String("namespaces"),
 //   	},
+//
+//   	// the properties below are optional
 //   	CustomConsolidation: &OverrideConfig{
-//   		Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-//   		AppendToPrompt: jsii.String("Custom consolidation prompt for semantic memory"),
+//   		AppendToPrompt: jsii.String("appendToPrompt"),
+//   		Model: bedrockInvokable,
 //   	},
 //   	CustomExtraction: &OverrideConfig{
-//   		Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-//   		AppendToPrompt: jsii.String("Custom extraction prompt for semantic memory"),
+//   		AppendToPrompt: jsii.String("appendToPrompt"),
+//   		Model: bedrockInvokable,
 //   	},
-//   })
-//
-//   // Create memory with custom strategy
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my-custom-memory"),
-//   	Description: jsii.String("Memory with custom strategy"),
-//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	MemoryStrategies: []IMemoryStrategy{
-//   		customSemanticStrategy,
+//   	Description: jsii.String("description"),
+//   	ReflectionConfiguration: &EpisodicReflectionConfiguration{
+//   		Namespaces: []*string{
+//   			jsii.String("namespaces"),
+//   		},
 //   	},
 //   })
 //

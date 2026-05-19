@@ -27,8 +27,8 @@ import (
 //   // Using default endpoint (simplest)
 //   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("RuntimeEval"), &OnlineEvaluationConfigProps{
 //   	OnlineEvaluationConfigName: jsii.String("runtime_evaluation"),
-//   	Evaluators: []EvaluatorReference{
-//   		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+//   	Evaluators: []EvaluatorSelector{
+//   		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
 //   	},
 //   	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime),
 //   })

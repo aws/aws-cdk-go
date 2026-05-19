@@ -103,6 +103,9 @@ func ArrayMergeStrategy_ReplaceByIndex() IArrayMergeStrategy {
 // Matching target elements are replaced (not deep-merged).
 // Unmatched source elements are appended.
 //
+// Supports Box-backed elements: when target array elements are Boxes, the
+// match is deferred until the Boxes resolve.
+//
 // Example:
 //
 //

@@ -7,25 +7,20 @@ import (
 // Recording configuration for browser.
 //
 // Example:
-//   // Create an S3 bucket for recordings
-//   recordingBucket := s3.NewBucket(this, jsii.String("RecordingBucket"), &BucketProps{
-//   	BucketName: jsii.String("my-browser-recordings"),
-//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create browser with recording enabled
-//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
-//   	BrowserCustomName: jsii.String("my_browser"),
-//   	Description: jsii.String("Browser with recording enabled"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
-//   	RecordingConfig: &RecordingConfig{
-//   		Enabled: jsii.Boolean(true),
-//   		S3Location: &Location{
-//   			BucketName: recordingBucket.bucketName,
-//   			ObjectKey: jsii.String("browser-recordings/"),
-//   		},
+//   recordingConfig := &RecordingConfig{
+//   	Enabled: jsii.Boolean(false),
+//   	S3Location: &Location{
+//   		BucketName: jsii.String("bucketName"),
+//   		ObjectKey: jsii.String("objectKey"),
+//
+//   		// the properties below are optional
+//   		ObjectVersion: jsii.String("objectVersion"),
 //   	},
-//   })
+//   }
 //
 // Experimental.
 type RecordingConfig struct {

@@ -10,17 +10,25 @@ import (
 // Uses a Lambda function to implement custom evaluation logic.
 //
 // Example:
-//   var evalFunction IFunction
-//
-//
-//   codeEvaluator := agentcore.NewEvaluator(this, jsii.String("CodeEvaluator"), &EvaluatorProps{
-//   	EvaluatorName: jsii.String("custom_code_evaluator"),
-//   	Level: agentcore.EvaluationLevel_TOOL_CALL(),
-//   	Description: jsii.String("Evaluates tool call accuracy using custom logic"),
-//   	EvaluatorConfig: agentcore.EvaluatorConfig_CodeBased(&CodeBasedOptions{
-//   		LambdaFunction: evalFunction,
-//   		Timeout: cdk.Duration_Seconds(jsii.Number(30)),
+//   // Code-based evaluator
+//   var myEvalFunction IFunction
+//   // LLM-as-a-Judge evaluator
+//   llmConfig := agentcore.EvaluatorConfig_LlmAsAJudge(&LlmAsAJudgeOptions{
+//   	Instructions: jsii.String("Evaluate whether the agent response is helpful."),
+//   	ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
+//   	RatingScale: agentcore.EvaluatorRatingScale_Categorical([]CategoricalRatingOption{
+//   		&CategoricalRatingOption{
+//   			Label: jsii.String("Good"),
+//   			Definition: jsii.String("The response is helpful."),
+//   		},
+//   		&CategoricalRatingOption{
+//   			Label: jsii.String("Bad"),
+//   			Definition: jsii.String("The response is not helpful."),
+//   		},
 //   	}),
+//   })
+//   codeConfig := agentcore.EvaluatorConfig_CodeBased(&CodeBasedOptions{
+//   	LambdaFunction: myEvalFunction,
 //   })
 //
 // Experimental.

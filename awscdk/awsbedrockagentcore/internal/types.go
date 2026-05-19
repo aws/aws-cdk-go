@@ -2,7 +2,10 @@ package internal
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 )
+type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsbedrockagentcoreIApiKeyCredentialProviderRef = interfacesawsbedrockagentcore.IApiKeyCredentialProviderRef
@@ -21,3 +24,6 @@ type Type__interfacesawsbedrockagentcoreIPolicyEngineRef = interfacesawsbedrocka
 type Type__interfacesawsbedrockagentcoreIRuntimeRef = interfacesawsbedrockagentcore.IRuntimeRef
 type Type__interfacesawsbedrockagentcoreIRuntimeEndpointRef = interfacesawsbedrockagentcore.IRuntimeEndpointRef
 type Type__interfacesawsbedrockagentcoreIWorkloadIdentityRef = interfacesawsbedrockagentcore.IWorkloadIdentityRef
+type Type__awsiamIGrantable = awsiam.IGrantable
+type Type__awscdkIResource = awscdk.IResource
+type Type__awsec2IConnectable = awsec2.IConnectable

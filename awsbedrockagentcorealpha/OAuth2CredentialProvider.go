@@ -20,13 +20,91 @@ import (
 // {@link OAuth2CredentialProvider.bindForGatewayOAuthTarget} with {@link GatewayCredentialProvider.fromOauthIdentityArn }.
 //
 // Example:
-//   agentcore.OAuth2CredentialProvider_UsingCustom(this, jsii.String("CustomOAuthMeta"), &CustomOAuth2CredentialProviderProps{
-//   	ClientId: jsii.String("your-client-id"),
-//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
-//   	AuthorizationServerMetadata: &OAuth2AuthorizationServerMetadata{
-//   		Issuer: jsii.String("https://idp.example.com"),
-//   		AuthorizationEndpoint: jsii.String("https://idp.example.com/oauth2/authorize"),
-//   		TokenEndpoint: jsii.String("https://idp.example.com/oauth2/token"),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   oAuth2CredentialProvider := bedrock_agentcore_alpha.NewOAuth2CredentialProvider(this, jsii.String("MyOAuth2CredentialProvider"), &OAuth2CredentialProviderProps{
+//   	CredentialProviderVendor: jsii.String("credentialProviderVendor"),
+//   	Oauth2ProviderConfigInput: &Oauth2ProviderConfigInputProperty{
+//   		AtlassianOauth2ProviderConfig: &AtlassianOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   		},
+//   		CustomOauth2ProviderConfig: &CustomOauth2ProviderConfigInputProperty{
+//   			OauthDiscovery: &Oauth2DiscoveryProperty{
+//   				AuthorizationServerMetadata: &Oauth2AuthorizationServerMetadataProperty{
+//   					AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   					Issuer: jsii.String("issuer"),
+//   					TokenEndpoint: jsii.String("tokenEndpoint"),
+//
+//   					// the properties below are optional
+//   					ResponseTypes: []*string{
+//   						jsii.String("responseTypes"),
+//   					},
+//   				},
+//   				DiscoveryUrl: jsii.String("discoveryUrl"),
+//   			},
+//
+//   			// the properties below are optional
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   			OnBehalfOfTokenExchangeConfig: &OnBehalfOfTokenExchangeConfigProperty{
+//   				GrantType: jsii.String("grantType"),
+//
+//   				// the properties below are optional
+//   				TokenExchangeGrantTypeConfig: &TokenExchangeGrantTypeConfigProperty{
+//   					ActorTokenContent: jsii.String("actorTokenContent"),
+//
+//   					// the properties below are optional
+//   					ActorTokenScopes: []*string{
+//   						jsii.String("actorTokenScopes"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		GithubOauth2ProviderConfig: &GithubOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   		},
+//   		GoogleOauth2ProviderConfig: &GoogleOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   		},
+//   		IncludedOauth2ProviderConfig: &IncludedOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//
+//   			// the properties below are optional
+//   			AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   			Issuer: jsii.String("issuer"),
+//   			TokenEndpoint: jsii.String("tokenEndpoint"),
+//   		},
+//   		LinkedinOauth2ProviderConfig: &LinkedinOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   		},
+//   		MicrosoftOauth2ProviderConfig: &MicrosoftOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//
+//   			// the properties below are optional
+//   			TenantId: jsii.String("tenantId"),
+//   		},
+//   		SalesforceOauth2ProviderConfig: &SalesforceOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   		},
+//   		SlackOauth2ProviderConfig: &SlackOauth2ProviderConfigInputProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   		},
+//   	},
+//
+//   	// the properties below are optional
+//   	OAuth2CredentialProviderName: jsii.String("oAuth2CredentialProviderName"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
 //   	},
 //   })
 //

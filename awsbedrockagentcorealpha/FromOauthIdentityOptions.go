@@ -4,28 +4,20 @@ package awsbedrockagentcorealpha
 // OAuth scopes (and optional custom parameters) when binding an {@link IOAuth2CredentialProvider} to a gateway target.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   oauth := agentcore.OAuth2CredentialProvider_UsingGithub(this, jsii.String("GhOAuth"), &GithubOAuth2CredentialProviderProps{
-//   	OAuth2CredentialProviderName: jsii.String("github-oauth"),
-//   	ClientId: jsii.String("your-client-id"),
-//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
-//   })
-//
-//   gateway.AddMcpServerTarget(jsii.String("Mcp"), &AddMcpServerTargetOptions{
-//   	GatewayTargetName: jsii.String("mcp-server"),
-//   	Description: jsii.String("MCP with GitHub OAuth"),
-//   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
-//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentity(oauth, &FromOauthIdentityOptions{
-//   			Scopes: []*string{
-//   				jsii.String("read:user"),
-//   			},
-//   		}),
+//   fromOauthIdentityOptions := &FromOauthIdentityOptions{
+//   	Scopes: []*string{
+//   		jsii.String("scopes"),
 //   	},
-//   })
+//
+//   	// the properties below are optional
+//   	CustomParameters: map[string]*string{
+//   		"customParametersKey": jsii.String("customParameters"),
+//   	},
+//   }
 //
 // Experimental.
 type FromOauthIdentityOptions struct {

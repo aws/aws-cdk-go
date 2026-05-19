@@ -4,15 +4,20 @@ package awsbedrockagentcorealpha
 // Static OAuth2 authorization server metadata for custom credential providers.
 //
 // Example:
-//   agentcore.OAuth2CredentialProvider_UsingCustom(this, jsii.String("CustomOAuthMeta"), &CustomOAuth2CredentialProviderProps{
-//   	ClientId: jsii.String("your-client-id"),
-//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
-//   	AuthorizationServerMetadata: &OAuth2AuthorizationServerMetadata{
-//   		Issuer: jsii.String("https://idp.example.com"),
-//   		AuthorizationEndpoint: jsii.String("https://idp.example.com/oauth2/authorize"),
-//   		TokenEndpoint: jsii.String("https://idp.example.com/oauth2/token"),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   oAuth2AuthorizationServerMetadata := &OAuth2AuthorizationServerMetadata{
+//   	AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
+//   	Issuer: jsii.String("issuer"),
+//   	TokenEndpoint: jsii.String("tokenEndpoint"),
+//
+//   	// the properties below are optional
+//   	ResponseTypes: []*string{
+//   		jsii.String("responseTypes"),
 //   	},
-//   })
+//   }
 //
 // See: https://www.rfc-editor.org/rfc/rfc8414
 //

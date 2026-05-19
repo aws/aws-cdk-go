@@ -12,47 +12,23 @@ import (
 // Provides static factory methods to create different authentication types.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // String claim - validates that the claim exactly equals the specified value
-//   // Uses EQUALS operator automatically
-//   departmentClaim := agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering"))
+//   var runtimeCustomClaim RuntimeCustomClaim
+//   var userPool UserPool
+//   var userPoolClient UserPoolClient
 //
-//   // String array claim with CONTAINS operator (default)
-//   // Validates that the claim array contains a specific string value
-//   // IMPORTANT: CONTAINS requires exactly one value in the array parameter
-//   rolesClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
-//   	jsii.String("admin"),
-//   })
-//
-//   // String array claim with CONTAINS_ANY operator
-//   // Validates that the claim array contains at least one of the specified values
-//   // Use this when you want to check for multiple possible values
-//   permissionsClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
-//   	jsii.String("read"),
-//   	jsii.String("write"),
-//   }, agentcore.CustomClaimOperator_CONTAINS_ANY)
-//
-//   // Use custom claims in authorizer configuration
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingJWT(jsii.String("https://example.com/.well-known/openid-configuration"), []*string{
-//   		jsii.String("client1"),
-//   		jsii.String("client2"),
-//   	}, []*string{
-//   		jsii.String("audience1"),
-//   	}, []*string{
-//   		jsii.String("read"),
-//   		jsii.String("write"),
-//   	}, []RuntimeCustomClaim{
-//   		departmentClaim,
-//   		rolesClaim,
-//   		permissionsClaim,
-//   	}),
+//   runtimeAuthorizerConfiguration := bedrock_agentcore_alpha.RuntimeAuthorizerConfiguration_UsingCognito(userPool, []IUserPoolClient{
+//   	userPoolClient,
+//   }, []*string{
+//   	jsii.String("allowedAudience"),
+//   }, []*string{
+//   	jsii.String("allowedScopes"),
+//   }, []RuntimeCustomClaim{
+//   	runtimeCustomClaim,
 //   })
 //
 // Experimental.

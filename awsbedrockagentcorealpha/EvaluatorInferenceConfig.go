@@ -6,67 +6,15 @@ package awsbedrockagentcorealpha
 // Controls how the foundation model generates evaluation responses.
 //
 // Example:
-//   // LLM-as-a-Judge with categorical rating scale
-//   categoricalEvaluator := agentcore.NewEvaluator(this, jsii.String("CategoricalEvaluator"), &EvaluatorProps{
-//   	EvaluatorName: jsii.String("domain_accuracy_evaluator"),
-//   	Level: agentcore.EvaluationLevel_SESSION(),
-//   	Description: jsii.String("Evaluates domain-specific accuracy of agent responses"),
-//   	EvaluatorConfig: agentcore.EvaluatorConfig_LlmAsAJudge(&LlmAsAJudgeOptions{
-//   		Instructions: jsii.String("Evaluate whether the agent response is accurate within the healthcare domain."),
-//   		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
-//   		RatingScale: agentcore.EvaluatorRatingScale_Categorical([]CategoricalRatingOption{
-//   			&CategoricalRatingOption{
-//   				Label: jsii.String("Accurate"),
-//   				Definition: jsii.String("The response contains factually correct healthcare information."),
-//   			},
-//   			&CategoricalRatingOption{
-//   				Label: jsii.String("Inaccurate"),
-//   				Definition: jsii.String("The response contains incorrect or misleading healthcare information."),
-//   			},
-//   		}),
-//   	}),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // LLM-as-a-Judge with numerical rating scale and inference config
-//   numericalEvaluator := agentcore.NewEvaluator(this, jsii.String("NumericalEvaluator"), &EvaluatorProps{
-//   	EvaluatorName: jsii.String("response_quality_evaluator"),
-//   	Level: agentcore.EvaluationLevel_TRACE(),
-//   	EvaluatorConfig: agentcore.EvaluatorConfig_*LlmAsAJudge(&LlmAsAJudgeOptions{
-//   		Instructions: jsii.String("Rate the overall quality of the agent response on a scale of 1 to 5."),
-//   		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
-//   		RatingScale: agentcore.EvaluatorRatingScale_Numerical([]NumericalRatingOption{
-//   			&NumericalRatingOption{
-//   				Label: jsii.String("Poor"),
-//   				Definition: jsii.String("Inadequate response."),
-//   				Value: jsii.Number(1),
-//   			},
-//   			&NumericalRatingOption{
-//   				Label: jsii.String("Below Average"),
-//   				Definition: jsii.String("Partially addresses the query."),
-//   				Value: jsii.Number(2),
-//   			},
-//   			&NumericalRatingOption{
-//   				Label: jsii.String("Average"),
-//   				Definition: jsii.String("Adequately addresses the query."),
-//   				Value: jsii.Number(3),
-//   			},
-//   			&NumericalRatingOption{
-//   				Label: jsii.String("Good"),
-//   				Definition: jsii.String("Well-structured and accurate response."),
-//   				Value: jsii.Number(4),
-//   			},
-//   			&NumericalRatingOption{
-//   				Label: jsii.String("Excellent"),
-//   				Definition: jsii.String("Outstanding response exceeding expectations."),
-//   				Value: jsii.Number(5),
-//   			},
-//   		}),
-//   		InferenceConfig: &EvaluatorInferenceConfig{
-//   			MaxTokens: jsii.Number(1024),
-//   			Temperature: jsii.Number(0.1),
-//   		},
-//   	}),
-//   })
+//   evaluatorInferenceConfig := &EvaluatorInferenceConfig{
+//   	MaxTokens: jsii.Number(123),
+//   	Temperature: jsii.Number(123),
+//   	TopP: jsii.Number(123),
+//   }
 //
 // Experimental.
 type EvaluatorInferenceConfig struct {

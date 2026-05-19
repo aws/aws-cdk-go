@@ -6,35 +6,19 @@ package awsbedrockagentcorealpha
 // Pass this to {@link GatewayCredentialProvider.fromApiKeyIdentityArn } or to {@link ApiKeyCredentialProviderConfiguration}.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // ARNs from the console/API, or from ApiKeyCredentialProvider + bindForGatewayApiKeyTarget
-//   apiKeyProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
-//   apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
+//   var apiKeyCredentialLocation ApiKeyCredentialLocation
 //
-//   bucket := s3.Bucket_FromBucketName(this, jsii.String("ExistingBucket"), jsii.String("my-schema-bucket"))
-//   s3mySchema := agentcore.ApiSchema_FromS3File(bucket, jsii.String("schemas/myschema.yaml"))
+//   apiKeyCredentialProviderProps := &ApiKeyCredentialProviderProps{
+//   	ProviderArn: jsii.String("providerArn"),
+//   	SecretArn: jsii.String("secretArn"),
 //
-//   // Add an OpenAPI target using ARNs directly
-//   target := gateway.AddOpenApiTarget(jsii.String("MyTarget"), &AddOpenApiTargetOptions{
-//   	GatewayTargetName: jsii.String("my-api-target"),
-//   	Description: jsii.String("Target for external API integration"),
-//   	ApiSchema: s3mySchema,
-//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderProps{
-//   			ProviderArn: apiKeyProviderArn,
-//   			SecretArn: apiKeySecretArn,
-//   			CredentialLocation: agentcore.ApiKeyCredentialLocation_Header(&ApiKeyAdditionalConfiguration{
-//   				CredentialParameterName: jsii.String("X-API-Key"),
-//   			}),
-//   		}),
-//   	},
-//   })
-//
-//   // This makes sure your s3 bucket is available before target
-//   target.Node.AddDependency(bucket)
+//   	// the properties below are optional
+//   	CredentialLocation: apiKeyCredentialLocation,
+//   }
 //
 // Experimental.
 type ApiKeyCredentialProviderProps struct {

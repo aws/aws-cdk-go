@@ -8,20 +8,32 @@ import (
 // Properties for defining a Gateway.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
-//
+//   // Create a Policy engine
 //   policyEngine := agentcore.NewPolicyEngine(this, jsii.String("MyPolicyEngine"), &PolicyEngineProps{
 //   	PolicyEngineName: jsii.String("my_policy_engine"),
+//   	Description: jsii.String("Policy engine for access control"),
 //   })
 //
-//   allowAllPolicy := agentcore.NewPolicy(this, jsii.String("AllowAllPolicy"), &PolicyProps{
-//   	PolicyEngine: policyEngine,
-//   	PolicyName: jsii.String("allow_all"),
-//   	Statement: agentcore.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnResource(jsii.String("AgentCore::Gateway"), gateway.GatewayArn),
-//   	Description: jsii.String("Allow all actions on specific gateway (development only)"),
+//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
+//   	PolicyEngineConfiguration: &GatewayPolicyEngineConfig{
+//   		PolicyEngine: policyEngine,
+//   		Mode: agentcore.PolicyEngineMode_ENFORCE(),
+//   	},
+//   })
+//
+//   // Add policy to policy engine
+//   policyEngine.AddPolicy(jsii.String("AllowAllActions"), &AddPolicyOptions{
+//   	Definition: fmt.Sprintf("\n    permit(\n      principal,\n      action,\n      resource == AgentCore::Gateway::\"%v\"\n    );\n  ", gateway.GatewayArn),
+//   	Description: jsii.String("Allow all actions on specific gateway (development)"),
 //   	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
+//   })
+//
+//   // you can add multiple policies to the policy engine
+//   policyEngine.AddPolicy(jsii.String("SpecificToolPolicy"), &AddPolicyOptions{
+//   	Definition: fmt.Sprintf("\n    permit(\n      principal is AgentCore::OAuthUser,\n      action == AgentCore::Action::\"WeatherTool__get_forecast\",\n      resource == AgentCore::Gateway::\"%v\"\n    );\n  ", gateway.*GatewayArn),
+//   	Description: jsii.String("Allow specific weather tool access"),
+//   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 //   })
 //
 // Experimental.

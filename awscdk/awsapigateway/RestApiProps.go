@@ -24,7 +24,7 @@ import (
 //   			&ApiGatewayToolFilter{
 //   				FilterPath: jsii.String("/pets/*"),
 //   				Methods: []ApiGatewayHttpMethod{
-//   					agentcore.ApiGatewayHttpMethod_GET,
+//   					agentcore.ApiGatewayHttpMethod_GET(),
 //   				},
 //   			},
 //   		},

@@ -1,21 +1,3212 @@
-# AWS::BedrockAgentCore Construct Library
+# Amazon Bedrock AgentCore Construct Library
 
-<!--BEGIN STABILITY BANNER-->---
+| **Language**                                                                                   | **Package**                             |
+| :--------------------------------------------------------------------------------------------- | --------------------------------------- |
+| ![Typescript Logo](https://docs.aws.amazon.com/cdk/api/latest/img/typescript32.png) TypeScript | `aws-cdk-lib/aws-bedrockagentcore` |
 
+[Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) enables you to deploy and operate highly capable AI agents securely, at scale. It offers infrastructure purpose-built for dynamic agent workloads, powerful tools to enhance agents, and essential controls for real-world deployment. AgentCore services can be used together or independently and work with any framework including CrewAI, LangGraph, LlamaIndex, and Strands Agents, as well as any foundation model in or outside of Amazon Bedrock, giving you ultimate flexibility. AgentCore eliminates the undifferentiated heavy lifting of building specialized agent infrastructure, so you can accelerate agents to production.
 
-![cfn-resources: Stable](https://img.shields.io/badge/cfn--resources-stable-success.svg?style=for-the-badge)
+This construct library facilitates the deployment of Bedrock AgentCore primitives, enabling you to create sophisticated AI applications that can interact with your systems and data sources.
 
-> All classes with the `Cfn` prefix in this module ([CFN Resources](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) are always stable and safe to use.
+> **Note:** Users need to ensure their CDK deployment role has the `iam:CreateServiceLinkedRole` permission for AgentCore service-linked roles.
 
----
-<!--END STABILITY BANNER-->
+## Table of contents
 
-This module is part of the [AWS Cloud Development Kit](https://github.com/aws/aws-cdk) project.
+* [Amazon Bedrock AgentCore Construct Library](#amazon-bedrock-agentcore-construct-library)
+
+  * [Table of contents](#table-of-contents)
+  * [AgentCore Runtime](#agentcore-runtime)
+
+    * [Runtime Endpoints](#runtime-endpoints)
+    * [AgentCore Runtime Properties](#agentcore-runtime-properties)
+    * [Runtime Endpoint Properties](#runtime-endpoint-properties)
+    * [Creating a Runtime](#creating-a-runtime)
+
+      * [Option 1: Use an existing image in ECR](#option-1-use-an-existing-image-in-ecr)
+      * [Option 2: Use a local asset](#option-2-use-a-local-asset)
+      * [Option 3: Use direct code deployment](#option-3-use-direct-code-deployment)
+      * [Option 4: Use an ECR container image URI](#option-4-use-an-ecr-container-image-uri)
+    * [Granting Permissions to Invoke Bedrock Models or Inference Profiles](#granting-permissions-to-invoke-bedrock-models-or-inference-profiles)
+    * [Runtime Versioning](#runtime-versioning)
+
+      * [Managing Endpoints and Versions](#managing-endpoints-and-versions)
+
+        * [Step 1: Initial Deployment](#step-1-initial-deployment)
+        * [Step 2: Creating Custom Endpoints](#step-2-creating-custom-endpoints)
+        * [Step 3: Runtime Update Deployment](#step-3-runtime-update-deployment)
+        * [Step 4: Testing with Staging Endpoints](#step-4-testing-with-staging-endpoints)
+        * [Step 5: Promoting to Production](#step-5-promoting-to-production)
+    * [Creating Standalone Runtime Endpoints](#creating-standalone-runtime-endpoints)
+
+      * [Example: Creating an endpoint for an existing runtime](#example-creating-an-endpoint-for-an-existing-runtime)
+    * [Runtime Authentication Configuration](#runtime-authentication-configuration)
+
+      * [IAM Authentication (Default)](#iam-authentication-default)
+      * [Cognito Authentication](#cognito-authentication)
+      * [JWT Authentication](#jwt-authentication)
+      * [OAuth Authentication](#oauth-authentication)
+      * [Using a Custom IAM Role](#using-a-custom-iam-role)
+    * [Runtime Network Configuration](#runtime-network-configuration)
+
+      * [Public Network Mode (Default)](#public-network-mode-default)
+      * [VPC Network Mode](#vpc-network-mode)
+      * [Managing Security Groups with VPC Configuration](#managing-security-groups-with-vpc-configuration)
+    * [Runtime IAM Permissions](#runtime-iam-permissions)
+    * [Other configuration](#other-configuration)
+
+      * [Lifecycle configuration](#lifecycle-configuration)
+      * [Request header configuration](#request-header-configuration)
+  * [Browser](#browser)
+
+    * [Browser Network modes](#browser-network-modes)
+    * [Browser Properties](#browser-properties)
+    * [Basic Browser Creation](#basic-browser-creation)
+    * [Browser with Tags](#browser-with-tags)
+    * [Browser with VPC](#browser-with-vpc)
+    * [Browser with Recording Configuration](#browser-with-recording-configuration)
+    * [Browser with Custom Execution Role](#browser-with-custom-execution-role)
+    * [Browser with S3 Recording and Permissions](#browser-with-s3-recording-and-permissions)
+    * [Browser with Browser signing](#browser-with-browser-signing)
+    * [Browser IAM Permissions](#browser-iam-permissions)
+  * [Code Interpreter](#code-interpreter)
+
+    * [Code Interpreter Network Modes](#code-interpreter-network-modes)
+    * [Code Interpreter Properties](#code-interpreter-properties)
+    * [Basic Code Interpreter Creation](#basic-code-interpreter-creation)
+    * [Code Interpreter with VPC](#code-interpreter-with-vpc)
+    * [Code Interpreter with Sandbox Network Mode](#code-interpreter-with-sandbox-network-mode)
+    * [Code Interpreter with Custom Execution Role](#code-interpreter-with-custom-execution-role)
+    * [Code Interpreter IAM Permissions](#code-interpreter-iam-permissions)
+    * [Code interpreter with tags](#code-interpreter-with-tags)
+  * [Gateway](#gateway)
+
+    * [Gateway Properties](#gateway-properties)
+    * [Basic Gateway Creation](#basic-gateway-creation)
+    * [Protocol configuration](#protocol-configuration)
+    * [Inbound authorization](#inbound-authorization)
+    * [Gateway with KMS Encryption](#gateway-with-kms-encryption)
+    * [Gateway with Custom Execution Role](#gateway-with-custom-execution-role)
+    * [Gateway IAM Permissions](#gateway-iam-permissions)
+  * [Gateway Target](#gateway-target)
+
+    * [Gateway Target Properties](#gateway-target-properties)
+    * [Targets types](#targets-types)
+    * [Understanding Tool Naming](#understanding-tool-naming)
+    * [Tools schema For Lambda target](#tools-schema-for-lambda-target)
+    * [Api schema For OpenAPI and Smithy target](#api-schema-for-openapi-and-smithy-target)
+    * [Outbound auth](#outbound-auth)
+
+      * [Token Vault credential providers](#token-vault-credential-providers)
+      * [Workload identities](#workload-identities)
+    * [Basic Gateway Target Creation](#basic-gateway-target-creation)
+
+      * [Using addTarget methods (Recommended)](#using-addtarget-methods-recommended)
+      * [Using static factory methods](#using-static-factory-methods)
+    * [Advanced Usage: Direct Configuration for gateway target](#advanced-usage-direct-configuration-for-gateway-target)
+
+      * [Configuration Factory Methods](#configuration-factory-methods)
+      * [Example: Lambda Target with Custom Configuration](#example-lambda-target-with-custom-configuration)
+    * [Gateway Target IAM Permissions](#gateway-target-iam-permissions)
+  * [Memory](#memory)
+
+    * [Memory Properties](#memory-properties)
+    * [Basic Memory Creation](#basic-memory-creation)
+    * [LTM Memory Extraction Stategies](#ltm-memory-extraction-stategies)
+    * [Memory with Built-in Strategies](#memory-with-built-in-strategies)
+    * [Memory with custom Strategies](#memory-with-custom-strategies)
+
+      * [Memory with Custom Execution Role](#memory-with-custom-execution-role)
+    * [Memory with self-managed Strategies](#memory-with-self-managed-strategies)
+    * [Memory Strategy Methods](#memory-strategy-methods)
+  * [Online Evaluation](#online-evaluation)
+
+    * [Online Evaluation Properties](#online-evaluation-properties)
+    * [Basic Online Evaluation Creation](#basic-online-evaluation-creation)
+    * [Built-in Evaluators](#built-in-evaluators)
+    * [Custom Evaluators](#custom-evaluators)
+
+      * [LLM-as-a-Judge Evaluator](#llm-as-a-judge-evaluator)
+      * [Code-Based Evaluator](#code-based-evaluator)
+      * [Using Custom Evaluators with Online Evaluation](#using-custom-evaluators-with-online-evaluation)
+    * [Data Source Configuration](#data-source-configuration)
+    * [Sampling and Filtering](#sampling-and-filtering)
+    * [Online Evaluation with Custom Execution Role](#online-evaluation-with-custom-execution-role)
+    * [Online Evaluation IAM Permissions](#online-evaluation-iam-permissions)
+
+## AgentCore Runtime
+
+The AgentCore Runtime construct enables you to deploy containerized agents on Amazon Bedrock AgentCore.
+This L2 construct simplifies runtime creation just pass your ECR repository name
+and the construct handles all the configuration with sensible defaults.
+
+### Runtime Endpoints
+
+Endpoints provide a stable way to invoke specific versions of your agent runtime, enabling controlled deployments across different environments.
+When you create an agent runtime, Amazon Bedrock AgentCore automatically creates a "DEFAULT" endpoint which always points to the latest version
+of runtime.
+
+You can create additional endpoints in two ways:
+
+1. **Using Runtime.addEndpoint()** - Convenient method when creating endpoints alongside the runtime.
+2. **Using RuntimeEndpoint** - Flexible approach for existing runtimes.
+
+For example, you might keep a "production" endpoint on a stable version while testing newer versions
+through a "staging" endpoint. This separation allows you to test changes thoroughly before promoting them
+to production by simply updating the endpoint to point to the newer version.
+
+### AgentCore Runtime Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `runtimeName` | `string` | No | The name of the agent runtime. Valid characters are a-z, A-Z, 0-9, _ (underscore). Must start with a letter and can be up to 48 characters long. If not provided, a unique name will be auto-generated |
+| `agentRuntimeArtifact` | `AgentRuntimeArtifact` | Yes | The artifact configuration for the agent runtime containing the container configuration with ECR URI |
+| `executionRole` | `iam.IRole` | No | The IAM role that provides permissions for the agent runtime. If not provided, a role will be created automatically |
+| `networkConfiguration` | `NetworkConfiguration` | No | Network configuration for the agent runtime. Defaults to `RuntimeNetworkConfiguration.usingPublicNetwork()` |
+| `description` | `string` | No | Optional description for the agent runtime |
+| `protocolConfiguration` | `ProtocolType` | No | Protocol configuration for the agent runtime. Defaults to `ProtocolType.HTTP` |
+| `authorizerConfiguration` | `RuntimeAuthorizerConfiguration` | No | Authorizer configuration for the agent runtime. Use `RuntimeAuthorizerConfiguration` static methods to create configurations for IAM, Cognito, JWT, or OAuth authentication |
+| `environmentVariables` | `{ [key: string]: string }` | No | Environment variables for the agent runtime. Maximum 50 environment variables |
+| `tags` | `{ [key: string]: string }` | No | Tags for the agent runtime. A list of key:value pairs of tags to apply to this Runtime resource |
+| `lifecycleConfiguration` | LifecycleConfiguration | No | The life cycle configuration for the AgentCore Runtime. Defaults to 900 seconds (15 minutes) for idle, 28800 seconds (8 hours) for max life time |
+| `requestHeaderConfiguration` | RequestHeaderConfiguration | No | Configuration for HTTP request headers that will be passed through to the runtime. Defaults to no configuration |
+
+### Runtime Endpoint Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `endpointName` | `string` | No | The name of the runtime endpoint. Valid characters are a-z, A-Z, 0-9, _ (underscore). Must start with a letter and can be up to 48 characters long. If not provided, a unique name will be auto-generated |
+| `agentRuntimeId` | `string` | Yes | The Agent Runtime ID for this endpoint |
+| `agentRuntimeVersion` | `string` | Yes | The Agent Runtime version for this endpoint. Must be between 1 and 5 characters long.|
+| `description` | `string` | No | Optional description for the runtime endpoint |
+| `tags` | `{ [key: string]: string }` | No | Tags for the runtime endpoint |
+
+### Creating a Runtime
+
+#### Option 1: Use an existing image in ECR
+
+Reference an image available within ECR.
 
 ```go
-import bedrockagentcore "github.com/aws/aws-cdk-go/awscdk"
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+// The runtime by default create ECR permission only for the repository available in the account the stack is being deployed
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create runtime using the built image
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
 ```
 
-L2 constructs for this service are available in the [`@aws-cdk/aws-bedrock-agentcore-alpha`](https://www.npmjs.com/package/@aws-cdk/aws-bedrock-agentcore-alpha) package.
+#### Option 2: Use a local asset
 
-You can also use the automatically generated [L1](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_l1_using) constructs, in the same way you would use [the CloudFormation AWS::BedrockAgentCore resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BedrockAgentCore.html) directly.
+Reference a local directory containing a Dockerfile.
+Images are built from a local Docker context directory (with a Dockerfile), uploaded to Amazon Elastic Container Registry (ECR)
+by the CDK toolkit,and can be naturally referenced in your CDK app.
+
+```go
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromAsset(path.join(__dirname, jsii.String("path to agent dockerfile directory")))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+#### Option 3: Use direct code deployment
+
+With the container deployment method, developers create a Dockerfile, build ARM-compatible containers, manage ECR repositories, and upload containers for code changes. This works well where container DevOps pipelines have already been established to automate deployments.
+
+However, customers looking for fully managed deployments can benefit from direct code deployment, which can significantly improve developer time and productivity. Direct code deployment provides a secure and scalable path forward for rapid prototyping agent capabilities to deploying production workloads at scale.
+
+With direct code deployment, developers create a zip archive of code and dependencies, upload to Amazon S3, and configure the bucket in the agent configuration. A ZIP archive containing Linux arm64 dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime.
+
+For more information, please refer to the [documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-code-deploy.html).
+
+```go
+// S3 bucket containing the agent core
+codeBucket := s3.NewBucket(this, jsii.String("AgentCode"), &BucketProps{
+	BucketName: jsii.String("my-code-bucket"),
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+})
+
+// the bucket above needs to contain the agent code
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
+	BucketName: codeBucket.bucketName,
+	ObjectKey: jsii.String("deployment_package.zip"),
+}, agentcore.AgentCoreRuntime_PYTHON_3_12(), []*string{
+	jsii.String("opentelemetry-instrument"),
+	jsii.String("main.py"),
+})
+
+runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+Alternatively, you can use local code assets that will be automatically packaged and uploaded to a CDK-managed S3 bucket:
+
+```go
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromCodeAsset(&CodeAssetOptions{
+	Path: path.join(__dirname, jsii.String("path/to/agent/code")),
+	Runtime: agentcore.AgentCoreRuntime_PYTHON_3_12(),
+	Entrypoint: []*string{
+		jsii.String("opentelemetry-instrument"),
+		jsii.String("main.py"),
+	},
+})
+
+runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+#### Option 4: Use an ECR container image URI
+
+Reference an ECR container image directly by its URI. This is useful when you have a pre-existing ECR image URI from CloudFormation parameters or cross-stack references. No IAM permissions are automatically granted - you must ensure the runtime has ECR pull permissions.
+
+```go
+// Direct URI reference
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromImageUri(jsii.String("123456789012.dkr.ecr.us-east-1.amazonaws.com/my-agent:v1.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+You can also use CloudFormation parameters or references:
+
+```go
+// Using a CloudFormation parameter
+imageUriParam := cdk.NewCfnParameter(this, jsii.String("ImageUri"), &CfnParameterProps{
+	Type: jsii.String("String"),
+	Description: jsii.String("Container image URI for the agent runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromImageUri(imageUriParam.valueAsString)
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+```
+
+### Granting Permissions to Invoke Bedrock Models or Inference Profiles
+
+To grant the runtime permissions to invoke Bedrock models or inference profiles:
+
+```go
+// Note: This example uses aws-cdk-lib/aws-bedrock for foundation model references
+var runtime Runtime
+
+
+// Define the Bedrock Foundation Model
+model := bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("Model"), bedrock.FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_7_SONNET_20250219_V1_0())
+
+// Grant the runtime permissions to invoke the model
+runtime.Role.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("bedrock:InvokeModel"),
+	},
+	Resources: []*string{
+		model.ModelArn,
+	},
+}))
+```
+
+### Runtime Versioning
+
+Amazon Bedrock AgentCore automatically manages runtime versioning to ensure safe deployments and rollback capabilities.
+When you create an agent runtime, AgentCore automatically creates version 1 (V1). Each subsequent update to the
+runtime configuration (such as updating the container image, modifying network settings, or changing protocol configurations)
+creates a new immutable version. These versions contain complete, self-contained configurations that can be referenced by endpoints,
+allowing you to maintain different versions for different environments or gradually roll out updates.
+
+#### Managing Endpoints and Versions
+
+Amazon Bedrock AgentCore automatically manages runtime versioning to provide safe deployments and rollback capabilities. You can follow
+the steps below to understand how to use versioning with runtime for controlled deployments across different environments.
+
+##### Step 1: Initial Deployment
+
+When you first create an agent runtime, AgentCore automatically creates Version 1 of your runtime. At this point, a DEFAULT endpoint is
+automatically created that points to Version 1. This DEFAULT endpoint serves as the main access point for your runtime.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+})
+```
+
+##### Step 2: Creating Custom Endpoints
+
+After the initial deployment, you can create additional endpoints for different environments. For example, you might create a "production"
+endpoint that explicitly points to Version 1. This allows you to maintain stable access points for specific environments while keeping the
+flexibility to test newer versions elsewhere.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+})
+
+prodEndpoint := runtime.AddEndpoint(jsii.String("production"), &AddEndpointOptions{
+	Version: jsii.String("1"),
+	Description: jsii.String("Stable production endpoint - pinned to v1"),
+})
+```
+
+##### Step 3: Runtime Update Deployment
+
+When you update the runtime configuration (such as updating the container image, modifying network settings, or changing protocol
+configurations), AgentCore automatically creates a new version (Version 2). Upon this update:
+
+* Version 2 is created automatically with the new configuration
+* The DEFAULT endpoint automatically updates to point to Version 2
+* Any explicitly pinned endpoints (like the production endpoint) remain on their specified versions
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifactNew := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v2.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifactNew,
+})
+```
+
+##### Step 4: Testing with Staging Endpoints
+
+Once Version 2 exists, you can create a staging endpoint that points to the new version. This staging endpoint allows you to test the
+new version in a controlled environment before promoting it to production. This separation ensures that production traffic continues
+to use the stable version while you validate the new version.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifactNew := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v2.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifactNew,
+})
+
+stagingEndpoint := runtime.AddEndpoint(jsii.String("staging"), &AddEndpointOptions{
+	Version: jsii.String("2"),
+	Description: jsii.String("Staging environment for testing new version"),
+})
+```
+
+##### Step 5: Promoting to Production
+
+After thoroughly testing the new version through the staging endpoint, you can update the production endpoint to point to Version 2.
+This controlled promotion process ensures that you can validate changes before they affect production traffic.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifactNew := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v2.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifactNew,
+})
+
+prodEndpoint := runtime.AddEndpoint(jsii.String("production"), &AddEndpointOptions{
+	Version: jsii.String("2"),
+	 // New version added here
+	Description: jsii.String("Stable production endpoint"),
+})
+```
+
+### Creating Standalone Runtime Endpoints
+
+RuntimeEndpoint can also be created as a standalone resource.
+
+#### Example: Creating an endpoint for an existing runtime
+
+```go
+// Reference an existing runtime by its ID
+existingRuntimeId := "abc123-runtime-id" // The ID of an existing runtime
+
+// Create a standalone endpoint
+endpoint := agentcore.NewRuntimeEndpoint(this, jsii.String("MyEndpoint"), &RuntimeEndpointProps{
+	EndpointName: jsii.String("production"),
+	AgentRuntimeId: existingRuntimeId,
+	AgentRuntimeVersion: jsii.String("1"),
+	 // Specify which version to use
+	Description: jsii.String("Production endpoint for existing runtime"),
+})
+```
+
+### Runtime Authentication Configuration
+
+The AgentCore Runtime supports multiple authentication modes to secure access to your agent endpoints. Authentication is configured during runtime creation using the `RuntimeAuthorizerConfiguration` class's static factory methods.
+
+#### IAM Authentication (Default)
+
+IAM authentication is the default mode, when no authorizerConfiguration is set then the underlying service use IAM.
+
+#### Cognito Authentication
+
+To configure AWS Cognito User Pool authentication:
+
+```go
+var userPool UserPool
+var userPoolClient UserPoolClient
+var anotherUserPoolClient UserPoolClient
+
+
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Optional: Create custom claims for additional validation
+customClaims := []RuntimeCustomClaim{
+	agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+	agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+		jsii.String("admin"),
+	}, agentcore.CustomClaimOperator_CONTAINS),
+	agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+}
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingCognito(userPool, []IUserPoolClient{
+		userPoolClient,
+		anotherUserPoolClient,
+	}, []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, customClaims),
+})
+```
+
+You can configure:
+
+* User Pool: The Cognito User Pool that issues JWT tokens
+* User Pool Clients: One or more Cognito User Pool App Clients that are allowed to access the runtime
+* Allowed audiences: Used to validate that the audiences specified in the Cognito token match or are a subset of the audiences specified in the AgentCore Runtime
+* Allowed scopes: Allow access only if the token contains at least one of the required scopes configured here
+* Custom claims: A set of rules to match specific claims in the incoming token against predefined values for validating JWT tokens
+
+#### JWT Authentication
+
+To configure custom JWT authentication with your own OpenID Connect (OIDC) provider:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingJWT(jsii.String("https://example.com/.well-known/openid-configuration"), []*string{
+		jsii.String("client1"),
+		jsii.String("client2"),
+	}, []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}),
+})
+```
+
+You can configure:
+
+* Discovery URL: Enter the Discovery URL from your identity provider (e.g. Okta, Cognito, etc.), typically found in that provider's documentation. This allows your Agent or Tool to fetch login, downstream resource token, and verification settings.
+* Allowed audiences: This is used to validate that the audiences specified for the OAuth token matches or are a subset of the audiences specified in the AgentCore Runtime.
+* Allowed clients: This is used to validate that the public identifier of the client, as specified in the authorization token, is allowed to access the AgentCore Runtime.
+* Allowed scopes: Allow access only if the token contains at least one of the required scopes configured here.
+* Custom claims: A set of rules to match specific claims in the incoming token against predefined values for validating JWT tokens.
+
+**Note**: The discovery URL must end with `/.well-known/openid-configuration`.
+
+##### Custom Claims Validation
+
+Custom claims allow you to validate additional fields in JWT tokens beyond the standard audience, client, and scope validations. You can create custom claims using the `RuntimeCustomClaim` class:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// String claim - validates that the claim exactly equals the specified value
+// Uses EQUALS operator automatically
+departmentClaim := agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering"))
+
+// String array claim with CONTAINS operator (default)
+// Validates that the claim array contains a specific string value
+// IMPORTANT: CONTAINS requires exactly one value in the array parameter
+rolesClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+	jsii.String("admin"),
+})
+
+// String array claim with CONTAINS_ANY operator
+// Validates that the claim array contains at least one of the specified values
+// Use this when you want to check for multiple possible values
+permissionsClaim := agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+	jsii.String("read"),
+	jsii.String("write"),
+}, agentcore.CustomClaimOperator_CONTAINS_ANY)
+
+// Use custom claims in authorizer configuration
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingJWT(jsii.String("https://example.com/.well-known/openid-configuration"), []*string{
+		jsii.String("client1"),
+		jsii.String("client2"),
+	}, []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, []RuntimeCustomClaim{
+		departmentClaim,
+		rolesClaim,
+		permissionsClaim,
+	}),
+})
+```
+
+**Custom Claim Rules**:
+
+* **String claims**: Must use the `EQUALS` operator (automatically set). The claim value must exactly match the specified string.
+* **String array claims**: Can use `CONTAINS` (default) or `CONTAINS_ANY` operators:
+
+  * **`CONTAINS`**: Checks if the claim array contains a specific string value. **Requires exactly one value** in the array parameter. For example, `['admin']` will check if the token's claim array contains the string `'admin'`.
+  * **`CONTAINS_ANY`**: Checks if the claim array contains at least one of the provided string values. Use this when you want to validate against multiple possible values. For example, `['read', 'write']` will check if the token's claim array contains either `'read'` or `'write'`.
+
+**Example Use Cases**:
+
+* Use `CONTAINS` when you need to verify a user has a specific role: `RuntimeCustomClaim.withStringArrayValue('roles', ['admin'])`
+* Use `CONTAINS_ANY` when you need to verify a user has any of several permissions: `RuntimeCustomClaim.withStringArrayValue('permissions', ['read', 'write'], CustomClaimOperator.CONTAINS_ANY)`
+
+#### OAuth Authentication
+
+To configure OAuth 2.0 authentication:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingOAuth(jsii.String("https://github.com/.well-known/openid-configuration"), jsii.String("oauth_client_123"), []*string{
+		jsii.String("audience1"),
+	}, []*string{
+		jsii.String("openid"),
+		jsii.String("profile"),
+	}),
+})
+```
+
+#### Using a Custom IAM Role
+
+Instead of using the auto-created execution role, you can provide your own IAM role with specific permissions:
+The auto-created role includes all necessary baseline permissions for ECR access, CloudWatch logging, and X-Ray tracing. When providing a custom role, ensure these permissions are included.
+
+### Runtime Network Configuration
+
+The AgentCore Runtime supports two network modes for deployment:
+
+#### Public Network Mode (Default)
+
+By default, runtimes are deployed in PUBLIC network mode, which provides internet access suitable for less sensitive or open-use scenarios:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Explicitly using public network (this is the default)
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	NetworkConfiguration: agentcore.RuntimeNetworkConfiguration_UsingPublicNetwork(),
+})
+```
+
+#### VPC Network Mode
+
+For enhanced security and network isolation, you can deploy your runtime within a VPC:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create or use an existing VPC
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
+	MaxAzs: jsii.Number(2),
+})
+
+// Configure runtime with VPC
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	NetworkConfiguration: agentcore.RuntimeNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+		Vpc: vpc,
+		VpcSubnets: &SubnetSelection{
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		},
+	}),
+})
+```
+
+#### Managing Security Groups with VPC Configuration
+
+When using VPC mode, the Runtime implements `ec2.IConnectable`, allowing you to manage network access using the `connections` property:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
+	MaxAzs: jsii.Number(2),
+})
+
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create runtime with VPC configuration
+runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("myAgent"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	NetworkConfiguration: agentcore.RuntimeNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+		Vpc: vpc,
+		VpcSubnets: &SubnetSelection{
+			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+		},
+	}),
+})
+
+// Now you can manage network access using the connections property
+// Allow inbound HTTPS traffic from a specific security group
+webServerSecurityGroup := ec2.NewSecurityGroup(this, jsii.String("WebServerSG"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+runtime.connections.AllowFrom(webServerSecurityGroup, ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS from web servers"))
+
+// Allow outbound connections to a database
+databaseSecurityGroup := ec2.NewSecurityGroup(this, jsii.String("DatabaseSG"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+runtime.connections.AllowTo(databaseSecurityGroup, ec2.Port_Tcp(jsii.Number(5432)), jsii.String("Allow PostgreSQL connection"))
+
+// Allow outbound HTTPS to anywhere (for external API calls)
+runtime.connections.AllowToAnyIpv4(ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS outbound"))
+```
+
+### Runtime IAM Permissions
+
+The Runtime construct provides convenient methods for granting IAM permissions to principals that need to invoke the runtime or manage its execution role.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create a runtime
+runtime := agentcore.NewRuntime(this, jsii.String("MyRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("my_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+})
+
+// Create a Lambda function that needs to invoke the runtime
+invokerFunction := lambda.NewFunction(this, jsii.String("InvokerFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	import boto3
+	def handler(event, context):
+	    client = boto3.client('bedrock-agentcore')
+	    # Invoke the runtime...
+	  `)),
+})
+
+// Grant permission to invoke the runtime directly
+runtime.GrantInvokeRuntime(invokerFunction)
+
+// Grant permission to invoke the runtime on behalf of a user
+// (requires X-Amzn-Bedrock-AgentCore-Runtime-User-Id header)
+runtime.GrantInvokeRuntimeForUser(invokerFunction)
+
+// Grant both invoke permissions (most common use case)
+runtime.GrantInvoke(invokerFunction)
+
+// Grant specific custom permissions to the runtime's execution role
+runtime.Grant([]*string{
+	jsii.String("bedrock:InvokeModel"),
+}, []*string{
+	jsii.String("arn:aws:bedrock:*:*:*"),
+})
+
+// Add a policy statement to the runtime's execution role
+runtime.AddToRolePolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("s3:GetObject"),
+	},
+	Resources: []*string{
+		jsii.String("arn:aws:s3:::my-bucket/*"),
+	},
+}))
+```
+
+### Other configuration
+
+#### Lifecycle configuration
+
+The LifecycleConfiguration input parameter to CreateAgentRuntime lets you manage the lifecycle of runtime sessions and resources in Amazon Bedrock AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.
+
+You can configure:
+
+* idleRuntimeSessionTimeout: Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will trigger termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 900 seconds (15 minutes)
+* maxLifetime: Maximum lifetime for the instance in seconds. Once reached, instances will initialize termination. Termination can last up to 15 seconds due to logging and other process completion. Default: 28800 seconds (8 hours)
+
+For additional information, please refer to the [documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-lifecycle-settings.html).
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	LifecycleConfiguration: &LifecycleConfiguration{
+		IdleRuntimeSessionTimeout: awscdk.Duration_Minutes(jsii.Number(10)),
+		MaxLifetime: awscdk.Duration_Hours(jsii.Number(4)),
+	},
+})
+```
+
+#### Request header configuration
+
+Custom headers let you pass contextual information from your application directly to your agent code without cluttering the main request payload. This includes authentication tokens like JWT (JSON Web Tokens, which contain user identity and authorization claims) through the Authorization header, allowing your agent to make decisions based on who is calling it. You can also pass custom metadata like user preferences, session identifiers, or trace context using headers prefixed with X-Amzn-Bedrock-AgentCore-Runtime-Custom-, giving your agent access to up to 20 pieces of runtime context that travel alongside each request. This information can be also used in downstream systems like AgentCore Memory that you can namespace based on those characteristics like user_id or aud in claims like line of business.
+
+For additional information, please refer to the [documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-header-allowlist.html).
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	RequestHeaderConfiguration: &RequestHeaderConfiguration{
+		AllowlistedHeaders: []*string{
+			jsii.String("X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1"),
+		},
+	},
+})
+```
+
+#### Observability configuration
+
+The Runtime construct supports observability features including X-Ray tracing and logging to CloudWatch Logs, S3, or Kinesis Data Firehose. This allows you to monitor and debug your agent runtime invocations.
+
+You can configure:
+
+* tracingEnabled: Enable X-Ray tracing for the runtime
+* loggingConfigs: Send APPLICATION_LOGS (agent runtime invocations) and USAGE_LOGS (session-level resource consumption) to CloudWatch Logs, S3, or Kinesis Data Firehose
+
+For additional information, please refer to the [Set up logging and tracing for AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html).
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+// Create logging destinations
+logGroup := logs.NewLogGroup(this, jsii.String("RuntimeLogGroup"))
+logBucket := s3.NewBucket(this, jsii.String("RuntimeLogBucket"))
+firehoseStream := firehose.NewDeliveryStream(this, jsii.String("RuntimeLogStream"), &DeliveryStreamProps{
+	Destination: firehose.NewS3Bucket(logBucket),
+})
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	TracingEnabled: jsii.Boolean(true),
+	LoggingConfigs: []LoggingConfig{
+		&LoggingConfig{
+			LogType: agentcore.LogType_APPLICATION_LOGS(),
+			Destination: agentcore.LoggingDestination_CloudWatchLogs(logGroup),
+		},
+		&LoggingConfig{
+			LogType: agentcore.LogType_APPLICATION_LOGS(),
+			Destination: agentcore.LoggingDestination_S3(logBucket),
+		},
+		&LoggingConfig{
+			LogType: agentcore.LogType_APPLICATION_LOGS(),
+			Destination: agentcore.LoggingDestination_Firehose(firehoseStream),
+		},
+	},
+})
+```
+
+## Browser
+
+The Amazon Bedrock AgentCore Browser provides a secure, cloud-based browser that enables AI agents to interact with websites. It includes security features such as session isolation, built-in observability through live viewing, CloudTrail logging, and session replay capabilities.
+
+Additional information about the browser tool can be found in the [official documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html)
+
+### Browser Network modes
+
+The Browser construct supports the following network modes:
+
+1. **Public Network Mode** (`BrowserNetworkMode.usingPublicNetwork()`) - Default
+
+   * Allows internet access for web browsing and external API calls
+   * Suitable for scenarios where agents need to interact with publicly available websites
+   * Enables full web browsing capabilities
+   * VPC mode is not supported with this option
+2. **VPC (Virtual Private Cloud)** (`BrowserNetworkMode.usingVpc()`)
+
+   * Select whether to run the browser in a virtual private cloud (VPC).
+   * By configuring VPC connectivity, you enable secure access to private resources such as databases, internal APIs, and services within your VPC.
+
+   While the VPC itself is mandatory, these are optional:
+
+   * Subnets - if not provided, CDK will select appropriate subnets from the VPC
+   * Security Groups - if not provided, CDK will create a default security group
+   * Specific subnet selection criteria - you can let CDK choose automatically
+
+For more information on VPC connectivity for Amazon Bedrock AgentCore Browser, please refer to the [official documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-vpc.html).
+
+### Browser Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `browserCustomName` | `string` | No | The name of the browser. Must start with a letter and can be up to 48 characters long. Pattern: `[a-zA-Z][a-zA-Z0-9_]{0,47}`. If not provided, a unique name will be auto-generated |
+| `description` | `string` | No | Optional description for the browser. Can have up to 200 characters |
+| `networkConfiguration` | `BrowserNetworkConfiguration` | No | Network configuration for browser. Defaults to PUBLIC network mode |
+| `recordingConfig` | `RecordingConfig` | No | Recording configuration for browser. Defaults to no recording |
+| `executionRole` | `iam.IRole` | No | The IAM role that provides permissions for the browser to access AWS services. A new role will be created if not provided |
+| `tags` | `{ [key: string]: string }` | No | Tags to apply to the browser resource |
+| `browserSigning` | BrowserSigning | No | Browser signing configuration. Defaults to DISABLED |
+
+### Basic Browser Creation
+
+```go
+// Create a basic browser with public network access
+browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("my_browser"),
+	Description: jsii.String("A browser for web automation"),
+})
+```
+
+### Browser with Tags
+
+```go
+// Create a browser with custom tags
+browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("my_browser"),
+	Description: jsii.String("A browser for web automation with tags"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+	Tags: map[string]*string{
+		"Environment": jsii.String("Production"),
+		"Team": jsii.String("AI/ML"),
+		"Project": jsii.String("AgentCore"),
+	},
+})
+```
+
+### Browser with VPC
+
+```go
+browser := agentcore.NewBrowserCustom(this, jsii.String("BrowserVpcWithRecording"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("browser_recording"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+		Vpc: ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+			RestrictDefaultSecurityGroup: jsii.Boolean(false),
+		}),
+	}),
+})
+```
+
+Browser exposes a [connections](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Connections.html) property. This property returns a connections object, which simplifies the process of defining and managing ingress and egress rules for security groups in your AWS CDK applications. Instead of directly manipulating security group rules, you interact with the Connections object of a construct, which then translates your connectivity requirements into the appropriate security group rules. For instance:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("testVPC"))
+
+browser := agentcore.NewBrowserCustom(this, jsii.String("test-browser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("test_browser"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+		Vpc: vpc,
+	}),
+})
+
+browser.connections.AddSecurityGroup(ec2.NewSecurityGroup(this, jsii.String("AdditionalGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+}))
+```
+
+So security groups can be added after the browser construct creation. You can use methods like allowFrom() and allowTo() to grant ingress access to/egress access from a specified peer over a given portRange. The Connections object automatically adds the necessary ingress or egress rules to the security group(s) associated with the calling construct.
+
+### Browser with Recording Configuration
+
+```go
+// Create an S3 bucket for recordings
+recordingBucket := s3.NewBucket(this, jsii.String("RecordingBucket"), &BucketProps{
+	BucketName: jsii.String("my-browser-recordings"),
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+})
+
+// Create browser with recording enabled
+browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("my_browser"),
+	Description: jsii.String("Browser with recording enabled"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+	RecordingConfig: &RecordingConfig{
+		Enabled: jsii.Boolean(true),
+		S3Location: &Location{
+			BucketName: recordingBucket.bucketName,
+			ObjectKey: jsii.String("browser-recordings/"),
+		},
+	},
+})
+```
+
+### Browser with Custom Execution Role
+
+```go
+// Create a custom execution role
+executionRole := iam.NewRole(this, jsii.String("BrowserExecutionRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+	ManagedPolicies: []IManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreBrowserExecutionRolePolicy")),
+	},
+})
+
+// Create browser with custom execution role
+browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("my_browser"),
+	Description: jsii.String("Browser with custom execution role"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+	ExecutionRole: executionRole,
+})
+```
+
+### Browser with S3 Recording and Permissions
+
+```go
+// Create an S3 bucket for recordings
+recordingBucket := s3.NewBucket(this, jsii.String("RecordingBucket"), &BucketProps{
+	BucketName: jsii.String("my-browser-recordings"),
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+})
+
+// Create browser with recording enabled
+browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("my_browser"),
+	Description: jsii.String("Browser with recording enabled"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+	RecordingConfig: &RecordingConfig{
+		Enabled: jsii.Boolean(true),
+		S3Location: &Location{
+			BucketName: recordingBucket.bucketName,
+			ObjectKey: jsii.String("browser-recordings/"),
+		},
+	},
+})
+```
+
+### Browser with Browser signing
+
+AI agents need to browse the web on your behalf. When your agent visits a website to gather information, complete a form, or verify data, it encounters the same defenses designed to stop unwanted bots: CAPTCHAs, rate limits, and outright blocks.
+
+Amazon Bedrock AgentCore Browser supports Web Bot Auth. Web Bot Auth is a draft IETF protocol that gives agents verifiable cryptographic identities. When you enable Web Bot Auth in AgentCore Browser, the service issues cryptographic credentials that websites can verify. The agent presents these credentials with every request. The WAF may now additionally check the signature, confirm it matches a trusted directory, and allow the request through if verified bots are allowed by the domain owner and other WAF checks are clear.
+
+To enable the browser to sign requests using the Web Bot Auth protocol, create a browser tool with the browserSigning configuration:
+
+```go
+browser := agentcore.NewBrowserCustom(this, jsii.String("test-browser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("test_browser"),
+	BrowserSigning: agentcore.BrowserSigning_ENABLED,
+})
+```
+
+### Browser IAM Permissions
+
+The Browser construct provides convenient methods for granting IAM permissions:
+
+```go
+// Create a browser
+browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+	BrowserCustomName: jsii.String("my_browser"),
+	Description: jsii.String("Browser for web automation"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
+})
+
+// Create a role that needs access to the browser
+userRole := iam.NewRole(this, jsii.String("UserRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+// Grant read permissions (Get and List actions)
+browser.GrantRead(userRole)
+
+// Grant use permissions (Start, Update, Stop actions)
+browser.GrantUse(userRole)
+
+// Grant specific custom permissions
+browser.Grant(userRole, jsii.String("bedrock-agentcore:GetBrowserSession"))
+```
+
+## Code Interpreter
+
+The Amazon Bedrock AgentCore Code Interpreter enables AI agents to write and execute code securely in sandbox environments, enhancing their accuracy and expanding their ability to solve complex end-to-end tasks. This is critical in Agentic AI applications where the agents may execute arbitrary code that can lead to data compromise or security risks. The AgentCore Code Interpreter tool provides secure code execution, which helps you avoid running into these issues.
+
+For more information about code interpreter, please refer to the [official documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)
+
+### Code Interpreter Network Modes
+
+The Code Interpreter construct supports the following network modes:
+
+1. **Public Network Mode** (`CodeInterpreterNetworkMode.usingPublicNetwork()`) - Default
+
+   * Allows internet access for package installation and external API calls
+   * Suitable for development and testing environments
+   * Enables downloading Python packages from PyPI
+2. **Sandbox Network Mode** (`CodeInterpreterNetworkMode.usingSandboxNetwork()`)
+
+   * Isolated network environment with no internet access
+   * Suitable for production environments with strict security requirements
+   * Only allows access to pre-installed packages and local resources
+3. **VPC (Virtual Private Cloud)** (`CodeInterpreterNetworkMode.usingVpc()`)
+
+   * Select whether to run the browser in a virtual private cloud (VPC).
+   * By configuring VPC connectivity, you enable secure access to private resources such as databases, internal APIs, and services within your VPC.
+
+   While the VPC itself is mandatory, these are optional:
+
+   * Subnets - if not provided, CDK will select appropriate subnets from the VPC
+   * Security Groups - if not provided, CDK will create a default security group
+   * Specific subnet selection criteria - you can let CDK choose automatically
+
+For more information on VPC connectivity for Amazon Bedrock AgentCore Browser, please refer to the [official documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-vpc.html).
+
+### Code Interpreter Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `codeInterpreterCustomName` | `string` | No | The name of the code interpreter. Must start with a letter and can be up to 48 characters long. Pattern: `[a-zA-Z][a-zA-Z0-9_]{0,47}`. If not provided, a unique name will be auto-generated |
+| `description` | `string` | No | Optional description for the code interpreter. Can have up to 200 characters |
+| `executionRole` | `iam.IRole` | No | The IAM role that provides permissions for the code interpreter to access AWS services. A new role will be created if not provided |
+| `networkConfiguration` | `CodeInterpreterNetworkConfiguration` | No | Network configuration for code interpreter. Defaults to PUBLIC network mode |
+| `tags` | `{ [key: string]: string }` | No | Tags to apply to the code interpreter resource |
+
+### Basic Code Interpreter Creation
+
+```go
+// Create a basic code interpreter with public network access
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_code_interpreter"),
+	Description: jsii.String("A code interpreter for Python execution"),
+})
+```
+
+### Code Interpreter with VPC
+
+```go
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_sandbox_interpreter"),
+	Description: jsii.String("Code interpreter with isolated network access"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+		Vpc: ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+			RestrictDefaultSecurityGroup: jsii.Boolean(false),
+		}),
+	}),
+})
+```
+
+Code Interpreter exposes a [connections](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Connections.html) property. This property returns a connections object, which simplifies the process of defining and managing ingress and egress rules for security groups in your AWS CDK applications. Instead of directly manipulating security group rules, you interact with the Connections object of a construct, which then translates your connectivity requirements into the appropriate security group rules. For instance:
+
+```go
+vpc := ec2.NewVpc(this, jsii.String("testVPC"))
+
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_sandbox_interpreter"),
+	Description: jsii.String("Code interpreter with isolated network access"),
+	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
+		Vpc: vpc,
+	}),
+})
+
+codeInterpreter.connections.AddSecurityGroup(ec2.NewSecurityGroup(this, jsii.String("AdditionalGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+}))
+```
+
+So security groups can be added after the browser construct creation. You can use methods like allowFrom() and allowTo() to grant ingress access to/egress access from a specified peer over a given portRange. The Connections object automatically adds the necessary ingress or egress rules to the security group(s) associated with the calling construct.
+
+### Code Interpreter with Sandbox Network Mode
+
+```go
+// Create code interpreter with sandbox network mode (isolated)
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_sandbox_interpreter"),
+	Description: jsii.String("Code interpreter with isolated network access"),
+	NetworkConfiguration: agentcore.CodeInterpreterNetworkConfiguration_UsingSandboxNetwork(),
+})
+```
+
+### Code Interpreter with Custom Execution Role
+
+```go
+// Create a custom execution role
+executionRole := iam.NewRole(this, jsii.String("CodeInterpreterExecutionRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+})
+
+// Create code interpreter with custom execution role
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_code_interpreter"),
+	Description: jsii.String("Code interpreter with custom execution role"),
+	NetworkConfiguration: agentcore.CodeInterpreterNetworkConfiguration_UsingPublicNetwork(),
+	ExecutionRole: executionRole,
+})
+```
+
+### Code Interpreter IAM Permissions
+
+The Code Interpreter construct provides convenient methods for granting IAM permissions:
+
+```go
+// Create a code interpreter
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_code_interpreter"),
+	Description: jsii.String("Code interpreter for Python execution"),
+	NetworkConfiguration: agentcore.CodeInterpreterNetworkConfiguration_UsingPublicNetwork(),
+})
+
+// Create a role that needs access to the code interpreter
+userRole := iam.NewRole(this, jsii.String("UserRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+// Grant read permissions (Get and List actions)
+codeInterpreter.GrantRead(userRole)
+
+// Grant use permissions (Start, Invoke, Stop actions)
+codeInterpreter.GrantUse(userRole)
+
+// Grant specific custom permissions
+codeInterpreter.Grant(userRole, jsii.String("bedrock-agentcore:GetCodeInterpreterSession"))
+```
+
+### Code interpreter with tags
+
+```go
+// Create code interpreter with sandbox network mode (isolated)
+codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
+	CodeInterpreterCustomName: jsii.String("my_sandbox_interpreter"),
+	Description: jsii.String("Code interpreter with isolated network access"),
+	NetworkConfiguration: agentcore.CodeInterpreterNetworkConfiguration_UsingPublicNetwork(),
+	Tags: map[string]*string{
+		"Environment": jsii.String("Production"),
+		"Team": jsii.String("AI/ML"),
+		"Project": jsii.String("AgentCore"),
+	},
+})
+```
+
+## Gateway
+
+The Gateway construct provides a way to create Amazon Bedrock Agent Core Gateways, which serve as integration points between agents and external services.
+
+### Gateway Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `gatewayName` | `string` | No | The name of the gateway. Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen). Maximum 100 characters. If not provided, a unique name will be auto-generated |
+| `description` | `string` | No | Optional description for the gateway. Maximum 200 characters |
+| `protocolConfiguration` | `IGatewayProtocolConfig` | No | The protocol configuration for the gateway. Defaults to MCP protocol |
+| `authorizerConfiguration` | `IGatewayAuthorizerConfig` | No | The authorizer configuration for the gateway. Defaults to Cognito |
+| `exceptionLevel` | `GatewayExceptionLevel` | No | The verbosity of exception messages. Use DEBUG mode to see granular exception messages |
+| `kmsKey` | `kms.IKey` | No | The AWS KMS key used to encrypt data associated with the gateway |
+| `role` | `iam.IRole` | No | The IAM role that provides permissions for the gateway to access AWS services. A new role will be created if not provided |
+| `tags` | `{ [key: string]: string }` | No | Tags for the gateway. A list of key:value pairs of tags to apply to this Gateway resource |
+
+### Basic Gateway Creation
+
+The protocol configuration defaults to MCP and the inbound auth configuration uses Cognito (it is automatically created on your behalf).
+
+```go
+// Create a basic gateway with default MCP protocol and Cognito authorizer
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+```
+
+### Protocol configuration
+
+Currently MCP is the only protocol available. To configure it, use the `protocol` property with `McpProtocolConfiguration`:
+
+* Instructions: Guidance for how to use the gateway with your tools
+* Semantic search: Smart tool discovery that finds the right tools without typical limits. It improves accuracy by finding relevant tools based on context
+* Supported versions: Which MCP protocol versions the gateway can use
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
+		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
+		SearchType: agentcore.McpGatewaySearchType_SEMANTIC(),
+		SupportedVersions: []MCPProtocolVersion{
+			agentcore.MCPProtocolVersion_MCP_2025_03_26(),
+		},
+	}),
+})
+```
+
+### Inbound authorization
+
+Before you create your gateway, you must set up inbound authorization. Inbound authorization validates users who attempt to access targets through
+your AgentCore gateway. By default, if not provided, the construct will create and configure Cognito as the default identity provider
+(inbound Auth setup). AgentCore supports the following types of inbound authorization:
+
+**JSON Web Token (JWT)** – A secure and compact token used for authorization. After creating the JWT, you specify it as the authorization
+configuration when you create the gateway. You can create a JWT with any of the identity providers at Provider setup and configuration.
+
+You can configure a custom authorization provider using the `authorizerConfiguration` property with `GatewayAuthorizer.usingCustomJwt()`.
+You need to specify an OAuth discovery server and client IDs/audiences when you create the gateway. You can specify the following:
+
+* Discovery Url — String that must match the pattern ^.+/.well-known/openid-configuration$ for OpenID Connect discovery URLs
+* At least one of the below options depending on the chosen identity provider.
+* Allowed audiences — List of allowed audiences for JWT tokens
+* Allowed clients — List of allowed client identifiers
+* Allowed scopes — List of allowed scopes for JWT tokens
+* Custom claims — Optional custom claim validations (see Custom Claims Validation section below)
+
+```go
+// Optional: Create custom claims (CustomClaimOperator and GatewayCustomClaim from agentcore)
+customClaims := []GatewayCustomClaim{
+	agentcore.GatewayCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+		jsii.String("admin"),
+	}, agentcore.CustomClaimOperator_CONTAINS),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+}
+
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
+		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
+		AllowedAudience: []*string{
+			jsii.String("my-app"),
+		},
+		AllowedClients: []*string{
+			jsii.String("my-client-id"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+		CustomClaims: customClaims,
+	}),
+})
+```
+
+**IAM** – Authorizes through the credentials of the AWS IAM identity trying to access the gateway.
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingAwsIam(),
+})
+
+// Grant access to a Lambda function's role
+lambdaRole := iam.NewRole(this, jsii.String("LambdaRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+// The Lambda needs permission to invoke the gateway
+gateway.GrantInvoke(lambdaRole)
+```
+
+**No Authorization** – Creates a gateway with no inbound authorization. This is useful for building public MCP servers,
+or when you want to skip gateway-level authentication and enforce tool execution-level authentication using Gateway Interceptors.
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_WithNoAuth(),
+})
+```
+
+> **⚠️ Important:** Do not use No Authorization gateways for production workloads unless you have implemented all the security best practices. No Authorization gateways are most appropriate for testing and development purposes. See [Security Best Practices](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-none) for required compensating controls.
+
+For more information, see [No Authorization](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-none).
+
+**Cognito with M2M (Machine-to-Machine) Authentication (Default)** – When no authorizer is specified, the construct automatically creates a Cognito User Pool configured for OAuth 2.0 client credentials flow. This enables machine-to-machine authentication suitable for AI agents and service-to-service communication.
+
+For more information, see [Setting up Amazon Cognito for Gateway inbound authorization](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-idp-cognito.html).
+
+```go
+// Create a gateway with default Cognito M2M authorizer
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// Access the Cognito resources for authentication setup
+userPool := gateway.UserPool
+userPoolClient := gateway.UserPoolClient
+
+// Get the token endpoint URL and OAuth scopes for client credentials flow
+tokenEndpointUrl := gateway.TokenEndpointUrl
+oauthScopes := gateway.OauthScopes
+```
+
+**Using Cognito User Pool Explicitly with Custom Claims** – You can also use an existing Cognito User Pool with custom claims:
+
+```go
+var userPool UserPool
+var userPoolClient UserPoolClient
+
+
+// Optional: Create custom claims (CustomClaimOperator and GatewayCustomClaim from agentcore)
+customClaims := []GatewayCustomClaim{
+	agentcore.GatewayCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
+		jsii.String("admin"),
+	}, agentcore.CustomClaimOperator_CONTAINS),
+	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
+		jsii.String("read"),
+		jsii.String("write"),
+	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
+}
+
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCognito(&CognitoAuthorizerProps{
+		UserPool: userPool,
+		AllowedClients: []IUserPoolClient{
+			userPoolClient,
+		},
+		AllowedAudiences: []*string{
+			jsii.String("audience1"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+		CustomClaims: customClaims,
+	}),
+})
+```
+
+To authenticate with the gateway, request an access token using the client credentials flow and use it to call Gateway endpoints. For more information about the token endpoint, see [The token issuer endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html).
+
+The following is an example of a token request using curl:
+
+```bash
+curl -X POST "${TOKEN_ENDPOINT_URL}" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials" \
+  -d "client_id=${USER_POOL_CLIENT_ID}" \
+  -d "client_secret=${CLIENT_SECRET}" \
+  -d "scope=${OAUTH_SCOPES}"
+```
+
+### Gateway with KMS Encryption
+
+You can provide a KMS key, and configure the authorizer as well as the protocol configuration.
+
+```go
+// Create a KMS key for encryption
+encryptionKey := kms.NewKey(this, jsii.String("GatewayEncryptionKey"), &KeyProps{
+	EnableKeyRotation: jsii.Boolean(true),
+	Description: jsii.String("KMS key for gateway encryption"),
+})
+
+// Create gateway with KMS encryption
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-encrypted-gateway"),
+	Description: jsii.String("Gateway with KMS encryption"),
+	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
+		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
+		SearchType: agentcore.McpGatewaySearchType_SEMANTIC(),
+		SupportedVersions: []MCPProtocolVersion{
+			agentcore.MCPProtocolVersion_MCP_2025_03_26(),
+		},
+	}),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
+		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
+		AllowedAudience: []*string{
+			jsii.String("my-app"),
+		},
+		AllowedClients: []*string{
+			jsii.String("my-client-id"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+	}),
+	KmsKey: encryptionKey,
+	ExceptionLevel: agentcore.GatewayExceptionLevel_DEBUG(),
+})
+```
+
+### Gateway with Custom Execution Role
+
+```go
+// Create a custom execution role
+executionRole := iam.NewRole(this, jsii.String("GatewayExecutionRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+	ManagedPolicies: []IManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreGatewayExecutionRolePolicy")),
+	},
+})
+
+// Create gateway with custom execution role
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	Description: jsii.String("Gateway with custom execution role"),
+	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
+		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
+		SearchType: agentcore.McpGatewaySearchType_SEMANTIC(),
+		SupportedVersions: []MCPProtocolVersion{
+			agentcore.MCPProtocolVersion_MCP_2025_03_26(),
+		},
+	}),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
+		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
+		AllowedAudience: []*string{
+			jsii.String("my-app"),
+		},
+		AllowedClients: []*string{
+			jsii.String("my-client-id"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+	}),
+	Role: executionRole,
+})
+```
+
+### Gateway IAM Permissions
+
+The Gateway construct provides convenient methods for granting IAM permissions:
+
+```go
+// Create a gateway
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	Description: jsii.String("Gateway for external service integration"),
+	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
+		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
+		SearchType: agentcore.McpGatewaySearchType_SEMANTIC(),
+		SupportedVersions: []MCPProtocolVersion{
+			agentcore.MCPProtocolVersion_MCP_2025_03_26(),
+		},
+	}),
+	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
+		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
+		AllowedAudience: []*string{
+			jsii.String("my-app"),
+		},
+		AllowedClients: []*string{
+			jsii.String("my-client-id"),
+		},
+		AllowedScopes: []*string{
+			jsii.String("read"),
+			jsii.String("write"),
+		},
+	}),
+})
+
+// Create a role that needs access to the gateway
+userRole := iam.NewRole(this, jsii.String("UserRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+// Grant read permissions (Get and List actions)
+gateway.GrantRead(userRole)
+
+// Grant manage permissions (Create, Update, Delete actions)
+gateway.GrantManage(userRole)
+
+// Grant specific custom permissions
+gateway.Grant(userRole, jsii.String("bedrock-agentcore:GetGateway"))
+```
+
+## Gateway Target
+
+After Creating gateways, you can add targets which define the tools that your gateway will host. Gateway supports multiple target
+types including Lambda functions and API specifications (either OpenAPI schemas or Smithy models). Gateway allows you to attach multiple
+targets to a Gateway and you can change the targets / tools attached to a gateway at any point. Each target can have its own
+credential provider attached enabling you to securely access targets whether they need IAM, API Key, or OAuth credentials.
+
+### Gateway Target Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `gatewayTargetName` | `string` | No | The name of the gateway target. Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen). If not provided, a unique name will be auto-generated |
+| `description` | `string` | No | Optional description for the gateway target. Maximum 200 characters |
+| `gateway` | `IGateway` | Yes | The gateway this target belongs to |
+| `targetConfiguration` | `ITargetConfiguration` | Yes | The target configuration (Lambda, OpenAPI, Smithy, or API Gateway). **Note:** Users typically don't create this directly. When using convenience methods like `GatewayTarget.forLambda()`, `GatewayTarget.forOpenApi()`, `GatewayTarget.forSmithy()`, `GatewayTarget.forApiGateway()`, `GatewayTarget.forMcpServer()` or the gateway's `addLambdaTarget()`, `addOpenApiTarget()`, `addSmithyTarget()`, `addApiGatewayTarget()`, `addMcpServerTarget()` methods, this configuration is created internally for you. Only needed when using the GatewayTarget constructor directly for [advanced scenarios](#advanced-usage-direct-configuration-for-gateway-target). |
+| `credentialProviderConfigurations` | `IGatewayCredentialProvider[]` | No | Credential providers for authentication. Defaults to `[GatewayCredentialProvider.fromIamRole()]`. With Token Vault L2 constructs, prefer `GatewayCredentialProvider.fromApiKeyIdentity()` / `fromOauthIdentity()`; otherwise use `fromApiKeyIdentityArn()` / `fromOauthIdentityArn()`, or `fromIamRole()` |
+| `validateOpenApiSchema` | `boolean` | No | (OpenAPI targets only) Whether to validate the OpenAPI schema at synthesis time. Defaults to `true`. Only applies to inline and local asset schemas. For more information refer here [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-schema-openapi.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-schema-openapi.html) |
+
+This approach gives you full control over the configuration but is typically not necessary for most use cases.
+
+### Targets types
+
+You can create the following targets types:
+
+**Lambda Target**: Lambda targets allow you to connect your gateway to AWS Lambda functions that implement your tools. This is useful
+when you want to execute custom code in response to tool invocations.
+
+* Supports GATEWAY_IAM_ROLE credential provider only
+* Ideal for custom serverless function integration
+* Need tool schema (tool schema is a blueprint that describes the functions your Lambda provides to AI agents).
+  The construct provide [3 ways to upload a tool schema to Lambda target](#tools-schema-for-lambda-target)
+* When using the default IAM authentication (no `credentialProviderConfigurations` specified),
+  the construct automatocally grants the gateway role permission to invoke your Lambda function (`lambda:InvokeFunction`).
+
+**OpenAPI Schema Target** : OpenAPI widely used standard for describing RESTful APIs. Gateway supports OpenAPI 3.0
+specifications for defining API targets. It connects to REST APIs using OpenAPI specifications
+
+* Supports OAUTH and API_KEY credential providers (Do not support IAM, you must provide `credentialProviderConfigurations`)
+* Ideal for integrating with external REST services
+* Need API schema. The construct provide [3 ways to upload a API schema to OpenAPI target](#api-schema-for-openapi-and-smithy-target)
+
+**Smithy Model Target** : Smithy is a language for defining services and software development kits (SDKs). Smithy models provide
+a more structured approach to defining APIs compared to OpenAPI, and are particularly useful for connecting to AWS services.
+AgentCore Gateway supports built-in AWS service models only. It connects to services using Smithy model definitions
+
+* Supports OAUTH and API_KEY credential providers
+* Ideal for AWS service integrations
+* Need API schema. The construct provide 3 ways to upload a API schema to Smity target
+* When using the default IAM authentication (no `credentialProviderConfigurations` specified), The construct only
+  grants permission to read the Smithy schema file from S3. You MUST manually grant permissions for the gateway
+  role to invoke the actual Smithy API endpoints
+
+> Note: For Smithy model targets that access AWS services, your Gateway's execution role needs permissions to access those services.
+> For example, for a DynamoDB target, your execution role needs permissions to perform DynamoDB operations.
+> This is not managed by the construct due to the large number of options. Please refer to
+> [Smithy Model Permission](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-prerequisites-permissions.html) for example.
+
+**MCP Server Target**: Model Context Protocol (MCP) servers provide external tools, data access, and custom functions for AI agents.
+MCP servers enable agents to interact with external systems and services through a standardized protocol. Gateway automatically
+discovers and indexes available tools from MCP servers through synchronization.
+
+**Key Features:**
+
+* Requires explicit authentication configuration (OAuth2 recommended, empty array for NoAuth)
+* Ideal for connecting to external MCP-compliant servers
+* The endpoint must use HTTPS protocol
+* Supported MCP protocol versions: 2025-06-18, 2025-03-26
+* Automatic tool discovery through synchronization
+
+**Synchronization Behavior:**
+
+MCP Server targets require synchronization to discover and index available tools:
+
+* **Implicit Synchronization (Automatic)**: Tool discovery happens automatically during:
+
+  * Target creation (`CreateGatewayTarget`)
+  * Target updates (`UpdateGatewayTarget`)
+  * The Gateway calls the MCP server's `tools/list` endpoint and indexes tools without user intervention
+* **Explicit Synchronization (Manual)**: When the MCP server's tools change independently (new tools added, schemas modified, tools removed):
+
+  * The Gateway's tool catalog becomes stale
+  * Call the `SynchronizeGatewayTargets` API to refresh the catalog
+  * Use the `grantSync()` method to grant permissions to Lambda functions, CI/CD pipelines, or scheduled tasks that will trigger synchronization
+
+**Authentication & Permissions:**
+
+When using OAuth2, the Gateway service role automatically receives:
+
+* `bedrock-agentcore:GetWorkloadAccessToken`
+* `bedrock-agentcore:GetResourceOauth2Token`
+* `secretsmanager:GetSecretValue`
+* KMS decrypt (if secrets are encrypted)
+
+For explicit synchronization, use `grantSync()` to grant `bedrock-agentcore:SynchronizeGatewayTargets` permission to your operator roles.
+
+> For more information, refer to the [MCP Server Target documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-MCPservers.html).
+
+### Understanding Tool Naming
+
+When tools are exposed through gateway targets, AgentCore Gateway prefixes each tool name with the target name to ensure uniqueness across multiple targets. This is important to understand when building your application logic.
+
+**Naming Pattern:**
+
+**Example:**
+
+If your target is named `my-lambda-target` and provides a tool called `calculate_price`, agents will discover and invoke it as `my-lambda-target__calculate_price`.
+
+**Important Considerations:**
+
+* **For Lambda Targets**: Your Lambda handler must strip the target name prefix before processing the tool request. The full tool name (with prefix) is sent in the event.
+* **For MCP Server Targets**: The MCP server receives tool calls with the prefixed name from the gateway.
+* **For OpenAPI/Smithy Targets**: The gateway handles the prefix automatically when mapping to API operations based on the `operationId`.
+
+This naming convention ensures that:
+
+* Tools from different targets don't collide even if they have the same name
+* Agents can access tools from multiple targets through a single gateway
+* Tool names remain unique in the unified tool catalog
+
+For more details, see the [Gateway Tool Naming Documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-tool-naming.html).
+
+### Tools schema For Lambda target
+
+The lambda target need tools schema to understand the fuunction lambda provides. You can upload the tool schema by following 3 ways:
+
+* From a local asset file
+
+```go
+toolSchema := agentcore.ToolSchema_FromLocalAsset(path.join(__dirname, jsii.String("schemas"), jsii.String("my-tool-schema.json")))
+```
+
+* From an existing S3 file:
+
+```go
+toolSchema := agentcore.ToolSchema_FromS3File(s3.Bucket_FromBucketName(this, jsii.String("SchemasBucket"), jsii.String("my-schemas-bucket")), jsii.String("tools/complex-tool-schema.json"), jsii.String("123456789012"))
+```
+
+* From Inline:
+
+```go
+toolSchema := agentcore.ToolSchema_FromInline([]ToolDefinition{
+	&ToolDefinition{
+		Name: jsii.String("hello_world"),
+		Description: jsii.String("A simple hello world tool"),
+		InputSchema: &SchemaDefinition{
+			Type: agentcore.SchemaDefinitionType_OBJECT(),
+			Properties: map[string]SchemaDefinition{
+				"name": &SchemaDefinition{
+					"type": agentcore.SchemaDefinitionType_STRING(),
+					"description": jsii.String("The name to greet"),
+				},
+			},
+			Required: []*string{
+				jsii.String("name"),
+			},
+		},
+	},
+})
+```
+
+### Api schema For OpenAPI and Smithy target
+
+The OpenAPI and Smithy target need API Schema. The Gateway construct provide three ways to upload API schema for your target:
+
+* From a local asset file (requires binding to scope):
+
+```go
+// When using ApiSchema.fromLocalAsset, you must bind the schema to a scope
+schema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("mySchema.yml")))
+
+schema.Bind(this)
+```
+
+* From an inline schema:
+
+```go
+inlineSchema := agentcore.ApiSchema_FromInline(jsii.String(`
+openapi: 3.0.3
+info:
+  title: Library API
+  version: 1.0.0
+paths:
+  /search:
+    get:
+      summary: Search for books
+      operationId: searchBooks
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+`))
+```
+
+* From an existing S3 file:
+
+```go
+bucket := s3.Bucket_FromBucketName(this, jsii.String("ExistingBucket"), jsii.String("my-schema-bucket"))
+s3Schema := agentcore.ApiSchema_FromS3File(bucket, jsii.String("schemas/action-group.yaml"))
+```
+
+### Outbound auth
+
+Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users authenticated
+and authorized during Inbound Auth.
+
+AgentCore Gateway supports the following types of outbound authorization:
+
+**IAM-based outbound authorization** – The gateway uses its execution role to authenticate with AWS services. This is the default
+and most common approach for Lambda targets and AWS service integrations.
+
+**2-legged OAuth (OAuth 2LO)** – Use OAuth 2.0 two-legged flow (2LO) for targets that require OAuth authentication.
+The gateway authenticates on its own behalf, not on behalf of a user.
+
+**API key** – Use the AgentCore service/AWS console to generate an API key to authenticate access to the gateway target.
+
+**Note > You need to set up the outbound identity before you can create a gateway target.
+
+#### Token Vault credential providers
+
+AgentCore stores outbound **API key** and **OAuth2** client credentials in Token Vault. This module includes L2 constructs that create those resources and connect them to gateway targets.
+
+**Shared OAuth2 fields** — Every `OAuth2CredentialProvider` factory accepts the same **`clientId`** and **`clientSecret`**, plus optional **`oAuth2CredentialProviderName`** and **`tags`**. Extra properties appear only when an IdP needs them (for example **`tenantId`** for Microsoft, or **`issuer`** / endpoint overrides for Okta and other *included* configurations).
+
+**Vendor factories** — Prefer `OAuth2CredentialProvider.usingSlack`, `.usingGithub`, `.usingGoogle`, `.usingMicrosoft`, `.usingOkta`, `.usingAuth0`, `.usingCognito`, and the other `using*` helpers for known providers. Each maps to the matching CloudFormation *included* provider configuration.
+
+**Custom OAuth2 (`usingCustom`)** — Supply **exactly one** of:
+
+* **`discoveryUrl`** — OIDC/OAuth2 discovery document URL (for example `https://idp.example.com/.well-known/openid-configuration`), or
+* **`authorizationServerMetadata`** — Manual authorization server metadata (`issuer`, `authorizationEndpoint`, `tokenEndpoint`, and other fields supported by the `AWS::BedrockAgentCore::OAuth2CredentialProvider` resource).
+
+Do not pass both. The construct validates this at synthesis time when values are known; if you use CDK tokens, ensure the resolved template still satisfies the service rules.
+
+**Wiring to gateway targets** — After you create a provider in CDK, pass the construct to **`GatewayCredentialProvider.fromOauthIdentity()`** or **`fromApiKeyIdentity()`** (optional API key header/query settings go in the second argument for API keys). Alternatively, call **`bindForGatewayOAuthTarget`** / **`bindForGatewayApiKeyTarget`** on the provider and pass that object to **`fromOauthIdentityArn`** / **`fromApiKeyIdentityArn`**. You can still pass raw ARNs from the console or API when the provider already exists.
+
+**Example: GitHub OAuth2 and an MCP target**
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+oauth := agentcore.OAuth2CredentialProvider_UsingGithub(this, jsii.String("GhOAuth"), &GithubOAuth2CredentialProviderProps{
+	OAuth2CredentialProviderName: jsii.String("github-oauth"),
+	ClientId: jsii.String("your-client-id"),
+	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
+})
+
+gateway.AddMcpServerTarget(jsii.String("Mcp"), &AddMcpServerTargetOptions{
+	GatewayTargetName: jsii.String("mcp-server"),
+	Description: jsii.String("MCP with GitHub OAuth"),
+	Endpoint: jsii.String("https://my-mcp-server.example.com"),
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromOauthIdentity(oauth, &FromOauthIdentityOptions{
+			Scopes: []*string{
+				jsii.String("read:user"),
+			},
+		}),
+	},
+})
+```
+
+**Example: custom IdP with a discovery URL**
+
+```go
+agentcore.OAuth2CredentialProvider_UsingCustom(this, jsii.String("CustomOAuth"), &CustomOAuth2CredentialProviderProps{
+	OAuth2CredentialProviderName: jsii.String("custom-idp"),
+	ClientId: jsii.String("your-client-id"),
+	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
+	DiscoveryUrl: jsii.String("https://idp.example.com/.well-known/openid-configuration"),
+})
+```
+
+**Example: custom IdP with explicit authorization server metadata**
+
+```go
+agentcore.OAuth2CredentialProvider_UsingCustom(this, jsii.String("CustomOAuthMeta"), &CustomOAuth2CredentialProviderProps{
+	ClientId: jsii.String("your-client-id"),
+	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
+	AuthorizationServerMetadata: &OAuth2AuthorizationServerMetadata{
+		Issuer: jsii.String("https://idp.example.com"),
+		AuthorizationEndpoint: jsii.String("https://idp.example.com/oauth2/authorize"),
+		TokenEndpoint: jsii.String("https://idp.example.com/oauth2/token"),
+	},
+})
+```
+
+#### Workload identities
+
+A **workload identity** is the stable identity of an agent in your AWS account within the AgentCore Identity model. It ties together IAM roles, OAuth2 flows, API keys, and workload access tokens so agents can authenticate consistently across environments. For conceptual background, see [Understanding workload identities](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-agent-identities.html).
+
+**Agent identity directory** — Each account has a single logical directory that holds every workload identity, whether it was created by AgentCore Runtime, AgentCore Gateway, or manually (for example through CloudFormation or the control-plane API). The directory is created automatically when the first workload identity exists. Resource ARNs follow the pattern described in [Understanding the agent identity directory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agent-identity-directory.html) (`workload-identity-directory/default` and child `workload-identity/<name>` entries).
+
+**When to create one in CDK** — Runtime and Gateway can create workload identities for you during deployment. Use the **`WorkloadIdentity`** L2 when you need a **manually defined** identity (custom name, allowed OAuth2 return URLs, tags) or when integrating workloads that are not driven by those services.
+
+**Construct** — `WorkloadIdentity` maps to **`AWS::BedrockAgentCore::WorkloadIdentity`**. It exposes `workloadIdentityArn`, `workloadIdentityName`, and `workloadIdentityRef` for wiring into IAM or other AgentCore resources. Import an existing identity with **`WorkloadIdentity.fromWorkloadIdentityAttributes`**. Grant helpers (`grantRead`, `grantAdmin`, `grantFullAccess`) align with [directory-level IAM patterns](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agent-identity-directory.html#directory-access-control-and-permissions) such as listing identities on the directory resource and scoping mutations to specific identity ARNs.
+
+**Example**
+
+```go
+agentcore.NewWorkloadIdentity(this, jsii.String("MyWorkloadIdentity"), &WorkloadIdentityProps{
+	WorkloadIdentityName: jsii.String("customer-support-agent-prod"),
+	AllowedResourceOauth2ReturnUrls: []*string{
+		jsii.String("https://app.example.com/oauth/callback"),
+	},
+	Tags: map[string]*string{
+		"team": jsii.String("agents"),
+		"env": jsii.String("prod"),
+	},
+})
+```
+
+### Basic Gateway Target Creation
+
+You can create targets in two ways: using the static factory methods on `GatewayTarget` or using the convenient `addTarget` methods on the gateway instance.
+
+#### Using addTarget methods (Recommended)
+
+This approach is recommended for most use cases, especially when creating targets alongside the gateway. It provides a cleaner, more fluent API by eliminating the need to explicitly pass the gateway reference.
+
+Below are the examples on how you can create Lambda, Smithy, OpenAPI, MCP Server, and API Gateway targets using `addTarget` methods.
+
+```go
+// Create a gateway first
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_22_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	    exports.handler = async (event) => {
+	      return {
+	        statusCode: 200,
+	        body: JSON.stringify({ message: 'Hello from Lambda!' })
+	      };
+	    };
+	  `)),
+})
+
+lambdaTarget := gateway.AddLambdaTarget(jsii.String("MyLambdaTarget"), &AddLambdaTargetOptions{
+	GatewayTargetName: jsii.String("my-lambda-target"),
+	Description: jsii.String("Lambda function target"),
+	LambdaFunction: lambdaFunction,
+	ToolSchema: agentcore.ToolSchema_FromInline([]ToolDefinition{
+		&ToolDefinition{
+			Name: jsii.String("hello_world"),
+			Description: jsii.String("A simple hello world tool"),
+			InputSchema: &SchemaDefinition{
+				Type: agentcore.SchemaDefinitionType_OBJECT(),
+				Properties: map[string]SchemaDefinition{
+					"name": &SchemaDefinition{
+						"type": agentcore.SchemaDefinitionType_STRING(),
+						"description": jsii.String("The name to greet"),
+					},
+				},
+				Required: []*string{
+					jsii.String("name"),
+				},
+			},
+		},
+	}),
+})
+```
+
+* OpenAPI Target (using Token Vault L2 construct — preferred)
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// Create an API key credential provider in Token Vault
+apiKeyProvider := agentcore.NewApiKeyCredentialProvider(this, jsii.String("MyApiKeyProvider"), &ApiKeyCredentialProviderProps{
+	ApiKeyCredentialProviderName: jsii.String("my-apikey"),
+})
+
+bucket := s3.Bucket_FromBucketName(this, jsii.String("ExistingBucket"), jsii.String("my-schema-bucket"))
+s3mySchema := agentcore.ApiSchema_FromS3File(bucket, jsii.String("schemas/myschema.yaml"))
+
+// Add an OpenAPI target using the L2 construct directly
+target := gateway.AddOpenApiTarget(jsii.String("MyTarget"), &AddOpenApiTargetOptions{
+	GatewayTargetName: jsii.String("my-api-target"),
+	Description: jsii.String("Target for external API integration"),
+	ApiSchema: s3mySchema,
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromApiKeyIdentity(apiKeyProvider, &FromApiKeyIdentityOptions{
+			CredentialLocation: agentcore.ApiKeyCredentialLocation_Header(&ApiKeyAdditionalConfiguration{
+				CredentialParameterName: jsii.String("X-API-Key"),
+			}),
+		}),
+	},
+})
+
+// This makes sure your s3 bucket is available before target
+target.Node.AddDependency(bucket)
+```
+
+* OpenAPI Target (using ARNs — for providers created outside of CDK)
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// ARNs from the console/API, or from ApiKeyCredentialProvider + bindForGatewayApiKeyTarget
+apiKeyProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
+apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
+
+bucket := s3.Bucket_FromBucketName(this, jsii.String("ExistingBucket"), jsii.String("my-schema-bucket"))
+s3mySchema := agentcore.ApiSchema_FromS3File(bucket, jsii.String("schemas/myschema.yaml"))
+
+// Add an OpenAPI target using ARNs directly
+target := gateway.AddOpenApiTarget(jsii.String("MyTarget"), &AddOpenApiTargetOptions{
+	GatewayTargetName: jsii.String("my-api-target"),
+	Description: jsii.String("Target for external API integration"),
+	ApiSchema: s3mySchema,
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderOptions{
+			ProviderArn: apiKeyProviderArn,
+			SecretArn: apiKeySecretArn,
+			CredentialLocation: agentcore.ApiKeyCredentialLocation_Header(&ApiKeyAdditionalConfiguration{
+				CredentialParameterName: jsii.String("X-API-Key"),
+			}),
+		}),
+	},
+})
+
+// This makes sure your s3 bucket is available before target
+target.Node.AddDependency(bucket)
+```
+
+* Smithy Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+smithySchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("models"), jsii.String("smithy-model.json")))
+smithySchema.Bind(this)
+
+smithyTarget := gateway.AddSmithyTarget(jsii.String("MySmithyTarget"), &AddSmithyTargetOptions{
+	GatewayTargetName: jsii.String("my-smithy-target"),
+	Description: jsii.String("Smithy model target"),
+	SmithyModel: smithySchema,
+})
+```
+
+* MCP Server Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
+oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
+oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
+
+// Add an MCP server target directly to the gateway
+mcpTarget := gateway.AddMcpServerTarget(jsii.String("MyMcpServer"), &AddMcpServerTargetOptions{
+	GatewayTargetName: jsii.String("my-mcp-server"),
+	Description: jsii.String("External MCP server integration"),
+	Endpoint: jsii.String("https://my-mcp-server.example.com"),
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromOauthIdentityArn(&OAuthConfiguration{
+			ProviderArn: oauthProviderArn,
+			SecretArn: oauthSecretArn,
+			Scopes: []*string{
+				jsii.String("mcp-runtime-server/invoke"),
+			},
+		}),
+	},
+})
+
+// Grant sync permission to a Lambda function that will trigger synchronization
+syncFunction := lambda.NewFunction(this, jsii.String("SyncFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	import boto3
+
+	def handler(event, context):
+	    client = boto3.client('bedrock-agentcore')
+	    response = client.synchronize_gateway_targets(
+	        gatewayIdentifier=event['gatewayId'],
+	        targetIds=[event['targetId']]
+	    )
+	    return response
+	  `)),
+})
+
+mcpTarget.GrantSync(syncFunction)
+```
+
+* API Gateway Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
+	RestApiName: jsii.String("my-api"),
+})
+
+// Uses IAM authorization for outbound auth by default
+apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
+	RestApi: api,
+	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
+		ToolFilters: []ApiGatewayToolFilter{
+			&ApiGatewayToolFilter{
+				FilterPath: jsii.String("/pets/*"),
+				Methods: []ApiGatewayHttpMethod{
+					agentcore.ApiGatewayHttpMethod_GET(),
+				},
+			},
+		},
+	},
+})
+```
+
+#### Using static factory methods
+
+Use static factory methods when working with imported gateways, creating targets in different constructs/stacks, or when you need more explicit control over the construct tree hierarchy.
+
+Create Gateway target using static convenience methods.
+
+* Lambda Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_22_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	        exports.handler = async (event) => {
+	            return {
+	                statusCode: 200,
+	                body: JSON.stringify({ message: 'Hello from Lambda!' })
+	            };
+	        };
+	    `)),
+})
+
+// Create a gateway target with Lambda and tool schema
+target := agentcore.GatewayTarget_ForLambda(this, jsii.String("MyLambdaTarget"), &GatewayTargetLambdaProps{
+	GatewayTargetName: jsii.String("my-lambda-target"),
+	Description: jsii.String("Target for Lambda function integration"),
+	Gateway: gateway,
+	LambdaFunction: lambdaFunction,
+	ToolSchema: agentcore.ToolSchema_FromLocalAsset(path.join(__dirname, jsii.String("schemas"), jsii.String("my-tool-schema.json"))),
+})
+```
+
+* OpenAPI Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// Outbound auth: ApiKeyCredentialProvider + bindForGatewayApiKeyTarget, or ARNs from console/API
+apiKeyIdentityArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
+apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
+
+opneapiSchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("mySchema.yml")))
+opneapiSchema.Bind(this)
+
+// Create a gateway target with OpenAPI Schema
+target := agentcore.GatewayTarget_ForOpenApi(this, jsii.String("MyTarget"), &GatewayTargetOpenApiProps{
+	GatewayTargetName: jsii.String("my-api-target"),
+	Description: jsii.String("Target for external API integration"),
+	Gateway: gateway,
+	 // Note: you need to pass the gateway reference
+	ApiSchema: opneapiSchema,
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderOptions{
+			ProviderArn: apiKeyIdentityArn,
+			SecretArn: apiKeySecretArn,
+		}),
+	},
+})
+```
+
+* Smithy Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+smithySchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("models"), jsii.String("smithy-model.json")))
+smithySchema.Bind(this)
+
+// Create a gateway target with Smithy Model and OAuth
+target := agentcore.GatewayTarget_ForSmithy(this, jsii.String("MySmithyTarget"), &GatewayTargetSmithyProps{
+	GatewayTargetName: jsii.String("my-smithy-target"),
+	Description: jsii.String("Target for Smithy model integration"),
+	Gateway: gateway,
+	SmithyModel: smithySchema,
+})
+```
+
+* MCP Server Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
+oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
+oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
+
+// Create a gateway target with MCP Server
+mcpTarget := agentcore.GatewayTarget_ForMcpServer(this, jsii.String("MyMcpServer"), &GatewayTargetMcpServerProps{
+	GatewayTargetName: jsii.String("my-mcp-server"),
+	Description: jsii.String("External MCP server integration"),
+	Gateway: gateway,
+	Endpoint: jsii.String("https://my-mcp-server.example.com"),
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromOauthIdentityArn(&OAuthConfiguration{
+			ProviderArn: oauthProviderArn,
+			SecretArn: oauthSecretArn,
+			Scopes: []*string{
+				jsii.String("mcp-runtime-server/invoke"),
+			},
+		}),
+	},
+})
+```
+
+* API Gateway Target
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
+	RestApiName: jsii.String("my-api"),
+})
+
+// Create a gateway target using the static factory method
+apiGatewayTarget := agentcore.GatewayTarget_ForApiGateway(this, jsii.String("MyApiGatewayTarget"), &GatewayTargetApiGatewayProps{
+	GatewayTargetName: jsii.String("my-api-gateway-target"),
+	Description: jsii.String("Target for API Gateway REST API integration"),
+	Gateway: gateway,
+	RestApi: api,
+	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
+		ToolFilters: []ApiGatewayToolFilter{
+			&ApiGatewayToolFilter{
+				FilterPath: jsii.String("/pets/*"),
+				Methods: []ApiGatewayHttpMethod{
+					agentcore.ApiGatewayHttpMethod_GET(),
+					agentcore.ApiGatewayHttpMethod_POST(),
+				},
+			},
+		},
+	},
+	MetadataConfiguration: &MetadataConfiguration{
+		AllowedRequestHeaders: []*string{
+			jsii.String("X-User-Id"),
+		},
+		AllowedQueryParameters: []*string{
+			jsii.String("limit"),
+		},
+	},
+})
+```
+
+### Advanced Usage: Direct Configuration for gateway target
+
+For advanced use cases where you need full control over the target configuration, you can create configurations manually using the static factory methods and use the GatewayTarget constructor directly.
+
+#### Configuration Factory Methods
+
+Each target type has a corresponding configuration class with a static `create()` method:
+
+* **Lambda**: `LambdaTargetConfiguration.create(lambdaFunction, toolSchema)`
+* **OpenAPI**: `OpenApiTargetConfiguration.create(apiSchema, validateSchema?)`
+* **Smithy**: `SmithyTargetConfiguration.create(smithyModel)`
+* **API Gateway**: `ApiGatewayTargetConfiguration.create(props)`
+
+#### Example: Lambda Target with Custom Configuration
+
+```go
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+myLambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_NODEJS_22_X(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	    exports.handler = async (event) => ({ statusCode: 200 });
+	  `)),
+})
+
+myToolSchema := agentcore.ToolSchema_FromInline([]ToolDefinition{
+	&ToolDefinition{
+		Name: jsii.String("my_tool"),
+		Description: jsii.String("My custom tool"),
+		InputSchema: &SchemaDefinition{
+			Type: agentcore.SchemaDefinitionType_OBJECT(),
+			Properties: map[string]interface{}{
+			},
+		},
+	},
+})
+
+// Create a custom Lambda configuration
+customConfig := agentcore.LambdaTargetConfiguration_Create(myLambdaFunction, myToolSchema)
+
+// Use the GatewayTarget constructor directly
+target := agentcore.NewGatewayTarget(this, jsii.String("AdvancedTarget"), &GatewayTargetProps{
+	Gateway: gateway,
+	GatewayTargetName: jsii.String("advanced-target"),
+	TargetConfiguration: customConfig,
+	 // Manually created configuration
+	CredentialProviderConfigurations: []ICredentialProviderConfig{
+		agentcore.GatewayCredentialProvider_FromIamRole(),
+	},
+})
+```
+
+This approach gives you full control over the configuration but is typically not necessary for most use cases. The convenience methods (`GatewayTarget.forLambda()`, `GatewayTarget.forOpenApi()`, `GatewayTarget.forSmithy()`, `GatewayTarget.forApiGateway()`) handle all of this internally.
+
+### Gateway Interceptors
+
+Gateway interceptors allow you to run custom code during each gateway invocation to implement fine-grained access control, transform requests and responses, or implement custom authorization logic. A gateway can have at most one REQUEST interceptor and one RESPONSE interceptor.
+
+**Interceptor Types:**
+
+* **REQUEST interceptors**: Execute before the gateway calls the target. Useful for request validation, transformation, or custom authorization
+* **RESPONSE interceptors**: Execute after the target responds but before the gateway sends the response back. Useful for response transformation, filtering, or adding custom headers
+
+**Security Best Practices:**
+
+1. Keep `passRequestHeaders` disabled unless absolutely necessary (default: false)
+2. Implement idempotent Lambda functions (gateway may retry on failures)
+3. Restrict gateway execution role to specific Lambda functions
+4. Avoid logging sensitive information in your interceptor
+
+For more information, see the [Gateway Interceptors documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-interceptors.html).
+
+#### Adding Interceptors via Constructor
+
+```go
+// Create Lambda functions for interceptors
+requestInterceptorFn := lambda.NewFunction(this, jsii.String("RequestInterceptor"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	def handler(event, context):
+	    # Validate and transform request
+	    return {
+	        "interceptorOutputVersion": "1.0",
+	        "mcp": {
+	            "transformedGatewayRequest": event["mcp"]["gatewayRequest"]
+	        }
+	    }
+	  `)),
+})
+
+responseInterceptorFn := lambda.NewFunction(this, jsii.String("ResponseInterceptor"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_*FromInline(jsii.String(`
+	def handler(event, context):
+	    # Filter or transform response
+	    return {
+	        "interceptorOutputVersion": "1.0",
+	        "mcp": {
+	            "transformedGatewayResponse": event["mcp"]["gatewayResponse"]
+	        }
+	    }
+	  `)),
+})
+
+// Create gateway with interceptors
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+	InterceptorConfigurations: []IInterceptor{
+		agentcore.LambdaInterceptor_ForRequest(requestInterceptorFn, &InterceptorOptions{
+			PassRequestHeaders: jsii.Boolean(true),
+		}),
+		agentcore.LambdaInterceptor_ForResponse(responseInterceptorFn),
+	},
+})
+```
+
+**Automatic Permission Granting:**
+
+When you add a Lambda interceptor to a gateway (either via constructor or `addInterceptor()`), the gateway's IAM role automatically receives `lambda:InvokeFunction` permission on the Lambda function. This permission grant happens internally during the bind process - you do not need to manually configure these IAM permissions.
+
+#### Adding Interceptors Dynamically
+
+```go
+// Create a gateway first
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+// Create Lambda functions for interceptors
+requestInterceptorFn := lambda.NewFunction(this, jsii.String("RequestInterceptor"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromInline(jsii.String(`
+	def handler(event, context):
+	    # Custom request validation logic
+	    return {
+	        "interceptorOutputVersion": "1.0",
+	        "mcp": {
+	            "transformedGatewayRequest": event["mcp"]["gatewayRequest"]
+	        }
+	    }
+	  `)),
+})
+
+responseInterceptorFn := lambda.NewFunction(this, jsii.String("ResponseInterceptor"), &FunctionProps{
+	Runtime: lambda.Runtime_PYTHON_3_12(),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_*FromInline(jsii.String(`
+	def handler(event, context):
+	    # Filter sensitive data from response
+	    return {
+	        "interceptorOutputVersion": "1.0",
+	        "mcp": {
+	            "transformedGatewayResponse": event["mcp"]["gatewayResponse"]
+	        }
+	    }
+	  `)),
+})
+
+gateway.AddInterceptor(agentcore.LambdaInterceptor_ForRequest(requestInterceptorFn, &InterceptorOptions{
+	PassRequestHeaders: jsii.Boolean(false),
+}))
+
+gateway.AddInterceptor(agentcore.LambdaInterceptor_ForResponse(responseInterceptorFn))
+```
+
+### Gateway Target IAM Permissions
+
+The Gateway Target construct provides convenient methods for granting IAM permissions:
+
+```go
+// Create a gateway and target
+gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
+	GatewayName: jsii.String("my-gateway"),
+})
+
+smithySchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("models"), jsii.String("smithy-model.json")))
+smithySchema.Bind(this)
+
+// Create a gateway target with Smithy Model and OAuth
+target := agentcore.GatewayTarget_ForSmithy(this, jsii.String("MySmithyTarget"), &GatewayTargetSmithyProps{
+	GatewayTargetName: jsii.String("my-smithy-target"),
+	Description: jsii.String("Target for Smithy model integration"),
+	Gateway: gateway,
+	SmithyModel: smithySchema,
+})
+
+// Create a role that needs access to the gateway target
+userRole := iam.NewRole(this, jsii.String("UserRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
+})
+
+// Grant read permissions (Get and List actions)
+target.GrantRead(userRole)
+
+// Grant manage permissions (Create, Update, Delete actions)
+target.GrantManage(userRole)
+
+// Grant specific custom permissions
+target.Grant(userRole, jsii.String("bedrock-agentcore:GetGatewayTarget"))
+
+// Grants permission to invoke this Gateway
+gateway.GrantInvoke(userRole)
+```
+
+## Memory
+
+Memory is a critical component of intelligence. While Large Language Models (LLMs) have impressive capabilities, they lack persistent memory across conversations. Amazon Bedrock AgentCore Memory addresses this limitation by providing a managed service that enables AI agents to maintain context over time, remember important facts, and deliver consistent, personalized experiences.
+
+AgentCore Memory operates on two levels:
+
+* **Short-Term Memory**: Immediate conversation context and session-based information that provides continuity within a single interaction or closely related sessions.
+* **Long-Term Memory**: Persistent information extracted and stored across multiple conversations, including facts, preferences, and summaries that enable personalized experiences over time.
+
+When you interact with the memory via the `CreateEvent` API, you store interactions in Short-Term Memory (STM) instantly. These interactions can include everything from user messages, assistant responses, to tool actions.
+
+To write to long-term memory, you need to configure extraction strategies which define how and where to store information from conversations for future use. These strategies are asynchronously processed from raw events after every few turns based on the strategy that was selected. You can't create long term memory records directly, as they are extracted asynchronously by AgentCore Memory.
+
+### Memory Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `memoryName` | `string` | No | The name of the memory. If not provided, a unique name will be auto-generated |
+| `expirationDuration` | `Duration` | No | Short-term memory expiration in days (between 7 and 365). Default: 90 days |
+| `description` | `string` | No | Optional description for the memory. Default: no description. |
+| `kmsKey` | `IKey` | No | Custom KMS key to use for encryption. Default: Your data is encrypted with a key that AWS owns and manages for you |
+| `memoryStrategies` | `MemoryStrategyBase[]` | No | Built-in extraction strategies to use for this memory. Default: No extraction strategies (short term memory only) |
+| `executionRole` | `iam.IRole` | No | The IAM role that provides permissions for the memory to access AWS services. Default: A new role will be created. |
+| `tags` | `{ [key: string]: string }` | No | Tags for memory. Default: no tags. |
+
+### Basic Memory Creation
+
+Below you can find how to configure a simple short-term memory (STM) with no long-term memory extraction strategies.
+Note how you set `expirationDuration`, which defines the time the events will be stored in the short-term memory before they expire.
+
+```go
+// Create a basic memory with default settings, no LTM strategies
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("A memory for storing user interactions for a period of 90 days"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+})
+```
+
+Basic Memory with Custom KMS Encryption
+
+```go
+// Create a custom KMS key for encryption
+encryptionKey := kms.NewKey(this, jsii.String("MemoryEncryptionKey"), &KeyProps{
+	EnableKeyRotation: jsii.Boolean(true),
+	Description: jsii.String("KMS key for memory encryption"),
+})
+
+// Create memory with custom encryption
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_encrypted_memory"),
+	Description: jsii.String("Memory with custom KMS encryption"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	KmsKey: encryptionKey,
+})
+```
+
+### LTM Memory Extraction Stategies
+
+If you need long-term memory for context recall across sessions, you can setup memory extraction strategies
+to extract the relevant memory from the raw events.
+
+Amazon Bedrock AgentCore Memory has different memory strategies for extracting and organizing information:
+
+* **Summarization**: to summarize interactions to preserve critical context and key insights.
+* **Semantic Memory**: to extract general factual knowledge, concepts and meanings from raw conversations using vector embeddings.
+  This enables similarity-based retrieval of relevant facts and context.
+* **User Preferences**: to extract user behavior patterns from raw conversations.
+
+You can use built-in extraction strategies for quick setup, or create custom extraction strategies with specific models and prompt templates.
+
+### Memory with Built-in Strategies
+
+The library provides four built-in LTM strategies. These are default strategies for organizing and extracting memory data,
+each optimized for specific use cases.
+
+For example: An agent helps multiple users with cloud storage setup. From these conversations,
+see how each strategy processes users expressing confusion about account connection:
+
+1. **Summarization Strategy** (`MemoryStrategy.usingBuiltInSummarization()`)
+   This strategy compresses conversations into concise overviews, preserving essential context and key insights for quick recall.
+   Extracted memory example: Users confused by cloud setup during onboarding.
+
+   * Extracts concise summaries to preserve critical context and key insights
+   * Namespace: `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`
+2. **Semantic Memory Strategy** (`MemoryStrategy.usingBuiltInSemantic()`)
+   Distills general facts, concepts, and underlying meanings from raw conversational data, presenting the information in a context-independent format.
+   Extracted memory example: In-context learning = task-solving via examples, no training needed.
+
+   * Extracts general factual knowledge, concepts and meanings from raw conversations
+   * Namespace: `/strategies/{memoryStrategyId}/actors/{actorId}`
+3. **User Preference Strategy** (`MemoryStrategy.usingBuiltInUserPreference()`)
+   Captures individual preferences, interaction patterns, and personalized settings to enhance future experiences.
+   Extracted memory example: User needs clear guidance on cloud storage account connection during onboarding.
+
+   * Extracts user behavior patterns from raw conversations
+   * Namespace: `/strategies/{memoryStrategyId}/actors/{actorId}`
+4. **Episodic Memory Strategy** (`MemoryStrategy.usingBuiltInEpisodic()`)
+   Captures meaningful slices of user and system interactions, preserve them into compact records after summarizing.
+   Extracted memory example: User first asked about pricing on Monday, then requested feature comparison on Tuesday, finally made purchase decision on Wednesday.
+
+   * Captures event sequences and temporal relationships
+   * Namespace: `/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}`
+   * Reflections: `/strategy/{memoryStrategyId}/actor/{actorId}`
+
+```go
+// Create memory with built-in strategies
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("Memory with built-in strategies"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		agentcore.MemoryStrategy_UsingBuiltInSummarization(),
+		agentcore.MemoryStrategy_UsingBuiltInSemantic(),
+		agentcore.MemoryStrategy_UsingBuiltInUserPreference(),
+		agentcore.MemoryStrategy_UsingBuiltInEpisodic(),
+	},
+})
+```
+
+The name generated for each built in memory strategy is as follows:
+
+* For Summarization: `summary_builtin_cdk001`
+* For Semantic:`semantic_builtin_cdk001>`
+* For User Preferences: `preference_builtin_cdk001`
+* For Episodic : `episodic_builtin_cdkGen0001`
+
+### Memory with custom Strategies
+
+With Long-Term Memory, organization is managed through Namespaces.
+
+An `actor` refers to entity such as end users or agent/user combinations. For example, in a coding support chatbot,
+the actor is usually the developer asking questions. Using the actor ID helps the system know which user the memory belongs to,
+keeping each user's data separate and organized.
+
+A `session` is usually a single conversation or interaction period between the user and the AI agent.
+It groups all related messages and events that happen during that conversation.
+
+A `namespace` is used to logically group and organize long-term memories. It ensures data stays neat, separate, and secure.
+
+With AgentCore Memory, you need to add a namespace when you define a memory strategy. This namespace helps define where the long-term memory
+will be logically grouped. Every time a new long-term memory is extracted using this memory strategy, it is saved under the namespace you set.
+This means that all long-term memories are scoped to their specific namespace, keeping them organized and preventing any mix-ups with other
+users or sessions. You should use a hierarchical format separated by forward slashes /. This helps keep memories organized clearly. As needed,
+you can choose to use the below pre-defined variables within braces in the namespace based on your applications' organization needs:
+
+* `actorId` – Identifies who the long-term memory belongs to, such as a user
+* `memoryStrategyId` – Shows which memory strategy is being used. This strategy identifier is auto-generated when you create a memory using CreateMemory operation.
+* `sessionId` – Identifies which session or conversation the memory is from.
+
+For example, if you define the following namespace as the input to your strategy in CreateMemory operation:
+
+```shell
+/strategy/{memoryStrategyId}/actor/{actorId}/session/{sessionId}
+```
+
+After memory creation, this namespace might look like:
+
+```shell
+/strategy/summarization-93483043//actor/actor-9830m2w3/session/session-9330sds8
+```
+
+You can customise the namespace, i.e. where the memories are stored by using the following methods:
+
+1. **Summarization Strategy** (`MemoryStrategy.usingSummarization(props)`)
+2. **Semantic Memory Strategy** (`MemoryStrategy.usingSemantic(props)`)
+3. **User Preference Strategy** (`MemoryStrategy.usingUserPreference(props)`)
+4. **Episodic Memory Strategy** (`MemoryStrategy.usingEpisodic(props)`)
+
+```go
+// Create memory with custom strategies
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("Memory with custom strategies"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		agentcore.MemoryStrategy_UsingUserPreference(&ManagedStrategyProps{
+			StrategyName: jsii.String("CustomerPreferences"),
+			Namespaces: []*string{
+				jsii.String("support/customer/{actorId}/preferences"),
+			},
+		}),
+		agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
+			StrategyName: jsii.String("CustomerSupportSemantic"),
+			Namespaces: []*string{
+				jsii.String("support/customer/{actorId}/semantic"),
+			},
+		}),
+		agentcore.MemoryStrategy_UsingEpisodic(&ManagedStrategyProps{
+			StrategyName: jsii.String("customerJourneyEpisodic"),
+			Namespaces: []*string{
+				jsii.String("/journey/customer/{actorId}/episodes"),
+			},
+			ReflectionConfiguration: &EpisodicReflectionConfiguration{
+				Namespaces: []*string{
+					jsii.String("/journey/customer/{actorId}/reflections"),
+				},
+			},
+		}),
+	},
+})
+```
+
+Custom memory strategies let you tailor memory extraction and consolidation to your specific domain or use case.
+You can override the prompts for extracting and consolidating semantic, summary, or user preferences.
+You can also choose the model that you want to use for extraction and consolidation.
+
+The custom prompts you create are appended to a non-editable system prompt.
+
+Since a custom strategy requires you to invoke certain FMs, you need a role with appropriate permissions. For that, you can:
+
+* Let the L2 construct create a minimum permission role for you when use L2 Bedrock Foundation Models.
+* Use a custom role with the overly permissive `AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy` managed policy.
+* Use a custom role with your own custom policies.
+
+#### Memory with Custom Execution Role
+
+Keep in mind that memories that **do not** use custom strategies do not require a service role.
+So even if you provide it, it will be ignored as it will never be used.
+
+```go
+// Create a custom execution role
+executionRole := iam.NewRole(this, jsii.String("MemoryExecutionRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+	ManagedPolicies: []IManagedPolicy{
+		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")),
+	},
+})
+
+// Create memory with custom execution role
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my_memory"),
+	Description: jsii.String("Memory with custom execution role"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	ExecutionRole: executionRole,
+})
+```
+
+In customConsolidation and customExtraction, the model property uses `IModel` from `aws-cdk-lib/aws-bedrock`.
+
+```go
+// Create a custom semantic memory strategy
+customSemanticStrategy := agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
+	StrategyName: jsii.String("customSemanticStrategy"),
+	Description: jsii.String("Custom semantic memory strategy"),
+	Namespaces: []*string{
+		jsii.String("/custom/strategies/{memoryStrategyId}/actors/{actorId}"),
+	},
+	CustomConsolidation: &OverrideConfig{
+		Model: bedrock.FoundationModel_FromFoundationModelId(this, jsii.String("ConsolidationModel"), bedrock.FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0()),
+		AppendToPrompt: jsii.String("Custom consolidation prompt for semantic memory"),
+	},
+	CustomExtraction: &OverrideConfig{
+		Model: bedrock.FoundationModel_*FromFoundationModelId(this, jsii.String("ExtractionModel"), bedrock.FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_5_SONNET_20241022_V2_0()),
+		AppendToPrompt: jsii.String("Custom extraction prompt for semantic memory"),
+	},
+})
+
+// Create memory with custom strategy
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my-custom-memory"),
+	Description: jsii.String("Memory with custom strategy"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		customSemanticStrategy,
+	},
+})
+```
+
+### Memory with self-managed Strategies
+
+A self-managed strategy in Amazon Bedrock AgentCore Memory gives you complete control over your memory extraction and consolidation pipelines.
+With a self-managed strategy, you can build custom memory processing workflows while leveraging Amazon Bedrock AgentCore for storage and retrieval.
+
+For additional information, you can refer to the [developer guide for self managed strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-self-managed-strategies.html).
+
+Create the required AWS resources including:
+
+* an S3 bucket in your account where Amazon Bedrock AgentCore will deliver batched event payloads.
+* an SNS topic for job notifications. Use FIFO topics if processing order within sessions is important for your use case.
+
+The construct will apply the correct permissions to the memory execution role to access these resources.
+
+```go
+bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
+	BucketName: jsii.String("test-memory"),
+	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
+	AutoDeleteObjects: jsii.Boolean(true),
+})
+
+topic := sns.NewTopic(this, jsii.String("topic"))
+
+// Create a custom semantic memory strategy
+selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
+	StrategyName: jsii.String("selfManagedStrategy"),
+	Description: jsii.String("self managed memory strategy"),
+	HistoricalContextWindowSize: jsii.Number(5),
+	InvocationConfiguration: &InvocationConfiguration{
+		Topic: topic,
+		S3Location: &Location{
+			BucketName: bucket.bucketName,
+			ObjectKey: jsii.String("memory/"),
+		},
+	},
+	TriggerConditions: &TriggerConditions{
+		MessageBasedTrigger: jsii.Number(1),
+		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
+		TokenBasedTrigger: jsii.Number(100),
+	},
+})
+
+// Create memory with custom strategy
+memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
+	MemoryName: jsii.String("my-custom-memory"),
+	Description: jsii.String("Memory with custom strategy"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+	MemoryStrategies: []IMemoryStrategy{
+		selfManagedStrategy,
+	},
+})
+```
+
+### Memory Strategy Methods
+
+You can add new memory strategies to the memory construct using the `addMemoryStrategy()` method, for instance:
+
+```go
+// Create memory without initial strategies
+memory := agentcore.NewMemory(this, jsii.String("test-memory"), &MemoryProps{
+	MemoryName: jsii.String("test_memory_add_strategy"),
+	Description: jsii.String("A test memory for testing addMemoryStrategy method"),
+	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
+})
+
+// Add strategies after instantiation
+memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSummarization())
+memory.AddMemoryStrategy(agentcore.MemoryStrategy_UsingBuiltInSemantic())
+```
+
+## Online Evaluation
+
+The Online Evaluation construct enables continuous monitoring and assessment of your agent's performance using live traffic. It automatically samples agent traces from CloudWatch Logs or Agent Endpoints and applies built-in evaluators to assess quality metrics like helpfulness, correctness, and safety.
+
+### Prerequisites
+
+Before creating an `OnlineEvaluationConfig`, ensure the following are configured in your account:
+
+* **CloudWatch Transaction Search** enabled — this creates the `aws/spans` log group required by the evaluation service. See [Enable Transaction Search](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html).
+* **AWS Distro for OpenTelemetry (ADOT) SDK** instrumenting your agent to emit traces.
+
+For full details, see [AgentCore Evaluations Prerequisites](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-prerequisites.html).
+
+### Online Evaluation Properties
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `onlineEvaluationConfigName` | `string` | Yes | The name of the online evaluation configuration. Must start with a letter and can contain a-z, A-Z, 0-9, _ (underscore). Maximum 48 characters |
+| `evaluators` | `EvaluatorSelector[]` | Yes | The list of built-in evaluators to apply during evaluation. Minimum 1, maximum 10 |
+| `dataSource` | `DataSourceConfig` | Yes | The data source configuration specifying where to read agent traces from |
+| `executionRole` | `iam.IRole` | No | The IAM role for evaluation. If not provided, a role will be created automatically |
+| `description` | `string` | No | Description of the evaluation configuration. Maximum 200 characters |
+| `samplingPercentage` | `number` | No | Percentage of traces to sample (0.01-100). Default: 10 |
+| `filters` | `FilterConfig[]` | No | Filters to determine which traces to evaluate. Use `FilterValue.string()`, `FilterValue.number()`, or `FilterValue.boolean()` for typed filter values. Maximum 5 |
+| `sessionTimeout` | `Duration` | No | Duration of inactivity before a session is considered complete (1-1440 minutes). Default: `Duration.minutes(15)` |
+| `tags` | `{ [key: string]: string }` | No | Tags for the evaluation configuration |
+
+### Basic Online Evaluation Creation
+
+Create an online evaluation configuration with built-in evaluators:
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MyEvaluation"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("my_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+})
+```
+
+### Built-in Evaluators
+
+Amazon Bedrock AgentCore provides 13 built-in evaluators that assess different aspects of agent performance:
+
+**Session-Level Evaluators:**
+
+* `GOAL_SUCCESS_RATE` - Evaluates whether the conversation successfully meets the user's goals
+
+**Trace-Level Evaluators:**
+
+* `HELPFULNESS` - How useful and valuable the agent's response is
+* `CORRECTNESS` - Whether the information is factually accurate
+* `FAITHFULNESS` - Whether the response is faithful to the provided context
+* `HARMFULNESS` - Whether the response contains harmful content
+* `STEREOTYPING` - Detects content that makes generalizations about individuals or groups
+* `REFUSAL` - Whether the agent appropriately refuses harmful requests
+* `COHERENCE` - Whether the response is logically coherent
+* `RESPONSE_RELEVANCE` - Whether the response appropriately addresses the user's query
+* `CONCISENESS` - Whether the response is appropriately concise
+* `INSTRUCTION_FOLLOWING` - How well the agent follows system instructions
+
+**Tool Call-Level Evaluators:**
+
+* `TOOL_SELECTION_ACCURACY` - Whether the agent selected the appropriate tool
+* `TOOL_PARAMETER_ACCURACY` - How accurately the agent extracts parameters from user queries
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("ComprehensiveEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("comprehensive_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_GOAL_SUCCESS_RATE()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_COHERENCE()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_HARMFULNESS()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_STEREOTYPING()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_TOOL_SELECTION_ACCURACY()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+})
+```
+
+### Custom Evaluators
+
+Custom evaluators let you define evaluation logic tailored to your specific use cases. You can create custom evaluators using two strategies:
+
+* **LLM-as-a-Judge**: Uses a foundation model with custom instructions and a rating scale to assess agent performance.
+* **Code-based**: Uses a Lambda function for custom evaluation logic.
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `evaluatorName` | `string` | Yes | Name of the evaluator. Must start with a letter, a-z, A-Z, 0-9, _ only. Maximum 48 characters |
+| `evaluatorConfig` | `EvaluatorConfig` | Yes | Configuration defining how the evaluator assesses performance |
+| `level` | `EvaluationLevel` | Yes | The level at which the evaluator operates: `TOOL_CALL`, `TRACE`, or `SESSION` |
+| `description` | `string` | No | Description of the evaluator. Maximum 200 characters |
+| `tags` | `{ [key: string]: string }` | No | Tags for the evaluator. A list of key:value pairs to apply to this Evaluator resource |
+
+#### LLM-as-a-Judge Evaluator
+
+Create a custom evaluator that uses a foundation model to assess agent performance:
+
+```go
+// LLM-as-a-Judge with categorical rating scale
+categoricalEvaluator := agentcore.NewEvaluator(this, jsii.String("CategoricalEvaluator"), &EvaluatorProps{
+	EvaluatorName: jsii.String("domain_accuracy_evaluator"),
+	Level: agentcore.EvaluationLevel_SESSION(),
+	Description: jsii.String("Evaluates domain-specific accuracy of agent responses"),
+	EvaluatorConfig: agentcore.EvaluatorConfig_LlmAsAJudge(&LlmAsAJudgeOptions{
+		Instructions: jsii.String("Evaluate whether the agent response is accurate within the healthcare domain."),
+		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
+		RatingScale: agentcore.EvaluatorRatingScale_Categorical([]CategoricalRatingOption{
+			&CategoricalRatingOption{
+				Label: jsii.String("Accurate"),
+				Definition: jsii.String("The response contains factually correct healthcare information."),
+			},
+			&CategoricalRatingOption{
+				Label: jsii.String("Inaccurate"),
+				Definition: jsii.String("The response contains incorrect or misleading healthcare information."),
+			},
+		}),
+	}),
+})
+
+// LLM-as-a-Judge with numerical rating scale and inference config
+numericalEvaluator := agentcore.NewEvaluator(this, jsii.String("NumericalEvaluator"), &EvaluatorProps{
+	EvaluatorName: jsii.String("response_quality_evaluator"),
+	Level: agentcore.EvaluationLevel_TRACE(),
+	EvaluatorConfig: agentcore.EvaluatorConfig_*LlmAsAJudge(&LlmAsAJudgeOptions{
+		Instructions: jsii.String("Rate the overall quality of the agent response on a scale of 1 to 5."),
+		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
+		RatingScale: agentcore.EvaluatorRatingScale_Numerical([]NumericalRatingOption{
+			&NumericalRatingOption{
+				Label: jsii.String("Poor"),
+				Definition: jsii.String("Inadequate response."),
+				Value: jsii.Number(1),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Below Average"),
+				Definition: jsii.String("Partially addresses the query."),
+				Value: jsii.Number(2),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Average"),
+				Definition: jsii.String("Adequately addresses the query."),
+				Value: jsii.Number(3),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Good"),
+				Definition: jsii.String("Well-structured and accurate response."),
+				Value: jsii.Number(4),
+			},
+			&NumericalRatingOption{
+				Label: jsii.String("Excellent"),
+				Definition: jsii.String("Outstanding response exceeding expectations."),
+				Value: jsii.Number(5),
+			},
+		}),
+		InferenceConfig: &EvaluatorInferenceConfig{
+			MaxTokens: jsii.Number(1024),
+			Temperature: jsii.Number(0.1),
+		},
+	}),
+})
+```
+
+The `modelId` accepts standard Bedrock model IDs and cross-region inference profile IDs with region prefixes (e.g., `us.`, `eu.`, `global.`).
+
+> **Instructions placeholders:** Instructions must contain placeholders appropriate for the evaluation level (e.g., `{context}`, `{available_tools}` for SESSION level). Evaluators using reference-input placeholders (e.g., `{expected_tool_trajectory}`, `{assertions}`) are only compatible with on-demand evaluation, not online evaluation. See the [custom evaluators documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/custom-evaluators.html) for allowed placeholders per level.
+
+#### Code-Based Evaluator
+
+Create a custom evaluator that uses a Lambda function for evaluation logic:
+
+```go
+var evalFunction IFunction
+
+
+codeEvaluator := agentcore.NewEvaluator(this, jsii.String("CodeEvaluator"), &EvaluatorProps{
+	EvaluatorName: jsii.String("custom_code_evaluator"),
+	Level: agentcore.EvaluationLevel_TOOL_CALL(),
+	Description: jsii.String("Evaluates tool call accuracy using custom logic"),
+	EvaluatorConfig: agentcore.EvaluatorConfig_CodeBased(&CodeBasedOptions{
+		LambdaFunction: evalFunction,
+		Timeout: cdk.Duration_Seconds(jsii.Number(30)),
+	}),
+})
+```
+
+For code-based evaluators, the construct automatically grants the `bedrock-agentcore.amazonaws.com` service principal permission to invoke the Lambda function, scoped to the specific evaluator resource with `aws:SourceAccount` and `aws:SourceArn` conditions for confused deputy prevention.
+
+#### Using Custom Evaluators with Online Evaluation
+
+Custom evaluators are used in `OnlineEvaluationConfig` via `EvaluatorSelector.custom()`, alongside built-in evaluators:
+
+```go
+var customEvaluator Evaluator
+
+
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MixedEvaluation"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("mixed_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+		agentcore.EvaluatorSelector_Custom(customEvaluator),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+})
+```
+
+### Data Source Configuration
+
+Online evaluation supports two types of data sources:
+
+**AgentCore Runtime Data Source (Recommended):**
+
+For runtimes created within your CDK app, use `fromAgentRuntimeEndpoint()` which automatically derives the CloudWatch log group and service name:
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+runtime := agentcore.NewRuntime(this, jsii.String("MyRuntime"), &RuntimeProps{
+	RuntimeName: jsii.String("my_agent"),
+	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+})
+
+// Using default endpoint (simplest)
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("RuntimeEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("runtime_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime),
+})
+```
+
+You can also specify a specific endpoint:
+
+```go
+var runtime Runtime
+
+
+// Using a specific endpoint construct
+prodEndpoint := runtime.AddEndpoint(jsii.String("PROD"))
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("ProdEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("prod_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime, prodEndpoint),
+})
+
+// Or using endpoint name as string
+stagingEval := agentcore.NewOnlineEvaluationConfig(this, jsii.String("StagingEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("staging_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpointName(runtime, jsii.String("STAGING")),
+})
+```
+
+**CloudWatch Logs Data Source:**
+
+For external agents or when you need to specify log groups directly:
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("CloudWatchEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("cloudwatch_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/agent1"),
+			jsii.String("/aws/bedrock-agentcore/agent2"),
+		},
+		ServiceNames: []*string{
+			jsii.String("agent1.default"),
+		},
+	}),
+})
+```
+
+### Sampling and Filtering
+
+Configure sampling percentage and filters to control which traces are evaluated:
+
+```go
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("FilteredEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("filtered_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+	// Sample 25% of traces
+	SamplingPercentage: jsii.Number(25),
+	// Only evaluate traces matching these filters
+	Filters: []FilterConfig{
+		&FilterConfig{
+			Key: jsii.String("user.region"),
+			Operator: agentcore.FilterOperator_EQUAL(),
+			Value: agentcore.FilterValue_String(jsii.String("us-east-1")),
+		},
+		&FilterConfig{
+			Key: jsii.String("session.duration"),
+			Operator: agentcore.FilterOperator_GREATER_THAN(),
+			Value: agentcore.FilterValue_Number(jsii.Number(60)),
+		},
+	},
+	// Consider sessions complete after 30 minutes of inactivity
+	SessionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+})
+```
+
+### Online Evaluation with Custom Execution Role
+
+Provide a custom IAM role for the evaluation execution:
+
+```go
+executionRole := iam.NewRole(this, jsii.String("EvaluationRole"), &RoleProps{
+	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
+	Description: jsii.String("Custom role for online evaluation"),
+})
+
+// Add required permissions
+executionRole.AddToPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+	Actions: []*string{
+		jsii.String("logs:DescribeLogGroups"),
+		jsii.String("logs:GetQueryResults"),
+		jsii.String("logs:StartQuery"),
+	},
+	Resources: []*string{
+		jsii.String("arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/*"),
+	},
+}))
+
+evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("CustomRoleEval"), &OnlineEvaluationConfigProps{
+	OnlineEvaluationConfigName: jsii.String("custom_role_evaluation"),
+	Evaluators: []EvaluatorSelector{
+		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
+	},
+	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
+		LogGroupNames: []*string{
+			jsii.String("/aws/bedrock-agentcore/my-agent"),
+		},
+		ServiceNames: []*string{
+			jsii.String("my-agent.default"),
+		},
+	}),
+	ExecutionRole: executionRole,
+})
+```
+
+### Online Evaluation IAM Permissions
+
+Grant IAM permissions to manage or read evaluation configurations:
+
+```go
+var evaluation OnlineEvaluationConfig
+var role IRole
+
+
+// Grant specific permissions
+evaluation.Grant(role, jsii.String("bedrock-agentcore:GetOnlineEvaluationConfig"), jsii.String("bedrock-agentcore:UpdateOnlineEvaluationConfig"))
+```

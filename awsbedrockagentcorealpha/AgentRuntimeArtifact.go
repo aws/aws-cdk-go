@@ -15,25 +15,73 @@ import (
 // Provides methods to reference container images from ECR repositories or local assets.
 //
 // Example:
-//   // S3 bucket containing the agent core
-//   codeBucket := s3.NewBucket(this, jsii.String("AgentCode"), &BucketProps{
-//   	BucketName: jsii.String("my-code-bucket"),
-//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // the bucket above needs to contain the agent code
+//   var networkMode NetworkMode
+//   var platform Platform
 //
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
-//   	BucketName: codeBucket.bucketName,
-//   	ObjectKey: jsii.String("deployment_package.zip"),
-//   }, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
-//   	jsii.String("opentelemetry-instrument"),
-//   	jsii.String("main.py"),
-//   })
+//   agentRuntimeArtifact := bedrock_agentcore_alpha.AgentRuntimeArtifact_FromAsset(jsii.String("directory"), &DockerImageAssetOptions{
+//   	AssetName: jsii.String("assetName"),
+//   	BuildArgs: map[string]*string{
+//   		"buildArgsKey": jsii.String("buildArgs"),
+//   	},
+//   	BuildContexts: map[string]*string{
+//   		"buildContextsKey": jsii.String("buildContexts"),
+//   	},
+//   	BuildSecrets: map[string]*string{
+//   		"buildSecretsKey": jsii.String("buildSecrets"),
+//   	},
+//   	BuildSsh: jsii.String("buildSsh"),
+//   	CacheDisabled: jsii.Boolean(false),
+//   	CacheFrom: []DockerCacheOption{
+//   		&DockerCacheOption{
+//   			Type: jsii.String("type"),
 //
-//   runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
+//   			// the properties below are optional
+//   			Params: map[string]*string{
+//   				"paramsKey": jsii.String("params"),
+//   			},
+//   		},
+//   	},
+//   	CacheTo: &DockerCacheOption{
+//   		Type: jsii.String("type"),
+//
+//   		// the properties below are optional
+//   		Params: map[string]*string{
+//   			"paramsKey": jsii.String("params"),
+//   		},
+//   	},
+//   	DisplayName: jsii.String("displayName"),
+//   	Exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	ExtraHash: jsii.String("extraHash"),
+//   	File: jsii.String("file"),
+//   	FollowSymlinks: cdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   	Invalidation: &DockerImageAssetInvalidationOptions{
+//   		BuildArgs: jsii.Boolean(false),
+//   		BuildContexts: jsii.Boolean(false),
+//   		BuildSecrets: jsii.Boolean(false),
+//   		BuildSsh: jsii.Boolean(false),
+//   		ExtraHash: jsii.Boolean(false),
+//   		File: jsii.Boolean(false),
+//   		NetworkMode: jsii.Boolean(false),
+//   		Outputs: jsii.Boolean(false),
+//   		Platform: jsii.Boolean(false),
+//   		RepositoryName: jsii.Boolean(false),
+//   		Target: jsii.Boolean(false),
+//   	},
+//   	NetworkMode: networkMode,
+//   	Outputs: []*string{
+//   		jsii.String("outputs"),
+//   	},
+//   	Platform: platform,
+//   	Target: jsii.String("target"),
 //   })
 //
 // Experimental.

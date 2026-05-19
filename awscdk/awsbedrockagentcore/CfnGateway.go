@@ -18,85 +18,46 @@ import (
 // See the *Properties* section below for descriptions of both the required and optional properties.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import agentcore "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   cfnGateway := awscdk.Aws_bedrockagentcore.NewCfnGateway(this, jsii.String("MyCfnGateway"), &CfnGatewayProps{
-//   	AuthorizerType: jsii.String("authorizerType"),
-//   	Name: jsii.String("name"),
-//   	ProtocolType: jsii.String("protocolType"),
-//   	RoleArn: jsii.String("roleArn"),
 //
-//   	// the properties below are optional
-//   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
-//   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
-//   			DiscoveryUrl: jsii.String("discoveryUrl"),
-//
-//   			// the properties below are optional
-//   			AllowedAudience: []*string{
-//   				jsii.String("allowedAudience"),
-//   			},
-//   			AllowedClients: []*string{
-//   				jsii.String("allowedClients"),
-//   			},
-//   			AllowedScopes: []*string{
-//   				jsii.String("allowedScopes"),
-//   			},
-//   			CustomClaims: []interface{}{
-//   				&CustomClaimValidationTypeProperty{
-//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
-//   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
-//   							MatchValueString: jsii.String("matchValueString"),
-//   							MatchValueStringList: []*string{
-//   								jsii.String("matchValueStringList"),
-//   							},
-//   						},
-//   					},
-//   					InboundTokenClaimName: jsii.String("inboundTokenClaimName"),
-//   					InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	Description: jsii.String("description"),
-//   	ExceptionLevel: jsii.String("exceptionLevel"),
-//   	InterceptorConfigurations: []interface{}{
-//   		&GatewayInterceptorConfigurationProperty{
-//   			InterceptionPoints: []*string{
-//   				jsii.String("interceptionPoints"),
-//   			},
-//   			Interceptor: &InterceptorConfigurationProperty{
-//   				Lambda: &LambdaInterceptorConfigurationProperty{
-//   					Arn: jsii.String("arn"),
-//   				},
-//   			},
-//
-//   			// the properties below are optional
-//   			InputConfiguration: &InterceptorInputConfigurationProperty{
-//   				PassRequestHeaders: jsii.Boolean(false),
-//   			},
-//   		},
-//   	},
-//   	KmsKeyArn: jsii.String("kmsKeyArn"),
-//   	PolicyEngineConfiguration: &GatewayPolicyEngineConfigurationProperty{
-//   		Arn: jsii.String("arn"),
-//   		Mode: jsii.String("mode"),
-//   	},
-//   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
-//   		Mcp: &MCPGatewayConfigurationProperty{
-//   			Instructions: jsii.String("instructions"),
-//   			SearchType: jsii.String("searchType"),
-//   			SupportedVersions: []*string{
-//   				jsii.String("supportedVersions"),
-//   			},
-//   		},
-//   	},
-//   	Tags: map[string]*string{
-//   		"tagsKey": jsii.String("tags"),
-//   	},
+//   // Create policy engine (alpha)
+//   policyEngine := agentcoreAlpha.NewPolicyEngine(this, jsii.String("Engine"), &PolicyEngineProps{
+//   	PolicyEngineName: jsii.String("my_engine"),
 //   })
+//
+//   // Create gateway (stable)
+//   gateway := agentcore.NewGateway(this, jsii.String("Gateway"), &GatewayProps{
+//   	GatewayName: jsii.String("my-gateway"),
+//   })
+//
+//   // Wire policy engine to gateway via the L1 construct
+//   cfnGateway := gateway.Node.defaultChild.(CfnGateway)
+//   cfnGateway.policyEngineConfiguration = &GatewayPolicyEngineConfigurationProperty{
+//   	Arn: policyEngine.PolicyEngineArn,
+//   	Mode: agentcoreAlpha.PolicyEngineMode_ENFORCE().Value,
+//   }
+//
+//   // Grant evaluate permissions to the gateway role
+//   gateway.Role.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("bedrock-agentcore:GetPolicyEngine"),
+//   	},
+//   	Resources: []*string{
+//   		policyEngine.*PolicyEngineArn,
+//   	},
+//   }))
+//   gateway.Role.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
+//   	Actions: []*string{
+//   		jsii.String("bedrock-agentcore:AuthorizeAction"),
+//   		jsii.String("bedrock-agentcore:PartiallyAuthorizeActions"),
+//   	},
+//   	Resources: []*string{
+//   		policyEngine.*PolicyEngineArn,
+//   		gateway.GatewayArn,
+//   	},
+//   }))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html
 //

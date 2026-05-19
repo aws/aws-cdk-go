@@ -10,20 +10,15 @@ import (
 // long-running instances from consuming resources indefinitely.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
-//
-//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("test_runtime"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	LifecycleConfiguration: &LifecycleConfiguration{
-//   		IdleRuntimeSessionTimeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   		MaxLifetime: awscdk.Duration_Hours(jsii.Number(4)),
-//   	},
-//   })
+//   lifecycleConfiguration := &LifecycleConfiguration{
+//   	IdleRuntimeSessionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	MaxLifetime: cdk.Duration_*Minutes(jsii.Number(30)),
+//   }
 //
 // Experimental.
 type LifecycleConfiguration struct {

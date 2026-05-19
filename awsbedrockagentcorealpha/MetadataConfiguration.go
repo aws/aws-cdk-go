@@ -4,40 +4,21 @@ package awsbedrockagentcorealpha
 // Configuration for passing metadata (headers and query parameters) to the API Gateway target.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
-//   	RestApiName: jsii.String("my-api"),
-//   })
-//
-//   // Create a gateway target using the static factory method
-//   apiGatewayTarget := agentcore.GatewayTarget_ForApiGateway(this, jsii.String("MyApiGatewayTarget"), &GatewayTargetApiGatewayProps{
-//   	GatewayTargetName: jsii.String("my-api-gateway-target"),
-//   	Description: jsii.String("Target for API Gateway REST API integration"),
-//   	Gateway: gateway,
-//   	RestApi: api,
-//   	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
-//   		ToolFilters: []ApiGatewayToolFilter{
-//   			&ApiGatewayToolFilter{
-//   				FilterPath: jsii.String("/pets/*"),
-//   				Methods: []ApiGatewayHttpMethod{
-//   					agentcore.ApiGatewayHttpMethod_GET,
-//   					agentcore.ApiGatewayHttpMethod_POST,
-//   				},
-//   			},
-//   		},
+//   metadataConfiguration := &MetadataConfiguration{
+//   	AllowedQueryParameters: []*string{
+//   		jsii.String("allowedQueryParameters"),
 //   	},
-//   	MetadataConfiguration: &MetadataConfiguration{
-//   		AllowedRequestHeaders: []*string{
-//   			jsii.String("X-User-Id"),
-//   		},
-//   		AllowedQueryParameters: []*string{
-//   			jsii.String("limit"),
-//   		},
+//   	AllowedRequestHeaders: []*string{
+//   		jsii.String("allowedRequestHeaders"),
 //   	},
-//   })
+//   	AllowedResponseHeaders: []*string{
+//   		jsii.String("allowedResponseHeaders"),
+//   	},
+//   }
 //
 // Experimental.
 type MetadataConfiguration struct {

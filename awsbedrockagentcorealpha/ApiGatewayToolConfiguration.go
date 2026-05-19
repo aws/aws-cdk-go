@@ -8,28 +8,32 @@ package awsbedrockagentcorealpha
 // to expose, and optionally accepts tool overrides to customize tool metadata.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
-//   	RestApiName: jsii.String("my-api"),
-//   })
-//
-//   // Uses IAM authorization for outbound auth by default
-//   apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
-//   	RestApi: api,
-//   	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
-//   		ToolFilters: []ApiGatewayToolFilter{
-//   			&ApiGatewayToolFilter{
-//   				FilterPath: jsii.String("/pets/*"),
-//   				Methods: []ApiGatewayHttpMethod{
-//   					agentcore.ApiGatewayHttpMethod_GET,
-//   				},
+//   apiGatewayToolConfiguration := &ApiGatewayToolConfiguration{
+//   	ToolFilters: []ApiGatewayToolFilter{
+//   		&ApiGatewayToolFilter{
+//   			FilterPath: jsii.String("filterPath"),
+//   			Methods: []ApiGatewayHttpMethod{
+//   				bedrock_agentcore_alpha.ApiGatewayHttpMethod_GET,
 //   			},
 //   		},
 //   	},
-//   })
+//
+//   	// the properties below are optional
+//   	ToolOverrides: []ApiGatewayToolOverride{
+//   		&ApiGatewayToolOverride{
+//   			Method: bedrock_agentcore_alpha.ApiGatewayHttpMethod_GET,
+//   			Name: jsii.String("name"),
+//   			Path: jsii.String("path"),
+//
+//   			// the properties below are optional
+//   			Description: jsii.String("description"),
+//   		},
+//   	},
+//   }
 //
 // Experimental.
 type ApiGatewayToolConfiguration struct {

@@ -4,31 +4,26 @@ package awsbedrockagentcorealpha
 // Properties for creating an OpenAPI-based Gateway Target.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Outbound auth: ApiKeyCredentialProvider + bindForGatewayApiKeyTarget, or ARNs from console/API
-//   apiKeyIdentityArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
-//   apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
+//   var apiSchema ApiSchema
+//   var credentialProviderConfig ICredentialProviderConfig
+//   var gateway Gateway
 //
-//   opneapiSchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("mySchema.yml")))
-//   opneapiSchema.Bind(this)
-//
-//   // Create a gateway target with OpenAPI Schema
-//   target := agentcore.GatewayTarget_ForOpenApi(this, jsii.String("MyTarget"), &GatewayTargetOpenApiProps{
-//   	GatewayTargetName: jsii.String("my-api-target"),
-//   	Description: jsii.String("Target for external API integration"),
+//   gatewayTargetOpenApiProps := &GatewayTargetOpenApiProps{
+//   	ApiSchema: apiSchema,
 //   	Gateway: gateway,
-//   	 // Note: you need to pass the gateway reference
-//   	ApiSchema: opneapiSchema,
+//
+//   	// the properties below are optional
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderProps{
-//   			ProviderArn: apiKeyIdentityArn,
-//   			SecretArn: apiKeySecretArn,
-//   		}),
+//   		credentialProviderConfig,
 //   	},
-//   })
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
+//   	ValidateOpenApiSchema: jsii.Boolean(false),
+//   }
 //
 // Experimental.
 type GatewayTargetOpenApiProps struct {

@@ -14,7 +14,7 @@ package awss3
 //
 //   // Create a custom semantic memory strategy
 //   selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
-//   	Name: jsii.String("selfManagedStrategy"),
+//   	StrategyName: jsii.String("selfManagedStrategy"),
 //   	Description: jsii.String("self managed memory strategy"),
 //   	HistoricalContextWindowSize: jsii.Number(5),
 //   	InvocationConfiguration: &InvocationConfiguration{

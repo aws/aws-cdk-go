@@ -7,42 +7,16 @@ import (
 // Trigger conditions for self managed memory strategy When first condition is met, batched payloads are sent to specified S3 bucket.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
-//   	BucketName: jsii.String("test-memory"),
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-//   	AutoDeleteObjects: jsii.Boolean(true),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   topic := sns.NewTopic(this, jsii.String("topic"))
-//
-//   // Create a custom semantic memory strategy
-//   selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
-//   	Name: jsii.String("selfManagedStrategy"),
-//   	Description: jsii.String("self managed memory strategy"),
-//   	HistoricalContextWindowSize: jsii.Number(5),
-//   	InvocationConfiguration: &InvocationConfiguration{
-//   		Topic: topic,
-//   		S3Location: &Location{
-//   			BucketName: bucket.bucketName,
-//   			ObjectKey: jsii.String("memory/"),
-//   		},
-//   	},
-//   	TriggerConditions: &TriggerConditions{
-//   		MessageBasedTrigger: jsii.Number(1),
-//   		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
-//   		TokenBasedTrigger: jsii.Number(100),
-//   	},
-//   })
-//
-//   // Create memory with custom strategy
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my-custom-memory"),
-//   	Description: jsii.String("Memory with custom strategy"),
-//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	MemoryStrategies: []IMemoryStrategy{
-//   		selfManagedStrategy,
-//   	},
-//   })
+//   triggerConditions := &TriggerConditions{
+//   	MessageBasedTrigger: jsii.Number(123),
+//   	TimeBasedTrigger: cdk.Duration_Minutes(jsii.Number(30)),
+//   	TokenBasedTrigger: jsii.Number(123),
+//   }
 //
 // Experimental.
 type TriggerConditions struct {

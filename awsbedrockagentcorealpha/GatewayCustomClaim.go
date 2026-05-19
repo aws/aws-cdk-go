@@ -11,35 +11,13 @@ import (
 // the standard audience, client, and scope validations.
 //
 // Example:
-//   // Optional: Create custom claims (CustomClaimOperator and GatewayCustomClaim from agentcore)
-//   customClaims := []GatewayCustomClaim{
-//   	agentcore.GatewayCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
-//   	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
-//   		jsii.String("admin"),
-//   	}, agentcore.CustomClaimOperator_CONTAINS),
-//   	agentcore.GatewayCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
-//   		jsii.String("read"),
-//   		jsii.String("write"),
-//   	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
-//   }
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
-//   		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
-//   		AllowedAudience: []*string{
-//   			jsii.String("my-app"),
-//   		},
-//   		AllowedClients: []*string{
-//   			jsii.String("my-client-id"),
-//   		},
-//   		AllowedScopes: []*string{
-//   			jsii.String("read"),
-//   			jsii.String("write"),
-//   		},
-//   		CustomClaims: customClaims,
-//   	}),
-//   })
+//   gatewayCustomClaim := bedrock_agentcore_alpha.GatewayCustomClaim_WithStringArrayValue(jsii.String("name"), []*string{
+//   	jsii.String("values"),
+//   }, bedrock_agentcore_alpha.CustomClaimOperator_EQUALS)
 //
 // Experimental.
 type GatewayCustomClaim interface {

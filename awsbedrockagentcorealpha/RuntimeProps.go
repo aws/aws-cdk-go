@@ -7,26 +7,52 @@ import (
 // Properties for creating a Bedrock Agent Core Runtime resource.
 //
 // Example:
-//   // S3 bucket containing the agent core
-//   codeBucket := s3.NewBucket(this, jsii.String("AgentCode"), &BucketProps{
-//   	BucketName: jsii.String("my-code-bucket"),
-//   	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // the bucket above needs to contain the agent code
+//   var agentRuntimeArtifact AgentRuntimeArtifact
+//   var loggingDestination LoggingDestination
+//   var logType LogType
+//   var role Role
+//   var runtimeAuthorizerConfiguration RuntimeAuthorizerConfiguration
+//   var runtimeNetworkConfiguration RuntimeNetworkConfiguration
 //
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromS3(&Location{
-//   	BucketName: codeBucket.bucketName,
-//   	ObjectKey: jsii.String("deployment_package.zip"),
-//   }, agentcore.AgentCoreRuntime_PYTHON_3_12, []*string{
-//   	jsii.String("opentelemetry-instrument"),
-//   	jsii.String("main.py"),
-//   })
-//
-//   runtimeInstance := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
+//   runtimeProps := &RuntimeProps{
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   })
+//
+//   	// the properties below are optional
+//   	AuthorizerConfiguration: runtimeAuthorizerConfiguration,
+//   	Description: jsii.String("description"),
+//   	EnvironmentVariables: map[string]*string{
+//   		"environmentVariablesKey": jsii.String("environmentVariables"),
+//   	},
+//   	ExecutionRole: role,
+//   	LifecycleConfiguration: &LifecycleConfiguration{
+//   		IdleRuntimeSessionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   		MaxLifetime: cdk.Duration_*Minutes(jsii.Number(30)),
+//   	},
+//   	LoggingConfigs: []LoggingConfig{
+//   		&LoggingConfig{
+//   			Destination: loggingDestination,
+//   			LogType: logType,
+//   		},
+//   	},
+//   	NetworkConfiguration: runtimeNetworkConfiguration,
+//   	ProtocolConfiguration: bedrock_agentcore_alpha.ProtocolType_MCP,
+//   	RequestHeaderConfiguration: &RequestHeaderConfiguration{
+//   		AllowlistedHeaders: []*string{
+//   			jsii.String("allowlistedHeaders"),
+//   		},
+//   	},
+//   	RuntimeName: jsii.String("runtimeName"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	TracingEnabled: jsii.Boolean(false),
+//   }
 //
 // Experimental.
 type RuntimeProps struct {

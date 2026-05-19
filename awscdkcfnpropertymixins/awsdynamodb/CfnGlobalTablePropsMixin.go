@@ -65,216 +65,39 @@ import (
 // - In AWS CloudFormation , each global table is controlled by a single stack, in a single region, regardless of the number of replicas. When you deploy your template, CloudFormation will create/update all replicas as part of a single stack operation. You should not deploy the same `AWS::DynamoDB::GlobalTable` resource in multiple regions. Doing so will result in errors, and is unsupported. If you deploy your application template in multiple regions, you can use conditions to only create the resource in a single region. Alternatively, you can choose to define your `AWS::DynamoDB::GlobalTable` resources in a stack separate from your application stack, and make sure it is only deployed to a single region.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   // TableV2 uses a Box internally for replicas.
+//   // The mixin defers the merge and appends the new replica at synthesis time.
+//   table := dynamodb.NewTableV2(scope, jsii.String("Table"), &TablePropsV2{
+//   	PartitionKey: &Attribute{
+//   		Name: jsii.String("pk"),
+//   		Type: dynamodb.AttributeType_STRING,
+//   	},
+//   	// L2 prop: pointInTimeRecovery is a boolean
+//   	Replicas: []ReplicaTableProps{
+//   		&ReplicaTableProps{
+//   			Region: jsii.String("us-east-1"),
+//   			PointInTimeRecovery: jsii.Boolean(true),
+//   		},
+//   	},
+//   })
 //
-//   var mergeStrategy IMergeStrategy
-//   var policyDocument interface{}
-//
-//   cfnGlobalTablePropsMixin := awscdkcfnpropertymixins.Aws_dynamodb.NewCfnGlobalTablePropsMixin(&CfnGlobalTableMixinProps{
-//   	AttributeDefinitions: []interface{}{
-//   		&AttributeDefinitionProperty{
-//   			AttributeName: jsii.String("attributeName"),
-//   			AttributeType: jsii.String("attributeType"),
-//   		},
-//   	},
-//   	BillingMode: jsii.String("billingMode"),
-//   	GlobalSecondaryIndexes: []interface{}{
-//   		&GlobalSecondaryIndexProperty{
-//   			IndexName: jsii.String("indexName"),
-//   			KeySchema: []interface{}{
-//   				&KeySchemaProperty{
-//   					AttributeName: jsii.String("attributeName"),
-//   					KeyType: jsii.String("keyType"),
-//   				},
-//   			},
-//   			Projection: &ProjectionProperty{
-//   				NonKeyAttributes: []*string{
-//   					jsii.String("nonKeyAttributes"),
-//   				},
-//   				ProjectionType: jsii.String("projectionType"),
-//   			},
-//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
-//   				MaxReadRequestUnits: jsii.Number(123),
-//   			},
-//   			ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
-//   				ReadCapacityUnits: jsii.Number(123),
-//   			},
-//   			WarmThroughput: &WarmThroughputProperty{
-//   				ReadUnitsPerSecond: jsii.Number(123),
-//   				WriteUnitsPerSecond: jsii.Number(123),
-//   			},
-//   			WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
-//   				MaxWriteRequestUnits: jsii.Number(123),
-//   			},
-//   			WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
-//   				WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
-//   					MaxCapacity: jsii.Number(123),
-//   					MinCapacity: jsii.Number(123),
-//   					SeedCapacity: jsii.Number(123),
-//   					TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
-//   						DisableScaleIn: jsii.Boolean(false),
-//   						ScaleInCooldown: jsii.Number(123),
-//   						ScaleOutCooldown: jsii.Number(123),
-//   						TargetValue: jsii.Number(123),
-//   					},
-//   				},
-//   			},
-//   		},
-//   	},
-//   	GlobalTableSourceArn: jsii.String("globalTableSourceArn"),
-//   	GlobalTableWitnesses: []interface{}{
-//   		&GlobalTableWitnessProperty{
-//   			Region: jsii.String("region"),
-//   		},
-//   	},
-//   	KeySchema: []interface{}{
-//   		&KeySchemaProperty{
-//   			AttributeName: jsii.String("attributeName"),
-//   			KeyType: jsii.String("keyType"),
-//   		},
-//   	},
-//   	LocalSecondaryIndexes: []interface{}{
-//   		&LocalSecondaryIndexProperty{
-//   			IndexName: jsii.String("indexName"),
-//   			KeySchema: []interface{}{
-//   				&KeySchemaProperty{
-//   					AttributeName: jsii.String("attributeName"),
-//   					KeyType: jsii.String("keyType"),
-//   				},
-//   			},
-//   			Projection: &ProjectionProperty{
-//   				NonKeyAttributes: []*string{
-//   					jsii.String("nonKeyAttributes"),
-//   				},
-//   				ProjectionType: jsii.String("projectionType"),
-//   			},
-//   		},
-//   	},
-//   	MultiRegionConsistency: jsii.String("multiRegionConsistency"),
-//   	ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
-//   		MaxReadRequestUnits: jsii.Number(123),
-//   	},
-//   	ReadProvisionedThroughputSettings: &GlobalReadProvisionedThroughputSettingsProperty{
-//   		ReadCapacityUnits: jsii.Number(123),
-//   	},
+//   // Mixins always use L1 (CloudFormation) property names and shapes,
+//   // regardless of what the L2 API looks like.
+//   table.With(awscdkcfnpropertymixins.NewCfnGlobalTablePropsMixin(&CfnGlobalTableMixinProps{
 //   	Replicas: []interface{}{
 //   		&ReplicaSpecificationProperty{
-//   			ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
-//   				Enabled: jsii.Boolean(false),
-//   				Mode: jsii.String("mode"),
-//   			},
-//   			DeletionProtectionEnabled: jsii.Boolean(false),
-//   			GlobalSecondaryIndexes: []interface{}{
-//   				&ReplicaGlobalSecondaryIndexSpecificationProperty{
-//   					ContributorInsightsSpecification: &ContributorInsightsSpecificationProperty{
-//   						Enabled: jsii.Boolean(false),
-//   						Mode: jsii.String("mode"),
-//   					},
-//   					IndexName: jsii.String("indexName"),
-//   					ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
-//   						MaxReadRequestUnits: jsii.Number(123),
-//   					},
-//   					ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
-//   						ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
-//   							MaxCapacity: jsii.Number(123),
-//   							MinCapacity: jsii.Number(123),
-//   							SeedCapacity: jsii.Number(123),
-//   							TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
-//   								DisableScaleIn: jsii.Boolean(false),
-//   								ScaleInCooldown: jsii.Number(123),
-//   								ScaleOutCooldown: jsii.Number(123),
-//   								TargetValue: jsii.Number(123),
-//   							},
-//   						},
-//   						ReadCapacityUnits: jsii.Number(123),
-//   					},
-//   				},
-//   			},
-//   			GlobalTableSettingsReplicationMode: jsii.String("globalTableSettingsReplicationMode"),
-//   			KinesisStreamSpecification: &KinesisStreamSpecificationProperty{
-//   				ApproximateCreationDateTimePrecision: jsii.String("approximateCreationDateTimePrecision"),
-//   				StreamArn: jsii.String("streamArn"),
-//   			},
+//   			Region: jsii.String("eu-west-1"),
+//   			// L1 prop: pointInTimeRecoverySpecification is an object
 //   			PointInTimeRecoverySpecification: &PointInTimeRecoverySpecificationProperty{
-//   				PointInTimeRecoveryEnabled: jsii.Boolean(false),
-//   				RecoveryPeriodInDays: jsii.Number(123),
-//   			},
-//   			ReadOnDemandThroughputSettings: &ReadOnDemandThroughputSettingsProperty{
-//   				MaxReadRequestUnits: jsii.Number(123),
-//   			},
-//   			ReadProvisionedThroughputSettings: &ReadProvisionedThroughputSettingsProperty{
-//   				ReadCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
-//   					MaxCapacity: jsii.Number(123),
-//   					MinCapacity: jsii.Number(123),
-//   					SeedCapacity: jsii.Number(123),
-//   					TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
-//   						DisableScaleIn: jsii.Boolean(false),
-//   						ScaleInCooldown: jsii.Number(123),
-//   						ScaleOutCooldown: jsii.Number(123),
-//   						TargetValue: jsii.Number(123),
-//   					},
-//   				},
-//   				ReadCapacityUnits: jsii.Number(123),
-//   			},
-//   			Region: jsii.String("region"),
-//   			ReplicaStreamSpecification: &ReplicaStreamSpecificationProperty{
-//   				ResourcePolicy: &ResourcePolicyProperty{
-//   					PolicyDocument: policyDocument,
-//   				},
-//   			},
-//   			ResourcePolicy: &ResourcePolicyProperty{
-//   				PolicyDocument: policyDocument,
-//   			},
-//   			SseSpecification: &ReplicaSSESpecificationProperty{
-//   				KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
-//   			},
-//   			TableClass: jsii.String("tableClass"),
-//   			Tags: []CfnTag{
-//   				&CfnTag{
-//   					Key: jsii.String("key"),
-//   					Value: jsii.String("value"),
-//   				},
-//   			},
-//   		},
-//   	},
-//   	SseSpecification: &SSESpecificationProperty{
-//   		SseEnabled: jsii.Boolean(false),
-//   		SseType: jsii.String("sseType"),
-//   	},
-//   	StreamSpecification: &StreamSpecificationProperty{
-//   		StreamViewType: jsii.String("streamViewType"),
-//   	},
-//   	TableName: jsii.String("tableName"),
-//   	TimeToLiveSpecification: &TimeToLiveSpecificationProperty{
-//   		AttributeName: jsii.String("attributeName"),
-//   		Enabled: jsii.Boolean(false),
-//   	},
-//   	WarmThroughput: &WarmThroughputProperty{
-//   		ReadUnitsPerSecond: jsii.Number(123),
-//   		WriteUnitsPerSecond: jsii.Number(123),
-//   	},
-//   	WriteOnDemandThroughputSettings: &WriteOnDemandThroughputSettingsProperty{
-//   		MaxWriteRequestUnits: jsii.Number(123),
-//   	},
-//   	WriteProvisionedThroughputSettings: &WriteProvisionedThroughputSettingsProperty{
-//   		WriteCapacityAutoScalingSettings: &CapacityAutoScalingSettingsProperty{
-//   			MaxCapacity: jsii.Number(123),
-//   			MinCapacity: jsii.Number(123),
-//   			SeedCapacity: jsii.Number(123),
-//   			TargetTrackingScalingPolicyConfiguration: &TargetTrackingScalingPolicyConfigurationProperty{
-//   				DisableScaleIn: jsii.Boolean(false),
-//   				ScaleInCooldown: jsii.Number(123),
-//   				ScaleOutCooldown: jsii.Number(123),
-//   				TargetValue: jsii.Number(123),
+//   				PointInTimeRecoveryEnabled: jsii.Boolean(true),
 //   			},
 //   		},
 //   	},
 //   }, &CfnPropertyMixinOptions{
-//   	Strategy: mergeStrategy,
-//   })
+//   	Strategy: awscdk.PropertyMergeStrategy_Combine(&CombineStrategyOptions{
+//   		Arrays: awscdk.ArrayMergeStrategy_Append(),
+//   	}),
+//   }))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
 //

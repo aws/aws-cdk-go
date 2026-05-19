@@ -4,21 +4,14 @@ package awsbedrockagentcorealpha
 // Options for adding an endpoint to the runtime.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   agentRuntimeArtifactNew := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v2.0.0"))
-//
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifactNew,
-//   })
-//
-//   stagingEndpoint := runtime.AddEndpoint(jsii.String("staging"), &AddEndpointOptions{
-//   	Version: jsii.String("2"),
-//   	Description: jsii.String("Staging environment for testing new version"),
-//   })
+//   addEndpointOptions := &AddEndpointOptions{
+//   	Description: jsii.String("description"),
+//   	Version: jsii.String("version"),
+//   }
 //
 // Experimental.
 type AddEndpointOptions struct {

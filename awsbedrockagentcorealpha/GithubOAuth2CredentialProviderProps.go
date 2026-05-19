@@ -7,28 +7,23 @@ import (
 // Props for {@link OAuth2CredentialProvider.usingGithub}.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   oauth := agentcore.OAuth2CredentialProvider_UsingGithub(this, jsii.String("GhOAuth"), &GithubOAuth2CredentialProviderProps{
-//   	OAuth2CredentialProviderName: jsii.String("github-oauth"),
-//   	ClientId: jsii.String("your-client-id"),
-//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
-//   })
+//   var secretValue SecretValue
 //
-//   gateway.AddMcpServerTarget(jsii.String("Mcp"), &AddMcpServerTargetOptions{
-//   	GatewayTargetName: jsii.String("mcp-server"),
-//   	Description: jsii.String("MCP with GitHub OAuth"),
-//   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
-//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentity(oauth, &FromOauthIdentityOptions{
-//   			Scopes: []*string{
-//   				jsii.String("read:user"),
-//   			},
-//   		}),
+//   githubOAuth2CredentialProviderProps := &GithubOAuth2CredentialProviderProps{
+//   	ClientId: jsii.String("clientId"),
+//   	ClientSecret: secretValue,
+//
+//   	// the properties below are optional
+//   	OAuth2CredentialProviderName: jsii.String("oAuth2CredentialProviderName"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
 //   	},
-//   })
+//   }
 //
 // Experimental.
 type GithubOAuth2CredentialProviderProps struct {

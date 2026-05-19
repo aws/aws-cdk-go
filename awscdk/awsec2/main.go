@@ -9796,6 +9796,8 @@ func init() {
 			"C8I_FLEX": InstanceClass_C8I_FLEX,
 			"COMPUTE7_AMD": InstanceClass_COMPUTE7_AMD,
 			"C7A": InstanceClass_C7A,
+			"COMPUTE8_AMD": InstanceClass_COMPUTE8_AMD,
+			"C8A": InstanceClass_C8A,
 			"STORAGE2": InstanceClass_STORAGE2,
 			"D2": InstanceClass_D2,
 			"STORAGE3": InstanceClass_STORAGE3,

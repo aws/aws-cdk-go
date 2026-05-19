@@ -10,32 +10,11 @@ import (
 // Use built-in strategies for quick setup, use built-in strategies with override to specify models and prompt templates.
 //
 // Example:
-//   // Create a custom semantic memory strategy
-//   customSemanticStrategy := agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
-//   	Name: jsii.String("customSemanticStrategy"),
-//   	Description: jsii.String("Custom semantic memory strategy"),
-//   	Namespaces: []*string{
-//   		jsii.String("/custom/strategies/{memoryStrategyId}/actors/{actorId}"),
-//   	},
-//   	CustomConsolidation: &OverrideConfig{
-//   		Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-//   		AppendToPrompt: jsii.String("Custom consolidation prompt for semantic memory"),
-//   	},
-//   	CustomExtraction: &OverrideConfig{
-//   		Model: bedrock.BedrockFoundationModel_ANTHROPIC_CLAUDE_3_5_SONNET_V1_0(),
-//   		AppendToPrompt: jsii.String("Custom extraction prompt for semantic memory"),
-//   	},
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create memory with custom strategy
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my-custom-memory"),
-//   	Description: jsii.String("Memory with custom strategy"),
-//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	MemoryStrategies: []IMemoryStrategy{
-//   		customSemanticStrategy,
-//   	},
-//   })
+//   memoryStrategy := bedrock_agentcore_alpha.NewMemoryStrategy()
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-strategies.html
 //

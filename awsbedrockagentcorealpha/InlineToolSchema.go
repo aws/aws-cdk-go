@@ -14,20 +14,42 @@ import (
 // The schema can be provided directly as a string in either JSON or YAML format.
 //
 // Example:
-//   toolSchema := agentcore.ToolSchema_FromInline([]ToolDefinition{
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   var schemaDefinition_ SchemaDefinition
+//
+//   inlineToolSchema := bedrock_agentcore_alpha.NewInlineToolSchema([]ToolDefinition{
 //   	&ToolDefinition{
-//   		Name: jsii.String("hello_world"),
-//   		Description: jsii.String("A simple hello world tool"),
+//   		Description: jsii.String("description"),
 //   		InputSchema: &SchemaDefinition{
-//   			Type: agentcore.SchemaDefinitionType_OBJECT,
+//   			Type: bedrock_agentcore_alpha.SchemaDefinitionType_STRING,
+//
+//   			// the properties below are optional
+//   			Description: jsii.String("description"),
+//   			Items: schemaDefinition_,
 //   			Properties: map[string]SchemaDefinition{
-//   				"name": &SchemaDefinition{
-//   					"type": agentcore.SchemaDefinitionType_STRING,
-//   					"description": jsii.String("The name to greet"),
-//   				},
+//   				"propertiesKey": schemaDefinition_,
 //   			},
 //   			Required: []*string{
-//   				jsii.String("name"),
+//   				jsii.String("required"),
+//   			},
+//   		},
+//   		Name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		OutputSchema: &SchemaDefinition{
+//   			Type: bedrock_agentcore_alpha.SchemaDefinitionType_STRING,
+//
+//   			// the properties below are optional
+//   			Description: jsii.String("description"),
+//   			Items: schemaDefinition_,
+//   			Properties: map[string]SchemaDefinition{
+//   				"propertiesKey": schemaDefinition_,
+//   			},
+//   			Required: []*string{
+//   				jsii.String("required"),
 //   			},
 //   		},
 //   	},

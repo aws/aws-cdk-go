@@ -19,30 +19,24 @@ import (
 // - Smithy: Exposes a Smithy-modeled API as MCP tools.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   lambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_22_X(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	        exports.handler = async (event) => {
-//   	            return {
-//   	                statusCode: 200,
-//   	                body: JSON.stringify({ message: 'Hello from Lambda!' })
-//   	            };
-//   	        };
-//   	    `)),
-//   })
+//   var credentialProviderConfig ICredentialProviderConfig
+//   var gateway Gateway
+//   var targetConfiguration ITargetConfiguration
 //
-//   // Create a gateway target with Lambda and tool schema
-//   target := agentcore.GatewayTarget_ForLambda(this, jsii.String("MyLambdaTarget"), &GatewayTargetLambdaProps{
-//   	GatewayTargetName: jsii.String("my-lambda-target"),
-//   	Description: jsii.String("Target for Lambda function integration"),
+//   gatewayTarget := bedrock_agentcore_alpha.NewGatewayTarget(this, jsii.String("MyGatewayTarget"), &GatewayTargetProps{
 //   	Gateway: gateway,
-//   	LambdaFunction: lambdaFunction,
-//   	ToolSchema: agentcore.ToolSchema_FromLocalAsset(path.join(__dirname, jsii.String("schemas"), jsii.String("my-tool-schema.json"))),
+//   	TargetConfiguration: targetConfiguration,
+//
+//   	// the properties below are optional
+//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
+//   		credentialProviderConfig,
+//   	},
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-adding-targets.html

@@ -17,38 +17,14 @@ import (
 // - `LoggingDestination.firehose(stream)` - Send logs to Kinesis Data Firehose
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+//   var logGroup LogGroup
 //
-//   // Create logging destinations
-//   logGroup := logs.NewLogGroup(this, jsii.String("RuntimeLogGroup"))
-//   logBucket := s3.NewBucket(this, jsii.String("RuntimeLogBucket"))
-//   firehoseStream := firehose.NewDeliveryStream(this, jsii.String("RuntimeLogStream"), &DeliveryStreamProps{
-//   	Destination: firehose.NewS3Bucket(logBucket),
-//   })
-//
-//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("test_runtime"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	TracingEnabled: jsii.Boolean(true),
-//   	LoggingConfigs: []LoggingConfig{
-//   		&LoggingConfig{
-//   			LogType: agentcore.LogType_APPLICATION_LOGS(),
-//   			Destination: agentcore.LoggingDestination_CloudWatchLogs(logGroup),
-//   		},
-//   		&LoggingConfig{
-//   			LogType: agentcore.LogType_APPLICATION_LOGS(),
-//   			Destination: agentcore.LoggingDestination_S3(logBucket),
-//   		},
-//   		&LoggingConfig{
-//   			LogType: agentcore.LogType_APPLICATION_LOGS(),
-//   			Destination: agentcore.LoggingDestination_Firehose(firehoseStream),
-//   		},
-//   	},
-//   })
+//   loggingDestination := bedrock_agentcore_alpha.LoggingDestination_CloudWatchLogs(logGroup)
 //
 // Experimental.
 type LoggingDestination interface {

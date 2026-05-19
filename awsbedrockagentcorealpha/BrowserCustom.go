@@ -18,13 +18,33 @@ import (
 // Provides a browser environment for web automation and interaction.
 //
 // Example:
-//   browser := agentcore.NewBrowserCustom(this, jsii.String("BrowserVpcWithRecording"), &BrowserCustomProps{
-//   	BrowserCustomName: jsii.String("browser_recording"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
-//   		Vpc: ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   			RestrictDefaultSecurityGroup: jsii.Boolean(false),
-//   		}),
-//   	}),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var browserNetworkConfiguration BrowserNetworkConfiguration
+//   var role Role
+//
+//   browserCustom := bedrock_agentcore_alpha.NewBrowserCustom(this, jsii.String("MyBrowserCustom"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("browserCustomName"),
+//   	BrowserSigning: bedrock_agentcore_alpha.BrowserSigning_ENABLED,
+//   	Description: jsii.String("description"),
+//   	ExecutionRole: role,
+//   	NetworkConfiguration: browserNetworkConfiguration,
+//   	RecordingConfig: &RecordingConfig{
+//   		Enabled: jsii.Boolean(false),
+//   		S3Location: &Location{
+//   			BucketName: jsii.String("bucketName"),
+//   			ObjectKey: jsii.String("objectKey"),
+//
+//   			// the properties below are optional
+//   			ObjectVersion: jsii.String("objectVersion"),
+//   		},
+//   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser.html

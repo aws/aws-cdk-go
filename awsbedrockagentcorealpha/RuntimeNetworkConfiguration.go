@@ -11,27 +11,11 @@ import (
 // Network configuration for the Runtime.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create or use an existing VPC
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(2),
-//   })
-//
-//   // Configure runtime with VPC
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	NetworkConfiguration: agentcore.RuntimeNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
-//   		Vpc: vpc,
-//   		VpcSubnets: &SubnetSelection{
-//   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   		},
-//   	}),
-//   })
+//   runtimeNetworkConfiguration := bedrock_agentcore_alpha.RuntimeNetworkConfiguration_UsingPublicNetwork()
 //
 // Experimental.
 type RuntimeNetworkConfiguration interface {

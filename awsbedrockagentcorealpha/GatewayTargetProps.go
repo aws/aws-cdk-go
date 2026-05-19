@@ -4,43 +4,25 @@ package awsbedrockagentcorealpha
 // Properties for creating a Gateway Target resource.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   myLambdaFunction := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_22_X(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	    exports.handler = async (event) => ({ statusCode: 200 });
-//   	  `)),
-//   })
+//   var credentialProviderConfig ICredentialProviderConfig
+//   var gateway Gateway
+//   var targetConfiguration ITargetConfiguration
 //
-//   myToolSchema := agentcore.ToolSchema_FromInline([]ToolDefinition{
-//   	&ToolDefinition{
-//   		Name: jsii.String("my_tool"),
-//   		Description: jsii.String("My custom tool"),
-//   		InputSchema: &SchemaDefinition{
-//   			Type: agentcore.SchemaDefinitionType_OBJECT,
-//   			Properties: map[string]interface{}{
-//   			},
-//   		},
-//   	},
-//   })
-//
-//   // Create a custom Lambda configuration
-//   customConfig := agentcore.LambdaTargetConfiguration_Create(myLambdaFunction, myToolSchema)
-//
-//   // Use the GatewayTarget constructor directly
-//   target := agentcore.NewGatewayTarget(this, jsii.String("AdvancedTarget"), &GatewayTargetProps{
+//   gatewayTargetProps := &GatewayTargetProps{
 //   	Gateway: gateway,
-//   	GatewayTargetName: jsii.String("advanced-target"),
-//   	TargetConfiguration: customConfig,
-//   	 // Manually created configuration
+//   	TargetConfiguration: targetConfiguration,
+//
+//   	// the properties below are optional
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromIamRole(),
+//   		credentialProviderConfig,
 //   	},
-//   })
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
+//   }
 //
 // Experimental.
 type GatewayTargetProps struct {

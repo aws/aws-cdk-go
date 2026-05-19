@@ -4,40 +4,29 @@ package awsbedrockagentcorealpha
 // Custom JWT authorizer configuration.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("GatewayExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreGatewayExecutionRolePolicy")),
-//   	},
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create gateway with custom execution role
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   	Description: jsii.String("Gateway with custom execution role"),
-//   	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
-//   		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
-//   		SearchType: agentcore.McpGatewaySearchType_SEMANTIC,
-//   		SupportedVersions: []MCPProtocolVersion{
-//   			agentcore.MCPProtocolVersion_MCP_2025_03_26,
-//   		},
-//   	}),
-//   	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
-//   		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
-//   		AllowedAudience: []*string{
-//   			jsii.String("my-app"),
-//   		},
-//   		AllowedClients: []*string{
-//   			jsii.String("my-client-id"),
-//   		},
-//   		AllowedScopes: []*string{
-//   			jsii.String("read"),
-//   			jsii.String("write"),
-//   		},
-//   	}),
-//   	Role: executionRole,
-//   })
+//   var gatewayCustomClaim GatewayCustomClaim
+//
+//   customJwtConfiguration := &CustomJwtConfiguration{
+//   	DiscoveryUrl: jsii.String("discoveryUrl"),
+//
+//   	// the properties below are optional
+//   	AllowedAudience: []*string{
+//   		jsii.String("allowedAudience"),
+//   	},
+//   	AllowedClients: []*string{
+//   		jsii.String("allowedClients"),
+//   	},
+//   	AllowedScopes: []*string{
+//   		jsii.String("allowedScopes"),
+//   	},
+//   	CustomClaims: []GatewayCustomClaim{
+//   		gatewayCustomClaim,
+//   	},
+//   }
 //
 // Experimental.
 type CustomJwtConfiguration struct {

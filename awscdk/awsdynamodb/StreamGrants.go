@@ -20,11 +20,11 @@ import (
 //   var tableRef ITableRef
 //
 //   streamGrants := awscdk.Aws_dynamodb.NewStreamGrants(&StreamGrantsProps{
-//   	Table: tableRef,
 //   	TableStreamArn: jsii.String("tableStreamArn"),
 //
 //   	// the properties below are optional
 //   	EncryptionKey: key,
+//   	Table: tableRef,
 //   })
 //
 type StreamGrants interface {

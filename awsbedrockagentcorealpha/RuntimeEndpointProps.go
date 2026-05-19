@@ -4,17 +4,21 @@ package awsbedrockagentcorealpha
 // Properties for creating a Bedrock Agent Core Runtime Endpoint resource.
 //
 // Example:
-//   // Reference an existing runtime by its ID
-//   existingRuntimeId := "abc123-runtime-id" // The ID of an existing runtime
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create a standalone endpoint
-//   endpoint := agentcore.NewRuntimeEndpoint(this, jsii.String("MyEndpoint"), &RuntimeEndpointProps{
-//   	EndpointName: jsii.String("production"),
-//   	AgentRuntimeId: existingRuntimeId,
-//   	AgentRuntimeVersion: jsii.String("1"),
-//   	 // Specify which version to use
-//   	Description: jsii.String("Production endpoint for existing runtime"),
-//   })
+//   runtimeEndpointProps := &RuntimeEndpointProps{
+//   	AgentRuntimeId: jsii.String("agentRuntimeId"),
+//
+//   	// the properties below are optional
+//   	AgentRuntimeVersion: jsii.String("agentRuntimeVersion"),
+//   	Description: jsii.String("description"),
+//   	EndpointName: jsii.String("endpointName"),
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 // Experimental.
 type RuntimeEndpointProps struct {

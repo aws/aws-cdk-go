@@ -4,37 +4,35 @@ package awsbedrockagentcorealpha
 // Configuration parameters for a memory strategy that can override existing built-in default prompts/models.
 //
 // Example:
-//   // Create memory with custom strategies
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my_memory"),
-//   	Description: jsii.String("Memory with custom strategies"),
-//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	MemoryStrategies: []IMemoryStrategy{
-//   		agentcore.MemoryStrategy_UsingUserPreference(&ManagedStrategyProps{
-//   			Name: jsii.String("CustomerPreferences"),
-//   			Namespaces: []*string{
-//   				jsii.String("support/customer/{actorId}/preferences"),
-//   			},
-//   		}),
-//   		agentcore.MemoryStrategy_UsingSemantic(&ManagedStrategyProps{
-//   			Name: jsii.String("CustomerSupportSemantic"),
-//   			Namespaces: []*string{
-//   				jsii.String("support/customer/{actorId}/semantic"),
-//   			},
-//   		}),
-//   		agentcore.MemoryStrategy_UsingEpisodic(&ManagedStrategyProps{
-//   			Name: jsii.String("customerJourneyEpisodic"),
-//   			Namespaces: []*string{
-//   				jsii.String("/journey/customer/{actorId}/episodes"),
-//   			},
-//   			ReflectionConfiguration: &EpisodicReflectionConfiguration{
-//   				Namespaces: []*string{
-//   					jsii.String("/journey/customer/{actorId}/reflections"),
-//   				},
-//   			},
-//   		}),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import bedrock_alpha "github.com/aws/aws-cdk-go/awsbedrockalpha"
+//
+//   var bedrockInvokable IBedrockInvokable
+//
+//   managedStrategyProps := &ManagedStrategyProps{
+//   	Name: jsii.String("name"),
+//   	Namespaces: []*string{
+//   		jsii.String("namespaces"),
 //   	},
-//   })
+//
+//   	// the properties below are optional
+//   	CustomConsolidation: &OverrideConfig{
+//   		AppendToPrompt: jsii.String("appendToPrompt"),
+//   		Model: bedrockInvokable,
+//   	},
+//   	CustomExtraction: &OverrideConfig{
+//   		AppendToPrompt: jsii.String("appendToPrompt"),
+//   		Model: bedrockInvokable,
+//   	},
+//   	Description: jsii.String("description"),
+//   	ReflectionConfiguration: &EpisodicReflectionConfiguration{
+//   		Namespaces: []*string{
+//   			jsii.String("namespaces"),
+//   		},
+//   	},
+//   }
 //
 // Experimental.
 type ManagedStrategyProps struct {

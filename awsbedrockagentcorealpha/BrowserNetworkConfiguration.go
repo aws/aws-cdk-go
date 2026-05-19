@@ -11,19 +11,11 @@ import (
 // Network configuration for the Browser tool.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("testVPC"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
-//   	CodeInterpreterCustomName: jsii.String("my_sandbox_interpreter"),
-//   	Description: jsii.String("Code interpreter with isolated network access"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
-//   		Vpc: vpc,
-//   	}),
-//   })
-//
-//   codeInterpreter.connections.AddSecurityGroup(ec2.NewSecurityGroup(this, jsii.String("AdditionalGroup"), &SecurityGroupProps{
-//   	Vpc: Vpc,
-//   }))
+//   browserNetworkConfiguration := bedrock_agentcore_alpha.BrowserNetworkConfiguration_UsingPublicNetwork()
 //
 // Experimental.
 type BrowserNetworkConfiguration interface {

@@ -13,21 +13,11 @@ import (
 // Bedrock Agent Core Runtime Endpoint Provides a stable endpoint for invoking agent runtimes with versioning support.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
+//   // Using a specific endpoint
+//   var runtime Runtime
 //
-//   agentRuntimeArtifactNew := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v2.0.0"))
-//
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifactNew,
-//   })
-//
-//   stagingEndpoint := runtime.AddEndpoint(jsii.String("staging"), &AddEndpointOptions{
-//   	Version: jsii.String("2"),
-//   	Description: jsii.String("Staging environment for testing new version"),
-//   })
+//   endpoint := runtime.AddEndpoint(jsii.String("PROD"))
+//   dataSource := agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime, endpoint)
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-endpoint.html
 //

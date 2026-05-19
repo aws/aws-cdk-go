@@ -10,23 +10,6 @@ import (
 )
 
 // Represents the concept of an API Schema for a Gateway Target.
-//
-// Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
-//
-//   smithySchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("models"), jsii.String("smithy-model.json")))
-//   smithySchema.Bind(this)
-//
-//   // Create a gateway target with Smithy Model and OAuth
-//   target := agentcore.GatewayTarget_ForSmithy(this, jsii.String("MySmithyTarget"), &GatewayTargetSmithyProps{
-//   	GatewayTargetName: jsii.String("my-smithy-target"),
-//   	Description: jsii.String("Target for Smithy model integration"),
-//   	Gateway: gateway,
-//   	SmithyModel: smithySchema,
-//   })
-//
 // Experimental.
 type ApiSchema interface {
 	// The account ID of the S3 bucket owner for cross-account access.

@@ -8,37 +8,11 @@ import (
 // Filter operators for online evaluation filtering.
 //
 // Example:
-//   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("FilteredEval"), &OnlineEvaluationConfigProps{
-//   	OnlineEvaluationConfigName: jsii.String("filtered_evaluation"),
-//   	Evaluators: []EvaluatorReference{
-//   		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
-//   	},
-//   	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
-//   		LogGroupNames: []*string{
-//   			jsii.String("/aws/bedrock-agentcore/my-agent"),
-//   		},
-//   		ServiceNames: []*string{
-//   			jsii.String("my-agent.default"),
-//   		},
-//   	}),
-//   	// Sample 25% of traces
-//   	SamplingPercentage: jsii.Number(25),
-//   	// Only evaluate traces matching these filters
-//   	Filters: []FilterConfig{
-//   		&FilterConfig{
-//   			Key: jsii.String("user.region"),
-//   			Operator: agentcore.FilterOperator_EQUAL(),
-//   			Value: agentcore.FilterValue_String(jsii.String("us-east-1")),
-//   		},
-//   		&FilterConfig{
-//   			Key: jsii.String("session.duration"),
-//   			Operator: agentcore.FilterOperator_GREATER_THAN(),
-//   			Value: agentcore.FilterValue_Number(jsii.Number(60)),
-//   		},
-//   	},
-//   	// Consider sessions complete after 30 minutes of inactivity
-//   	SessionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   filterOperator := bedrock_agentcore_alpha.FilterOperator_CONTAINS()
 //
 // Experimental.
 type FilterOperator interface {

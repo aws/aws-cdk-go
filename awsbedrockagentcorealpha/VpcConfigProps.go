@@ -9,19 +9,39 @@ import (
 // Only used when network mode is VPC.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("testVPC"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   codeInterpreter := agentcore.NewCodeInterpreterCustom(this, jsii.String("MyCodeInterpreter"), &CodeInterpreterCustomProps{
-//   	CodeInterpreterCustomName: jsii.String("my_sandbox_interpreter"),
-//   	Description: jsii.String("Code interpreter with isolated network access"),
-//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingVpc(this, &VpcConfigProps{
-//   		Vpc: vpc,
-//   	}),
-//   })
+//   var securityGroup SecurityGroup
+//   var subnet Subnet
+//   var subnetFilter SubnetFilter
+//   var vpc Vpc
 //
-//   codeInterpreter.connections.AddSecurityGroup(ec2.NewSecurityGroup(this, jsii.String("AdditionalGroup"), &SecurityGroupProps{
-//   	Vpc: Vpc,
-//   }))
+//   vpcConfigProps := &VpcConfigProps{
+//   	Vpc: vpc,
+//
+//   	// the properties below are optional
+//   	AllowAllOutbound: jsii.Boolean(false),
+//   	SecurityGroups: []ISecurityGroup{
+//   		securityGroup,
+//   	},
+//   	VpcSubnets: &SubnetSelection{
+//   		AvailabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   		OnePerAz: jsii.Boolean(false),
+//   		SubnetFilters: []SubnetFilter{
+//   			subnetFilter,
+//   		},
+//   		SubnetGroupName: jsii.String("subnetGroupName"),
+//   		Subnets: []ISubnet{
+//   			subnet,
+//   		},
+//   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
+//   	},
+//   }
 //
 // Experimental.
 type VpcConfigProps struct {

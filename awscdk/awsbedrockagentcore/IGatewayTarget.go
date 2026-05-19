@@ -1,0 +1,288 @@
+package awsbedrockagentcore
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsbedrockagentcore/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Interface for GatewayTarget resources.
+//
+// Represents a target that hosts tools for the gateway.
+// Targets can be Lambda functions, OpenAPI schemas, or Smithy models.
+type IGatewayTarget interface {
+	interfacesawsbedrockagentcore.IGatewayTargetRef
+	awscdk.IResource
+	// Grants IAM actions to the IAM Principal.
+	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
+	// Grants `Create`, `Update`, and `Delete` actions on the Gateway Target.
+	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
+	// Grants `Get` and `List` actions on the Gateway Target.
+	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
+	// Timestamp when the gateway target was created.
+	CreatedAt() *string
+	// The credential provider configuration for the target.
+	CredentialProviderConfigurations() *[]ICredentialProviderConfig
+	// The description of the gateway target.
+	Description() *string
+	// The gateway that this target belongs to.
+	Gateway() IGateway
+	// The name of the gateway target.
+	GatewayTargetName() *string
+	// The status of the gateway target.
+	Status() *string
+	// The status reasons for the gateway target.
+	StatusReasons() *[]*string
+	// The ARN of the gateway target resource.
+	TargetArn() *string
+	// The id of the gateway target.
+	TargetId() *string
+	// The target protocol.
+	TargetProtocolType() GatewayTargetProtocolType
+	// Timestamp when the gateway target was last updated.
+	UpdatedAt() *string
+}
+
+// The jsii proxy for IGatewayTarget
+type jsiiProxy_IGatewayTarget struct {
+	internal.Type__interfacesawsbedrockagentcoreIGatewayTargetRef
+	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IGatewayTarget) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
+	if err := i.validateGrantParameters(grantee); err != nil {
+		panic(err)
+	}
+	args := []interface{}{grantee}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grant",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGatewayTarget) GrantManage(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantManageParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantManage",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGatewayTarget) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
+	if err := i.validateGrantReadParameters(grantee); err != nil {
+		panic(err)
+	}
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantRead",
+		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IGatewayTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (i *jsiiProxy_IGatewayTarget) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) CreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"createdAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) CredentialProviderConfigurations() *[]ICredentialProviderConfig {
+	var returns *[]ICredentialProviderConfig
+	_jsii_.Get(
+		j,
+		"credentialProviderConfigurations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Description() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Gateway() IGateway {
+	var returns IGateway
+	_jsii_.Get(
+		j,
+		"gateway",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) GatewayTargetName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"gatewayTargetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Status() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"status",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) StatusReasons() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"statusReasons",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) TargetArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) TargetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) TargetProtocolType() GatewayTargetProtocolType {
+	var returns GatewayTargetProtocolType
+	_jsii_.Get(
+		j,
+		"targetProtocolType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) UpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"updatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) GatewayTargetRef() *interfacesawsbedrockagentcore.GatewayTargetReference {
+	var returns *interfacesawsbedrockagentcore.GatewayTargetReference
+	_jsii_.Get(
+		j,
+		"gatewayTargetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IGatewayTarget) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+

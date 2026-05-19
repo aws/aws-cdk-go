@@ -15,23 +15,11 @@ import (
 // Validation is performed at the target configuration level where the schema type is known.
 //
 // Example:
-//   inlineSchema := agentcore.ApiSchema_FromInline(jsii.String(`
-//   openapi: 3.0.3
-//   info:
-//     title: Library API
-//     version: 1.0.0
-//   paths:
-//     /search:
-//       get:
-//         summary: Search for books
-//         operationId: searchBooks
-//         parameters:
-//           - name: query
-//             in: query
-//             required: true
-//             schema:
-//               type: string
-//   `))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   inlineApiSchema := bedrock_agentcore_alpha.NewInlineApiSchema(jsii.String("schema"))
 //
 // Experimental.
 type InlineApiSchema interface {

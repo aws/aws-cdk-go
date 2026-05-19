@@ -19,6 +19,9 @@ type jsiiProxy_PropertyMergeStrategy struct {
 // When both the existing and new value for a key are plain objects,
 // their properties are merged recursively. Primitives, arrays, and
 // mismatched types are overridden by the source value.
+//
+// Supports Box-backed values: when the target value is a Box, the merge
+// is deferred until the Box resolves.
 func PropertyMergeStrategy_Combine(options *CombineStrategyOptions) IMergeStrategy {
 	_init_.Initialize()
 

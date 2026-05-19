@@ -6,39 +6,17 @@ package awsbedrockagentcorealpha
 // This protocol enables communication between Amazon Bedrock Agent and external tools.
 //
 // Example:
-//   // Create a KMS key for encryption
-//   encryptionKey := kms.NewKey(this, jsii.String("GatewayEncryptionKey"), &KeyProps{
-//   	EnableKeyRotation: jsii.Boolean(true),
-//   	Description: jsii.String("KMS key for gateway encryption"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // Create gateway with KMS encryption
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-encrypted-gateway"),
-//   	Description: jsii.String("Gateway with KMS encryption"),
-//   	ProtocolConfiguration: agentcore.NewMcpProtocolConfiguration(&McpConfiguration{
-//   		Instructions: jsii.String("Use this gateway to connect to external MCP tools"),
-//   		SearchType: agentcore.McpGatewaySearchType_SEMANTIC,
-//   		SupportedVersions: []MCPProtocolVersion{
-//   			agentcore.MCPProtocolVersion_MCP_2025_03_26,
-//   		},
-//   	}),
-//   	AuthorizerConfiguration: agentcore.GatewayAuthorizer_UsingCustomJwt(&CustomJwtConfiguration{
-//   		DiscoveryUrl: jsii.String("https://auth.example.com/.well-known/openid-configuration"),
-//   		AllowedAudience: []*string{
-//   			jsii.String("my-app"),
-//   		},
-//   		AllowedClients: []*string{
-//   			jsii.String("my-client-id"),
-//   		},
-//   		AllowedScopes: []*string{
-//   			jsii.String("read"),
-//   			jsii.String("write"),
-//   		},
-//   	}),
-//   	KmsKey: encryptionKey,
-//   	ExceptionLevel: agentcore.GatewayExceptionLevel_DEBUG,
-//   })
+//   mcpConfiguration := &McpConfiguration{
+//   	Instructions: jsii.String("instructions"),
+//   	SearchType: bedrock_agentcore_alpha.McpGatewaySearchType_SEMANTIC,
+//   	SupportedVersions: []MCPProtocolVersion{
+//   		bedrock_agentcore_alpha.MCPProtocolVersion_MCP_2025_06_18,
+//   	},
+//   }
 //
 // Experimental.
 type McpConfiguration struct {

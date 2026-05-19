@@ -9,21 +9,30 @@ import (
 // Properties for creating a Memory resource.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("MemoryExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")),
-//   	},
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   // Create memory with custom execution role
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my_memory"),
-//   	Description: jsii.String("Memory with custom execution role"),
-//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	ExecutionRole: executionRole,
-//   })
+//   var key Key
+//   var memoryStrategy IMemoryStrategy
+//   var role Role
+//
+//   memoryProps := &MemoryProps{
+//   	Description: jsii.String("description"),
+//   	ExecutionRole: role,
+//   	ExpirationDuration: cdk.Duration_Minutes(jsii.Number(30)),
+//   	KmsKey: key,
+//   	MemoryName: jsii.String("memoryName"),
+//   	MemoryStrategies: []IMemoryStrategy{
+//   		memoryStrategy,
+//   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
+//   }
 //
 // Experimental.
 type MemoryProps struct {

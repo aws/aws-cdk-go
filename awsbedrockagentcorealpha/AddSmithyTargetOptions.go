@@ -4,18 +4,23 @@ package awsbedrockagentcorealpha
 // Options for adding a Smithy target to a gateway.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   smithySchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("models"), jsii.String("smithy-model.json")))
-//   smithySchema.Bind(this)
+//   var apiSchema ApiSchema
+//   var credentialProviderConfig ICredentialProviderConfig
 //
-//   smithyTarget := gateway.AddSmithyTarget(jsii.String("MySmithyTarget"), &AddSmithyTargetOptions{
-//   	GatewayTargetName: jsii.String("my-smithy-target"),
-//   	Description: jsii.String("Smithy model target"),
-//   	SmithyModel: smithySchema,
-//   })
+//   addSmithyTargetOptions := &AddSmithyTargetOptions{
+//   	SmithyModel: apiSchema,
+//
+//   	// the properties below are optional
+//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
+//   		credentialProviderConfig,
+//   	},
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
+//   }
 //
 // Experimental.
 type AddSmithyTargetOptions struct {

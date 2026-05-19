@@ -7,28 +7,58 @@ import (
 // Options for adding an API Gateway target to a gateway.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
-//   	RestApiName: jsii.String("my-api"),
-//   })
+//   var credentialProviderConfig ICredentialProviderConfig
+//   var restApi RestApi
 //
-//   // Uses IAM authorization for outbound auth by default
-//   apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
-//   	RestApi: api,
+//   addApiGatewayTargetOptions := &AddApiGatewayTargetOptions{
 //   	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
 //   		ToolFilters: []ApiGatewayToolFilter{
 //   			&ApiGatewayToolFilter{
-//   				FilterPath: jsii.String("/pets/*"),
+//   				FilterPath: jsii.String("filterPath"),
 //   				Methods: []ApiGatewayHttpMethod{
-//   					agentcore.ApiGatewayHttpMethod_GET,
+//   					bedrock_agentcore_alpha.ApiGatewayHttpMethod_GET,
 //   				},
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		ToolOverrides: []ApiGatewayToolOverride{
+//   			&ApiGatewayToolOverride{
+//   				Method: bedrock_agentcore_alpha.ApiGatewayHttpMethod_GET,
+//   				Name: jsii.String("name"),
+//   				Path: jsii.String("path"),
+//
+//   				// the properties below are optional
+//   				Description: jsii.String("description"),
+//   			},
+//   		},
 //   	},
-//   })
+//   	RestApi: restApi,
+//
+//   	// the properties below are optional
+//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
+//   		credentialProviderConfig,
+//   	},
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
+//   	MetadataConfiguration: &MetadataConfiguration{
+//   		AllowedQueryParameters: []*string{
+//   			jsii.String("allowedQueryParameters"),
+//   		},
+//   		AllowedRequestHeaders: []*string{
+//   			jsii.String("allowedRequestHeaders"),
+//   		},
+//   		AllowedResponseHeaders: []*string{
+//   			jsii.String("allowedResponseHeaders"),
+//   		},
+//   	},
+//   	Stage: jsii.String("stage"),
+//   }
 //
 // Experimental.
 type AddApiGatewayTargetOptions struct {

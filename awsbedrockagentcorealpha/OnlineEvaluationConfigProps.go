@@ -8,15 +8,33 @@ import (
 // Properties for creating an OnlineEvaluationConfig.
 //
 // Example:
-//   var customEvaluator Evaluator
+//   // Create a custom LLM-as-a-Judge evaluator
+//   evaluator := agentcore.NewEvaluator(this, jsii.String("MyEvaluator"), &EvaluatorProps{
+//   	EvaluatorName: jsii.String("my_custom_evaluator"),
+//   	Level: agentcore.EvaluationLevel_SESSION(),
+//   	EvaluatorConfig: agentcore.EvaluatorConfig_LlmAsAJudge(&LlmAsAJudgeOptions{
+//   		Instructions: jsii.String("Evaluate whether the agent response is helpful and accurate."),
+//   		ModelId: jsii.String("us.anthropic.claude-sonnet-4-6"),
+//   		RatingScale: agentcore.EvaluatorRatingScale_Categorical([]CategoricalRatingOption{
+//   			&CategoricalRatingOption{
+//   				Label: jsii.String("Good"),
+//   				Definition: jsii.String("The response is helpful and accurate."),
+//   			},
+//   			&CategoricalRatingOption{
+//   				Label: jsii.String("Bad"),
+//   				Definition: jsii.String("The response is not helpful or contains errors."),
+//   			},
+//   		}),
+//   	}),
+//   })
 //
-//
-//   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MixedEvaluation"), &OnlineEvaluationConfigProps{
-//   	OnlineEvaluationConfigName: jsii.String("mixed_evaluation"),
+//   // Use the custom evaluator in an online evaluation configuration
+//   // Use the custom evaluator in an online evaluation configuration
+//   agentcore.NewOnlineEvaluationConfig(this, jsii.String("MyEvaluation"), &OnlineEvaluationConfigProps{
+//   	OnlineEvaluationConfigName: jsii.String("my_evaluation"),
 //   	Evaluators: []EvaluatorReference{
 //   		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
-//   		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
-//   		agentcore.EvaluatorReference_Custom(customEvaluator),
+//   		agentcore.EvaluatorReference_Custom(evaluator),
 //   	},
 //   	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
 //   		LogGroupNames: []*string{

@@ -2,31 +2,6 @@ package awsbedrockagentcorealpha
 
 
 // HTTP methods supported by API Gateway.
-//
-// Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
-//
-//   api := apigateway.NewRestApi(this, jsii.String("MyApi"), &RestApiProps{
-//   	RestApiName: jsii.String("my-api"),
-//   })
-//
-//   // Uses IAM authorization for outbound auth by default
-//   apiGatewayTarget := gateway.AddApiGatewayTarget(jsii.String("MyApiGatewayTarget"), &AddApiGatewayTargetOptions{
-//   	RestApi: api,
-//   	ApiGatewayToolConfiguration: &ApiGatewayToolConfiguration{
-//   		ToolFilters: []ApiGatewayToolFilter{
-//   			&ApiGatewayToolFilter{
-//   				FilterPath: jsii.String("/pets/*"),
-//   				Methods: []ApiGatewayHttpMethod{
-//   					agentcore.ApiGatewayHttpMethod_GET,
-//   				},
-//   			},
-//   		},
-//   	},
-//   })
-//
 // Experimental.
 type ApiGatewayHttpMethod string
 

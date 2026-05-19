@@ -4,30 +4,24 @@ package awsbedrockagentcorealpha
 // Properties for creating an MCP Server-based Gateway Target.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   // OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
-//   oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
-//   oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
+//   var credentialProviderConfig ICredentialProviderConfig
+//   var gateway Gateway
 //
-//   // Create a gateway target with MCP Server
-//   mcpTarget := agentcore.GatewayTarget_ForMcpServer(this, jsii.String("MyMcpServer"), &GatewayTargetMcpServerProps{
-//   	GatewayTargetName: jsii.String("my-mcp-server"),
-//   	Description: jsii.String("External MCP server integration"),
-//   	Gateway: gateway,
-//   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
+//   gatewayTargetMcpServerProps := &GatewayTargetMcpServerProps{
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentityArn(&OAuthConfiguration{
-//   			ProviderArn: oauthProviderArn,
-//   			SecretArn: oauthSecretArn,
-//   			Scopes: []*string{
-//   				jsii.String("mcp-runtime-server/invoke"),
-//   			},
-//   		}),
+//   		credentialProviderConfig,
 //   	},
-//   })
+//   	Endpoint: jsii.String("endpoint"),
+//   	Gateway: gateway,
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
+//   }
 //
 // Experimental.
 type GatewayTargetMcpServerProps struct {

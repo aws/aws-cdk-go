@@ -11,41 +11,13 @@ import (
 // the standard audience, client, and scope validations.
 //
 // Example:
-//   var userPool UserPool
-//   var userPoolClient UserPoolClient
-//   var anotherUserPoolClient UserPoolClient
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
-//
-//   // Optional: Create custom claims for additional validation
-//   customClaims := []RuntimeCustomClaim{
-//   	agentcore.RuntimeCustomClaim_WithStringValue(jsii.String("department"), jsii.String("engineering")),
-//   	agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("roles"), []*string{
-//   		jsii.String("admin"),
-//   	}, agentcore.CustomClaimOperator_CONTAINS),
-//   	agentcore.RuntimeCustomClaim_WithStringArrayValue(jsii.String("permissions"), []*string{
-//   		jsii.String("read"),
-//   		jsii.String("write"),
-//   	}, agentcore.CustomClaimOperator_CONTAINS_ANY),
-//   }
-//
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	AuthorizerConfiguration: agentcore.RuntimeAuthorizerConfiguration_UsingCognito(userPool, []IUserPoolClient{
-//   		userPoolClient,
-//   		anotherUserPoolClient,
-//   	}, []*string{
-//   		jsii.String("audience1"),
-//   	}, []*string{
-//   		jsii.String("read"),
-//   		jsii.String("write"),
-//   	}, customClaims),
-//   })
+//   runtimeCustomClaim := bedrock_agentcore_alpha.RuntimeCustomClaim_WithStringArrayValue(jsii.String("name"), []*string{
+//   	jsii.String("values"),
+//   }, bedrock_agentcore_alpha.CustomClaimOperator_EQUALS)
 //
 // Experimental.
 type RuntimeCustomClaim interface {

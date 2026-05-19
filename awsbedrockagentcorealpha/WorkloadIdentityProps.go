@@ -4,16 +4,19 @@ package awsbedrockagentcorealpha
 // Properties for a new {@link WorkloadIdentity}.
 //
 // Example:
-//   agentcore.NewWorkloadIdentity(this, jsii.String("MyWorkloadIdentity"), &WorkloadIdentityProps{
-//   	WorkloadIdentityName: jsii.String("customer-support-agent-prod"),
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   workloadIdentityProps := &WorkloadIdentityProps{
 //   	AllowedResourceOauth2ReturnUrls: []*string{
-//   		jsii.String("https://app.example.com/oauth/callback"),
+//   		jsii.String("allowedResourceOauth2ReturnUrls"),
 //   	},
 //   	Tags: map[string]*string{
-//   		"team": jsii.String("agents"),
-//   		"env": jsii.String("prod"),
+//   		"tagsKey": jsii.String("tags"),
 //   	},
-//   })
+//   	WorkloadIdentityName: jsii.String("workloadIdentityName"),
+//   }
 //
 // Experimental.
 type WorkloadIdentityProps struct {

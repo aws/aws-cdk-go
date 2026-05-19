@@ -4,21 +4,15 @@ package awsbedrockagentcorealpha
 // Configuration for HTTP request headers that will be passed through to the runtime.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
-//
-//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("test_runtime"),
-//   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	RequestHeaderConfiguration: &RequestHeaderConfiguration{
-//   		AllowlistedHeaders: []*string{
-//   			jsii.String("X-Amzn-Bedrock-AgentCore-Runtime-Custom-H1"),
-//   		},
+//   requestHeaderConfiguration := &RequestHeaderConfiguration{
+//   	AllowlistedHeaders: []*string{
+//   		jsii.String("allowlistedHeaders"),
 //   	},
-//   })
+//   }
 //
 // Experimental.
 type RequestHeaderConfiguration struct {

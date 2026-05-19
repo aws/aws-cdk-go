@@ -15,46 +15,15 @@ import (
 // - RESPONSE interceptors execute after the target responds.
 //
 // Example:
-//   // Create Lambda functions for interceptors
-//   requestInterceptorFn := lambda.NewFunction(this, jsii.String("RequestInterceptor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	def handler(event, context):
-//   	    # Validate and transform request
-//   	    return {
-//   	        "interceptorOutputVersion": "1.0",
-//   	        "mcp": {
-//   	            "transformedGatewayRequest": event["mcp"]["gatewayRequest"]
-//   	        }
-//   	    }
-//   	  `)),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   responseInterceptorFn := lambda.NewFunction(this, jsii.String("ResponseInterceptor"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_*FromInline(jsii.String(`
-//   	def handler(event, context):
-//   	    # Filter or transform response
-//   	    return {
-//   	        "interceptorOutputVersion": "1.0",
-//   	        "mcp": {
-//   	            "transformedGatewayResponse": event["mcp"]["gatewayResponse"]
-//   	        }
-//   	    }
-//   	  `)),
-//   })
+//   var function_ Function
 //
-//   // Create gateway with interceptors
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   	InterceptorConfigurations: []IInterceptor{
-//   		agentcore.LambdaInterceptor_ForRequest(requestInterceptorFn, &InterceptorOptions{
-//   			PassRequestHeaders: jsii.Boolean(true),
-//   		}),
-//   		agentcore.LambdaInterceptor_ForResponse(responseInterceptorFn),
-//   	},
+//   lambdaInterceptor := bedrock_agentcore_alpha.LambdaInterceptor_ForRequest(function_, &InterceptorOptions{
+//   	PassRequestHeaders: jsii.Boolean(false),
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-interceptors.html

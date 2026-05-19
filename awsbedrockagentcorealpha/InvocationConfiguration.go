@@ -8,42 +8,23 @@ import (
 // Invocation configuration for self managed memory strategy.
 //
 // Example:
-//   bucket := s3.NewBucket(this, jsii.String("memoryBucket"), &BucketProps{
-//   	BucketName: jsii.String("test-memory"),
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-//   	AutoDeleteObjects: jsii.Boolean(true),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   topic := sns.NewTopic(this, jsii.String("topic"))
+//   var topic Topic
 //
-//   // Create a custom semantic memory strategy
-//   selfManagedStrategy := agentcore.MemoryStrategy_UsingSelfManaged(&SelfManagedStrategyProps{
-//   	Name: jsii.String("selfManagedStrategy"),
-//   	Description: jsii.String("self managed memory strategy"),
-//   	HistoricalContextWindowSize: jsii.Number(5),
-//   	InvocationConfiguration: &InvocationConfiguration{
-//   		Topic: topic,
-//   		S3Location: &Location{
-//   			BucketName: bucket.bucketName,
-//   			ObjectKey: jsii.String("memory/"),
-//   		},
-//   	},
-//   	TriggerConditions: &TriggerConditions{
-//   		MessageBasedTrigger: jsii.Number(1),
-//   		TimeBasedTrigger: cdk.Duration_Seconds(jsii.Number(10)),
-//   		TokenBasedTrigger: jsii.Number(100),
-//   	},
-//   })
+//   invocationConfiguration := &InvocationConfiguration{
+//   	S3Location: &Location{
+//   		BucketName: jsii.String("bucketName"),
+//   		ObjectKey: jsii.String("objectKey"),
 //
-//   // Create memory with custom strategy
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my-custom-memory"),
-//   	Description: jsii.String("Memory with custom strategy"),
-//   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	MemoryStrategies: []IMemoryStrategy{
-//   		selfManagedStrategy,
+//   		// the properties below are optional
+//   		ObjectVersion: jsii.String("objectVersion"),
 //   	},
-//   })
+//   	Topic: topic,
+//   }
 //
 // Experimental.
 type InvocationConfiguration struct {

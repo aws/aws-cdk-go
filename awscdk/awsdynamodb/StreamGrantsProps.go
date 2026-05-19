@@ -18,16 +18,14 @@ import (
 //   var tableRef ITableRef
 //
 //   streamGrantsProps := &StreamGrantsProps{
-//   	Table: tableRef,
 //   	TableStreamArn: jsii.String("tableStreamArn"),
 //
 //   	// the properties below are optional
 //   	EncryptionKey: key,
+//   	Table: tableRef,
 //   }
 //
 type StreamGrantsProps struct {
-	// The table this stream is for.
-	Table interfacesawsdynamodb.ITableRef `field:"required" json:"table" yaml:"table"`
 	// The ARN of the Stream.
 	TableStreamArn *string `field:"required" json:"tableStreamArn" yaml:"tableStreamArn"`
 	// The encryption key of the table.
@@ -36,5 +34,10 @@ type StreamGrantsProps struct {
 	// Default: - No key.
 	//
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	// The table this stream is for.
+	// Default: - None, no longer required.
+	//
+	// Deprecated: This property is not used anymore.
+	Table interfacesawsdynamodb.ITableRef `field:"optional" json:"table" yaml:"table"`
 }
 

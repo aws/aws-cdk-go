@@ -12,7 +12,17 @@ import (
 // Class to define a Tool Schema from an S3 object.
 //
 // Example:
-//   toolSchema := agentcore.ToolSchema_FromS3File(s3.Bucket_FromBucketName(this, jsii.String("SchemasBucket"), jsii.String("my-schemas-bucket")), jsii.String("tools/complex-tool-schema.json"), jsii.String("123456789012"))
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
+//
+//   s3ToolSchema := bedrock_agentcore_alpha.NewS3ToolSchema(&Location{
+//   	BucketName: jsii.String("bucketName"),
+//   	ObjectKey: jsii.String("objectKey"),
+//
+//   	// the properties below are optional
+//   	ObjectVersion: jsii.String("objectVersion"),
+//   }, jsii.String("bucketOwnerAccountId"))
 //
 // Experimental.
 type S3ToolSchema interface {

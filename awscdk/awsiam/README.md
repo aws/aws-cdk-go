@@ -605,6 +605,40 @@ newPolicy := iam.NewPolicy(this, jsii.String("MyNewPolicy"), &PolicyProps{
 })
 ```
 
+## Identity Policy Statement SID Validation
+
+The `Sid` (statement ID) element in IAM identity policies must be alphanumeric (A-Z, a-z, 0-9) according to AWS IAM requirements. CDK validates identity policy SIDs at synthesis time.
+
+```go
+// This will throw an error when used in an identity policy
+// This will throw an error when used in an identity policy
+iam.NewPolicyStatement(&PolicyStatementProps{
+	Sid: jsii.String("Allow access for S3."),
+	 // Invalid: contains spaces and period
+	Actions: []*string{
+		jsii.String("s3:GetObject"),
+	},
+	Resources: []*string{
+		jsii.String("*"),
+	},
+})
+
+// Valid SID - alphanumeric only
+// Valid SID - alphanumeric only
+iam.NewPolicyStatement(&PolicyStatementProps{
+	Sid: jsii.String("AllowAccessForS3"),
+	 // Valid: alphanumeric only
+	Actions: []*string{
+		jsii.String("s3:GetObject"),
+	},
+	Resources: []*string{
+		jsii.String("*"),
+	},
+})
+```
+
+This validation helps catch SID errors early in development rather than at deployment time.
+
 ## Permissions Boundaries
 
 [Permissions

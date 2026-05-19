@@ -11,15 +11,12 @@ import (
 // at various levels (session, trace, or tool call).
 //
 // Example:
-//   var customEvaluator Evaluator
-//
-//
-//   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MixedEvaluation"), &OnlineEvaluationConfigProps{
-//   	OnlineEvaluationConfigName: jsii.String("mixed_evaluation"),
+//   // Basic usage with built-in evaluators
+//   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("MyEvaluation"), &OnlineEvaluationConfigProps{
+//   	OnlineEvaluationConfigName: jsii.String("my_evaluation"),
 //   	Evaluators: []EvaluatorReference{
 //   		agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
 //   		agentcore.EvaluatorReference_*Builtin(agentcore.BuiltinEvaluator_CORRECTNESS()),
-//   		agentcore.EvaluatorReference_Custom(customEvaluator),
 //   	},
 //   	DataSource: agentcore.DataSourceConfig_FromCloudWatchLogs(&CloudWatchLogsDataSourceConfig{
 //   		LogGroupNames: []*string{

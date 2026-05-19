@@ -6,51 +6,6 @@ import (
 )
 
 // Factory class for creating different Gateway Credential Providers.
-//
-// Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
-//
-//   // OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
-//   oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
-//   oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
-//
-//   // Add an MCP server target directly to the gateway
-//   mcpTarget := gateway.AddMcpServerTarget(jsii.String("MyMcpServer"), &AddMcpServerTargetOptions{
-//   	GatewayTargetName: jsii.String("my-mcp-server"),
-//   	Description: jsii.String("External MCP server integration"),
-//   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
-//   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentityArn(&OAuthConfiguration{
-//   			ProviderArn: oauthProviderArn,
-//   			SecretArn: oauthSecretArn,
-//   			Scopes: []*string{
-//   				jsii.String("mcp-runtime-server/invoke"),
-//   			},
-//   		}),
-//   	},
-//   })
-//
-//   // Grant sync permission to a Lambda function that will trigger synchronization
-//   syncFunction := lambda.NewFunction(this, jsii.String("SyncFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	import boto3
-//
-//   	def handler(event, context):
-//   	    client = boto3.client('bedrock-agentcore')
-//   	    response = client.synchronize_gateway_targets(
-//   	        gatewayIdentifier=event['gatewayId'],
-//   	        targetIds=[event['targetId']]
-//   	    )
-//   	    return response
-//   	  `)),
-//   })
-//
-//   mcpTarget.GrantSync(syncFunction)
-//
 // Experimental.
 type GatewayCredentialProvider interface {
 }

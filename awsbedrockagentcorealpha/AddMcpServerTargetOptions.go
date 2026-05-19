@@ -4,28 +4,22 @@ package awsbedrockagentcorealpha
 // Options for adding an MCP Server target to a gateway.
 //
 // Example:
-//   gateway := agentcore.NewGateway(this, jsii.String("MyGateway"), &GatewayProps{
-//   	GatewayName: jsii.String("my-gateway"),
-//   })
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import bedrock_agentcore_alpha "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 //
-//   oauth := agentcore.OAuth2CredentialProvider_UsingGithub(this, jsii.String("GhOAuth"), &GithubOAuth2CredentialProviderProps{
-//   	OAuth2CredentialProviderName: jsii.String("github-oauth"),
-//   	ClientId: jsii.String("your-client-id"),
-//   	ClientSecret: cdk.SecretValue_UnsafePlainText(jsii.String("your-client-secret")),
-//   })
+//   var credentialProviderConfig ICredentialProviderConfig
 //
-//   gateway.AddMcpServerTarget(jsii.String("Mcp"), &AddMcpServerTargetOptions{
-//   	GatewayTargetName: jsii.String("mcp-server"),
-//   	Description: jsii.String("MCP with GitHub OAuth"),
-//   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
+//   addMcpServerTargetOptions := &AddMcpServerTargetOptions{
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentity(oauth, &FromOauthIdentityOptions{
-//   			Scopes: []*string{
-//   				jsii.String("read:user"),
-//   			},
-//   		}),
+//   		credentialProviderConfig,
 //   	},
-//   })
+//   	Endpoint: jsii.String("endpoint"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	GatewayTargetName: jsii.String("gatewayTargetName"),
+//   }
 //
 // Experimental.
 type AddMcpServerTargetOptions struct {
