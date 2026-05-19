@@ -201,9 +201,9 @@ type SecurityGroup interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Produce the egress rule JSON for the given connection.
-	ToEgressRuleConfig() interface{}
+	ToEgressRuleConfig() *EgressRuleConfig
 	// Produce the ingress rule JSON for the given connection.
-	ToIngressRuleConfig() interface{}
+	ToIngressRuleConfig() *IngressRuleConfig
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Applies one or more mixins to this construct.
@@ -640,8 +640,8 @@ func (s *jsiiProxy_SecurityGroup) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
-func (s *jsiiProxy_SecurityGroup) ToEgressRuleConfig() interface{} {
-	var returns interface{}
+func (s *jsiiProxy_SecurityGroup) ToEgressRuleConfig() *EgressRuleConfig {
+	var returns *EgressRuleConfig
 
 	_jsii_.Invoke(
 		s,
@@ -653,8 +653,8 @@ func (s *jsiiProxy_SecurityGroup) ToEgressRuleConfig() interface{} {
 	return returns
 }
 
-func (s *jsiiProxy_SecurityGroup) ToIngressRuleConfig() interface{} {
-	var returns interface{}
+func (s *jsiiProxy_SecurityGroup) ToIngressRuleConfig() *IngressRuleConfig {
+	var returns *IngressRuleConfig
 
 	_jsii_.Invoke(
 		s,

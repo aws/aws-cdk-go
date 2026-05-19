@@ -8628,6 +8628,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.EgressRuleConfig",
+		reflect.TypeOf((*EgressRuleConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.EnableVpnGatewayOptions",
 		reflect.TypeOf((*EnableVpnGatewayOptions)(nil)).Elem(),
 	)
@@ -9444,6 +9448,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawsec2IVPNGatewayRef)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.IngressRuleConfig",
+		reflect.TypeOf((*IngressRuleConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.InitCommand",
@@ -10969,6 +10977,10 @@ func init() {
 			"VPC_ENDPOINT": RouterType_VPC_ENDPOINT,
 			"CORE_NETWORK": RouterType_CORE_NETWORK,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.RuleConfig",
+		reflect.TypeOf((*RuleConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.RuleScope",

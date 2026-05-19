@@ -299,6 +299,25 @@ bucket := s3.NewBucket(this, jsii.String("Bucket"), &BucketProps{
 })
 ```
 
+## Bucket Naming
+
+By default, CloudFormation assigns a unique bucket name. You can also specify a `bucketName` directly, but this creates a globally unique name that could conflict with other accounts.
+
+### Account-Regional Bucket Namespace
+
+Using `bucketNamePrefix` with `bucketNamespace` set to `ACCOUNT_REGIONAL`, the bucket name is scoped to your account and region, reducing the risk of name conflicts. CloudFormation appends `-<accountId>-<region>-an` to the prefix to form the full name.
+
+```go
+s3.NewBucket(this, jsii.String("MyBucket"), &BucketProps{
+	BucketNamePrefix: jsii.String("my-app"),
+	BucketNamespace: s3.BucketNamespace_ACCOUNT_REGIONAL,
+})
+```
+
+Note that `bucketName` cannot be used together with `bucketNamePrefix` or `bucketNamespace`.
+
+For more information, see the [AWS documentation on bucket namespaces](https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html).
+
 ## Sharing buckets between stacks
 
 To use a bucket in a different stack in the same CDK application, pass the object to the other stack:

@@ -8,9 +8,9 @@ import (
 type IPeer interface {
 	IConnectable
 	// Produce the egress rule JSON for the given connection.
-	ToEgressRuleConfig() interface{}
+	ToEgressRuleConfig() *EgressRuleConfig
 	// Produce the ingress rule JSON for the given connection.
-	ToIngressRuleConfig() interface{}
+	ToIngressRuleConfig() *IngressRuleConfig
 	// Whether the rule can be inlined into a SecurityGroup or not.
 	CanInlineRule() *bool
 	// A unique identifier for this connection peer.
@@ -22,8 +22,8 @@ type jsiiProxy_IPeer struct {
 	jsiiProxy_IConnectable
 }
 
-func (i *jsiiProxy_IPeer) ToEgressRuleConfig() interface{} {
-	var returns interface{}
+func (i *jsiiProxy_IPeer) ToEgressRuleConfig() *EgressRuleConfig {
+	var returns *EgressRuleConfig
 
 	_jsii_.Invoke(
 		i,
@@ -35,8 +35,8 @@ func (i *jsiiProxy_IPeer) ToEgressRuleConfig() interface{} {
 	return returns
 }
 
-func (i *jsiiProxy_IPeer) ToIngressRuleConfig() interface{} {
-	var returns interface{}
+func (i *jsiiProxy_IPeer) ToIngressRuleConfig() *IngressRuleConfig {
+	var returns *IngressRuleConfig
 
 	_jsii_.Invoke(
 		i,

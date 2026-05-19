@@ -1732,38 +1732,21 @@ validation.
 > etc. It's your responsibility as the consumer of a plugin to verify that it is
 > secure to use.
 
-By default, the report will be printed in a human-readable format. If you want a
-report in JSON format, enable it using the `@aws-cdk/core:validationReportJson`
-context passing it directly to the application:
+By default, the report is output in two ways:
+
+* A JSON file called `policy-validation-report.json` is written to the cloud assembly directory.
+* A human-readable format is printed to the standard error output.
+
+To disable either format, explicitly set the corresponding context key to `false`:
 
 ```go
+// Disable pretty-printed console output (JSON file still written)
 app := awscdk.NewApp(&AppProps{
 	Context: map[string]interface{}{
-		"@aws-cdk/core:validationReportJson": jsii.Boolean(true),
+		"@aws-cdk/core:validationReportPrettyPrint": jsii.Boolean(false),
 	},
 })
 ```
-
-Alternatively, you can set this context key-value pair using the `cdk.json` or
-`cdk.context.json` files in your project directory (see
-[Runtime context](https://docs.aws.amazon.com/cdk/v2/guide/context.html)).
-
-It is also possible to enable both JSON and human-readable formats by setting
-`@aws-cdk/core:validationReportPrettyPrint` context key explicitly:
-
-```go
-app := awscdk.NewApp(&AppProps{
-	Context: map[string]interface{}{
-		"@aws-cdk/core:validationReportJson": jsii.Boolean(true),
-		"@aws-cdk/core:validationReportPrettyPrint": jsii.Boolean(true),
-	},
-})
-```
-
-If you choose the JSON format, the CDK will print the policy validation report
-to a file called `policy-validation-report.json` in the cloud assembly
-directory. For the default, human-readable format, the report will be printed to
-the standard output.
 
 ### For plugin authors
 

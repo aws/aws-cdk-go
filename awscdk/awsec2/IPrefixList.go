@@ -37,8 +37,8 @@ func (i *jsiiProxy_IPrefixList) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-func (i *jsiiProxy_IPrefixList) ToEgressRuleConfig() interface{} {
-	var returns interface{}
+func (i *jsiiProxy_IPrefixList) ToEgressRuleConfig() *EgressRuleConfig {
+	var returns *EgressRuleConfig
 
 	_jsii_.Invoke(
 		i,
@@ -50,8 +50,8 @@ func (i *jsiiProxy_IPrefixList) ToEgressRuleConfig() interface{} {
 	return returns
 }
 
-func (i *jsiiProxy_IPrefixList) ToIngressRuleConfig() interface{} {
-	var returns interface{}
+func (i *jsiiProxy_IPrefixList) ToIngressRuleConfig() *IngressRuleConfig {
+	var returns *IngressRuleConfig
 
 	_jsii_.Invoke(
 		i,

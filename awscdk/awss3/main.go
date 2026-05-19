@@ -219,6 +219,14 @@ func init() {
 		"aws-cdk-lib.aws_s3.BucketMetrics",
 		reflect.TypeOf((*BucketMetrics)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_s3.BucketNamespace",
+		reflect.TypeOf((*BucketNamespace)(nil)).Elem(),
+		map[string]interface{}{
+			"GLOBAL": BucketNamespace_GLOBAL,
+			"ACCOUNT_REGIONAL": BucketNamespace_ACCOUNT_REGIONAL,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.BucketNotificationDestinationConfig",
 		reflect.TypeOf((*BucketNotificationDestinationConfig)(nil)).Elem(),

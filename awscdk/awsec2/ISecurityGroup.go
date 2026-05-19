@@ -77,8 +77,8 @@ func (i *jsiiProxy_ISecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-func (i *jsiiProxy_ISecurityGroup) ToEgressRuleConfig() interface{} {
-	var returns interface{}
+func (i *jsiiProxy_ISecurityGroup) ToEgressRuleConfig() *EgressRuleConfig {
+	var returns *EgressRuleConfig
 
 	_jsii_.Invoke(
 		i,
@@ -90,8 +90,8 @@ func (i *jsiiProxy_ISecurityGroup) ToEgressRuleConfig() interface{} {
 	return returns
 }
 
-func (i *jsiiProxy_ISecurityGroup) ToIngressRuleConfig() interface{} {
-	var returns interface{}
+func (i *jsiiProxy_ISecurityGroup) ToIngressRuleConfig() *IngressRuleConfig {
+	var returns *IngressRuleConfig
 
 	_jsii_.Invoke(
 		i,

@@ -85,9 +85,35 @@ type BucketProps struct {
 	//
 	BucketKeyEnabled *bool `field:"optional" json:"bucketKeyEnabled" yaml:"bucketKeyEnabled"`
 	// Physical name of this bucket.
+	//
+	// Cannot be used together with `bucketNamePrefix` or `bucketNamespace`.
 	// Default: - Assigned by CloudFormation (recommended).
 	//
 	BucketName *string `field:"optional" json:"bucketName" yaml:"bucketName"`
+	// A prefix for the bucket name in the account-regional namespace.
+	//
+	// Requires `bucketNamespace` to be set to `ACCOUNT_REGIONAL`.
+	// Cannot be used together with `bucketName`.
+	//
+	// CloudFormation appends `-<accountId>-<region>-an` to form the full name.
+	// For example, `my-app` becomes `my-app-123456789012-us-east-1-an`.
+	//
+	// Must contain only lowercase letters, numbers, and hyphens.
+	// Must start and end with a lowercase letter or number.
+	// Default: - No prefix.
+	//
+	BucketNamePrefix *string `field:"optional" json:"bucketNamePrefix" yaml:"bucketNamePrefix"`
+	// The namespace for the bucket name.
+	//
+	// AWS recommends `ACCOUNT_REGIONAL` for improved security, as bucket names
+	// are scoped to your account and cannot be claimed by other accounts.
+	// When set to `ACCOUNT_REGIONAL`, `bucketNamePrefix` is required.
+	// When set to `GLOBAL`, it can be used standalone to explicitly specify the default namespace.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html
+	//
+	// Default: - Global namespace.
+	//
+	BucketNamespace BucketNamespace `field:"optional" json:"bucketNamespace" yaml:"bucketNamespace"`
 	// The CORS configuration of this bucket.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
 	//

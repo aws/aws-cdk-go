@@ -88,9 +88,9 @@ type PrefixList interface {
 	// which will be a concrete name.
 	GetResourceNameAttribute(nameAttr *string) *string
 	// Produce the egress rule JSON for the given connection.
-	ToEgressRuleConfig() interface{}
+	ToEgressRuleConfig() *EgressRuleConfig
 	// Produce the ingress rule JSON for the given connection.
-	ToIngressRuleConfig() interface{}
+	ToIngressRuleConfig() *IngressRuleConfig
 	// Returns a string representation of this construct.
 	ToString() *string
 	// Applies one or more mixins to this construct.
@@ -454,8 +454,8 @@ func (p *jsiiProxy_PrefixList) GetResourceNameAttribute(nameAttr *string) *strin
 	return returns
 }
 
-func (p *jsiiProxy_PrefixList) ToEgressRuleConfig() interface{} {
-	var returns interface{}
+func (p *jsiiProxy_PrefixList) ToEgressRuleConfig() *EgressRuleConfig {
+	var returns *EgressRuleConfig
 
 	_jsii_.Invoke(
 		p,
@@ -467,8 +467,8 @@ func (p *jsiiProxy_PrefixList) ToEgressRuleConfig() interface{} {
 	return returns
 }
 
-func (p *jsiiProxy_PrefixList) ToIngressRuleConfig() interface{} {
-	var returns interface{}
+func (p *jsiiProxy_PrefixList) ToIngressRuleConfig() *IngressRuleConfig {
+	var returns *IngressRuleConfig
 
 	_jsii_.Invoke(
 		p,
