@@ -27,6 +27,12 @@ import (
 //
 //   	// the properties below are optional
 //   	DashboardName: jsii.String("dashboardName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
@@ -35,6 +41,9 @@ type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawscloudwatch.IDashboardRef
+	awscdk.ITaggableV2
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -75,6 +84,9 @@ type CfnDashboard interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// A list of key-value pairs to associate with the cloudwatch dashboard.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -228,6 +240,17 @@ type jsiiProxy_CfnDashboard struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscloudwatchIDashboardRef
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnDashboard) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDashboard) CfnOptions() awscdk.ICfnResourceOptions {
@@ -360,6 +383,16 @@ func (j *jsiiProxy_CfnDashboard) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDashboard) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDashboard) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -425,6 +458,17 @@ func (j *jsiiProxy_CfnDashboard)SetDashboardName(val *string) {
 	_jsii_.Set(
 		j,
 		"dashboardName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDashboard)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

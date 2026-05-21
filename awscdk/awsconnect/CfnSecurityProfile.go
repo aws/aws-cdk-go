@@ -129,7 +129,7 @@ type CfnSecurityProfile interface {
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources() *[]*string
 	SetHierarchyRestrictedResources(val *[]*string)
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

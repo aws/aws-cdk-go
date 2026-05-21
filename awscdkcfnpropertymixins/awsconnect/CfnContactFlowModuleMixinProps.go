@@ -44,7 +44,7 @@ type CfnContactFlowModuleMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-externalinvocationconfiguration
 	//
 	ExternalInvocationConfiguration interface{} `field:"optional" json:"externalInvocationConfiguration" yaml:"externalInvocationConfiguration"`
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-instancearn
 	//
 	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`

@@ -84,6 +84,10 @@ func init() {
 		reflect.TypeOf((*CfnBrowserCustomPropsMixin_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnBrowserMixinProps",
+		reflect.TypeOf((*CfnBrowserMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnBrowserProfileMixinProps",
 		reflect.TypeOf((*CfnBrowserProfileMixinProps)(nil)).Elem(),
 	)
@@ -98,6 +102,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnBrowserProfilePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnBrowserPropsMixin",
+		reflect.TypeOf((*CfnBrowserPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnBrowserPropsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
@@ -688,6 +708,54 @@ func init() {
 		reflect.TypeOf((*CfnOnlineEvaluationConfigPropsMixin_SessionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderMixinProps",
+		reflect.TypeOf((*CfnPaymentCredentialProviderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPaymentCredentialProviderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.CoinbaseCdpConfigurationInputProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_CoinbaseCdpConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.CoinbaseCdpConfigurationOutputProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_CoinbaseCdpConfigurationOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.PaymentProviderConfigurationInputProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_PaymentProviderConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.PaymentProviderConfigurationOutputProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_PaymentProviderConfigurationOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.SecretInfoProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_SecretInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.StripePrivyConfigurationInputProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_StripePrivyConfigurationInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentCredentialProviderPropsMixin.StripePrivyConfigurationOutputProperty",
+		reflect.TypeOf((*CfnPaymentCredentialProviderPropsMixin_StripePrivyConfigurationOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPolicyEngineMixinProps",
 		reflect.TypeOf((*CfnPolicyEngineMixinProps)(nil)).Elem(),
 	)
@@ -812,6 +880,10 @@ func init() {
 		reflect.TypeOf((*CfnRuntimePropsMixin_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.EfsAccessPointConfigurationProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_EfsAccessPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.FilesystemConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_FilesystemConfigurationProperty)(nil)).Elem(),
 	)
@@ -826,6 +898,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.RequestHeaderConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_RequestHeaderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.S3FilesAccessPointConfigurationProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_S3FilesAccessPointConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.S3LocationProperty",

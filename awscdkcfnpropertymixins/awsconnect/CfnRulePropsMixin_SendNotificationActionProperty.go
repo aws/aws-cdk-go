@@ -28,7 +28,7 @@ package awsconnect
 type CfnRulePropsMixin_SendNotificationActionProperty struct {
 	// Notification content.
 	//
-	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Amazon Connect Administrators Guide* .
+	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Connect Customer Administrators Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-content
 	//
 	Content *string `field:"optional" json:"content" yaml:"content"`
@@ -50,7 +50,7 @@ type CfnRulePropsMixin_SendNotificationActionProperty struct {
 	Recipient interface{} `field:"optional" json:"recipient" yaml:"recipient"`
 	// The subject of the email if the delivery method is `EMAIL` .
 	//
-	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Amazon Connect Administrators Guide* .
+	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Connect Customer Administrators Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-subject
 	//
 	Subject *string `field:"optional" json:"subject" yaml:"subject"`

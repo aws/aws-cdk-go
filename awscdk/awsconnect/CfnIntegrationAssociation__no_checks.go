@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnIntegrationAssociation) validateSetIntegrationTypeParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnIntegrationAssociation) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnIntegrationAssociationParameters(scope constructs.Construct, id *string, props *CfnIntegrationAssociationProps) error {
 	return nil
 }

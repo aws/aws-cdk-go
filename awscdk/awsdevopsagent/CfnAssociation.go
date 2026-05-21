@@ -75,8 +75,6 @@ import (
 //   			InstanceIdentifier: jsii.String("instanceIdentifier"),
 //   		},
 //   		McpServer: &MCPServerConfigurationProperty{
-//   			Endpoint: jsii.String("endpoint"),
-//   			Name: jsii.String("name"),
 //   			Tools: []*string{
 //   				jsii.String("tools"),
 //   			},
@@ -84,14 +82,23 @@ import (
 //   			// the properties below are optional
 //   			Description: jsii.String("description"),
 //   			EnableWebhookUpdates: jsii.Boolean(false),
-//   		},
-//   		McpServerDatadog: &MCPServerDatadogConfigurationProperty{
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
-//
-//   			// the properties below are optional
+//   		},
+//   		McpServerDatadog: &MCPServerDatadogConfigurationProperty{
 //   			Description: jsii.String("description"),
 //   			EnableWebhookUpdates: jsii.Boolean(false),
+//   			Endpoint: jsii.String("endpoint"),
+//   			Name: jsii.String("name"),
+//   		},
+//   		McpServerGrafana: &MCPServerGrafanaConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//
+//   			// the properties below are optional
+//   			EnableWebhookUpdates: jsii.Boolean(false),
+//   			Tools: []*string{
+//   				jsii.String("tools"),
+//   			},
 //   		},
 //   		McpServerNewRelic: &MCPServerNewRelicConfigurationProperty{
 //   			AccountId: jsii.String("accountId"),
@@ -103,12 +110,10 @@ import (
 //   			},
 //   		},
 //   		McpServerSplunk: &MCPServerSplunkConfigurationProperty{
-//   			Endpoint: jsii.String("endpoint"),
-//   			Name: jsii.String("name"),
-//
-//   			// the properties below are optional
 //   			Description: jsii.String("description"),
 //   			EnableWebhookUpdates: jsii.Boolean(false),
+//   			Endpoint: jsii.String("endpoint"),
+//   			Name: jsii.String("name"),
 //   		},
 //   		PagerDuty: &PagerDutyConfigurationProperty{
 //   			CustomerEmail: jsii.String("customerEmail"),

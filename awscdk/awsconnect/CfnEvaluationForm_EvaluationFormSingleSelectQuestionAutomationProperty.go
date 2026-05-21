@@ -11,6 +11,10 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   evaluationFormSingleSelectQuestionAutomationProperty := &EvaluationFormSingleSelectQuestionAutomationProperty{
+//   	AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   		SourceType: jsii.String("sourceType"),
+//   	},
+//   	DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   	Options: []interface{}{
 //   		&EvaluationFormSingleSelectQuestionAutomationOptionProperty{
 //   			RuleCategory: &SingleSelectQuestionRuleCategoryAutomationProperty{
@@ -20,25 +24,11 @@ package awsconnect
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   		SourceType: jsii.String("sourceType"),
-//   	},
-//   	DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html
 //
 type CfnEvaluationForm_EvaluationFormSingleSelectQuestionAutomationProperty struct {
-	// The automation options of the single select question.
-	//
-	// *Minimum* : 1
-	//
-	// *Maximum* : 20.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options
-	//
-	Options interface{} `field:"required" json:"options" yaml:"options"`
 	// Automation answer source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-answersource
 	//
@@ -49,5 +39,13 @@ type CfnEvaluationForm_EvaluationFormSingleSelectQuestionAutomationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-defaultoptionrefid
 	//
 	DefaultOptionRefId *string `field:"optional" json:"defaultOptionRefId" yaml:"defaultOptionRefId"`
+	// The automation options of the single select question.
+	//
+	// *Minimum* : 1
+	//
+	// *Maximum* : 20.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options
+	//
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 }
 

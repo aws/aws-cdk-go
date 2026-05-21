@@ -27,6 +27,12 @@ import (
 //   cfnDashboardPropsMixin := awscdkcfnpropertymixins.Aws_cloudwatch.NewCfnDashboardPropsMixin(&CfnDashboardMixinProps{
 //   	DashboardBody: jsii.String("dashboardBody"),
 //   	DashboardName: jsii.String("dashboardName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

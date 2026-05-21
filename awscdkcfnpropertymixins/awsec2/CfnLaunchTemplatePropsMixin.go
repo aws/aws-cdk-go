@@ -60,6 +60,7 @@ import (
 //   		CpuOptions: &CpuOptionsProperty{
 //   			AmdSevSnp: jsii.String("amdSevSnp"),
 //   			CoreCount: jsii.Number(123),
+//   			NestedVirtualization: jsii.String("nestedVirtualization"),
 //   			ThreadsPerCore: jsii.Number(123),
 //   		},
 //   		CreditSpecification: &CreditSpecificationProperty{

@@ -55,7 +55,7 @@ type CfnPhoneNumberMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
+	// The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution group that phone numbers are claimed to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html#cfn-connect-phonenumber-targetarn
 	//
 	TargetArn *string `field:"optional" json:"targetArn" yaml:"targetArn"`

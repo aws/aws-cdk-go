@@ -184,6 +184,10 @@ func init() {
 		reflect.TypeOf((*CfnAssociation_MCPServerDatadogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.MCPServerGrafanaConfigurationProperty",
+		reflect.TypeOf((*CfnAssociation_MCPServerGrafanaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.MCPServerNewRelicConfigurationProperty",
 		reflect.TypeOf((*CfnAssociation_MCPServerNewRelicConfigurationProperty)(nil)).Elem(),
 	)

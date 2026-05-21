@@ -116,8 +116,10 @@ import (
 //   	},
 //   	MetricsConfigurations: []interface{}{
 //   		&MetricsConfigurationProperty{
-//   			AccessPointArn: jsii.String("accessPointArn"),
 //   			Id: jsii.String("id"),
+//
+//   			// the properties below are optional
+//   			AccessPointArn: jsii.String("accessPointArn"),
 //   			Prefix: jsii.String("prefix"),
 //   		},
 //   	},

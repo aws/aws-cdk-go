@@ -272,8 +272,20 @@ func init() {
 		reflect.TypeOf((*CfnRemediationConfigurationPropsMixin_ExecutionControlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_config.CfnRemediationConfigurationPropsMixin.RemediationParameterValueProperty",
+		reflect.TypeOf((*CfnRemediationConfigurationPropsMixin_RemediationParameterValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_config.CfnRemediationConfigurationPropsMixin.ResourceValueProperty",
+		reflect.TypeOf((*CfnRemediationConfigurationPropsMixin_ResourceValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_config.CfnRemediationConfigurationPropsMixin.SsmControlsProperty",
 		reflect.TypeOf((*CfnRemediationConfigurationPropsMixin_SsmControlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_config.CfnRemediationConfigurationPropsMixin.StaticValueProperty",
+		reflect.TypeOf((*CfnRemediationConfigurationPropsMixin_StaticValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_config.CfnStoredQueryMixinProps",

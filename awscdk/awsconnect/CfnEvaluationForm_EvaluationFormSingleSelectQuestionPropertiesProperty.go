@@ -25,6 +25,10 @@ package awsconnect
 //
 //   	// the properties below are optional
 //   	Automation: &EvaluationFormSingleSelectQuestionAutomationProperty{
+//   		AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   			SourceType: jsii.String("sourceType"),
+//   		},
+//   		DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   		Options: []interface{}{
 //   			&EvaluationFormSingleSelectQuestionAutomationOptionProperty{
 //   				RuleCategory: &SingleSelectQuestionRuleCategoryAutomationProperty{
@@ -34,12 +38,6 @@ package awsconnect
 //   				},
 //   			},
 //   		},
-//
-//   		// the properties below are optional
-//   		AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   			SourceType: jsii.String("sourceType"),
-//   		},
-//   		DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   	},
 //   	DisplayAs: jsii.String("displayAs"),
 //   }

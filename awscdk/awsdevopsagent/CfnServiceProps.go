@@ -179,7 +179,7 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// Service-specific configuration details.
+	// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-servicedetails
 	//
 	ServiceDetails interface{} `field:"optional" json:"serviceDetails" yaml:"serviceDetails"`

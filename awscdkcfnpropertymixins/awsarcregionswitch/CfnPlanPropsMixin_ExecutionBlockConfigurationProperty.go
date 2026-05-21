@@ -132,6 +132,20 @@ package awsarcregionswitch
 //   			Ungraceful: jsii.String("ungraceful"),
 //   		},
 //   	},
+//   	LambdaEventSourceMappingConfig: &LambdaEventSourceMappingConfigurationProperty{
+//   		Action: jsii.String("action"),
+//   		RegionEventSourceMappings: map[string]interface{}{
+//   			"regionEventSourceMappingsKey": &EventSourceMappingProperty{
+//   				"arn": jsii.String("arn"),
+//   				"crossAccountRole": jsii.String("crossAccountRole"),
+//   				"externalId": jsii.String("externalId"),
+//   			},
+//   		},
+//   		TimeoutMinutes: jsii.Number(123),
+//   		Ungraceful: &LambdaEventSourceMappingUngracefulProperty{
+//   			Behavior: jsii.String("behavior"),
+//   		},
+//   	},
 //   	ParallelConfig: &ParallelExecutionBlockConfigurationProperty{
 //   		Steps: []interface{}{
 //   			&StepProperty{
@@ -212,6 +226,9 @@ type CfnPlanPropsMixin_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-globalauroraconfig
 	//
 	GlobalAuroraConfig interface{} `field:"optional" json:"globalAuroraConfig" yaml:"globalAuroraConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-lambdaeventsourcemappingconfig
+	//
+	LambdaEventSourceMappingConfig interface{} `field:"optional" json:"lambdaEventSourceMappingConfig" yaml:"lambdaEventSourceMappingConfig"`
 	// A parallel configuration execution block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-parallelconfig
 	//

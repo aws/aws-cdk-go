@@ -69,7 +69,6 @@ type CfnDaemonTaskDefinitionPropsMixin_LinuxParametersProperty struct {
 	// The container path, mount options, and size (in MiB) of the tmpfs mount.
 	//
 	// This parameter maps to the ``--tmpfs`` option to docker run.
-	//   If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-linuxparameters.html#cfn-ecs-daemontaskdefinition-linuxparameters-tmpfs
 	//
 	Tmpfs interface{} `field:"optional" json:"tmpfs" yaml:"tmpfs"`

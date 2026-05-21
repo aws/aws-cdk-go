@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies the association of an AWS resource such as Lex bot (both v1 and v2) and Lambda function with an Amazon Connect instance.
+// Specifies the association of an AWS resource such as Lex bot (both v1 and v2) and Lambda function with an Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -24,6 +24,12 @@ import (
 //   	InstanceId: jsii.String("instanceId"),
 //   	IntegrationArn: jsii.String("integrationArn"),
 //   	IntegrationType: jsii.String("integrationType"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

@@ -57,7 +57,7 @@ type CfnQueueMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-hoursofoperationarn
 	//
 	HoursOfOperationArn *string `field:"optional" json:"hoursOfOperationArn" yaml:"hoursOfOperationArn"`
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html#cfn-connect-queue-instancearn
 	//
 	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`

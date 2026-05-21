@@ -1,5 +1,8 @@
 package awsconnect
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnIntegrationAssociationPropsMixin.
 //
@@ -12,6 +15,12 @@ package awsconnect
 //   	InstanceId: jsii.String("instanceId"),
 //   	IntegrationArn: jsii.String("integrationArn"),
 //   	IntegrationType: jsii.String("integrationType"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html
@@ -39,5 +48,9 @@ type CfnIntegrationAssociationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-integrationtype
 	//
 	IntegrationType *string `field:"optional" json:"integrationType" yaml:"integrationType"`
+	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

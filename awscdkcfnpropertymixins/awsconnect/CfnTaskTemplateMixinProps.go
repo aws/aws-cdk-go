@@ -83,7 +83,7 @@ type CfnTaskTemplateMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-fields
 	//
 	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-instancearn
 	//
 	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`

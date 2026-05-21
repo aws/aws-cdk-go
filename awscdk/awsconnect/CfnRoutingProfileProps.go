@@ -67,7 +67,7 @@ type CfnRoutingProfileProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-description
 	//
 	Description *string `field:"required" json:"description" yaml:"description"`
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-instancearn
 	//
 	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`

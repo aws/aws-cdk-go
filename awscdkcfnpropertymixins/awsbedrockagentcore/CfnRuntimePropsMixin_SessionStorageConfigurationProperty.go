@@ -15,7 +15,7 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-sessionstorageconfiguration.html
 //
 type CfnRuntimePropsMixin_SessionStorageConfigurationProperty struct {
-	// Mount path for session storage.
+	// Mount path for filesystem configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-sessionstorageconfiguration.html#cfn-bedrockagentcore-runtime-sessionstorageconfiguration-mountpath
 	//
 	MountPath *string `field:"optional" json:"mountPath" yaml:"mountPath"`

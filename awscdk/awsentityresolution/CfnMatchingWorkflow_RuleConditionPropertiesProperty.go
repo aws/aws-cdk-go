@@ -15,6 +15,11 @@ package awsentityresolution
 //   			RuleName: jsii.String("ruleName"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	MatchingConfig: &MatchingConfigProperty{
+//   		EnableTransitiveMatching: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html
@@ -24,5 +29,9 @@ type CfnMatchingWorkflow_RuleConditionPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html#cfn-entityresolution-matchingworkflow-ruleconditionproperties-rules
 	//
 	Rules interface{} `field:"required" json:"rules" yaml:"rules"`
+	// Configuration for matching behavior within rule condition properties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html#cfn-entityresolution-matchingworkflow-ruleconditionproperties-matchingconfig
+	//
+	MatchingConfig interface{} `field:"optional" json:"matchingConfig" yaml:"matchingConfig"`
 }
 

@@ -223,7 +223,7 @@ type CfnService interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Service-specific configuration details.
+	// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified.
 	ServiceDetails() interface{}
 	SetServiceDetails(val interface{})
 	// A reference to a Service resource.

@@ -15,6 +15,7 @@ package awsec2
 //   cpuOptionsProperty := &CpuOptionsProperty{
 //   	AmdSevSnp: jsii.String("amdSevSnp"),
 //   	CoreCount: jsii.Number(123),
+//   	NestedVirtualization: jsii.String("nestedVirtualization"),
 //   	ThreadsPerCore: jsii.Number(123),
 //   }
 //
@@ -31,6 +32,9 @@ type CfnLaunchTemplate_CpuOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-corecount
 	//
 	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-nestedvirtualization
+	//
+	NestedVirtualization *string `field:"optional" json:"nestedVirtualization" yaml:"nestedVirtualization"`
 	// The number of threads per CPU core.
 	//
 	// To disable multithreading for the instance, specify a value of `1` . Otherwise, specify the default value of `2` .

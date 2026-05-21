@@ -118,6 +118,7 @@ type CfnTrustStore interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// A boolean.
 	UseClientCertificateOcspEndpoint() interface{}
 	SetUseClientCertificateOcspEndpoint(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

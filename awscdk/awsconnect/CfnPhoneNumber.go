@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Claims a phone number to the specified Amazon Connect instance or traffic distribution group.
+// Claims a phone number to the specified Connect Customer instance or traffic distribution group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -99,7 +99,7 @@ type CfnPhoneNumber interface {
 	// The tags used to organize, track, or control access for this resource.
 	TagsRaw() *[]*awscdk.CfnTag
 	SetTagsRaw(val *[]*awscdk.CfnTag)
-	// The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution group that phone numbers are claimed to.
+	// The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution group that phone numbers are claimed to.
 	TargetArn() *string
 	SetTargetArn(val *string)
 	// The type of phone number.

@@ -9,6 +9,8 @@ package awsobservabilityadmin
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   telemetryRuleProperty := &TelemetryRuleProperty{
+//   	AllowFieldUpdates: jsii.Boolean(false),
+//   	AllRegions: jsii.Boolean(false),
 //   	DestinationConfiguration: &TelemetryDestinationConfigurationProperty{
 //   		CloudtrailParameters: &CloudtrailParametersProperty{
 //   			AdvancedEventSelectors: []interface{}{
@@ -85,6 +87,9 @@ package awsobservabilityadmin
 //   			},
 //   		},
 //   	},
+//   	Regions: []*string{
+//   		jsii.String("regions"),
+//   	},
 //   	ResourceType: jsii.String("resourceType"),
 //   	Scope: jsii.String("scope"),
 //   	SelectionCriteria: jsii.String("selectionCriteria"),
@@ -97,10 +102,24 @@ package awsobservabilityadmin
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetryrule.html
 //
 type CfnOrganizationTelemetryRulePropsMixin_TelemetryRuleProperty struct {
+	// When true, configuration drift in managed telemetry resources will be detected and remediated for resource-level fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetryrule.html#cfn-observabilityadmin-organizationtelemetryrule-telemetryrule-allowfieldupdates
+	//
+	// Default: - false.
+	//
+	AllowFieldUpdates interface{} `field:"optional" json:"allowFieldUpdates" yaml:"allowFieldUpdates"`
+	// When true, the rule is replicated to all supported regions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetryrule.html#cfn-observabilityadmin-organizationtelemetryrule-telemetryrule-allregions
+	//
+	AllRegions interface{} `field:"optional" json:"allRegions" yaml:"allRegions"`
 	// Configuration specifying where and how the telemetry data should be delivered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetryrule.html#cfn-observabilityadmin-organizationtelemetryrule-telemetryrule-destinationconfiguration
 	//
 	DestinationConfiguration interface{} `field:"optional" json:"destinationConfiguration" yaml:"destinationConfiguration"`
+	// List of AWS region codes where the rule should be replicated.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetryrule.html#cfn-observabilityadmin-organizationtelemetryrule-telemetryrule-regions
+	//
+	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetryrule.html#cfn-observabilityadmin-organizationtelemetryrule-telemetryrule-resourcetype
 	//

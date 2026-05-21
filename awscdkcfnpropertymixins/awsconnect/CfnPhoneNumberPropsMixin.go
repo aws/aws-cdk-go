@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Claims a phone number to the specified Amazon Connect instance or traffic distribution group.
+// Claims a phone number to the specified Connect Customer instance or traffic distribution group.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

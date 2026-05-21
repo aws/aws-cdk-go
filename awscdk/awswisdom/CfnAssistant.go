@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies an Amazon Connect Wisdom assistant.
+// Specifies an Connect Customer Wisdom assistant.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

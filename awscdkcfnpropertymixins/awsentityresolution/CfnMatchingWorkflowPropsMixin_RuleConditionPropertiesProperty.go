@@ -9,6 +9,9 @@ package awsentityresolution
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   ruleConditionPropertiesProperty := &RuleConditionPropertiesProperty{
+//   	MatchingConfig: &MatchingConfigProperty{
+//   		EnableTransitiveMatching: jsii.Boolean(false),
+//   	},
 //   	Rules: []interface{}{
 //   		&RuleConditionProperty{
 //   			Condition: jsii.String("condition"),
@@ -20,6 +23,10 @@ package awsentityresolution
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html
 //
 type CfnMatchingWorkflowPropsMixin_RuleConditionPropertiesProperty struct {
+	// Configuration for matching behavior within rule condition properties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html#cfn-entityresolution-matchingworkflow-ruleconditionproperties-matchingconfig
+	//
+	MatchingConfig interface{} `field:"optional" json:"matchingConfig" yaml:"matchingConfig"`
 	// A list of rule objects, each of which have fields `ruleName` and `condition` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html#cfn-entityresolution-matchingworkflow-ruleconditionproperties-rules
 	//

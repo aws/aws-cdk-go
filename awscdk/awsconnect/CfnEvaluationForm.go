@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates an evaluation form for the specified Amazon Connect instance.
+// Creates an evaluation form for the specified Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -81,6 +81,12 @@ import (
 //
 //   									// the properties below are optional
 //   									Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefIds: []*string{
+//   											jsii.String("defaultOptionRefIds"),
+//   										},
 //   										Options: []interface{}{
 //   											&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
 //   												RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
@@ -91,14 +97,6 @@ import (
 //   													},
 //   												},
 //   											},
-//   										},
-//
-//   										// the properties below are optional
-//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   											SourceType: jsii.String("sourceType"),
-//   										},
-//   										DefaultOptionRefIds: []*string{
-//   											jsii.String("defaultOptionRefIds"),
 //   										},
 //   									},
 //   									DisplayAs: jsii.String("displayAs"),
@@ -147,6 +145,10 @@ import (
 //
 //   									// the properties below are optional
 //   									Automation: &EvaluationFormSingleSelectQuestionAutomationProperty{
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   										Options: []interface{}{
 //   											&EvaluationFormSingleSelectQuestionAutomationOptionProperty{
 //   												RuleCategory: &SingleSelectQuestionRuleCategoryAutomationProperty{
@@ -156,12 +158,6 @@ import (
 //   												},
 //   											},
 //   										},
-//
-//   										// the properties below are optional
-//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   											SourceType: jsii.String("sourceType"),
-//   										},
-//   										DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   									},
 //   									DisplayAs: jsii.String("displayAs"),
 //   								},

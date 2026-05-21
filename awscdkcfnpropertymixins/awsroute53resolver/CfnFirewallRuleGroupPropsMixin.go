@@ -34,6 +34,14 @@ import (
 //   			DnsThreatProtection: jsii.String("dnsThreatProtection"),
 //   			FirewallDomainListId: jsii.String("firewallDomainListId"),
 //   			FirewallDomainRedirectionAction: jsii.String("firewallDomainRedirectionAction"),
+//   			FirewallRuleType: &FirewallRuleTypeProperty{
+//   				FirewallAdvancedContentCategory: &FirewallAdvancedContentCategoryConfigProperty{
+//   					Category: jsii.String("category"),
+//   				},
+//   				FirewallAdvancedThreatCategory: &FirewallAdvancedThreatCategoryConfigProperty{
+//   					Category: jsii.String("category"),
+//   				},
+//   			},
 //   			FirewallThreatProtectionId: jsii.String("firewallThreatProtectionId"),
 //   			Priority: jsii.Number(123),
 //   			Qtype: jsii.String("qtype"),

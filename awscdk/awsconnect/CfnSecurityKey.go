@@ -13,7 +13,7 @@ import (
 
 // The security key for the instance.
 //
-// > Only two security keys are allowed per Amazon Connect instance.
+// > Only two security keys are allowed per Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

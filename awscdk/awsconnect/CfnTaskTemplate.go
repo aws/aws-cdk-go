@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a task template for a Amazon Connect instance.
+// Specifies a task template for a Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -99,7 +99,7 @@ type CfnTaskTemplate interface {
 	// Fields that are part of the template.
 	Fields() interface{}
 	SetFields(val interface{})
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the Connect Customer instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

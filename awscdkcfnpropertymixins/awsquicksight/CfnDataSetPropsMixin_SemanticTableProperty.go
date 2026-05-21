@@ -34,6 +34,28 @@ package awsquicksight
 //   			},
 //   		},
 //   	},
+//   	SemanticMetadata: &TableSemanticMetadataProperty{
+//   		ColumnMetadata: []interface{}{
+//   			&SharedColumnSemanticMetadataProperty{
+//   				ColumnNames: []*string{
+//   					jsii.String("columnNames"),
+//   				},
+//   				ColumnProperties: []interface{}{
+//   					&ColumnSemanticPropertyProperty{
+//   						AdditionalNotes: &AdditionalNotesProperty{
+//   							Text: jsii.String("text"),
+//   						},
+//   						Description: &ColumnDescriptionProperty{
+//   							Text: jsii.String("text"),
+//   						},
+//   						SemanticType: &ColumnSemanticTypeProperty{
+//   							GeographicalRole: jsii.String("geographicalRole"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html
@@ -51,5 +73,8 @@ type CfnDataSetPropsMixin_SemanticTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html#cfn-quicksight-dataset-semantictable-rowlevelpermissionconfiguration
 	//
 	RowLevelPermissionConfiguration interface{} `field:"optional" json:"rowLevelPermissionConfiguration" yaml:"rowLevelPermissionConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html#cfn-quicksight-dataset-semantictable-semanticmetadata
+	//
+	SemanticMetadata interface{} `field:"optional" json:"semanticMetadata" yaml:"semanticMetadata"`
 }
 

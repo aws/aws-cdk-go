@@ -9,6 +9,12 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   evaluationFormMultiSelectQuestionAutomationProperty := &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   	AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   		SourceType: jsii.String("sourceType"),
+//   	},
+//   	DefaultOptionRefIds: []*string{
+//   		jsii.String("defaultOptionRefIds"),
+//   	},
 //   	Options: []interface{}{
 //   		&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
 //   			RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
@@ -20,23 +26,11 @@ package awsconnect
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   		SourceType: jsii.String("sourceType"),
-//   	},
-//   	DefaultOptionRefIds: []*string{
-//   		jsii.String("defaultOptionRefIds"),
-//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html
 //
 type CfnEvaluationForm_EvaluationFormMultiSelectQuestionAutomationProperty struct {
-	// Automation options for the multi-select question.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-options
-	//
-	Options interface{} `field:"required" json:"options" yaml:"options"`
 	// A question automation answer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-answersource
 	//
@@ -45,5 +39,9 @@ type CfnEvaluationForm_EvaluationFormMultiSelectQuestionAutomationProperty struc
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-defaultoptionrefids
 	//
 	DefaultOptionRefIds *[]*string `field:"optional" json:"defaultOptionRefIds" yaml:"defaultOptionRefIds"`
+	// Automation options for the multi-select question.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html#cfn-connect-evaluationform-evaluationformmultiselectquestionautomation-options
+	//
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 }
 

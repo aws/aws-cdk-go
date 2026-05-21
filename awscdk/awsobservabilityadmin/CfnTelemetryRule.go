@@ -26,6 +26,8 @@ import (
 //   		TelemetryType: jsii.String("telemetryType"),
 //
 //   		// the properties below are optional
+//   		AllowFieldUpdates: jsii.Boolean(false),
+//   		AllRegions: jsii.Boolean(false),
 //   		DestinationConfiguration: &TelemetryDestinationConfigurationProperty{
 //   			CloudtrailParameters: &CloudtrailParametersProperty{
 //   				AdvancedEventSelectors: []interface{}{
@@ -109,6 +111,9 @@ import (
 //   				},
 //   			},
 //   		},
+//   		Regions: []*string{
+//   			jsii.String("regions"),
+//   		},
 //   		SelectionCriteria: jsii.String("selectionCriteria"),
 //   		TelemetrySourceTypes: []*string{
 //   			jsii.String("telemetrySourceTypes"),
@@ -132,6 +137,8 @@ type CfnTelemetryRule interface {
 	awscdk.IInspectable
 	interfacesawsobservabilityadmin.ITelemetryRuleRef
 	awscdk.ITaggableV2
+	// Per-region replication status of the rule.
+	AttrRegionStatuses() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the telemetry rule.
 	AttrRuleArn() *string
 	// Tag Manager which manages the tags for this resource.
@@ -333,6 +340,16 @@ type jsiiProxy_CfnTelemetryRule struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsobservabilityadminITelemetryRuleRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnTelemetryRule) AttrRegionStatuses() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrRegionStatuses",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTelemetryRule) AttrRuleArn() *string {

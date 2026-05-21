@@ -31,7 +31,7 @@ import (
 type CfnContactFlowMixinProps struct {
 	// The content of the flow.
 	//
-	// For more information, see [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html) in the *Amazon Connect Administrator Guide* .
+	// For more information, see [Connect Customer Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html) in the *Connect Customer Administrator Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-content
 	//
 	Content *string `field:"optional" json:"content" yaml:"content"`
@@ -39,7 +39,7 @@ type CfnContactFlowMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html#cfn-connect-contactflow-instancearn
 	//
 	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`

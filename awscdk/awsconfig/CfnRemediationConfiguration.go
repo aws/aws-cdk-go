@@ -46,6 +46,7 @@ type CfnRemediationConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconfig.IRemediationConfigurationRef
+	AttrId() *string
 	// The remediation is triggered automatically.
 	Automatic() interface{}
 	SetAutomatic(val interface{})
@@ -269,6 +270,16 @@ type jsiiProxy_CfnRemediationConfiguration struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconfigIRemediationConfigurationRef
+}
+
+func (j *jsiiProxy_CfnRemediationConfiguration) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRemediationConfiguration) Automatic() interface{} {
@@ -627,6 +638,43 @@ func (j *jsiiProxy_CfnRemediationConfiguration)SetTargetVersion(val *string) {
 		"targetVersion",
 		val,
 	)
+}
+
+func CfnRemediationConfiguration_ArnForRemediationConfiguration(resource interfacesawsconfig.IRemediationConfigurationRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnRemediationConfiguration_ArnForRemediationConfigurationParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"arnForRemediationConfiguration",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IRemediationConfigurationRef from a remediationConfigurationId.
+func CfnRemediationConfiguration_FromRemediationConfigurationId(scope constructs.Construct, id *string, remediationConfigurationId *string) interfacesawsconfig.IRemediationConfigurationRef {
+	_init_.Initialize()
+
+	if err := validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope, id, remediationConfigurationId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsconfig.IRemediationConfigurationRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"fromRemediationConfigurationId",
+		[]interface{}{scope, id, remediationConfigurationId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

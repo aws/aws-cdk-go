@@ -11,8 +11,6 @@ package awsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mCPServerConfigurationProperty := &MCPServerConfigurationProperty{
-//   	Endpoint: jsii.String("endpoint"),
-//   	Name: jsii.String("name"),
 //   	Tools: []*string{
 //   		jsii.String("tools"),
 //   	},
@@ -20,19 +18,13 @@ package awsdevopsagent
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	EnableWebhookUpdates: jsii.Boolean(false),
+//   	Endpoint: jsii.String("endpoint"),
+//   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html
 //
 type CfnAssociation_MCPServerConfigurationProperty struct {
-	// MCP server endpoint URL.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html#cfn-devopsagent-association-mcpserverconfiguration-endpoint
-	//
-	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
-	// The name of the MCP server.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html#cfn-devopsagent-association-mcpserverconfiguration-name
-	//
-	Name *string `field:"required" json:"name" yaml:"name"`
 	// List of MCP tools that can be used with the association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html#cfn-devopsagent-association-mcpserverconfiguration-tools
 	//
@@ -45,5 +37,13 @@ type CfnAssociation_MCPServerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html#cfn-devopsagent-association-mcpserverconfiguration-enablewebhookupdates
 	//
 	EnableWebhookUpdates interface{} `field:"optional" json:"enableWebhookUpdates" yaml:"enableWebhookUpdates"`
+	// MCP server endpoint URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html#cfn-devopsagent-association-mcpserverconfiguration-endpoint
+	//
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	// The name of the MCP server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverconfiguration.html#cfn-devopsagent-association-mcpserverconfiguration-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

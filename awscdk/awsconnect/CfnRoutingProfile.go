@@ -94,7 +94,7 @@ type CfnRoutingProfile interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

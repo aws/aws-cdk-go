@@ -9,22 +9,24 @@ package awss3express
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   metricsConfigurationProperty := &MetricsConfigurationProperty{
-//   	AccessPointArn: jsii.String("accessPointArn"),
 //   	Id: jsii.String("id"),
+//
+//   	// the properties below are optional
+//   	AccessPointArn: jsii.String("accessPointArn"),
 //   	Prefix: jsii.String("prefix"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html
 //
 type CfnDirectoryBucket_MetricsConfigurationProperty struct {
+	// The ID used to identify the metrics configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html#cfn-s3express-directorybucket-metricsconfiguration-id
+	//
+	Id *string `field:"required" json:"id" yaml:"id"`
 	// The access point ARN used when evaluating a metrics filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html#cfn-s3express-directorybucket-metricsconfiguration-accesspointarn
 	//
 	AccessPointArn *string `field:"optional" json:"accessPointArn" yaml:"accessPointArn"`
-	// The ID used to identify the metrics configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html#cfn-s3express-directorybucket-metricsconfiguration-id
-	//
-	Id *string `field:"optional" json:"id" yaml:"id"`
 	// The prefix used when evaluating a metrics filter.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html#cfn-s3express-directorybucket-metricsconfiguration-prefix
 	//

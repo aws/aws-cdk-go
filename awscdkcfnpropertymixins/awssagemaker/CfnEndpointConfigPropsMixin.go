@@ -113,6 +113,13 @@ import (
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
+//   			InstancePools: []interface{}{
+//   				&InstancePoolsProperty{
+//   					InstanceType: jsii.String("instanceType"),
+//   					ModelNameOverride: jsii.String("modelNameOverride"),
+//   					Priority: jsii.Number(123),
+//   				},
+//   			},
 //   			InstanceType: jsii.String("instanceType"),
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
@@ -129,6 +136,7 @@ import (
 //   				MemorySizeInMb: jsii.Number(123),
 //   				ProvisionedConcurrency: jsii.Number(123),
 //   			},
+//   			VariantInstanceProvisionTimeoutInSeconds: jsii.Number(123),
 //   			VariantName: jsii.String("variantName"),
 //   			VolumeSizeInGb: jsii.Number(123),
 //   		},
@@ -145,6 +153,13 @@ import (
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
+//   			InstancePools: []interface{}{
+//   				&InstancePoolsProperty{
+//   					InstanceType: jsii.String("instanceType"),
+//   					ModelNameOverride: jsii.String("modelNameOverride"),
+//   					Priority: jsii.Number(123),
+//   				},
+//   			},
 //   			InstanceType: jsii.String("instanceType"),
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
@@ -161,6 +176,7 @@ import (
 //   				MemorySizeInMb: jsii.Number(123),
 //   				ProvisionedConcurrency: jsii.Number(123),
 //   			},
+//   			VariantInstanceProvisionTimeoutInSeconds: jsii.Number(123),
 //   			VariantName: jsii.String("variantName"),
 //   			VolumeSizeInGb: jsii.Number(123),
 //   		},

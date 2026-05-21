@@ -18,6 +18,14 @@ package awsroute53resolver
 //   	DnsThreatProtection: jsii.String("dnsThreatProtection"),
 //   	FirewallDomainListId: jsii.String("firewallDomainListId"),
 //   	FirewallDomainRedirectionAction: jsii.String("firewallDomainRedirectionAction"),
+//   	FirewallRuleType: &FirewallRuleTypeProperty{
+//   		FirewallAdvancedContentCategory: &FirewallAdvancedContentCategoryConfigProperty{
+//   			Category: jsii.String("category"),
+//   		},
+//   		FirewallAdvancedThreatCategory: &FirewallAdvancedThreatCategoryConfigProperty{
+//   			Category: jsii.String("category"),
+//   		},
+//   	},
 //   	FirewallThreatProtectionId: jsii.String("firewallThreatProtectionId"),
 //   	Priority: jsii.Number(123),
 //   	Qtype: jsii.String("qtype"),
@@ -95,6 +103,12 @@ type CfnFirewallRuleGroupPropsMixin_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainredirectionaction
 	//
 	FirewallDomainRedirectionAction *string `field:"optional" json:"firewallDomainRedirectionAction" yaml:"firewallDomainRedirectionAction"`
+	// Firewall rule type union.
+	//
+	// Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewallruletype
+	//
+	FirewallRuleType interface{} `field:"optional" json:"firewallRuleType" yaml:"firewallRuleType"`
 	// ID of the DNS Firewall Advanced rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewallthreatprotectionid
 	//

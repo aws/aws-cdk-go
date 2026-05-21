@@ -76,7 +76,7 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html
 //
 type CfnSecurityProfileProps struct {
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-instancearn
 	//
 	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`

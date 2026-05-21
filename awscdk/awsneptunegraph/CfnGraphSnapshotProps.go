@@ -12,10 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnGraphSnapshotProps := &CfnGraphSnapshotProps{
+//   	GraphIdentifier: jsii.String("graphIdentifier"),
 //   	SnapshotName: jsii.String("snapshotName"),
 //
 //   	// the properties below are optional
-//   	GraphIdentifier: jsii.String("graphIdentifier"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -27,14 +27,14 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graphsnapshot.html
 //
 type CfnGraphSnapshotProps struct {
+	// The unique identifier of the Neptune Analytics graph to create the snapshot from.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graphsnapshot.html#cfn-neptunegraph-graphsnapshot-graphidentifier
+	//
+	GraphIdentifier *string `field:"required" json:"graphIdentifier" yaml:"graphIdentifier"`
 	// The snapshot name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graphsnapshot.html#cfn-neptunegraph-graphsnapshot-snapshotname
 	//
 	SnapshotName *string `field:"required" json:"snapshotName" yaml:"snapshotName"`
-	// The unique identifier of the Neptune Analytics graph to create the snapshot from.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graphsnapshot.html#cfn-neptunegraph-graphsnapshot-graphidentifier
-	//
-	GraphIdentifier *string `field:"optional" json:"graphIdentifier" yaml:"graphIdentifier"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graphsnapshot.html#cfn-neptunegraph-graphsnapshot-tags
 	//

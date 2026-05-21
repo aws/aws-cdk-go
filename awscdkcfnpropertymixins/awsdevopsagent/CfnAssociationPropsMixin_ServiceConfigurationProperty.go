@@ -71,6 +71,13 @@ package awsdevopsagent
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),
 //   	},
+//   	McpServerGrafana: &MCPServerGrafanaConfigurationProperty{
+//   		EnableWebhookUpdates: jsii.Boolean(false),
+//   		Endpoint: jsii.String("endpoint"),
+//   		Tools: []*string{
+//   			jsii.String("tools"),
+//   		},
+//   	},
 //   	McpServerNewRelic: &MCPServerNewRelicConfigurationProperty{
 //   		AccountId: jsii.String("accountId"),
 //   		Endpoint: jsii.String("endpoint"),
@@ -176,6 +183,10 @@ type CfnAssociationPropsMixin_ServiceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserverdatadog
 	//
 	McpServerDatadog interface{} `field:"optional" json:"mcpServerDatadog" yaml:"mcpServerDatadog"`
+	// Grafana MCP server configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpservergrafana
+	//
+	McpServerGrafana interface{} `field:"optional" json:"mcpServerGrafana" yaml:"mcpServerGrafana"`
 	// Configuration for New Relic MCP server integration.
 	//
 	// Specifies the New Relic account ID and MCP endpoint URL to enable the Agent Space to query metrics, traces, and logs from New Relic.

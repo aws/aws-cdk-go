@@ -42,6 +42,11 @@ package awsentityresolution
 //   				RuleName: jsii.String("ruleName"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		MatchingConfig: &MatchingConfigProperty{
+//   			EnableTransitiveMatching: jsii.Boolean(false),
+//   		},
 //   	},
 //   }
 //

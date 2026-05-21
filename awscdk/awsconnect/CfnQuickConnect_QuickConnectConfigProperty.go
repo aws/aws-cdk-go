@@ -30,7 +30,7 @@ package awsconnect
 type CfnQuickConnect_QuickConnectConfigProperty struct {
 	// The type of quick connect.
 	//
-	// In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+	// In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
 	//
 	QuickConnectType *string `field:"required" json:"quickConnectType" yaml:"quickConnectType"`

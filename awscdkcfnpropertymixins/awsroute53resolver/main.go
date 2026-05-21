@@ -68,8 +68,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallRuleGroupPropsMixin.FirewallAdvancedContentCategoryConfigProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroupPropsMixin_FirewallAdvancedContentCategoryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallRuleGroupPropsMixin.FirewallAdvancedThreatCategoryConfigProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroupPropsMixin_FirewallAdvancedThreatCategoryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallRuleGroupPropsMixin.FirewallRuleProperty",
 		reflect.TypeOf((*CfnFirewallRuleGroupPropsMixin_FirewallRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallRuleGroupPropsMixin.FirewallRuleTypeProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroupPropsMixin_FirewallRuleTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnOutpostResolverMixinProps",

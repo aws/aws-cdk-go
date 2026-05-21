@@ -87,6 +87,11 @@ import (
 //   					RuleName: jsii.String("ruleName"),
 //   				},
 //   			},
+//
+//   			// the properties below are optional
+//   			MatchingConfig: &MatchingConfigProperty{
+//   				EnableTransitiveMatching: jsii.Boolean(false),
+//   			},
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),

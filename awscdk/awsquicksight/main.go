@@ -4942,6 +4942,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.AdditionalNotesProperty",
+		reflect.TypeOf((*CfnDataSet_AdditionalNotesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.AggregateOperationProperty",
 		reflect.TypeOf((*CfnDataSet_AggregateOperationProperty)(nil)).Elem(),
 	)
@@ -4982,6 +4986,14 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_ColumnLevelPermissionRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ColumnSemanticPropertyProperty",
+		reflect.TypeOf((*CfnDataSet_ColumnSemanticPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.ColumnSemanticTypeProperty",
+		reflect.TypeOf((*CfnDataSet_ColumnSemanticTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.ColumnTagProperty",
 		reflect.TypeOf((*CfnDataSet_ColumnTagProperty)(nil)).Elem(),
 	)
@@ -4992,6 +5004,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.CreateColumnsOperationProperty",
 		reflect.TypeOf((*CfnDataSet_CreateColumnsOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.CustomInstructionProperty",
+		reflect.TypeOf((*CfnDataSet_CustomInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.CustomSqlProperty",
@@ -5056,6 +5072,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetRefreshPropertiesProperty",
 		reflect.TypeOf((*CfnDataSet_DataSetRefreshPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetSemanticDescriptionProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetSemanticDescriptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetSemanticMetadataProperty",
+		reflect.TypeOf((*CfnDataSet_DataSetSemanticMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.DataSetStringComparisonFilterConditionProperty",
@@ -5140,6 +5164,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.IngestionWaitPolicyProperty",
 		reflect.TypeOf((*CfnDataSet_IngestionWaitPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.InlineCustomInstructionProperty",
+		reflect.TypeOf((*CfnDataSet_InlineCustomInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.InputColumnProperty",
@@ -5286,6 +5314,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSet_SemanticTableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.SharedColumnSemanticMetadataProperty",
+		reflect.TypeOf((*CfnDataSet_SharedColumnSemanticMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.SourceTableProperty",
 		reflect.TypeOf((*CfnDataSet_SourceTableProperty)(nil)).Elem(),
 	)
@@ -5300,6 +5332,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.TablePathElementProperty",
 		reflect.TypeOf((*CfnDataSet_TablePathElementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.TableSemanticMetadataProperty",
+		reflect.TypeOf((*CfnDataSet_TableSemanticMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.TagColumnOperationProperty",
@@ -5332,6 +5368,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.UploadSettingsProperty",
 		reflect.TypeOf((*CfnDataSet_UploadSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSet.UploadedDocumentMetadataProperty",
+		reflect.TypeOf((*CfnDataSet_UploadedDocumentMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSet.ValueColumnConfigurationProperty",

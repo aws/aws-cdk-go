@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnDashboard) validateSetDashboardBodyParameters(val *string)
 	return nil
 }
 
+func (j *jsiiProxy_CfnDashboard) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnDashboardParameters(scope constructs.Construct, id *string, props *CfnDashboardProps) error {
 	return nil
 }

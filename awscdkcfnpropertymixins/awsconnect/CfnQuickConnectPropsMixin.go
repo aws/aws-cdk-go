@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a quick connect for an Amazon Connect instance.
+// Specifies a quick connect for an Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

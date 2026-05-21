@@ -1,7 +1,7 @@
 package awsconnect
 
 
-// *This is a preview release for Amazon Connect .
+// *This is a preview release for Connect Customer .
 //
 // It is subject to change.*
 //

@@ -38,7 +38,7 @@ type CfnContactFlowModuleProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-content
 	//
 	Content *string `field:"required" json:"content" yaml:"content"`
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html#cfn-connect-contactflowmodule-instancearn
 	//
 	InstanceArn interface{} `field:"required" json:"instanceArn" yaml:"instanceArn"`

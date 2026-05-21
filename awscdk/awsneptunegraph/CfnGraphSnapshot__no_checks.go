@@ -92,6 +92,10 @@ func validateCfnGraphSnapshot_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraphSnapshot) validateSetGraphIdentifierParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGraphSnapshot) validateSetSnapshotNameParameters(val *string) error {
 	return nil
 }

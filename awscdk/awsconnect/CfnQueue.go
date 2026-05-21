@@ -84,7 +84,7 @@ type CfnQueue interface {
 	// The Amazon Resource Name (ARN) of the hours of operation.
 	HoursOfOperationArn() *string
 	SetHoursOfOperationArn(val *string)
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

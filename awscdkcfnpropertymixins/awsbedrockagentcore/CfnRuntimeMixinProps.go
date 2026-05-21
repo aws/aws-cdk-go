@@ -63,6 +63,14 @@ package awsbedrockagentcore
 //   	},
 //   	FilesystemConfigurations: []interface{}{
 //   		&FilesystemConfigurationProperty{
+//   			EfsAccessPoint: &EfsAccessPointConfigurationProperty{
+//   				AccessPointArn: jsii.String("accessPointArn"),
+//   				MountPath: jsii.String("mountPath"),
+//   			},
+//   			S3FilesAccessPoint: &S3FilesAccessPointConfigurationProperty{
+//   				AccessPointArn: jsii.String("accessPointArn"),
+//   				MountPath: jsii.String("mountPath"),
+//   			},
 //   			SessionStorage: &SessionStorageConfigurationProperty{
 //   				MountPath: jsii.String("mountPath"),
 //   			},

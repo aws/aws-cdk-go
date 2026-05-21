@@ -132,6 +132,10 @@ func init() {
 		reflect.TypeOf((*CfnPlan_EksResourceScalingUngracefulProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.EventSourceMappingProperty",
+		reflect.TypeOf((*CfnPlan_EventSourceMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.ExecutionApprovalConfigurationProperty",
 		reflect.TypeOf((*CfnPlan_ExecutionApprovalConfigurationProperty)(nil)).Elem(),
 	)
@@ -158,6 +162,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.KubernetesScalingResourceProperty",
 		reflect.TypeOf((*CfnPlan_KubernetesScalingResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.LambdaEventSourceMappingConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_LambdaEventSourceMappingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.LambdaEventSourceMappingUngracefulProperty",
+		reflect.TypeOf((*CfnPlan_LambdaEventSourceMappingUngracefulProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.LambdaUngracefulProperty",

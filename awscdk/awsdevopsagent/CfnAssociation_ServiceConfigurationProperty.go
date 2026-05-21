@@ -65,8 +65,6 @@ package awsdevopsagent
 //   		InstanceIdentifier: jsii.String("instanceIdentifier"),
 //   	},
 //   	McpServer: &MCPServerConfigurationProperty{
-//   		Endpoint: jsii.String("endpoint"),
-//   		Name: jsii.String("name"),
 //   		Tools: []*string{
 //   			jsii.String("tools"),
 //   		},
@@ -74,14 +72,23 @@ package awsdevopsagent
 //   		// the properties below are optional
 //   		Description: jsii.String("description"),
 //   		EnableWebhookUpdates: jsii.Boolean(false),
-//   	},
-//   	McpServerDatadog: &MCPServerDatadogConfigurationProperty{
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),
-//
-//   		// the properties below are optional
+//   	},
+//   	McpServerDatadog: &MCPServerDatadogConfigurationProperty{
 //   		Description: jsii.String("description"),
 //   		EnableWebhookUpdates: jsii.Boolean(false),
+//   		Endpoint: jsii.String("endpoint"),
+//   		Name: jsii.String("name"),
+//   	},
+//   	McpServerGrafana: &MCPServerGrafanaConfigurationProperty{
+//   		Endpoint: jsii.String("endpoint"),
+//
+//   		// the properties below are optional
+//   		EnableWebhookUpdates: jsii.Boolean(false),
+//   		Tools: []*string{
+//   			jsii.String("tools"),
+//   		},
 //   	},
 //   	McpServerNewRelic: &MCPServerNewRelicConfigurationProperty{
 //   		AccountId: jsii.String("accountId"),
@@ -93,12 +100,10 @@ package awsdevopsagent
 //   		},
 //   	},
 //   	McpServerSplunk: &MCPServerSplunkConfigurationProperty{
-//   		Endpoint: jsii.String("endpoint"),
-//   		Name: jsii.String("name"),
-//
-//   		// the properties below are optional
 //   		Description: jsii.String("description"),
 //   		EnableWebhookUpdates: jsii.Boolean(false),
+//   		Endpoint: jsii.String("endpoint"),
+//   		Name: jsii.String("name"),
 //   	},
 //   	PagerDuty: &PagerDutyConfigurationProperty{
 //   		CustomerEmail: jsii.String("customerEmail"),
@@ -198,6 +203,10 @@ type CfnAssociation_ServiceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpserverdatadog
 	//
 	McpServerDatadog interface{} `field:"optional" json:"mcpServerDatadog" yaml:"mcpServerDatadog"`
+	// Grafana MCP server configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-mcpservergrafana
+	//
+	McpServerGrafana interface{} `field:"optional" json:"mcpServerGrafana" yaml:"mcpServerGrafana"`
 	// Configuration for New Relic MCP server integration.
 	//
 	// Specifies the New Relic account ID and MCP endpoint URL to enable the Agent Space to query metrics, traces, and logs from New Relic.

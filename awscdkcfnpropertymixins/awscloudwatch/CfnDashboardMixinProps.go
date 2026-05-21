@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnDashboardPropsMixin.
 //
@@ -11,6 +14,12 @@ package awscloudwatch
 //   cfnDashboardMixinProps := &CfnDashboardMixinProps{
 //   	DashboardBody: jsii.String("dashboardBody"),
 //   	DashboardName: jsii.String("dashboardName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
@@ -30,5 +39,11 @@ type CfnDashboardMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#cfn-cloudwatch-dashboard-dashboardname
 	//
 	DashboardName *string `field:"optional" json:"dashboardName" yaml:"dashboardName"`
+	// A list of key-value pairs to associate with the cloudwatch dashboard.
+	//
+	// You can associate up to 50 tags with a dashboard.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#cfn-cloudwatch-dashboard-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

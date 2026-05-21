@@ -136,6 +136,10 @@ func init() {
 		reflect.TypeOf((*CfnMatchingWorkflowPropsMixin_IntermediateSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_entityresolution.CfnMatchingWorkflowPropsMixin.MatchingConfigProperty",
+		reflect.TypeOf((*CfnMatchingWorkflowPropsMixin_MatchingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_entityresolution.CfnMatchingWorkflowPropsMixin.OutputAttributeProperty",
 		reflect.TypeOf((*CfnMatchingWorkflowPropsMixin_OutputAttributeProperty)(nil)).Elem(),
 	)

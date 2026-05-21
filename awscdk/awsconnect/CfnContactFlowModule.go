@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a flow module for an Amazon Connect instance.
+// Specifies a flow module for an Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -71,7 +71,7 @@ type CfnContactFlowModule interface {
 	// The external invocation configuration for the flow module.
 	ExternalInvocationConfiguration() interface{}
 	SetExternalInvocationConfiguration(val interface{})
-	// The Amazon Resource Name (ARN) of the Amazon Connect instance.
+	// The Amazon Resource Name (ARN) of the Connect Customer instance.
 	InstanceArn() *string
 	SetInstanceArn(val *string)
 	// The logical ID for this CloudFormation stack element.

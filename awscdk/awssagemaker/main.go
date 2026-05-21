@@ -1054,6 +1054,10 @@ func init() {
 		reflect.TypeOf((*CfnEndpointConfig_ExplainerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.InstancePoolsProperty",
+		reflect.TypeOf((*CfnEndpointConfig_InstancePoolsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.ManagedInstanceScalingProperty",
 		reflect.TypeOf((*CfnEndpointConfig_ManagedInstanceScalingProperty)(nil)).Elem(),
 	)

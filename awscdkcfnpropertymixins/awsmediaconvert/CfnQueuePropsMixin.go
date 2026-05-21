@@ -26,6 +26,7 @@ import (
 //   cfnQueuePropsMixin := awscdkcfnpropertymixins.Aws_mediaconvert.NewCfnQueuePropsMixin(&CfnQueueMixinProps{
 //   	ConcurrentJobs: jsii.Number(123),
 //   	Description: jsii.String("description"),
+//   	MaximumConcurrentFeeds: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	Status: jsii.String("status"),

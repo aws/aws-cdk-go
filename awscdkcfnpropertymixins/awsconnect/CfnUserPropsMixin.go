@@ -10,9 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Specifies a user account for an Amazon Connect instance.
+// Specifies a user account for an Connect Customer instance.
 //
-// For information about how to create user accounts using the Amazon Connect console, see [Add Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html) in the *Amazon Connect Administrator Guide* .
+// For information about how to create user accounts using the Connect Customer console, see [Add Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html) in the *Connect Customer Administrator Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

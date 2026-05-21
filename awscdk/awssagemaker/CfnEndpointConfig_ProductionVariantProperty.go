@@ -24,6 +24,15 @@ package awssagemaker
 //   	InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   	InitialInstanceCount: jsii.Number(123),
 //   	InitialVariantWeight: jsii.Number(123),
+//   	InstancePools: []interface{}{
+//   		&InstancePoolsProperty{
+//   			InstanceType: jsii.String("instanceType"),
+//   			Priority: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			ModelNameOverride: jsii.String("modelNameOverride"),
+//   		},
+//   	},
 //   	InstanceType: jsii.String("instanceType"),
 //   	ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   		MaxInstanceCount: jsii.Number(123),
@@ -42,6 +51,7 @@ package awssagemaker
 //   		// the properties below are optional
 //   		ProvisionedConcurrency: jsii.Number(123),
 //   	},
+//   	VariantInstanceProvisionTimeoutInSeconds: jsii.Number(123),
 //   	VolumeSizeInGb: jsii.Number(123),
 //   }
 //
@@ -86,6 +96,9 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
 	//
 	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancepools
+	//
+	InstancePools interface{} `field:"optional" json:"instancePools" yaml:"instancePools"`
 	// The ML compute instance type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
 	//
@@ -112,6 +125,9 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig
 	//
 	ServerlessConfig interface{} `field:"optional" json:"serverlessConfig" yaml:"serverlessConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantinstanceprovisiontimeoutinseconds
+	//
+	VariantInstanceProvisionTimeoutInSeconds *float64 `field:"optional" json:"variantInstanceProvisionTimeoutInSeconds" yaml:"variantInstanceProvisionTimeoutInSeconds"`
 	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant.
 	//
 	// Currently only Amazon EBS gp2 storage volumes are supported.

@@ -4680,6 +4680,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.AdditionalNotesProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_AdditionalNotesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.AggregateOperationProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_AggregateOperationProperty)(nil)).Elem(),
 	)
@@ -4720,6 +4724,14 @@ func init() {
 		reflect.TypeOf((*CfnDataSetPropsMixin_ColumnLevelPermissionRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.ColumnSemanticPropertyProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_ColumnSemanticPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.ColumnSemanticTypeProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_ColumnSemanticTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.ColumnTagProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_ColumnTagProperty)(nil)).Elem(),
 	)
@@ -4730,6 +4742,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.CreateColumnsOperationProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_CreateColumnsOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.CustomInstructionProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_CustomInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.CustomSqlProperty",
@@ -4794,6 +4810,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.DataSetRefreshPropertiesProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_DataSetRefreshPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.DataSetSemanticDescriptionProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_DataSetSemanticDescriptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.DataSetSemanticMetadataProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_DataSetSemanticMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.DataSetStringComparisonFilterConditionProperty",
@@ -4878,6 +4902,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.IngestionWaitPolicyProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_IngestionWaitPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.InlineCustomInstructionProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_InlineCustomInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.InputColumnProperty",
@@ -5024,6 +5052,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSetPropsMixin_SemanticTableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.SharedColumnSemanticMetadataProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_SharedColumnSemanticMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.SourceTableProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_SourceTableProperty)(nil)).Elem(),
 	)
@@ -5038,6 +5070,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.TablePathElementProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_TablePathElementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.TableSemanticMetadataProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_TableSemanticMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.TagColumnOperationProperty",
@@ -5070,6 +5106,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.UploadSettingsProperty",
 		reflect.TypeOf((*CfnDataSetPropsMixin_UploadSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.UploadedDocumentMetadataProperty",
+		reflect.TypeOf((*CfnDataSetPropsMixin_UploadedDocumentMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSetPropsMixin.ValueColumnConfigurationProperty",

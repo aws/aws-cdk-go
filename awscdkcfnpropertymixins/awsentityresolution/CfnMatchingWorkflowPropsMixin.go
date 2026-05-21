@@ -77,6 +77,9 @@ import (
 //   			},
 //   		},
 //   		RuleConditionProperties: &RuleConditionPropertiesProperty{
+//   			MatchingConfig: &MatchingConfigProperty{
+//   				EnableTransitiveMatching: jsii.Boolean(false),
+//   			},
 //   			Rules: []interface{}{
 //   				&RuleConditionProperty{
 //   					Condition: jsii.String("condition"),

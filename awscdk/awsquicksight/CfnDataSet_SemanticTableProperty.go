@@ -42,6 +42,30 @@ package awsquicksight
 //   			TagRuleConfigurations: tagRuleConfigurations,
 //   		},
 //   	},
+//   	SemanticMetadata: &TableSemanticMetadataProperty{
+//   		ColumnMetadata: []interface{}{
+//   			&SharedColumnSemanticMetadataProperty{
+//   				ColumnProperties: []interface{}{
+//   					&ColumnSemanticPropertyProperty{
+//   						AdditionalNotes: &AdditionalNotesProperty{
+//   							Text: jsii.String("text"),
+//   						},
+//   						Description: &ColumnDescriptionProperty{
+//   							Text: jsii.String("text"),
+//   						},
+//   						SemanticType: &ColumnSemanticTypeProperty{
+//   							GeographicalRole: jsii.String("geographicalRole"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				ColumnNames: []*string{
+//   					jsii.String("columnNames"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html
@@ -59,5 +83,8 @@ type CfnDataSet_SemanticTableProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html#cfn-quicksight-dataset-semantictable-rowlevelpermissionconfiguration
 	//
 	RowLevelPermissionConfiguration interface{} `field:"optional" json:"rowLevelPermissionConfiguration" yaml:"rowLevelPermissionConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html#cfn-quicksight-dataset-semantictable-semanticmetadata
+	//
+	SemanticMetadata interface{} `field:"optional" json:"semanticMetadata" yaml:"semanticMetadata"`
 }
 

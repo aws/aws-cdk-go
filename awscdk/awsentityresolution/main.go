@@ -266,6 +266,10 @@ func init() {
 		reflect.TypeOf((*CfnMatchingWorkflow_IntermediateSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.MatchingConfigProperty",
+		reflect.TypeOf((*CfnMatchingWorkflow_MatchingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_entityresolution.CfnMatchingWorkflow.OutputAttributeProperty",
 		reflect.TypeOf((*CfnMatchingWorkflow_OutputAttributeProperty)(nil)).Elem(),
 	)

@@ -21,6 +21,13 @@ package awssagemaker
 //   	InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   	InitialInstanceCount: jsii.Number(123),
 //   	InitialVariantWeight: jsii.Number(123),
+//   	InstancePools: []interface{}{
+//   		&InstancePoolsProperty{
+//   			InstanceType: jsii.String("instanceType"),
+//   			ModelNameOverride: jsii.String("modelNameOverride"),
+//   			Priority: jsii.Number(123),
+//   		},
+//   	},
 //   	InstanceType: jsii.String("instanceType"),
 //   	ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   		MaxInstanceCount: jsii.Number(123),
@@ -37,6 +44,7 @@ package awssagemaker
 //   		MemorySizeInMb: jsii.Number(123),
 //   		ProvisionedConcurrency: jsii.Number(123),
 //   	},
+//   	VariantInstanceProvisionTimeoutInSeconds: jsii.Number(123),
 //   	VariantName: jsii.String("variantName"),
 //   	VolumeSizeInGb: jsii.Number(123),
 //   }
@@ -78,6 +86,9 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
 	//
 	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancepools
+	//
+	InstancePools interface{} `field:"optional" json:"instancePools" yaml:"instancePools"`
 	// The ML compute instance type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
 	//
@@ -104,6 +115,9 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig
 	//
 	ServerlessConfig interface{} `field:"optional" json:"serverlessConfig" yaml:"serverlessConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantinstanceprovisiontimeoutinseconds
+	//
+	VariantInstanceProvisionTimeoutInSeconds *float64 `field:"optional" json:"variantInstanceProvisionTimeoutInSeconds" yaml:"variantInstanceProvisionTimeoutInSeconds"`
 	// The name of the production variant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
 	//

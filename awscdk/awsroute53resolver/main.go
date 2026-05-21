@@ -138,8 +138,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroup.FirewallAdvancedContentCategoryConfigProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroup_FirewallAdvancedContentCategoryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroup.FirewallAdvancedThreatCategoryConfigProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroup_FirewallAdvancedThreatCategoryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroup.FirewallRuleProperty",
 		reflect.TypeOf((*CfnFirewallRuleGroup_FirewallRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroup.FirewallRuleTypeProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroup_FirewallRuleTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53resolver.CfnFirewallRuleGroupAssociation",

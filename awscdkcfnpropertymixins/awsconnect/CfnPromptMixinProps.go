@@ -31,7 +31,7 @@ type CfnPromptMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html#cfn-connect-prompt-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html#cfn-connect-prompt-instancearn
 	//
 	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`

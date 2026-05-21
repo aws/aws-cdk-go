@@ -17,6 +17,8 @@ import (
 //   		TelemetryType: jsii.String("telemetryType"),
 //
 //   		// the properties below are optional
+//   		AllowFieldUpdates: jsii.Boolean(false),
+//   		AllRegions: jsii.Boolean(false),
 //   		DestinationConfiguration: &TelemetryDestinationConfigurationProperty{
 //   			CloudtrailParameters: &CloudtrailParametersProperty{
 //   				AdvancedEventSelectors: []interface{}{
@@ -94,6 +96,9 @@ import (
 //   					},
 //   				},
 //   			},
+//   		},
+//   		Regions: []*string{
+//   			jsii.String("regions"),
 //   		},
 //   		Scope: jsii.String("scope"),
 //   		SelectionCriteria: jsii.String("selectionCriteria"),

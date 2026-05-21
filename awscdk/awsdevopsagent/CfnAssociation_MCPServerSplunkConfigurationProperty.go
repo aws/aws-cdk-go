@@ -11,25 +11,15 @@ package awsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mCPServerSplunkConfigurationProperty := &MCPServerSplunkConfigurationProperty{
-//   	Endpoint: jsii.String("endpoint"),
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	EnableWebhookUpdates: jsii.Boolean(false),
+//   	Endpoint: jsii.String("endpoint"),
+//   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html
 //
 type CfnAssociation_MCPServerSplunkConfigurationProperty struct {
-	// MCP server endpoint URL.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html#cfn-devopsagent-association-mcpserversplunkconfiguration-endpoint
-	//
-	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
-	// The name of the MCP server.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html#cfn-devopsagent-association-mcpserversplunkconfiguration-name
-	//
-	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the MCP server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html#cfn-devopsagent-association-mcpserversplunkconfiguration-description
 	//
@@ -38,5 +28,13 @@ type CfnAssociation_MCPServerSplunkConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html#cfn-devopsagent-association-mcpserversplunkconfiguration-enablewebhookupdates
 	//
 	EnableWebhookUpdates interface{} `field:"optional" json:"enableWebhookUpdates" yaml:"enableWebhookUpdates"`
+	// MCP server endpoint URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html#cfn-devopsagent-association-mcpserversplunkconfiguration-endpoint
+	//
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	// The name of the MCP server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html#cfn-devopsagent-association-mcpserversplunkconfiguration-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

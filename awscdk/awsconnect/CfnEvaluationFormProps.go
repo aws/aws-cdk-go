@@ -74,6 +74,12 @@ import (
 //
 //   									// the properties below are optional
 //   									Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefIds: []*string{
+//   											jsii.String("defaultOptionRefIds"),
+//   										},
 //   										Options: []interface{}{
 //   											&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
 //   												RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
@@ -84,14 +90,6 @@ import (
 //   													},
 //   												},
 //   											},
-//   										},
-//
-//   										// the properties below are optional
-//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   											SourceType: jsii.String("sourceType"),
-//   										},
-//   										DefaultOptionRefIds: []*string{
-//   											jsii.String("defaultOptionRefIds"),
 //   										},
 //   									},
 //   									DisplayAs: jsii.String("displayAs"),
@@ -140,6 +138,10 @@ import (
 //
 //   									// the properties below are optional
 //   									Automation: &EvaluationFormSingleSelectQuestionAutomationProperty{
+//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   											SourceType: jsii.String("sourceType"),
+//   										},
+//   										DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   										Options: []interface{}{
 //   											&EvaluationFormSingleSelectQuestionAutomationOptionProperty{
 //   												RuleCategory: &SingleSelectQuestionRuleCategoryAutomationProperty{
@@ -149,12 +151,6 @@ import (
 //   												},
 //   											},
 //   										},
-//
-//   										// the properties below are optional
-//   										AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   											SourceType: jsii.String("sourceType"),
-//   										},
-//   										DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   									},
 //   									DisplayAs: jsii.String("displayAs"),
 //   								},

@@ -19,10 +19,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnGraphSnapshot := awscdk.Aws_neptunegraph.NewCfnGraphSnapshot(this, jsii.String("MyCfnGraphSnapshot"), &CfnGraphSnapshotProps{
+//   	GraphIdentifier: jsii.String("graphIdentifier"),
 //   	SnapshotName: jsii.String("snapshotName"),
 //
 //   	// the properties below are optional
-//   	GraphIdentifier: jsii.String("graphIdentifier"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -500,6 +500,9 @@ func NewCfnGraphSnapshot_Override(c CfnGraphSnapshot, scope constructs.Construct
 }
 
 func (j *jsiiProxy_CfnGraphSnapshot)SetGraphIdentifier(val *string) {
+	if err := j.validateSetGraphIdentifierParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"graphIdentifier",

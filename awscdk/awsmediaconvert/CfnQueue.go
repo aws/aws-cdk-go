@@ -25,6 +25,7 @@ import (
 //   cfnQueue := awscdk.Aws_mediaconvert.NewCfnQueue(this, jsii.String("MyCfnQueue"), &CfnQueueProps{
 //   	ConcurrentJobs: jsii.Number(123),
 //   	Description: jsii.String("description"),
+//   	MaximumConcurrentFeeds: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	Status: jsii.String("status"),
@@ -70,6 +71,8 @@ type CfnQueue interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MaximumConcurrentFeeds() *float64
+	SetMaximumConcurrentFeeds(val *float64)
 	// The name of the queue that you are creating.
 	Name() *string
 	SetName(val *string)
@@ -373,6 +376,16 @@ func (j *jsiiProxy_CfnQueue) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) MaximumConcurrentFeeds() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maximumConcurrentFeeds",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -525,6 +538,14 @@ func (j *jsiiProxy_CfnQueue)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue)SetMaximumConcurrentFeeds(val *float64) {
+	_jsii_.Set(
+		j,
+		"maximumConcurrentFeeds",
 		val,
 	)
 }

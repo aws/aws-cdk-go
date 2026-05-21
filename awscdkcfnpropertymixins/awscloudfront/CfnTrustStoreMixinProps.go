@@ -45,6 +45,9 @@ type CfnTrustStoreMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html#cfn-cloudfront-truststore-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// A boolean.
+	//
+	// When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html#cfn-cloudfront-truststore-useclientcertificateocspendpoint
 	//
 	UseClientCertificateOcspEndpoint interface{} `field:"optional" json:"useClientCertificateOcspEndpoint" yaml:"useClientCertificateOcspEndpoint"`

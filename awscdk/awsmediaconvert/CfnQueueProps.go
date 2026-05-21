@@ -13,6 +13,7 @@ package awsmediaconvert
 //   cfnQueueProps := &CfnQueueProps{
 //   	ConcurrentJobs: jsii.Number(123),
 //   	Description: jsii.String("description"),
+//   	MaximumConcurrentFeeds: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	PricingPlan: jsii.String("pricingPlan"),
 //   	Status: jsii.String("status"),
@@ -34,6 +35,9 @@ type CfnQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-maximumconcurrentfeeds
+	//
+	MaximumConcurrentFeeds *float64 `field:"optional" json:"maximumConcurrentFeeds" yaml:"maximumConcurrentFeeds"`
 	// The name of the queue that you are creating.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-name
 	//

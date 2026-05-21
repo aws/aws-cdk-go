@@ -102,7 +102,7 @@ type CfnSecurityProfileMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-hierarchyrestrictedresources
 	//
 	HierarchyRestrictedResources *[]*string `field:"optional" json:"hierarchyRestrictedResources" yaml:"hierarchyRestrictedResources"`
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#cfn-connect-securityprofile-instancearn
 	//
 	InstanceArn interface{} `field:"optional" json:"instanceArn" yaml:"instanceArn"`

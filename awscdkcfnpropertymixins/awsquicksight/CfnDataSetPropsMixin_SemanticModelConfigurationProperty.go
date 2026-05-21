@@ -11,6 +11,23 @@ package awsquicksight
 //   var tagRuleConfigurations interface{}
 //
 //   semanticModelConfigurationProperty := &SemanticModelConfigurationProperty{
+//   	SemanticMetadata: []interface{}{
+//   		&DataSetSemanticMetadataProperty{
+//   			CustomInstructions: []interface{}{
+//   				&CustomInstructionProperty{
+//   					InlineCustomInstruction: &InlineCustomInstructionProperty{
+//   						InstructionText: jsii.String("instructionText"),
+//   						UploadedDocumentMetadata: &UploadedDocumentMetadataProperty{
+//   							Name: jsii.String("name"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			Description: &DataSetSemanticDescriptionProperty{
+//   				Text: jsii.String("text"),
+//   			},
+//   		},
+//   	},
 //   	TableMap: map[string]interface{}{
 //   		"tableMapKey": &SemanticTableProperty{
 //   			"alias": jsii.String("alias"),
@@ -36,6 +53,28 @@ package awsquicksight
 //   					},
 //   				},
 //   			},
+//   			"semanticMetadata": &TableSemanticMetadataProperty{
+//   				"columnMetadata": []interface{}{
+//   					&SharedColumnSemanticMetadataProperty{
+//   						"columnNames": []*string{
+//   							jsii.String("columnNames"),
+//   						},
+//   						"columnProperties": []interface{}{
+//   							&ColumnSemanticPropertyProperty{
+//   								"additionalNotes": &AdditionalNotesProperty{
+//   									"text": jsii.String("text"),
+//   								},
+//   								"description": &ColumnDescriptionProperty{
+//   									"text": jsii.String("text"),
+//   								},
+//   								"semanticType": &ColumnSemanticTypeProperty{
+//   									"geographicalRole": jsii.String("geographicalRole"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -43,6 +82,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semanticmodelconfiguration.html
 //
 type CfnDataSetPropsMixin_SemanticModelConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semanticmodelconfiguration.html#cfn-quicksight-dataset-semanticmodelconfiguration-semanticmetadata
+	//
+	SemanticMetadata interface{} `field:"optional" json:"semanticMetadata" yaml:"semanticMetadata"`
 	// A map of semantic tables that define the analytical structure.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semanticmodelconfiguration.html#cfn-quicksight-dataset-semanticmodelconfiguration-tablemap
 	//

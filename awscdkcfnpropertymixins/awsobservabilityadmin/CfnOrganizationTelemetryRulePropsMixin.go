@@ -24,6 +24,8 @@ import (
 //
 //   cfnOrganizationTelemetryRulePropsMixin := awscdkcfnpropertymixins.Aws_observabilityadmin.NewCfnOrganizationTelemetryRulePropsMixin(&CfnOrganizationTelemetryRuleMixinProps{
 //   	Rule: &TelemetryRuleProperty{
+//   		AllowFieldUpdates: jsii.Boolean(false),
+//   		AllRegions: jsii.Boolean(false),
 //   		DestinationConfiguration: &TelemetryDestinationConfigurationProperty{
 //   			CloudtrailParameters: &CloudtrailParametersProperty{
 //   				AdvancedEventSelectors: []interface{}{
@@ -99,6 +101,9 @@ import (
 //   					},
 //   				},
 //   			},
+//   		},
+//   		Regions: []*string{
+//   			jsii.String("regions"),
 //   		},
 //   		ResourceType: jsii.String("resourceType"),
 //   		Scope: jsii.String("scope"),

@@ -71,6 +71,13 @@ package awsdevopsagent
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
 //   		},
+//   		McpServerGrafana: &MCPServerGrafanaConfigurationProperty{
+//   			EnableWebhookUpdates: jsii.Boolean(false),
+//   			Endpoint: jsii.String("endpoint"),
+//   			Tools: []*string{
+//   				jsii.String("tools"),
+//   			},
+//   		},
 //   		McpServerNewRelic: &MCPServerNewRelicConfigurationProperty{
 //   			AccountId: jsii.String("accountId"),
 //   			Endpoint: jsii.String("endpoint"),

@@ -11,11 +11,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// *This is a preview release for Amazon Connect . It is subject to change.*.
+// *This is a preview release for Connect Customer . It is subject to change.*.
 //
-// Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis.
+// Initiates an Connect Customer instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis.
 //
-// Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.
+// Connect Customer enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -67,7 +67,7 @@ type CfnInstance interface {
 	// A toggle for an individual feature at the instance level.
 	Attributes() interface{}
 	SetAttributes(val interface{})
-	// The identifier of the Amazon Connect instance.
+	// The identifier of the Connect Customer instance.
 	//
 	// You can find the instanceId in the ARN of the instance.
 	AttrId() *string

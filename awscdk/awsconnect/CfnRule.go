@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Creates a rule for the specified Amazon Connect instance.
+// Creates a rule for the specified Connect Customer instance.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -11,25 +11,15 @@ package awsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mCPServerDatadogConfigurationProperty := &MCPServerDatadogConfigurationProperty{
-//   	Endpoint: jsii.String("endpoint"),
-//   	Name: jsii.String("name"),
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	EnableWebhookUpdates: jsii.Boolean(false),
+//   	Endpoint: jsii.String("endpoint"),
+//   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html
 //
 type CfnAssociation_MCPServerDatadogConfigurationProperty struct {
-	// MCP server endpoint URL.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-endpoint
-	//
-	Endpoint *string `field:"required" json:"endpoint" yaml:"endpoint"`
-	// The name of the MCP server.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-name
-	//
-	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the MCP server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-description
 	//
@@ -38,5 +28,13 @@ type CfnAssociation_MCPServerDatadogConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-enablewebhookupdates
 	//
 	EnableWebhookUpdates interface{} `field:"optional" json:"enableWebhookUpdates" yaml:"enableWebhookUpdates"`
+	// MCP server endpoint URL.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-endpoint
+	//
+	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	// The name of the MCP server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

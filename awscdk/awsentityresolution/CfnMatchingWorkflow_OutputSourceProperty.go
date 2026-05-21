@@ -45,6 +45,7 @@ type CfnMatchingWorkflow_OutputSourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-applynormalization
 	//
 	ApplyNormalization interface{} `field:"optional" json:"applyNormalization" yaml:"applyNormalization"`
+	// The Customer Profiles integration configuration for the output source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-customerprofilesintegrationconfig
 	//
 	CustomerProfilesIntegrationConfig interface{} `field:"optional" json:"customerProfilesIntegrationConfig" yaml:"customerProfilesIntegrationConfig"`

@@ -21,6 +21,12 @@ package awsconnect
 //
 //   		// the properties below are optional
 //   		Automation: &EvaluationFormMultiSelectQuestionAutomationProperty{
+//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   				SourceType: jsii.String("sourceType"),
+//   			},
+//   			DefaultOptionRefIds: []*string{
+//   				jsii.String("defaultOptionRefIds"),
+//   			},
 //   			Options: []interface{}{
 //   				&EvaluationFormMultiSelectQuestionAutomationOptionProperty{
 //   					RuleCategory: &MultiSelectQuestionRuleCategoryAutomationProperty{
@@ -31,14 +37,6 @@ package awsconnect
 //   						},
 //   					},
 //   				},
-//   			},
-//
-//   			// the properties below are optional
-//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   				SourceType: jsii.String("sourceType"),
-//   			},
-//   			DefaultOptionRefIds: []*string{
-//   				jsii.String("defaultOptionRefIds"),
 //   			},
 //   		},
 //   		DisplayAs: jsii.String("displayAs"),
@@ -87,6 +85,10 @@ package awsconnect
 //
 //   		// the properties below are optional
 //   		Automation: &EvaluationFormSingleSelectQuestionAutomationProperty{
+//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
+//   				SourceType: jsii.String("sourceType"),
+//   			},
+//   			DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   			Options: []interface{}{
 //   				&EvaluationFormSingleSelectQuestionAutomationOptionProperty{
 //   					RuleCategory: &SingleSelectQuestionRuleCategoryAutomationProperty{
@@ -96,12 +98,6 @@ package awsconnect
 //   					},
 //   				},
 //   			},
-//
-//   			// the properties below are optional
-//   			AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
-//   				SourceType: jsii.String("sourceType"),
-//   			},
-//   			DefaultOptionRefId: jsii.String("defaultOptionRefId"),
 //   		},
 //   		DisplayAs: jsii.String("displayAs"),
 //   	},

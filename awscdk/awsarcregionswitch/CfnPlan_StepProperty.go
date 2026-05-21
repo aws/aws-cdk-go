@@ -153,6 +153,24 @@ package awsarcregionswitch
 //   				Ungraceful: jsii.String("ungraceful"),
 //   			},
 //   		},
+//   		LambdaEventSourceMappingConfig: &LambdaEventSourceMappingConfigurationProperty{
+//   			Action: jsii.String("action"),
+//   			RegionEventSourceMappings: map[string]interface{}{
+//   				"regionEventSourceMappingsKey": &EventSourceMappingProperty{
+//   					"arn": jsii.String("arn"),
+//
+//   					// the properties below are optional
+//   					"crossAccountRole": jsii.String("crossAccountRole"),
+//   					"externalId": jsii.String("externalId"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			TimeoutMinutes: jsii.Number(123),
+//   			Ungraceful: &LambdaEventSourceMappingUngracefulProperty{
+//   				Behavior: jsii.String("behavior"),
+//   			},
+//   		},
 //   		ParallelConfig: &ParallelExecutionBlockConfigurationProperty{
 //   			Steps: []interface{}{
 //   				stepProperty_,

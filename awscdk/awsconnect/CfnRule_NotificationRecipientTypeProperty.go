@@ -26,7 +26,7 @@ type CfnRule_NotificationRecipientTypeProperty struct {
 	UserArns *[]*string `field:"optional" json:"userArns" yaml:"userArns"`
 	// The tags used to organize, track, or control access for this resource.
 	//
-	// For example, { "tags": {"key1":"value1", "key2":"value2"} }. Amazon Connect users with the specified tags will be notified.
+	// For example, { "tags": {"key1":"value1", "key2":"value2"} }. Connect Customer users with the specified tags will be notified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html#cfn-connect-rule-notificationrecipienttype-usertags
 	//
 	UserTags interface{} `field:"optional" json:"userTags" yaml:"userTags"`

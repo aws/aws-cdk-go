@@ -572,6 +572,10 @@ func init() {
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_ExplainerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.InstancePoolsProperty",
+		reflect.TypeOf((*CfnEndpointConfigPropsMixin_InstancePoolsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.ManagedInstanceScalingProperty",
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_ManagedInstanceScalingProperty)(nil)).Elem(),
 	)
