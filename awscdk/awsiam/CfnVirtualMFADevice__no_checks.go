@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnVirtualMFADevice) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualMFADevice) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualMFADevice) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

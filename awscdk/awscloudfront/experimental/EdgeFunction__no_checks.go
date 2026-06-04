@@ -28,6 +28,10 @@ func (e *jsiiProxy_EdgeFunction) validateAddToRolePolicyParameters(statement aws
 	return nil
 }
 
+func (e *jsiiProxy_EdgeFunction) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EdgeFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

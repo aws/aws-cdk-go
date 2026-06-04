@@ -124,6 +124,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.DashAvailabilityStartTimeConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpointPropsMixin_DashAvailabilityStartTimeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.DashBaseUrlProperty",
 		reflect.TypeOf((*CfnOriginEndpointPropsMixin_DashBaseUrlProperty)(nil)).Elem(),
 	)

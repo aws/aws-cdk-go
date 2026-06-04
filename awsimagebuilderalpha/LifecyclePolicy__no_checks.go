@@ -4,6 +4,10 @@ package awsimagebuilderalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (l *jsiiProxy_LifecyclePolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (l *jsiiProxy_LifecyclePolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

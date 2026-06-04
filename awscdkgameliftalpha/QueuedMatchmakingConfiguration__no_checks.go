@@ -8,6 +8,10 @@ func (q *jsiiProxy_QueuedMatchmakingConfiguration) validateAddGameSessionQueuePa
 	return nil
 }
 
+func (q *jsiiProxy_QueuedMatchmakingConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (q *jsiiProxy_QueuedMatchmakingConfiguration) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

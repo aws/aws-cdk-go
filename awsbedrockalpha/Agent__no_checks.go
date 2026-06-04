@@ -12,6 +12,10 @@ func (a *jsiiProxy_Agent) validateAddGuardrailParameters(guardrail IGuardrail) e
 	return nil
 }
 
+func (a *jsiiProxy_Agent) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_Agent) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

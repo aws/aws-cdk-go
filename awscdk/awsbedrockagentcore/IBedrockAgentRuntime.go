@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -71,6 +72,23 @@ type IBedrockAgentRuntime interface {
 	AgentRuntimeVersion() *string
 	// The current status of the agent runtime.
 	AgentStatus() *string
+	// The CloudWatch Logs application log group for the default endpoint of this runtime, located at `/aws/bedrock-agentcore/runtimes/{agentRuntimeId}-DEFAULT`.
+	//
+	// Use this
+	// property to attach metric filters, subscription filters, or alarms to the log
+	// group without hardcoding its name.
+	//
+	// The log group is created by the AgentCore service on the runtime's first
+	// invocation, not by CDK. Constructs that require the log group to exist at
+	// deploy time (such as `MetricFilter`) may race the first invocation; in that
+	// case, ensure at least one invocation has occurred before deploying the
+	// dependent resources, or pre-create the log group with a `LogRetention`
+	// custom resource using the same name.
+	//
+	// Example:
+	//   "/aws/bedrock-agentcore/runtimes/runtime-abc123-DEFAULT"
+	//
+	ApplicationLogGroup() awslogs.ILogGroup
 	// The time at which the runtime was created.
 	//
 	// Example:
@@ -409,6 +427,16 @@ func (j *jsiiProxy_IBedrockAgentRuntime) AgentStatus() *string {
 	_jsii_.Get(
 		j,
 		"agentStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IBedrockAgentRuntime) ApplicationLogGroup() awslogs.ILogGroup {
+	var returns awslogs.ILogGroup
+	_jsii_.Get(
+		j,
+		"applicationLogGroup",
 		&returns,
 	)
 	return returns

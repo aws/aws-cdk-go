@@ -14,13 +14,17 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-func (o *jsiiProxy_OriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) error {
+func (o *jsiiProxy_OriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")
 	}
 
-	if err := _jsii_.ValidateStruct(cdnAuth, func() string { return "parameter cdnAuth" }); err != nil {
-		return err
+	return nil
+}
+
+func (o *jsiiProxy_OriginEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
 	}
 
 	return nil
@@ -191,6 +195,14 @@ func validateOriginEndpoint_IsResourceParameters(construct constructs.IConstruct
 func (j *jsiiProxy_OriginEndpoint) validateSetAutoCreatePolicyParameters(val *bool) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_OriginEndpoint) validateSetCdnAuthConfigParameters(val *CdnAuthConfiguration) error {
+	if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+		return err
 	}
 
 	return nil

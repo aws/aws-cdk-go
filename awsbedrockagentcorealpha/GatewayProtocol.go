@@ -6,7 +6,7 @@ import (
 )
 
 // Factory class for instantiating Gateway Protocols.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayProtocol interface {
 }
 
@@ -15,7 +15,7 @@ type jsiiProxy_GatewayProtocol struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewGatewayProtocol_Override(g GatewayProtocol) {
 	_init_.Initialize()
 
@@ -29,7 +29,7 @@ func NewGatewayProtocol_Override(g GatewayProtocol) {
 // Create an MCP protocol configuration.
 //
 // Returns: IGatewayProtocolConfig configured for MCP.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayProtocol_Mcp(props *McpConfiguration) IGatewayProtocolConfig {
 	_init_.Initialize()
 

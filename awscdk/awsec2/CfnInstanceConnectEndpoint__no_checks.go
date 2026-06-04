@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnInstanceConnectEndpoint) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceConnectEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceConnectEndpoint) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

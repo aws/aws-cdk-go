@@ -68,6 +68,11 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	AutomatedSnapshotPauseOptions: &AutomatedSnapshotPauseOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		EndTime: jsii.String("endTime"),
+//   		StartTime: jsii.String("startTime"),
+//   	},
 //   	ClusterConfig: &ClusterConfigProperty{
 //   		ColdStorageOptions: &ColdStorageOptionsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -167,6 +172,7 @@ import (
 //   		},
 //   	},
 //   	VpcOptions: &VPCOptionsProperty{
+//   		EgressEnabled: jsii.Boolean(false),
 //   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},

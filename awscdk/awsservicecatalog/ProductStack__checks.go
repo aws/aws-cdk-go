@@ -178,6 +178,22 @@ func (p *jsiiProxy_ProductStack) validateToYamlStringParameters(obj interface{})
 	return nil
 }
 
+func validateProductStack_ConsumeListReferenceParameters(value *[]*string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateProductStack_ConsumeReferenceParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateProductStack_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

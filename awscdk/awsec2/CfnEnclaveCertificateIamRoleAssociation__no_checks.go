@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddPropertyO
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

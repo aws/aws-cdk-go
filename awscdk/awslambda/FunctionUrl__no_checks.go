@@ -4,6 +4,10 @@ package awslambda
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (f *jsiiProxy_FunctionUrl) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FunctionUrl) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

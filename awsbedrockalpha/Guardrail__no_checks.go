@@ -36,6 +36,10 @@ func (g *jsiiProxy_Guardrail) validateAddWordFilterFromFileParameters(filePath *
 	return nil
 }
 
+func (g *jsiiProxy_Guardrail) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_Guardrail) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

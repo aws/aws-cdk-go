@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTablePropagation) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRouteTablePropagation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRouteTablePropagation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err

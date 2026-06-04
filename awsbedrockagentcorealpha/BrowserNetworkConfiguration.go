@@ -17,23 +17,23 @@ import (
 //
 //   browserNetworkConfiguration := bedrock_agentcore_alpha.BrowserNetworkConfiguration_UsingPublicNetwork()
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type BrowserNetworkConfiguration interface {
 	NetworkConfiguration
 	// The connections object to the network.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Connections() awsec2.Connections
 	// The network mode to use.
 	//
 	// Configure the security level for agent
 	// execution to control access, isolate resources, and protect sensitive data.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	NetworkMode() *string
 	// The scope to create the resource in.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Scope() constructs.Construct
 	// The VPC subnets to use.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	VpcSubnets() *awsec2.SubnetSelection
 }
 
@@ -84,7 +84,7 @@ func (j *jsiiProxy_BrowserNetworkConfiguration) VpcSubnets() *awsec2.SubnetSelec
 
 
 // Creates a new network configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewBrowserNetworkConfiguration(mode *string, scope constructs.Construct, vpcConfig *VpcConfigProps) BrowserNetworkConfiguration {
 	_init_.Initialize()
 
@@ -103,7 +103,7 @@ func NewBrowserNetworkConfiguration(mode *string, scope constructs.Construct, vp
 }
 
 // Creates a new network configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewBrowserNetworkConfiguration_Override(b BrowserNetworkConfiguration, mode *string, scope constructs.Construct, vpcConfig *VpcConfigProps) {
 	_init_.Initialize()
 
@@ -120,7 +120,7 @@ func NewBrowserNetworkConfiguration_Override(b BrowserNetworkConfiguration, mode
 //
 // Returns: A BrowserNetworkConfiguration.
 // Run this tool to operate in a public environment with internet access, suitable for less sensitive or open-use scenarios.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func BrowserNetworkConfiguration_UsingPublicNetwork() BrowserNetworkConfiguration {
 	_init_.Initialize()
 
@@ -139,7 +139,7 @@ func BrowserNetworkConfiguration_UsingPublicNetwork() BrowserNetworkConfiguratio
 // Creates a network configuration from a VPC configuration.
 //
 // Returns: A BrowserNetworkConfiguration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func BrowserNetworkConfiguration_UsingVpc(scope constructs.Construct, vpcConfig *VpcConfigProps) BrowserNetworkConfiguration {
 	_init_.Initialize()
 

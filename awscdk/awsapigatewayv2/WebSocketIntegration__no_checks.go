@@ -4,6 +4,10 @@ package awsapigatewayv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (w *jsiiProxy_WebSocketIntegration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (w *jsiiProxy_WebSocketIntegration) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

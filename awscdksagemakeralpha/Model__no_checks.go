@@ -12,6 +12,10 @@ func (m *jsiiProxy_Model) validateAddToRolePolicyParameters(statement awsiam.Pol
 	return nil
 }
 
+func (m *jsiiProxy_Model) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (m *jsiiProxy_Model) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

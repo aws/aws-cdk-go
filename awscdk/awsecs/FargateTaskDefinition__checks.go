@@ -96,6 +96,14 @@ func (f *jsiiProxy_FargateTaskDefinition) validateAddVolumeParameters(volume *Vo
 	return nil
 }
 
+func (f *jsiiProxy_FargateTaskDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (f *jsiiProxy_FargateTaskDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

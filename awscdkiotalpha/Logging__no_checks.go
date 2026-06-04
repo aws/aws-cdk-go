@@ -4,6 +4,10 @@ package awscdkiotalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (l *jsiiProxy_Logging) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (l *jsiiProxy_Logging) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

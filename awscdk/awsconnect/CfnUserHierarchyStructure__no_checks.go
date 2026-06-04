@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserHierarchyStructure) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserHierarchyStructure) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserHierarchyStructure) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

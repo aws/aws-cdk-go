@@ -83,6 +83,14 @@ type UserPool interface {
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html
 	//
 	AddTrigger(operation UserPoolOperation, fn awslambda.IFunction, lambdaVersion LambdaVersion)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -450,6 +458,17 @@ func (u *jsiiProxy_UserPool) AddTrigger(operation UserPoolOperation, fn awslambd
 		u,
 		"addTrigger",
 		[]interface{}{operation, fn, lambdaVersion},
+	)
+}
+
+func (u *jsiiProxy_UserPool) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := u.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		u,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

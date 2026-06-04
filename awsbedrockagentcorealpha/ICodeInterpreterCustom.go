@@ -14,65 +14,65 @@ import (
 )
 
 // Interface for CodeInterpreterCustom resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ICodeInterpreterCustom interface {
 	interfacesawsbedrockagentcore.ICodeInterpreterCustomRef
 	awsec2.IConnectable
 	awsiam.IGrantable
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants `Get` and `List` actions on the Code Interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Invoke`, `Start`, and `Stop` actions on the Code Interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of errors for a specific API operation performed on this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return the given named metric related to the API operation performed on this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricForApiOperation(metricName *string, operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of API requests made for a specific code interpreter operation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricInvocationsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of a specific API operation performed on this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricLatencyForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the duration of code interpreter sessions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricSessionDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of system errors for a specific API operation performed on this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricSystemErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of throttled requests for a specific API operation performed on this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricThrottlesForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of user errors for a specific API operation performed on this code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricUserErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the code interpreter resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CodeInterpreterArn() *string
 	// The id of the code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CodeInterpreterId() *string
 	// Timestamp when the code interpreter was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The IAM role that provides permissions for the code interpreter to access AWS services.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRole() awsiam.IRole
 	// Timestamp when the code interpreter was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedAt() *string
 	// The status of the code interpreter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 }
 

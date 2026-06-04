@@ -9,7 +9,7 @@ import (
 // Example:
 //   user := elasticache.NewPasswordUser(this, jsii.String("User"), &PasswordUserProps{
 //   	// set user engine
-//   	Engine: elasticache.UserEngine_VALKEY,
+//   	Engine: elasticache.UserEngine_VALKEY(),
 //
 //   	// set user id
 //   	UserId: jsii.String("my-user-id"),

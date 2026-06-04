@@ -4,39 +4,29 @@ package awscdk
 // The deployment environment for a stack.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("Stack"), &StackProps{
+//   stack1 := awscdk.Newstack(app, jsii.String("Stack1"), &StackProps{
 //   	Env: &Environment{
-//   		Region: jsii.String("us-west-2"),
+//   		Region: jsii.String("us-east-1"),
 //   	},
 //   })
-//
-//   globalTable := dynamodb.NewTableV2(stack, jsii.String("GlobalTable"), &TablePropsV2{
-//   	PartitionKey: &Attribute{
-//   		Name: jsii.String("pk"),
-//   		Type: dynamodb.AttributeType_STRING,
-//   	},
-//   	Replicas: []ReplicaTableProps{
-//   		&ReplicaTableProps{
-//   			Region: jsii.String("us-east-1"),
-//   		},
-//   		&ReplicaTableProps{
-//   			Region: jsii.String("us-east-2"),
-//   		},
-//   	},
+//   cert := acm.NewCertificate(stack1, jsii.String("Cert"), &CertificateProps{
+//   	DomainName: jsii.String("*.example.com"),
+//   	Validation: acm.CertificateValidation_FromDns(route53.PublicHostedZone_FromHostedZoneId(stack1, jsii.String("Zone"), jsii.String("Z0329774B51CGXTDQV3X"))),
 //   })
 //
-//   // metric is only for the table in us-west-2
-//   metric := globalTable.MetricConsumedReadCapacityUnits()
-//
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: metric,
-//   	EvaluationPeriods: jsii.Number(1),
-//   	Threshold: jsii.Number(1),
+//   stack2 := awscdk.Newstack(app, jsii.String("Stack2"), &StackProps{
+//   	Env: &Environment{
+//   		Region: jsii.String("us-east-2"),
+//   	},
+//   })
+//   cloudfront.NewDistribution(stack2, jsii.String("Distribution"), &DistributionProps{
+//   	DefaultBehavior: &BehaviorOptions{
+//   		Origin: origins.NewHttpOrigin(jsii.String("example.com")),
+//   	},
+//   	DomainNames: []*string{
+//   		jsii.String("dev.example.com"),
+//   	},
+//   	Certificate: cert,
 //   })
 //
 type Environment struct {

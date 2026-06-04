@@ -8,6 +8,10 @@ func (w *jsiiProxy_WebSocketApi) validateAddRouteParameters(routeKey *string, op
 	return nil
 }
 
+func (w *jsiiProxy_WebSocketApi) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (w *jsiiProxy_WebSocketApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

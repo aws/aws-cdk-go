@@ -71,6 +71,18 @@ import (
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
 //   		},
+//   		McpServerGrafana: &MCPServerGrafanaDetailsProperty{
+//   			AuthorizationConfig: &MCPServerGrafanaAuthorizationConfigProperty{
+//   				BearerToken: &BearerTokenDetailsProperty{
+//   					AuthorizationHeader: jsii.String("authorizationHeader"),
+//   					TokenName: jsii.String("tokenName"),
+//   					TokenValue: jsii.String("tokenValue"),
+//   				},
+//   			},
+//   			Description: jsii.String("description"),
+//   			Endpoint: jsii.String("endpoint"),
+//   			Name: jsii.String("name"),
+//   		},
 //   		McpServerNewRelic: &NewRelicServiceDetailsProperty{
 //   			AuthorizationConfig: &NewRelicAuthorizationConfigProperty{
 //   				ApiKey: &NewRelicApiKeyConfigProperty{

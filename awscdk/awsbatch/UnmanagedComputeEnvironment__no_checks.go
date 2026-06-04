@@ -4,6 +4,10 @@ package awsbatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (u *jsiiProxy_UnmanagedComputeEnvironment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (u *jsiiProxy_UnmanagedComputeEnvironment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

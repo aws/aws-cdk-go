@@ -10,6 +10,7 @@ package awsmediapackagev2
 //
 //   scteDashProperty := &ScteDashProperty{
 //   	AdMarkerDash: jsii.String("adMarkerDash"),
+//   	ScteInManifests: jsii.String("scteInManifests"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html
@@ -26,5 +27,8 @@ type CfnOriginEndpointPropsMixin_ScteDashProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html#cfn-mediapackagev2-originendpoint-sctedash-admarkerdash
 	//
 	AdMarkerDash *string `field:"optional" json:"adMarkerDash" yaml:"adMarkerDash"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html#cfn-mediapackagev2-originendpoint-sctedash-scteinmanifests
+	//
+	ScteInManifests *string `field:"optional" json:"scteInManifests" yaml:"scteInManifests"`
 }
 

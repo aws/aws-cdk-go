@@ -8,7 +8,7 @@ import (
 // IAM actions for AgentCore API key credential providers (Token Vault).
 // See: https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrockagentcore.html
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiKeyCredentialProviderIdentityPerms interface {
 }
 

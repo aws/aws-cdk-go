@@ -8,6 +8,10 @@ func (r *jsiiProxy_ReceiptRule) validateAddActionParameters(action IReceiptRuleA
 	return nil
 }
 
+func (r *jsiiProxy_ReceiptRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_ReceiptRule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

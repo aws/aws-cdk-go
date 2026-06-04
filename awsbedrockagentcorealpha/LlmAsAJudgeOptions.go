@@ -45,7 +45,7 @@ package awsbedrockagentcorealpha
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LlmAsAJudgeOptions struct {
 	// The evaluation instructions that guide the language model in assessing agent performance.
 	//
@@ -58,22 +58,22 @@ type LlmAsAJudgeOptions struct {
 	// not online evaluation.
 	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/custom-evaluators.html
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Instructions *string `field:"required" json:"instructions" yaml:"instructions"`
 	// The identifier of the Amazon Bedrock model to use for evaluation.
 	//
 	// Accepts standard model IDs (e.g., `'anthropic.claude-sonnet-4-6'`)
 	// and cross-region inference profile IDs with region prefixes
 	// (e.g., `'us.anthropic.claude-sonnet-4-6'`, `'eu.anthropic.claude-sonnet-4-6'`).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ModelId *string `field:"required" json:"modelId" yaml:"modelId"`
 	// The rating scale that defines how the evaluator should score agent performance.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RatingScale EvaluatorRatingScale `field:"required" json:"ratingScale" yaml:"ratingScale"`
 	// Additional model-specific request fields.
 	// Default: - No additional fields.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AdditionalModelRequestFields *map[string]interface{} `field:"optional" json:"additionalModelRequestFields" yaml:"additionalModelRequestFields"`
 	// Optional inference configuration parameters that control model behavior during evaluation.
 	//
@@ -83,7 +83,7 @@ type LlmAsAJudgeOptions struct {
 	//
 	// Default: - The foundation model's default inference parameters are used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InferenceConfig *EvaluatorInferenceConfig `field:"optional" json:"inferenceConfig" yaml:"inferenceConfig"`
 }
 

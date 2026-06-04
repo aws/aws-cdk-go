@@ -4,6 +4,10 @@ package awsses
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (v *jsiiProxy_VdmAttributes) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (v *jsiiProxy_VdmAttributes) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

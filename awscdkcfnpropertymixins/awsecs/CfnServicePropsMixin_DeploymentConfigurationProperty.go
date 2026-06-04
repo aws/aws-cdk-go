@@ -35,6 +35,11 @@ package awsecs
 //   				jsii.String("lifecycleStages"),
 //   			},
 //   			RoleArn: jsii.String("roleArn"),
+//   			TargetType: jsii.String("targetType"),
+//   			TimeoutConfiguration: &HookTimeoutConfigProperty{
+//   				Action: jsii.String("action"),
+//   				TimeoutInMinutes: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	LinearConfiguration: &LinearConfigurationProperty{

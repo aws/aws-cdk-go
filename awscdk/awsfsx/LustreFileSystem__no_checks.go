@@ -4,6 +4,10 @@ package awsfsx
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (l *jsiiProxy_LustreFileSystem) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (l *jsiiProxy_LustreFileSystem) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

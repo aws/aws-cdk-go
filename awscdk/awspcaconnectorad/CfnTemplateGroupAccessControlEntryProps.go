@@ -14,8 +14,6 @@ package awspcaconnectorad
 //   		Enroll: jsii.String("enroll"),
 //   	},
 //   	GroupDisplayName: jsii.String("groupDisplayName"),
-//
-//   	// the properties below are optional
 //   	GroupSecurityIdentifier: jsii.String("groupSecurityIdentifier"),
 //   	TemplateArn: jsii.String("templateArn"),
 //   }
@@ -38,10 +36,10 @@ type CfnTemplateGroupAccessControlEntryProps struct {
 	// The SID starts with "S-".
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-groupsecurityidentifier
 	//
-	GroupSecurityIdentifier *string `field:"optional" json:"groupSecurityIdentifier" yaml:"groupSecurityIdentifier"`
+	GroupSecurityIdentifier *string `field:"required" json:"groupSecurityIdentifier" yaml:"groupSecurityIdentifier"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html#cfn-pcaconnectorad-templategroupaccesscontrolentry-templatearn
 	//
-	TemplateArn *string `field:"optional" json:"templateArn" yaml:"templateArn"`
+	TemplateArn *string `field:"required" json:"templateArn" yaml:"templateArn"`
 }
 

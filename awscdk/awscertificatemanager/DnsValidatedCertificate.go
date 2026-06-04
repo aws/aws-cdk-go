@@ -93,6 +93,15 @@ type DnsValidatedCertificate interface {
 	//
 	// Deprecated: use {@link Certificate } instead.
 	Tags() awscdk.TagManager
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Deprecated: use {@link Certificate } instead.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -343,6 +352,17 @@ func DnsValidatedCertificate_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (d *jsiiProxy_DnsValidatedCertificate) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := d.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (d *jsiiProxy_DnsValidatedCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

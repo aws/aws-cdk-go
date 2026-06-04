@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

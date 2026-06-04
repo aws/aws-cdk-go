@@ -45,6 +45,7 @@ import (
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
+//   	NetworkType: jsii.String("networkType"),
 //   	ReaderEndpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
 //   		Port: jsii.String("port"),
@@ -140,6 +141,9 @@ type CfnServerlessCache interface {
 	// The version number of the engine the serverless cache is compatible with.
 	MajorEngineVersion() *string
 	SetMajorEngineVersion(val *string)
+	// The network type for the serverless cache.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Represents the information required for client programs to connect to a cache node.
@@ -258,6 +262,11 @@ type CfnServerlessCache interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -573,6 +582,16 @@ func (j *jsiiProxy_CfnServerlessCache) MajorEngineVersion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServerlessCache) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServerlessCache) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -812,6 +831,14 @@ func (j *jsiiProxy_CfnServerlessCache)SetMajorEngineVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"majorEngineVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServerlessCache)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }
@@ -1127,6 +1154,17 @@ func (c *jsiiProxy_CfnServerlessCache) AddPropertyOverride(propertyPath *string,
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnServerlessCache) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

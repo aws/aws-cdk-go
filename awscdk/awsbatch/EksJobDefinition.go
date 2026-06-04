@@ -100,6 +100,14 @@ type EksJobDefinition interface {
 	UseHostNetwork() *bool
 	// Add a RetryStrategy to this JobDefinition.
 	AddRetryStrategy(strategy RetryStrategy)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -451,6 +459,17 @@ func (e *jsiiProxy_EksJobDefinition) AddRetryStrategy(strategy RetryStrategy) {
 		e,
 		"addRetryStrategy",
 		[]interface{}{strategy},
+	)
+}
+
+func (e *jsiiProxy_EksJobDefinition) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := e.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

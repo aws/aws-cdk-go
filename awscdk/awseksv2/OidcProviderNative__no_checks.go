@@ -4,6 +4,10 @@ package awseksv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (o *jsiiProxy_OidcProviderNative) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (o *jsiiProxy_OidcProviderNative) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

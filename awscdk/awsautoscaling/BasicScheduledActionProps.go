@@ -42,6 +42,10 @@ type BasicScheduledActionProps struct {
 	//
 	DesiredCapacity *float64 `field:"optional" json:"desiredCapacity" yaml:"desiredCapacity"`
 	// When this scheduled action expires.
+	//
+	// Warning! You should not set this field! After the scheduled end time, the AutoScaling
+	// service will delete the `ScheduledAction` without CloudFormation's knowledge, and subsequent
+	// stack deployments that try to modify or delete this ScheduledAction will fail.
 	// Default: - The rule never expires.
 	//
 	EndTime *time.Time `field:"optional" json:"endTime" yaml:"endTime"`

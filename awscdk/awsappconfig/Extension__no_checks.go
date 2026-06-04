@@ -4,6 +4,10 @@ package awsappconfig
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (e *jsiiProxy_Extension) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_Extension) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

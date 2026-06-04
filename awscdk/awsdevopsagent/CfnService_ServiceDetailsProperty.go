@@ -66,6 +66,22 @@ package awsdevopsagent
 //   		// the properties below are optional
 //   		Description: jsii.String("description"),
 //   	},
+//   	McpServerGrafana: &MCPServerGrafanaDetailsProperty{
+//   		AuthorizationConfig: &MCPServerGrafanaAuthorizationConfigProperty{
+//   			BearerToken: &BearerTokenDetailsProperty{
+//   				TokenName: jsii.String("tokenName"),
+//   				TokenValue: jsii.String("tokenValue"),
+//
+//   				// the properties below are optional
+//   				AuthorizationHeader: jsii.String("authorizationHeader"),
+//   			},
+//   		},
+//   		Endpoint: jsii.String("endpoint"),
+//   		Name: jsii.String("name"),
+//
+//   		// the properties below are optional
+//   		Description: jsii.String("description"),
+//   	},
 //   	McpServerNewRelic: &NewRelicServiceDetailsProperty{
 //   		AuthorizationConfig: &NewRelicAuthorizationConfigProperty{
 //   			ApiKey: &NewRelicApiKeyConfigProperty{
@@ -170,6 +186,10 @@ type CfnService_ServiceDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-mcpserver
 	//
 	McpServer interface{} `field:"optional" json:"mcpServer" yaml:"mcpServer"`
+	// Grafana MCP server configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-mcpservergrafana
+	//
+	McpServerGrafana interface{} `field:"optional" json:"mcpServerGrafana" yaml:"mcpServerGrafana"`
 	// New Relic service configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-mcpservernewrelic
 	//

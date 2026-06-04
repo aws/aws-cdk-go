@@ -11,6 +11,7 @@ package awsopensearchservice
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   vPCOptionsProperty := &VPCOptionsProperty{
+//   	EgressEnabled: jsii.Boolean(false),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -22,6 +23,10 @@ package awsopensearchservice
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-vpcoptions.html
 //
 type CfnDomain_VPCOptionsProperty struct {
+	// Controls whether egress traffic from the domain is routed through the customer VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-vpcoptions.html#cfn-opensearchservice-domain-vpcoptions-egressenabled
+	//
+	EgressEnabled interface{} `field:"optional" json:"egressEnabled" yaml:"egressEnabled"`
 	// The list of security group IDs that are associated with the VPC endpoints for the domain.
 	//
 	// If you don't provide a security group ID, OpenSearch Service uses the default security group for the VPC. To learn more, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .

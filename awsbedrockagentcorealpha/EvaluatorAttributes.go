@@ -16,18 +16,18 @@ package awsbedrockagentcorealpha
 //   	EvaluatorName: jsii.String("evaluatorName"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorAttributes struct {
 	// The ARN of the evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorArn *string `field:"required" json:"evaluatorArn" yaml:"evaluatorArn"`
 	// The ID of the evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorId *string `field:"required" json:"evaluatorId" yaml:"evaluatorId"`
 	// The name of the evaluator.
 	// Default: - No name available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorName *string `field:"optional" json:"evaluatorName" yaml:"evaluatorName"`
 }
 

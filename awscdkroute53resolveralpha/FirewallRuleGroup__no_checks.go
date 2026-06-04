@@ -8,6 +8,10 @@ func (f *jsiiProxy_FirewallRuleGroup) validateAddRuleParameters(rule *FirewallRu
 	return nil
 }
 
+func (f *jsiiProxy_FirewallRuleGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirewallRuleGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -33,6 +33,7 @@ import (
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
+//   	NetworkType: jsii.String("networkType"),
 //   	ReaderEndpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
 //   		Port: jsii.String("port"),
@@ -96,6 +97,12 @@ type CfnServerlessCacheMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-majorengineversion
 	//
 	MajorEngineVersion *string `field:"optional" json:"majorEngineVersion" yaml:"majorEngineVersion"`
+	// The network type for the serverless cache.
+	//
+	// Valid values are ipv4, ipv6, or dual_stack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Represents the information required for client programs to connect to a cache node.
 	//
 	// This value is read-only.

@@ -20,6 +20,14 @@ func (e *jsiiProxy_EndpointGroup) validateAddEndpointParameters(endpoint IEndpoi
 	return nil
 }
 
+func (e *jsiiProxy_EndpointGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_EndpointGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

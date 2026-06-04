@@ -28,11 +28,11 @@ import (
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-interceptors.html
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LambdaInterceptor interface {
 	IInterceptor
 	// The interception point (REQUEST or RESPONSE).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InterceptionPoint() InterceptionPoint
 	// Binds this Lambda interceptor to a Gateway.
 	//
@@ -41,7 +41,7 @@ type LambdaInterceptor interface {
 	// 2. Returns the CloudFormation configuration for this interceptor
 	//
 	// Returns: Configuration for CloudFormation rendering.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *InterceptorBindConfig
 }
 
@@ -68,7 +68,7 @@ func (j *jsiiProxy_LambdaInterceptor) InterceptionPoint() InterceptionPoint {
 // Lambda function.
 //
 // Returns: A configured LambdaInterceptor for request interception.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LambdaInterceptor_ForRequest(lambdaFunction awslambda.IFunction, options *InterceptorOptions) LambdaInterceptor {
 	_init_.Initialize()
 
@@ -94,7 +94,7 @@ func LambdaInterceptor_ForRequest(lambdaFunction awslambda.IFunction, options *I
 // Lambda function.
 //
 // Returns: A configured LambdaInterceptor for response interception.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LambdaInterceptor_ForResponse(lambdaFunction awslambda.IFunction, options *InterceptorOptions) LambdaInterceptor {
 	_init_.Initialize()
 

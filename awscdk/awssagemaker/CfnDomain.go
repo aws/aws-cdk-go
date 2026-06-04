@@ -70,6 +70,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -129,6 +130,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -140,6 +142,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -160,6 +163,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -180,6 +184,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   		},
 //   		RStudioServerProAppSettings: &RStudioServerProAppSettingsProperty{
@@ -283,6 +288,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -294,6 +300,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -314,6 +321,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -347,6 +355,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			RStudioConnectUrl: jsii.String("rStudioConnectUrl"),
 //   			RStudioPackageManagerUrl: jsii.String("rStudioPackageManagerUrl"),
@@ -364,6 +373,7 @@ import (
 //   			StudioWebPortalAccess: jsii.String("studioWebPortalAccess"),
 //   		},
 //   	},
+//   	HomeEfsFileSystemCreation: jsii.String("homeEfsFileSystemCreation"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
@@ -437,6 +447,9 @@ type CfnDomain interface {
 	DomainSettings() interface{}
 	SetDomainSettings(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Indicates whether a home EFS file system is created for the domain.
+	HomeEfsFileSystemCreation() *string
+	SetHomeEfsFileSystemCreation(val *string)
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
@@ -556,6 +569,11 @@ type CfnDomain interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -841,6 +859,16 @@ func (j *jsiiProxy_CfnDomain) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) HomeEfsFileSystemCreation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"homeEfsFileSystemCreation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1058,6 +1086,14 @@ func (j *jsiiProxy_CfnDomain)SetDomainSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"domainSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetHomeEfsFileSystemCreation(val *string) {
+	_jsii_.Set(
+		j,
+		"homeEfsFileSystemCreation",
 		val,
 	)
 }
@@ -1343,6 +1379,17 @@ func (c *jsiiProxy_CfnDomain) AddPropertyOverride(propertyPath *string, value in
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnDomain) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

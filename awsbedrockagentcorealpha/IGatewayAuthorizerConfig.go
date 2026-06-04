@@ -5,10 +5,10 @@ import (
 )
 
 // Abstract interface for gateway authorizer configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IGatewayAuthorizerConfig interface {
 	// The authorizer type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerType() GatewayAuthorizerType
 }
 

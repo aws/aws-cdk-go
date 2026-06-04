@@ -29,6 +29,7 @@ func init() {
 		"@aws-cdk/aws-route53resolver-alpha.FirewallDomainList",
 		reflect.TypeOf((*FirewallDomainList)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallDomainListArn", GoGetter: "FirewallDomainListArn"},
@@ -90,6 +91,7 @@ func init() {
 		reflect.TypeOf((*FirewallRuleGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addRule", GoMethod: "AddRule"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associate", GoMethod: "Associate"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -123,6 +125,7 @@ func init() {
 		"@aws-cdk/aws-route53resolver-alpha.FirewallRuleGroupAssociation",
 		reflect.TypeOf((*FirewallRuleGroupAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupAssociationArn", GoGetter: "FirewallRuleGroupAssociationArn"},

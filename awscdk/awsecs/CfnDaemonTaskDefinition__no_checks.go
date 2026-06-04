@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnDaemonTaskDefinition) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnDaemonTaskDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDaemonTaskDefinition) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

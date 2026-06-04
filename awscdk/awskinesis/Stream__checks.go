@@ -21,6 +21,14 @@ func (s *jsiiProxy_Stream) validateAddToResourcePolicyParameters(statement awsia
 	return nil
 }
 
+func (s *jsiiProxy_Stream) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_Stream) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }
@@ -73,14 +77,6 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateValidatePropertiesParame
 }
 
 func validateCfnWirelessDeviceImportTask_ArnForWirelessDeviceImportTaskParameters(resource interfacesawsiotwireless.IWirelessDeviceImportTaskRef) error {
-	return nil
-}
-
-func validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskIdParameters(scope constructs.Construct, id *string, wirelessDeviceImportTaskId *string) error {
 	return nil
 }
 

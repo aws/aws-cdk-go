@@ -117,6 +117,15 @@ type Ipam interface {
 	// Function to add custom scope to an existing IPAM Custom scopes can only be private.
 	// Experimental.
 	AddScope(scope constructs.Construct, id *string, options *IpamScopeOptions) IIpamScopeBase
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -394,6 +403,17 @@ func (i *jsiiProxy_Ipam) AddScope(scope constructs.Construct, id *string, option
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_Ipam) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := i.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (i *jsiiProxy_Ipam) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

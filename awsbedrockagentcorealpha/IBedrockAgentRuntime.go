@@ -14,7 +14,7 @@ import (
 )
 
 // Interface for Agent Runtime resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IBedrockAgentRuntime interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
@@ -23,91 +23,91 @@ type IBedrockAgentRuntime interface {
 	// Adds a policy statement to the runtime's execution role.
 	//
 	// Returns: The runtime instance for chaining.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AddToRolePolicy(statement awsiam.PolicyStatement) IBedrockAgentRuntime
 	// Grant the runtime specific actions on AWS resources.
 	//
 	// Returns: The Grant object for chaining.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(actions *[]*string, resources *[]*string) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime both directly and on behalf of users Grants both bedrock-agentcore:InvokeAgentRuntime and bedrock-agentcore:InvokeAgentRuntimeForUser permissions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime Grants the bedrock-agentcore:InvokeAgentRuntime permission.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantInvokeRuntime(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime on behalf of a user Grants the bedrock-agentcore:InvokeAgentRuntimeForUser permission Required when using the X-Amzn-Bedrock-AgentCore-Runtime-User-Id header.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantInvokeRuntimeForUser(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations across all resources.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricInvocationsAggregated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of requests for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of agent sessions for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricSessionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of sessions across all resources.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricSessionsAggregated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of system errors for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of throttled requests for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of errors (system + user) for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricTotalErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of user errors for this agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the agent runtime resource - Format `arn:${Partition}:bedrock-agentcore:${Region}:${Account}:runtime/${RuntimeId}`.
 	//
 	// Example:
 	//   "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/runtime-abc123"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeArn() *string
 	// The ID of the agent runtime.
 	//
 	// Example:
 	//   "runtime-abc123"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeId() *string
 	// The name of the agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeName() *string
 	// The version of the agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeVersion() *string
 	// The current status of the agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentStatus() *string
 	// The time at which the runtime was created.
 	//
 	// Example:
 	//   "2024-01-15T10:30:00Z"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The time at which the runtime was last updated.
 	//
 	// Example:
 	//   "2024-01-15T14:45:00Z"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedAt() *string
 	// The IAM role that provides permissions for the agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Role() awsiam.IRole
 }
 

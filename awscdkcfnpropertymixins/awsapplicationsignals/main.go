@@ -80,6 +80,14 @@ func init() {
 		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_CalendarIntervalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.CompositeSliComponentProperty",
+		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_CompositeSliComponentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.CompositeSliConfigProperty",
+		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_CompositeSliConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.DependencyConfigProperty",
 		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_DependencyConfigProperty)(nil)).Elem(),
 	)
@@ -108,6 +116,10 @@ func init() {
 		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_MetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.MetricSourceProperty",
+		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_MetricSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.MetricStatProperty",
 		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_MetricStatProperty)(nil)).Elem(),
 	)
@@ -130,6 +142,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.RollingIntervalProperty",
 		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_RollingIntervalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.SelectionConfigProperty",
+		reflect.TypeOf((*CfnServiceLevelObjectivePropsMixin_SelectionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_applicationsignals.CfnServiceLevelObjectivePropsMixin.SliMetricProperty",

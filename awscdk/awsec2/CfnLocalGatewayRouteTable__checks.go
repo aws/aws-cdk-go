@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayRouteTable) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err

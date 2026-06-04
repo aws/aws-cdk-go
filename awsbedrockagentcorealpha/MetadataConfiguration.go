@@ -20,7 +20,7 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type MetadataConfiguration struct {
 	// List of query parameter names to pass through to the target.
 	//
@@ -30,7 +30,7 @@ type MetadataConfiguration struct {
 	// - Cannot be an empty array.
 	// Default: - No query parameters are passed through.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowedQueryParameters *[]*string `field:"optional" json:"allowedQueryParameters" yaml:"allowedQueryParameters"`
 	// List of request header names to pass through to the target.
 	//
@@ -40,7 +40,7 @@ type MetadataConfiguration struct {
 	// - Cannot be an empty array.
 	// Default: - No request headers are passed through.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowedRequestHeaders *[]*string `field:"optional" json:"allowedRequestHeaders" yaml:"allowedRequestHeaders"`
 	// List of response header names to pass through from the target.
 	//
@@ -50,7 +50,7 @@ type MetadataConfiguration struct {
 	// - Cannot be an empty array.
 	// Default: - No response headers are passed through.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowedResponseHeaders *[]*string `field:"optional" json:"allowedResponseHeaders" yaml:"allowedResponseHeaders"`
 }
 

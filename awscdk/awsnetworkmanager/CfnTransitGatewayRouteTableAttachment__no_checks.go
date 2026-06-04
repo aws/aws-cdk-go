@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateAddPropertyOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayRouteTableAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

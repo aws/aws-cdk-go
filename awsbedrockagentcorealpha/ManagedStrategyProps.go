@@ -34,15 +34,15 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ManagedStrategyProps struct {
 	// The name for the strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the strategy.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The namespaces for the strategy Represents a namespace for organizing memory data Use a hierarchical format separated by forward slashes (/).
 	//
@@ -58,7 +58,7 @@ type ManagedStrategyProps struct {
 	//
 	// After memory creation, this namespace might look like:
 	// /actor/actor-3afc5aa8fef9/strategy/summarization-fy5c5fwc7/session/session-qj7tpd1kvr8.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Namespaces *[]*string `field:"required" json:"namespaces" yaml:"namespaces"`
 	// The configuration for the custom consolidation.
 	//
@@ -66,7 +66,7 @@ type ManagedStrategyProps struct {
 	// and extracts relevant information for memory storage.
 	// Default: - No custom extraction.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CustomConsolidation *OverrideConfig `field:"optional" json:"customConsolidation" yaml:"customConsolidation"`
 	// The configuration for the custom extraction.
 	//
@@ -74,12 +74,12 @@ type ManagedStrategyProps struct {
 	// and extracts relevant information for memory storage.
 	// Default: - No custom extraction.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CustomExtraction *OverrideConfig `field:"optional" json:"customExtraction" yaml:"customExtraction"`
 	// Configuration for episodic memory reflection (only applicable for EPISODIC strategy type) Defines additional namespaces for reflection-based episodic recall.
 	// Default: - No reflection configuration.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ReflectionConfiguration *EpisodicReflectionConfiguration `field:"optional" json:"reflectionConfiguration" yaml:"reflectionConfiguration"`
 }
 

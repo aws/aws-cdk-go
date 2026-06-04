@@ -25,6 +25,10 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MaintenanceSchedule: &MaintenanceScheduleProperty{
+//   		PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   		Timezone: jsii.String("timezone"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	NetworkType: jsii.String("networkType"),
 //   	Organization: jsii.String("organization"),
@@ -81,6 +85,10 @@ type CfnInfluxDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html#cfn-timestream-influxdbcluster-logdeliveryconfiguration
 	//
 	LogDeliveryConfiguration interface{} `field:"optional" json:"logDeliveryConfiguration" yaml:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html#cfn-timestream-influxdbcluster-maintenanceschedule
+	//
+	MaintenanceSchedule interface{} `field:"optional" json:"maintenanceSchedule" yaml:"maintenanceSchedule"`
 	// The unique name that is associated with the InfluxDB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html#cfn-timestream-influxdbcluster-name
 	//

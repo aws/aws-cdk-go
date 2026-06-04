@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnModelQualityJobDefinition) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnModelQualityJobDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnModelQualityJobDefinition) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

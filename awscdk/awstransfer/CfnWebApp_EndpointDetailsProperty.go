@@ -8,6 +8,7 @@ package awstransfer
 //
 //   endpointDetailsProperty := &EndpointDetailsProperty{
 //   	Vpc: &VpcProperty{
+//   		IpAddressType: jsii.String("ipAddressType"),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},

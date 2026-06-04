@@ -108,6 +108,10 @@ func init() {
 		reflect.TypeOf((*CfnBotPropsMixin_AudioAndDTMFInputSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lex.CfnBotPropsMixin.AudioFillerSettingsProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_AudioFillerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lex.CfnBotPropsMixin.AudioLogDestinationProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_AudioLogDestinationProperty)(nil)).Elem(),
 	)

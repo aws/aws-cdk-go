@@ -4,17 +4,22 @@ package awssns
 // The type of subscription, controlling the type of the endpoint parameter.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var stream DeliveryStream
+//   // producerStack defines an SNS topic
+//   var topic Topic
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("Topic"))
-//
-//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
-//   	Topic: Topic,
-//   	Endpoint: stream.deliveryStreamArn,
-//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
-//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
+//   // consumerStack subscribes to it with a weak reference,
+//   // so the producer can be torn down without blocking on this consumer
+//   consumerStack := awscdk.Newstack(app, jsii.String("Consumer"), &StackProps{
+//   	Env: &Environment{
+//   		Account: jsii.String("123456789012"),
+//   		Region: jsii.String("us-east-1"),
+//   	},
+//   })
+//   sns.NewSubscription(consumerStack, jsii.String("Subscription"), &SubscriptionProps{
+//   	Topic: sns.Topic_FromTopicArn(consumerStack, jsii.String("Topic"), awscdk.*stack_ConsumeReference(topic.topicArn)),
+//   	Endpoint: jsii.String("https://example.com/webhook"),
+//   	Protocol: sns.SubscriptionProtocol_HTTPS,
 //   })
 //
 type SubscriptionProtocol string

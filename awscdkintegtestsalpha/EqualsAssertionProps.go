@@ -1,5 +1,8 @@
 package awscdkintegtestsalpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+)
 
 // Options for an EqualsAssertion.
 //
@@ -7,6 +10,7 @@ package awscdkintegtestsalpha
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var actualResult ActualResult
 //   var expectedResult ExpectedResult
@@ -17,10 +21,16 @@ package awscdkintegtestsalpha
 //
 //   	// the properties below are optional
 //   	FailDeployment: jsii.Boolean(false),
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   }
 //
 // Experimental.
 type EqualsAssertionProps struct {
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// The actual results to compare.
 	// Experimental.
 	Actual ActualResult `field:"required" json:"actual" yaml:"actual"`

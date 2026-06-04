@@ -101,6 +101,14 @@ type DatabaseInstanceReadReplica interface {
 	VpcPlacement() *awsec2.SubnetSelection
 	// Add a new db proxy to this instance.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -544,6 +552,17 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) AddProxy(id *string, options *Da
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DatabaseInstanceReadReplica) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := d.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (d *jsiiProxy_DatabaseInstanceReadReplica) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

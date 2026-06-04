@@ -36,6 +36,7 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   		LifecycleConfigArns: []*string{
 //   			jsii.String("lifecycleConfigArns"),
@@ -90,6 +91,7 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   		LifecycleConfigArns: []*string{
 //   			jsii.String("lifecycleConfigArns"),
@@ -101,6 +103,7 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   		LifecycleConfigArns: []*string{
 //   			jsii.String("lifecycleConfigArns"),
@@ -119,6 +122,7 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   		LifecycleConfigArns: []*string{
 //   			jsii.String("lifecycleConfigArns"),
@@ -137,6 +141,7 @@ package awssagemaker
 //   			LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   			SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   			SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
 //   	RStudioServerProAppSettings: &RStudioServerProAppSettingsProperty{

@@ -76,6 +76,22 @@ import (
 //   			// the properties below are optional
 //   			Description: jsii.String("description"),
 //   		},
+//   		McpServerGrafana: &MCPServerGrafanaDetailsProperty{
+//   			AuthorizationConfig: &MCPServerGrafanaAuthorizationConfigProperty{
+//   				BearerToken: &BearerTokenDetailsProperty{
+//   					TokenName: jsii.String("tokenName"),
+//   					TokenValue: jsii.String("tokenValue"),
+//
+//   					// the properties below are optional
+//   					AuthorizationHeader: jsii.String("authorizationHeader"),
+//   				},
+//   			},
+//   			Endpoint: jsii.String("endpoint"),
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			Description: jsii.String("description"),
+//   		},
 //   		McpServerNewRelic: &NewRelicServiceDetailsProperty{
 //   			AuthorizationConfig: &NewRelicAuthorizationConfigProperty{
 //   				ApiKey: &NewRelicApiKeyConfigProperty{

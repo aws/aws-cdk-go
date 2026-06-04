@@ -32,6 +32,10 @@ func (e *jsiiProxy_EventApiBase) validateAddRdsDataSourceParameters(id *string, 
 	return nil
 }
 
+func (e *jsiiProxy_EventApiBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EventApiBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

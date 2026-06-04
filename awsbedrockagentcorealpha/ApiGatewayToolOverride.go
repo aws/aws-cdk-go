@@ -22,21 +22,21 @@ package awsbedrockagentcorealpha
 //   	Description: jsii.String("description"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiGatewayToolOverride struct {
 	// The HTTP method for this override Must be a single method (no wildcards).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Method ApiGatewayHttpMethod `field:"required" json:"method" yaml:"method"`
 	// The custom tool name If not provided, the operationId from the OpenAPI definition will be used.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The explicit resource path (no wildcards) Must match an operation that exists in your API.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// Optional custom description for the tool.
 	// Default: - No custom description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

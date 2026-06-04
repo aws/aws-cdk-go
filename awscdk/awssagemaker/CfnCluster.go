@@ -37,7 +37,6 @@ import (
 //   			ExecutionRole: jsii.String("executionRole"),
 //   			InstanceCount: jsii.Number(123),
 //   			InstanceGroupName: jsii.String("instanceGroupName"),
-//   			InstanceType: jsii.String("instanceType"),
 //
 //   			// the properties below are optional
 //   			CapacityRequirements: &ClusterCapacityRequirementsProperty{
@@ -73,6 +72,7 @@ import (
 //   					},
 //   				},
 //   			},
+//   			InstanceType: jsii.String("instanceType"),
 //   			KubernetesConfig: &ClusterKubernetesConfigProperty{
 //   				Labels: map[string]*string{
 //   					"labelsKey": jsii.String("labels"),
@@ -393,6 +393,11 @@ type CfnCluster interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -1097,6 +1102,17 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnCluster) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

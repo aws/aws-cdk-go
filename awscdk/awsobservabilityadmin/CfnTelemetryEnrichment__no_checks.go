@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTelemetryEnrichment) validateAddPropertyOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTelemetryEnrichment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTelemetryEnrichment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

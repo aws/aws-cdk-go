@@ -8,24 +8,24 @@ import (
 )
 
 // Interface for Memory strategies.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IMemoryStrategy interface {
 	// Grants the necessary permissions to the role.
 	//
 	// Returns: The Grant object for chaining.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable) awsiam.Grant
 	// Renders internal attributes to CloudFormation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Render() *awsbedrockagentcore.CfnMemory_MemoryStrategyProperty
 	// The description of the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The name of the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name() *string
 	// The type of memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	StrategyType() MemoryStrategyType
 }
 

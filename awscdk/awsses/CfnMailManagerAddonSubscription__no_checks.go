@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

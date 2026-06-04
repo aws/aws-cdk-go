@@ -104,6 +104,15 @@ type GameServerGroup interface {
 	// The game server group's subnets.
 	// Experimental.
 	VpcSubnets() *awsec2.SubnetSelection
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -407,6 +416,17 @@ func GameServerGroup_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (g *jsiiProxy_GameServerGroup) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := g.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (g *jsiiProxy_GameServerGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

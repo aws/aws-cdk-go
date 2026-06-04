@@ -4,6 +4,10 @@ package awsroute53
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (k *jsiiProxy_KeySigningKey) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (k *jsiiProxy_KeySigningKey) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

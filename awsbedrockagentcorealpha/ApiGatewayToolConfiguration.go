@@ -35,15 +35,15 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiGatewayToolConfiguration struct {
 	// List of tool filters to select operations At least one filter is required.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ToolFilters *[]*ApiGatewayToolFilter `field:"required" json:"toolFilters" yaml:"toolFilters"`
 	// Optional list of tool overrides to customize tool metadata Each override must correspond to an operation selected by the filters.
 	// Default: - No tool overrides.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ToolOverrides *[]*ApiGatewayToolOverride `field:"optional" json:"toolOverrides" yaml:"toolOverrides"`
 }
 

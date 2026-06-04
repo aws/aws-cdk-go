@@ -91,7 +91,7 @@ type Memory interface {
 	// Experimental.
 	MemoryName() *string
 	// A reference to a Memory resource.
-	// Experimental.
+	// Deprecated.
 	MemoryRef() *interfacesawsbedrockagentcore.MemoryReference
 	// The memory strategies used by the memory.
 	// Experimental.
@@ -127,6 +127,15 @@ type Memory interface {
 	//
 	// Experimental.
 	AddMemoryStrategy(memoryStrategy IMemoryStrategy)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -160,7 +169,7 @@ type Memory interface {
 	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
-	// Experimental.
+	// Deprecated.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given principal identity permissions to manage the control plane of this memory.
 	//
@@ -173,7 +182,7 @@ type Memory interface {
 	// 'bedrock-agentcore:DeleteMemory',
 	// 'bedrock-agentcore:UpdateMemory'] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete content on this memory.
 	//
@@ -186,7 +195,7 @@ type Memory interface {
 	// - actions: ['bedrock-agentcore:DeleteEvent',
 	// 'bedrock-agentcore:DeleteMemoryRecord'] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantDelete(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete Long-Term Memory (LTM) content on this memory.
 	//
@@ -196,7 +205,7 @@ type Memory interface {
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:DeleteMemoryRecord'] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantDeleteLongTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete Short-Term Memory (STM) content on this memory.
 	//
@@ -206,7 +215,7 @@ type Memory interface {
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:DeleteEvent'] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantDeleteShortTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to do every action on this memory.
 	//
@@ -227,7 +236,7 @@ type Memory interface {
 	// 'bedrock-agentcore:DeleteMemory',
 	// 'bedrock-agentcore:UpdateMemory'] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the contents of this memory.
 	//
@@ -243,7 +252,7 @@ type Memory interface {
 	// 'bedrock-agentcore:ListActors',
 	// 'bedrock-agentcore:ListSessions] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the Long-Term Memory (LTM) contents of this memory.
 	//
@@ -257,7 +266,7 @@ type Memory interface {
 	// 'bedrock-agentcore:ListActors',
 	// 'bedrock-agentcore:ListSessions',] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantReadLongTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the Short-Term Memory (STM) contents of this memory.
 	//
@@ -270,7 +279,7 @@ type Memory interface {
 	// 'bedrock-agentcore:ListActors',
 	// 'bedrock-agentcore:ListSessions',] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantReadShortTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to write content to short-term memory.
 	//
@@ -280,25 +289,25 @@ type Memory interface {
 	// Default: - Default grant configuration:
 	// - actions: ['bedrock-agentcore:CreateEvent'] on this.memoryArn
 	//
-	// Experimental.
+	// Deprecated.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this memory.
 	//
 	// By default, the metric will be calculated as a sum over a period of 5 minutes.
 	// You can customize this by using the `statistic` and `period` properties.
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of errors for a specific API operation performed on this memory.
-	// Experimental.
+	// Deprecated.
 	MetricErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns the metric containing the number of short-term memory events.
-	// Experimental.
+	// Deprecated.
 	MetricEventCreationCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return the given named metric related to the API operation performed on this memory.
-	// Experimental.
+	// Deprecated.
 	MetricForApiOperation(metricName *string, operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of API requests made for a specific memory operation like `CreateEvent`, `ListEvents`, `RetrieveMemoryRecords` ...
-	// Experimental.
+	// Deprecated.
 	MetricInvocationsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of a specific API operation performed on this memory.
 	//
@@ -307,10 +316,10 @@ type Memory interface {
 	//
 	// For memory creation events specifically, this measures the time from the last CreateEvent
 	// that met strategy criteria until memory storage is completed.
-	// Experimental.
+	// Deprecated.
 	MetricLatencyForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns the metric containing the number of long-term memory records created by the long-term extraction strategies.
-	// Experimental.
+	// Deprecated.
 	MetricMemoryRecordCreationCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -667,6 +676,17 @@ func (m *jsiiProxy_Memory) AddMemoryStrategy(memoryStrategy IMemoryStrategy) {
 		m,
 		"addMemoryStrategy",
 		[]interface{}{memoryStrategy},
+	)
+}
+
+func (m *jsiiProxy_Memory) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := m.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		m,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

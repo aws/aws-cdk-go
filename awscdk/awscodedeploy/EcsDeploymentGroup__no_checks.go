@@ -8,6 +8,10 @@ func (e *jsiiProxy_EcsDeploymentGroup) validateAddAlarmParameters(alarm interfac
 	return nil
 }
 
+func (e *jsiiProxy_EcsDeploymentGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EcsDeploymentGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

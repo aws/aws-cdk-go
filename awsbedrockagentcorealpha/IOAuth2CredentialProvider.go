@@ -12,48 +12,48 @@ import (
 )
 
 // An OAuth2 credential provider registered in AgentCore Token Vault.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IOAuth2CredentialProvider interface {
 	awsiam.IGrantable
 	interfacesawsbedrockagentcore.IOAuth2CredentialProviderRef
 	awscdk.IResource
 	// ARNs and OAuth scopes for gateway targets (`GatewayCredentialProvider.fromOauthIdentity` or `fromOauthIdentityArn`).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	BindForGatewayOAuthTarget(scopes *[]*string, customParameters *map[string]*string) *GatewayOAuth2IdentityBinding
 	// Grants IAM actions to the IAM principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant control plane permissions to manage this provider.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read, admin, and token retrieval permissions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant `GetOauth2CredentialProvider` and `ListOauth2CredentialProviders`, scoped to this provider and parent resources required by the Bedrock AgentCore authorization model.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant permission to retrieve OAuth tokens (`GetResourceOauth2Token`, `CompleteResourceTokenAuth`).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// Callback URL for the OAuth2 authorization flow.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CallbackUrl() *string
 	// The ARN of the Secrets Manager secret for the OAuth2 client credentials.
 	//
 	// May be undefined for resources imported without this attribute.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ClientSecretArn() *string
 	// Timestamp when the credential provider was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedTime() *string
 	// The ARN of this credential provider.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderArn() *string
 	// OAuth2 vendor string passed to CloudFormation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderVendor() *string
 	// Timestamp when the credential provider was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedTime() *string
 }
 

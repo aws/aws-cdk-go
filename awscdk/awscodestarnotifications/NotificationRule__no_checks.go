@@ -8,6 +8,10 @@ func (n *jsiiProxy_NotificationRule) validateAddTargetParameters(target INotific
 	return nil
 }
 
+func (n *jsiiProxy_NotificationRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (n *jsiiProxy_NotificationRule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

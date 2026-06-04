@@ -35,6 +35,10 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MaintenanceSchedule: &MaintenanceScheduleProperty{
+//   		PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   		Timezone: jsii.String("timezone"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	NetworkType: jsii.String("networkType"),
 //   	Organization: jsii.String("organization"),

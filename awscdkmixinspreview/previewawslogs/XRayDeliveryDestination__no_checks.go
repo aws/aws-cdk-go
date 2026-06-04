@@ -32,6 +32,10 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (x *jsiiProxy_XRayDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (x *jsiiProxy_XRayDeliveryDestination) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

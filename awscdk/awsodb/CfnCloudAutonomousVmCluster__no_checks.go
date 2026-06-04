@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudAutonomousVmCluster) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

@@ -4,6 +4,10 @@ package awss3
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (b *jsiiProxy_BucketPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_BucketPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

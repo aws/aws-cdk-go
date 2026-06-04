@@ -44,6 +44,10 @@ func (g *jsiiProxy_GraphqlApiBase) validateAddSchemaDependencyParameters(constru
 	return nil
 }
 
+func (g *jsiiProxy_GraphqlApiBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_GraphqlApiBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

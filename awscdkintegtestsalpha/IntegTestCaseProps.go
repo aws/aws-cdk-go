@@ -2,6 +2,7 @@ package awscdkintegtestsalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
@@ -13,6 +14,7 @@ import (
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stack Stack
 //
@@ -22,6 +24,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AllowDeleteFailures: jsii.Boolean(false),
 //   	AllowDestroy: []*string{
 //   		jsii.String("allowDestroy"),
 //   	},
@@ -133,6 +136,7 @@ import (
 //   			jsii.String("preDestroy"),
 //   		},
 //   	},
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   	Regions: []*string{
 //   		jsii.String("regions"),
 //   	},
@@ -141,6 +145,14 @@ import (
 //
 // Experimental.
 type IntegTestCaseProps struct {
+	// Whether to allow resources that fail to delete during a stack update.
+	//
+	// When false, the test will fail if CloudFormation skips deleting a resource
+	// during a stack update. When true, only a warning is printed.
+	// Default: false.
+	//
+	// Experimental.
+	AllowDeleteFailures *bool `field:"optional" json:"allowDeleteFailures" yaml:"allowDeleteFailures"`
 	// List of CloudFormation resource types in this stack that can be destroyed as part of an update without failing the test.
 	//
 	// This list should only include resources that for this specific
@@ -183,6 +195,11 @@ type IntegTestCaseProps struct {
 	//
 	// Experimental.
 	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// Stacks to be deployed during the test.
 	// Experimental.
 	Stacks *[]awscdk.Stack `field:"required" json:"stacks" yaml:"stacks"`

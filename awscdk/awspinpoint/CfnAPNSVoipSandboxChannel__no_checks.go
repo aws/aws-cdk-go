@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

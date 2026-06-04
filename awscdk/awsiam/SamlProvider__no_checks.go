@@ -4,6 +4,10 @@ package awsiam
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_SamlProvider) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SamlProvider) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

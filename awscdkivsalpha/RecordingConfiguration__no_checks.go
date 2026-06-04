@@ -4,6 +4,10 @@ package awscdkivsalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_RecordingConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_RecordingConfiguration) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

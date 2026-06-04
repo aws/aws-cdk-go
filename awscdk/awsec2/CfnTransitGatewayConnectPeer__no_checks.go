@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTransitGatewayConnectPeer) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayConnectPeer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayConnectPeer) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

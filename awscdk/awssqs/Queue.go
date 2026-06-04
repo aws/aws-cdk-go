@@ -90,6 +90,14 @@ type Queue interface {
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the queue is imported (`Queue.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -534,6 +542,17 @@ func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) 
 	)
 
 	return returns
+}
+
+func (q *jsiiProxy_Queue) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := q.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		q,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (q *jsiiProxy_Queue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

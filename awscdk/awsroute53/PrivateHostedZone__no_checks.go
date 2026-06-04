@@ -8,6 +8,10 @@ func (p *jsiiProxy_PrivateHostedZone) validateAddVpcParameters(vpc awsec2.IVpc) 
 	return nil
 }
 
+func (p *jsiiProxy_PrivateHostedZone) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PrivateHostedZone) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

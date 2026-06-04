@@ -8,6 +8,10 @@ func (t *jsiiProxy_TransitGatewayVpcAttachment) validateAddSubnetsParameters(sub
 	return nil
 }
 
+func (t *jsiiProxy_TransitGatewayVpcAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_TransitGatewayVpcAttachment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

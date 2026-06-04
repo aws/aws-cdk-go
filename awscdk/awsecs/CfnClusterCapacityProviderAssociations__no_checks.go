@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

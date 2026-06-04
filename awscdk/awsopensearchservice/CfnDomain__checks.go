@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnDomain) validateAddPropertyOverrideParameters(propertyPath
 	return nil
 }
 
+func (c *jsiiProxy_CfnDomain) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnDomain) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -246,15 +254,15 @@ func (j *jsiiProxy_CfnDomain) validateSetAccessPoliciesParameters(val interface{
 
 func (j *jsiiProxy_CfnDomain) validateSetAdvancedOptionsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *map[string]*string:
 		// ok
 	case map[string]*string:
 		// ok
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *map[string]*string, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]*string; received %#v (a %T)", val, val)
 		}
 	}
 
@@ -303,6 +311,30 @@ func (j *jsiiProxy_CfnDomain) validateSetAimlOptionsParameters(val interface{}) 
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_AIMLOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDomain) validateSetAutomatedSnapshotPauseOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDomain_AutomatedSnapshotPauseOptionsProperty:
+		val := val.(*CfnDomain_AutomatedSnapshotPauseOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDomain_AutomatedSnapshotPauseOptionsProperty:
+		val_ := val.(CfnDomain_AutomatedSnapshotPauseOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDomain_AutomatedSnapshotPauseOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

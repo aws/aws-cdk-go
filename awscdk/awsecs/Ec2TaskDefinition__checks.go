@@ -96,6 +96,14 @@ func (e *jsiiProxy_Ec2TaskDefinition) validateAddVolumeParameters(volume *Volume
 	return nil
 }
 
+func (e *jsiiProxy_Ec2TaskDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_Ec2TaskDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

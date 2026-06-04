@@ -8,6 +8,10 @@ func (r *jsiiProxy_RepositoryBase) validateAddToResourcePolicyParameters(stateme
 	return nil
 }
 
+func (r *jsiiProxy_RepositoryBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_RepositoryBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

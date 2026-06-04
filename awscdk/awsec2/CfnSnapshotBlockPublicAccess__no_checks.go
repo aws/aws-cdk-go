@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

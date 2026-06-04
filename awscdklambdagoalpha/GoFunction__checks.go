@@ -96,6 +96,14 @@ func (g *jsiiProxy_GoFunction) validateAddToRolePolicyParameters(statement awsia
 	return nil
 }
 
+func (g *jsiiProxy_GoFunction) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (g *jsiiProxy_GoFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

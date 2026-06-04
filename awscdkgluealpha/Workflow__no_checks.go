@@ -28,6 +28,10 @@ func (w *jsiiProxy_Workflow) validateAddWeeklyScheduledTriggerParameters(id *str
 	return nil
 }
 
+func (w *jsiiProxy_Workflow) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (w *jsiiProxy_Workflow) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

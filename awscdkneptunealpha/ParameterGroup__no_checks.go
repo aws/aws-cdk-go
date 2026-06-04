@@ -4,6 +4,10 @@ package awscdkneptunealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (p *jsiiProxy_ParameterGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_ParameterGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

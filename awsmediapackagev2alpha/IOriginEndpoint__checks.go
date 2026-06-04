@@ -12,13 +12,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-func (i *jsiiProxy_IOriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) error {
+func (i *jsiiProxy_IOriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
 	if statement == nil {
 		return fmt.Errorf("parameter statement is required, but nil was provided")
-	}
-
-	if err := _jsii_.ValidateStruct(cdnAuth, func() string { return "parameter cdnAuth" }); err != nil {
-		return err
 	}
 
 	return nil

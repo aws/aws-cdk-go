@@ -28,6 +28,10 @@ func (g *jsiiProxy_Gateway) validateAddSmithyTargetParameters(id *string, props 
 	return nil
 }
 
+func (g *jsiiProxy_Gateway) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_Gateway) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

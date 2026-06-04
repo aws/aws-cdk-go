@@ -8,6 +8,10 @@ func (m *jsiiProxy_Memory) validateAddMemoryStrategyParameters(memoryStrategy IM
 	return nil
 }
 
+func (m *jsiiProxy_Memory) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (m *jsiiProxy_Memory) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

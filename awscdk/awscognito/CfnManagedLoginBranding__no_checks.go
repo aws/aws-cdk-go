@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnManagedLoginBranding) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnManagedLoginBranding) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnManagedLoginBranding) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

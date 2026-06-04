@@ -4,7 +4,11 @@ package awsmediapackagev2alpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (o *jsiiProxy_OriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) error {
+func (o *jsiiProxy_OriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
+	return nil
+}
+
+func (o *jsiiProxy_OriginEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
 
@@ -73,6 +77,10 @@ func validateOriginEndpoint_IsResourceParameters(construct constructs.IConstruct
 }
 
 func (j *jsiiProxy_OriginEndpoint) validateSetAutoCreatePolicyParameters(val *bool) error {
+	return nil
+}
+
+func (j *jsiiProxy_OriginEndpoint) validateSetCdnAuthConfigParameters(val *CdnAuthConfiguration) error {
 	return nil
 }
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnGateway) validateAddPropertyOverrideParameters(propertyPat
 	return nil
 }
 
+func (c *jsiiProxy_CfnGateway) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGateway) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }
@@ -113,10 +117,6 @@ func (j *jsiiProxy_CfnGateway) validateSetPolicyEngineConfigurationParameters(va
 }
 
 func (j *jsiiProxy_CfnGateway) validateSetProtocolConfigurationParameters(val interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnGateway) validateSetProtocolTypeParameters(val *string) error {
 	return nil
 }
 

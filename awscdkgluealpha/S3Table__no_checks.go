@@ -8,6 +8,10 @@ func (s *jsiiProxy_S3Table) validateAddPartitionIndexParameters(index *Partition
 	return nil
 }
 
+func (s *jsiiProxy_S3Table) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_S3Table) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

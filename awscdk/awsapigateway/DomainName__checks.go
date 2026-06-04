@@ -36,6 +36,14 @@ func (d *jsiiProxy_DomainName) validateAddBasePathMappingParameters(targetApi in
 	return nil
 }
 
+func (d *jsiiProxy_DomainName) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DomainName) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

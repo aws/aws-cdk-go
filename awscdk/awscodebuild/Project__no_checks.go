@@ -20,6 +20,10 @@ func (p *jsiiProxy_Project) validateAddToRolePolicyParameters(policyStatement aw
 	return nil
 }
 
+func (p *jsiiProxy_Project) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_Project) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

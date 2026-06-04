@@ -13,6 +13,14 @@ package awsbedrockagentcore
 //   cfnGatewayTargetProps := &CfnGatewayTargetProps{
 //   	Name: jsii.String("name"),
 //   	TargetConfiguration: &TargetConfigurationProperty{
+//   		Http: &HttpTargetConfigurationProperty{
+//   			AgentcoreRuntime: &RuntimeTargetConfigurationProperty{
+//   				Arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				Qualifier: jsii.String("qualifier"),
+//   			},
+//   		},
 //   		Mcp: &McpTargetConfigurationProperty{
 //   			ApiGateway: &ApiGatewayTargetConfigurationProperty{
 //   				ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
@@ -88,6 +96,13 @@ package awsbedrockagentcore
 //
 //   				// the properties below are optional
 //   				ListingMode: jsii.String("listingMode"),
+//   				McpToolSchema: &McpToolSchemaConfigurationProperty{
+//   					InlinePayload: jsii.String("inlinePayload"),
+//   					S3: &S3ConfigurationProperty{
+//   						BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   						Uri: jsii.String("uri"),
+//   					},
+//   				},
 //   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),

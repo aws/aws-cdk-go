@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

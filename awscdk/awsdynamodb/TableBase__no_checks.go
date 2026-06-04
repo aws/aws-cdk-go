@@ -8,6 +8,10 @@ func (t *jsiiProxy_TableBase) validateAddToResourcePolicyParameters(statement aw
 	return nil
 }
 
+func (t *jsiiProxy_TableBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

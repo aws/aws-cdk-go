@@ -76,6 +76,15 @@ type RouteTable interface {
 	// Adds a new custom route to the route table.
 	// Experimental.
 	AddRoute(id *string, destination *string, target RouteTargetType, routeName *string)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -308,6 +317,17 @@ func (r *jsiiProxy_RouteTable) AddRoute(id *string, destination *string, target 
 		r,
 		"addRoute",
 		[]interface{}{id, destination, target, routeName},
+	)
+}
+
+func (r *jsiiProxy_RouteTable) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := r.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

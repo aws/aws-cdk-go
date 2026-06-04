@@ -9,22 +9,22 @@ import (
 )
 
 // Abstract base class for network configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type NetworkConfiguration interface {
 	// The connections object to the network.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Connections() awsec2.Connections
 	// The network mode to use.
 	//
 	// Configure the security level for agent
 	// execution to control access, isolate resources, and protect sensitive data.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	NetworkMode() *string
 	// The scope to create the resource in.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Scope() constructs.Construct
 	// The VPC subnets to use.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	VpcSubnets() *awsec2.SubnetSelection
 }
 
@@ -75,7 +75,7 @@ func (j *jsiiProxy_NetworkConfiguration) VpcSubnets() *awsec2.SubnetSelection {
 
 
 // Creates a new network configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewNetworkConfiguration_Override(n NetworkConfiguration, mode *string, scope constructs.Construct, vpcConfig *VpcConfigProps) {
 	_init_.Initialize()
 

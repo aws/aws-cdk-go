@@ -25,7 +25,7 @@ import (
 //   })
 //
 type SecretRotationApplication interface {
-	// Whether the rotation application uses the mutli user scheme.
+	// Whether the rotation application uses the multi user scheme.
 	IsMultiUser() *bool
 	// Returns the application ARN for the current partition.
 	//
@@ -53,31 +53,53 @@ func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
 }
 
 
-func NewSecretRotationApplication(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) SecretRotationApplication {
+func NewSecretRotationApplication(applicationName *string, awsSemanticVersion *string, options *SecretRotationApplicationOptions) SecretRotationApplication {
 	_init_.Initialize()
 
-	if err := validateNewSecretRotationApplicationParameters(applicationId, semanticVersion, options); err != nil {
+	if err := validateNewSecretRotationApplicationParameters(applicationName, awsSemanticVersion, options); err != nil {
 		panic(err)
 	}
 	j := jsiiProxy_SecretRotationApplication{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
-		[]interface{}{applicationId, semanticVersion, options},
+		[]interface{}{applicationName, awsSemanticVersion, options},
 		&j,
 	)
 
 	return &j
 }
 
-func NewSecretRotationApplication_Override(s SecretRotationApplication, applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) {
+func NewSecretRotationApplication_Override(s SecretRotationApplication, applicationName *string, awsSemanticVersion *string, options *SecretRotationApplicationOptions) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
-		[]interface{}{applicationId, semanticVersion, options},
+		[]interface{}{applicationName, awsSemanticVersion, options},
 		s,
 	)
+}
+
+func SecretRotationApplication_DB2_ROTATION_MULTI_USER() SecretRotationApplication {
+	_init_.Initialize()
+	var returns SecretRotationApplication
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"DB2_ROTATION_MULTI_USER",
+		&returns,
+	)
+	return returns
+}
+
+func SecretRotationApplication_DB2_ROTATION_SINGLE_USER() SecretRotationApplication {
+	_init_.Initialize()
+	var returns SecretRotationApplication
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_secretsmanager.SecretRotationApplication",
+		"DB2_ROTATION_SINGLE_USER",
+		&returns,
+	)
+	return returns
 }
 
 func SecretRotationApplication_MARIADB_ROTATION_MULTI_USER() SecretRotationApplication {

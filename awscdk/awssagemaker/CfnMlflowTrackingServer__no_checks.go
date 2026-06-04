@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMlflowTrackingServer) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnMlflowTrackingServer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMlflowTrackingServer) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

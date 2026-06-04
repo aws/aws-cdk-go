@@ -13,17 +13,17 @@ package awsbedrockagentcorealpha
 //   	GatewayTargetName: jsii.String("gatewayTargetName"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayTargetCommonProps struct {
 	// Optional description for the gateway target The description can have up to 200 characters.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the gateway target The name must be unique within the gateway Pattern: ^([0-9a-zA-Z][-]?){1,100}$.
 	// Default: - auto generate.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 }
 

@@ -16,6 +16,10 @@ func (h *jsiiProxy_HttpApi) validateAddVpcLinkParameters(options *VpcLinkProps) 
 	return nil
 }
 
+func (h *jsiiProxy_HttpApi) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (h *jsiiProxy_HttpApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

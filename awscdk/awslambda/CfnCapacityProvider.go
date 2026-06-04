@@ -55,6 +55,15 @@ import (
 //   		},
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PropagateTags: &PropagateTagsConfigProperty{
+//   		ExplicitTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -114,6 +123,8 @@ type CfnCapacityProvider interface {
 	// The permissions configuration for the capacity provider.
 	PermissionsConfig() interface{}
 	SetPermissionsConfig(val interface{})
+	PropagateTags() interface{}
+	SetPropagateTags(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -210,6 +221,11 @@ type CfnCapacityProvider interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -455,6 +471,16 @@ func (j *jsiiProxy_CfnCapacityProvider) PermissionsConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCapacityProvider) PropagateTags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"propagateTags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCapacityProvider) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -590,6 +616,17 @@ func (j *jsiiProxy_CfnCapacityProvider)SetPermissionsConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"permissionsConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityProvider)SetPropagateTags(val interface{}) {
+	if err := j.validateSetPropagateTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"propagateTags",
 		val,
 	)
 }
@@ -854,6 +891,17 @@ func (c *jsiiProxy_CfnCapacityProvider) AddPropertyOverride(propertyPath *string
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnCapacityProvider) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

@@ -26,13 +26,13 @@ import (
 //   	Topic: topic,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type InvocationConfiguration struct {
 	// S3 Location Configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	S3Location *awss3.Location `field:"required" json:"s3Location" yaml:"s3Location"`
 	// SNS Topic Configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Topic awssns.ITopic `field:"required" json:"topic" yaml:"topic"`
 }
 

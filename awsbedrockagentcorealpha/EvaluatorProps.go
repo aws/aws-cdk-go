@@ -42,37 +42,37 @@ package awsbedrockagentcorealpha
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorProps struct {
 	// The configuration that defines how the evaluator assesses agent performance.
 	//
 	// Use `EvaluatorConfig.llmAsAJudge()` for model-based evaluation or
 	// `EvaluatorConfig.codeBased()` for Lambda-based evaluation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorConfig EvaluatorConfig `field:"required" json:"evaluatorConfig" yaml:"evaluatorConfig"`
 	// The name of the evaluator.
 	//
 	// Must be unique within your account. Valid characters are a-z, A-Z, 0-9, _ (underscore).
 	// Must start with a letter and can be up to 48 characters long.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorName *string `field:"required" json:"evaluatorName" yaml:"evaluatorName"`
 	// The level at which the evaluator assesses agent performance.
 	//
 	// Determines what granularity of data the evaluator operates on:
 	// tool call, trace (single request-response), or session (full conversation).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Level EvaluationLevel `field:"required" json:"level" yaml:"level"`
 	// The description of the evaluator.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Tags for the evaluator.
 	//
 	// A list of key:value pairs of tags to apply to this Evaluator resource.
 	// Default: - No tags.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

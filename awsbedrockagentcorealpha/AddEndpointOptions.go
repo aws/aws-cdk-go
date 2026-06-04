@@ -13,17 +13,17 @@ package awsbedrockagentcorealpha
 //   	Version: jsii.String("version"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type AddEndpointOptions struct {
 	// Description for the endpoint, Must be between 1 and 1200 characters.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Override the runtime version for this endpoint.
 	// Default: 1.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

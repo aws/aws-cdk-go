@@ -4,6 +4,10 @@ package awssns
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_Subscription) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_Subscription) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

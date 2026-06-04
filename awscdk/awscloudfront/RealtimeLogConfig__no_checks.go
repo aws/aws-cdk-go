@@ -4,6 +4,10 @@ package awscloudfront
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_RealtimeLogConfig) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_RealtimeLogConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -19,6 +19,14 @@ func (e *jsiiProxy_EksJobDefinition) validateAddRetryStrategyParameters(strategy
 	return nil
 }
 
+func (e *jsiiProxy_EksJobDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_EksJobDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

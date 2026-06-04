@@ -11,7 +11,7 @@ import (
 //
 //
 //   serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-//   	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+//   	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 //   	Vpc: Vpc,
 //   	CacheUsageLimits: &CacheUsageLimitsProperty{
 //   		// cache data storage limits (GB)

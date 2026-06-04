@@ -16,6 +16,10 @@ func (t *jsiiProxy_Trail) validateAddS3EventSelectorParameters(s3Selector *[]*S3
 	return nil
 }
 
+func (t *jsiiProxy_Trail) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_Trail) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

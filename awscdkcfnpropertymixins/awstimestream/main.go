@@ -52,6 +52,10 @@ func init() {
 		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_LogDeliveryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBClusterPropsMixin.MaintenanceScheduleProperty",
+		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_MaintenanceScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBClusterPropsMixin.S3ConfigurationProperty",
 		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_S3ConfigurationProperty)(nil)).Elem(),
 	)
@@ -78,6 +82,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBInstancePropsMixin.LogDeliveryConfigurationProperty",
 		reflect.TypeOf((*CfnInfluxDBInstancePropsMixin_LogDeliveryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBInstancePropsMixin.MaintenanceScheduleProperty",
+		reflect.TypeOf((*CfnInfluxDBInstancePropsMixin_MaintenanceScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBInstancePropsMixin.S3ConfigurationProperty",

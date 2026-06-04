@@ -4,6 +4,10 @@ package awsservicediscovery
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (p *jsiiProxy_PublicDnsNamespace) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PublicDnsNamespace) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -70,6 +70,14 @@ type AccessEntry interface {
 	Stack() awscdk.Stack
 	// Add the access policies for this entry.
 	AddAccessPolicies(newAccessPolicies *[]IAccessPolicy)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -322,6 +330,17 @@ func (a *jsiiProxy_AccessEntry) AddAccessPolicies(newAccessPolicies *[]IAccessPo
 		a,
 		"addAccessPolicies",
 		[]interface{}{newAccessPolicies},
+	)
+}
+
+func (a *jsiiProxy_AccessEntry) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := a.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		a,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

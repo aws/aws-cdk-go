@@ -16,6 +16,10 @@ func (l *jsiiProxy_LambdaDeploymentGroup) validateAddPreHookParameters(preHook a
 	return nil
 }
 
+func (l *jsiiProxy_LambdaDeploymentGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (l *jsiiProxy_LambdaDeploymentGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

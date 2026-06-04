@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateAddPropertyOverr
 	return nil
 }
 
+func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIPAMResourceDiscoveryAssociation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

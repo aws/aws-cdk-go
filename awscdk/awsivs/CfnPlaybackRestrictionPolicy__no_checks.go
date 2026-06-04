@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

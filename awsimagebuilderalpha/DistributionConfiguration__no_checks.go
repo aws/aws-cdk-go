@@ -12,6 +12,10 @@ func (d *jsiiProxy_DistributionConfiguration) validateAddContainerDistributionsP
 	return nil
 }
 
+func (d *jsiiProxy_DistributionConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_DistributionConfiguration) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

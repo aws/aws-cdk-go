@@ -9,6 +9,7 @@ package awstransfer
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   vpcProperty := &VpcProperty{
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
@@ -21,6 +22,10 @@ package awstransfer
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-vpc.html
 //
 type CfnWebApp_VpcProperty struct {
+	// The IP address type for the VPC endpoint used by the web app.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-vpc.html#cfn-transfer-webapp-vpc-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-vpc.html#cfn-transfer-webapp-vpc-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`

@@ -32,6 +32,10 @@ func (f *jsiiProxy_FirehoseDeliveryDestination) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (f *jsiiProxy_FirehoseDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirehoseDeliveryDestination) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

@@ -7,13 +7,13 @@ import (
 )
 
 // Abstract interface for gateway credential provider configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ICredentialProviderConfig interface {
 	// Grant the gateway's execution role the permissions needed for outbound authentication.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantNeededPermissionsToRole(gateway IGateway) awsiam.Grant
 	// The credential provider type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderType() CredentialProviderType
 }
 

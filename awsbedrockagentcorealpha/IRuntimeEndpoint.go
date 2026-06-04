@@ -11,37 +11,37 @@ import (
 )
 
 // Interface for Runtime Endpoint resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IRuntimeEndpoint interface {
 	awscdk.IResource
 	interfacesawsbedrockagentcore.IRuntimeEndpointRef
 	// The ARN of the parent agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeArn() *string
 	// The ARN of the runtime endpoint resource.
 	//
 	// Example:
 	//   "arn:aws:bedrock-agentcore:us-west-2:123456789012:agent-runtime-endpoint/endpoint-abc123"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeEndpointArn() *string
 	// When the endpoint was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The description of the runtime endpoint.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The name of the runtime endpoint.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EndpointName() *string
 	// The live version of the agent runtime that is currently serving requests.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LiveVersion() *string
 	// The current status of the runtime endpoint.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 	// The target version the endpoint is transitioning to (during updates).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetVersion() *string
 }
 

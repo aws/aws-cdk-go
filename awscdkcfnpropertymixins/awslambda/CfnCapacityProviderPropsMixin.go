@@ -47,6 +47,15 @@ import (
 //   	PermissionsConfig: &CapacityProviderPermissionsConfigProperty{
 //   		CapacityProviderOperatorRoleArn: jsii.String("capacityProviderOperatorRoleArn"),
 //   	},
+//   	PropagateTags: &PropagateTagsConfigProperty{
+//   		ExplicitTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

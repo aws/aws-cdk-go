@@ -4,6 +4,10 @@ package awselasticloadbalancingv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (b *jsiiProxy_BaseListener) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_BaseListener) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

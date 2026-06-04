@@ -71,6 +71,14 @@ type Dashboard interface {
 	// Multiple widgets added in the same call to add() will be laid out next
 	// to each other.
 	AddWidgets(widgets ...IWidget)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -304,6 +312,17 @@ func (d *jsiiProxy_Dashboard) AddWidgets(widgets ...IWidget) {
 		d,
 		"addWidgets",
 		args,
+	)
+}
+
+func (d *jsiiProxy_Dashboard) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := d.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

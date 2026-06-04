@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateA
 	return nil
 }
 
+func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

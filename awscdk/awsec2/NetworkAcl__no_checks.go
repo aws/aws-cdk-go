@@ -8,6 +8,10 @@ func (n *jsiiProxy_NetworkAcl) validateAddEntryParameters(id *string, options *C
 	return nil
 }
 
+func (n *jsiiProxy_NetworkAcl) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (n *jsiiProxy_NetworkAcl) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

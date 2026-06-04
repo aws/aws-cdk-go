@@ -31,6 +31,7 @@ func init() {
 		"@aws-cdk/aws-cloud9-alpha.Ec2Environment",
 		reflect.TypeOf((*Ec2Environment)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2EnvironmentArn", GoGetter: "Ec2EnvironmentArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2EnvironmentName", GoGetter: "Ec2EnvironmentName"},

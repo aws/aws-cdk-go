@@ -12,10 +12,10 @@ package awsbedrockagentcorealpha
 //   	EvaluatorId: jsii.String("evaluatorId"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorReferenceBindResult struct {
 	// The evaluator identifier.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorId *string `field:"required" json:"evaluatorId" yaml:"evaluatorId"`
 }
 

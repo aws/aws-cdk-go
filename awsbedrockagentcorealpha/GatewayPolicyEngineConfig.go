@@ -36,12 +36,12 @@ package awsbedrockagentcorealpha
 //   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayPolicyEngineConfig struct {
 	// The policy engine to associate with this gateway.
 	//
 	// [disable-awslint:prefer-ref-interface].
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngine IPolicyEngine `field:"required" json:"policyEngine" yaml:"policyEngine"`
 	// The enforcement mode for the policy engine.
 	//
@@ -49,7 +49,7 @@ type GatewayPolicyEngineConfig struct {
 	// - `ENFORCE`: Actively allows or denies requests based on Cedar policy evaluation.
 	// Default: PolicyEngineMode.LOG_ONLY
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Mode PolicyEngineMode `field:"optional" json:"mode" yaml:"mode"`
 }
 

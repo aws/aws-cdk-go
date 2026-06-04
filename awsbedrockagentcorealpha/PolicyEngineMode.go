@@ -36,10 +36,10 @@ import (
 //   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type PolicyEngineMode interface {
 	// The string value of the policy engine mode.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value() *string
 }
 
@@ -59,7 +59,7 @@ func (j *jsiiProxy_PolicyEngineMode) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewPolicyEngineMode(value *string) PolicyEngineMode {
 	_init_.Initialize()
 
@@ -77,7 +77,7 @@ func NewPolicyEngineMode(value *string) PolicyEngineMode {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewPolicyEngineMode_Override(p PolicyEngineMode, value *string) {
 	_init_.Initialize()
 

@@ -32,6 +32,10 @@ func (s *jsiiProxy_S3DeliveryDestination) validateAddPropertyOverrideParameters(
 	return nil
 }
 
+func (s *jsiiProxy_S3DeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_S3DeliveryDestination) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

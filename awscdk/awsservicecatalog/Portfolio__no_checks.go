@@ -8,6 +8,10 @@ func (p *jsiiProxy_Portfolio) validateAddProductParameters(product IProduct) err
 	return nil
 }
 
+func (p *jsiiProxy_Portfolio) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_Portfolio) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

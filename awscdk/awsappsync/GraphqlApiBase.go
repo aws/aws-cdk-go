@@ -81,6 +81,14 @@ type GraphqlApiBase interface {
 	AddRdsDataSourceV2(id *string, serverlessCluster awsrds.IDatabaseCluster, secretStore awssecretsmanager.ISecret, databaseName *string, options *DataSourceOptions) RdsDataSource
 	// Add schema dependency if not imported.
 	AddSchemaDependency(construct awscdk.CfnResource) *bool
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -482,6 +490,17 @@ func (g *jsiiProxy_GraphqlApiBase) AddSchemaDependency(construct awscdk.CfnResou
 	)
 
 	return returns
+}
+
+func (g *jsiiProxy_GraphqlApiBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := g.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (g *jsiiProxy_GraphqlApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

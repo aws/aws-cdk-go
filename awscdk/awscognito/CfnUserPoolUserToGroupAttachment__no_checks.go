@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateAddPropertyOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

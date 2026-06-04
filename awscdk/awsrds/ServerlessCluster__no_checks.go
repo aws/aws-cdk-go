@@ -12,6 +12,10 @@ func (s *jsiiProxy_ServerlessCluster) validateAddRotationSingleUserParameters(op
 	return nil
 }
 
+func (s *jsiiProxy_ServerlessCluster) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_ServerlessCluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -24,6 +24,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Capabilities: &CapabilitiesProperty{
+//   		AccessAppsNativeDataStore: jsii.String("accessAppsNativeDataStore"),
 //   		Action: jsii.String("action"),
 //   		AddOrRunAnomalyDetectionForAnalyses: jsii.String("addOrRunAnomalyDetectionForAnalyses"),
 //   		AmazonBedrockArsAction: jsii.String("amazonBedrockArsAction"),
@@ -32,6 +33,7 @@ import (
 //   		AmazonSThreeAction: jsii.String("amazonSThreeAction"),
 //   		Analysis: jsii.String("analysis"),
 //   		ApproveFlowShareRequests: jsii.String("approveFlowShareRequests"),
+//   		Apps: jsii.String("apps"),
 //   		AsanaAction: jsii.String("asanaAction"),
 //   		Automate: jsii.String("automate"),
 //   		BambooHrAction: jsii.String("bambooHrAction"),
@@ -46,6 +48,7 @@ import (
 //   		CreateAndUpdateAmazonBedrockFsAction: jsii.String("createAndUpdateAmazonBedrockFsAction"),
 //   		CreateAndUpdateAmazonBedrockKrsAction: jsii.String("createAndUpdateAmazonBedrockKrsAction"),
 //   		CreateAndUpdateAmazonSThreeAction: jsii.String("createAndUpdateAmazonSThreeAction"),
+//   		CreateAndUpdateApps: jsii.String("createAndUpdateApps"),
 //   		CreateAndUpdateAsanaAction: jsii.String("createAndUpdateAsanaAction"),
 //   		CreateAndUpdateBambooHrAction: jsii.String("createAndUpdateBambooHrAction"),
 //   		CreateAndUpdateBoxAgentAction: jsii.String("createAndUpdateBoxAgentAction"),
@@ -94,6 +97,7 @@ import (
 //   		CreateChatAgents: jsii.String("createChatAgents"),
 //   		CreateDashboardExecutiveSummaryWithQ: jsii.String("createDashboardExecutiveSummaryWithQ"),
 //   		CreateSharedFolders: jsii.String("createSharedFolders"),
+//   		CreateSpaces: jsii.String("createSpaces"),
 //   		CreateSpiceDataset: jsii.String("createSpiceDataset"),
 //   		Dashboard: jsii.String("dashboard"),
 //   		EditVisualWithQ: jsii.String("editVisualWithQ"),
@@ -113,6 +117,7 @@ import (
 //   		HuggingFaceAction: jsii.String("huggingFaceAction"),
 //   		IncludeContentInScheduledReportsEmail: jsii.String("includeContentInScheduledReportsEmail"),
 //   		IntercomAction: jsii.String("intercomAction"),
+//   		InvokeAppsAiInference: jsii.String("invokeAppsAiInference"),
 //   		JiraAction: jsii.String("jiraAction"),
 //   		KnowledgeBase: jsii.String("knowledgeBase"),
 //   		LinearAction: jsii.String("linearAction"),
@@ -145,10 +150,12 @@ import (
 //   		ShareAmazonBedrockKrsAction: jsii.String("shareAmazonBedrockKrsAction"),
 //   		ShareAmazonSThreeAction: jsii.String("shareAmazonSThreeAction"),
 //   		ShareAnalyses: jsii.String("shareAnalyses"),
+//   		ShareApps: jsii.String("shareApps"),
 //   		ShareAsanaAction: jsii.String("shareAsanaAction"),
 //   		ShareBambooHrAction: jsii.String("shareBambooHrAction"),
 //   		ShareBoxAgentAction: jsii.String("shareBoxAgentAction"),
 //   		ShareCanvaAgentAction: jsii.String("shareCanvaAgentAction"),
+//   		ShareChatAgents: jsii.String("shareChatAgents"),
 //   		ShareComprehendAction: jsii.String("shareComprehendAction"),
 //   		ShareComprehendMedicalAction: jsii.String("shareComprehendMedicalAction"),
 //   		ShareConfluenceAction: jsii.String("shareConfluenceAction"),
@@ -187,6 +194,7 @@ import (
 //   		ShareSharePointAction: jsii.String("shareSharePointAction"),
 //   		ShareSlackAction: jsii.String("shareSlackAction"),
 //   		ShareSmartsheetAction: jsii.String("shareSmartsheetAction"),
+//   		ShareSpaces: jsii.String("shareSpaces"),
 //   		ShareTextractAction: jsii.String("shareTextractAction"),
 //   		ShareZendeskAction: jsii.String("shareZendeskAction"),
 //   		SlackAction: jsii.String("slackAction"),
@@ -389,6 +397,11 @@ type CfnCustomPermissions interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -928,6 +941,17 @@ func (c *jsiiProxy_CfnCustomPermissions) AddPropertyOverride(propertyPath *strin
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnCustomPermissions) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

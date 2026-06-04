@@ -12,6 +12,10 @@ func (e *jsiiProxy_EndpointConfig) validateAddServerlessProductionVariantParamet
 	return nil
 }
 
+func (e *jsiiProxy_EndpointConfig) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EndpointConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

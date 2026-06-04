@@ -32,6 +32,10 @@ func (f *jsiiProxy_FargateCluster) validateAddServiceAccountParameters(id *strin
 	return nil
 }
 
+func (f *jsiiProxy_FargateCluster) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateCluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

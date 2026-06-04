@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnGateway) validateAddPropertyOverrideParameters(propertyPat
 	return nil
 }
 
+func (c *jsiiProxy_CfnGateway) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnGateway) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -347,14 +355,6 @@ func (j *jsiiProxy_CfnGateway) validateSetProtocolConfigurationParameters(val in
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGateway_GatewayProtocolConfigurationProperty; received %#v (a %T)", val, val)
 		}
-	}
-
-	return nil
-}
-
-func (j *jsiiProxy_CfnGateway) validateSetProtocolTypeParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

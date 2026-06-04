@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

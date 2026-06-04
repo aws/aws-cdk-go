@@ -17,21 +17,21 @@ package awsbedrockagentcorealpha
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type OnlineEvaluationConfigAttributes struct {
 	// The ARN of the online evaluation configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigArn *string `field:"required" json:"onlineEvaluationConfigArn" yaml:"onlineEvaluationConfigArn"`
 	// The ID of the online evaluation configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigId *string `field:"required" json:"onlineEvaluationConfigId" yaml:"onlineEvaluationConfigId"`
 	// The name of the online evaluation configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigName *string `field:"required" json:"onlineEvaluationConfigName" yaml:"onlineEvaluationConfigName"`
 	// The ARN of the IAM execution role.
 	// Default: - No role ARN provided.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 }
 

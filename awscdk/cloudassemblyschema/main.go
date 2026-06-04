@@ -87,6 +87,10 @@ func init() {
 		reflect.TypeOf((*CdkCommands)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.CloudFormationResourceJson",
+		reflect.TypeOf((*CloudFormationResourceJson)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.ContainerImageAssetCacheOption",
 		reflect.TypeOf((*ContainerImageAssetCacheOption)(nil)).Elem(),
 	)
@@ -275,6 +279,18 @@ func init() {
 		reflect.TypeOf((*PluginContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.PluginReportJson",
+		reflect.TypeOf((*PluginReportJson)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.PolicyValidationReportJson",
+		reflect.TypeOf((*PolicyValidationReportJson)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.PolicyViolationJson",
+		reflect.TypeOf((*PolicyViolationJson)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.PropertyMutationMetadataEntry",
 		reflect.TypeOf((*PropertyMutationMetadataEntry)(nil)).Elem(),
 	)
@@ -300,6 +316,10 @@ func init() {
 		reflect.TypeOf((*SecurityGroupContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.SuppressedViolationJson",
+		reflect.TypeOf((*SuppressedViolationJson)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.Tag",
 		reflect.TypeOf((*Tag)(nil)).Elem(),
 	)
@@ -318,6 +338,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.UnconfiguredBehavesLike",
 		reflect.TypeOf((*UnconfiguredBehavesLike)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.cloud_assembly_schema.ViolatingConstructJson",
+		reflect.TypeOf((*ViolatingConstructJson)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cloud_assembly_schema.VpcContextQuery",

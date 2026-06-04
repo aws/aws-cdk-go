@@ -36,6 +36,14 @@ func validateManifest_LoadIntegManifestParameters(filePath *string) error {
 	return nil
 }
 
+func validateManifest_LoadValidationReportParameters(filePath *string) error {
+	if filePath == nil {
+		return fmt.Errorf("parameter filePath is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateManifest_SaveAssemblyManifestParameters(manifest *AssemblyManifest, filePath *string) error {
 	if manifest == nil {
 		return fmt.Errorf("parameter manifest is required, but nil was provided")

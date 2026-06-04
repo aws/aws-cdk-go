@@ -19,7 +19,7 @@ import (
 //   	jsii.String("values"),
 //   }, bedrock_agentcore_alpha.CustomClaimOperator_EQUALS)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayCustomClaim interface {
 }
 
@@ -33,7 +33,7 @@ type jsiiProxy_GatewayCustomClaim struct {
 // String array claims can use CONTAINS (default) or CONTAINS_ANY operator.
 //
 // Returns: A GatewayCustomClaim configured for string array validation.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCustomClaim_WithStringArrayValue(name *string, values *[]*string, operator CustomClaimOperator) GatewayCustomClaim {
 	_init_.Initialize()
 
@@ -57,7 +57,7 @@ func GatewayCustomClaim_WithStringArrayValue(name *string, values *[]*string, op
 // String claims must use the EQUALS operator.
 //
 // Returns: A GatewayCustomClaim configured for string validation.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCustomClaim_WithStringValue(name *string, value *string) GatewayCustomClaim {
 	_init_.Initialize()
 

@@ -12,6 +12,10 @@ func (c *jsiiProxy_ClientVpnEndpoint) validateAddRouteParameters(id *string, pro
 	return nil
 }
 
+func (c *jsiiProxy_ClientVpnEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_ClientVpnEndpoint) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

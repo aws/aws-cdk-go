@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIntelligentPromptRouter) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnIntelligentPromptRouter) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIntelligentPromptRouter) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

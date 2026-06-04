@@ -32,11 +32,11 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CustomJwtAuthorizer interface {
 	IGatewayAuthorizerConfig
 	// The authorizer type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerType() GatewayAuthorizerType
 }
 
@@ -56,7 +56,7 @@ func (j *jsiiProxy_CustomJwtAuthorizer) AuthorizerType() GatewayAuthorizerType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewCustomJwtAuthorizer(config *CustomJwtConfiguration) CustomJwtAuthorizer {
 	_init_.Initialize()
 
@@ -74,7 +74,7 @@ func NewCustomJwtAuthorizer(config *CustomJwtConfiguration) CustomJwtAuthorizer 
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewCustomJwtAuthorizer_Override(c CustomJwtAuthorizer, config *CustomJwtConfiguration) {
 	_init_.Initialize()
 

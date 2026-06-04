@@ -28,6 +28,7 @@ func init() {
 		"@aws-cdk/aws-apprunner-alpha.AutoScalingConfiguration",
 		reflect.TypeOf((*AutoScalingConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationArn", GoGetter: "AutoScalingConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingConfigurationName", GoGetter: "AutoScalingConfigurationName"},
@@ -306,6 +307,7 @@ func init() {
 		"@aws-cdk/aws-apprunner-alpha.ObservabilityConfiguration",
 		reflect.TypeOf((*ObservabilityConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -368,6 +370,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addEnvironmentVariable", GoMethod: "AddEnvironmentVariable"},
 			_jsii_.MemberMethod{JsiiMethod: "addSecret", GoMethod: "AddSecret"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
@@ -435,6 +438,7 @@ func init() {
 		"@aws-cdk/aws-apprunner-alpha.VpcConnector",
 		reflect.TypeOf((*VpcConnector)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -469,6 +473,7 @@ func init() {
 		"@aws-cdk/aws-apprunner-alpha.VpcIngressConnection",
 		reflect.TypeOf((*VpcIngressConnection)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

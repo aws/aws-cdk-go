@@ -21,20 +21,20 @@ import (
 //
 //   openApiTargetConfiguration := bedrock_agentcore_alpha.NewOpenApiTargetConfiguration(apiSchema, jsii.Boolean(false))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type OpenApiTargetConfiguration interface {
 	McpTargetConfiguration
 	// The OpenAPI schema that defines the API.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiSchema() ApiSchema
 	// The target type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 	// Binds this configuration to a construct scope Sets up necessary permissions for the gateway to access the API schema.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *TargetConfigurationConfig
 	// Renders the MCP-specific configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RenderMcpConfiguration() interface{}
 }
 
@@ -64,7 +64,7 @@ func (j *jsiiProxy_OpenApiTargetConfiguration) TargetType() McpTargetType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewOpenApiTargetConfiguration(apiSchema ApiSchema, validateSchema *bool) OpenApiTargetConfiguration {
 	_init_.Initialize()
 
@@ -82,7 +82,7 @@ func NewOpenApiTargetConfiguration(apiSchema ApiSchema, validateSchema *bool) Op
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewOpenApiTargetConfiguration_Override(o OpenApiTargetConfiguration, apiSchema ApiSchema, validateSchema *bool) {
 	_init_.Initialize()
 
@@ -96,7 +96,7 @@ func NewOpenApiTargetConfiguration_Override(o OpenApiTargetConfiguration, apiSch
 // Create an OpenAPI target configuration.
 //
 // Returns: A new OpenApiTargetConfiguration instance.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func OpenApiTargetConfiguration_Create(apiSchema ApiSchema, validateSchema *bool) OpenApiTargetConfiguration {
 	_init_.Initialize()
 

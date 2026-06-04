@@ -4,6 +4,10 @@ package awsautoscaling
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (w *jsiiProxy_WarmPool) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (w *jsiiProxy_WarmPool) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

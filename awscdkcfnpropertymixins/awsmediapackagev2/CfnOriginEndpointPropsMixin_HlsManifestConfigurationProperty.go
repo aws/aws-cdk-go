@@ -23,11 +23,13 @@ package awsmediapackagev2
 //   	ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   	ScteHls: &ScteHlsProperty{
 //   		AdMarkerHls: jsii.String("adMarkerHls"),
+//   		ScteInManifests: jsii.String("scteInManifests"),
 //   	},
 //   	StartTag: &StartTagProperty{
 //   		Precise: jsii.Boolean(false),
 //   		TimeOffset: jsii.Number(123),
 //   	},
+//   	UriPathType: jsii.String("uriPathType"),
 //   	Url: jsii.String("url"),
 //   	UrlEncodeChildManifest: jsii.Boolean(false),
 //   }
@@ -65,6 +67,9 @@ type CfnOriginEndpointPropsMixin_HlsManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-starttag
 	//
 	StartTag interface{} `field:"optional" json:"startTag" yaml:"startTag"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-uripathtype
+	//
+	UriPathType *string `field:"optional" json:"uriPathType" yaml:"uriPathType"`
 	// The URL of the HLS manifest configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-url
 	//

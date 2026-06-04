@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnGuardHook) validateAddPropertyOverrideParameters(propertyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnGuardHook) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGuardHook) validateApplyRemovalPolicyParameters(options *RemovalPolicyOptions) error {
 	return nil
 }

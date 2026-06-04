@@ -24,6 +24,14 @@ func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvi
 	return nil
 }
 
+func (j *jsiiProxy_JobQueue) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_JobQueue) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

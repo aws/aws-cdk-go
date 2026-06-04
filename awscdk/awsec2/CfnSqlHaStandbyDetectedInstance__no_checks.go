@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSqlHaStandbyDetectedInstance) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnSqlHaStandbyDetectedInstance) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSqlHaStandbyDetectedInstance) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

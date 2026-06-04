@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) validateAddPropertyOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficMirrorTarget) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficMirrorTarget) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

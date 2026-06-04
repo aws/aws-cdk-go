@@ -22,7 +22,7 @@ type IOriginEndpoint interface {
 	// You can only add 1 OriginEndpointPolicy to an OriginEndpoint.
 	// If you have already defined one, it will append to the policy already created.
 	// Experimental.
-	AddToResourcePolicy(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) *awsiam.AddToResourcePolicyResult
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Create a CloudWatch metric.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -94,8 +94,8 @@ type jsiiProxy_IOriginEndpoint struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_IOriginEndpoint) AddToResourcePolicy(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) *awsiam.AddToResourcePolicyResult {
-	if err := i.validateAddToResourcePolicyParameters(statement, cdnAuth); err != nil {
+func (i *jsiiProxy_IOriginEndpoint) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := i.validateAddToResourcePolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *awsiam.AddToResourcePolicyResult
@@ -103,7 +103,7 @@ func (i *jsiiProxy_IOriginEndpoint) AddToResourcePolicy(statement awsiam.PolicyS
 	_jsii_.Invoke(
 		i,
 		"addToResourcePolicy",
-		[]interface{}{statement, cdnAuth},
+		[]interface{}{statement},
 		&returns,
 	)
 

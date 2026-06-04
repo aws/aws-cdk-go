@@ -141,6 +141,14 @@ type BucketBase interface {
 	// actually carried out. Otherwise, synthesis and deploy will terminate
 	// silently, which may be confusing.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -778,6 +786,17 @@ func (b *jsiiProxy_BucketBase) AddToResourcePolicy(permission awsiam.PolicyState
 	)
 
 	return returns
+}
+
+func (b *jsiiProxy_BucketBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := b.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (b *jsiiProxy_BucketBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

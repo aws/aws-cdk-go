@@ -8,6 +8,10 @@ func (s *jsiiProxy_Stage) validateAddApiKeyParameters(id *string, options *ApiKe
 	return nil
 }
 
+func (s *jsiiProxy_Stage) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_Stage) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -16,6 +16,10 @@ func (i *jsiiProxy_Instance) validateApplyCloudFormationInitParameters(init Clou
 	return nil
 }
 
+func (i *jsiiProxy_Instance) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (i *jsiiProxy_Instance) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

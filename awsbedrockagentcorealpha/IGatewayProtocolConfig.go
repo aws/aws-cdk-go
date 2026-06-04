@@ -5,10 +5,10 @@ import (
 )
 
 // Abstract interface for gateway protocol configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IGatewayProtocolConfig interface {
 	// The protocol type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProtocolType() *string
 }
 

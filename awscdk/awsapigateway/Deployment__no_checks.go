@@ -8,6 +8,10 @@ func (d *jsiiProxy_Deployment) validateAddToLogicalIdParameters(data interface{}
 	return nil
 }
 
+func (d *jsiiProxy_Deployment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_Deployment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

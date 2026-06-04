@@ -20,6 +20,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "airflowConfigurationOptions", GoGetter: "AirflowConfigurationOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "airflowVersion", GoGetter: "AirflowVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCeleryExecutorQueue", GoGetter: "AttrCeleryExecutorQueue"},

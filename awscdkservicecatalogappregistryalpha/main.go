@@ -17,6 +17,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationManagerUrl", GoGetter: "ApplicationManagerUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationName", GoGetter: "ApplicationName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateAllStacksInScope", GoMethod: "AssociateAllStacksInScope"},
 			_jsii_.MemberMethod{JsiiMethod: "associateApplicationWithStack", GoMethod: "AssociateApplicationWithStack"},
@@ -70,6 +71,7 @@ func init() {
 		"@aws-cdk/aws-servicecatalogappregistry-alpha.AttributeGroup",
 		reflect.TypeOf((*AttributeGroup)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateWith", GoMethod: "AssociateWith"},
 			_jsii_.MemberProperty{JsiiProperty: "attributeGroupArn", GoGetter: "AttributeGroupArn"},

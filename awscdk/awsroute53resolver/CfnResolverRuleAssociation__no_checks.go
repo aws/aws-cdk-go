@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnResolverRuleAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResolverRuleAssociation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

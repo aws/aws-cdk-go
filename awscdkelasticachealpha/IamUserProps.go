@@ -6,7 +6,7 @@ package awscdkelasticachealpha
 // Example:
 //   user := elasticache.NewIamUser(this, jsii.String("User"), &IamUserProps{
 //   	// set user engine
-//   	Engine: elasticache.UserEngine_REDIS,
+//   	Engine: elasticache.UserEngine_REDIS(),
 //
 //   	// set user id
 //   	UserId: jsii.String("my-user"),

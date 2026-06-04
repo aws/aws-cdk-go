@@ -10,6 +10,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (r *jsiiProxy_Resource) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_Resource) validateApplyRemovalPolicyParameters(policy RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

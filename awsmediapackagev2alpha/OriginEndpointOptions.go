@@ -46,6 +46,34 @@ type OriginEndpointOptions struct {
 	// Experimental.
 	Segment *SegmentConfiguration `field:"required" json:"segment" yaml:"segment"`
 	// Provide access to MediaPackage V2 Origin Endpoint via secret header.
+	//
+	// Use this when your CDN doesn't support AWS Signature Version 4 (SigV4)
+	// authentication. For SigV4-based access with Amazon CloudFront, see
+	// `MediaPackageV2Origin`.
+	//
+	// Setting `cdnAuth` auto-creates the following policy on the OriginEndpoint:
+	//
+	// ```json
+	// {
+	//   "Version":"2012-10-17",
+	//   "Statement": [
+	//     {
+	//       "Sid": "AllowGetObjectAccessForAuthorizedRequest",
+	//       "Effect": "Allow",
+	//       "Principal": "*",
+	//       "Action": "mediapackagev2:GetObject",
+	//       "Resource": "arn:aws:mediapackagev2:us-east-1:111122223333:channelGroup/channelGroupName/channel/channelName/originEndpoint/originEndpointName",
+	//       "Condition": {
+	//         "Bool": {
+	//           "mediapackagev2:RequestHasMatchingCdnAuthHeader": "true"
+	//         }
+	//       }
+	//     }
+	//   ]
+	// }
+	// ```.
+	// See: https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth-setup.html
+	//
 	// Default: undefined - Not configured on endpoint.
 	//
 	// Experimental.

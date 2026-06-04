@@ -26,15 +26,16 @@ import (
 //   var role IRole
 //   var script Code
 //
-//   glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
+//   glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
+//   	JobName: jsii.String("PySparkETLJobCustomName"),
+//   	Description: jsii.String("This is a description"),
 //   	Role: Role,
 //   	Script: Script,
-//   	JobName: jsii.String("RayCustomJobName"),
-//   	Description: jsii.String("This is a description"),
-//   	WorkerType: glue.WorkerType_Z_2X,
-//   	NumberOfWorkers: jsii.Number(5),
-//   	Runtime: glue.Runtime_RAY_TWO_FOUR,
-//   	MaxRetries: jsii.Number(3),
+//   	GlueVersion: glue.GlueVersion_V5_1,
+//   	ContinuousLogging: &ContinuousLoggingProps{
+//   		Enabled: jsii.Boolean(false),
+//   	},
+//   	WorkerType: glue.WorkerType_G_2X,
 //   	MaxConcurrentRuns: jsii.Number(100),
 //   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 //   	Connections: []IConnection{
@@ -46,6 +47,8 @@ import (
 //   		"SecondTagName": jsii.String("SecondTagValue"),
 //   		"XTagName": jsii.String("XTagValue"),
 //   	},
+//   	NumberOfWorkers: jsii.Number(2),
+//   	MaxRetries: jsii.Number(2),
 //   })
 //
 // Experimental.
@@ -90,6 +93,15 @@ type SecurityConfiguration interface {
 	// The stack in which this resource is defined.
 	// Experimental.
 	Stack() awscdk.Stack
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -352,6 +364,17 @@ func SecurityConfiguration_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (s *jsiiProxy_SecurityConfiguration) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := s.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (s *jsiiProxy_SecurityConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

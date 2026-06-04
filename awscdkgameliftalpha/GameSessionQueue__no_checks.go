@@ -8,6 +8,10 @@ func (g *jsiiProxy_GameSessionQueue) validateAddDestinationParameters(destinatio
 	return nil
 }
 
+func (g *jsiiProxy_GameSessionQueue) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_GameSessionQueue) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

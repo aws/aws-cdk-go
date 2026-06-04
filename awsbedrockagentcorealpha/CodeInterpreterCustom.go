@@ -45,13 +45,13 @@ type CodeInterpreterCustom interface {
 	// Experimental.
 	CodeInterpreterArn() *string
 	// A reference to a CodeInterpreterCustom resource.
-	// Experimental.
+	// Deprecated.
 	CodeInterpreterCustomRef() *interfacesawsbedrockagentcore.CodeInterpreterCustomReference
 	// The id of the code interpreter.
 	// Experimental.
 	CodeInterpreterId() *string
 	// An accessor for the Connections object that will fail if this Browser does not have a VPC configured.
-	// Experimental.
+	// Deprecated.
 	Connections() awsec2.Connections
 	// The created timestamp of the code interpreter.
 	// Experimental.
@@ -111,6 +111,15 @@ type CodeInterpreterCustom interface {
 	//
 	// Experimental.
 	Tags() *map[string]*string
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -144,7 +153,7 @@ type CodeInterpreterCustom interface {
 	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
-	// Experimental.
+	// Deprecated.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant invoke permissions on this code interpreter to an IAM principal.
 	//
@@ -155,7 +164,7 @@ type CodeInterpreterCustom interface {
 	// - actions: ['bedrock-agentcore:InvokeCodeInterpreter']
 	// - resourceArns: [this.codeInterpreterArn]
 	//
-	// Experimental.
+	// Deprecated.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions on this code interpreter to an IAM principal.
 	//
@@ -168,7 +177,7 @@ type CodeInterpreterCustom interface {
 	// - actions: ['bedrock-agentcore:GetCodeInterpreter', 'bedrock-agentcore:GetCodeInterpreterSession'] on this.codeInterpreterArn
 	// - actions: ['bedrock-agentcore:ListCodeInterpreters', 'bedrock-agentcore:ListCodeInterpreterSessions'] on all resources (*).
 	//
-	// Experimental.
+	// Deprecated.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant invoke permissions on this code interpreter to an IAM principal.
 	//
@@ -179,13 +188,13 @@ type CodeInterpreterCustom interface {
 	// - actions: ['bedrock-agentcore:StartCodeInterpreterSession', 'bedrock-agentcore:InvokeCodeInterpreter', 'bedrock-agentcore:StopCodeInterpreterSession']
 	// - resourceArns: [this.codeInterpreterArn]
 	//
-	// Experimental.
+	// Deprecated.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this code interpreter.
 	//
 	// By default, the metric will be calculated as a sum over a period of 5 minutes.
 	// You can customize this by using the `statistic` and `period` properties.
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter errors.
 	//
@@ -194,7 +203,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Errors.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter api operations..
 	//
@@ -204,7 +213,7 @@ type CodeInterpreterCustom interface {
 	// - metricName: metricName
 	// - dimensionsMap: { CodeInterpreterId: this.codeInterpreterId }
 	//
-	// Experimental.
+	// Deprecated.
 	MetricForApiOperation(metricName *string, operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter invocations.
 	//
@@ -213,7 +222,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Invocations.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricInvocationsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter latencies.
 	//
@@ -222,7 +231,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Latency.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricLatencyForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter session duration.
 	//
@@ -231,7 +240,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Duration.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricSessionDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter system errors.
 	//
@@ -240,7 +249,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: SystemErrors.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricSystemErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter throttles.
 	//
@@ -249,7 +258,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Throttles.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricThrottlesForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking code interpreter user errors.
 	//
@@ -258,7 +267,7 @@ type CodeInterpreterCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: UserErrors.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricUserErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -595,6 +604,17 @@ func CodeInterpreterCustom_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (c *jsiiProxy_CodeInterpreterCustom) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (c *jsiiProxy_CodeInterpreterCustom) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

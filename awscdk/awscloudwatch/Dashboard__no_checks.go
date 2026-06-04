@@ -8,6 +8,10 @@ func (d *jsiiProxy_Dashboard) validateAddVariableParameters(variable IVariable) 
 	return nil
 }
 
+func (d *jsiiProxy_Dashboard) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_Dashboard) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

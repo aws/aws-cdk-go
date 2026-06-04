@@ -74,6 +74,14 @@ func (b *jsiiProxy_BucketBase) validateAddToResourcePolicyParameters(permission 
 	return nil
 }
 
+func (b *jsiiProxy_BucketBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_BucketBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

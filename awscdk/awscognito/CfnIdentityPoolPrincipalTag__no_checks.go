@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentityPoolPrincipalTag) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

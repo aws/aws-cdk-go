@@ -9,6 +9,7 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   capabilitiesProperty := &CapabilitiesProperty{
+//   	AccessAppsNativeDataStore: jsii.String("accessAppsNativeDataStore"),
 //   	Action: jsii.String("action"),
 //   	AddOrRunAnomalyDetectionForAnalyses: jsii.String("addOrRunAnomalyDetectionForAnalyses"),
 //   	AmazonBedrockArsAction: jsii.String("amazonBedrockArsAction"),
@@ -17,6 +18,7 @@ package awsquicksight
 //   	AmazonSThreeAction: jsii.String("amazonSThreeAction"),
 //   	Analysis: jsii.String("analysis"),
 //   	ApproveFlowShareRequests: jsii.String("approveFlowShareRequests"),
+//   	Apps: jsii.String("apps"),
 //   	AsanaAction: jsii.String("asanaAction"),
 //   	Automate: jsii.String("automate"),
 //   	BambooHrAction: jsii.String("bambooHrAction"),
@@ -31,6 +33,7 @@ package awsquicksight
 //   	CreateAndUpdateAmazonBedrockFsAction: jsii.String("createAndUpdateAmazonBedrockFsAction"),
 //   	CreateAndUpdateAmazonBedrockKrsAction: jsii.String("createAndUpdateAmazonBedrockKrsAction"),
 //   	CreateAndUpdateAmazonSThreeAction: jsii.String("createAndUpdateAmazonSThreeAction"),
+//   	CreateAndUpdateApps: jsii.String("createAndUpdateApps"),
 //   	CreateAndUpdateAsanaAction: jsii.String("createAndUpdateAsanaAction"),
 //   	CreateAndUpdateBambooHrAction: jsii.String("createAndUpdateBambooHrAction"),
 //   	CreateAndUpdateBoxAgentAction: jsii.String("createAndUpdateBoxAgentAction"),
@@ -79,6 +82,7 @@ package awsquicksight
 //   	CreateChatAgents: jsii.String("createChatAgents"),
 //   	CreateDashboardExecutiveSummaryWithQ: jsii.String("createDashboardExecutiveSummaryWithQ"),
 //   	CreateSharedFolders: jsii.String("createSharedFolders"),
+//   	CreateSpaces: jsii.String("createSpaces"),
 //   	CreateSpiceDataset: jsii.String("createSpiceDataset"),
 //   	Dashboard: jsii.String("dashboard"),
 //   	EditVisualWithQ: jsii.String("editVisualWithQ"),
@@ -98,6 +102,7 @@ package awsquicksight
 //   	HuggingFaceAction: jsii.String("huggingFaceAction"),
 //   	IncludeContentInScheduledReportsEmail: jsii.String("includeContentInScheduledReportsEmail"),
 //   	IntercomAction: jsii.String("intercomAction"),
+//   	InvokeAppsAiInference: jsii.String("invokeAppsAiInference"),
 //   	JiraAction: jsii.String("jiraAction"),
 //   	KnowledgeBase: jsii.String("knowledgeBase"),
 //   	LinearAction: jsii.String("linearAction"),
@@ -130,10 +135,12 @@ package awsquicksight
 //   	ShareAmazonBedrockKrsAction: jsii.String("shareAmazonBedrockKrsAction"),
 //   	ShareAmazonSThreeAction: jsii.String("shareAmazonSThreeAction"),
 //   	ShareAnalyses: jsii.String("shareAnalyses"),
+//   	ShareApps: jsii.String("shareApps"),
 //   	ShareAsanaAction: jsii.String("shareAsanaAction"),
 //   	ShareBambooHrAction: jsii.String("shareBambooHrAction"),
 //   	ShareBoxAgentAction: jsii.String("shareBoxAgentAction"),
 //   	ShareCanvaAgentAction: jsii.String("shareCanvaAgentAction"),
+//   	ShareChatAgents: jsii.String("shareChatAgents"),
 //   	ShareComprehendAction: jsii.String("shareComprehendAction"),
 //   	ShareComprehendMedicalAction: jsii.String("shareComprehendMedicalAction"),
 //   	ShareConfluenceAction: jsii.String("shareConfluenceAction"),
@@ -172,6 +179,7 @@ package awsquicksight
 //   	ShareSharePointAction: jsii.String("shareSharePointAction"),
 //   	ShareSlackAction: jsii.String("shareSlackAction"),
 //   	ShareSmartsheetAction: jsii.String("shareSmartsheetAction"),
+//   	ShareSpaces: jsii.String("shareSpaces"),
 //   	ShareTextractAction: jsii.String("shareTextractAction"),
 //   	ShareZendeskAction: jsii.String("shareZendeskAction"),
 //   	SlackAction: jsii.String("slackAction"),
@@ -232,6 +240,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html
 //
 type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-accessappsnativedatastore
+	//
+	AccessAppsNativeDataStore *string `field:"optional" json:"accessAppsNativeDataStore" yaml:"accessAppsNativeDataStore"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-action
 	//
 	Action *string `field:"optional" json:"action" yaml:"action"`
@@ -258,6 +269,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-approveflowsharerequests
 	//
 	ApproveFlowShareRequests *string `field:"optional" json:"approveFlowShareRequests" yaml:"approveFlowShareRequests"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-apps
+	//
+	Apps *string `field:"optional" json:"apps" yaml:"apps"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-asanaaction
 	//
 	AsanaAction *string `field:"optional" json:"asanaAction" yaml:"asanaAction"`
@@ -300,6 +314,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createandupdateamazonsthreeaction
 	//
 	CreateAndUpdateAmazonSThreeAction *string `field:"optional" json:"createAndUpdateAmazonSThreeAction" yaml:"createAndUpdateAmazonSThreeAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createandupdateapps
+	//
+	CreateAndUpdateApps *string `field:"optional" json:"createAndUpdateApps" yaml:"createAndUpdateApps"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createandupdateasanaaction
 	//
 	CreateAndUpdateAsanaAction *string `field:"optional" json:"createAndUpdateAsanaAction" yaml:"createAndUpdateAsanaAction"`
@@ -450,6 +467,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createsharedfolders
 	//
 	CreateSharedFolders *string `field:"optional" json:"createSharedFolders" yaml:"createSharedFolders"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createspaces
+	//
+	CreateSpaces *string `field:"optional" json:"createSpaces" yaml:"createSpaces"`
 	// The ability to create a SPICE dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-createspicedataset
 	//
@@ -516,6 +536,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-intercomaction
 	//
 	IntercomAction *string `field:"optional" json:"intercomAction" yaml:"intercomAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-invokeappsaiinference
+	//
+	InvokeAppsAiInference *string `field:"optional" json:"invokeAppsAiInference" yaml:"invokeAppsAiInference"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-jiraaction
 	//
 	JiraAction *string `field:"optional" json:"jiraAction" yaml:"jiraAction"`
@@ -615,6 +638,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-shareanalyses
 	//
 	ShareAnalyses *string `field:"optional" json:"shareAnalyses" yaml:"shareAnalyses"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-shareapps
+	//
+	ShareApps *string `field:"optional" json:"shareApps" yaml:"shareApps"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-shareasanaaction
 	//
 	ShareAsanaAction *string `field:"optional" json:"shareAsanaAction" yaml:"shareAsanaAction"`
@@ -627,6 +653,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-sharecanvaagentaction
 	//
 	ShareCanvaAgentAction *string `field:"optional" json:"shareCanvaAgentAction" yaml:"shareCanvaAgentAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-sharechatagents
+	//
+	ShareChatAgents *string `field:"optional" json:"shareChatAgents" yaml:"shareChatAgents"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-sharecomprehendaction
 	//
 	ShareComprehendAction *string `field:"optional" json:"shareComprehendAction" yaml:"shareComprehendAction"`
@@ -744,6 +773,9 @@ type CfnCustomPermissionsPropsMixin_CapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-sharesmartsheetaction
 	//
 	ShareSmartsheetAction *string `field:"optional" json:"shareSmartsheetAction" yaml:"shareSmartsheetAction"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-sharespaces
+	//
+	ShareSpaces *string `field:"optional" json:"shareSpaces" yaml:"shareSpaces"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html#cfn-quicksight-custompermissions-capabilities-sharetextractaction
 	//
 	ShareTextractAction *string `field:"optional" json:"shareTextractAction" yaml:"shareTextractAction"`

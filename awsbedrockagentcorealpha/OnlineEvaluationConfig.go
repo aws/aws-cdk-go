@@ -73,7 +73,7 @@ type OnlineEvaluationConfig interface {
 	// Experimental.
 	OnlineEvaluationConfigName() *string
 	// A reference to this OnlineEvaluationConfig resource.
-	// Experimental.
+	// Deprecated.
 	OnlineEvaluationConfigRef() *interfacesawsbedrockagentcore.OnlineEvaluationConfigReference
 	// Returns a string-encoded token that resolves to the physical name that should be passed to the CloudFormation resource.
 	//
@@ -93,6 +93,15 @@ type OnlineEvaluationConfig interface {
 	// The timestamp when the configuration was last updated.
 	// Experimental.
 	UpdatedAt() *string
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -126,7 +135,7 @@ type OnlineEvaluationConfig interface {
 	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
-	// Experimental.
+	// Deprecated.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -467,6 +476,17 @@ func OnlineEvaluationConfig_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (o *jsiiProxy_OnlineEvaluationConfig) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := o.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		o,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (o *jsiiProxy_OnlineEvaluationConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

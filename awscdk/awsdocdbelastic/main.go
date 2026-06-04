@@ -20,6 +20,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "adminUserName", GoGetter: "AdminUserName"},
 			_jsii_.MemberProperty{JsiiProperty: "adminUserPassword", GoGetter: "AdminUserPassword"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrClusterArn", GoGetter: "AttrClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrClusterEndpoint", GoGetter: "AttrClusterEndpoint"},

@@ -60,6 +60,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addOriginEndpoint", GoMethod: "AddOriginEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoCreatePolicy", GoGetter: "AutoCreatePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "channelArn", GoGetter: "ChannelArn"},
@@ -119,6 +120,7 @@ func init() {
 		reflect.TypeOf((*ChannelGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addChannel", GoMethod: "AddChannel"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "channelGroupArn", GoGetter: "ChannelGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "channelGroupName", GoGetter: "ChannelGroupName"},
@@ -166,6 +168,7 @@ func init() {
 		"@aws-cdk/aws-mediapackagev2-alpha.ChannelPolicy",
 		reflect.TypeOf((*ChannelPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "document", GoGetter: "Document"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -591,8 +594,10 @@ func init() {
 		reflect.TypeOf((*OriginEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoCreatePolicy", GoGetter: "AutoCreatePolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "cdnAuthConfig", GoGetter: "CdnAuthConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "channelGroupName", GoGetter: "ChannelGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "channelName", GoGetter: "ChannelName"},
 			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
@@ -647,6 +652,7 @@ func init() {
 		"@aws-cdk/aws-mediapackagev2-alpha.OriginEndpointPolicy",
 		reflect.TypeOf((*OriginEndpointPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "document", GoGetter: "Document"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnMethod) validateAddPropertyOverrideParameters(propertyPath
 	return nil
 }
 
+func (c *jsiiProxy_CfnMethod) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnMethod) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -306,15 +314,15 @@ func (j *jsiiProxy_CfnMethod) validateSetMethodResponsesParameters(val interface
 
 func (j *jsiiProxy_CfnMethod) validateSetRequestModelsParameters(val interface{}) error {
 	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
 	case *map[string]*string:
 		// ok
 	case map[string]*string:
 		// ok
-	case awscdk.IResolvable:
-		// ok
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *map[string]*string, awscdk.IResolvable; received %#v (a %T)", val, val)
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]*string; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -12,7 +12,7 @@ import (
 //
 //
 //   serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-//   	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+//   	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 //   	Backup: &BackupSettings{
 //   		// set a backup name before deleting a cache
 //   		BackupNameBeforeDeletion: jsii.String("my-final-backup-name"),

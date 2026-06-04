@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnDataflowEndpointGroupV2) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataflowEndpointGroupV2) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataflowEndpointGroupV2) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

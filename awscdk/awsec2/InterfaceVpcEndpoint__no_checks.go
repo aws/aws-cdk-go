@@ -8,6 +8,10 @@ func (i *jsiiProxy_InterfaceVpcEndpoint) validateAddToPolicyParameters(statement
 	return nil
 }
 
+func (i *jsiiProxy_InterfaceVpcEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (i *jsiiProxy_InterfaceVpcEndpoint) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

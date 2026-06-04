@@ -21,10 +21,12 @@ import (
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   assertionsProvider := integ_tests_alpha.NewAssertionsProvider(this, jsii.String("MyAssertionsProvider"), &AssertionsProviderProps{
 //   	Handler: jsii.String("handler"),
 //   	LogRetention: awscdk.Aws_logs.RetentionDays_ONE_DAY,
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   	Uuid: jsii.String("uuid"),
 //   })
 //

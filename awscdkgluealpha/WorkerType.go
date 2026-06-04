@@ -64,7 +64,9 @@ const (
 	// Experimental.
 	WorkerType_G_025X WorkerType = "G_025X"
 	// Z.2X Worker Type.
-	// Experimental.
+	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
+	// This worker type was only used for Ray jobs. See
+	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	WorkerType_Z_2X WorkerType = "Z_2X"
 	// R.1X Worker Type 1 M-DPU (4 vCPUs, 32 GB memory), We recommend this worker type for memory-intensive workloads that frequently encounter out-of-memory errors or require high memory-to-CPU ratios.
 	// Experimental.

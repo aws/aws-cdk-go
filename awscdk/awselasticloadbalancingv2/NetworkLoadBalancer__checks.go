@@ -37,6 +37,14 @@ func (n *jsiiProxy_NetworkLoadBalancer) validateAddSecurityGroupParameters(secur
 	return nil
 }
 
+func (n *jsiiProxy_NetworkLoadBalancer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (n *jsiiProxy_NetworkLoadBalancer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

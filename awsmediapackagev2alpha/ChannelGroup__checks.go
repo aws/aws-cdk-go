@@ -24,6 +24,14 @@ func (c *jsiiProxy_ChannelGroup) validateAddChannelParameters(id *string, option
 	return nil
 }
 
+func (c *jsiiProxy_ChannelGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_ChannelGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

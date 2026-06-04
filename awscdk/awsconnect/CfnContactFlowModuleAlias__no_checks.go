@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnContactFlowModuleAlias) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnContactFlowModuleAlias) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnContactFlowModuleAlias) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

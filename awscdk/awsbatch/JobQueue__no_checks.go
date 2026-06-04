@@ -8,6 +8,10 @@ func (j *jsiiProxy_JobQueue) validateAddComputeEnvironmentParameters(computeEnvi
 	return nil
 }
 
+func (j *jsiiProxy_JobQueue) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (j *jsiiProxy_JobQueue) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

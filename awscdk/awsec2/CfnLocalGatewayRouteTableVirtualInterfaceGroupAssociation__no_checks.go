@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) va
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVirtualInterfaceGroupAssociation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

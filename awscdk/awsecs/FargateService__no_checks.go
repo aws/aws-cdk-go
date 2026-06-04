@@ -12,6 +12,10 @@ func (f *jsiiProxy_FargateService) validateAddVolumeParameters(volume ServiceMan
 	return nil
 }
 
+func (f *jsiiProxy_FargateService) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

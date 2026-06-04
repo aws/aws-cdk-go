@@ -18,28 +18,28 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type McpConfiguration struct {
 	// The instructions for using the Model Context Protocol gateway.
 	//
 	// These instructions provide guidance on how to interact with the gateway.
 	// Default: - No instructions provided.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Instructions *string `field:"optional" json:"instructions" yaml:"instructions"`
 	// The search type for the Model Context Protocol gateway.
 	//
 	// This field specifies how the gateway handles search operations.
 	// Default: - No search type specified.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SearchType McpGatewaySearchType `field:"optional" json:"searchType" yaml:"searchType"`
 	// The supported versions of the Model Context Protocol.
 	//
 	// This field specifies which versions of the protocol the gateway can use.
 	// Default: - No specific versions specified.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SupportedVersions *[]MCPProtocolVersion `field:"optional" json:"supportedVersions" yaml:"supportedVersions"`
 }
 

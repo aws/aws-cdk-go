@@ -35,6 +35,7 @@ package awspcs
 //   	Name: jsii.String("name"),
 //   	PurchaseOption: jsii.String("purchaseOption"),
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
+//   		ScaleDownIdleTimeInSeconds: jsii.Number(123),
 //   		SlurmCustomSettings: []interface{}{
 //   			&SlurmCustomSettingProperty{
 //   				ParameterName: jsii.String("parameterName"),

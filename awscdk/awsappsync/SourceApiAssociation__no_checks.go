@@ -4,6 +4,10 @@ package awsappsync
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_SourceApiAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SourceApiAssociation) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

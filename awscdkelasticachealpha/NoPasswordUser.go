@@ -77,6 +77,15 @@ type NoPasswordUser interface {
 	// Can be 'active', 'modifying', 'deleting'.
 	// Experimental.
 	UserStatus() *string
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -418,6 +427,17 @@ func NoPasswordUser_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (n *jsiiProxy_NoPasswordUser) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := n.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (n *jsiiProxy_NoPasswordUser) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

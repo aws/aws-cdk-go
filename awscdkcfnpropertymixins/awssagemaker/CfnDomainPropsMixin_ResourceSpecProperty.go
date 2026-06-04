@@ -15,6 +15,7 @@ package awssagemaker
 //   	LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   	SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   	SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   	TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
@@ -42,5 +43,9 @@ type CfnDomainPropsMixin_ResourceSpecProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
 	//
 	SageMakerImageVersionArn *string `field:"optional" json:"sageMakerImageVersionArn" yaml:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-trainingplanarn
+	//
+	TrainingPlanArn *string `field:"optional" json:"trainingPlanArn" yaml:"trainingPlanArn"`
 }
 

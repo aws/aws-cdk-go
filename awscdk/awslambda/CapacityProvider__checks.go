@@ -23,6 +23,14 @@ func (c *jsiiProxy_CapacityProvider) validateAddFunctionParameters(func_ IFuncti
 	return nil
 }
 
+func (c *jsiiProxy_CapacityProvider) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CapacityProvider) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -32,6 +32,10 @@ func (s *jsiiProxy_StepFunctionsRestApi) validateAddUsagePlanParameters(id *stri
 	return nil
 }
 
+func (s *jsiiProxy_StepFunctionsRestApi) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_StepFunctionsRestApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -12,37 +12,37 @@ import (
 )
 
 // Interface for OnlineEvaluationConfig resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IOnlineEvaluationConfig interface {
 	awsiam.IGrantable
 	interfacesawsbedrockagentcore.IOnlineEvaluationConfigRef
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform actions on this configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The timestamp when the configuration was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The IAM execution role for the evaluation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRole() awsiam.IRole
 	// The execution status of the evaluation (ENABLED or DISABLED).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionStatus() *string
 	// The ARN of the online evaluation configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigArn() *string
 	// The unique identifier of the online evaluation configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigId() *string
 	// The name of the online evaluation configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigName() *string
 	// The lifecycle status of the configuration (CREATING, ACTIVE, FAILED, DELETING).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 	// The timestamp when the configuration was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt() *string
 }
 

@@ -25,32 +25,32 @@ import (
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CodeInterpreterCustomProps struct {
 	// The name of the code interpreter Valid characters are a-z, A-Z, 0-9, _ (underscore) The name must start with a letter and can be up to 48 characters long Pattern: [a-zA-Z][a-zA-Z0-9_]{0,47}.
 	// Default: - auto generate.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CodeInterpreterCustomName *string `field:"optional" json:"codeInterpreterCustomName" yaml:"codeInterpreterCustomName"`
 	// Optional description for the code interpreter Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen) and spaces The description can have up to 200 characters.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IAM role that provides permissions for the code interpreter to access AWS services.
 	// Default: - A new role will be created.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// Network configuration for code interpreter.
 	// Default: - PUBLIC network mode.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	NetworkConfiguration CodeInterpreterNetworkConfiguration `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// Tags (optional) A list of key:value pairs of tags to apply to this Code Interpreter resource.
 	// Default: {} - no tags.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

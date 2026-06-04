@@ -15,22 +15,17 @@ import (
 // Define an ECR repository.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
-//   	RepositoryName: jsii.String("test-agent-runtime"),
-//   })
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"))
 //
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("my_agent"),
+//   runtime := agentcore.NewRuntime(this, jsii.String("Runtime"), &RuntimeProps{
 //   	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
 //   })
 //
-//   // Using default endpoint (simplest)
-//   evaluation := agentcore.NewOnlineEvaluationConfig(this, jsii.String("RuntimeEval"), &OnlineEvaluationConfigProps{
-//   	OnlineEvaluationConfigName: jsii.String("runtime_evaluation"),
-//   	Evaluators: []EvaluatorSelector{
-//   		agentcore.EvaluatorSelector_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS()),
-//   	},
-//   	DataSource: agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime),
+//   logs.NewMetricFilter(this, jsii.String("ToolErrors"), &MetricFilterProps{
+//   	LogGroup: runtime.applicationLogGroup,
+//   	FilterPattern: logs.FilterPattern_StringValue(jsii.String("$.tool_status"), jsii.String("="), jsii.String("error")),
+//   	MetricNamespace: jsii.String("MyApp"),
+//   	MetricName: jsii.String("ToolExecutionErrors"),
 //   })
 //
 type Repository interface {
@@ -82,6 +77,14 @@ type Repository interface {
 	// Cfn for ECR does not allow us to specify a resource policy.
 	// It will fail if a resource section is present at all.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -484,6 +487,17 @@ func (r *jsiiProxy_Repository) AddToResourcePolicy(statement awsiam.PolicyStatem
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_Repository) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := r.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (r *jsiiProxy_Repository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

@@ -32,6 +32,10 @@ func (d *jsiiProxy_DockerImageFunction) validateAddToRolePolicyParameters(statem
 	return nil
 }
 
+func (d *jsiiProxy_DockerImageFunction) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_DockerImageFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

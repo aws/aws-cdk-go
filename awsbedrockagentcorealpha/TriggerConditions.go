@@ -18,24 +18,24 @@ import (
 //   	TokenBasedTrigger: jsii.Number(123),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type TriggerConditions struct {
 	// Triggers memory processing when specified number of new messages is reached.
 	// Default: 1.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MessageBasedTrigger *float64 `field:"optional" json:"messageBasedTrigger" yaml:"messageBasedTrigger"`
 	// Triggers memory processing when the session has been idle for the specified duration.
 	//
 	// Value in seconds.
 	// Default: - 10 seconds.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TimeBasedTrigger awscdk.Duration `field:"optional" json:"timeBasedTrigger" yaml:"timeBasedTrigger"`
 	// Triggers memory processing when the token size reaches the specified threshold.
 	// Default: 100.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TokenBasedTrigger *float64 `field:"optional" json:"tokenBasedTrigger" yaml:"tokenBasedTrigger"`
 }
 

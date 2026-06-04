@@ -84,10 +84,10 @@ import (
 //   	Target: jsii.String("target"),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type AgentRuntimeArtifact interface {
 	// Called when the image is used by a Runtime to handle side effects like permissions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, runtime Runtime)
 }
 
@@ -96,7 +96,7 @@ type jsiiProxy_AgentRuntimeArtifact struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewAgentRuntimeArtifact_Override(a AgentRuntimeArtifact) {
 	_init_.Initialize()
 
@@ -108,7 +108,7 @@ func NewAgentRuntimeArtifact_Override(a AgentRuntimeArtifact) {
 }
 
 // Reference an agent runtime artifact that's constructed directly from sources on disk.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AgentRuntimeArtifact_FromAsset(directory *string, options *awsecrassets.DockerImageAssetOptions) AgentRuntimeArtifact {
 	_init_.Initialize()
 
@@ -128,7 +128,7 @@ func AgentRuntimeArtifact_FromAsset(directory *string, options *awsecrassets.Doc
 }
 
 // Reference an agent runtime artifact that's constructed from local code assets uploaded to a CDK-managed S3 bucket.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AgentRuntimeArtifact_FromCodeAsset(options *CodeAssetOptions) AgentRuntimeArtifact {
 	_init_.Initialize()
 
@@ -148,7 +148,7 @@ func AgentRuntimeArtifact_FromCodeAsset(options *CodeAssetOptions) AgentRuntimeA
 }
 
 // Reference an image in an ECR repository.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AgentRuntimeArtifact_FromEcrRepository(repository awsecr.IRepository, tag *string) AgentRuntimeArtifact {
 	_init_.Initialize()
 
@@ -173,7 +173,7 @@ func AgentRuntimeArtifact_FromEcrRepository(repository awsecr.IRepository, tag *
 //
 // **Note:** No IAM permissions are automatically granted. You must ensure the runtime has
 // ECR pull permissions for the repository.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AgentRuntimeArtifact_FromImageUri(containerUri *string) AgentRuntimeArtifact {
 	_init_.Initialize()
 
@@ -193,7 +193,7 @@ func AgentRuntimeArtifact_FromImageUri(containerUri *string) AgentRuntimeArtifac
 }
 
 // Reference an agent runtime artifact that's constructed directly from an S3 object.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AgentRuntimeArtifact_FromS3(s3Location *awss3.Location, runtime AgentCoreRuntime, entrypoint *[]*string) AgentRuntimeArtifact {
 	_init_.Initialize()
 

@@ -16,6 +16,10 @@ func (a *jsiiProxy_ApplicationLoadBalancer) validateAddSecurityGroupParameters(s
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationLoadBalancer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationLoadBalancer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

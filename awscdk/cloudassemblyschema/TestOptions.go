@@ -9,6 +9,7 @@ package cloudassemblyschema
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   testOptions := &TestOptions{
+//   	AllowDeleteFailures: jsii.Boolean(false),
 //   	AllowDestroy: []*string{
 //   		jsii.String("allowDestroy"),
 //   	},
@@ -126,6 +127,13 @@ package cloudassemblyschema
 //   }
 //
 type TestOptions struct {
+	// Whether to allow resources that fail to delete during a stack update.
+	//
+	// When false, the test will fail if CloudFormation skips deleting a resource
+	// during a stack update. When true, only a warning is printed.
+	// Default: false.
+	//
+	AllowDeleteFailures *bool `field:"optional" json:"allowDeleteFailures" yaml:"allowDeleteFailures"`
 	// List of CloudFormation resource types in this stack that can be destroyed as part of an update without failing the test.
 	//
 	// This list should only include resources that for this specific

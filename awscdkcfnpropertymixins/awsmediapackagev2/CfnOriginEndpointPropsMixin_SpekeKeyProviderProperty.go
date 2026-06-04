@@ -25,7 +25,7 @@ package awsmediapackagev2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html
 //
 type CfnOriginEndpointPropsMixin_SpekeKeyProviderProperty struct {
-	// <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint.
+	// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint.
 	//
 	// For this feature to work, your DRM key provider must support content key encryption.</p>
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-certificatearn

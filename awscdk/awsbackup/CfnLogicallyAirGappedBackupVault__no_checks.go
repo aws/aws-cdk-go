@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateAddPropertyOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLogicallyAirGappedBackupVault) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

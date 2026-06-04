@@ -24,6 +24,10 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MaintenanceSchedule: &MaintenanceScheduleProperty{
+//   		PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   		Timezone: jsii.String("timezone"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	NetworkType: jsii.String("networkType"),
 //   	Organization: jsii.String("organization"),
@@ -86,6 +90,10 @@ type CfnInfluxDBInstanceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-logdeliveryconfiguration
 	//
 	LogDeliveryConfiguration interface{} `field:"optional" json:"logDeliveryConfiguration" yaml:"logDeliveryConfiguration"`
+	// The maintenance schedule for the InfluxDB instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-maintenanceschedule
+	//
+	MaintenanceSchedule interface{} `field:"optional" json:"maintenanceSchedule" yaml:"maintenanceSchedule"`
 	// The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
 	//
 	// This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.

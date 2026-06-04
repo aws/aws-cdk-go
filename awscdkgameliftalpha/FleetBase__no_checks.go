@@ -16,6 +16,10 @@ func (f *jsiiProxy_FleetBase) validateAddLocationParameters(region *string) erro
 	return nil
 }
 
+func (f *jsiiProxy_FleetBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FleetBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

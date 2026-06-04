@@ -16,28 +16,28 @@ package awsbedrockagentcorealpha
 //   	Value: jsii.Number(123),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type NumericalRatingOption struct {
 	// The description that explains what this numerical rating represents.
 	//
 	// Example:
 	//   "The response is comprehensive, accurate, and well-structured."
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Definition *string `field:"required" json:"definition" yaml:"definition"`
 	// The label for this rating option.
 	//
 	// Example:
 	//   "Excellent"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Label *string `field:"required" json:"label" yaml:"label"`
 	// The numerical value for this rating scale option.
 	//
 	// Example:
 	//   5
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value *float64 `field:"required" json:"value" yaml:"value"`
 }
 

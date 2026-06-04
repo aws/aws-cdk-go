@@ -8,6 +8,10 @@ func (a *jsiiProxy_AwsCliLayer) validateAddPermissionParameters(id *string, perm
 	return nil
 }
 
+func (a *jsiiProxy_AwsCliLayer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_AwsCliLayer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

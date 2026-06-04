@@ -28,6 +28,10 @@ func init() {
 		reflect.TypeOf((*CodeInterpreterCustomReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.DatasetReference",
+		reflect.TypeOf((*DatasetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.EvaluatorReference",
 		reflect.TypeOf((*EvaluatorReference)(nil)).Elem(),
 	)
@@ -38,6 +42,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.GatewayTargetReference",
 		reflect.TypeOf((*GatewayTargetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.HarnessReference",
+		reflect.TypeOf((*HarnessReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IApiKeyCredentialProviderRef",
@@ -120,6 +128,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IDatasetRef",
+		reflect.TypeOf((*IDatasetRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "datasetRef", GoGetter: "DatasetRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDatasetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IEvaluatorRef",
 		reflect.TypeOf((*IEvaluatorRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -162,6 +186,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IGatewayTargetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IHarnessRef",
+		reflect.TypeOf((*IHarnessRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "harnessRef", GoGetter: "HarnessRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHarnessRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

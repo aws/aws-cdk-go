@@ -8,6 +8,10 @@ func (d *jsiiProxy_DatabaseProxy) validateAddEndpointParameters(id *string, opti
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseProxy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseProxy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

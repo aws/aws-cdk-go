@@ -93,6 +93,15 @@ type FleetBase interface {
 	// Adds a remote locations to deploy additional instances to and manage as part of the fleet.
 	// Experimental.
 	AddLocation(region *string, desiredCapacity *float64, minSize *float64, maxSize *float64)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -420,6 +429,17 @@ func (f *jsiiProxy_FleetBase) AddLocation(region *string, desiredCapacity *float
 		f,
 		"addLocation",
 		[]interface{}{region, desiredCapacity, minSize, maxSize},
+	)
+}
+
+func (f *jsiiProxy_FleetBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := f.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

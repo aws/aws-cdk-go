@@ -19,6 +19,14 @@ func (a *jsiiProxy_AccessEntry) validateAddAccessPoliciesParameters(newAccessPol
 	return nil
 }
 
+func (a *jsiiProxy_AccessEntry) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_AccessEntry) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

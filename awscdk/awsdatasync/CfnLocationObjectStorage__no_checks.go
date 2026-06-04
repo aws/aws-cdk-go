@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocationObjectStorage) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationObjectStorage) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationObjectStorage) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

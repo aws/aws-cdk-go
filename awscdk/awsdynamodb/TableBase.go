@@ -68,6 +68,14 @@ type TableBase interface {
 	TableStreamArn() *string
 	// Adds a statement to the resource policy associated with this table.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -502,6 +510,17 @@ func (t *jsiiProxy_TableBase) AddToResourcePolicy(statement awsiam.PolicyStateme
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_TableBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := t.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (t *jsiiProxy_TableBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

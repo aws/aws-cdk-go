@@ -14,10 +14,10 @@ import (
 //
 //   executionStatus := bedrock_agentcore_alpha.NewExecutionStatus(jsii.String("value"))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ExecutionStatus interface {
 	// The string value of the execution status.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value() *string
 }
 
@@ -37,7 +37,7 @@ func (j *jsiiProxy_ExecutionStatus) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewExecutionStatus(value *string) ExecutionStatus {
 	_init_.Initialize()
 
@@ -55,7 +55,7 @@ func NewExecutionStatus(value *string) ExecutionStatus {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewExecutionStatus_Override(e ExecutionStatus, value *string) {
 	_init_.Initialize()
 

@@ -12,6 +12,10 @@ func (e *jsiiProxy_Environment) validateAddExtensionParameters(extension IExtens
 	return nil
 }
 
+func (e *jsiiProxy_Environment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_Environment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

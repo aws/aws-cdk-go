@@ -4,6 +4,10 @@ package awsbatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (f *jsiiProxy_FargateComputeEnvironment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateComputeEnvironment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

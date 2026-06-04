@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnCapacityProvider) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnCapacityProvider) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnCapacityProvider) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -305,6 +313,30 @@ func (j *jsiiProxy_CfnCapacityProvider) validateSetPermissionsConfigParameters(v
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCapacityProvider_CapacityProviderPermissionsConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCapacityProvider) validateSetPropagateTagsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCapacityProvider_PropagateTagsConfigProperty:
+		val := val.(*CfnCapacityProvider_PropagateTagsConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCapacityProvider_PropagateTagsConfigProperty:
+		val_ := val.(CfnCapacityProvider_PropagateTagsConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCapacityProvider_PropagateTagsConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

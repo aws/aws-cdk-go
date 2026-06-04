@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnWaitConditionHandle) validateAddPropertyOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnWaitConditionHandle) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWaitConditionHandle) validateApplyRemovalPolicyParameters(options *RemovalPolicyOptions) error {
 	return nil
 }

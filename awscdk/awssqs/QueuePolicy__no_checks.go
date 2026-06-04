@@ -4,6 +4,10 @@ package awssqs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (q *jsiiProxy_QueuePolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (q *jsiiProxy_QueuePolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

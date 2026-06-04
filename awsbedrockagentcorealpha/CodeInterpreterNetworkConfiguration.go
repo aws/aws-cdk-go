@@ -17,23 +17,23 @@ import (
 //
 //   codeInterpreterNetworkConfiguration := bedrock_agentcore_alpha.CodeInterpreterNetworkConfiguration_UsingPublicNetwork()
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CodeInterpreterNetworkConfiguration interface {
 	NetworkConfiguration
 	// The connections object to the network.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Connections() awsec2.Connections
 	// The network mode to use.
 	//
 	// Configure the security level for agent
 	// execution to control access, isolate resources, and protect sensitive data.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	NetworkMode() *string
 	// The scope to create the resource in.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Scope() constructs.Construct
 	// The VPC subnets to use.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	VpcSubnets() *awsec2.SubnetSelection
 }
 
@@ -84,7 +84,7 @@ func (j *jsiiProxy_CodeInterpreterNetworkConfiguration) VpcSubnets() *awsec2.Sub
 
 
 // Creates a new network configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewCodeInterpreterNetworkConfiguration(mode *string, scope constructs.Construct, vpcConfig *VpcConfigProps) CodeInterpreterNetworkConfiguration {
 	_init_.Initialize()
 
@@ -103,7 +103,7 @@ func NewCodeInterpreterNetworkConfiguration(mode *string, scope constructs.Const
 }
 
 // Creates a new network configuration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewCodeInterpreterNetworkConfiguration_Override(c CodeInterpreterNetworkConfiguration, mode *string, scope constructs.Construct, vpcConfig *VpcConfigProps) {
 	_init_.Initialize()
 
@@ -118,7 +118,7 @@ func NewCodeInterpreterNetworkConfiguration_Override(c CodeInterpreterNetworkCon
 //
 // Returns: A CodeInterpreterNetworkConfiguration.
 // Run this tool to operate in a public environment with internet access, suitable for less sensitive or open-use scenarios.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func CodeInterpreterNetworkConfiguration_UsingPublicNetwork() CodeInterpreterNetworkConfiguration {
 	_init_.Initialize()
 
@@ -138,7 +138,7 @@ func CodeInterpreterNetworkConfiguration_UsingPublicNetwork() CodeInterpreterNet
 //
 // Returns: A CodeInterpreterNetworkConfiguration.
 // Run this tool in a restricted environment with limited Permissions and Encryption to enhance safety and reduce potential risks.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func CodeInterpreterNetworkConfiguration_UsingSandboxNetwork() CodeInterpreterNetworkConfiguration {
 	_init_.Initialize()
 
@@ -157,7 +157,7 @@ func CodeInterpreterNetworkConfiguration_UsingSandboxNetwork() CodeInterpreterNe
 // Creates a network configuration from a VPC configuration.
 //
 // Returns: A CodeInterpreterNetworkConfiguration.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func CodeInterpreterNetworkConfiguration_UsingVpc(scope constructs.Construct, vpcConfig *VpcConfigProps) CodeInterpreterNetworkConfiguration {
 	_init_.Initialize()
 

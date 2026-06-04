@@ -11,6 +11,13 @@ package awsbedrockagentcore
 //
 //   	// the properties below are optional
 //   	ListingMode: jsii.String("listingMode"),
+//   	McpToolSchema: &McpToolSchemaConfigurationProperty{
+//   		InlinePayload: jsii.String("inlinePayload"),
+//   		S3: &S3ConfigurationProperty{
+//   			BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   			Uri: jsii.String("uri"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html
@@ -22,5 +29,8 @@ type CfnGatewayTarget_McpServerTargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration-listingmode
 	//
 	ListingMode *string `field:"optional" json:"listingMode" yaml:"listingMode"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration-mcptoolschema
+	//
+	McpToolSchema interface{} `field:"optional" json:"mcpToolSchema" yaml:"mcpToolSchema"`
 }
 

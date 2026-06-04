@@ -54,36 +54,36 @@ import (
 //   	TracingEnabled: jsii.Boolean(false),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type RuntimeProps struct {
 	// The artifact configuration for the agent runtime Contains the container configuration with ECR URI.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeArtifact AgentRuntimeArtifact `field:"required" json:"agentRuntimeArtifact" yaml:"agentRuntimeArtifact"`
 	// Authorizer configuration for the agent runtime Use RuntimeAuthorizerConfiguration static methods to create the configuration.
 	// Default: - RuntimeAuthorizerConfiguration.iam() (IAM authentication)
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerConfiguration RuntimeAuthorizerConfiguration `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`
 	// Optional description for the agent runtime.
 	// Default: - No description
 	// Length Minimum: 1 , Maximum: 1200.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Environment variables for the agent runtime - Maximum 50 environment variables - Key: Must be 1-100 characters, start with letter or underscore, contain only letters, numbers, and underscores - Value: Must be 0-2048 characters (per CloudFormation specification).
 	// Default: - No environment variables.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EnvironmentVariables *map[string]*string `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
 	// The IAM role that provides permissions for the agent runtime If not provided, a role will be created automatically.
 	// Default: - A new role will be created.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The life cycle configuration for the AgentCore Runtime.
 	// Default: - No lifecycle configuration.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LifecycleConfiguration *LifecycleConfiguration `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
 	// Logging configuration for the runtime.
 	//
@@ -92,32 +92,32 @@ type RuntimeProps struct {
 	//
 	// Default: - No logging configured.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LoggingConfigs *[]*LoggingConfig `field:"optional" json:"loggingConfigs" yaml:"loggingConfigs"`
 	// Network configuration for the agent runtime.
 	// Default: - RuntimeNetworkConfiguration.usingPublicNetwork()
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	NetworkConfiguration RuntimeNetworkConfiguration `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// Protocol configuration for the agent runtime.
 	// Default: - ProtocolType.HTTP
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProtocolConfiguration ProtocolType `field:"optional" json:"protocolConfiguration" yaml:"protocolConfiguration"`
 	// Configuration for HTTP request headers that will be passed through to the runtime.
 	// Default: - No request headers configured.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RequestHeaderConfiguration *RequestHeaderConfiguration `field:"optional" json:"requestHeaderConfiguration" yaml:"requestHeaderConfiguration"`
 	// The name of the agent runtime Valid characters are a-z, A-Z, 0-9, _ (underscore) Must start with a letter and can be up to 48 characters long Pattern: ^[a-zA-Z][a-zA-Z0-9_]{0,47}$.
 	// Default: - auto generate.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RuntimeName *string `field:"optional" json:"runtimeName" yaml:"runtimeName"`
 	// Tags for the agent runtime A list of key:value pairs of tags to apply to this Runtime resource.
 	// Default: {} - no tags.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// Whether to enable X-Ray tracing for this runtime.
 	//
@@ -126,7 +126,7 @@ type RuntimeProps struct {
 	//
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TracingEnabled *bool `field:"optional" json:"tracingEnabled" yaml:"tracingEnabled"`
 }
 

@@ -8,17 +8,17 @@ import (
 )
 
 // Abstract base class for MCP target configurations Provides common functionality for all MCP target types.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type McpTargetConfiguration interface {
 	ITargetConfiguration
 	// The target type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 	// Binds the configuration to a construct scope Sets up permissions and dependencies.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *TargetConfigurationConfig
 	// Renders the MCP-specific configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RenderMcpConfiguration() interface{}
 }
 
@@ -38,7 +38,7 @@ func (j *jsiiProxy_McpTargetConfiguration) TargetType() McpTargetType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMcpTargetConfiguration_Override(m McpTargetConfiguration) {
 	_init_.Initialize()
 

@@ -12,6 +12,10 @@ func (s *jsiiProxy_ServerDeploymentGroup) validateAddAutoScalingGroupParameters(
 	return nil
 }
 
+func (s *jsiiProxy_ServerDeploymentGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_ServerDeploymentGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

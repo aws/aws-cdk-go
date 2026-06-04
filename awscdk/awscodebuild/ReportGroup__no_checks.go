@@ -4,6 +4,10 @@ package awscodebuild
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_ReportGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_ReportGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -8,6 +8,10 @@ func (c *jsiiProxy_ContainerRecipe) validateAddInstanceBlockDeviceParameters(ins
 	return nil
 }
 
+func (c *jsiiProxy_ContainerRecipe) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_ContainerRecipe) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

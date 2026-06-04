@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCloudExadataInfrastructure) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudExadataInfrastructure) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudExadataInfrastructure) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

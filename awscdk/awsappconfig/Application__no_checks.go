@@ -24,6 +24,10 @@ func (a *jsiiProxy_Application) validateAddSourcedConfigurationParameters(id *st
 	return nil
 }
 
+func (a *jsiiProxy_Application) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_Application) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -198,6 +198,22 @@ eks.NewFargateCluster(this, jsii.String("HelloEKS"), &FargateClusterProps{
 })
 ```
 
+You can enable deletion protection for your cluster to prevent accidental deletion. When deletion protection is enabled,
+the cluster cannot be deleted until protection is disabled. This setting only applies to clusters in an active state.
+
+> For more details visit [Deletion protection](https://docs.aws.amazon.com/eks/latest/userguide/deletion-protection.html).
+
+```go
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
+
+
+eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+	Version: eks.KubernetesVersion_V1_35(),
+	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+	DeletionProtection: jsii.Boolean(true),
+})
+```
+
 > **NOTE: Only 1 cluster per stack is supported.** If you have a use-case for multiple clusters per stack, or would like to understand more about this limitation, see [https://github.com/aws/aws-cdk/issues/10073](https://github.com/aws/aws-cdk/issues/10073).
 
 Below you'll find a few important cluster configuration options. First of which is Capacity.
@@ -791,7 +807,7 @@ import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_35(),
 	AlbController: &AlbControllerOptions{
-		Version: eks.AlbControllerVersion_V2_8_2(),
+		Version: eks.AlbControllerVersion_V3_2_2(),
 	},
 	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
 })
@@ -806,7 +822,7 @@ import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_35(),
 	AlbController: &AlbControllerOptions{
-		Version: eks.AlbControllerVersion_V2_8_2(),
+		Version: eks.AlbControllerVersion_V3_2_2(),
 		AdditionalHelmChartValues: &AlbControllerHelmChartOptions{
 			EnableWafv2: jsii.Boolean(false),
 		},
@@ -824,7 +840,7 @@ import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_35(),
 	AlbController: &AlbControllerOptions{
-		Version: eks.AlbControllerVersion_V2_8_2(),
+		Version: eks.AlbControllerVersion_V3_2_2(),
 		OverwriteServiceAccount: jsii.Boolean(true),
 	},
 	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),

@@ -72,6 +72,14 @@ func (p *jsiiProxy_ProductStack) validateToYamlStringParameters(obj interface{})
 	return nil
 }
 
+func validateProductStack_ConsumeListReferenceParameters(value *[]*string) error {
+	return nil
+}
+
+func validateProductStack_ConsumeReferenceParameters(value *string) error {
+	return nil
+}
+
 func validateProductStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

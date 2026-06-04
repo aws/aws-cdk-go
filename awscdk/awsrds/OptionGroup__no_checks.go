@@ -8,6 +8,10 @@ func (o *jsiiProxy_OptionGroup) validateAddConfigurationParameters(configuration
 	return nil
 }
 
+func (o *jsiiProxy_OptionGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (o *jsiiProxy_OptionGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

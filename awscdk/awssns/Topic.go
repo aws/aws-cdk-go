@@ -20,12 +20,15 @@ import (
 //   import sns "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   dlt := sns.NewTopic(this, jsii.String("DLQ"))
-//   fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("// your code here")),
-//   	DeadLetterTopic: dlt,
+//   topic := sns.NewTopic(this, jsii.String("MyTopic"))
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id, year, month, day FROM 'device/+/data'")),
+//   	Actions: []IAction{
+//   		actions.NewSnsTopicAction(topic, &SnsTopicActionProps{
+//   			MessageFormat: actions.SnsActionMessageFormat_JSON,
+//   		}),
+//   	},
 //   })
 //
 type Topic interface {
@@ -92,6 +95,14 @@ type Topic interface {
 	//
 	// If the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -529,6 +540,17 @@ func (t *jsiiProxy_Topic) AddToResourcePolicy(statement awsiam.PolicyStatement) 
 	)
 
 	return returns
+}
+
+func (t *jsiiProxy_Topic) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := t.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (t *jsiiProxy_Topic) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

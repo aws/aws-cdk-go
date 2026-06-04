@@ -10,6 +10,21 @@ package awsapplicationsignals
 //
 //   requestBasedSliProperty := &RequestBasedSliProperty{
 //   	RequestBasedSliMetric: &RequestBasedSliMetricProperty{
+//   		CompositeSliConfig: &CompositeSliConfigProperty{
+//   			SelectionConfig: &SelectionConfigProperty{
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				Pattern: jsii.String("pattern"),
+//   			},
+//
+//   			// the properties below are optional
+//   			CompositeSliComponents: []interface{}{
+//   				&CompositeSliComponentProperty{
+//   					OperationName: jsii.String("operationName"),
+//   				},
+//   			},
+//   		},
 //   		DependencyConfig: &DependencyConfigProperty{
 //   			DependencyKeyAttributes: map[string]*string{
 //   				"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -18,6 +33,17 @@ package awsapplicationsignals
 //   		},
 //   		KeyAttributes: map[string]*string{
 //   			"keyAttributesKey": jsii.String("keyAttributes"),
+//   		},
+//   		MetricName: jsii.String("metricName"),
+//   		MetricSource: &MetricSourceProperty{
+//   			MetricSourceKeyAttributes: map[string]*string{
+//   				"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   			},
+//
+//   			// the properties below are optional
+//   			MetricSourceAttributes: map[string]*string{
+//   				"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   			},
 //   		},
 //   		MetricType: jsii.String("metricType"),
 //   		MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{

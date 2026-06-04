@@ -97,7 +97,7 @@ type Runtime interface {
 	// Experimental.
 	AgentStatus() *string
 	// An accessor for the Connections object that will fail if this Runtime does not have a VPC configured.
-	// Experimental.
+	// Deprecated.
 	Connections() awsec2.Connections
 	// The timestamp when the agent runtime was created.
 	//
@@ -142,7 +142,7 @@ type Runtime interface {
 	// Experimental.
 	Role() awsiam.IRole
 	// A reference to a Runtime resource.
-	// Experimental.
+	// Deprecated.
 	RuntimeRef() *interfacesawsbedrockagentcore.RuntimeReference
 	// The stack in which this resource is defined.
 	// Experimental.
@@ -155,8 +155,17 @@ type Runtime interface {
 	// Adds a policy statement to the runtime's execution role.
 	//
 	// Returns: The runtime instance for chaining.
-	// Experimental.
+	// Deprecated.
 	AddToRolePolicy(statement awsiam.PolicyStatement) IBedrockAgentRuntime
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -190,58 +199,58 @@ type Runtime interface {
 	// [disable-awslint:no-grants].
 	//
 	// Returns: The Grant object for chaining.
-	// Experimental.
+	// Deprecated.
 	Grant(actions *[]*string, resources *[]*string) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime both directly and on behalf of users Grants both bedrock-agentcore:InvokeAgentRuntime and bedrock-agentcore:InvokeAgentRuntimeForUser permissions.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime Grants the bedrock-agentcore:InvokeAgentRuntime permission.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	GrantInvokeRuntime(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to invoke this runtime on behalf of a user Grants the bedrock-agentcore:InvokeAgentRuntimeForUser permission Required when using the X-Amzn-Bedrock-AgentCore-Runtime-User-Id header.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	GrantInvokeRuntimeForUser(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this agent runtime.
 	//
 	// By default, the metric will be calculated as a sum over a period of 5 minutes.
 	// You can customize this by using the `statistic` and `period` properties.
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations for this agent runtime.
-	// Experimental.
+	// Deprecated.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations across all resources.
-	// Experimental.
+	// Deprecated.
 	MetricInvocationsAggregated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of requests for this agent runtime.
 	//
 	// The latency metric represents the total time elapsed between receiving the request
 	// and sending the final response token, representing complete end-to-end processing time.
-	// Experimental.
+	// Deprecated.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of agent sessions for this agent runtime.
-	// Experimental.
+	// Deprecated.
 	MetricSessionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of sessions across all resources.
-	// Experimental.
+	// Deprecated.
 	MetricSessionsAggregated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of system errors for this agent runtime.
-	// Experimental.
+	// Deprecated.
 	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of throttled requests for this agent runtime.
-	// Experimental.
+	// Deprecated.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of errors (system + user) for this agent runtime.
-	// Experimental.
+	// Deprecated.
 	MetricTotalErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of user errors for this agent runtime.
-	// Experimental.
+	// Deprecated.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -600,6 +609,17 @@ func (r *jsiiProxy_Runtime) AddToRolePolicy(statement awsiam.PolicyStatement) IB
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_Runtime) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := r.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (r *jsiiProxy_Runtime) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

@@ -551,6 +551,25 @@ invoke := integ.Assertions.InvokeFunction(&LambdaInvokeFunctionProps{
 })
 ```
 
+#### Provider Log Level
+
+By default, the assertion provider lambda function has its log level set to `FATAL`.
+If you need to debug assertion failures, you can increase the log level by setting
+`providerLogLevel` on the `IntegTest` construct:
+
+```go
+var app App
+var stack Stack
+
+
+integ := awscdkintegtestsalpha.NewIntegTest(app, jsii.String("IntegTest"), &IntegTestProps{
+	TestCases: []Stack{
+		stack,
+	},
+	ProviderLogLevel: lambda.ApplicationLogLevel_INFO,
+})
+```
+
 #### Make an AWS API Call
 
 In this example there is a StepFunctions state machine that is executed

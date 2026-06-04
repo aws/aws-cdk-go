@@ -32,6 +32,7 @@ type CfnLaunchTemplate_CpuOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-corecount
 	//
 	CoreCount *float64 `field:"optional" json:"coreCount" yaml:"coreCount"`
+	// Indicates whether the instance is enabled for nested virtualization.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html#cfn-ec2-launchtemplate-cpuoptions-nestedvirtualization
 	//
 	NestedVirtualization *string `field:"optional" json:"nestedVirtualization" yaml:"nestedVirtualization"`

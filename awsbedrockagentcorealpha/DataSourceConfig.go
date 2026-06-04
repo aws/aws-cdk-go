@@ -23,13 +23,13 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type DataSourceConfig interface {
 	// The CloudWatch Logs configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CloudWatchLogsConfig() *CloudWatchLogsDataSourceConfig
 	// Binds the data source configuration to produce the L1 property.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind() *DataSourceConfigBindResult
 }
 
@@ -63,7 +63,7 @@ func (j *jsiiProxy_DataSourceConfig) CloudWatchLogsConfig() *CloudWatchLogsDataS
 //   endpoint := runtime.AddEndpoint(jsii.String("PROD"))
 //   dataSource := agentcore.DataSourceConfig_FromAgentRuntimeEndpoint(runtime, endpoint)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func DataSourceConfig_FromAgentRuntimeEndpoint(runtime IBedrockAgentRuntime, endpoint IRuntimeEndpoint) DataSourceConfig {
 	_init_.Initialize()
 
@@ -94,7 +94,7 @@ func DataSourceConfig_FromAgentRuntimeEndpoint(runtime IBedrockAgentRuntime, end
 //
 //   dataSource := agentcore.DataSourceConfig_FromAgentRuntimeEndpointName(runtime, jsii.String("PROD"))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func DataSourceConfig_FromAgentRuntimeEndpointName(runtime IBedrockAgentRuntime, endpointName *string) DataSourceConfig {
 	_init_.Initialize()
 
@@ -130,7 +130,7 @@ func DataSourceConfig_FromAgentRuntimeEndpointName(runtime IBedrockAgentRuntime,
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func DataSourceConfig_FromCloudWatchLogs(config *CloudWatchLogsDataSourceConfig) DataSourceConfig {
 	_init_.Initialize()
 

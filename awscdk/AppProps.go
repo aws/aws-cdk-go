@@ -60,6 +60,14 @@ type AppProps struct {
 	//   If `CDK_OUTDIR` is not defined, uses a temp directory.
 	//
 	Outdir *string `field:"optional" json:"outdir" yaml:"outdir"`
+	// Produce a performance counter report if supported by the CLI.
+	//
+	// The performance report will be produced if the total synthesis time
+	// exceeds 10 seconds/stack, unless this property is used to switch the
+	// report off altogether (set to `false`).
+	// Default: Value of 'aws:cdk:performance-reporting' context key.
+	//
+	PerformanceReporting *bool `field:"optional" json:"performanceReporting" yaml:"performanceReporting"`
 	// Validation plugins to run after synthesis.
 	// Default: - no validation plugins.
 	//

@@ -4,6 +4,10 @@ package awscdklocationalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (g *jsiiProxy_GeofenceCollection) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_GeofenceCollection) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

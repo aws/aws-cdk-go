@@ -55,27 +55,27 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type InlineToolSchema interface {
 	ToolSchema
 	// The account ID of the S3 bucket owner for cross-account access.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	BucketOwnerAccountId() *string
 	// The inline tool schema definition as a string, if using an inline schema.
 	//
 	// Can be in JSON or YAML format.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InlineSchema() *[]*ToolDefinition
 	// The S3 location of the tool schema file, if using an S3-based schema.
 	//
 	// Contains the bucket name and object key information.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	S3File() *awss3.Location
 	// Bind the schema to a construct.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct)
 	// Grant permissions to the role.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantPermissionsToRole(role awsiam.IRole)
 }
 
@@ -115,7 +115,7 @@ func (j *jsiiProxy_InlineToolSchema) S3File() *awss3.Location {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewInlineToolSchema(schema *[]*ToolDefinition) InlineToolSchema {
 	_init_.Initialize()
 
@@ -133,7 +133,7 @@ func NewInlineToolSchema(schema *[]*ToolDefinition) InlineToolSchema {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewInlineToolSchema_Override(i InlineToolSchema, schema *[]*ToolDefinition) {
 	_init_.Initialize()
 
@@ -145,7 +145,7 @@ func NewInlineToolSchema_Override(i InlineToolSchema, schema *[]*ToolDefinition)
 }
 
 // Creates a Tool Schema from an inline string.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func InlineToolSchema_FromInline(schema *[]*ToolDefinition) InlineToolSchema {
 	_init_.Initialize()
 
@@ -165,7 +165,7 @@ func InlineToolSchema_FromInline(schema *[]*ToolDefinition) InlineToolSchema {
 }
 
 // Creates a tool Schema from a local file.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func InlineToolSchema_FromLocalAsset(path *string) ToolSchema {
 	_init_.Initialize()
 
@@ -185,7 +185,7 @@ func InlineToolSchema_FromLocalAsset(path *string) ToolSchema {
 }
 
 // Creates a Tool Schema from an S3 File.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func InlineToolSchema_FromS3File(bucket awss3.IBucket, objectKey *string, bucketOwnerAccountId *string) S3ToolSchema {
 	_init_.Initialize()
 

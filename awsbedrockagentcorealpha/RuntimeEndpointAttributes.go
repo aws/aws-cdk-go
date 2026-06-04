@@ -23,51 +23,51 @@ package awsbedrockagentcorealpha
 //   	TargetVersion: jsii.String("targetVersion"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type RuntimeEndpointAttributes struct {
 	// The ARN of the parent agent runtime.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeArn *string `field:"required" json:"agentRuntimeArn" yaml:"agentRuntimeArn"`
 	// The ARN of the runtime endpoint.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AgentRuntimeEndpointArn *string `field:"required" json:"agentRuntimeEndpointArn" yaml:"agentRuntimeEndpointArn"`
 	// The name of the runtime endpoint.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EndpointName *string `field:"required" json:"endpointName" yaml:"endpointName"`
 	// When the endpoint was created.
 	// Default: - Creation time not available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
 	// The description of the runtime endpoint.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The unique identifier of the runtime endpoint.
 	// Default: - Endpoint ID not available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EndpointId *string `field:"optional" json:"endpointId" yaml:"endpointId"`
 	// When the endpoint was last updated.
 	// Default: - Last update time not available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedAt *string `field:"optional" json:"lastUpdatedAt" yaml:"lastUpdatedAt"`
 	// The live version of the agent runtime that is currently serving requests.
 	// Default: - Live version not available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LiveVersion *string `field:"optional" json:"liveVersion" yaml:"liveVersion"`
 	// The current status of the runtime endpoint.
 	// Default: - Status not available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// The target version the endpoint is transitioning to (during updates).
 	// Default: - Target version not available.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetVersion *string `field:"optional" json:"targetVersion" yaml:"targetVersion"`
 }
 

@@ -18,7 +18,7 @@ import (
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-strategies.html
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type MemoryStrategy interface {
 }
 
@@ -27,7 +27,7 @@ type jsiiProxy_MemoryStrategy struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMemoryStrategy() MemoryStrategy {
 	_init_.Initialize()
 
@@ -42,7 +42,7 @@ func NewMemoryStrategy() MemoryStrategy {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMemoryStrategy_Override(m MemoryStrategy) {
 	_init_.Initialize()
 
@@ -59,7 +59,7 @@ func NewMemoryStrategy_Override(m MemoryStrategy) {
 // Extracted memory example: User first asked about pricing on Monday, then requested feature comparison on Tuesday, finally made purchase decision on Wednesday.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingBuiltInEpisodic() ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -81,7 +81,7 @@ func MemoryStrategy_UsingBuiltInEpisodic() ManagedMemoryStrategy {
 // Extracted memory example: In-context learning = task-solving via examples, no training needed.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingBuiltInSemantic() ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -103,7 +103,7 @@ func MemoryStrategy_UsingBuiltInSemantic() ManagedMemoryStrategy {
 // Extracted memory example: Users confused by cloud setup during onboarding.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingBuiltInSummarization() ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -125,7 +125,7 @@ func MemoryStrategy_UsingBuiltInSummarization() ManagedMemoryStrategy {
 // Extracted memory example: User needs clear guidance on cloud storage account connection during onboarding.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingBuiltInUserPreference() ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -147,7 +147,7 @@ func MemoryStrategy_UsingBuiltInUserPreference() ManagedMemoryStrategy {
 // Extracted memory example: User first asked about pricing on Monday, then requested feature comparison on Tuesday, finally made purchase decision on Wednesday.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingEpisodic(config *ManagedStrategyProps) ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -171,7 +171,7 @@ func MemoryStrategy_UsingEpisodic(config *ManagedStrategyProps) ManagedMemoryStr
 // A self-managed strategy gives you complete control over your memory extraction and consolidation pipelines.
 //
 // Returns: A SelfManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingSelfManaged(config *SelfManagedStrategyProps) SelfManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -196,7 +196,7 @@ func MemoryStrategy_UsingSelfManaged(config *SelfManagedStrategyProps) SelfManag
 // Extracted memory example: In-context learning = task-solving via examples, no training needed.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingSemantic(config *ManagedStrategyProps) ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -221,7 +221,7 @@ func MemoryStrategy_UsingSemantic(config *ManagedStrategyProps) ManagedMemoryStr
 // Extracted memory example: Users confused by cloud setup during onboarding.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingSummarization(config *ManagedStrategyProps) ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -246,7 +246,7 @@ func MemoryStrategy_UsingSummarization(config *ManagedStrategyProps) ManagedMemo
 // Extracted memory example: User needs clear guidance on cloud storage account connection during onboarding.
 //
 // Returns: A ManagedMemoryStrategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func MemoryStrategy_UsingUserPreference(config *ManagedStrategyProps) ManagedMemoryStrategy {
 	_init_.Initialize()
 

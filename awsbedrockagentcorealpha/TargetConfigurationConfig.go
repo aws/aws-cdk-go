@@ -12,10 +12,10 @@ package awsbedrockagentcorealpha
 //   	Bound: jsii.Boolean(false),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type TargetConfigurationConfig struct {
 	// Indicates that the configuration has been successfully bound.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bound *bool `field:"required" json:"bound" yaml:"bound"`
 }
 

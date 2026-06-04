@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLaunchNotificationConstraint) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

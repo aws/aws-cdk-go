@@ -8,6 +8,10 @@ func (s *jsiiProxy_StateMachine) validateAddToRolePolicyParameters(statement aws
 	return nil
 }
 
+func (s *jsiiProxy_StateMachine) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_StateMachine) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

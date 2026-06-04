@@ -43,10 +43,10 @@ import (
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type VpcConfigProps struct {
 	// The VPC to deploy the resource to.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// Whether to allow the resource to send all network traffic (except ipv6).
 	//
@@ -57,7 +57,7 @@ type VpcConfigProps struct {
 	// Instead, configure `allowAllOutbound` directly on the security group.
 	// Default: true.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowAllOutbound *bool `field:"optional" json:"allowAllOutbound" yaml:"allowAllOutbound"`
 	// The list of security groups to associate with the resource's network interfaces.
 	//
@@ -66,7 +66,7 @@ type VpcConfigProps struct {
 	// not specified by this prop, a dedicated security
 	// group will be created for this resource.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Where to place the network interfaces within the VPC.
 	//
@@ -74,7 +74,7 @@ type VpcConfigProps struct {
 	// placed in the subnets. If `vpc` is not specify, this will raise an error.
 	// Default: - the Vpc default strategy if not specified.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

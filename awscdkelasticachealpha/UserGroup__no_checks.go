@@ -8,6 +8,10 @@ func (u *jsiiProxy_UserGroup) validateAddUserParameters(user IUser) error {
 	return nil
 }
 
+func (u *jsiiProxy_UserGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (u *jsiiProxy_UserGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

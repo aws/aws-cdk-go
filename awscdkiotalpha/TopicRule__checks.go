@@ -19,6 +19,14 @@ func (t *jsiiProxy_TopicRule) validateAddActionParameters(action IAction) error 
 	return nil
 }
 
+func (t *jsiiProxy_TopicRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TopicRule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

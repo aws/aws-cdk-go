@@ -4,6 +4,10 @@ package awscodedeploy
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_ServerDeploymentConfig) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_ServerDeploymentConfig) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -35,10 +35,10 @@ import (
 //   	LambdaFunction: myEvalFunction,
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorConfig interface {
 	// The Lambda function used for code-based evaluation, if applicable.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LambdaFunction() awslambda.IFunction
 }
 
@@ -62,7 +62,7 @@ func (j *jsiiProxy_EvaluatorConfig) LambdaFunction() awslambda.IFunction {
 //
 // The Lambda function implements custom evaluation logic. The function will
 // automatically be granted invoke permissions for the bedrock-agentcore service.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func EvaluatorConfig_CodeBased(options *CodeBasedOptions) EvaluatorConfig {
 	_init_.Initialize()
 
@@ -85,7 +85,7 @@ func EvaluatorConfig_CodeBased(options *CodeBasedOptions) EvaluatorConfig {
 //
 // Uses a foundation model to assess agent performance based on custom
 // instructions and a rating scale.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func EvaluatorConfig_LlmAsAJudge(options *LlmAsAJudgeOptions) EvaluatorConfig {
 	_init_.Initialize()
 

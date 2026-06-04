@@ -14,6 +14,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var actualResult ActualResult
 //   var expectedResult ExpectedResult
@@ -24,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	FailDeployment: jsii.Boolean(false),
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   })
 //
 // Experimental.

@@ -8,6 +8,10 @@ func (g *jsiiProxy_Group) validateAddCanaryParameters(canary ICanary) error {
 	return nil
 }
 
+func (g *jsiiProxy_Group) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_Group) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

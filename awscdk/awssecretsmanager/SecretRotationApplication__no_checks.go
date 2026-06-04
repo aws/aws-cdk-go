@@ -12,7 +12,7 @@ func (s *jsiiProxy_SecretRotationApplication) validateSemanticVersionForPartitio
 	return nil
 }
 
-func validateNewSecretRotationApplicationParameters(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) error {
+func validateNewSecretRotationApplicationParameters(applicationName *string, awsSemanticVersion *string, options *SecretRotationApplicationOptions) error {
 	return nil
 }
 

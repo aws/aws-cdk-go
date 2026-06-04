@@ -19,7 +19,7 @@ import (
 //   	Model: bedrockInvokable,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type OverrideConfig struct {
 	// The prompt that will be appended to the system prompt to define the model's memory consolidation/extraction strategy.
 	//
@@ -27,10 +27,10 @@ type OverrideConfig struct {
 	// relevant information for memory storage. You can use the default user prompt or create a customized one.
 	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/system-prompts.html
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AppendToPrompt *string `field:"required" json:"appendToPrompt" yaml:"appendToPrompt"`
 	// The model to use for consolidation/extraction.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Model awsbedrockalpha.IBedrockInvokable `field:"required" json:"model" yaml:"model"`
 }
 

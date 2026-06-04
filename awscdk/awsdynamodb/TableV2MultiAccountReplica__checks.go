@@ -29,6 +29,14 @@ func (t *jsiiProxy_TableV2MultiAccountReplica) validateAddToStreamResourcePolicy
 	return nil
 }
 
+func (t *jsiiProxy_TableV2MultiAccountReplica) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TableV2MultiAccountReplica) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

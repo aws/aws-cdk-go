@@ -8,6 +8,10 @@ func (c *jsiiProxy_CrossAccountDestination) validateAddToPolicyParameters(statem
 	return nil
 }
 
+func (c *jsiiProxy_CrossAccountDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

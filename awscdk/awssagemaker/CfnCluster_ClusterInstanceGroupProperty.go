@@ -15,7 +15,6 @@ package awssagemaker
 //   	ExecutionRole: jsii.String("executionRole"),
 //   	InstanceCount: jsii.Number(123),
 //   	InstanceGroupName: jsii.String("instanceGroupName"),
-//   	InstanceType: jsii.String("instanceType"),
 //
 //   	// the properties below are optional
 //   	CapacityRequirements: &ClusterCapacityRequirementsProperty{
@@ -51,6 +50,7 @@ package awssagemaker
 //   			},
 //   		},
 //   	},
+//   	InstanceType: jsii.String("instanceType"),
 //   	KubernetesConfig: &ClusterKubernetesConfigProperty{
 //   		Labels: map[string]*string{
 //   			"labelsKey": jsii.String("labels"),
@@ -137,10 +137,6 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancegroupname
 	//
 	InstanceGroupName *string `field:"required" json:"instanceGroupName" yaml:"instanceGroupName"`
-	// The instance type of the instance group of a SageMaker HyperPod cluster.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancetype
-	//
-	InstanceType *string `field:"required" json:"instanceType" yaml:"instanceType"`
 	// Specifies the capacity requirements configuration for an instance group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-capacityrequirements
 	//
@@ -163,6 +159,10 @@ type CfnCluster_ClusterInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancestorageconfigs
 	//
 	InstanceStorageConfigs interface{} `field:"optional" json:"instanceStorageConfigs" yaml:"instanceStorageConfigs"`
+	// The instance type of the instance group of a SageMaker HyperPod cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-instancetype
+	//
+	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
 	// Kubernetes configuration for cluster nodes including labels and taints.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-kubernetesconfig
 	//

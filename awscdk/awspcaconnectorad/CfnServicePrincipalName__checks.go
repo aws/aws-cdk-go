@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnServicePrincipalName) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnServicePrincipalName) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnServicePrincipalName) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -195,6 +203,22 @@ func validateCfnServicePrincipalName_IsConstructParameters(x interface{}) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnServicePrincipalName) validateSetConnectorArnParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnServicePrincipalName) validateSetDirectoryRegistrationArnParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnServicePrincipalNameParameters(scope constructs.Construct, id *string, props *CfnServicePrincipalNameProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -204,6 +228,9 @@ func validateNewCfnServicePrincipalNameParameters(scope constructs.Construct, id
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

@@ -21,16 +21,16 @@ package awsbedrockagentcorealpha
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CloudWatchLogsDataSourceConfig struct {
 	// The list of CloudWatch log group names to monitor for agent traces.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LogGroupNames *[]*string `field:"required" json:"logGroupNames" yaml:"logGroupNames"`
 	// The list of service names to filter traces within the specified log groups. Used to identify relevant agent sessions.
 	//
 	// For agents hosted on AgentCore Runtime, service name follows the format:
 	// `<agent-runtime-name>.<agent-runtime-endpoint-name>`
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ServiceNames *[]*string `field:"required" json:"serviceNames" yaml:"serviceNames"`
 }
 

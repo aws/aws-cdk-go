@@ -68,6 +68,10 @@ func init() {
 		reflect.TypeOf((*CfnDomainPropsMixin_AdvancedSecurityOptionsInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_opensearchservice.CfnDomainPropsMixin.AutomatedSnapshotPauseOptionsProperty",
+		reflect.TypeOf((*CfnDomainPropsMixin_AutomatedSnapshotPauseOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_opensearchservice.CfnDomainPropsMixin.ClusterConfigProperty",
 		reflect.TypeOf((*CfnDomainPropsMixin_ClusterConfigProperty)(nil)).Elem(),
 	)

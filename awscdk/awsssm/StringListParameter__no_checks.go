@@ -4,6 +4,10 @@ package awsssm
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_StringListParameter) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_StringListParameter) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateAddPropertyOver
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

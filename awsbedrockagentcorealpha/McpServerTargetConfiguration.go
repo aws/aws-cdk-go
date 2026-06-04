@@ -21,20 +21,20 @@ import (
 //
 //   mcpServerTargetConfiguration := bedrock_agentcore_alpha.NewMcpServerTargetConfiguration(jsii.String("endpoint"))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type McpServerTargetConfiguration interface {
 	McpTargetConfiguration
 	// The HTTPS endpoint URL of the MCP server.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Endpoint() *string
 	// The target type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 	// Binds this configuration to a construct scope No additional permissions are needed for MCP server targets.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *TargetConfigurationConfig
 	// Renders the MCP-specific configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RenderMcpConfiguration() interface{}
 }
 
@@ -64,7 +64,7 @@ func (j *jsiiProxy_McpServerTargetConfiguration) TargetType() McpTargetType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMcpServerTargetConfiguration(endpoint *string) McpServerTargetConfiguration {
 	_init_.Initialize()
 
@@ -82,7 +82,7 @@ func NewMcpServerTargetConfiguration(endpoint *string) McpServerTargetConfigurat
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMcpServerTargetConfiguration_Override(m McpServerTargetConfiguration, endpoint *string) {
 	_init_.Initialize()
 
@@ -96,7 +96,7 @@ func NewMcpServerTargetConfiguration_Override(m McpServerTargetConfiguration, en
 // Create an MCP server target configuration.
 //
 // Returns: A new McpServerTargetConfiguration instance.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func McpServerTargetConfiguration_Create(endpoint *string) McpServerTargetConfiguration {
 	_init_.Initialize()
 

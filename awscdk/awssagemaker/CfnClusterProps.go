@@ -28,7 +28,6 @@ import (
 //   			ExecutionRole: jsii.String("executionRole"),
 //   			InstanceCount: jsii.Number(123),
 //   			InstanceGroupName: jsii.String("instanceGroupName"),
-//   			InstanceType: jsii.String("instanceType"),
 //
 //   			// the properties below are optional
 //   			CapacityRequirements: &ClusterCapacityRequirementsProperty{
@@ -64,6 +63,7 @@ import (
 //   					},
 //   				},
 //   			},
+//   			InstanceType: jsii.String("instanceType"),
 //   			KubernetesConfig: &ClusterKubernetesConfigProperty{
 //   				Labels: map[string]*string{
 //   					"labelsKey": jsii.String("labels"),

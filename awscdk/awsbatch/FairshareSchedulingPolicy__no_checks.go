@@ -8,6 +8,10 @@ func (f *jsiiProxy_FairshareSchedulingPolicy) validateAddShareParameters(share *
 	return nil
 }
 
+func (f *jsiiProxy_FairshareSchedulingPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FairshareSchedulingPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

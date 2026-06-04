@@ -48,6 +48,26 @@ var instance Instance
 serverlessCache.Connections.AllowDefaultPortFrom(instance)
 ```
 
+### Using a custom engine version
+
+The named `CacheEngine` and `UserEngine` static members cover the versions available
+at the time of the most recent CDK release. If ElastiCache releases a new engine
+version before it is added as a named member, use the `.of(...)` factory to target
+it without waiting for a CDK update:
+
+```go
+var vpc Vpc
+
+
+elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
+	// Use any engine/version combination supported by ElastiCache:
+	Engine: elasticache.CacheEngine_Of(jsii.String("valkey"), jsii.String("9")),
+	Vpc: Vpc,
+})
+```
+
+The same pattern applies to `UserEngine.of(engineType)` for users and user groups.
+
 ### Cache usage limits
 
 You can configure usage limits on both cache data storage and ECPU/second for your cache to control costs and ensure predictable performance.
@@ -65,7 +85,7 @@ var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 	Vpc: Vpc,
 	CacheUsageLimits: &CacheUsageLimitsProperty{
 		// cache data storage limits (GB)
@@ -118,7 +138,7 @@ var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 	Backup: &BackupSettings{
 		// set a backup name before deleting a cache
 		BackupNameBeforeDeletion: jsii.String("my-final-backup-name"),
@@ -134,7 +154,7 @@ var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 	Backup: &BackupSettings{
 		// set the backup(s) to restore
 		BackupArnsToRestore: []*string{
@@ -168,7 +188,7 @@ var vpc Vpc
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 	ServerlessCacheName: jsii.String("my-serverless-cache"),
 	Vpc: Vpc,
 	// set Customer Managed Key
@@ -262,7 +282,7 @@ You can create an IAM-enabled user by using `IamUser` construct:
 ```go
 user := elasticache.NewIamUser(this, jsii.String("User"), &IamUserProps{
 	// set user engine
-	Engine: elasticache.UserEngine_REDIS,
+	Engine: elasticache.UserEngine_REDIS(),
 
 	// set user id
 	UserId: jsii.String("my-user"),
@@ -282,7 +302,7 @@ If you want to create a password authenticated user, use `PasswordUser` construc
 ```go
 user := elasticache.NewPasswordUser(this, jsii.String("User"), &PasswordUserProps{
 	// set user engine
-	Engine: elasticache.UserEngine_VALKEY,
+	Engine: elasticache.UserEngine_VALKEY(),
 
 	// set user id
 	UserId: jsii.String("my-user-id"),
@@ -306,7 +326,7 @@ You can also create a no password required user by using `NoPasswordUser` constr
 ```go
 user := elasticache.NewNoPasswordUser(this, jsii.String("User"), &NoPasswordUserProps{
 	// set user engine
-	Engine: elasticache.UserEngine_REDIS,
+	Engine: elasticache.UserEngine_REDIS(),
 
 	// set user id
 	UserId: jsii.String("my-user-id"),
@@ -390,7 +410,7 @@ var userGroup UserGroup
 
 
 serverlessCache := elasticache.NewServerlessCache(this, jsii.String("ServerlessCache"), &ServerlessCacheProps{
-	Engine: elasticache.CacheEngine_VALKEY_LATEST,
+	Engine: elasticache.CacheEngine_VALKEY_LATEST(),
 	ServerlessCacheName: jsii.String("my-serverless-cache"),
 	Vpc: Vpc,
 	// assign User Group

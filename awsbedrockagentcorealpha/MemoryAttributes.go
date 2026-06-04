@@ -19,33 +19,33 @@ package awsbedrockagentcorealpha
 //   	UpdatedAt: jsii.String("updatedAt"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type MemoryAttributes struct {
 	// The ARN of the memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MemoryArn *string `field:"required" json:"memoryArn" yaml:"memoryArn"`
 	// The ARN of the IAM role associated to the memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// The created timestamp of the memory.
 	// Default: undefined - No created timestamp is provided.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
 	// Optional KMS encryption key associated with this memory.
 	// Default: undefined - An AWS managed key is used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The status of the memory.
 	// Default: undefined - No status is provided.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// When this memory was last updated.
 	// Default: undefined - No last updated timestamp is provided.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt *string `field:"optional" json:"updatedAt" yaml:"updatedAt"`
 }
 

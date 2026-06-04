@@ -22,17 +22,16 @@ func init() {
 		"@aws-cdk/aws-elasticache-alpha.BackupSettings",
 		reflect.TypeOf((*BackupSettings)(nil)).Elem(),
 	)
-	_jsii_.RegisterEnum(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-elasticache-alpha.CacheEngine",
 		reflect.TypeOf((*CacheEngine)(nil)).Elem(),
-		map[string]interface{}{
-			"VALKEY_LATEST": CacheEngine_VALKEY_LATEST,
-			"VALKEY_7": CacheEngine_VALKEY_7,
-			"VALKEY_8": CacheEngine_VALKEY_8,
-			"REDIS_LATEST": CacheEngine_REDIS_LATEST,
-			"REDIS_7": CacheEngine_REDIS_7,
-			"MEMCACHED_LATEST": CacheEngine_MEMCACHED_LATEST,
-			"MEMCACHED_1_6": CacheEngine_MEMCACHED_1_6,
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "engineType", GoGetter: "EngineType"},
+			_jsii_.MemberProperty{JsiiProperty: "majorEngineVersion", GoGetter: "MajorEngineVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CacheEngine{}
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -127,6 +126,7 @@ func init() {
 		reflect.TypeOf((*IamUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessString", GoGetter: "AccessString"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -160,6 +160,7 @@ func init() {
 		reflect.TypeOf((*NoPasswordUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessString", GoGetter: "AccessString"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -191,6 +192,7 @@ func init() {
 		reflect.TypeOf((*PasswordUser)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessString", GoGetter: "AccessString"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -221,6 +223,7 @@ func init() {
 		"@aws-cdk/aws-elasticache-alpha.ServerlessCache",
 		reflect.TypeOf((*ServerlessCache)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupArnsToRestore", GoGetter: "BackupArnsToRestore"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
@@ -276,6 +279,7 @@ func init() {
 		"@aws-cdk/aws-elasticache-alpha.ServerlessCacheBase",
 		reflect.TypeOf((*ServerlessCacheBase)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupArnsToRestore", GoGetter: "BackupArnsToRestore"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
@@ -339,6 +343,7 @@ func init() {
 		"@aws-cdk/aws-elasticache-alpha.UserBase",
 		reflect.TypeOf((*UserBase)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -369,12 +374,15 @@ func init() {
 		"@aws-cdk/aws-elasticache-alpha.UserBaseProps",
 		reflect.TypeOf((*UserBaseProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterEnum(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-elasticache-alpha.UserEngine",
 		reflect.TypeOf((*UserEngine)(nil)).Elem(),
-		map[string]interface{}{
-			"VALKEY": UserEngine_VALKEY,
-			"REDIS": UserEngine_REDIS,
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "engineType", GoGetter: "EngineType"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_UserEngine{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -382,6 +390,7 @@ func init() {
 		reflect.TypeOf((*UserGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addUser", GoMethod: "AddUser"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -413,6 +422,7 @@ func init() {
 		reflect.TypeOf((*UserGroupBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addUser", GoMethod: "AddUser"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "engine", GoGetter: "Engine"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

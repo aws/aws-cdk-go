@@ -40,6 +40,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_verifiedpermissions.IPolicyStoreAliasRef",
+		reflect.TypeOf((*IPolicyStoreAliasRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "policyStoreAliasRef", GoGetter: "PolicyStoreAliasRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPolicyStoreAliasRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_verifiedpermissions.IPolicyStoreRef",
 		reflect.TypeOf((*IPolicyStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -78,6 +94,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_verifiedpermissions.PolicyReference",
 		reflect.TypeOf((*PolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_verifiedpermissions.PolicyStoreAliasReference",
+		reflect.TypeOf((*PolicyStoreAliasReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_verifiedpermissions.PolicyStoreReference",

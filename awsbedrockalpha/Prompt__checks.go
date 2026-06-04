@@ -20,6 +20,14 @@ func (p *jsiiProxy_Prompt) validateAddVariantParameters(variant IPromptVariant) 
 	return nil
 }
 
+func (p *jsiiProxy_Prompt) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_Prompt) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

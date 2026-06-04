@@ -26,6 +26,14 @@ func (v *jsiiProxy_VirtualRouter) validateAddRouteParameters(id *string, props *
 	return nil
 }
 
+func (v *jsiiProxy_VirtualRouter) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VirtualRouter) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

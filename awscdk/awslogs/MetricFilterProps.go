@@ -8,12 +8,17 @@ import (
 // Properties for a MetricFilter.
 //
 // Example:
-//   awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
-//   	LogGroup: LogGroup,
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"))
+//
+//   runtime := agentcore.NewRuntime(this, jsii.String("Runtime"), &RuntimeProps{
+//   	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+//   })
+//
+//   logs.NewMetricFilter(this, jsii.String("ToolErrors"), &MetricFilterProps{
+//   	LogGroup: runtime.applicationLogGroup,
+//   	FilterPattern: logs.FilterPattern_StringValue(jsii.String("$.tool_status"), jsii.String("="), jsii.String("error")),
 //   	MetricNamespace: jsii.String("MyApp"),
-//   	MetricName: jsii.String("Latency"),
-//   	FilterPattern: awscdk.FilterPattern_All(awscdk.FilterPattern_Exists(jsii.String("$.latency")), awscdk.FilterPattern_RegexValue(jsii.String("$.message"), jsii.String("="), jsii.String("bind: address already in use"))),
-//   	MetricValue: jsii.String("$.latency"),
+//   	MetricName: jsii.String("ToolExecutionErrors"),
 //   })
 //
 type MetricFilterProps struct {

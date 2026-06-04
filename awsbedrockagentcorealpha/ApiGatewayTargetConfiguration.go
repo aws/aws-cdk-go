@@ -68,29 +68,29 @@ import (
 //   	Stage: jsii.String("stage"),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiGatewayTargetConfiguration interface {
 	McpTargetConfiguration
 	// Tool configuration for the API Gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayToolConfiguration() *ApiGatewayToolConfiguration
 	// Metadata configuration for the API Gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetadataConfiguration() *MetadataConfiguration
 	// The ID of the REST API.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RestApiId() *string
 	// The stage name of the REST API.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Stage() *string
 	// The target type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 	// Binds this configuration to a construct scope Sets up necessary permissions for the gateway to access the API Gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *TargetConfigurationConfig
 	// Renders the MCP-specific configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RenderMcpConfiguration() interface{}
 }
 
@@ -150,7 +150,7 @@ func (j *jsiiProxy_ApiGatewayTargetConfiguration) TargetType() McpTargetType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewApiGatewayTargetConfiguration(props *ApiGatewayTargetConfigurationProps) ApiGatewayTargetConfiguration {
 	_init_.Initialize()
 
@@ -168,7 +168,7 @@ func NewApiGatewayTargetConfiguration(props *ApiGatewayTargetConfigurationProps)
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewApiGatewayTargetConfiguration_Override(a ApiGatewayTargetConfiguration, props *ApiGatewayTargetConfigurationProps) {
 	_init_.Initialize()
 
@@ -182,7 +182,7 @@ func NewApiGatewayTargetConfiguration_Override(a ApiGatewayTargetConfiguration, 
 // Create an API Gateway target configuration.
 //
 // Returns: A new ApiGatewayTargetConfiguration instance.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func ApiGatewayTargetConfiguration_Create(props *ApiGatewayTargetConfigurationProps) ApiGatewayTargetConfiguration {
 	_init_.Initialize()
 

@@ -60,38 +60,38 @@ import (
 //   	Stage: jsii.String("stage"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type AddApiGatewayTargetOptions struct {
 	// Tool configuration defining which operations to expose.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayToolConfiguration *ApiGatewayToolConfiguration `field:"required" json:"apiGatewayToolConfiguration" yaml:"apiGatewayToolConfiguration"`
 	// The REST API to integrate with Must be in the same account and region as the gateway [disable-awslint:prefer-ref-interface].
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RestApi awsapigateway.IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 	// Credential providers for authentication API Gateway targets support IAM and API key authentication.
 	// Default: - Empty array (service handles IAM automatically).
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderConfigurations *[]ICredentialProviderConfig `field:"optional" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`
 	// Optional description for the gateway target.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the gateway target Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen).
 	// Default: - auto generate.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayTargetName *string `field:"optional" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// Metadata configuration for passing headers and query parameters Allows you to pass additional context through headers and query parameters.
 	// Default: - No metadata configuration.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetadataConfiguration *MetadataConfiguration `field:"optional" json:"metadataConfiguration" yaml:"metadataConfiguration"`
 	// The stage name of the REST API.
 	// Default: - Uses the deployment stage from the RestApi (restApi.deploymentStage.stageName)
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 

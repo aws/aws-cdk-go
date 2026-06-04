@@ -82,7 +82,7 @@ type Gateway interface {
 	// Experimental.
 	GatewayId() *string
 	// A reference to a Gateway resource.
-	// Experimental.
+	// Deprecated.
 	GatewayRef() *interfacesawsbedrockagentcore.GatewayReference
 	// The URL endpoint for the gateway.
 	// Experimental.
@@ -197,6 +197,15 @@ type Gateway interface {
 	// Returns: The created GatewayTarget.
 	// Experimental.
 	AddSmithyTarget(id *string, props *AddSmithyTargetOptions) GatewayTarget
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -228,61 +237,61 @@ type Gateway interface {
 	// Grants IAM actions to the IAM Principal.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants permission to invoke this Gateway.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Create`, `Update`, and `Delete` actions on the Gateway.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Get` and `List` actions on the Gateway.
 	//
 	// [disable-awslint:no-grants].
-	// Experimental.
+	// Deprecated.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this gateway.
 	//
 	// By default, the metric will be calculated as a sum over a period of 5 minutes.
 	// You can customize this by using the `statistic` and `period` properties.
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the duration of requests for this gateway.
 	//
 	// The duration metric represents the total time elapsed between receiving the request
 	// and sending the final response token, representing complete end-to-end processing time.
-	// Experimental.
+	// Deprecated.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations for this gateway.
-	// Experimental.
+	// Deprecated.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of requests for this gateway.
 	//
 	// The latency metric represents the time elapsed between when the service receives
 	// the request and when it begins sending the first response token.
-	// Experimental.
+	// Deprecated.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of system errors (5xx status code) for this gateway.
-	// Experimental.
+	// Deprecated.
 	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the target execution time for this gateway.
 	//
 	// This metric helps determine the contribution of the target (Lambda, OpenAPI, etc.)
 	// to the total latency.
-	// Experimental.
+	// Deprecated.
 	MetricTargetExecutionTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of requests served by each target type for this gateway.
-	// Experimental.
+	// Deprecated.
 	MetricTargetType(targetType *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of throttled requests (429 status code) for this gateway.
-	// Experimental.
+	// Deprecated.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of user errors (4xx status code, excluding 429) for this gateway.
-	// Experimental.
+	// Deprecated.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -832,6 +841,17 @@ func (g *jsiiProxy_Gateway) AddSmithyTarget(id *string, props *AddSmithyTargetOp
 	)
 
 	return returns
+}
+
+func (g *jsiiProxy_Gateway) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := g.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (g *jsiiProxy_Gateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

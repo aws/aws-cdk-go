@@ -140,6 +140,14 @@ func (e *jsiiProxy_EventApiBase) validateAddRdsDataSourceParameters(id *string, 
 	return nil
 }
 
+func (e *jsiiProxy_EventApiBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_EventApiBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

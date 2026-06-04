@@ -8,6 +8,10 @@ func (i *jsiiProxy_Ipam) validateAddScopeParameters(scope constructs.Construct, 
 	return nil
 }
 
+func (i *jsiiProxy_Ipam) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (i *jsiiProxy_Ipam) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

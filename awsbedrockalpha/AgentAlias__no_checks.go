@@ -4,6 +4,10 @@ package awsbedrockalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (a *jsiiProxy_AgentAlias) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_AgentAlias) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

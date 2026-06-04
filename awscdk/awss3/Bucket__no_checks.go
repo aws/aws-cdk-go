@@ -40,6 +40,10 @@ func (b *jsiiProxy_Bucket) validateAddToResourcePolicyParameters(permission awsi
 	return nil
 }
 
+func (b *jsiiProxy_Bucket) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_Bucket) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

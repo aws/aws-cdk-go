@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsbedrockagentcore"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -28,6 +29,12 @@ type RuntimeBase interface {
 	AgentRuntimeVersion() *string
 	// The current status of the agent runtime.
 	AgentStatus() *string
+	// Memoized accessor for the default endpoint application log group.
+	//
+	// The log group reference is constructed on first access so that runtimes
+	// which never reference it do not pollute the construct tree with an
+	// imported child.
+	ApplicationLogGroup() awslogs.ILogGroup
 	// An accessor for the Connections object that will fail if this Runtime does not have a VPC configured.
 	Connections() awsec2.Connections
 	// The time at which the runtime was created.
@@ -66,6 +73,14 @@ type RuntimeBase interface {
 	//
 	// Returns: The runtime instance for chaining.
 	AddToRolePolicy(statement awsiam.PolicyStatement) IBedrockAgentRuntime
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -196,6 +211,16 @@ func (j *jsiiProxy_RuntimeBase) AgentStatus() *string {
 	_jsii_.Get(
 		j,
 		"agentStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RuntimeBase) ApplicationLogGroup() awslogs.ILogGroup {
+	var returns awslogs.ILogGroup
+	_jsii_.Get(
+		j,
+		"applicationLogGroup",
 		&returns,
 	)
 	return returns
@@ -399,6 +424,17 @@ func (r *jsiiProxy_RuntimeBase) AddToRolePolicy(statement awsiam.PolicyStatement
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_RuntimeBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := r.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (r *jsiiProxy_RuntimeBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

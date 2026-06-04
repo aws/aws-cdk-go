@@ -2,7 +2,6 @@ package awscdk
 
 
 // Example:
-//   import s3 "github.com/aws/aws-cdk-go/awscdk"
 //   var cluster Cluster
 //
 //   // add service account

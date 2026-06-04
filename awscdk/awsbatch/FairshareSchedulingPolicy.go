@@ -96,6 +96,14 @@ type FairshareSchedulingPolicy interface {
 	Stack() awscdk.Stack
 	// Add a share this to this Fairshare SchedulingPolicy.
 	AddShare(share *Share)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -377,6 +385,17 @@ func (f *jsiiProxy_FairshareSchedulingPolicy) AddShare(share *Share) {
 		f,
 		"addShare",
 		[]interface{}{share},
+	)
+}
+
+func (f *jsiiProxy_FairshareSchedulingPolicy) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := f.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		f,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

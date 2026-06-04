@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -167,38 +175,6 @@ func (c *jsiiProxy_CfnWirelessDeviceImportTask) validateValidatePropertiesParame
 func validateCfnWirelessDeviceImportTask_ArnForWirelessDeviceImportTaskParameters(resource interfacesawsiotwireless.IWirelessDeviceImportTaskRef) error {
 	if resource == nil {
 		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if arn == nil {
-		return fmt.Errorf("parameter arn is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnWirelessDeviceImportTask_FromWirelessDeviceImportTaskIdParameters(scope constructs.Construct, id *string, wirelessDeviceImportTaskId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if wirelessDeviceImportTaskId == nil {
-		return fmt.Errorf("parameter wirelessDeviceImportTaskId is required, but nil was provided")
 	}
 
 	return nil

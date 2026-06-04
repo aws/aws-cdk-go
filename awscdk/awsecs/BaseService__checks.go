@@ -32,6 +32,14 @@ func (b *jsiiProxy_BaseService) validateAddVolumeParameters(volume ServiceManage
 	return nil
 }
 
+func (b *jsiiProxy_BaseService) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (b *jsiiProxy_BaseService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

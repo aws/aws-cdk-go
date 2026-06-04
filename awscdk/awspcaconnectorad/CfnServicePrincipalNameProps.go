@@ -19,10 +19,10 @@ type CfnServicePrincipalNameProps struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector.html](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-serviceprincipalname.html#cfn-pcaconnectorad-serviceprincipalname-connectorarn
 	//
-	ConnectorArn *string `field:"optional" json:"connectorArn" yaml:"connectorArn"`
+	ConnectorArn *string `field:"required" json:"connectorArn" yaml:"connectorArn"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-serviceprincipalname.html#cfn-pcaconnectorad-serviceprincipalname-directoryregistrationarn
 	//
-	DirectoryRegistrationArn *string `field:"optional" json:"directoryRegistrationArn" yaml:"directoryRegistrationArn"`
+	DirectoryRegistrationArn *string `field:"required" json:"directoryRegistrationArn" yaml:"directoryRegistrationArn"`
 }
 

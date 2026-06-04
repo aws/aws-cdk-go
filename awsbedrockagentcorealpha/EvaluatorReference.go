@@ -18,13 +18,13 @@ import (
 //   helpfulness := agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS())
 //   custom := agentcore.EvaluatorReference_Custom(myCustomEvaluator)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorReference interface {
 	// The evaluator identifier.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorId() *string
 	// Binds the evaluator reference to produce the L1 property.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind() *EvaluatorReferenceBindResult
 }
 
@@ -55,7 +55,7 @@ func (j *jsiiProxy_EvaluatorReference) EvaluatorId() *string {
 //   helpfulness := agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_HELPFULNESS())
 //   goalSuccess := agentcore.EvaluatorReference_Builtin(agentcore.BuiltinEvaluator_GOAL_SUCCESS_RATE())
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func EvaluatorReference_Builtin(evaluator BuiltinEvaluator) EvaluatorReference {
 	_init_.Initialize()
 
@@ -86,7 +86,7 @@ func EvaluatorReference_Builtin(evaluator BuiltinEvaluator) EvaluatorReference {
 //
 //   ref := agentcore.EvaluatorReference_Custom(myCustomEvaluator)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func EvaluatorReference_Custom(evaluator IEvaluator) EvaluatorReference {
 	_init_.Initialize()
 

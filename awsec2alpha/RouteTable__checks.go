@@ -27,6 +27,14 @@ func (r *jsiiProxy_RouteTable) validateAddRouteParameters(id *string, destinatio
 	return nil
 }
 
+func (r *jsiiProxy_RouteTable) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_RouteTable) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -14,7 +14,7 @@ import (
 // Example:
 //   user := elasticache.NewPasswordUser(this, jsii.String("User"), &PasswordUserProps{
 //   	// set user engine
-//   	Engine: elasticache.UserEngine_VALKEY,
+//   	Engine: elasticache.UserEngine_VALKEY(),
 //
 //   	// set user id
 //   	UserId: jsii.String("my-user-id"),
@@ -81,6 +81,15 @@ type PasswordUser interface {
 	// Can be 'active', 'modifying', 'deleting'.
 	// Experimental.
 	UserStatus() *string
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -422,6 +431,17 @@ func PasswordUser_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (p *jsiiProxy_PasswordUser) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := p.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		p,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (p *jsiiProxy_PasswordUser) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

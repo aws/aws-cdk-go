@@ -15,15 +15,15 @@ package awsbedrockagentcorealpha
 //   	Description: jsii.String("description"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type MemoryStrategyCommonProps struct {
 	// The name for the strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The description of the strategy.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 }
 

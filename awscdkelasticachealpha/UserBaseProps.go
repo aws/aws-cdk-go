@@ -9,13 +9,14 @@ package awscdkelasticachealpha
 //   import elasticache_alpha "github.com/aws/aws-cdk-go/awscdkelasticachealpha"
 //
 //   var accessControl AccessControl
+//   var userEngine UserEngine
 //
 //   userBaseProps := &UserBaseProps{
 //   	AccessControl: accessControl,
 //   	UserId: jsii.String("userId"),
 //
 //   	// the properties below are optional
-//   	Engine: elasticache_alpha.UserEngine_VALKEY,
+//   	Engine: userEngine,
 //   }
 //
 // Experimental.

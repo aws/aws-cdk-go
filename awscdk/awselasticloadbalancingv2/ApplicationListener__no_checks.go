@@ -20,6 +20,10 @@ func (a *jsiiProxy_ApplicationListener) validateAddTargetsParameters(id *string,
 	return nil
 }
 
+func (a *jsiiProxy_ApplicationListener) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_ApplicationListener) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

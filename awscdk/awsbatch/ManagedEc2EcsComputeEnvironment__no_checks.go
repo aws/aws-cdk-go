@@ -12,6 +12,10 @@ func (m *jsiiProxy_ManagedEc2EcsComputeEnvironment) validateAddInstanceTypeParam
 	return nil
 }
 
+func (m *jsiiProxy_ManagedEc2EcsComputeEnvironment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (m *jsiiProxy_ManagedEc2EcsComputeEnvironment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

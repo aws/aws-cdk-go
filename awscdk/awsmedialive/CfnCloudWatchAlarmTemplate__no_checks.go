@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCloudWatchAlarmTemplate) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudWatchAlarmTemplate) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudWatchAlarmTemplate) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

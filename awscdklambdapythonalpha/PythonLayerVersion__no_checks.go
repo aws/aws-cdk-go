@@ -8,6 +8,10 @@ func (p *jsiiProxy_PythonLayerVersion) validateAddPermissionParameters(id *strin
 	return nil
 }
 
+func (p *jsiiProxy_PythonLayerVersion) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PythonLayerVersion) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

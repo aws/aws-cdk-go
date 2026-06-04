@@ -2,6 +2,7 @@ package awscdkintegtestsalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
@@ -36,6 +37,14 @@ import (
 //
 // Experimental.
 type IntegTestProps struct {
+	// Whether to allow resources that fail to delete during a stack update.
+	//
+	// When false, the test will fail if CloudFormation skips deleting a resource
+	// during a stack update. When true, only a warning is printed.
+	// Default: false.
+	//
+	// Experimental.
+	AllowDeleteFailures *bool `field:"optional" json:"allowDeleteFailures" yaml:"allowDeleteFailures"`
 	// List of CloudFormation resource types in this stack that can be destroyed as part of an update without failing the test.
 	//
 	// This list should only include resources that for this specific
@@ -78,6 +87,11 @@ type IntegTestProps struct {
 	//
 	// Experimental.
 	StackUpdateWorkflow *bool `field:"optional" json:"stackUpdateWorkflow" yaml:"stackUpdateWorkflow"`
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// List of test cases that make up this test.
 	// Experimental.
 	TestCases *[]awscdk.Stack `field:"required" json:"testCases" yaml:"testCases"`

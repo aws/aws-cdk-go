@@ -4,6 +4,10 @@ package awscdkgameliftalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (a *jsiiProxy_Alias) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_Alias) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -31,7 +31,7 @@ import (
 //   	runtimeCustomClaim,
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type RuntimeAuthorizerConfiguration interface {
 }
 
@@ -40,7 +40,7 @@ type jsiiProxy_RuntimeAuthorizerConfiguration struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewRuntimeAuthorizerConfiguration_Override(r RuntimeAuthorizerConfiguration) {
 	_init_.Initialize()
 
@@ -56,7 +56,7 @@ func NewRuntimeAuthorizerConfiguration_Override(r RuntimeAuthorizerConfiguration
 // Validates Cognito-issued JWT tokens.
 //
 // Returns: RuntimeAuthorizerConfiguration for Cognito authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func RuntimeAuthorizerConfiguration_UsingCognito(userPool awscognito.IUserPool, userPoolClients *[]awscognito.IUserPoolClient, allowedAudience *[]*string, allowedScopes *[]*string, customClaims *[]RuntimeCustomClaim) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
@@ -80,7 +80,7 @@ func RuntimeAuthorizerConfiguration_UsingCognito(userPool awscognito.IUserPool, 
 // Requires AWS credentials to sign requests using SigV4.
 //
 // Returns: RuntimeAuthorizerConfiguration for IAM authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func RuntimeAuthorizerConfiguration_UsingIAM() RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
@@ -101,7 +101,7 @@ func RuntimeAuthorizerConfiguration_UsingIAM() RuntimeAuthorizerConfiguration {
 // Validates JWT tokens against the specified OIDC provider.
 //
 // Returns: RuntimeAuthorizerConfiguration for JWT authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func RuntimeAuthorizerConfiguration_UsingJWT(discoveryUrl *string, allowedClients *[]*string, allowedAudience *[]*string, allowedScopes *[]*string, customClaims *[]RuntimeCustomClaim) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 
@@ -123,7 +123,7 @@ func RuntimeAuthorizerConfiguration_UsingJWT(discoveryUrl *string, allowedClient
 // Use OAuth 2.0 authentication. Supports various OAuth providers.
 //
 // Returns: RuntimeAuthorizerConfiguration for OAuth authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func RuntimeAuthorizerConfiguration_UsingOAuth(discoveryUrl *string, clientId *string, allowedAudience *[]*string, allowedScopes *[]*string, customClaims *[]RuntimeCustomClaim) RuntimeAuthorizerConfiguration {
 	_init_.Initialize()
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMailManagerIngressPoint) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnMailManagerIngressPoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMailManagerIngressPoint) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

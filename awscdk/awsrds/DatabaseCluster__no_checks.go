@@ -16,6 +16,10 @@ func (d *jsiiProxy_DatabaseCluster) validateAddRotationSingleUserParameters(opti
 	return nil
 }
 
+func (d *jsiiProxy_DatabaseCluster) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_DatabaseCluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

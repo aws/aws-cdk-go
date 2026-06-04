@@ -34,10 +34,12 @@ import (
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   waiterStateMachine := integ_tests_alpha.NewWaiterStateMachine(this, jsii.String("MyWaiterStateMachine"), &WaiterStateMachineProps{
 //   	BackoffRate: jsii.Number(123),
 //   	Interval: cdk.Duration_Minutes(jsii.Number(30)),
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   	TotalTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   })
 //

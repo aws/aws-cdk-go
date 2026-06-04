@@ -9,7 +9,7 @@ import (
 // Represents an interceptor that can be bound to a Gateway.
 //
 // Interceptors allow custom code execution at specific points in the gateway request/response flow.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IInterceptor interface {
 	// Binds this interceptor to a Gateway.
 	//
@@ -19,10 +19,10 @@ type IInterceptor interface {
 	// 3. Return the CloudFormation configuration
 	//
 	// Returns: Configuration that will be rendered to CloudFormation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *InterceptorBindConfig
 	// The interception point where this interceptor will be invoked.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InterceptionPoint() InterceptionPoint
 }
 

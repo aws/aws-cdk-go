@@ -16,6 +16,10 @@ func (r *jsiiProxy_Role) validateAddToPrincipalPolicyParameters(statement Policy
 	return nil
 }
 
+func (r *jsiiProxy_Role) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_Role) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -8,6 +8,10 @@ func (e *jsiiProxy_EcsJobDefinition) validateAddRetryStrategyParameters(strategy
 	return nil
 }
 
+func (e *jsiiProxy_EcsJobDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EcsJobDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

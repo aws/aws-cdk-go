@@ -21,6 +21,14 @@ func (c *jsiiProxy_CrossAccountDestination) validateAddToPolicyParameters(statem
 	return nil
 }
 
+func (c *jsiiProxy_CrossAccountDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CrossAccountDestination) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

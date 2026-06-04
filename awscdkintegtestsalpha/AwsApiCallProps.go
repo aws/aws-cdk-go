@@ -1,5 +1,8 @@
 package awscdkintegtestsalpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+)
 
 // Construct that creates a custom resource that will perform a query using the AWS SDK.
 //
@@ -14,6 +17,11 @@ package awscdkintegtestsalpha
 //
 // Experimental.
 type AwsApiCallProps struct {
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// The api call to make, i.e. getBucketLifecycle.
 	// Experimental.
 	Api *string `field:"required" json:"api" yaml:"api"`

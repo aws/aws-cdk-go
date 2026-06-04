@@ -79,6 +79,14 @@ type NotificationRule interface {
 	Stack() awscdk.Stack
 	// Adds target to notification rule.
 	AddTarget(target INotificationRuleTarget) *bool
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -325,6 +333,17 @@ func (n *jsiiProxy_NotificationRule) AddTarget(target INotificationRuleTarget) *
 	)
 
 	return returns
+}
+
+func (n *jsiiProxy_NotificationRule) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := n.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (n *jsiiProxy_NotificationRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

@@ -18,6 +18,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAccountId", GoGetter: "AttrAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -71,6 +72,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAccountId", GoGetter: "AttrAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
@@ -130,6 +132,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedTime", GoGetter: "AttrCreatedTime"},
@@ -190,6 +193,14 @@ func init() {
 		reflect.TypeOf((*CfnServiceLevelObjective_CalendarIntervalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.CompositeSliComponentProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_CompositeSliComponentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.CompositeSliConfigProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_CompositeSliConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.DependencyConfigProperty",
 		reflect.TypeOf((*CfnServiceLevelObjective_DependencyConfigProperty)(nil)).Elem(),
 	)
@@ -218,6 +229,10 @@ func init() {
 		reflect.TypeOf((*CfnServiceLevelObjective_MetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.MetricSourceProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_MetricSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.MetricStatProperty",
 		reflect.TypeOf((*CfnServiceLevelObjective_MetricStatProperty)(nil)).Elem(),
 	)
@@ -240,6 +255,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.RollingIntervalProperty",
 		reflect.TypeOf((*CfnServiceLevelObjective_RollingIntervalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.SelectionConfigProperty",
+		reflect.TypeOf((*CfnServiceLevelObjective_SelectionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_applicationsignals.CfnServiceLevelObjective.SliMetricProperty",

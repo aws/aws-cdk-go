@@ -14,24 +14,24 @@ import (
 )
 
 // Interface for Gateway resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IGateway interface {
 	interfacesawsbedrockagentcore.IGatewayRef
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants permission to invoke this Gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Create`, `Update`, and `Delete` actions on the Gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Get` and `List` actions on the Gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the duration of requests for this gateway.
 	//
@@ -39,14 +39,14 @@ type IGateway interface {
 	// and sending the final response token, representing complete end-to-end processing time.
 	// Default: - Average statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations for this gateway.
 	//
 	// This metric tracks all successful invocations of the gateway.
 	// Default: - Sum statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of requests for this gateway.
 	//
@@ -54,14 +54,14 @@ type IGateway interface {
 	// the request and when it begins sending the first response token.
 	// Default: - Average statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of system errors (5xx status code) for this gateway.
 	//
 	// This metric tracks internal server errors and system failures.
 	// Default: - Sum statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the target execution time for this gateway.
 	//
@@ -69,68 +69,68 @@ type IGateway interface {
 	// to the total latency.
 	// Default: - Average statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricTargetExecutionTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of requests served by each target type for this gateway.
 	// Default: - Sum statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricTargetType(targetType *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of throttled requests (429 status code) for this gateway.
 	//
 	// This metric helps identify when the gateway is rate limiting requests.
 	// Default: - Sum statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of user errors (4xx status code, excluding 429) for this gateway.
 	//
 	// This metric tracks client errors like bad requests, unauthorized access, etc.
 	// Default: - Sum statistic over 5 minutes.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The authorizer configuration for the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerConfiguration() IGatewayAuthorizerConfig
 	// Timestamp when the gateway was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The description of the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The exception level for the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExceptionLevel() GatewayExceptionLevel
 	// The ARN of the gateway resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayArn() *string
 	// The id of the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayId() *string
 	// The URL endpoint for the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayUrl() *string
 	// The KMS key used for encryption.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	KmsKey() awskms.IKey
 	// The name of the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name() *string
 	// The protocol configuration for the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProtocolConfiguration() IGatewayProtocolConfig
 	// The IAM role that provides permissions for the gateway to access AWS services.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Role() awsiam.IRole
 	// The status of the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 	// The status reasons for the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	StatusReason() *[]*string
 	// Timestamp when the gateway was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt() *string
 }
 

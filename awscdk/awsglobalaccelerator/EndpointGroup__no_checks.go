@@ -8,6 +8,10 @@ func (e *jsiiProxy_EndpointGroup) validateAddEndpointParameters(endpoint IEndpoi
 	return nil
 }
 
+func (e *jsiiProxy_EndpointGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EndpointGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

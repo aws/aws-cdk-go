@@ -20,6 +20,10 @@ func (g *jsiiProxy_Group) validateAddUserParameters(user IUser) error {
 	return nil
 }
 
+func (g *jsiiProxy_Group) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (g *jsiiProxy_Group) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

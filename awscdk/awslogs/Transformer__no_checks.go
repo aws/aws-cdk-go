@@ -4,6 +4,10 @@ package awslogs
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (t *jsiiProxy_Transformer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_Transformer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -31,6 +31,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   		},
 //   		CustomFileSystems: []interface{}{
@@ -62,6 +63,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   		},
 //   		JupyterServerAppSettings: &JupyterServerAppSettingsProperty{
@@ -70,6 +72,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -88,6 +91,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),

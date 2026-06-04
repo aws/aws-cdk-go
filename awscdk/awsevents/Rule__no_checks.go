@@ -8,6 +8,10 @@ func (r *jsiiProxy_Rule) validateAddEventPatternParameters(eventPattern *EventPa
 	return nil
 }
 
+func (r *jsiiProxy_Rule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_Rule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

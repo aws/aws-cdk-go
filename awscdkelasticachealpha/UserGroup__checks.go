@@ -19,6 +19,14 @@ func (u *jsiiProxy_UserGroup) validateAddUserParameters(user IUser) error {
 	return nil
 }
 
+func (u *jsiiProxy_UserGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (u *jsiiProxy_UserGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

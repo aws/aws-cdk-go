@@ -28,6 +28,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "appConfigs", GoGetter: "AppConfigs"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationRef", GoGetter: "ApplicationRef"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
@@ -105,6 +106,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "advancedOptions", GoGetter: "AdvancedOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "advancedSecurityOptions", GoGetter: "AdvancedSecurityOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "aimlOptions", GoGetter: "AimlOptions"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAdvancedSecurityOptionsAnonymousAuthDisableDate", GoGetter: "AttrAdvancedSecurityOptionsAnonymousAuthDisableDate"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
@@ -123,6 +125,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceSoftwareOptionsOptionalDeployment", GoGetter: "AttrServiceSoftwareOptionsOptionalDeployment"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceSoftwareOptionsUpdateAvailable", GoGetter: "AttrServiceSoftwareOptionsUpdateAvailable"},
 			_jsii_.MemberProperty{JsiiProperty: "attrServiceSoftwareOptionsUpdateStatus", GoGetter: "AttrServiceSoftwareOptionsUpdateStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "automatedSnapshotPauseOptions", GoGetter: "AutomatedSnapshotPauseOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -187,6 +190,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.AdvancedSecurityOptionsInputProperty",
 		reflect.TypeOf((*CfnDomain_AdvancedSecurityOptionsInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_opensearchservice.CfnDomain.AutomatedSnapshotPauseOptionsProperty",
+		reflect.TypeOf((*CfnDomain_AutomatedSnapshotPauseOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain.ClusterConfigProperty",
@@ -314,6 +321,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAccessPolicies", GoMethod: "AddAccessPolicies"},
 			_jsii_.MemberProperty{JsiiProperty: "appLogGroup", GoGetter: "AppLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "auditLogGroup", GoGetter: "AuditLogGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},

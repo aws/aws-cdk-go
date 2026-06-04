@@ -4,6 +4,10 @@ package awsec2alpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (v *jsiiProxy_VPNGatewayV2) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (v *jsiiProxy_VPNGatewayV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

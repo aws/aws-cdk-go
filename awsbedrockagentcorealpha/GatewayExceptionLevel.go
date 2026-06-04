@@ -2,7 +2,7 @@ package awsbedrockagentcorealpha
 
 
 // Exception levels for gateway.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayExceptionLevel string
 
 const (
@@ -11,7 +11,7 @@ const (
 	// Allows the return of
 	// specific error messages related to the gateway target configuration
 	// to help you with debugging.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayExceptionLevel_DEBUG GatewayExceptionLevel = "DEBUG"
 )
 

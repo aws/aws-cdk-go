@@ -13,7 +13,7 @@ import (
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 //   	Version: eks.KubernetesVersion_V1_35(),
 //   	AlbController: &AlbControllerOptions{
-//   		Version: eks.AlbControllerVersion_V2_8_2(),
+//   		Version: eks.AlbControllerVersion_V3_2_2(),
 //   		OverwriteServiceAccount: jsii.Boolean(true),
 //   	},
 //   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),

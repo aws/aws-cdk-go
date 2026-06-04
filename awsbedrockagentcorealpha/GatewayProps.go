@@ -36,27 +36,27 @@ import (
 //   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayProps struct {
 	// The authorizer configuration for the gateway.
 	// Default: - A default authorizer will be created using Cognito.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerConfiguration IGatewayAuthorizerConfig `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`
 	// Optional description for the gateway Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen) and spaces The description can have up to 200 characters.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The verbosity of exception messages Use DEBUG mode to see granular exception messages from a Gateway.
 	// Default: - Exception messages are sanitized for presentation to end users.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExceptionLevel GatewayExceptionLevel `field:"optional" json:"exceptionLevel" yaml:"exceptionLevel"`
 	// The name of the gateway Valid characters are a-z, A-Z, 0-9, _ (underscore) and - (hyphen) The name must be unique within your account.
 	// Default: - auto generate.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayName *string `field:"optional" json:"gatewayName" yaml:"gatewayName"`
 	// Interceptor configurations for the gateway.
 	//
@@ -69,12 +69,12 @@ type GatewayProps struct {
 	//
 	// Default: - No interceptors.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InterceptorConfigurations *[]IInterceptor `field:"optional" json:"interceptorConfigurations" yaml:"interceptorConfigurations"`
 	// The AWS KMS key used to encrypt data associated with the gateway.
 	// Default: - No encryption.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The policy engine configuration for this gateway.
 	//
@@ -83,7 +83,7 @@ type GatewayProps struct {
 	// defined in the policy engine.
 	// Default: - No policy engine (requests are not subject to Cedar policy authorization).
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngineConfiguration *GatewayPolicyEngineConfig `field:"optional" json:"policyEngineConfiguration" yaml:"policyEngineConfiguration"`
 	// The protocol configuration for the gateway.
 	// Default: - A default protocol configuration will be created using MCP with following params
@@ -91,17 +91,17 @@ type GatewayProps struct {
 	// searchType: McpGatewaySearchType.SEMANTIC,
 	// instructions: "Default gateway to connect to external MCP tools",.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProtocolConfiguration IGatewayProtocolConfig `field:"optional" json:"protocolConfiguration" yaml:"protocolConfiguration"`
 	// The IAM role that provides permissions for the gateway to access AWS services.
 	// Default: - A new role will be created.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Tags for the gateway A list of key:value pairs of tags to apply to this Gateway resource.
 	// Default: - No tags.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

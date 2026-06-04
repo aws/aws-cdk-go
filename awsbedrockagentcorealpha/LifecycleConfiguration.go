@@ -20,7 +20,7 @@ import (
 //   	MaxLifetime: cdk.Duration_*Minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LifecycleConfiguration struct {
 	// Timeout in seconds for idle runtime sessions.
 	//
@@ -28,7 +28,7 @@ type LifecycleConfiguration struct {
 	// it will be automatically terminated.
 	// Default: undefined - service default setting is 900 seconds (15 minutes).
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	IdleRuntimeSessionTimeout awscdk.Duration `field:"optional" json:"idleRuntimeSessionTimeout" yaml:"idleRuntimeSessionTimeout"`
 	// Maximum lifetime for the instance in seconds.
 	//
@@ -36,7 +36,7 @@ type LifecycleConfiguration struct {
 	// terminated and replaced.
 	// Default: undefined - service default setting is 28800 seconds (8 hours).
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MaxLifetime awscdk.Duration `field:"optional" json:"maxLifetime" yaml:"maxLifetime"`
 }
 

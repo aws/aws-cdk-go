@@ -14,11 +14,11 @@ import (
 //
 //   iamAuthorizer := bedrock_agentcore_alpha.NewIamAuthorizer()
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IamAuthorizer interface {
 	IGatewayAuthorizerConfig
 	// The authorizer type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerType() GatewayAuthorizerType
 }
 
@@ -38,7 +38,7 @@ func (j *jsiiProxy_IamAuthorizer) AuthorizerType() GatewayAuthorizerType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewIamAuthorizer() IamAuthorizer {
 	_init_.Initialize()
 
@@ -53,7 +53,7 @@ func NewIamAuthorizer() IamAuthorizer {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewIamAuthorizer_Override(i IamAuthorizer) {
 	_init_.Initialize()
 

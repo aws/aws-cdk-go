@@ -4,6 +4,10 @@ package awselasticsearch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (d *jsiiProxy_Domain) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_Domain) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

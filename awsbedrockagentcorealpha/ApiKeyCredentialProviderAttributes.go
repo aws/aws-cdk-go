@@ -17,25 +17,25 @@ package awsbedrockagentcorealpha
 //   	LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiKeyCredentialProviderAttributes struct {
 	// ARN of the credential provider.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderArn *string `field:"required" json:"credentialProviderArn" yaml:"credentialProviderArn"`
 	// ARN of the Secrets Manager secret for the API key, if known.
 	// Default: - not set; required for {@link ApiKeyCredentialProvider.bindForGatewayApiKeyTarget } on imported providers
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiKeySecretArn *string `field:"optional" json:"apiKeySecretArn" yaml:"apiKeySecretArn"`
 	// Resource creation time.
 	// Default: - not set.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// Resource last-updated time.
 	// Default: - not set.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 }
 

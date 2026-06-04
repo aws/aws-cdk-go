@@ -14,10 +14,10 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EpisodicReflectionConfiguration struct {
 	// Namespaces for episodic reflection Minimum 1 namespace required.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Namespaces *[]*string `field:"required" json:"namespaces" yaml:"namespaces"`
 }
 

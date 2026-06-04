@@ -12,6 +12,10 @@ func (s *jsiiProxy_SecurityGroup) validateAddIngressRuleParameters(peer IPeer, c
 	return nil
 }
 
+func (s *jsiiProxy_SecurityGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SecurityGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

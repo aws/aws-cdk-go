@@ -24,6 +24,10 @@ func (s *jsiiProxy_SpecRestApi) validateAddUsagePlanParameters(id *string, props
 	return nil
 }
 
+func (s *jsiiProxy_SpecRestApi) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SpecRestApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

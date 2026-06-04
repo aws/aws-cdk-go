@@ -64,6 +64,14 @@ type Mesh interface {
 	AddVirtualNode(id *string, props *VirtualNodeBaseProps) VirtualNode
 	// Adds a VirtualRouter to the Mesh with the given id and props.
 	AddVirtualRouter(id *string, props *VirtualRouterBaseProps) VirtualRouter
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -371,6 +379,17 @@ func (m *jsiiProxy_Mesh) AddVirtualRouter(id *string, props *VirtualRouterBasePr
 	)
 
 	return returns
+}
+
+func (m *jsiiProxy_Mesh) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := m.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		m,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (m *jsiiProxy_Mesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

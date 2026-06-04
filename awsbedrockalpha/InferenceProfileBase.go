@@ -53,6 +53,15 @@ type InferenceProfileBase interface {
 	// The type of inference profile (SYSTEM_DEFINED or APPLICATION).
 	// Experimental.
 	Type() InferenceProfileType
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -270,6 +279,17 @@ func InferenceProfileBase_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_InferenceProfileBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := i.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (i *jsiiProxy_InferenceProfileBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

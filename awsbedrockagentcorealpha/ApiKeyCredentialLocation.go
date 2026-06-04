@@ -17,16 +17,16 @@ import (
 //   	CredentialPrefix: jsii.String("credentialPrefix"),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiKeyCredentialLocation interface {
 	// The type of credential location (HEADER or QUERY_PARAMETER).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialLocationType() *string
 	// The name of the credential parameter.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialParameterName() *string
 	// The prefix for the credential value.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialPrefix() *string
 }
 
@@ -69,7 +69,7 @@ func (j *jsiiProxy_ApiKeyCredentialLocation) CredentialPrefix() *string {
 // Create a header-based API key credential location.
 //
 // Returns: ApiKeyCredentialLocation configured for header placement.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func ApiKeyCredentialLocation_Header(config *ApiKeyAdditionalConfiguration) ApiKeyCredentialLocation {
 	_init_.Initialize()
 
@@ -91,7 +91,7 @@ func ApiKeyCredentialLocation_Header(config *ApiKeyAdditionalConfiguration) ApiK
 // Create a query parameter-based API key credential location.
 //
 // Returns: ApiKeyCredentialLocation configured for query parameter placement.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func ApiKeyCredentialLocation_QueryParameter(config *ApiKeyAdditionalConfiguration) ApiKeyCredentialLocation {
 	_init_.Initialize()
 

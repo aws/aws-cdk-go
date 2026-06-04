@@ -20,6 +20,10 @@ func (b *jsiiProxy_BuildFleet) validateAddLocationParameters(region *string) err
 	return nil
 }
 
+func (b *jsiiProxy_BuildFleet) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_BuildFleet) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

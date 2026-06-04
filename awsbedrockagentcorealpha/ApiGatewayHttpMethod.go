@@ -2,30 +2,30 @@ package awsbedrockagentcorealpha
 
 
 // HTTP methods supported by API Gateway.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiGatewayHttpMethod string
 
 const (
 	// GET method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_GET ApiGatewayHttpMethod = "GET"
 	// POST method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_POST ApiGatewayHttpMethod = "POST"
 	// PUT method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_PUT ApiGatewayHttpMethod = "PUT"
 	// DELETE method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_DELETE ApiGatewayHttpMethod = "DELETE"
 	// PATCH method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_PATCH ApiGatewayHttpMethod = "PATCH"
 	// HEAD method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_HEAD ApiGatewayHttpMethod = "HEAD"
 	// OPTIONS method.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayHttpMethod_OPTIONS ApiGatewayHttpMethod = "OPTIONS"
 )
 

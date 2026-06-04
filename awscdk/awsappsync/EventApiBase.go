@@ -68,6 +68,14 @@ type EventApiBase interface {
 	AddOpenSearchDataSource(id *string, domain awsopensearchservice.IDomain, options *AppSyncDataSourceOptions) AppSyncOpenSearchDataSource
 	// add a new Rds data source to this API.
 	AddRdsDataSource(id *string, serverlessCluster interface{}, secretStore awssecretsmanager.ISecret, databaseName *string, options *AppSyncDataSourceOptions) AppSyncRdsDataSource
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -426,6 +434,17 @@ func (e *jsiiProxy_EventApiBase) AddRdsDataSource(id *string, serverlessCluster 
 	)
 
 	return returns
+}
+
+func (e *jsiiProxy_EventApiBase) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := e.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (e *jsiiProxy_EventApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

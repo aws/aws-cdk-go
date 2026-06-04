@@ -16,6 +16,7 @@ package cloudassemblyschema
 //   			},
 //
 //   			// the properties below are optional
+//   			"allowDeleteFailures": jsii.Boolean(false),
 //   			"allowDestroy": []*string{
 //   				jsii.String("allowDestroy"),
 //   			},

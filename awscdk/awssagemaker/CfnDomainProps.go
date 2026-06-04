@@ -42,6 +42,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -101,6 +102,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -112,6 +114,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -132,6 +135,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -152,6 +156,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   		},
 //   		RStudioServerProAppSettings: &RStudioServerProAppSettingsProperty{
@@ -255,6 +260,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -266,6 +272,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -286,6 +293,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -319,6 +327,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			RStudioConnectUrl: jsii.String("rStudioConnectUrl"),
 //   			RStudioPackageManagerUrl: jsii.String("rStudioPackageManagerUrl"),
@@ -336,6 +345,7 @@ import (
 //   			StudioWebPortalAccess: jsii.String("studioWebPortalAccess"),
 //   		},
 //   	},
+//   	HomeEfsFileSystemCreation: jsii.String("homeEfsFileSystemCreation"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	SubnetIds: []interface{}{
 //   		jsii.String("subnetIds"),
@@ -396,6 +406,12 @@ type CfnDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainsettings
 	//
 	DomainSettings interface{} `field:"optional" json:"domainSettings" yaml:"domainSettings"`
+	// Indicates whether a home EFS file system is created for the domain.
+	//
+	// Set to Disabled to skip EFS creation and reduce domain creation time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-homeefsfilesystemcreation
+	//
+	HomeEfsFileSystemCreation *string `field:"optional" json:"homeEfsFileSystemCreation" yaml:"homeEfsFileSystemCreation"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the Domain with an AWS managed customer master key (CMK) by default.
 	//
 	// For more control, specify a customer managed CMK.

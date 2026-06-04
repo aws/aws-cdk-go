@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnServicePrincipalName) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnServicePrincipalName) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnServicePrincipalName) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }
@@ -85,6 +89,14 @@ func validateCfnServicePrincipalName_IsCfnServicePrincipalNameParameters(x inter
 }
 
 func validateCfnServicePrincipalName_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnServicePrincipalName) validateSetConnectorArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnServicePrincipalName) validateSetDirectoryRegistrationArnParameters(val *string) error {
 	return nil
 }
 

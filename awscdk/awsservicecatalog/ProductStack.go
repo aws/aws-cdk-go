@@ -644,6 +644,69 @@ func (j *jsiiProxy_ProductStack)SetTerminationProtection(val *bool) {
 	)
 }
 
+// Override the reference strength for a specific cross-stack string list reference.
+//
+// This is the string list equivalent of `consumeReference`.
+//
+// Returns: A token that resolves to the same value but uses the overridden strength.
+func ProductStack_ConsumeListReference(value *[]*string, strength awscdk.ReferenceStrength) *[]*string {
+	_init_.Initialize()
+
+	if err := validateProductStack_ConsumeListReferenceParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.ProductStack",
+		"consumeListReference",
+		[]interface{}{value, strength},
+		&returns,
+	)
+
+	return returns
+}
+
+// Override the reference strength for a specific cross-stack reference value.
+//
+// Use this to weaken (or strengthen) an individual reference without
+// affecting other references to the same resource. For example:
+//
+// ```ts
+// // producerStack defines an SNS topic
+// declare const topic: sns.Topic;
+//
+// // consumerStack subscribes to it with a weak reference,
+// // so the producer can be torn down without blocking on this consumer
+// const consumerStack = new Stack(app, 'Consumer', {
+//   env: { account: '123456789012', region: 'us-east-1' },
+// });
+// new sns.Subscription(consumerStack, 'Subscription', {
+//   topic: sns.Topic.fromTopicArn(consumerStack, 'Topic', Stack.consumeReference(topic.topicArn)),
+//   endpoint: 'https://example.com/webhook',
+//   protocol: sns.SubscriptionProtocol.HTTPS,
+// });
+// ```.
+//
+// Returns: A token that resolves to the same value but uses the overridden strength.
+func ProductStack_ConsumeReference(value *string, strength awscdk.ReferenceStrength) *string {
+	_init_.Initialize()
+
+	if err := validateProductStack_ConsumeReferenceParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_servicecatalog.ProductStack",
+		"consumeReference",
+		[]interface{}{value, strength},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Use this method instead of `instanceof` to properly detect `Construct`

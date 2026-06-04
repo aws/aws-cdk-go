@@ -20,23 +20,23 @@ package awsbedrockagentcorealpha
 //   	Value: filterValue,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type FilterConfig struct {
 	// The key or field name to filter on within the agent trace data.
 	//
 	// Example:
 	//   "user.region"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Key *string `field:"required" json:"key" yaml:"key"`
 	// The comparison operator to use for filtering.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Operator FilterOperator `field:"required" json:"operator" yaml:"operator"`
 	// The value to compare against using the specified operator.
 	//
 	// Use `FilterValue.string()`, `FilterValue.number()`, or `FilterValue.boolean()`
 	// to create typed filter values.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value FilterValue `field:"required" json:"value" yaml:"value"`
 }
 

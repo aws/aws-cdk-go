@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSiteToSiteVpnAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

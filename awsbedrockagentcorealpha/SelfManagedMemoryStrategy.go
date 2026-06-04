@@ -44,36 +44,36 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type SelfManagedMemoryStrategy interface {
 	IMemoryStrategy
 	// The description of the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// Historical context window size for self managed memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	HistoricalContextWindowSize() *float64
 	// Invocation configuration for self managed memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InvocationConfiguration() *InvocationConfiguration
 	// The name of the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name() *string
 	// The type of memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	StrategyType() MemoryStrategyType
 	// Trigger conditions for self managed memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TriggerConditions() *TriggerConditions
 	// Grants the necessary permissions to the role.
 	//
 	// [disable-awslint:no-grants].
 	//
 	// Returns: The Grant object for chaining.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable) awsiam.Grant
 	// Renders internal attributes to CloudFormation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Render() *awsbedrockagentcore.CfnMemory_MemoryStrategyProperty
 }
 
@@ -143,7 +143,7 @@ func (j *jsiiProxy_SelfManagedMemoryStrategy) TriggerConditions() *TriggerCondit
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewSelfManagedMemoryStrategy(strategyType MemoryStrategyType, props *SelfManagedStrategyProps) SelfManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -161,7 +161,7 @@ func NewSelfManagedMemoryStrategy(strategyType MemoryStrategyType, props *SelfMa
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewSelfManagedMemoryStrategy_Override(s SelfManagedMemoryStrategy, strategyType MemoryStrategyType, props *SelfManagedStrategyProps) {
 	_init_.Initialize()
 

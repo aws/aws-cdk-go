@@ -8,6 +8,10 @@ func (e *jsiiProxy_ExternalTable) validateAddPartitionIndexParameters(index *Par
 	return nil
 }
 
+func (e *jsiiProxy_ExternalTable) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_ExternalTable) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

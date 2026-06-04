@@ -4,6 +4,10 @@ package awscodeguruprofiler
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (p *jsiiProxy_ProfilingGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_ProfilingGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

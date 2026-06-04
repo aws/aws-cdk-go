@@ -12,6 +12,9 @@ package awsmediapackagev2
 //   	ManifestName: jsii.String("manifestName"),
 //
 //   	// the properties below are optional
+//   	AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
+//   		FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
+//   	},
 //   	BaseUrls: []interface{}{
 //   		&DashBaseUrlProperty{
 //   			Url: jsii.String("url"),
@@ -65,6 +68,7 @@ package awsmediapackagev2
 //   	},
 //   	ScteDash: &ScteDashProperty{
 //   		AdMarkerDash: jsii.String("adMarkerDash"),
+//   		ScteInManifests: jsii.String("scteInManifests"),
 //   	},
 //   	SegmentTemplateFormat: jsii.String("segmentTemplateFormat"),
 //   	SubtitleConfiguration: &DashSubtitleConfigurationProperty{
@@ -73,6 +77,7 @@ package awsmediapackagev2
 //   		},
 //   	},
 //   	SuggestedPresentationDelaySeconds: jsii.Number(123),
+//   	UriPathType: jsii.String("uriPathType"),
 //   	UtcTiming: &DashUtcTimingProperty{
 //   		TimingMode: jsii.String("timingMode"),
 //   		TimingSource: jsii.String("timingSource"),
@@ -88,6 +93,9 @@ type CfnOriginEndpoint_DashManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-manifestname
 	//
 	ManifestName *string `field:"required" json:"manifestName" yaml:"manifestName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-availabilitystarttimeconfiguration
+	//
+	AvailabilityStartTimeConfiguration interface{} `field:"optional" json:"availabilityStartTimeConfiguration" yaml:"availabilityStartTimeConfiguration"`
 	// The base URLs to use for retrieving segments.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-baseurls
 	//
@@ -162,6 +170,9 @@ type CfnOriginEndpoint_DashManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-suggestedpresentationdelayseconds
 	//
 	SuggestedPresentationDelaySeconds *float64 `field:"optional" json:"suggestedPresentationDelaySeconds" yaml:"suggestedPresentationDelaySeconds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-uripathtype
+	//
+	UriPathType *string `field:"optional" json:"uriPathType" yaml:"uriPathType"`
 	// Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-utctiming
 	//

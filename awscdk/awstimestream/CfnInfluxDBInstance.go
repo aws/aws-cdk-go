@@ -33,6 +33,10 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MaintenanceSchedule: &MaintenanceScheduleProperty{
+//   		PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
+//   		Timezone: jsii.String("timezone"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	NetworkType: jsii.String("networkType"),
 //   	Organization: jsii.String("organization"),
@@ -78,6 +82,8 @@ type CfnInfluxDBInstance interface {
 	//
 	// The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
 	AttrInfluxAuthParametersSecretArn() *string
+	// The timestamp of the next scheduled maintenance event.
+	AttrNextMaintenanceTime() *string
 	// Describes an Availability Zone in which the InfluxDB instance is located.
 	AttrSecondaryAvailabilityZone() *string
 	// The status of the DB instance.
@@ -127,6 +133,9 @@ type CfnInfluxDBInstance interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maintenance schedule for the InfluxDB instance.
+	MaintenanceSchedule() interface{}
+	SetMaintenanceSchedule(val interface{})
 	// The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
 	Name() *string
 	SetName(val *string)
@@ -249,6 +258,11 @@ type CfnInfluxDBInstance interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -379,6 +393,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) AttrInfluxAuthParametersSecretArn() *str
 	_jsii_.Get(
 		j,
 		"attrInfluxAuthParametersSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance) AttrNextMaintenanceTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrNextMaintenanceTime",
 		&returns,
 	)
 	return returns
@@ -549,6 +573,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance) MaintenanceSchedule() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"maintenanceSchedule",
 		&returns,
 	)
 	return returns
@@ -789,6 +823,17 @@ func (j *jsiiProxy_CfnInfluxDBInstance)SetLogDeliveryConfiguration(val interface
 	_jsii_.Set(
 		j,
 		"logDeliveryConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance)SetMaintenanceSchedule(val interface{}) {
+	if err := j.validateSetMaintenanceScheduleParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"maintenanceSchedule",
 		val,
 	)
 }
@@ -1079,6 +1124,17 @@ func (c *jsiiProxy_CfnInfluxDBInstance) AddPropertyOverride(propertyPath *string
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnInfluxDBInstance) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

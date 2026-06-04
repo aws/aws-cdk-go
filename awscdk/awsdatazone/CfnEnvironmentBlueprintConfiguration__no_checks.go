@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateAddPropertyOver
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

@@ -9,6 +9,21 @@ package awsapplicationsignals
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   requestBasedSliMetricProperty := &RequestBasedSliMetricProperty{
+//   	CompositeSliConfig: &CompositeSliConfigProperty{
+//   		SelectionConfig: &SelectionConfigProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Pattern: jsii.String("pattern"),
+//   		},
+//
+//   		// the properties below are optional
+//   		CompositeSliComponents: []interface{}{
+//   			&CompositeSliComponentProperty{
+//   				OperationName: jsii.String("operationName"),
+//   			},
+//   		},
+//   	},
 //   	DependencyConfig: &DependencyConfigProperty{
 //   		DependencyKeyAttributes: map[string]*string{
 //   			"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -17,6 +32,17 @@ package awsapplicationsignals
 //   	},
 //   	KeyAttributes: map[string]*string{
 //   		"keyAttributesKey": jsii.String("keyAttributes"),
+//   	},
+//   	MetricName: jsii.String("metricName"),
+//   	MetricSource: &MetricSourceProperty{
+//   		MetricSourceKeyAttributes: map[string]*string{
+//   			"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   		},
+//
+//   		// the properties below are optional
+//   		MetricSourceAttributes: map[string]*string{
+//   			"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   		},
 //   	},
 //   	MetricType: jsii.String("metricType"),
 //   	MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{
@@ -108,6 +134,9 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html
 //
 type CfnServiceLevelObjective_RequestBasedSliMetricProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-compositesliconfig
+	//
+	CompositeSliConfig interface{} `field:"optional" json:"compositeSliConfig" yaml:"compositeSliConfig"`
 	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-dependencyconfig
 	//
@@ -125,6 +154,14 @@ type CfnServiceLevelObjective_RequestBasedSliMetricProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-keyattributes
 	//
 	KeyAttributes interface{} `field:"optional" json:"keyAttributes" yaml:"keyAttributes"`
+	// The name of the metric for non-Application Signals services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-metricname
+	//
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
+	// Configuration for identifying the source of metrics for non-Application Signals services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-metricsource
+	//
+	MetricSource interface{} `field:"optional" json:"metricSource" yaml:"metricSource"`
 	// If the SLO monitors either the `LATENCY` or `AVAILABILITY` metric that Application Signals collects, this field displays which of those metrics is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html#cfn-applicationsignals-servicelevelobjective-requestbasedslimetric-metrictype
 	//

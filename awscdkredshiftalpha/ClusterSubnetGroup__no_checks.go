@@ -4,6 +4,10 @@ package awscdkredshiftalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_ClusterSubnetGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_ClusterSubnetGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

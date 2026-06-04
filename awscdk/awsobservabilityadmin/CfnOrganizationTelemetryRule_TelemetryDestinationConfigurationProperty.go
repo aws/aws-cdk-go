@@ -47,6 +47,11 @@ package awsobservabilityadmin
 //   		FieldDelimiter: jsii.String("fieldDelimiter"),
 //   		OutputFormat: jsii.String("outputFormat"),
 //   	},
+//   	LogDeliveryParameters: &LogDeliveryParametersProperty{
+//   		LogTypes: []*string{
+//   			jsii.String("logTypes"),
+//   		},
+//   	},
 //   	RetentionInDays: jsii.Number(123),
 //   	VpcFlowLogParameters: &VPCFlowLogParametersProperty{
 //   		LogFormat: jsii.String("logFormat"),
@@ -106,6 +111,10 @@ type CfnOrganizationTelemetryRule_TelemetryDestinationConfigurationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-elbloadbalancerloggingparameters
 	//
 	ElbLoadBalancerLoggingParameters interface{} `field:"optional" json:"elbLoadBalancerLoggingParameters" yaml:"elbLoadBalancerLoggingParameters"`
+	// Parameters for log delivery configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-logdeliveryparameters
+	//
+	LogDeliveryParameters interface{} `field:"optional" json:"logDeliveryParameters" yaml:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-retentionindays
 	//

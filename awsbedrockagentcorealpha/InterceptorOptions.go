@@ -12,7 +12,7 @@ package awsbedrockagentcorealpha
 //   	PassRequestHeaders: jsii.Boolean(false),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type InterceptorOptions struct {
 	// Whether to pass request headers to the interceptor Lambda function.
 	//
@@ -22,7 +22,7 @@ type InterceptorOptions struct {
 	// or exposed.
 	// Default: false - Headers are not passed to interceptor for security.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PassRequestHeaders *bool `field:"optional" json:"passRequestHeaders" yaml:"passRequestHeaders"`
 }
 

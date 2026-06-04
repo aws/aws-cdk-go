@@ -26,7 +26,7 @@ import (
 //
 //   loggingDestination := bedrock_agentcore_alpha.LoggingDestination_CloudWatchLogs(logGroup)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LoggingDestination interface {
 }
 
@@ -35,7 +35,7 @@ type jsiiProxy_LoggingDestination struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewLoggingDestination_Override(l LoggingDestination) {
 	_init_.Initialize()
 
@@ -47,7 +47,7 @@ func NewLoggingDestination_Override(l LoggingDestination) {
 }
 
 // Create a logging destination that sends logs to a CloudWatch Log Group.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LoggingDestination_CloudWatchLogs(logGroup awslogs.ILogGroup) LoggingDestination {
 	_init_.Initialize()
 
@@ -67,7 +67,7 @@ func LoggingDestination_CloudWatchLogs(logGroup awslogs.ILogGroup) LoggingDestin
 }
 
 // Create a logging destination that sends logs to a Kinesis Data Firehose delivery stream.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LoggingDestination_Firehose(stream awskinesisfirehose.IDeliveryStream) LoggingDestination {
 	_init_.Initialize()
 
@@ -87,7 +87,7 @@ func LoggingDestination_Firehose(stream awskinesisfirehose.IDeliveryStream) Logg
 }
 
 // Create a logging destination that sends logs to an S3 bucket.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LoggingDestination_S3(bucket awss3.IBucket) LoggingDestination {
 	_init_.Initialize()
 

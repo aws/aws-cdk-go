@@ -31,14 +31,14 @@ import (
 //   	LambdaFunction: myEvalFunction,
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CodeBasedOptions struct {
 	// The Lambda function used for evaluation.
 	//
 	// The function will be granted invoke permissions for the
 	// `bedrock-agentcore.amazonaws.com` service principal, scoped
 	// to this specific evaluator resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LambdaFunction awslambda.IFunction `field:"required" json:"lambdaFunction" yaml:"lambdaFunction"`
 	// The timeout for the Lambda function invocation during evaluation.
 	//
@@ -48,7 +48,7 @@ type CodeBasedOptions struct {
 	//
 	// Default: - The AgentCore evaluation service's default Lambda timeout is used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
 }
 

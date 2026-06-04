@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTrafficDistributionGroup) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficDistributionGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficDistributionGroup) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

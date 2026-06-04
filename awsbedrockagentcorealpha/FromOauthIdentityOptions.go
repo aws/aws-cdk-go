@@ -19,15 +19,15 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type FromOauthIdentityOptions struct {
 	// OAuth scopes the gateway should request for this target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Scopes *[]*string `field:"required" json:"scopes" yaml:"scopes"`
 	// Additional OAuth parameters for the provider.
 	// Default: - none.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CustomParameters *map[string]*string `field:"optional" json:"customParameters" yaml:"customParameters"`
 }
 

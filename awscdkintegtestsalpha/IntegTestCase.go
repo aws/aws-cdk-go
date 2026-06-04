@@ -20,6 +20,7 @@ import (
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var stack Stack
 //
@@ -29,6 +30,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AllowDeleteFailures: jsii.Boolean(false),
 //   	AllowDestroy: []*string{
 //   		jsii.String("allowDestroy"),
 //   	},
@@ -140,6 +142,7 @@ import (
 //   			jsii.String("preDestroy"),
 //   		},
 //   	},
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   	Regions: []*string{
 //   		jsii.String("regions"),
 //   	},

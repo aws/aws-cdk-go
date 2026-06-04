@@ -8,6 +8,10 @@ func (d *jsiiProxy_Distribution) validateAddBehaviorParameters(pathPattern *stri
 	return nil
 }
 
+func (d *jsiiProxy_Distribution) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_Distribution) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

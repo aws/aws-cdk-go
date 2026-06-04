@@ -14,10 +14,10 @@ package awsbedrockagentcorealpha
 //   	Configuration: configuration,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type InterceptorBindConfig struct {
 	// The CloudFormation configuration for this interceptor.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Configuration interface{} `field:"required" json:"configuration" yaml:"configuration"`
 }
 

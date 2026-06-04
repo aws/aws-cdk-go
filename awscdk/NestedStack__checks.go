@@ -189,6 +189,22 @@ func (n *jsiiProxy_NestedStack) validateToYamlStringParameters(obj interface{}) 
 	return nil
 }
 
+func validateNestedStack_ConsumeListReferenceParameters(value *[]*string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateNestedStack_ConsumeReferenceParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNestedStack_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

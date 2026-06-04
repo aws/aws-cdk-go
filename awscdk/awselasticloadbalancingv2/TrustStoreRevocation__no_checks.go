@@ -4,6 +4,10 @@ package awselasticloadbalancingv2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (t *jsiiProxy_TrustStoreRevocation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_TrustStoreRevocation) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

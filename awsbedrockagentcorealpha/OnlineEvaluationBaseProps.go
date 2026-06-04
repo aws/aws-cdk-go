@@ -40,18 +40,18 @@ import (
 //   	SessionTimeout: cdk.Duration_Minutes(jsii.Number(30)),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type OnlineEvaluationBaseProps struct {
 	// The name of the online evaluation configuration.
 	//
 	// Must be unique within your account. Valid characters are a-z, A-Z, 0-9, _ (underscore).
 	// Must start with a letter and can be up to 48 characters long.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnlineEvaluationConfigName *string `field:"required" json:"onlineEvaluationConfigName" yaml:"onlineEvaluationConfigName"`
 	// The description of the online evaluation configuration.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The IAM role that provides permissions for the evaluation to access AWS services.
 	//
@@ -61,31 +61,31 @@ type OnlineEvaluationBaseProps struct {
 	// role with region-scoped permissions.
 	// Default: - A new role will be created.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRole awsiam.IRole `field:"optional" json:"executionRole" yaml:"executionRole"`
 	// The execution status of the online evaluation configuration.
 	//
 	// Controls whether the evaluation actively processes agent traces.
 	// Default: ExecutionStatus.ENABLED
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionStatus ExecutionStatus `field:"optional" json:"executionStatus" yaml:"executionStatus"`
 	// The list of filters that determine which agent traces should be evaluated.
 	// Default: - No filters (evaluate all sampled traces).
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Filters *[]*FilterConfig `field:"optional" json:"filters" yaml:"filters"`
 	// The percentage of agent traces to sample for evaluation.
 	// Default: 10.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SamplingPercentage *float64 `field:"optional" json:"samplingPercentage" yaml:"samplingPercentage"`
 	// The duration of inactivity after which an agent session is considered complete and ready for evaluation.
 	//
 	// Must be between 1 minute and 1440 minutes (24 hours).
 	// Default: Duration.minutes(15)
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SessionTimeout awscdk.Duration `field:"optional" json:"sessionTimeout" yaml:"sessionTimeout"`
 }
 

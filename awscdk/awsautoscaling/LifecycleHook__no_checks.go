@@ -4,6 +4,10 @@ package awsautoscaling
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (l *jsiiProxy_LifecycleHook) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (l *jsiiProxy_LifecycleHook) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

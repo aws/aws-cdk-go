@@ -12,6 +12,10 @@ func (s *jsiiProxy_SecretTargetAttachment) validateAddToResourcePolicyParameters
 	return nil
 }
 
+func (s *jsiiProxy_SecretTargetAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SecretTargetAttachment) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

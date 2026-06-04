@@ -76,6 +76,15 @@ type EndpointConfig interface {
 	// Add serverless production variant to the endpoint configuration.
 	// Experimental.
 	AddServerlessProductionVariant(props *ServerlessProductionVariantProps)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -359,6 +368,17 @@ func (e *jsiiProxy_EndpointConfig) AddServerlessProductionVariant(props *Serverl
 		e,
 		"addServerlessProductionVariant",
 		[]interface{}{props},
+	)
+}
+
+func (e *jsiiProxy_EndpointConfig) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := e.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		e,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

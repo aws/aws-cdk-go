@@ -44,41 +44,41 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ManagedMemoryStrategy interface {
 	IMemoryStrategy
 	// The configuration for the custom consolidation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ConsolidationOverride() *OverrideConfig
 	// The description of the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The configuration for the custom extraction.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExtractionOverride() *OverrideConfig
 	// The name of the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name() *string
 	// The namespaces for the strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Namespaces() *[]*string
 	// The configuration for episodic reflection.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ReflectionConfiguration() *EpisodicReflectionConfiguration
 	// The type of memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	StrategyType() MemoryStrategyType
 	// Grants the necessary permissions to the role.
 	//
 	// [disable-awslint:no-grants].
 	//
 	// Returns: The Grant object for chaining.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable) awsiam.Grant
 	// Renders the network configuration as a CloudFormation property.
 	//
 	// Returns: The CloudFormation property for the memory strategy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Render() *awsbedrockagentcore.CfnMemory_MemoryStrategyProperty
 }
 
@@ -159,7 +159,7 @@ func (j *jsiiProxy_ManagedMemoryStrategy) StrategyType() MemoryStrategyType {
 
 
 // Constructor to create a new managed memory strategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewManagedMemoryStrategy(strategyType MemoryStrategyType, props *ManagedStrategyProps) ManagedMemoryStrategy {
 	_init_.Initialize()
 
@@ -178,7 +178,7 @@ func NewManagedMemoryStrategy(strategyType MemoryStrategyType, props *ManagedStr
 }
 
 // Constructor to create a new managed memory strategy.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewManagedMemoryStrategy_Override(m ManagedMemoryStrategy, strategyType MemoryStrategyType, props *ManagedStrategyProps) {
 	_init_.Initialize()
 

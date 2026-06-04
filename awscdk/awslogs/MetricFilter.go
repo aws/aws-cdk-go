@@ -14,12 +14,17 @@ import (
 // A filter that extracts information from CloudWatch Logs and emits to CloudWatch Metrics.
 //
 // Example:
-//   awscdk.NewMetricFilter(this, jsii.String("MetricFilter"), &MetricFilterProps{
-//   	LogGroup: LogGroup,
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"))
+//
+//   runtime := agentcore.NewRuntime(this, jsii.String("Runtime"), &RuntimeProps{
+//   	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+//   })
+//
+//   logs.NewMetricFilter(this, jsii.String("ToolErrors"), &MetricFilterProps{
+//   	LogGroup: runtime.applicationLogGroup,
+//   	FilterPattern: logs.FilterPattern_StringValue(jsii.String("$.tool_status"), jsii.String("="), jsii.String("error")),
 //   	MetricNamespace: jsii.String("MyApp"),
-//   	MetricName: jsii.String("Latency"),
-//   	FilterPattern: awscdk.FilterPattern_All(awscdk.FilterPattern_Exists(jsii.String("$.latency")), awscdk.FilterPattern_RegexValue(jsii.String("$.message"), jsii.String("="), jsii.String("bind: address already in use"))),
-//   	MetricValue: jsii.String("$.latency"),
+//   	MetricName: jsii.String("ToolExecutionErrors"),
 //   })
 //
 type MetricFilter interface {
@@ -46,6 +51,14 @@ type MetricFilter interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -240,6 +253,17 @@ func MetricFilter_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (m *jsiiProxy_MetricFilter) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := m.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		m,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (m *jsiiProxy_MetricFilter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

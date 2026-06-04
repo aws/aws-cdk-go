@@ -41,7 +41,7 @@ and deploy new resources.
 
 A Job encapsulates a script that connects to data sources, processes
 them, and then writes output to a data target. There are four types of Glue
-Jobs: Spark (ETL and Streaming), Python Shell, Ray, and Flex Jobs. Most
+Jobs: Spark (ETL and Streaming), Python Shell, and Flex Jobs. Most
 of the required parameters for these jobs are common across all types,
 but there are a few differences depending on the languages supported
 and features provided by each type. For all job types, the L2 defaults
@@ -332,59 +332,10 @@ glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProp
 
 ### Ray Jobs
 
-Glue Ray jobs use worker type Z.2X and Glue version 4.0. These are not
-overrideable since these are the only configuration that Glue Ray jobs
-currently support. The runtime defaults to Ray2.4 and min workers defaults to 3.
+> **⚠️ DEPRECATED:** AWS Glue for Ray is closed to new customers as of April 30, 2026 and is in maintenance mode.
+> Migrate to [Amazon EKS with KubeRay Operator](https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html).
 
-Reference the ray-job.test.ts unit tests for examples of required-only and
-optional job parameters when creating these types of jobs.
-
-Example with only required parameters:
-
-```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack Stack
-var role IRole
-var script Code
-
-glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
-	Role: Role,
-	Script: Script,
-})
-```
-
-Example with optional override parameters:
-
-```go
-import cdk "github.com/aws/aws-cdk-go/awscdk"
-import iam "github.com/aws/aws-cdk-go/awscdk"
-var stack Stack
-var role IRole
-var script Code
-
-glue.NewRayJob(stack, jsii.String("ImportedJob"), &RayJobProps{
-	Role: Role,
-	Script: Script,
-	JobName: jsii.String("RayCustomJobName"),
-	Description: jsii.String("This is a description"),
-	WorkerType: glue.WorkerType_Z_2X,
-	NumberOfWorkers: jsii.Number(5),
-	Runtime: glue.Runtime_RAY_TWO_FOUR,
-	MaxRetries: jsii.Number(3),
-	MaxConcurrentRuns: jsii.Number(100),
-	Timeout: cdk.Duration_Hours(jsii.Number(2)),
-	Connections: []IConnection{
-		glue.Connection_FromConnectionName(stack, jsii.String("Connection"), jsii.String("connectionName")),
-	},
-	SecurityConfiguration: glue.SecurityConfiguration_FromSecurityConfigurationName(stack, jsii.String("SecurityConfig"), jsii.String("securityConfigName")),
-	Tags: map[string]*string{
-		"FirstTagName": jsii.String("FirstTagValue"),
-		"SecondTagName": jsii.String("SecondTagValue"),
-		"XTagName": jsii.String("XTagValue"),
-	},
-})
-```
+The `RayJob` construct, `Runtime.RAY_TWO_FOUR`, and `JobType.RAY` are deprecated and will be removed in a future release.
 
 ### Metrics Control
 
@@ -416,7 +367,7 @@ glue.NewPySparkEtlJob(stack, jsii.String("SelectiveJob"), &PySparkEtlJobProps{
 })
 ```
 
-This feature is available for all Spark job types (ETL, Streaming, Flex) and Ray jobs.
+This feature is available for all Spark job types (ETL, Streaming, Flex).
 
 ### Enable Job Run Queuing
 

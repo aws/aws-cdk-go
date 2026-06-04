@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocalGatewayVirtualInterface) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayVirtualInterface) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayVirtualInterface) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

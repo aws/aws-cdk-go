@@ -21,6 +21,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "analyzerConfiguration", GoGetter: "AnalyzerConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "analyzerName", GoGetter: "AnalyzerName"},
 			_jsii_.MemberProperty{JsiiProperty: "analyzerRef", GoGetter: "AnalyzerRef"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "archiveRules", GoGetter: "ArchiveRules"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},

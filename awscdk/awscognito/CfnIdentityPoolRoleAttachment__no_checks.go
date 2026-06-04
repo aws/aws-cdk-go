@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

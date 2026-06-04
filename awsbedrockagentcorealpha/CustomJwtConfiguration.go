@@ -28,35 +28,35 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CustomJwtConfiguration struct {
 	// This URL is used to fetch OpenID Connect configuration or authorization server metadata for validating incoming tokens.
 	//
 	// Pattern: .+/\.well-known/openid-configuration
 	// Required: Yes.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	DiscoveryUrl *string `field:"required" json:"discoveryUrl" yaml:"discoveryUrl"`
 	// Represents individual audience values that are validated in the incoming JWT token validation process.
 	// Default: - No audience validation.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowedAudience *[]*string `field:"optional" json:"allowedAudience" yaml:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
 	// Default: - No client ID validation.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowedClients *[]*string `field:"optional" json:"allowedClients" yaml:"allowedClients"`
 	// Represents individual scopes that are validated in the incoming JWT token validation process.
 	// Default: - No scope validation.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AllowedScopes *[]*string `field:"optional" json:"allowedScopes" yaml:"allowedScopes"`
 	// Custom claims for additional JWT token validation.
 	//
 	// Allows you to validate additional fields in JWT tokens beyond the standard audience, client, and scope validations.
 	// Default: - No custom claim validation.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CustomClaims *[]GatewayCustomClaim `field:"optional" json:"customClaims" yaml:"customClaims"`
 }
 

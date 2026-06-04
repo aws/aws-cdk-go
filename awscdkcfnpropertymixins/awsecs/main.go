@@ -460,6 +460,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_ForceNewDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.HookTimeoutConfigProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_HookTimeoutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.LinearConfigurationProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_LinearConfigurationProperty)(nil)).Elem(),
 	)

@@ -72,6 +72,14 @@ func (i *jsiiProxy_IntegTestCaseStack) validateToYamlStringParameters(obj interf
 	return nil
 }
 
+func validateIntegTestCaseStack_ConsumeListReferenceParameters(value *[]*string) error {
+	return nil
+}
+
+func validateIntegTestCaseStack_ConsumeReferenceParameters(value *string) error {
+	return nil
+}
+
 func validateIntegTestCaseStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

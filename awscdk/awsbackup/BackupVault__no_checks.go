@@ -8,6 +8,10 @@ func (b *jsiiProxy_BackupVault) validateAddToAccessPolicyParameters(statement aw
 	return nil
 }
 
+func (b *jsiiProxy_BackupVault) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_BackupVault) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

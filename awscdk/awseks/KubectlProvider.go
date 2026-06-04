@@ -664,6 +664,69 @@ func (j *jsiiProxy_KubectlProvider)SetTerminationProtection(val *bool) {
 	)
 }
 
+// Override the reference strength for a specific cross-stack string list reference.
+//
+// This is the string list equivalent of `consumeReference`.
+//
+// Returns: A token that resolves to the same value but uses the overridden strength.
+func KubectlProvider_ConsumeListReference(value *[]*string, strength awscdk.ReferenceStrength) *[]*string {
+	_init_.Initialize()
+
+	if err := validateKubectlProvider_ConsumeListReferenceParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.KubectlProvider",
+		"consumeListReference",
+		[]interface{}{value, strength},
+		&returns,
+	)
+
+	return returns
+}
+
+// Override the reference strength for a specific cross-stack reference value.
+//
+// Use this to weaken (or strengthen) an individual reference without
+// affecting other references to the same resource. For example:
+//
+// ```ts
+// // producerStack defines an SNS topic
+// declare const topic: sns.Topic;
+//
+// // consumerStack subscribes to it with a weak reference,
+// // so the producer can be torn down without blocking on this consumer
+// const consumerStack = new Stack(app, 'Consumer', {
+//   env: { account: '123456789012', region: 'us-east-1' },
+// });
+// new sns.Subscription(consumerStack, 'Subscription', {
+//   topic: sns.Topic.fromTopicArn(consumerStack, 'Topic', Stack.consumeReference(topic.topicArn)),
+//   endpoint: 'https://example.com/webhook',
+//   protocol: sns.SubscriptionProtocol.HTTPS,
+// });
+// ```.
+//
+// Returns: A token that resolves to the same value but uses the overridden strength.
+func KubectlProvider_ConsumeReference(value *string, strength awscdk.ReferenceStrength) *string {
+	_init_.Initialize()
+
+	if err := validateKubectlProvider_ConsumeReferenceParameters(value); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_eks.KubectlProvider",
+		"consumeReference",
+		[]interface{}{value, strength},
+		&returns,
+	)
+
+	return returns
+}
+
 // Import an existing provider.
 func KubectlProvider_FromKubectlProviderAttributes(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) IKubectlProvider {
 	_init_.Initialize()

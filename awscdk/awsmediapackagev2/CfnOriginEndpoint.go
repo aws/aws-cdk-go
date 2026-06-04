@@ -30,6 +30,9 @@ import (
 //   			ManifestName: jsii.String("manifestName"),
 //
 //   			// the properties below are optional
+//   			AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
+//   				FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
+//   			},
 //   			BaseUrls: []interface{}{
 //   				&DashBaseUrlProperty{
 //   					Url: jsii.String("url"),
@@ -83,6 +86,7 @@ import (
 //   			},
 //   			ScteDash: &ScteDashProperty{
 //   				AdMarkerDash: jsii.String("adMarkerDash"),
+//   				ScteInManifests: jsii.String("scteInManifests"),
 //   			},
 //   			SegmentTemplateFormat: jsii.String("segmentTemplateFormat"),
 //   			SubtitleConfiguration: &DashSubtitleConfigurationProperty{
@@ -91,6 +95,7 @@ import (
 //   				},
 //   			},
 //   			SuggestedPresentationDelaySeconds: jsii.Number(123),
+//   			UriPathType: jsii.String("uriPathType"),
 //   			UtcTiming: &DashUtcTimingProperty{
 //   				TimingMode: jsii.String("timingMode"),
 //   				TimingSource: jsii.String("timingSource"),
@@ -121,6 +126,7 @@ import (
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
 //   				AdMarkerHls: jsii.String("adMarkerHls"),
+//   				ScteInManifests: jsii.String("scteInManifests"),
 //   			},
 //   			StartTag: &StartTagProperty{
 //   				TimeOffset: jsii.Number(123),
@@ -128,6 +134,7 @@ import (
 //   				// the properties below are optional
 //   				Precise: jsii.Boolean(false),
 //   			},
+//   			UriPathType: jsii.String("uriPathType"),
 //   			Url: jsii.String("url"),
 //   			UrlEncodeChildManifest: jsii.Boolean(false),
 //   		},
@@ -150,6 +157,7 @@ import (
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
 //   				AdMarkerHls: jsii.String("adMarkerHls"),
+//   				ScteInManifests: jsii.String("scteInManifests"),
 //   			},
 //   			StartTag: &StartTagProperty{
 //   				TimeOffset: jsii.Number(123),
@@ -157,6 +165,7 @@ import (
 //   				// the properties below are optional
 //   				Precise: jsii.Boolean(false),
 //   			},
+//   			UriPathType: jsii.String("uriPathType"),
 //   			Url: jsii.String("url"),
 //   			UrlEncodeChildManifest: jsii.Boolean(false),
 //   		},
@@ -208,6 +217,9 @@ import (
 //   		},
 //   		IncludeIframeOnlyStreams: jsii.Boolean(false),
 //   		Scte: &ScteProperty{
+//   			CustomAdTypes: []*string{
+//   				jsii.String("customAdTypes"),
+//   			},
 //   			ScteFilter: []*string{
 //   				jsii.String("scteFilter"),
 //   			},
@@ -225,6 +237,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UriSeparator: jsii.String("uriSeparator"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html
@@ -335,6 +348,8 @@ type CfnOriginEndpoint interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	UriSeparator() *string
+	SetUriSeparator(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -403,6 +418,11 @@ type CfnOriginEndpoint interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -818,6 +838,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) UpdatedProperties() *map[string]interface{
 	return returns
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) UriSeparator() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"uriSeparator",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::MediaPackageV2::OriginEndpoint`.
 func NewCfnOriginEndpoint(scope constructs.Construct, id *string, props *CfnOriginEndpointProps) CfnOriginEndpoint {
@@ -981,6 +1011,14 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint)SetUriSeparator(val *string) {
+	_jsii_.Set(
+		j,
+		"uriSeparator",
 		val,
 	)
 }
@@ -1185,6 +1223,17 @@ func (c *jsiiProxy_CfnOriginEndpoint) AddPropertyOverride(propertyPath *string, 
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnOriginEndpoint) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

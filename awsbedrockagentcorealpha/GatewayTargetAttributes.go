@@ -22,34 +22,34 @@ package awsbedrockagentcorealpha
 //   	UpdatedAt: jsii.String("updatedAt"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayTargetAttributes struct {
 	// The gateway this target belongs to.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Gateway IGateway `field:"required" json:"gateway" yaml:"gateway"`
 	// The name of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GatewayTargetName *string `field:"required" json:"gatewayTargetName" yaml:"gatewayTargetName"`
 	// The ARN of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetArn *string `field:"required" json:"targetArn" yaml:"targetArn"`
 	// The ID of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetId *string `field:"required" json:"targetId" yaml:"targetId"`
 	// Optional creation timestamp.
 	// Default: - No creation timestamp.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt *string `field:"optional" json:"createdAt" yaml:"createdAt"`
 	// Optional status of the target.
 	// Default: - No status.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status *string `field:"optional" json:"status" yaml:"status"`
 	// Optional last update timestamp.
 	// Default: - No update timestamp.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt *string `field:"optional" json:"updatedAt" yaml:"updatedAt"`
 }
 

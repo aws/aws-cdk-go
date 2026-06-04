@@ -186,5 +186,12 @@ type PySparkEtlJobProps struct {
 	//
 	// Experimental.
 	JobRunQueuingEnabled *bool `field:"optional" json:"jobRunQueuingEnabled" yaml:"jobRunQueuingEnabled"`
+	// Specifies configuration properties of a notification (optional).
+	//
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	// Default: - undefined.
+	//
+	// Experimental.
+	NotifyDelayAfter awscdk.Duration `field:"optional" json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 

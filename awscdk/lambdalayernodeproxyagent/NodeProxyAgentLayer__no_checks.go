@@ -8,6 +8,10 @@ func (n *jsiiProxy_NodeProxyAgentLayer) validateAddPermissionParameters(id *stri
 	return nil
 }
 
+func (n *jsiiProxy_NodeProxyAgentLayer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (n *jsiiProxy_NodeProxyAgentLayer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

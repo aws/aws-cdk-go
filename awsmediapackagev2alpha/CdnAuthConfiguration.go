@@ -8,29 +8,36 @@ import (
 // Options for configuring CDN Authorization Configuration.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import mediapackagev2_alpha "github.com/aws/aws-cdk-go/awsmediapackagev2alpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var role Role
-//   var secret Secret
+//   var channel Channel
+//   var mySecret ISecret
 //
-//   cdnAuthConfiguration := &CdnAuthConfiguration{
-//   	Secrets: []ISecret{
-//   		secret,
+//
+//   awsmediapackagev2alpha.NewOriginEndpoint(this, jsii.String("OriginEndpoint"), &OriginEndpointProps{
+//   	Channel: Channel,
+//   	Segment: awsmediapackagev2alpha.Segment_Ts(),
+//   	Manifests: []Manifest{
+//   		awsmediapackagev2alpha.Manifest_Hls(&HlsManifestConfiguration{
+//   			ManifestName: jsii.String("index"),
+//   		}),
 //   	},
-//
-//   	// the properties below are optional
-//   	Role: role,
-//   }
+//   	CdnAuth: &CdnAuthConfiguration{
+//   		Secrets: []ISecret{
+//   			mySecret,
+//   		},
+//   	},
+//   })
 //
 // See: https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth.html
 //
 // Experimental.
 type CdnAuthConfiguration struct {
 	// Secrets to use for CDN authorization.
+	//
+	// Each secret must be a JSON object with a `MediaPackageV2CDNIdentifier` key whose
+	// value is the CDN-Identifier header value. See the
+	// {@link https://docs.aws.amazon.com/mediapackage/latest/userguide/cdn-auth-setup.html MediaPackage CDN authorization docs}.
 	// Experimental.
 	Secrets *[]awssecretsmanager.ISecret `field:"required" json:"secrets" yaml:"secrets"`
 	// Role to use for reading the secrets.

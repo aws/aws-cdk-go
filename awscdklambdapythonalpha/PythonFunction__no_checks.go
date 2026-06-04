@@ -32,6 +32,10 @@ func (p *jsiiProxy_PythonFunction) validateAddToRolePolicyParameters(statement a
 	return nil
 }
 
+func (p *jsiiProxy_PythonFunction) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PythonFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -142,6 +142,14 @@ type TaskDefinition interface {
 	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
 	// Adds a volume to the task definition.
 	AddVolume(volume *Volume)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -667,6 +675,17 @@ func (t *jsiiProxy_TaskDefinition) AddVolume(volume *Volume) {
 		t,
 		"addVolume",
 		[]interface{}{volume},
+	)
+}
+
+func (t *jsiiProxy_TaskDefinition) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := t.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

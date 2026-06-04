@@ -20,6 +20,14 @@ func (s *jsiiProxy_ScalableTarget) validateAddToRolePolicyParameters(statement a
 	return nil
 }
 
+func (s *jsiiProxy_ScalableTarget) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_ScalableTarget) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

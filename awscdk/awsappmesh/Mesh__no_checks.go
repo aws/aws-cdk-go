@@ -16,6 +16,10 @@ func (m *jsiiProxy_Mesh) validateAddVirtualRouterParameters(id *string, props *V
 	return nil
 }
 
+func (m *jsiiProxy_Mesh) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (m *jsiiProxy_Mesh) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

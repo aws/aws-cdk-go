@@ -14,10 +14,10 @@ import (
 //
 //   logType := bedrock_agentcore_alpha.LogType_Of(jsii.String("value"))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LogType interface {
 	// The log type value.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value() *string
 }
 
@@ -38,7 +38,7 @@ func (j *jsiiProxy_LogType) Value() *string {
 
 
 // A custom log type value.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LogType_Of(value *string) LogType {
 	_init_.Initialize()
 

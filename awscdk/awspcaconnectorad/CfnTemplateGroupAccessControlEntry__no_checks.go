@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateAddPropertyOverri
 	return nil
 }
 
+func (c *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }
@@ -93,6 +97,14 @@ func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateSetAccessRightsPa
 }
 
 func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateSetGroupDisplayNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateSetGroupSecurityIdentifierParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTemplateGroupAccessControlEntry) validateSetTemplateArnParameters(val *string) error {
 	return nil
 }
 

@@ -15,21 +15,21 @@ package awsbedrockagentcorealpha
 //   	Label: jsii.String("label"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CategoricalRatingOption struct {
 	// The description that explains what this rating represents.
 	//
 	// Example:
 	//   "The response fully addresses the user query with accurate information."
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Definition *string `field:"required" json:"definition" yaml:"definition"`
 	// The label for this rating option.
 	//
 	// Example:
 	//   "Good"
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Label *string `field:"required" json:"label" yaml:"label"`
 }
 

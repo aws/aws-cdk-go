@@ -178,6 +178,22 @@ func (i *jsiiProxy_IntegTestCaseStack) validateToYamlStringParameters(obj interf
 	return nil
 }
 
+func validateIntegTestCaseStack_ConsumeListReferenceParameters(value *[]*string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateIntegTestCaseStack_ConsumeReferenceParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateIntegTestCaseStack_IsConstructParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

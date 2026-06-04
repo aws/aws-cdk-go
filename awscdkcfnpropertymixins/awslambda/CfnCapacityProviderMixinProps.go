@@ -38,6 +38,15 @@ import (
 //   	PermissionsConfig: &CapacityProviderPermissionsConfigProperty{
 //   		CapacityProviderOperatorRoleArn: jsii.String("capacityProviderOperatorRoleArn"),
 //   	},
+//   	PropagateTags: &PropagateTagsConfigProperty{
+//   		ExplicitTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -76,6 +85,9 @@ type CfnCapacityProviderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-permissionsconfig
 	//
 	PermissionsConfig interface{} `field:"optional" json:"permissionsConfig" yaml:"permissionsConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-propagatetags
+	//
+	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// A key-value pair that provides metadata for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-tags
 	//

@@ -19,7 +19,7 @@ import (
 //
 //   filterValue := bedrock_agentcore_alpha.FilterValue_Boolean(jsii.Boolean(false))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type FilterValue interface {
 }
 
@@ -29,7 +29,7 @@ type jsiiProxy_FilterValue struct {
 }
 
 // Creates a boolean filter value.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func FilterValue_Boolean(value *bool) FilterValue {
 	_init_.Initialize()
 
@@ -49,7 +49,7 @@ func FilterValue_Boolean(value *bool) FilterValue {
 }
 
 // Creates a numeric filter value.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func FilterValue_Number(value *float64) FilterValue {
 	_init_.Initialize()
 
@@ -69,7 +69,7 @@ func FilterValue_Number(value *float64) FilterValue {
 }
 
 // Creates a string filter value.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func FilterValue_String(value *string) FilterValue {
 	_init_.Initialize()
 

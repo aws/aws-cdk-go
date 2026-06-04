@@ -101,6 +101,14 @@ func (w *jsiiProxy_WorkflowBase) validateAddWeeklyScheduledTriggerParameters(id 
 	return nil
 }
 
+func (w *jsiiProxy_WorkflowBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (w *jsiiProxy_WorkflowBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

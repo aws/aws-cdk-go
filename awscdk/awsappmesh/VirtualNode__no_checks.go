@@ -12,6 +12,10 @@ func (v *jsiiProxy_VirtualNode) validateAddListenerParameters(listener VirtualNo
 	return nil
 }
 
+func (v *jsiiProxy_VirtualNode) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (v *jsiiProxy_VirtualNode) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

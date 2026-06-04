@@ -15,6 +15,7 @@ import (
 //   	AccessEndpoint: jsii.String("accessEndpoint"),
 //   	EndpointDetails: &EndpointDetailsProperty{
 //   		Vpc: &VpcProperty{
+//   			IpAddressType: jsii.String("ipAddressType"),
 //   			SecurityGroupIds: []*string{
 //   				jsii.String("securityGroupIds"),
 //   			},

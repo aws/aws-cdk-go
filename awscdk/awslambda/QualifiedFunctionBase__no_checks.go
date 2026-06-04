@@ -24,6 +24,10 @@ func (q *jsiiProxy_QualifiedFunctionBase) validateAddToRolePolicyParameters(stat
 	return nil
 }
 
+func (q *jsiiProxy_QualifiedFunctionBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (q *jsiiProxy_QualifiedFunctionBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

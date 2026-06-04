@@ -61,6 +61,14 @@ type NodeProxyAgentLayer interface {
 	// execution role) also needs to have the ``lambda:GetLayerVersion``
 	// permission on the layer version.
 	AddPermission(id *string, permission *awslambda.LayerVersionPermission)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -331,6 +339,17 @@ func (n *jsiiProxy_NodeProxyAgentLayer) AddPermission(id *string, permission *aw
 		n,
 		"addPermission",
 		[]interface{}{id, permission},
+	)
+}
+
+func (n *jsiiProxy_NodeProxyAgentLayer) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := n.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		n,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

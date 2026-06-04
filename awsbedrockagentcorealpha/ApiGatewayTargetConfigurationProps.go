@@ -54,23 +54,23 @@ import (
 //   	Stage: jsii.String("stage"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiGatewayTargetConfigurationProps struct {
 	// Tool configuration defining which operations to expose.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiGatewayToolConfiguration *ApiGatewayToolConfiguration `field:"required" json:"apiGatewayToolConfiguration" yaml:"apiGatewayToolConfiguration"`
 	// The REST API to integrate with Must be in the same account and region as the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RestApi awsapigateway.IRestApi `field:"required" json:"restApi" yaml:"restApi"`
 	// Metadata configuration for passing headers and query parameters Allows you to pass additional context through headers and query parameters.
 	// Default: - No metadata configuration.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetadataConfiguration *MetadataConfiguration `field:"optional" json:"metadataConfiguration" yaml:"metadataConfiguration"`
 	// The stage name of the REST API.
 	// Default: - Uses the deployment stage from the RestApi (restApi.deploymentStage.stageName)
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Stage *string `field:"optional" json:"stage" yaml:"stage"`
 }
 

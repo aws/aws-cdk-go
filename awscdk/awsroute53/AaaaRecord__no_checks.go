@@ -4,6 +4,10 @@ package awsroute53
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (a *jsiiProxy_AaaaRecord) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_AaaaRecord) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -12,6 +12,10 @@ func (b *jsiiProxy_BackupPlan) validateAddSelectionParameters(id *string, option
 	return nil
 }
 
+func (b *jsiiProxy_BackupPlan) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_BackupPlan) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -76,6 +76,14 @@ func (n *jsiiProxy_NestedStack) validateToYamlStringParameters(obj interface{}) 
 	return nil
 }
 
+func validateNestedStack_ConsumeListReferenceParameters(value *[]*string) error {
+	return nil
+}
+
+func validateNestedStack_ConsumeReferenceParameters(value *string) error {
+	return nil
+}
+
 func validateNestedStack_IsConstructParameters(x interface{}) error {
 	return nil
 }

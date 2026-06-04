@@ -30,6 +30,14 @@ func (i *jsiiProxy_Ipam) validateAddScopeParameters(scope constructs.Construct, 
 	return nil
 }
 
+func (i *jsiiProxy_Ipam) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_Ipam) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

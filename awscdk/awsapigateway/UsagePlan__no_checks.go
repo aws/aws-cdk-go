@@ -12,6 +12,10 @@ func (u *jsiiProxy_UsagePlan) validateAddApiStageParameters(apiStage *UsagePlanP
 	return nil
 }
 
+func (u *jsiiProxy_UsagePlan) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (u *jsiiProxy_UsagePlan) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -76,6 +76,14 @@ func (k *jsiiProxy_KubectlProvider) validateToYamlStringParameters(obj interface
 	return nil
 }
 
+func validateKubectlProvider_ConsumeListReferenceParameters(value *[]*string) error {
+	return nil
+}
+
+func validateKubectlProvider_ConsumeReferenceParameters(value *string) error {
+	return nil
+}
+
 func validateKubectlProvider_FromKubectlProviderAttributesParameters(scope constructs.Construct, id *string, attrs *KubectlProviderAttributes) error {
 	return nil
 }

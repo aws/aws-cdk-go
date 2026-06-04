@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

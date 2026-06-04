@@ -14,11 +14,11 @@ import (
 //
 //   noAuthAuthorizer := bedrock_agentcore_alpha.NewNoAuthAuthorizer()
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type NoAuthAuthorizer interface {
 	IGatewayAuthorizerConfig
 	// The authorizer type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizerType() GatewayAuthorizerType
 }
 
@@ -38,7 +38,7 @@ func (j *jsiiProxy_NoAuthAuthorizer) AuthorizerType() GatewayAuthorizerType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewNoAuthAuthorizer() NoAuthAuthorizer {
 	_init_.Initialize()
 
@@ -53,7 +53,7 @@ func NewNoAuthAuthorizer() NoAuthAuthorizer {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewNoAuthAuthorizer_Override(n NoAuthAuthorizer) {
 	_init_.Initialize()
 

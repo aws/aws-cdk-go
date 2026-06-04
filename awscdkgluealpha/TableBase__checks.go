@@ -23,6 +23,14 @@ func (t *jsiiProxy_TableBase) validateAddPartitionIndexParameters(index *Partiti
 	return nil
 }
 
+func (t *jsiiProxy_TableBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (t *jsiiProxy_TableBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

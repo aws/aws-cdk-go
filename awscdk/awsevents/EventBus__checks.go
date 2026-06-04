@@ -20,6 +20,14 @@ func (e *jsiiProxy_EventBus) validateAddToResourcePolicyParameters(statement aws
 	return nil
 }
 
+func (e *jsiiProxy_EventBus) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (e *jsiiProxy_EventBus) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

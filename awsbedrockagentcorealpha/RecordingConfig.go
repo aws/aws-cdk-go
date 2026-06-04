@@ -22,17 +22,17 @@ import (
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type RecordingConfig struct {
 	// Whether recording is enabled.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Enabled *bool `field:"optional" json:"enabled" yaml:"enabled"`
 	// S3 Location Configuration.
 	// Default: - undefined.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	S3Location *awss3.Location `field:"optional" json:"s3Location" yaml:"s3Location"`
 }
 

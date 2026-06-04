@@ -9,7 +9,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// ****************************************************************************                      TOOL SCHEMA CLASS ***************************************************************************.
+// Defines the schema for tools available to a gateway target.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -18,26 +18,26 @@ import (
 //
 //   toolSchema := bedrock_agentcore_alpha.ToolSchema_FromLocalAsset(jsii.String("path"))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ToolSchema interface {
 	// The account ID of the S3 bucket owner for cross-account access.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	BucketOwnerAccountId() *string
 	// The inline tool schema definition as a string, if using an inline schema.
 	//
 	// Can be in JSON or YAML format.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InlineSchema() *[]*ToolDefinition
 	// The S3 location of the tool schema file, if using an S3-based schema.
 	//
 	// Contains the bucket name and object key information.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	S3File() *awss3.Location
 	// Bind the schema to a construct.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct)
 	// Grant permissions to the role.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantPermissionsToRole(role awsiam.IRole)
 }
 
@@ -77,7 +77,7 @@ func (j *jsiiProxy_ToolSchema) S3File() *awss3.Location {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewToolSchema_Override(t ToolSchema, s3File *awss3.Location, bucketOwnerAccountId *string, inlineSchema *[]*ToolDefinition) {
 	_init_.Initialize()
 
@@ -89,7 +89,7 @@ func NewToolSchema_Override(t ToolSchema, s3File *awss3.Location, bucketOwnerAcc
 }
 
 // Creates a Tool Schema from an inline string.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func ToolSchema_FromInline(schema *[]*ToolDefinition) InlineToolSchema {
 	_init_.Initialize()
 
@@ -109,7 +109,7 @@ func ToolSchema_FromInline(schema *[]*ToolDefinition) InlineToolSchema {
 }
 
 // Creates a tool Schema from a local file.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func ToolSchema_FromLocalAsset(path *string) ToolSchema {
 	_init_.Initialize()
 
@@ -129,7 +129,7 @@ func ToolSchema_FromLocalAsset(path *string) ToolSchema {
 }
 
 // Creates a Tool Schema from an S3 File.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func ToolSchema_FromS3File(bucket awss3.IBucket, objectKey *string, bucketOwnerAccountId *string) S3ToolSchema {
 	_init_.Initialize()
 

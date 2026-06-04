@@ -42,6 +42,7 @@ import (
 //   	FinalSnapshotName: jsii.String("finalSnapshotName"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	MajorEngineVersion: jsii.String("majorEngineVersion"),
+//   	NetworkType: jsii.String("networkType"),
 //   	ReaderEndpoint: &EndpointProperty{
 //   		Address: jsii.String("address"),
 //   		Port: jsii.String("port"),

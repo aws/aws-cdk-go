@@ -80,6 +80,14 @@ func (d *jsiiProxy_DefaultStagingStack) validateToYamlStringParameters(obj inter
 	return nil
 }
 
+func validateDefaultStagingStack_ConsumeListReferenceParameters(value *[]*string) error {
+	return nil
+}
+
+func validateDefaultStagingStack_ConsumeReferenceParameters(value *string) error {
+	return nil
+}
+
 func validateDefaultStagingStack_FactoryParameters(options *DefaultStagingStackOptions) error {
 	return nil
 }

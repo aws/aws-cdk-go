@@ -67,6 +67,13 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	AutomatedSnapshotPauseOptions: &AutomatedSnapshotPauseOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		EndTime: jsii.String("endTime"),
+//   		StartTime: jsii.String("startTime"),
+//   	},
 //   	ClusterConfig: &ClusterConfigProperty{
 //   		ColdStorageOptions: &ColdStorageOptionsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -166,6 +173,7 @@ import (
 //   		},
 //   	},
 //   	VpcOptions: &VPCOptionsProperty{
+//   		EgressEnabled: jsii.Boolean(false),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
 //   		},
@@ -224,6 +232,8 @@ type CfnDomain interface {
 	AttrServiceSoftwareOptionsOptionalDeployment() awscdk.IResolvable
 	AttrServiceSoftwareOptionsUpdateAvailable() awscdk.IResolvable
 	AttrServiceSoftwareOptionsUpdateStatus() *string
+	AutomatedSnapshotPauseOptions() interface{}
+	SetAutomatedSnapshotPauseOptions(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -395,6 +405,11 @@ type CfnDomain interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -675,6 +690,16 @@ func (j *jsiiProxy_CfnDomain) AttrServiceSoftwareOptionsUpdateStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrServiceSoftwareOptionsUpdateStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) AutomatedSnapshotPauseOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"automatedSnapshotPauseOptions",
 		&returns,
 	)
 	return returns
@@ -1080,6 +1105,17 @@ func (j *jsiiProxy_CfnDomain)SetAimlOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"aimlOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetAutomatedSnapshotPauseOptions(val interface{}) {
+	if err := j.validateSetAutomatedSnapshotPauseOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"automatedSnapshotPauseOptions",
 		val,
 	)
 }
@@ -1519,6 +1555,17 @@ func (c *jsiiProxy_CfnDomain) AddPropertyOverride(propertyPath *string, value in
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnDomain) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

@@ -4,6 +4,10 @@ package awssecretsmanager
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_RotationSchedule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_RotationSchedule) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

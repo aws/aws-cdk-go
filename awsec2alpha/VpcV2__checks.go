@@ -111,6 +111,14 @@ func (v *jsiiProxy_VpcV2) validateAddVpnConnectionParameters(id *string, options
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -4,6 +4,10 @@ package awsstepfunctions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (a *jsiiProxy_Activity) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_Activity) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

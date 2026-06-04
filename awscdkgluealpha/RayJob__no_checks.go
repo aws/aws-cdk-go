@@ -4,6 +4,10 @@ package awscdkgluealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (r *jsiiProxy_RayJob) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_RayJob) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -4,6 +4,10 @@ package awscdkroute53resolveralpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (f *jsiiProxy_FirewallRuleGroupAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirewallRuleGroupAssociation) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

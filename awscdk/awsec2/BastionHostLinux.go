@@ -89,6 +89,14 @@ type BastionHostLinux interface {
 	// Necessary if you want to connect to the instance using ssh. If not
 	// called, you should use SSM Session Manager to connect to the instance.
 	AllowSshAccessFrom(peer ...IPeer)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -402,6 +410,17 @@ func (b *jsiiProxy_BastionHostLinux) AllowSshAccessFrom(peer ...IPeer) {
 		b,
 		"allowSshAccessFrom",
 		args,
+	)
+}
+
+func (b *jsiiProxy_BastionHostLinux) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := b.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

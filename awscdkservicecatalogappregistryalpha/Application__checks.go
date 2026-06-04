@@ -26,6 +26,14 @@ func (a *jsiiProxy_Application) validateAddAttributeGroupParameters(id *string, 
 	return nil
 }
 
+func (a *jsiiProxy_Application) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_Application) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

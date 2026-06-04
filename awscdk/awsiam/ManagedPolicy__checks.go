@@ -12,6 +12,14 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (m *jsiiProxy_ManagedPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (m *jsiiProxy_ManagedPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

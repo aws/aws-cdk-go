@@ -56,7 +56,7 @@ type BrowserCustom interface {
 	// Experimental.
 	BrowserArn() *string
 	// A reference to a BrowserCustom resource.
-	// Experimental.
+	// Deprecated.
 	BrowserCustomRef() *interfacesawsbedrockagentcore.BrowserCustomReference
 	// The id of the browser.
 	// Experimental.
@@ -65,7 +65,7 @@ type BrowserCustom interface {
 	// Experimental.
 	BrowserSigning() BrowserSigning
 	// An accessor for the Connections object that will fail if this Browser does not have a VPC configured.
-	// Experimental.
+	// Deprecated.
 	Connections() awsec2.Connections
 	// The created timestamp of the browser.
 	// Experimental.
@@ -128,6 +128,15 @@ type BrowserCustom interface {
 	//
 	// Experimental.
 	Tags() *map[string]*string
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -161,7 +170,7 @@ type BrowserCustom interface {
 	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
-	// Experimental.
+	// Deprecated.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant read permissions on this browser to an IAM principal.
 	//
@@ -174,7 +183,7 @@ type BrowserCustom interface {
 	// - actions: ['bedrock-agentcore:GetBrowser', 'bedrock-agentcore:GetBrowserSession'] on this.browserArn
 	// - actions: ['bedrock-agentcore:ListBrowsers', 'bedrock-agentcore:ListBrowserSessions'] on all resources (*).
 	//
-	// Experimental.
+	// Deprecated.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant invoke permissions on this browser to an IAM principal.
 	//
@@ -185,13 +194,13 @@ type BrowserCustom interface {
 	// - actions: ['bedrock-agentcore:StartBrowserSession', 'bedrock-agentcore:UpdateBrowserStream', 'bedrock-agentcore:StopBrowserSession']
 	// - resourceArns: [this.browserArn]
 	//
-	// Experimental.
+	// Deprecated.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this browser.
 	//
 	// By default, the metric will be calculated as a sum over a period of 5 minutes.
 	// You can customize this by using the `statistic` and `period` properties.
-	// Experimental.
+	// Deprecated.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser errors.
 	//
@@ -200,7 +209,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Errors.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser api operations..
 	//
@@ -210,7 +219,7 @@ type BrowserCustom interface {
 	// - metricName: metricName
 	// - dimensionsMap: { BrowserId: this.browserId }
 	//
-	// Experimental.
+	// Deprecated.
 	MetricForApiOperation(metricName *string, operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser invocations.
 	//
@@ -219,7 +228,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Invocations.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricInvocationsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser latencies.
 	//
@@ -228,7 +237,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Latency.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricLatencyForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser session duration.
 	//
@@ -237,7 +246,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Duration.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricSessionDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser system errors.
 	//
@@ -246,7 +255,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: SystemErrors.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricSystemErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser user takeovers.
 	//
@@ -255,7 +264,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: TakeOverCount.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricTakeOverCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser user takeovers duration.
 	//
@@ -264,7 +273,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: TakeOverDuration.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricTakeOverDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser user takeovers released.
 	//
@@ -273,7 +282,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: TakeOverReleaseCount.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricTakeOverReleaseCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser throttles.
 	//
@@ -282,7 +291,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: Throttles.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricThrottlesForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Creates a CloudWatch metric for tracking browser user errors.
 	//
@@ -291,7 +300,7 @@ type BrowserCustom interface {
 	// - namespace: 'AWS/Bedrock-AgentCore'
 	// - metricName: UserErrors.
 	//
-	// Experimental.
+	// Deprecated.
 	MetricUserErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns a string representation of this construct.
 	// Experimental.
@@ -648,6 +657,17 @@ func BrowserCustom_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (b *jsiiProxy_BrowserCustom) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := b.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (b *jsiiProxy_BrowserCustom) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

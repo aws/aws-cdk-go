@@ -27,6 +27,14 @@ func (a *jsiiProxy_AwsCliLayer) validateAddPermissionParameters(id *string, perm
 	return nil
 }
 
+func (a *jsiiProxy_AwsCliLayer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (a *jsiiProxy_AwsCliLayer) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

@@ -34,6 +34,14 @@ package awsdevopsagent
 //   		ApiKeyHeader: jsii.String("apiKeyHeader"),
 //   		Description: jsii.String("description"),
 //   	},
+//   	McpServerGrafana: &RegisteredMCPServerGrafanaDetailsProperty{
+//   		AuthorizationMethod: jsii.String("authorizationMethod"),
+//   		Endpoint: jsii.String("endpoint"),
+//
+//   		// the properties below are optional
+//   		Description: jsii.String("description"),
+//   		Name: jsii.String("name"),
+//   	},
 //   	McpServerNewRelic: &RegisteredNewRelicDetailsProperty{
 //   		AccountId: jsii.String("accountId"),
 //   		Region: jsii.String("region"),
@@ -92,6 +100,10 @@ type CfnService_AdditionalServiceDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-mcpserver
 	//
 	McpServer interface{} `field:"optional" json:"mcpServer" yaml:"mcpServer"`
+	// Grafana MCP server details returned after registration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-mcpservergrafana
+	//
+	McpServerGrafana interface{} `field:"optional" json:"mcpServerGrafana" yaml:"mcpServerGrafana"`
 	// New Relic service details returned after registration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-mcpservernewrelic
 	//

@@ -8,6 +8,10 @@ func (a *jsiiProxy_Accelerator) validateAddListenerParameters(id *string, option
 	return nil
 }
 
+func (a *jsiiProxy_Accelerator) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_Accelerator) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -8,6 +8,10 @@ func (b *jsiiProxy_Branch) validateAddEnvironmentParameters(name *string, value 
 	return nil
 }
 
+func (b *jsiiProxy_Branch) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_Branch) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

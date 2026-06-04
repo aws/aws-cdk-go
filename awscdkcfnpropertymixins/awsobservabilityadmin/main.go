@@ -116,6 +116,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_LabelNameConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationTelemetryRulePropsMixin.LogDeliveryParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_LogDeliveryParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationTelemetryRulePropsMixin.LoggingFilterProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_LoggingFilterProperty)(nil)).Elem(),
 	)

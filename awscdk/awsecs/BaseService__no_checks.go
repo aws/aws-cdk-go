@@ -12,6 +12,10 @@ func (b *jsiiProxy_BaseService) validateAddVolumeParameters(volume ServiceManage
 	return nil
 }
 
+func (b *jsiiProxy_BaseService) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (b *jsiiProxy_BaseService) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

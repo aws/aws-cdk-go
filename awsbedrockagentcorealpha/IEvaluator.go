@@ -12,30 +12,30 @@ import (
 )
 
 // Interface for Evaluator resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IEvaluator interface {
 	interfacesawsbedrockagentcore.IEvaluatorRef
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform actions on this evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The timestamp when the evaluator was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The ARN of the evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorArn() *string
 	// The unique identifier of the evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorId() *string
 	// The name of the evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EvaluatorName() *string
 	// The lifecycle status of the evaluator (CREATING, ACTIVE, FAILED, DELETING).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 	// The timestamp when the evaluator was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt() *string
 }
 

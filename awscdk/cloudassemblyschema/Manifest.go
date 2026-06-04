@@ -97,6 +97,25 @@ func Manifest_LoadIntegManifest(filePath *string) *IntegManifest {
 	return returns
 }
 
+// Load and validate the policy validation report from file.
+func Manifest_LoadValidationReport(filePath *string) *PolicyValidationReportJson {
+	_init_.Initialize()
+
+	if err := validateManifest_LoadValidationReportParameters(filePath); err != nil {
+		panic(err)
+	}
+	var returns *PolicyValidationReportJson
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"loadValidationReport",
+		[]interface{}{filePath},
+		&returns,
+	)
+
+	return returns
+}
+
 // Validates and saves the cloud assembly manifest to file.
 func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()

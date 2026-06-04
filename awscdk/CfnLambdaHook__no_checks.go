@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLambdaHook) validateAddPropertyOverrideParameters(property
 	return nil
 }
 
+func (c *jsiiProxy_CfnLambdaHook) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLambdaHook) validateApplyRemovalPolicyParameters(options *RemovalPolicyOptions) error {
 	return nil
 }

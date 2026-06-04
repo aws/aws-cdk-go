@@ -8,11 +8,11 @@ import (
 //
 // Extends the base gateway target interface with MCP-specific properties.
 // MCP targets expose tools using the Model Context Protocol.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IMcpGatewayTarget interface {
 	IGatewayTarget
 	// The type of target (Lambda, OpenAPI, or Smithy).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 }
 

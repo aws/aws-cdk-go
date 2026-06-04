@@ -15,51 +15,51 @@ import (
 //
 // Represents a target that hosts tools for the gateway.
 // Targets can be Lambda functions, OpenAPI schemas, or Smithy models.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IGatewayTarget interface {
 	interfacesawsbedrockagentcore.IGatewayTargetRef
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants `Create`, `Update`, and `Delete` actions on the Gateway Target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantManage(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants `Get` and `List` actions on the Gateway Target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Timestamp when the gateway target was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The credential provider configuration for the target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderConfigurations() *[]ICredentialProviderConfig
 	// The description of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The gateway that this target belongs to.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Gateway() IGateway
 	// The name of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name() *string
 	// The status of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 	// The status reasons for the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	StatusReasons() *[]*string
 	// The ARN of the gateway target resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetArn() *string
 	// The id of the gateway target.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetId() *string
 	// The target protocol.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetProtocolType() GatewayTargetProtocolType
 	// Timestamp when the gateway target was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt() *string
 }
 

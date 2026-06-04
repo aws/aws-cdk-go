@@ -24,23 +24,23 @@ import (
 //
 //   lambdaTargetConfiguration := bedrock_agentcore_alpha.NewLambdaTargetConfiguration(function_, toolSchema)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LambdaTargetConfiguration interface {
 	McpTargetConfiguration
 	// The Lambda function that implements the MCP server logic.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LambdaFunction() awslambda.IFunction
 	// The target type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 	// The tool schema that defines the available tools.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ToolSchema() ToolSchema
 	// Binds this configuration to a construct scope Sets up necessary permissions for the gateway to invoke the Lambda function.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *TargetConfigurationConfig
 	// Renders the MCP-specific configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RenderMcpConfiguration() interface{}
 }
 
@@ -80,7 +80,7 @@ func (j *jsiiProxy_LambdaTargetConfiguration) ToolSchema() ToolSchema {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewLambdaTargetConfiguration(lambdaFunction awslambda.IFunction, toolSchema ToolSchema) LambdaTargetConfiguration {
 	_init_.Initialize()
 
@@ -98,7 +98,7 @@ func NewLambdaTargetConfiguration(lambdaFunction awslambda.IFunction, toolSchema
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewLambdaTargetConfiguration_Override(l LambdaTargetConfiguration, lambdaFunction awslambda.IFunction, toolSchema ToolSchema) {
 	_init_.Initialize()
 
@@ -112,7 +112,7 @@ func NewLambdaTargetConfiguration_Override(l LambdaTargetConfiguration, lambdaFu
 // Create a Lambda target configuration.
 //
 // Returns: A new LambdaTargetConfiguration instance.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func LambdaTargetConfiguration_Create(lambdaFunction awslambda.IFunction, toolSchema ToolSchema) LambdaTargetConfiguration {
 	_init_.Initialize()
 

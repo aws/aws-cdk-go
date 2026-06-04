@@ -42,7 +42,7 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorRatingScale interface {
 }
 
@@ -55,7 +55,7 @@ type jsiiProxy_EvaluatorRatingScale struct {
 //
 // Categorical scales define discrete labels for scoring, such as "Good" / "Bad"
 // or "Pass" / "Fail".
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func EvaluatorRatingScale_Categorical(options *[]*CategoricalRatingOption) EvaluatorRatingScale {
 	_init_.Initialize()
 
@@ -78,7 +78,7 @@ func EvaluatorRatingScale_Categorical(options *[]*CategoricalRatingOption) Evalu
 //
 // Numerical scales define labeled numeric values for scoring, such as
 // 1 (Poor) through 5 (Excellent).
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func EvaluatorRatingScale_Numerical(options *[]*NumericalRatingOption) EvaluatorRatingScale {
 	_init_.Initialize()
 

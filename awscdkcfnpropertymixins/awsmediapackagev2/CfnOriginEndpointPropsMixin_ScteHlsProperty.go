@@ -10,6 +10,7 @@ package awsmediapackagev2
 //
 //   scteHlsProperty := &ScteHlsProperty{
 //   	AdMarkerHls: jsii.String("adMarkerHls"),
+//   	ScteInManifests: jsii.String("scteInManifests"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html
@@ -19,5 +20,8 @@ type CfnOriginEndpointPropsMixin_ScteHlsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html#cfn-mediapackagev2-originendpoint-sctehls-admarkerhls
 	//
 	AdMarkerHls *string `field:"optional" json:"adMarkerHls" yaml:"adMarkerHls"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html#cfn-mediapackagev2-originendpoint-sctehls-scteinmanifests
+	//
+	ScteInManifests *string `field:"optional" json:"scteInManifests" yaml:"scteInManifests"`
 }
 

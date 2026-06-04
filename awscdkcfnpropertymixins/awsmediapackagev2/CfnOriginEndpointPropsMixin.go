@@ -26,6 +26,9 @@ import (
 //   	ContainerType: jsii.String("containerType"),
 //   	DashManifests: []interface{}{
 //   		&DashManifestConfigurationProperty{
+//   			AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
+//   				FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
+//   			},
 //   			BaseUrls: []interface{}{
 //   				&DashBaseUrlProperty{
 //   					DvbPriority: jsii.Number(123),
@@ -76,6 +79,7 @@ import (
 //   			},
 //   			ScteDash: &ScteDashProperty{
 //   				AdMarkerDash: jsii.String("adMarkerDash"),
+//   				ScteInManifests: jsii.String("scteInManifests"),
 //   			},
 //   			SegmentTemplateFormat: jsii.String("segmentTemplateFormat"),
 //   			SubtitleConfiguration: &DashSubtitleConfigurationProperty{
@@ -84,6 +88,7 @@ import (
 //   				},
 //   			},
 //   			SuggestedPresentationDelaySeconds: jsii.Number(123),
+//   			UriPathType: jsii.String("uriPathType"),
 //   			UtcTiming: &DashUtcTimingProperty{
 //   				TimingMode: jsii.String("timingMode"),
 //   				TimingSource: jsii.String("timingSource"),
@@ -112,11 +117,13 @@ import (
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
 //   				AdMarkerHls: jsii.String("adMarkerHls"),
+//   				ScteInManifests: jsii.String("scteInManifests"),
 //   			},
 //   			StartTag: &StartTagProperty{
 //   				Precise: jsii.Boolean(false),
 //   				TimeOffset: jsii.Number(123),
 //   			},
+//   			UriPathType: jsii.String("uriPathType"),
 //   			Url: jsii.String("url"),
 //   			UrlEncodeChildManifest: jsii.Boolean(false),
 //   		},
@@ -137,11 +144,13 @@ import (
 //   			ProgramDateTimeIntervalSeconds: jsii.Number(123),
 //   			ScteHls: &ScteHlsProperty{
 //   				AdMarkerHls: jsii.String("adMarkerHls"),
+//   				ScteInManifests: jsii.String("scteInManifests"),
 //   			},
 //   			StartTag: &StartTagProperty{
 //   				Precise: jsii.Boolean(false),
 //   				TimeOffset: jsii.Number(123),
 //   			},
+//   			UriPathType: jsii.String("uriPathType"),
 //   			Url: jsii.String("url"),
 //   			UrlEncodeChildManifest: jsii.Boolean(false),
 //   		},
@@ -188,6 +197,9 @@ import (
 //   		},
 //   		IncludeIframeOnlyStreams: jsii.Boolean(false),
 //   		Scte: &ScteProperty{
+//   			CustomAdTypes: []*string{
+//   				jsii.String("customAdTypes"),
+//   			},
 //   			ScteFilter: []*string{
 //   				jsii.String("scteFilter"),
 //   			},
@@ -205,6 +217,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UriSeparator: jsii.String("uriSeparator"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

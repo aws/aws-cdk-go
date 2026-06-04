@@ -4,6 +4,10 @@ package awsdocdb
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_ClusterParameterGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_ClusterParameterGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

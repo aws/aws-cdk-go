@@ -4,6 +4,10 @@ package awsec2
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_SubnetNetworkAclAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SubnetNetworkAclAssociation) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

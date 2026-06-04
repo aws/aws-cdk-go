@@ -47,6 +47,13 @@ type OriginEndpoint interface {
 	AutoCreatePolicy() *bool
 	// Experimental.
 	SetAutoCreatePolicy(val *bool)
+	// CDN authorization configuration to be applied when the policy is created.
+	//
+	// Set by subclass constructors when `cdnAuth` is provided in props.
+	// Experimental.
+	CdnAuthConfig() *CdnAuthConfiguration
+	// Experimental.
+	SetCdnAuthConfig(val *CdnAuthConfiguration)
 	// The name of the channel group associated with the origin endpoint configuration.
 	// Experimental.
 	ChannelGroupName() *string
@@ -138,10 +145,21 @@ type OriginEndpoint interface {
 	Stack() awscdk.Stack
 	// Configure origin endpoint policy.
 	//
-	// You can only add 1 OriginEndpointPolicy to an OriginEndpoint.
-	// If you have already defined one, it will append to the policy already created.
+	// You can only add 1 OriginEndpointPolicy to an OriginEndpoint. If you have already
+	// defined one, this will append to the policy already created.
+	//
+	// To configure CDN authentication, set `cdnAuth` on the construct's props instead.
 	// Experimental.
-	AddToResourcePolicy(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) *awsiam.AddToResourcePolicyResult
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -230,6 +248,16 @@ func (j *jsiiProxy_OriginEndpoint) AutoCreatePolicy() *bool {
 	_jsii_.Get(
 		j,
 		"autoCreatePolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OriginEndpoint) CdnAuthConfig() *CdnAuthConfiguration {
+	var returns *CdnAuthConfiguration
+	_jsii_.Get(
+		j,
+		"cdnAuthConfig",
 		&returns,
 	)
 	return returns
@@ -486,6 +514,17 @@ func (j *jsiiProxy_OriginEndpoint)SetAutoCreatePolicy(val *bool) {
 	)
 }
 
+func (j *jsiiProxy_OriginEndpoint)SetCdnAuthConfig(val *CdnAuthConfiguration) {
+	if err := j.validateSetCdnAuthConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cdnAuthConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_OriginEndpoint)SetDashManifests(val *[]*awsmediapackagev2.CfnOriginEndpoint_DashManifestConfigurationProperty) {
 	if err := j.validateSetDashManifestsParameters(val); err != nil {
 		panic(err)
@@ -679,8 +718,8 @@ func OriginEndpoint_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (o *jsiiProxy_OriginEndpoint) AddToResourcePolicy(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) *awsiam.AddToResourcePolicyResult {
-	if err := o.validateAddToResourcePolicyParameters(statement, cdnAuth); err != nil {
+func (o *jsiiProxy_OriginEndpoint) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	if err := o.validateAddToResourcePolicyParameters(statement); err != nil {
 		panic(err)
 	}
 	var returns *awsiam.AddToResourcePolicyResult
@@ -688,11 +727,22 @@ func (o *jsiiProxy_OriginEndpoint) AddToResourcePolicy(statement awsiam.PolicySt
 	_jsii_.Invoke(
 		o,
 		"addToResourcePolicy",
-		[]interface{}{statement, cdnAuth},
+		[]interface{}{statement},
 		&returns,
 	)
 
 	return returns
+}
+
+func (o *jsiiProxy_OriginEndpoint) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := o.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		o,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (o *jsiiProxy_OriginEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

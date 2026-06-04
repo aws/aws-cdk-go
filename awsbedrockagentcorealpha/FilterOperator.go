@@ -14,10 +14,10 @@ import (
 //
 //   filterOperator := bedrock_agentcore_alpha.FilterOperator_CONTAINS()
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type FilterOperator interface {
 	// The string value of the filter operator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value() *string
 }
 
@@ -37,7 +37,7 @@ func (j *jsiiProxy_FilterOperator) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewFilterOperator(value *string) FilterOperator {
 	_init_.Initialize()
 
@@ -55,7 +55,7 @@ func NewFilterOperator(value *string) FilterOperator {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewFilterOperator_Override(f FilterOperator, value *string) {
 	_init_.Initialize()
 

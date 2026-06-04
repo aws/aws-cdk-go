@@ -21,21 +21,21 @@ package awsbedrockagentcorealpha
 //
 // See: https://www.rfc-editor.org/rfc/rfc8414
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type OAuth2AuthorizationServerMetadata struct {
 	// The authorization endpoint URL.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizationEndpoint *string `field:"required" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// The issuer URL for the OAuth2 authorization server.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Issuer *string `field:"required" json:"issuer" yaml:"issuer"`
 	// The token endpoint URL.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TokenEndpoint *string `field:"required" json:"tokenEndpoint" yaml:"tokenEndpoint"`
 	// The supported response types.
 	// Default: - not specified.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ResponseTypes *[]*string `field:"optional" json:"responseTypes" yaml:"responseTypes"`
 }
 

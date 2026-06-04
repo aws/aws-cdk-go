@@ -14,22 +14,22 @@ package awsbedrockagentcorealpha
 //   	TokenEndpoint: jsii.String("tokenEndpoint"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IncludedOauth2TenantEndpoints struct {
 	// OAuth2 authorization endpoint for your tenant.
 	// Default: - not specified; use when your IdP requires an explicit endpoint.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AuthorizationEndpoint *string `field:"optional" json:"authorizationEndpoint" yaml:"authorizationEndpoint"`
 	// Token issuer URL for your tenant (often the IdP base or issuer URI).
 	// Default: - not specified; use when your IdP requires an explicit issuer.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Issuer *string `field:"optional" json:"issuer" yaml:"issuer"`
 	// OAuth2 token endpoint for your tenant.
 	// Default: - not specified; use when your IdP requires an explicit endpoint.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TokenEndpoint *string `field:"optional" json:"tokenEndpoint" yaml:"tokenEndpoint"`
 }
 

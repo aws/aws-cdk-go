@@ -112,6 +112,15 @@ type BuildFleet interface {
 	// Adds a remote locations to deploy additional instances to and manage as part of the fleet.
 	// Experimental.
 	AddLocation(region *string, desiredCapacity *float64, minSize *float64, maxSize *float64)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -539,6 +548,17 @@ func (b *jsiiProxy_BuildFleet) AddLocation(region *string, desiredCapacity *floa
 		b,
 		"addLocation",
 		[]interface{}{region, desiredCapacity, minSize, maxSize},
+	)
+}
+
+func (b *jsiiProxy_BuildFleet) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := b.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		b,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

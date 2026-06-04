@@ -8,6 +8,10 @@ func (t *jsiiProxy_TransitGateway) validateAddRouteTableParameters(id *string) e
 	return nil
 }
 
+func (t *jsiiProxy_TransitGateway) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_TransitGateway) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

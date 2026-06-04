@@ -24,13 +24,13 @@ func (s *jsiiProxy_SecretRotationApplication) validateSemanticVersionForPartitio
 	return nil
 }
 
-func validateNewSecretRotationApplicationParameters(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) error {
-	if applicationId == nil {
-		return fmt.Errorf("parameter applicationId is required, but nil was provided")
+func validateNewSecretRotationApplicationParameters(applicationName *string, awsSemanticVersion *string, options *SecretRotationApplicationOptions) error {
+	if applicationName == nil {
+		return fmt.Errorf("parameter applicationName is required, but nil was provided")
 	}
 
-	if semanticVersion == nil {
-		return fmt.Errorf("parameter semanticVersion is required, but nil was provided")
+	if awsSemanticVersion == nil {
+		return fmt.Errorf("parameter awsSemanticVersion is required, but nil was provided")
 	}
 
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {

@@ -48,10 +48,10 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluationLevel interface {
 	// The string value of the evaluation level.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value() *string
 }
 
@@ -71,7 +71,7 @@ func (j *jsiiProxy_EvaluationLevel) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewEvaluationLevel(value *string) EvaluationLevel {
 	_init_.Initialize()
 
@@ -89,7 +89,7 @@ func NewEvaluationLevel(value *string) EvaluationLevel {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewEvaluationLevel_Override(e EvaluationLevel, value *string) {
 	_init_.Initialize()
 

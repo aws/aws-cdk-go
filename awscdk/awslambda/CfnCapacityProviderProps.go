@@ -48,6 +48,15 @@ import (
 //   		},
 //   	},
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PropagateTags: &PropagateTagsConfigProperty{
+//   		ExplicitTags: []interface{}{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   		Mode: jsii.String("mode"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -82,6 +91,9 @@ type CfnCapacityProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-propagatetags
+	//
+	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// A key-value pair that provides metadata for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-tags
 	//

@@ -12,6 +12,10 @@ func (e *jsiiProxy_Ec2Service) validateAddVolumeParameters(volume ServiceManaged
 	return nil
 }
 
+func (e *jsiiProxy_Ec2Service) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_Ec2Service) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

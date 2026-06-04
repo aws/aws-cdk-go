@@ -4,6 +4,10 @@ package awsses
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (d *jsiiProxy_DedicatedIpPool) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (d *jsiiProxy_DedicatedIpPool) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLoadBalancerTlsCertificate) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

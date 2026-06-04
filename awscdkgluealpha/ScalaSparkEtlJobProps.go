@@ -11,7 +11,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -60,6 +60,7 @@ import (
 //   	JobRunQueuingEnabled: jsii.Boolean(false),
 //   	MaxConcurrentRuns: jsii.Number(123),
 //   	MaxRetries: jsii.Number(123),
+//   	NotifyDelayAfter: cdk.Duration_Minutes(jsii.Number(30)),
 //   	NumberOfWorkers: jsii.Number(123),
 //   	SecurityConfiguration: securityConfiguration,
 //   	SparkUI: &SparkUIProps{
@@ -69,7 +70,7 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
-//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	WorkerType: glue_alpha.WorkerType_STANDARD,
 //   }
 //
@@ -225,5 +226,12 @@ type ScalaSparkEtlJobProps struct {
 	//
 	// Experimental.
 	JobRunQueuingEnabled *bool `field:"optional" json:"jobRunQueuingEnabled" yaml:"jobRunQueuingEnabled"`
+	// Specifies configuration properties of a notification (optional).
+	//
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	// Default: - undefined.
+	//
+	// Experimental.
+	NotifyDelayAfter awscdk.Duration `field:"optional" json:"notifyDelayAfter" yaml:"notifyDelayAfter"`
 }
 

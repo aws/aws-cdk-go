@@ -98,6 +98,21 @@ import (
 //   	},
 //   	RequestBasedSli: &RequestBasedSliProperty{
 //   		RequestBasedSliMetric: &RequestBasedSliMetricProperty{
+//   			CompositeSliConfig: &CompositeSliConfigProperty{
+//   				SelectionConfig: &SelectionConfigProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Pattern: jsii.String("pattern"),
+//   				},
+//
+//   				// the properties below are optional
+//   				CompositeSliComponents: []interface{}{
+//   					&CompositeSliComponentProperty{
+//   						OperationName: jsii.String("operationName"),
+//   					},
+//   				},
+//   			},
 //   			DependencyConfig: &DependencyConfigProperty{
 //   				DependencyKeyAttributes: map[string]*string{
 //   					"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -106,6 +121,17 @@ import (
 //   			},
 //   			KeyAttributes: map[string]*string{
 //   				"keyAttributesKey": jsii.String("keyAttributes"),
+//   			},
+//   			MetricName: jsii.String("metricName"),
+//   			MetricSource: &MetricSourceProperty{
+//   				MetricSourceKeyAttributes: map[string]*string{
+//   					"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   				},
+//
+//   				// the properties below are optional
+//   				MetricSourceAttributes: map[string]*string{
+//   					"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   				},
 //   			},
 //   			MetricType: jsii.String("metricType"),
 //   			MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{
@@ -202,6 +228,21 @@ import (
 //   		ComparisonOperator: jsii.String("comparisonOperator"),
 //   		MetricThreshold: jsii.Number(123),
 //   		SliMetric: &SliMetricProperty{
+//   			CompositeSliConfig: &CompositeSliConfigProperty{
+//   				SelectionConfig: &SelectionConfigProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Pattern: jsii.String("pattern"),
+//   				},
+//
+//   				// the properties below are optional
+//   				CompositeSliComponents: []interface{}{
+//   					&CompositeSliComponentProperty{
+//   						OperationName: jsii.String("operationName"),
+//   					},
+//   				},
+//   			},
 //   			DependencyConfig: &DependencyConfigProperty{
 //   				DependencyKeyAttributes: map[string]*string{
 //   					"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -236,6 +277,17 @@ import (
 //   						Unit: jsii.String("unit"),
 //   					},
 //   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   			MetricName: jsii.String("metricName"),
+//   			MetricSource: &MetricSourceProperty{
+//   				MetricSourceKeyAttributes: map[string]*string{
+//   					"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   				},
+//
+//   				// the properties below are optional
+//   				MetricSourceAttributes: map[string]*string{
+//   					"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
 //   				},
 //   			},
 //   			MetricType: jsii.String("metricType"),
@@ -408,6 +460,11 @@ type CfnServiceLevelObjective interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -1058,6 +1115,17 @@ func (c *jsiiProxy_CfnServiceLevelObjective) AddPropertyOverride(propertyPath *s
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnServiceLevelObjective) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

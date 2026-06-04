@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCrossAccountAttachment) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnCrossAccountAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCrossAccountAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

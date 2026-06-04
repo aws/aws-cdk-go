@@ -4,6 +4,10 @@ package awsmediapackagev2alpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (c *jsiiProxy_ChannelPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_ChannelPolicy) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

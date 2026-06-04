@@ -30,6 +30,14 @@ func (m *jsiiProxy_MultiNodeJobDefinition) validateAddRetryStrategyParameters(st
 	return nil
 }
 
+func (m *jsiiProxy_MultiNodeJobDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (m *jsiiProxy_MultiNodeJobDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

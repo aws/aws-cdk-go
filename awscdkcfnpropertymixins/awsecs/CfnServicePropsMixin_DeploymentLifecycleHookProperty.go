@@ -21,6 +21,11 @@ package awsecs
 //   		jsii.String("lifecycleStages"),
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	TargetType: jsii.String("targetType"),
+//   	TimeoutConfiguration: &HookTimeoutConfigProperty{
+//   		Action: jsii.String("action"),
+//   		TimeoutInMinutes: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html
@@ -86,5 +91,18 @@ type CfnServicePropsMixin_DeploymentLifecycleHookProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// The type of action the lifecycle hook performs.
+	//
+	// Valid values are:
+	//   +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+	//   +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+	//
+	//  This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-targettype
+	//
+	TargetType *string `field:"optional" json:"targetType" yaml:"targetType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html#cfn-ecs-service-deploymentlifecyclehook-timeoutconfiguration
+	//
+	TimeoutConfiguration interface{} `field:"optional" json:"timeoutConfiguration" yaml:"timeoutConfiguration"`
 }
 

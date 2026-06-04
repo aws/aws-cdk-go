@@ -14,81 +14,81 @@ import (
 )
 
 // Interface for Memory resources.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IMemory interface {
 	awsiam.IGrantable
 	interfacesawsbedrockagentcore.IMemoryRef
 	awscdk.IResource
 	// Grant the given principal identity permissions to perform actions on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given principal identity permissions to manage the control plane of this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete content on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantDelete(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete Long-Term Memory (LTM) content on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantDeleteLongTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to delete Short-Term Memory (STM) content on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantDeleteShortTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to do every action on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the contents of this memory.
 	//
 	// Both Short-Term Memory (STM) and Long-Term Memory (LTM).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the Long-Term Memory (LTM) contents of this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantReadLongTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to read the Short-Term Memory (STM) contents of this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantReadShortTermMemory(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant the given principal identity permissions to write content to this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of errors for a specific API operation performed on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricErrorsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Returns the metric containing the number of created memory events and memory records.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricEventCreationCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return the given named metric related to the API operation performed on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricForApiOperation(metricName *string, operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of API requests made for a specific memory operation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricInvocationsForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of a specific API operation performed on this memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricLatencyForApiOperation(operation *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Timestamp when the memory was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedAt() *string
 	// The IAM role that provides permissions for the memory to access AWS services.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ExecutionRole() awsiam.IRole
 	// Custom KMS key for encryption (if provided).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	KmsKey() awskms.IKey
 	// The ARN of the memory resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MemoryArn() *string
 	// The id of the memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MemoryId() *string
 	// The status of the memory.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Status() *string
 	// Timestamp when the memory was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	UpdatedAt() *string
 }
 

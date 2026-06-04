@@ -21,21 +21,21 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayOAuth2IdentityBinding struct {
 	// OAuth2 credential provider ARN.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProviderArn *string `field:"required" json:"providerArn" yaml:"providerArn"`
 	// OAuth scopes to request when invoking through the gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Scopes *[]*string `field:"required" json:"scopes" yaml:"scopes"`
 	// Secrets Manager secret ARN for OAuth2 client credentials.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 	// Optional custom parameters for the OAuth flow.
 	// Default: - no custom parameters.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CustomParameters *map[string]*string `field:"optional" json:"customParameters" yaml:"customParameters"`
 }
 

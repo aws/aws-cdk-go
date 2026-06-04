@@ -53,6 +53,21 @@ import (
 //   	},
 //   	RequestBasedSli: &RequestBasedSliProperty{
 //   		RequestBasedSliMetric: &RequestBasedSliMetricProperty{
+//   			CompositeSliConfig: &CompositeSliConfigProperty{
+//   				SelectionConfig: &SelectionConfigProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Pattern: jsii.String("pattern"),
+//   				},
+//
+//   				// the properties below are optional
+//   				CompositeSliComponents: []interface{}{
+//   					&CompositeSliComponentProperty{
+//   						OperationName: jsii.String("operationName"),
+//   					},
+//   				},
+//   			},
 //   			DependencyConfig: &DependencyConfigProperty{
 //   				DependencyKeyAttributes: map[string]*string{
 //   					"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -61,6 +76,17 @@ import (
 //   			},
 //   			KeyAttributes: map[string]*string{
 //   				"keyAttributesKey": jsii.String("keyAttributes"),
+//   			},
+//   			MetricName: jsii.String("metricName"),
+//   			MetricSource: &MetricSourceProperty{
+//   				MetricSourceKeyAttributes: map[string]*string{
+//   					"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   				},
+//
+//   				// the properties below are optional
+//   				MetricSourceAttributes: map[string]*string{
+//   					"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   				},
 //   			},
 //   			MetricType: jsii.String("metricType"),
 //   			MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{
@@ -157,6 +183,21 @@ import (
 //   		ComparisonOperator: jsii.String("comparisonOperator"),
 //   		MetricThreshold: jsii.Number(123),
 //   		SliMetric: &SliMetricProperty{
+//   			CompositeSliConfig: &CompositeSliConfigProperty{
+//   				SelectionConfig: &SelectionConfigProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Pattern: jsii.String("pattern"),
+//   				},
+//
+//   				// the properties below are optional
+//   				CompositeSliComponents: []interface{}{
+//   					&CompositeSliComponentProperty{
+//   						OperationName: jsii.String("operationName"),
+//   					},
+//   				},
+//   			},
 //   			DependencyConfig: &DependencyConfigProperty{
 //   				DependencyKeyAttributes: map[string]*string{
 //   					"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -191,6 +232,17 @@ import (
 //   						Unit: jsii.String("unit"),
 //   					},
 //   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   			MetricName: jsii.String("metricName"),
+//   			MetricSource: &MetricSourceProperty{
+//   				MetricSourceKeyAttributes: map[string]*string{
+//   					"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   				},
+//
+//   				// the properties below are optional
+//   				MetricSourceAttributes: map[string]*string{
+//   					"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
 //   				},
 //   			},
 //   			MetricType: jsii.String("metricType"),

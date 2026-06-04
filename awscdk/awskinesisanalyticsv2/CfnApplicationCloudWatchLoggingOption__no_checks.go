@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateAddPropertyOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOption) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

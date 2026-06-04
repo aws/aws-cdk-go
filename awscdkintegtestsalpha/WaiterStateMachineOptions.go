@@ -2,6 +2,7 @@ package awscdkintegtestsalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Options for creating a WaiterStateMachine.
@@ -133,6 +134,11 @@ import (
 //
 // Experimental.
 type WaiterStateMachineOptions struct {
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// Backoff between attempts.
 	//
 	// This is the multiplier by which the retry interval increases

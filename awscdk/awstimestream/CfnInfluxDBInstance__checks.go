@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnInfluxDBInstance) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnInfluxDBInstance) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnInfluxDBInstance) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
 		return err
@@ -222,6 +230,30 @@ func (j *jsiiProxy_CfnInfluxDBInstance) validateSetLogDeliveryConfigurationParam
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInfluxDBInstance_LogDeliveryConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance) validateSetMaintenanceScheduleParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnInfluxDBInstance_MaintenanceScheduleProperty:
+		val := val.(*CfnInfluxDBInstance_MaintenanceScheduleProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnInfluxDBInstance_MaintenanceScheduleProperty:
+		val_ := val.(CfnInfluxDBInstance_MaintenanceScheduleProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInfluxDBInstance_MaintenanceScheduleProperty; received %#v (a %T)", val, val)
 		}
 	}
 

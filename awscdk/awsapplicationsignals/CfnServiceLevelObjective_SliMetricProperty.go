@@ -9,6 +9,21 @@ package awsapplicationsignals
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   sliMetricProperty := &SliMetricProperty{
+//   	CompositeSliConfig: &CompositeSliConfigProperty{
+//   		SelectionConfig: &SelectionConfigProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Pattern: jsii.String("pattern"),
+//   		},
+//
+//   		// the properties below are optional
+//   		CompositeSliComponents: []interface{}{
+//   			&CompositeSliComponentProperty{
+//   				OperationName: jsii.String("operationName"),
+//   			},
+//   		},
+//   	},
 //   	DependencyConfig: &DependencyConfigProperty{
 //   		DependencyKeyAttributes: map[string]*string{
 //   			"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -45,6 +60,17 @@ package awsapplicationsignals
 //   			ReturnData: jsii.Boolean(false),
 //   		},
 //   	},
+//   	MetricName: jsii.String("metricName"),
+//   	MetricSource: &MetricSourceProperty{
+//   		MetricSourceKeyAttributes: map[string]*string{
+//   			"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   		},
+//
+//   		// the properties below are optional
+//   		MetricSourceAttributes: map[string]*string{
+//   			"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   		},
+//   	},
 //   	MetricType: jsii.String("metricType"),
 //   	OperationName: jsii.String("operationName"),
 //   	PeriodSeconds: jsii.Number(123),
@@ -54,6 +80,9 @@ package awsapplicationsignals
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html
 //
 type CfnServiceLevelObjective_SliMetricProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-compositesliconfig
+	//
+	CompositeSliConfig interface{} `field:"optional" json:"compositeSliConfig" yaml:"compositeSliConfig"`
 	// Identifies the dependency using the `DependencyKeyAttributes` and `DependencyOperationName` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-dependencyconfig
 	//
@@ -76,6 +105,14 @@ type CfnServiceLevelObjective_SliMetricProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metricdataqueries
 	//
 	MetricDataQueries interface{} `field:"optional" json:"metricDataQueries" yaml:"metricDataQueries"`
+	// The name of the metric for non-Application Signals services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metricname
+	//
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
+	// Configuration for identifying the source of metrics for non-Application Signals services.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metricsource
+	//
+	MetricSource interface{} `field:"optional" json:"metricSource" yaml:"metricSource"`
 	// If the SLO is to monitor either the `LATENCY` or `AVAILABILITY` metric that Application Signals collects, use this field to specify which of those metrics is used.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metrictype
 	//

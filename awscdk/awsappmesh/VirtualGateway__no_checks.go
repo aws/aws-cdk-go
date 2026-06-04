@@ -8,6 +8,10 @@ func (v *jsiiProxy_VirtualGateway) validateAddGatewayRouteParameters(id *string,
 	return nil
 }
 
+func (v *jsiiProxy_VirtualGateway) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (v *jsiiProxy_VirtualGateway) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

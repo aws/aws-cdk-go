@@ -8,6 +8,10 @@ func (h *jsiiProxy_HostedZone) validateAddVpcParameters(vpc awsec2.IVpc) error {
 	return nil
 }
 
+func (h *jsiiProxy_HostedZone) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (h *jsiiProxy_HostedZone) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

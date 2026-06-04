@@ -4,7 +4,7 @@ package awsmediapackagev2alpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IOriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement, cdnAuth *CdnAuthConfiguration) error {
+func (i *jsiiProxy_IOriginEndpoint) validateAddToResourcePolicyParameters(statement awsiam.PolicyStatement) error {
 	return nil
 }
 

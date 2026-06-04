@@ -78,7 +78,7 @@ import (
 //   	SourceKMSKey: keyRef,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type CodeAssetOptions struct {
 	// Specify a custom hash for this asset.
 	//
@@ -94,7 +94,7 @@ type CodeAssetOptions struct {
 	// possible that some deployments will not be invalidated.
 	// Default: - based on `assetHashType`.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AssetHash *string `field:"optional" json:"assetHash" yaml:"assetHash"`
 	// Specifies the type of hash to calculate for this asset.
 	//
@@ -103,7 +103,7 @@ type CodeAssetOptions struct {
 	// Default: - the default is `AssetHashType.SOURCE`, but if `assetHash` is
 	// explicitly specified this value defaults to `AssetHashType.CUSTOM`.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	AssetHashType awscdk.AssetHashType `field:"optional" json:"assetHashType" yaml:"assetHashType"`
 	// Bundle the asset by executing a command in a Docker container or a custom bundling provider.
 	//
@@ -114,7 +114,7 @@ type CodeAssetOptions struct {
 	// Default: - uploaded as-is to S3 if the asset is a regular file or a .zip file,
 	// archived into a .zip file and uploaded to S3 otherwise
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bundling *awscdk.BundlingOptions `field:"optional" json:"bundling" yaml:"bundling"`
 	// File paths matching the patterns will be excluded.
 	//
@@ -122,17 +122,17 @@ type CodeAssetOptions struct {
 	// Has no effect on Assets bundled using the `bundling` property.
 	// Default: - nothing is excluded.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Exclude *[]*string `field:"optional" json:"exclude" yaml:"exclude"`
 	// A strategy for how to handle symlinks.
 	// Default: SymlinkFollowMode.NEVER
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	FollowSymlinks awscdk.SymlinkFollowMode `field:"optional" json:"followSymlinks" yaml:"followSymlinks"`
 	// The ignore behavior to use for `exclude` patterns.
 	// Default: IgnoreMode.GLOB
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	IgnoreMode awscdk.IgnoreMode `field:"optional" json:"ignoreMode" yaml:"ignoreMode"`
 	// Whether or not the asset needs to exist beyond deployment time;
 	//
@@ -147,7 +147,7 @@ type CodeAssetOptions struct {
 	// we consider those deployTime assets.
 	// Default: false.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	DeployTime *bool `field:"optional" json:"deployTime" yaml:"deployTime"`
 	// A display name for this asset.
 	//
@@ -167,28 +167,28 @@ type CodeAssetOptions struct {
 	// production.
 	// Default: - Stack-relative construct path.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Default: - No principals that can read file asset.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Readers *[]awsiam.IGrantable `field:"optional" json:"readers" yaml:"readers"`
 	// The ARN of the KMS key used to encrypt the handler code.
 	// Default: - the default server-side encryption with Amazon S3 managed keys(SSE-S3) key will be used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SourceKMSKey interfacesawskms.IKeyRef `field:"optional" json:"sourceKMSKey" yaml:"sourceKMSKey"`
 	// The entry point for the code execution, specifying the function or method that should be invoked when the code runs.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Entrypoint *[]*string `field:"required" json:"entrypoint" yaml:"entrypoint"`
 	// The file path to the code asset.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Path *string `field:"required" json:"path" yaml:"path"`
 	// The runtime environment for executing the code.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Runtime AgentCoreRuntime `field:"required" json:"runtime" yaml:"runtime"`
 }
 

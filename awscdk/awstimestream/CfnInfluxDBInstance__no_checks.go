@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnInfluxDBInstance) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnInfluxDBInstance) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInfluxDBInstance) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }
@@ -93,6 +97,10 @@ func validateCfnInfluxDBInstance_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnInfluxDBInstance) validateSetLogDeliveryConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance) validateSetMaintenanceScheduleParameters(val interface{}) error {
 	return nil
 }
 

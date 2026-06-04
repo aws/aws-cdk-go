@@ -103,6 +103,7 @@ func init() {
 		reflect.TypeOf((*Connection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addProperty", GoMethod: "AddProperty"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connectionArn", GoGetter: "ConnectionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "connectionName", GoGetter: "ConnectionName"},
@@ -187,6 +188,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.DataQualityRuleset",
 		reflect.TypeOf((*DataQualityRuleset)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -226,6 +228,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.Database",
 		reflect.TypeOf((*Database)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "catalogArn", GoGetter: "CatalogArn"},
 			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
@@ -291,6 +294,7 @@ func init() {
 		reflect.TypeOf((*ExternalTable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPartitionIndex", GoMethod: "AddPartitionIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "columns", GoGetter: "Columns"},
 			_jsii_.MemberProperty{JsiiProperty: "compressed", GoGetter: "Compressed"},
@@ -513,6 +517,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.Job",
 		reflect.TypeOf((*Job)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -555,6 +560,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.JobBase",
 		reflect.TypeOf((*JobBase)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -731,6 +737,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.PySparkEtlJob",
 		reflect.TypeOf((*PySparkEtlJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -776,6 +783,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.PySparkFlexEtlJob",
 		reflect.TypeOf((*PySparkFlexEtlJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -821,6 +829,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.PySparkStreamingJob",
 		reflect.TypeOf((*PySparkStreamingJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -866,6 +875,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.PythonShellJob",
 		reflect.TypeOf((*PythonShellJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -917,6 +927,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.RayJob",
 		reflect.TypeOf((*RayJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -991,6 +1002,7 @@ func init() {
 		reflect.TypeOf((*S3Table)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPartitionIndex", GoMethod: "AddPartitionIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
 			_jsii_.MemberProperty{JsiiProperty: "columns", GoGetter: "Columns"},
@@ -1038,6 +1050,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.ScalaSparkEtlJob",
 		reflect.TypeOf((*ScalaSparkEtlJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -1083,6 +1096,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.ScalaSparkFlexEtlJob",
 		reflect.TypeOf((*ScalaSparkFlexEtlJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -1128,6 +1142,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.ScalaSparkStreamingJob",
 		reflect.TypeOf((*ScalaSparkStreamingJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -1181,6 +1196,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.SecurityConfiguration",
 		reflect.TypeOf((*SecurityConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudWatchEncryptionKey", GoGetter: "CloudWatchEncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1225,6 +1241,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.SparkJob",
 		reflect.TypeOf((*SparkJob)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
 			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
@@ -1333,6 +1350,7 @@ func init() {
 		reflect.TypeOf((*Table)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPartitionIndex", GoMethod: "AddPartitionIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
 			_jsii_.MemberProperty{JsiiProperty: "columns", GoGetter: "Columns"},
@@ -1381,6 +1399,7 @@ func init() {
 		reflect.TypeOf((*TableBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPartitionIndex", GoMethod: "AddPartitionIndex"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "columns", GoGetter: "Columns"},
 			_jsii_.MemberProperty{JsiiProperty: "compressed", GoGetter: "Compressed"},
@@ -1485,6 +1504,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addNotifyEventTrigger", GoMethod: "AddNotifyEventTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildWorkflowArn", GoMethod: "BuildWorkflowArn"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1519,6 +1539,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addNotifyEventTrigger", GoMethod: "AddNotifyEventTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildWorkflowArn", GoMethod: "BuildWorkflowArn"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

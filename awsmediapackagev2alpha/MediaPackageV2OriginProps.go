@@ -88,15 +88,6 @@ type MediaPackageV2OriginProps struct {
 	// Used to derive the egress domain for the CloudFront origin.
 	// Experimental.
 	ChannelGroup IChannelGroup `field:"required" json:"channelGroup" yaml:"channelGroup"`
-	// Optional CDN authorization configuration.
-	//
-	// If you need CDN auth on this endpoint, provide it here so it is configured
-	// on the first `addToResourcePolicy` call. If CDN auth is added separately
-	// after this origin is bound, it will be ignored.
-	// Default: - no CDN authorization.
-	//
-	// Experimental.
-	CdnAuth *CdnAuthConfiguration `field:"optional" json:"cdnAuth" yaml:"cdnAuth"`
 	// An optional Origin Access Control.
 	// Default: - an Origin Access Control will be created automatically.
 	//

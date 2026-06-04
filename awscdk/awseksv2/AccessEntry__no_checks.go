@@ -8,6 +8,10 @@ func (a *jsiiProxy_AccessEntry) validateAddAccessPoliciesParameters(newAccessPol
 	return nil
 }
 
+func (a *jsiiProxy_AccessEntry) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_AccessEntry) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

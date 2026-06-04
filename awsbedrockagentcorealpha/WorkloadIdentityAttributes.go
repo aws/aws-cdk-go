@@ -17,23 +17,23 @@ package awsbedrockagentcorealpha
 //   	LastUpdatedTime: jsii.String("lastUpdatedTime"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type WorkloadIdentityAttributes struct {
 	// ARN of the workload identity.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	WorkloadIdentityArn *string `field:"required" json:"workloadIdentityArn" yaml:"workloadIdentityArn"`
 	// Name of the workload identity.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	WorkloadIdentityName *string `field:"required" json:"workloadIdentityName" yaml:"workloadIdentityName"`
 	// Resource creation time.
 	// Default: - not set.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedTime *string `field:"optional" json:"createdTime" yaml:"createdTime"`
 	// Resource last-updated time.
 	// Default: - not set.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedTime *string `field:"optional" json:"lastUpdatedTime" yaml:"lastUpdatedTime"`
 }
 

@@ -13,7 +13,7 @@ package awsbedrockagentcorealpha
 //   	CredentialPrefix: jsii.String("credentialPrefix"),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiKeyAdditionalConfiguration struct {
 	// The name of the credential parameter for the API key.
 	//
@@ -22,7 +22,7 @@ type ApiKeyAdditionalConfiguration struct {
 	// Length Constraints: Minimum length of 1. Maximum length of 64.
 	// Default: - 'Authorization' for HEADER, 'api_key' for QUERY_PARAMETER.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialParameterName *string `field:"optional" json:"credentialParameterName" yaml:"credentialParameterName"`
 	// The prefix for the API key credential.
 	//
@@ -31,7 +31,7 @@ type ApiKeyAdditionalConfiguration struct {
 	// Length Constraints: Minimum length of 1. Maximum length of 64.
 	// Default: - 'Bearer ' for HEADER, no prefix for QUERY_PARAMETER.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialPrefix *string `field:"optional" json:"credentialPrefix" yaml:"credentialPrefix"`
 }
 

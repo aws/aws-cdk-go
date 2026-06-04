@@ -12,6 +12,10 @@ func (m *jsiiProxy_MultiNodeJobDefinition) validateAddRetryStrategyParameters(st
 	return nil
 }
 
+func (m *jsiiProxy_MultiNodeJobDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (m *jsiiProxy_MultiNodeJobDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

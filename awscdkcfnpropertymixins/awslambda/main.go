@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_InstanceRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.PropagateTagsConfigProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_PropagateTagsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.TargetTrackingScalingPolicyProperty",
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_TargetTrackingScalingPolicyProperty)(nil)).Elem(),
 	)

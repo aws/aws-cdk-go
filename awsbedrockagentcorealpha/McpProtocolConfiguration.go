@@ -20,20 +20,20 @@ import (
 //   	},
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type McpProtocolConfiguration interface {
 	IGatewayProtocolConfig
 	// Instructions for using the MCP gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Instructions() *string
 	// The protocol type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProtocolType() *string
 	// The search type for the MCP gateway.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SearchType() *string
 	// The supported MCP protocol versions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SupportedVersions() *[]MCPProtocolVersion
 }
 
@@ -83,7 +83,7 @@ func (j *jsiiProxy_McpProtocolConfiguration) SupportedVersions() *[]MCPProtocolV
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMcpProtocolConfiguration(props *McpConfiguration) McpProtocolConfiguration {
 	_init_.Initialize()
 
@@ -101,7 +101,7 @@ func NewMcpProtocolConfiguration(props *McpConfiguration) McpProtocolConfigurati
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewMcpProtocolConfiguration_Override(m McpProtocolConfiguration, props *McpConfiguration) {
 	_init_.Initialize()
 

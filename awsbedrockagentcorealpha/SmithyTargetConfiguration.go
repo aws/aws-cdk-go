@@ -21,20 +21,20 @@ import (
 //
 //   smithyTargetConfiguration := bedrock_agentcore_alpha.NewSmithyTargetConfiguration(apiSchema)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type SmithyTargetConfiguration interface {
 	McpTargetConfiguration
 	// The Smithy model that defines the API.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SmithyModel() ApiSchema
 	// The target type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TargetType() McpTargetType
 	// Binds this configuration to a construct scope Sets up necessary permissions for the gateway to access the Smithy model.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct, gateway IGateway) *TargetConfigurationConfig
 	// Renders the MCP-specific configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	RenderMcpConfiguration() interface{}
 }
 
@@ -64,7 +64,7 @@ func (j *jsiiProxy_SmithyTargetConfiguration) TargetType() McpTargetType {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewSmithyTargetConfiguration(smithyModel ApiSchema) SmithyTargetConfiguration {
 	_init_.Initialize()
 
@@ -82,7 +82,7 @@ func NewSmithyTargetConfiguration(smithyModel ApiSchema) SmithyTargetConfigurati
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewSmithyTargetConfiguration_Override(s SmithyTargetConfiguration, smithyModel ApiSchema) {
 	_init_.Initialize()
 
@@ -96,7 +96,7 @@ func NewSmithyTargetConfiguration_Override(s SmithyTargetConfiguration, smithyMo
 // Create a Smithy target configuration.
 //
 // Returns: A new SmithyTargetConfiguration instance.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func SmithyTargetConfiguration_Create(smithyModel ApiSchema) SmithyTargetConfiguration {
 	_init_.Initialize()
 

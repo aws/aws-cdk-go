@@ -60,6 +60,11 @@ import (
 //   			Enabled: jsii.Boolean(false),
 //   		},
 //   	},
+//   	AutomatedSnapshotPauseOptions: &AutomatedSnapshotPauseOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		EndTime: jsii.String("endTime"),
+//   		StartTime: jsii.String("startTime"),
+//   	},
 //   	ClusterConfig: &ClusterConfigProperty{
 //   		ColdStorageOptions: &ColdStorageOptionsProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -159,6 +164,7 @@ import (
 //   		},
 //   	},
 //   	VpcOptions: &VPCOptionsProperty{
+//   		EgressEnabled: jsii.Boolean(false),
 //   		SecurityGroupIds: []interface{}{
 //   			jsii.String("securityGroupIds"),
 //   		},
@@ -193,6 +199,9 @@ type CfnDomainMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-aimloptions
 	//
 	AimlOptions interface{} `field:"optional" json:"aimlOptions" yaml:"aimlOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-automatedsnapshotpauseoptions
+	//
+	AutomatedSnapshotPauseOptions interface{} `field:"optional" json:"automatedSnapshotPauseOptions" yaml:"automatedSnapshotPauseOptions"`
 	// Container for the cluster configuration of a domain.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-clusterconfig
 	//

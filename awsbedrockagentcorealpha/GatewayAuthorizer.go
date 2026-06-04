@@ -6,7 +6,7 @@ import (
 )
 
 // Factory class for creating Gateway Authorizers.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayAuthorizer interface {
 }
 
@@ -15,7 +15,7 @@ type jsiiProxy_GatewayAuthorizer struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewGatewayAuthorizer_Override(g GatewayAuthorizer) {
 	_init_.Initialize()
 
@@ -27,7 +27,7 @@ func NewGatewayAuthorizer_Override(g GatewayAuthorizer) {
 }
 
 // AWS IAM authorizer instance.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayAuthorizer_UsingAwsIam() IGatewayAuthorizerConfig {
 	_init_.Initialize()
 
@@ -46,7 +46,7 @@ func GatewayAuthorizer_UsingAwsIam() IGatewayAuthorizerConfig {
 // Create a JWT authorizer from Cognito User Pool.
 //
 // Returns: CustomJwtAuthorizer configured for Cognito.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayAuthorizer_UsingCognito(props *CognitoAuthorizerProps) IGatewayAuthorizerConfig {
 	_init_.Initialize()
 
@@ -68,7 +68,7 @@ func GatewayAuthorizer_UsingCognito(props *CognitoAuthorizerProps) IGatewayAutho
 // Create a custom JWT authorizer.
 //
 // Returns: IGatewayAuthorizerConfig configured for custom JWT.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayAuthorizer_UsingCustomJwt(configuration *CustomJwtConfiguration) IGatewayAuthorizerConfig {
 	_init_.Initialize()
 
@@ -96,7 +96,7 @@ func GatewayAuthorizer_UsingCustomJwt(configuration *CustomJwtConfiguration) IGa
 // Returns: IGatewayAuthorizerConfig configured for no authorization.
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html#gateway-inbound-auth-none
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayAuthorizer_WithNoAuth() IGatewayAuthorizerConfig {
 	_init_.Initialize()
 

@@ -63,6 +63,14 @@ type LayerVersion interface {
 	// execution role) also needs to have the ``lambda:GetLayerVersion``
 	// permission on the layer version.
 	AddPermission(id *string, permission *LayerVersionPermission)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -334,6 +342,17 @@ func (l *jsiiProxy_LayerVersion) AddPermission(id *string, permission *LayerVers
 		l,
 		"addPermission",
 		[]interface{}{id, permission},
+	)
+}
+
+func (l *jsiiProxy_LayerVersion) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := l.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		l,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

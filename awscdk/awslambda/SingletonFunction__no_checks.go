@@ -32,6 +32,10 @@ func (s *jsiiProxy_SingletonFunction) validateAddToRolePolicyParameters(statemen
 	return nil
 }
 
+func (s *jsiiProxy_SingletonFunction) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SingletonFunction) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -27,6 +27,14 @@ import (
 //   cfnGatewayTarget := awscdk.Aws_bedrockagentcore.NewCfnGatewayTarget(this, jsii.String("MyCfnGatewayTarget"), &CfnGatewayTargetProps{
 //   	Name: jsii.String("name"),
 //   	TargetConfiguration: &TargetConfigurationProperty{
+//   		Http: &HttpTargetConfigurationProperty{
+//   			AgentcoreRuntime: &RuntimeTargetConfigurationProperty{
+//   				Arn: jsii.String("arn"),
+//
+//   				// the properties below are optional
+//   				Qualifier: jsii.String("qualifier"),
+//   			},
+//   		},
 //   		Mcp: &McpTargetConfigurationProperty{
 //   			ApiGateway: &ApiGatewayTargetConfigurationProperty{
 //   				ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
@@ -102,6 +110,13 @@ import (
 //
 //   				// the properties below are optional
 //   				ListingMode: jsii.String("listingMode"),
+//   				McpToolSchema: &McpToolSchemaConfigurationProperty{
+//   					InlinePayload: jsii.String("inlinePayload"),
+//   					S3: &S3ConfigurationProperty{
+//   						BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   						Uri: jsii.String("uri"),
+//   					},
+//   				},
 //   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),
@@ -178,10 +193,12 @@ type CfnGatewayTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsbedrockagentcore.IGatewayTargetRef
+	AttrAuthorizationData() awscdk.IResolvable
 	// The date and time at which the gateway target was created.
 	AttrCreatedAt() *string
 	AttrGatewayArn() *string
 	AttrLastSynchronizedAt() *string
+	AttrProtocolType() *string
 	// The status for the gateway target.
 	AttrStatus() *string
 	// The status reasons for the gateway target.
@@ -322,6 +339,11 @@ type CfnGatewayTarget interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Sets the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// strength instead of the global default from the consuming stack's context.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Sets the deletion policy of the resource based on the removal policy specified.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -396,6 +418,16 @@ type jsiiProxy_CfnGatewayTarget struct {
 	internal.Type__interfacesawsbedrockagentcoreIGatewayTargetRef
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) AttrAuthorizationData() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrAuthorizationData",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) AttrCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -421,6 +453,16 @@ func (j *jsiiProxy_CfnGatewayTarget) AttrLastSynchronizedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrLastSynchronizedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGatewayTarget) AttrProtocolType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrProtocolType",
 		&returns,
 	)
 	return returns
@@ -928,6 +970,17 @@ func (c *jsiiProxy_CfnGatewayTarget) AddPropertyOverride(propertyPath *string, v
 		c,
 		"addPropertyOverride",
 		[]interface{}{propertyPath, value},
+	)
+}
+
+func (c *jsiiProxy_CfnGatewayTarget) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

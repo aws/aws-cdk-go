@@ -4,6 +4,10 @@ package awscdksagemakeralpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (p *jsiiProxy_Pipeline) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_Pipeline) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

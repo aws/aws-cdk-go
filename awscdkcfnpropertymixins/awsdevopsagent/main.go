@@ -232,6 +232,14 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_MCPServerDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.MCPServerGrafanaAuthorizationConfigProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_MCPServerGrafanaAuthorizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.MCPServerGrafanaDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_MCPServerGrafanaDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.MCPServerOAuthClientCredentialsConfigProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_MCPServerOAuthClientCredentialsConfigProperty)(nil)).Elem(),
 	)
@@ -290,6 +298,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredMCPServerDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_RegisteredMCPServerDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredMCPServerGrafanaDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_RegisteredMCPServerGrafanaDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredMCPServerSigV4DetailsProperty",

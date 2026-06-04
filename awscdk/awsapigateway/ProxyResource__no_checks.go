@@ -20,6 +20,10 @@ func (p *jsiiProxy_ProxyResource) validateAddResourceParameters(pathPart *string
 	return nil
 }
 
+func (p *jsiiProxy_ProxyResource) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_ProxyResource) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

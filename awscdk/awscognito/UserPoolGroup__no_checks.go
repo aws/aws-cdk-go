@@ -4,6 +4,10 @@ package awscognito
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (u *jsiiProxy_UserPoolGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (u *jsiiProxy_UserPoolGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

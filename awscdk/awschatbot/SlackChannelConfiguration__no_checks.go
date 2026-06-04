@@ -12,6 +12,10 @@ func (s *jsiiProxy_SlackChannelConfiguration) validateAddToRolePolicyParameters(
 	return nil
 }
 
+func (s *jsiiProxy_SlackChannelConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_SlackChannelConfiguration) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

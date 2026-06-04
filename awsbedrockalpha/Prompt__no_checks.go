@@ -8,6 +8,10 @@ func (p *jsiiProxy_Prompt) validateAddVariantParameters(variant IPromptVariant) 
 	return nil
 }
 
+func (p *jsiiProxy_Prompt) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_Prompt) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

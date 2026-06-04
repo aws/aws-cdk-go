@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIPAMPrefixListResolverTarget) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnIPAMPrefixListResolverTarget) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIPAMPrefixListResolverTarget) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

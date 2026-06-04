@@ -66,6 +66,14 @@ type Schedule interface {
 	ScheduleRef() *interfacesawsscheduler.ScheduleReference
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -521,6 +529,17 @@ func Schedule_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (s *jsiiProxy_Schedule) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := s.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (s *jsiiProxy_Schedule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

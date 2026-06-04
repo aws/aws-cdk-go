@@ -28,10 +28,10 @@ import (
 //   	}),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type BuiltinEvaluator interface {
 	// The string value of the built-in evaluator.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Value() *string
 }
 
@@ -51,7 +51,7 @@ func (j *jsiiProxy_BuiltinEvaluator) Value() *string {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewBuiltinEvaluator(value *string) BuiltinEvaluator {
 	_init_.Initialize()
 
@@ -69,7 +69,7 @@ func NewBuiltinEvaluator(value *string) BuiltinEvaluator {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewBuiltinEvaluator_Override(b BuiltinEvaluator, value *string) {
 	_init_.Initialize()
 

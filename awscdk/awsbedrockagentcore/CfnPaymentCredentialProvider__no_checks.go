@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPaymentCredentialProvider) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnPaymentCredentialProvider) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPaymentCredentialProvider) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

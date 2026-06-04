@@ -78,30 +78,30 @@ import (
 //   	SourceKMSKey: keyRef,
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type AssetToolSchema interface {
 	ToolSchema
 	// The account ID of the S3 bucket owner for cross-account access.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	BucketOwnerAccountId() *string
 	// The inline tool schema definition as a string, if using an inline schema.
 	//
 	// Can be in JSON or YAML format.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InlineSchema() *[]*ToolDefinition
 	// The S3 location of the tool schema file, if using an S3-based schema.
 	//
 	// Contains the bucket name and object key information.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	S3File() *awss3.Location
 	// Binds this tool schema to a construct scope.
 	//
 	// This method initializes the S3 asset if it hasn't been initialized yet.
 	// Must be called before rendering the schema as CFN properties.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct)
 	// Grant permissions to the role.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantPermissionsToRole(role awsiam.IRole)
 }
 
@@ -141,7 +141,7 @@ func (j *jsiiProxy_AssetToolSchema) S3File() *awss3.Location {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewAssetToolSchema(path *string, options *awss3assets.AssetOptions) AssetToolSchema {
 	_init_.Initialize()
 
@@ -159,7 +159,7 @@ func NewAssetToolSchema(path *string, options *awss3assets.AssetOptions) AssetTo
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewAssetToolSchema_Override(a AssetToolSchema, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
@@ -171,7 +171,7 @@ func NewAssetToolSchema_Override(a AssetToolSchema, path *string, options *awss3
 }
 
 // Creates a Tool Schema from an inline string.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AssetToolSchema_FromInline(schema *[]*ToolDefinition) InlineToolSchema {
 	_init_.Initialize()
 
@@ -191,7 +191,7 @@ func AssetToolSchema_FromInline(schema *[]*ToolDefinition) InlineToolSchema {
 }
 
 // Creates a tool Schema from a local file.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AssetToolSchema_FromLocalAsset(path *string) ToolSchema {
 	_init_.Initialize()
 
@@ -211,7 +211,7 @@ func AssetToolSchema_FromLocalAsset(path *string) ToolSchema {
 }
 
 // Creates a Tool Schema from an S3 File.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func AssetToolSchema_FromS3File(bucket awss3.IBucket, objectKey *string, bucketOwnerAccountId *string) S3ToolSchema {
 	_init_.Initialize()
 

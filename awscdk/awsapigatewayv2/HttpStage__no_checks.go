@@ -8,6 +8,10 @@ func (h *jsiiProxy_HttpStage) validateAddStageVariableParameters(name *string, v
 	return nil
 }
 
+func (h *jsiiProxy_HttpStage) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (h *jsiiProxy_HttpStage) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

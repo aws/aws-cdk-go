@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnInstanceStorageConfig) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnInstanceStorageConfig) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnInstanceStorageConfig) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

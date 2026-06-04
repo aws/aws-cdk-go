@@ -28,6 +28,10 @@ func (p *jsiiProxy_PrivateSubnet) validateAddRouteParameters(id *string, options
 	return nil
 }
 
+func (p *jsiiProxy_PrivateSubnet) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PrivateSubnet) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

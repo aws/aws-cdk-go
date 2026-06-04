@@ -85,6 +85,13 @@ package awsbedrockagentcore
 //
 //   		// the properties below are optional
 //   		ListingMode: jsii.String("listingMode"),
+//   		McpToolSchema: &McpToolSchemaConfigurationProperty{
+//   			InlinePayload: jsii.String("inlinePayload"),
+//   			S3: &S3ConfigurationProperty{
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   		},
 //   	},
 //   	OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   		InlinePayload: jsii.String("inlinePayload"),

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnS3AccessPointAttachment) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnS3AccessPointAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnS3AccessPointAttachment) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

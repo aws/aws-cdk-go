@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMailManagerTrafficPolicy) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnMailManagerTrafficPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMailManagerTrafficPolicy) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

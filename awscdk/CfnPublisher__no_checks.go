@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPublisher) validateAddPropertyOverrideParameters(propertyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnPublisher) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPublisher) validateApplyRemovalPolicyParameters(options *RemovalPolicyOptions) error {
 	return nil
 }

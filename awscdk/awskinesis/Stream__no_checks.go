@@ -8,6 +8,10 @@ func (s *jsiiProxy_Stream) validateAddToResourcePolicyParameters(statement awsia
 	return nil
 }
 
+func (s *jsiiProxy_Stream) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_Stream) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

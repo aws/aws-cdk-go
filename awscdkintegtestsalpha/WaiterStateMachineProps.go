@@ -2,6 +2,7 @@ package awscdkintegtestsalpha
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // Props for creating a WaiterStateMachine.
@@ -11,15 +12,22 @@ import (
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   waiterStateMachineProps := &WaiterStateMachineProps{
 //   	BackoffRate: jsii.Number(123),
 //   	Interval: cdk.Duration_Minutes(jsii.Number(30)),
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   	TotalTimeout: cdk.Duration_*Minutes(jsii.Number(30)),
 //   }
 //
 // Experimental.
 type WaiterStateMachineProps struct {
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// Backoff between attempts.
 	//
 	// This is the multiplier by which the retry interval increases

@@ -19,10 +19,10 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type DataSourceConfigBindResult struct {
 	// The CloudWatch Logs data source configuration.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CloudWatchLogs *CloudWatchLogsDataSourceConfig `field:"required" json:"cloudWatchLogs" yaml:"cloudWatchLogs"`
 }
 

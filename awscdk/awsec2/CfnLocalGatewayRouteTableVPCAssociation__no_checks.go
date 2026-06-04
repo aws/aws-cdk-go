@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateAddPropertyO
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

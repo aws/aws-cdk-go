@@ -24,27 +24,27 @@ import (
 //   	ObjectVersion: jsii.String("objectVersion"),
 //   }, jsii.String("bucketOwnerAccountId"))
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type S3ApiSchema interface {
 	ApiSchema
 	// The account ID of the S3 bucket owner for cross-account access.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	BucketOwnerAccountId() *string
 	// The inline OpenAPI schema definition as a string, if using an inline schema.
 	//
 	// Can be in JSON or YAML format.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InlineSchema() *string
 	// The S3 location of the API schema file, if using an S3-based schema.
 	//
 	// Contains the bucket name and object key information.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	S3File() *awss3.Location
 	// Bind the schema to a construct.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Bind(scope constructs.Construct)
 	// Grant permissions to the role.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantPermissionsToRole(role awsiam.IRole)
 }
 
@@ -84,7 +84,7 @@ func (j *jsiiProxy_S3ApiSchema) S3File() *awss3.Location {
 }
 
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewS3ApiSchema(location *awss3.Location, bucketOwnerAccountId *string) S3ApiSchema {
 	_init_.Initialize()
 
@@ -102,7 +102,7 @@ func NewS3ApiSchema(location *awss3.Location, bucketOwnerAccountId *string) S3Ap
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewS3ApiSchema_Override(s S3ApiSchema, location *awss3.Location, bucketOwnerAccountId *string) {
 	_init_.Initialize()
 
@@ -114,7 +114,7 @@ func NewS3ApiSchema_Override(s S3ApiSchema, location *awss3.Location, bucketOwne
 }
 
 // Creates an API Schema from an inline string.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func S3ApiSchema_FromInline(schema *string) InlineApiSchema {
 	_init_.Initialize()
 
@@ -134,7 +134,7 @@ func S3ApiSchema_FromInline(schema *string) InlineApiSchema {
 }
 
 // Creates an API Schema from a local file.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func S3ApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 	_init_.Initialize()
 
@@ -154,7 +154,7 @@ func S3ApiSchema_FromLocalAsset(path *string) AssetApiSchema {
 }
 
 // Creates an API Schema from an S3 File.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func S3ApiSchema_FromS3File(bucket awss3.IBucket, objectKey *string, bucketOwnerAccountId *string) S3ApiSchema {
 	_init_.Initialize()
 

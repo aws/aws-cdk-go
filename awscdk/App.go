@@ -82,7 +82,7 @@ type App interface {
 	// Based on names of the parent stages separated by
 	// hypens.
 	StageName() *string
-	// Synthesize this stage into a cloud assembly.
+	// Synthesize this App into a cloud assembly.
 	//
 	// Once an assembly has been synthesized, it cannot be modified. Subsequent
 	// calls will return the same assembly.

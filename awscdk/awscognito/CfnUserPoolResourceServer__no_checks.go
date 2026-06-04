@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolResourceServer) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolResourceServer) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

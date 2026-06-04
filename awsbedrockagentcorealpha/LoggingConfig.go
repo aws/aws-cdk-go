@@ -16,13 +16,13 @@ package awsbedrockagentcorealpha
 //   	LogType: logType,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type LoggingConfig struct {
 	// The destination for logs.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Destination LoggingDestination `field:"required" json:"destination" yaml:"destination"`
 	// The type of logs to deliver.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LogType LogType `field:"required" json:"logType" yaml:"logType"`
 }
 

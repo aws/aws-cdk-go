@@ -24,6 +24,10 @@ func (a *jsiiProxy_AutoScalingGroup) validateApplyCloudFormationInitParameters(i
 	return nil
 }
 
+func (a *jsiiProxy_AutoScalingGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_AutoScalingGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

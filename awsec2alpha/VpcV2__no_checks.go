@@ -36,6 +36,10 @@ func (v *jsiiProxy_VpcV2) validateAddVpnConnectionParameters(id *string, options
 	return nil
 }
 
+func (v *jsiiProxy_VpcV2) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (v *jsiiProxy_VpcV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

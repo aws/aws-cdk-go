@@ -8,6 +8,10 @@ func (s *jsiiProxy_ScalableTarget) validateAddToRolePolicyParameters(statement a
 	return nil
 }
 
+func (s *jsiiProxy_ScalableTarget) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_ScalableTarget) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

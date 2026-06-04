@@ -2,27 +2,27 @@ package awsbedrockagentcorealpha
 
 
 // Schema definition types.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type SchemaDefinitionType string
 
 const (
 	// String type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SchemaDefinitionType_STRING SchemaDefinitionType = "STRING"
 	// Number type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SchemaDefinitionType_NUMBER SchemaDefinitionType = "NUMBER"
 	// Object type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SchemaDefinitionType_OBJECT SchemaDefinitionType = "OBJECT"
 	// Array type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SchemaDefinitionType_ARRAY SchemaDefinitionType = "ARRAY"
 	// Boolean type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SchemaDefinitionType_BOOLEAN SchemaDefinitionType = "BOOLEAN"
 	// Integer type.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SchemaDefinitionType_INTEGER SchemaDefinitionType = "INTEGER"
 )
 

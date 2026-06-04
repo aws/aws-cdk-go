@@ -15,6 +15,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "accessPointArn", GoGetter: "AccessPointArn"},
 			_jsii_.MemberProperty{JsiiProperty: "accessPointCreationDate", GoGetter: "AccessPointCreationDate"},
 			_jsii_.MemberProperty{JsiiProperty: "accessPointName", GoGetter: "AccessPointName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

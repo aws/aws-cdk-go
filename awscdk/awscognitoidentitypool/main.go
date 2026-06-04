@@ -43,6 +43,7 @@ func init() {
 		reflect.TypeOf((*IdentityPool)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addUserPoolAuthentication", GoMethod: "AddUserPoolAuthentication"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "authenticatedRole", GoGetter: "AuthenticatedRole"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

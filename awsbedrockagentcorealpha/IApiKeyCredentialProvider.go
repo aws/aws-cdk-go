@@ -12,42 +12,42 @@ import (
 )
 
 // An API key credential provider registered in AgentCore Token Vault.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IApiKeyCredentialProvider interface {
 	interfacesawsbedrockagentcore.IApiKeyCredentialProviderRef
 	awsiam.IGrantable
 	awscdk.IResource
 	// ARNs for use with gateway targets (`GatewayCredentialProvider.fromApiKeyIdentity` or `fromApiKeyIdentityArn`).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	BindForGatewayApiKeyTarget() *GatewayApiKeyIdentityBinding
 	// Grants IAM actions to the IAM principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant control plane permissions to manage this provider.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read, admin, and credential retrieval permissions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant `GetApiKeyCredentialProvider` and `ListApiKeyCredentialProviders`, scoped to this provider and parent resources required by the Bedrock AgentCore authorization model.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant permission to retrieve API key material for outbound calls (`GetResourceApiKey`).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the Secrets Manager secret that stores the API key after the resource is created.
 	//
 	// May be undefined for resources imported without this attribute.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ApiKeySecretArn() *string
 	// Timestamp when the credential provider was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedTime() *string
 	// The ARN of this credential provider.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialProviderArn() *string
 	// Timestamp when the credential provider was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedTime() *string
 }
 

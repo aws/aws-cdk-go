@@ -6,7 +6,7 @@ import (
 )
 
 // Factory class for creating different Gateway Credential Providers.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type GatewayCredentialProvider interface {
 }
 
@@ -15,7 +15,7 @@ type jsiiProxy_GatewayCredentialProvider struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewGatewayCredentialProvider_Override(g GatewayCredentialProvider) {
 	_init_.Initialize()
 
@@ -29,7 +29,7 @@ func NewGatewayCredentialProvider_Override(g GatewayCredentialProvider) {
 // Create an API key outbound auth configuration from a Token Vault {@link IApiKeyCredentialProvider} construct.
 //
 // Prefer this over {@link GatewayCredentialProvider.fromApiKeyIdentityArn} when the provider is defined in CDK.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCredentialProvider_FromApiKeyIdentity(provider IApiKeyCredentialProvider, options *FromApiKeyIdentityOptions) ICredentialProviderConfig {
 	_init_.Initialize()
 
@@ -51,7 +51,7 @@ func GatewayCredentialProvider_FromApiKeyIdentity(provider IApiKeyCredentialProv
 // Create an API key credential provider from Identity ARN Use this method when you have the Identity ARN as a string.
 //
 // Returns: ICredentialProviderConfig configured for API key authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCredentialProvider_FromApiKeyIdentityArn(props *ApiKeyCredentialProviderProps) ICredentialProviderConfig {
 	_init_.Initialize()
 
@@ -73,7 +73,7 @@ func GatewayCredentialProvider_FromApiKeyIdentityArn(props *ApiKeyCredentialProv
 // Create an IAM role credential provider.
 //
 // Returns: IIamRoleCredentialProvider configured for IAM role authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCredentialProvider_FromIamRole() ICredentialProviderConfig {
 	_init_.Initialize()
 
@@ -92,7 +92,7 @@ func GatewayCredentialProvider_FromIamRole() ICredentialProviderConfig {
 // Create an OAuth outbound auth configuration from a Token Vault {@link IOAuth2CredentialProvider} construct.
 //
 // Prefer this over {@link GatewayCredentialProvider.fromOauthIdentityArn} when the provider is defined in CDK.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCredentialProvider_FromOauthIdentity(provider IOAuth2CredentialProvider, options *FromOauthIdentityOptions) ICredentialProviderConfig {
 	_init_.Initialize()
 
@@ -114,7 +114,7 @@ func GatewayCredentialProvider_FromOauthIdentity(provider IOAuth2CredentialProvi
 // Create an OAuth credential provider from Identity ARN Use this method when you have the Identity ARN as a string.
 //
 // Returns: ICredentialProviderConfig configured for OAuth authentication.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func GatewayCredentialProvider_FromOauthIdentityArn(props *OAuthConfiguration) ICredentialProviderConfig {
 	_init_.Initialize()
 

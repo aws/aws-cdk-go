@@ -12,6 +12,10 @@ func (r *jsiiProxy_Repository) validateAddToResourcePolicyParameters(statement a
 	return nil
 }
 
+func (r *jsiiProxy_Repository) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (r *jsiiProxy_Repository) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

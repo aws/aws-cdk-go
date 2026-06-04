@@ -20,6 +20,10 @@ func (p *jsiiProxy_PipelineProject) validateAddToRolePolicyParameters(policyStat
 	return nil
 }
 
+func (p *jsiiProxy_PipelineProject) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PipelineProject) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

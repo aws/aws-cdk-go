@@ -51,6 +51,17 @@ import (
 //   		ComparisonOperator: jsii.String("comparisonOperator"),
 //   		MetricThreshold: jsii.Number(123),
 //   		RequestBasedSliMetric: &RequestBasedSliMetricProperty{
+//   			CompositeSliConfig: &CompositeSliConfigProperty{
+//   				CompositeSliComponents: []interface{}{
+//   					&CompositeSliComponentProperty{
+//   						OperationName: jsii.String("operationName"),
+//   					},
+//   				},
+//   				SelectionConfig: &SelectionConfigProperty{
+//   					Pattern: jsii.String("pattern"),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
 //   			DependencyConfig: &DependencyConfigProperty{
 //   				DependencyKeyAttributes: map[string]*string{
 //   					"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -59,6 +70,15 @@ import (
 //   			},
 //   			KeyAttributes: map[string]*string{
 //   				"keyAttributesKey": jsii.String("keyAttributes"),
+//   			},
+//   			MetricName: jsii.String("metricName"),
+//   			MetricSource: &MetricSourceProperty{
+//   				MetricSourceAttributes: map[string]*string{
+//   					"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   				},
+//   				MetricSourceKeyAttributes: map[string]*string{
+//   					"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
+//   				},
 //   			},
 //   			MetricType: jsii.String("metricType"),
 //   			MonitoredRequestCountMetric: &MonitoredRequestCountMetricProperty{
@@ -139,6 +159,17 @@ import (
 //   		ComparisonOperator: jsii.String("comparisonOperator"),
 //   		MetricThreshold: jsii.Number(123),
 //   		SliMetric: &SliMetricProperty{
+//   			CompositeSliConfig: &CompositeSliConfigProperty{
+//   				CompositeSliComponents: []interface{}{
+//   					&CompositeSliComponentProperty{
+//   						OperationName: jsii.String("operationName"),
+//   					},
+//   				},
+//   				SelectionConfig: &SelectionConfigProperty{
+//   					Pattern: jsii.String("pattern"),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
 //   			DependencyConfig: &DependencyConfigProperty{
 //   				DependencyKeyAttributes: map[string]*string{
 //   					"dependencyKeyAttributesKey": jsii.String("dependencyKeyAttributes"),
@@ -169,6 +200,15 @@ import (
 //   						Unit: jsii.String("unit"),
 //   					},
 //   					ReturnData: jsii.Boolean(false),
+//   				},
+//   			},
+//   			MetricName: jsii.String("metricName"),
+//   			MetricSource: &MetricSourceProperty{
+//   				MetricSourceAttributes: map[string]*string{
+//   					"metricSourceAttributesKey": jsii.String("metricSourceAttributes"),
+//   				},
+//   				MetricSourceKeyAttributes: map[string]*string{
+//   					"metricSourceKeyAttributesKey": jsii.String("metricSourceKeyAttributes"),
 //   				},
 //   			},
 //   			MetricType: jsii.String("metricType"),

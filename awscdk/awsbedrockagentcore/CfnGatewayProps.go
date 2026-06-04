@@ -11,7 +11,6 @@ package awsbedrockagentcore
 //   cfnGatewayProps := &CfnGatewayProps{
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   	Name: jsii.String("name"),
-//   	ProtocolType: jsii.String("protocolType"),
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
@@ -79,6 +78,7 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	ProtocolType: jsii.String("protocolType"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -95,10 +95,6 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The protocol type for the gateway target.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-protocoltype
-	//
-	ProtocolType *string `field:"required" json:"protocolType" yaml:"protocolType"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
@@ -130,6 +126,10 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-protocolconfiguration
 	//
 	ProtocolConfiguration interface{} `field:"optional" json:"protocolConfiguration" yaml:"protocolConfiguration"`
+	// The protocol type for the gateway target.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-protocoltype
+	//
+	ProtocolType *string `field:"optional" json:"protocolType" yaml:"protocolType"`
 	// The tags for the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-tags
 	//

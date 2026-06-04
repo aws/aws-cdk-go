@@ -401,6 +401,10 @@ func init() {
 			return &jsiiProxy_Match{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/integ-tests-alpha.ProviderOptions",
+		reflect.TypeOf((*ProviderOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/integ-tests-alpha.Status",
 		reflect.TypeOf((*Status)(nil)).Elem(),

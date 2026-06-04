@@ -455,7 +455,7 @@ To deploy the controller on your EKS cluster, configure the `albController` prop
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	AlbController: &AlbControllerOptions{
-		Version: eks.AlbControllerVersion_V2_8_2(),
+		Version: eks.AlbControllerVersion_V3_2_2(),
 	},
 })
 ```
@@ -469,7 +469,7 @@ import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	AlbController: &AlbControllerOptions{
-		Version: eks.AlbControllerVersion_V2_8_2(),
+		Version: eks.AlbControllerVersion_V3_2_2(),
 		AdditionalHelmChartValues: map[string]interface{}{
 			"enableWafv2": jsii.Boolean(false),
 		},
@@ -483,7 +483,7 @@ To overwrite an existing ALB controller service account, use the `overwriteServi
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 	Version: eks.KubernetesVersion_V1_34(),
 	AlbController: &AlbControllerOptions{
-		Version: eks.AlbControllerVersion_V2_8_2(),
+		Version: eks.AlbControllerVersion_V3_2_2(),
 		OverwriteServiceAccount: jsii.Boolean(true),
 	},
 })

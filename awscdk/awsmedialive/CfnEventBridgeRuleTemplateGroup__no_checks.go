@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEventBridgeRuleTemplateGroup) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

@@ -62,6 +62,7 @@ import (
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
 //   	CoreDnsComputeType: awscdk.*Aws_eks.CoreDnsComputeType_EC2,
+//   	DeletionProtection: jsii.Boolean(false),
 //   	EndpointAccess: endpointAccess,
 //   	IpFamily: awscdk.*Aws_eks.IpFamily_IP_V4,
 //   	KubectlEnvironment: map[string]*string{
@@ -209,6 +210,15 @@ type ClusterOptions struct {
 	// Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)
 	//
 	CoreDnsComputeType CoreDnsComputeType `field:"optional" json:"coreDnsComputeType" yaml:"coreDnsComputeType"`
+	// The current deletion protection setting for the cluster.
+	//
+	// When true, deletion protection is enabled and the cluster cannot be deleted until protection is disabled.
+	// When false, the cluster can be deleted normally. This setting only applies to clusters in an active state.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/deletion-protection.html
+	//
+	// Default: - deletion protection is disabled.
+	//
+	DeletionProtection *bool `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//

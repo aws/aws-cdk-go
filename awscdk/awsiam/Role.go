@@ -101,6 +101,14 @@ type Role interface {
 	//
 	// If there is no default policy attached to this role, it will be created.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Skip applyRemovalPolicy if role synthesis is prevented by customizeRoles.
 	//
 	// Because in this case, this construct does not have a CfnResource in the tree.
@@ -579,6 +587,17 @@ func (r *jsiiProxy_Role) AddToPrincipalPolicy(statement PolicyStatement) *AddToP
 	)
 
 	return returns
+}
+
+func (r *jsiiProxy_Role) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := r.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (r *jsiiProxy_Role) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

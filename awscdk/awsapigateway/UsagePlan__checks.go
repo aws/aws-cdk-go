@@ -35,6 +35,14 @@ func (u *jsiiProxy_UsagePlan) validateAddApiStageParameters(apiStage *UsagePlanP
 	return nil
 }
 
+func (u *jsiiProxy_UsagePlan) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (u *jsiiProxy_UsagePlan) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

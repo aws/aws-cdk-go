@@ -18,37 +18,37 @@ import (
 // for consistent authentication across environments.
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-agent-identities.html
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IWorkloadIdentity interface {
 	awsiam.IGrantable
 	awscdk.IResource
 	interfacesawsbedrockagentcore.IWorkloadIdentityRef
 	// Grants IAM actions on this workload identity, scoped to its ARN and the parent resources required by the Bedrock AgentCore authorization model.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant control plane permissions to manage this workload identity.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant read, list, admin, and use permissions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant `GetWorkloadIdentity` and `ListWorkloadIdentities`, scoped to this identity and parent resources required by the Bedrock AgentCore authorization model.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant data plane permissions to mint workload access tokens (`GetWorkloadAccessToken`, `GetWorkloadAccessTokenForJWT`, `GetWorkloadAccessTokenForUserId`).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// Timestamp when the workload identity was created.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CreatedTime() *string
 	// Timestamp when the workload identity was last updated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LastUpdatedTime() *string
 	// The ARN of this workload identity.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	WorkloadIdentityArn() *string
 	// The name of this workload identity.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	WorkloadIdentityName() *string
 }
 

@@ -24,6 +24,10 @@ func (t *jsiiProxy_TableV2) validateAddToStreamResourcePolicyParameters(statemen
 	return nil
 }
 
+func (t *jsiiProxy_TableV2) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (t *jsiiProxy_TableV2) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

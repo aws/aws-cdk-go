@@ -200,6 +200,22 @@ func (d *jsiiProxy_DefaultStagingStack) validateToYamlStringParameters(obj inter
 	return nil
 }
 
+func validateDefaultStagingStack_ConsumeListReferenceParameters(value *[]*string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateDefaultStagingStack_ConsumeReferenceParameters(value *string) error {
+	if value == nil {
+		return fmt.Errorf("parameter value is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateDefaultStagingStack_FactoryParameters(options *DefaultStagingStackOptions) error {
 	if options == nil {
 		return fmt.Errorf("parameter options is required, but nil was provided")

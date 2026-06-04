@@ -4,6 +4,10 @@ package awsscheduler
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (s *jsiiProxy_ScheduleGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (s *jsiiProxy_ScheduleGroup) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

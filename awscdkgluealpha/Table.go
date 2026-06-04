@@ -126,6 +126,15 @@ type Table interface {
 	//
 	// Deprecated: Use {@link S3Table } instead.
 	AddPartitionIndex(index *PartitionIndex)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Deprecated: Use {@link S3Table } instead.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -564,6 +573,17 @@ func (t *jsiiProxy_Table) AddPartitionIndex(index *PartitionIndex) {
 		t,
 		"addPartitionIndex",
 		[]interface{}{index},
+	)
+}
+
+func (t *jsiiProxy_Table) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := t.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		t,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

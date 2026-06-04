@@ -20,26 +20,26 @@ package awsbedrockagentcorealpha
 //   	CredentialLocation: apiKeyCredentialLocation,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ApiKeyCredentialProviderProps struct {
 	// The API key credential provider ARN.
 	//
 	// This is returned when creating the API key credential provider via Console or API.
 	// Format: arn:aws:bedrock-agentcore:region:account:token-vault/id/apikeycredentialprovider/name.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ProviderArn *string `field:"required" json:"providerArn" yaml:"providerArn"`
 	// The ARN of the Secrets Manager secret containing the API key.
 	//
 	// This is returned when creating the API key credential provider via Console or API.
 	// Format: arn:aws:secretsmanager:region:account:secret:name.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	SecretArn *string `field:"required" json:"secretArn" yaml:"secretArn"`
 	// The location of the API key credential.
 	//
 	// This field specifies where in the request the API key should be placed.
 	// Default: - HEADER.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialLocation ApiKeyCredentialLocation `field:"optional" json:"credentialLocation" yaml:"credentialLocation"`
 }
 

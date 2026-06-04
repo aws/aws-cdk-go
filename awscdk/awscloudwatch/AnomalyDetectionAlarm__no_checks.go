@@ -4,6 +4,10 @@ package awscloudwatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (a *jsiiProxy_AnomalyDetectionAlarm) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (a *jsiiProxy_AnomalyDetectionAlarm) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

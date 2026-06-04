@@ -32,6 +32,10 @@ func (l *jsiiProxy_LambdaRestApi) validateAddUsagePlanParameters(id *string, pro
 	return nil
 }
 
+func (l *jsiiProxy_LambdaRestApi) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (l *jsiiProxy_LambdaRestApi) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -36,6 +36,10 @@ func (e *jsiiProxy_ExternalTaskDefinition) validateAddVolumeParameters(volume *V
 	return nil
 }
 
+func (e *jsiiProxy_ExternalTaskDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_ExternalTaskDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

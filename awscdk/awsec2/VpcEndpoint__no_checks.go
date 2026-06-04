@@ -8,6 +8,10 @@ func (v *jsiiProxy_VpcEndpoint) validateAddToPolicyParameters(statement awsiam.P
 	return nil
 }
 
+func (v *jsiiProxy_VpcEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (v *jsiiProxy_VpcEndpoint) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

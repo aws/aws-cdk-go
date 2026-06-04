@@ -16,26 +16,26 @@ package awsbedrockagentcorealpha
 //   	TopP: jsii.Number(123),
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type EvaluatorInferenceConfig struct {
 	// The maximum number of tokens to generate in the model response.
 	// Default: - The foundation model's default maximum token limit is used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MaxTokens *float64 `field:"optional" json:"maxTokens" yaml:"maxTokens"`
 	// The temperature value that controls randomness in the model's responses.
 	//
 	// Higher values produce more diverse outputs. Range: 0.0 to 1.0.
 	// Default: - The foundation model's default temperature is used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Temperature *float64 `field:"optional" json:"temperature" yaml:"temperature"`
 	// The top-p sampling parameter that controls the diversity of the model's responses.
 	//
 	// Range: 0.0 to 1.0.
 	// Default: - The foundation model's default top-p value is used.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	TopP *float64 `field:"optional" json:"topP" yaml:"topP"`
 }
 

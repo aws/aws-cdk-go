@@ -36,6 +36,10 @@ func (f *jsiiProxy_FargateTaskDefinition) validateAddVolumeParameters(volume *Vo
 	return nil
 }
 
+func (f *jsiiProxy_FargateTaskDefinition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (f *jsiiProxy_FargateTaskDefinition) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -48,6 +48,11 @@ package awsobservabilityadmin
 //   			FieldDelimiter: jsii.String("fieldDelimiter"),
 //   			OutputFormat: jsii.String("outputFormat"),
 //   		},
+//   		LogDeliveryParameters: &LogDeliveryParametersProperty{
+//   			LogTypes: []*string{
+//   				jsii.String("logTypes"),
+//   			},
+//   		},
 //   		RetentionInDays: jsii.Number(123),
 //   		VpcFlowLogParameters: &VPCFlowLogParametersProperty{
 //   			LogFormat: jsii.String("logFormat"),

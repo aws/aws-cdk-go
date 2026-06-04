@@ -33,6 +33,14 @@ func (p *jsiiProxy_PublicHostedZone) validateAddVpcParameters(vpc awsec2.IVpc) e
 	return nil
 }
 
+func (p *jsiiProxy_PublicHostedZone) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_PublicHostedZone) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

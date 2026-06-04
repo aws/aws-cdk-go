@@ -34,6 +34,9 @@ package awsmediapackagev2
 //   	},
 //   	IncludeIframeOnlyStreams: jsii.Boolean(false),
 //   	Scte: &ScteProperty{
+//   		CustomAdTypes: []*string{
+//   			jsii.String("customAdTypes"),
+//   		},
 //   		ScteFilter: []*string{
 //   			jsii.String("scteFilter"),
 //   		},

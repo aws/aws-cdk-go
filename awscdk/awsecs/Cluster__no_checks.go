@@ -24,6 +24,10 @@ func (c *jsiiProxy_Cluster) validateAddManagedInstancesCapacityProviderParameter
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

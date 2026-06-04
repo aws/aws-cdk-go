@@ -14,12 +14,12 @@ package awsbedrockagentcorealpha
 //   	CredentialLocation: apiKeyCredentialLocation,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type FromApiKeyIdentityOptions struct {
 	// Where to place the API key on outbound requests.
 	// Default: header `Authorization` with `Bearer ` prefix.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	CredentialLocation ApiKeyCredentialLocation `field:"optional" json:"credentialLocation" yaml:"credentialLocation"`
 }
 

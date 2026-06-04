@@ -8,6 +8,10 @@ func (c *jsiiProxy_Channel) validateAddStreamKeyParameters(id *string) error {
 	return nil
 }
 
+func (c *jsiiProxy_Channel) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_Channel) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

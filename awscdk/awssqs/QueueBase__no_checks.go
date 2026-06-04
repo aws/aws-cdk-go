@@ -8,6 +8,10 @@ func (q *jsiiProxy_QueueBase) validateAddToResourcePolicyParameters(statement aw
 	return nil
 }
 
+func (q *jsiiProxy_QueueBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (q *jsiiProxy_QueueBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -89,6 +89,14 @@ type GatewayVpcEndpoint interface {
 	// Not all interface VPC endpoints support policy. For more information
 	// see https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 	AddToPolicy(statement awsiam.PolicyStatement)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -376,6 +384,17 @@ func (g *jsiiProxy_GatewayVpcEndpoint) AddToPolicy(statement awsiam.PolicyStatem
 		g,
 		"addToPolicy",
 		[]interface{}{statement},
+	)
+}
+
+func (g *jsiiProxy_GatewayVpcEndpoint) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := g.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		g,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
 	)
 }
 

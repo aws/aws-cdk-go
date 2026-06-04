@@ -35,6 +35,14 @@ func (l *jsiiProxy_LazyRole) validateAddToPrincipalPolicyParameters(statement Po
 	return nil
 }
 
+func (l *jsiiProxy_LazyRole) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	if strength == "" {
+		return fmt.Errorf("parameter strength is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (l *jsiiProxy_LazyRole) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	if policy == "" {
 		return fmt.Errorf("parameter policy is required, but nil was provided")

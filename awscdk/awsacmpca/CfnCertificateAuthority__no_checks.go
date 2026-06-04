@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCertificateAuthority) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnCertificateAuthority) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCertificateAuthority) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
 	return nil
 }

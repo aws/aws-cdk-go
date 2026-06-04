@@ -19,10 +19,10 @@ import (
 //   	ClientSecret: secretValue,
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type OAuth2ClientCredentials struct {
 	// OAuth2 client identifier.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ClientId *string `field:"required" json:"clientId" yaml:"clientId"`
 	// OAuth2 client secret.
 	//
@@ -31,7 +31,7 @@ type OAuth2ClientCredentials struct {
 	// in the template and deployment history. Use `SecretValue.unsafePlainText()` to explicitly
 	// acknowledge plaintext, or pass a reference from another construct to avoid embedding the
 	// literal value.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ClientSecret awscdk.SecretValue `field:"required" json:"clientSecret" yaml:"clientSecret"`
 }
 

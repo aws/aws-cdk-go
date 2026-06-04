@@ -1,6 +1,7 @@
 package awscdkintegtestsalpha
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 )
 
@@ -11,15 +12,22 @@ import (
 //   // The values are placeholders you should change.
 //   import integ_tests_alpha "github.com/aws/aws-cdk-go/awscdkintegtestsalpha"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   assertionsProviderProps := &AssertionsProviderProps{
 //   	Handler: jsii.String("handler"),
 //   	LogRetention: awscdk.Aws_logs.RetentionDays_ONE_DAY,
+//   	ProviderLogLevel: awscdk.Aws_lambda.ApplicationLogLevel_INFO,
 //   	Uuid: jsii.String("uuid"),
 //   }
 //
 // Experimental.
 type AssertionsProviderProps struct {
+	// The log level of the provider lambda function.
+	// Default: ApplicationLogLevel.FATAL
+	//
+	// Experimental.
+	ProviderLogLevel awslambda.ApplicationLogLevel `field:"optional" json:"providerLogLevel" yaml:"providerLogLevel"`
 	// The handler to use for the lambda function.
 	// Default: index.handler
 	//

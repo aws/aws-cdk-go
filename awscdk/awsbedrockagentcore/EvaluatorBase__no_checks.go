@@ -4,6 +4,10 @@ package awsbedrockagentcore
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (e *jsiiProxy_EvaluatorBase) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (e *jsiiProxy_EvaluatorBase) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

@@ -24,6 +24,10 @@ func (u *jsiiProxy_UserPool) validateAddTriggerParameters(operation UserPoolOper
 	return nil
 }
 
+func (u *jsiiProxy_UserPool) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (u *jsiiProxy_UserPool) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

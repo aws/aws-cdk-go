@@ -9,11 +9,17 @@ package interfacesawsappstream
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   stackUserAssociationReference := &StackUserAssociationReference{
-//   	StackUserAssociationId: jsii.String("stackUserAssociationId"),
+//   	AuthenticationType: jsii.String("authenticationType"),
+//   	StackName: jsii.String("stackName"),
+//   	UserName: jsii.String("userName"),
 //   }
 //
 type StackUserAssociationReference struct {
-	// The Id of the StackUserAssociation resource.
-	StackUserAssociationId *string `field:"required" json:"stackUserAssociationId" yaml:"stackUserAssociationId"`
+	// The AuthenticationType of the StackUserAssociation resource.
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
+	// The StackName of the StackUserAssociation resource.
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
+	// The UserName of the StackUserAssociation resource.
+	UserName *string `field:"required" json:"userName" yaml:"userName"`
 }
 

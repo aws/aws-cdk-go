@@ -17,17 +17,22 @@ import (
 // this class.
 //
 // Example:
-//   import firehose "github.com/aws/aws-cdk-go/awscdk"
-//   var stream DeliveryStream
+//   // producerStack defines an SNS topic
+//   var topic Topic
 //
 //
-//   topic := sns.NewTopic(this, jsii.String("Topic"))
-//
-//   sns.NewSubscription(this, jsii.String("Subscription"), &SubscriptionProps{
-//   	Topic: Topic,
-//   	Endpoint: stream.deliveryStreamArn,
-//   	Protocol: sns.SubscriptionProtocol_FIREHOSE,
-//   	SubscriptionRoleArn: jsii.String("SAMPLE_ARN"),
+//   // consumerStack subscribes to it with a weak reference,
+//   // so the producer can be torn down without blocking on this consumer
+//   consumerStack := awscdk.Newstack(app, jsii.String("Consumer"), &StackProps{
+//   	Env: &Environment{
+//   		Account: jsii.String("123456789012"),
+//   		Region: jsii.String("us-east-1"),
+//   	},
+//   })
+//   sns.NewSubscription(consumerStack, jsii.String("Subscription"), &SubscriptionProps{
+//   	Topic: sns.Topic_FromTopicArn(consumerStack, jsii.String("Topic"), awscdk.*stack_ConsumeReference(topic.topicArn)),
+//   	Endpoint: jsii.String("https://example.com/webhook"),
+//   	Protocol: sns.SubscriptionProtocol_HTTPS,
 //   })
 //
 type Subscription interface {
@@ -56,6 +61,14 @@ type Subscription interface {
 	PhysicalName() *string
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -256,6 +269,17 @@ func Subscription_PROPERTY_INJECTION_ID() *string {
 		&returns,
 	)
 	return returns
+}
+
+func (s *jsiiProxy_Subscription) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := s.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
 }
 
 func (s *jsiiProxy_Subscription) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

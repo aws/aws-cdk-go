@@ -43,29 +43,29 @@ package awsbedrockagentcorealpha
 //   	},
 //   }
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ToolDefinition struct {
 	// The description of the tool.
 	//
 	// This description provides information about the purpose and usage of the tool.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"required" json:"description" yaml:"description"`
 	// The input schema for the tool.
 	//
 	// This schema defines the structure of the input that the tool accepts.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	InputSchema *SchemaDefinition `field:"required" json:"inputSchema" yaml:"inputSchema"`
 	// The name of the tool.
 	//
 	// This name identifies the tool in the Model Context Protocol.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// The output schema for the tool.
 	//
 	// This schema defines the structure of the output that the tool produces.
 	// Default: - No output schema.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OutputSchema *SchemaDefinition `field:"optional" json:"outputSchema" yaml:"outputSchema"`
 }
 
