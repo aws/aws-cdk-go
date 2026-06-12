@@ -2496,6 +2496,10 @@ func init() {
 		"aws-cdk-lib.aws_ecs.FluentdLogDriverProps",
 		reflect.TypeOf((*FluentdLogDriverProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ForceNewDeployment",
+		reflect.TypeOf((*ForceNewDeployment)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_ecs.GelfCompressionType",
 		reflect.TypeOf((*GelfCompressionType)(nil)).Elem(),

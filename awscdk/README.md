@@ -912,7 +912,7 @@ currently only supports Node.js-based user handlers, represents permissions as r
 JSON blobs instead of `iam.PolicyStatement` objects, and it does not have
 support for asynchronous waiting (handler cannot exceed the 15min lambda
 timeout). The `CustomResourceProviderRuntime` supports runtime `nodejs12.x`,
-`nodejs14.x`, `nodejs16.x`, `nodejs18.x`, `nodejs20.x`, and `nodejs22.x`.
+`nodejs14.x`, `nodejs16.x`, `nodejs18.x`, `nodejs20.x`, `nodejs22.x` and `nodejs24.x`.
 
 > **As an application builder, we do not recommend you use this provider type.** This provider exists purely for custom resources that are part of the AWS Construct Library.
 >
@@ -924,7 +924,7 @@ stack-unique identifier and returns the service token:
 ```go
 serviceToken := awscdk.CustomResourceProvider_GetOrCreate(this, jsii.String("Custom::MyCustomResourceType"), &CustomResourceProviderProps{
 	CodeDirectory: fmt.Sprintf("%v/my-handler", __dirname),
-	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_22_X,
+	Runtime: awscdk.CustomResourceProviderRuntime_NODEJS_24_X,
 	Description: jsii.String("Lambda function created by the custom resource provider"),
 })
 

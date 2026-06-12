@@ -8,6 +8,19 @@ package awseksv2
 // AMI types, which uses the Amazon EKS-optimized Linux AMI with Nvidia-GPU support.
 //
 // Non-GPU instances should use the `AL2_x86_64` AMI type, which uses the Amazon EKS-optimized Linux AMI.
+//
+// Example:
+//   var cluster Cluster
+//
+//
+//   // Pin existing node groups to AL2 explicitly before enabling the flag.
+//   cluster.AddNodegroupCapacity(jsii.String("workers"), &NodegroupOptions{
+//   	InstanceTypes: []InstanceType{
+//   		ec2.NewInstanceType(jsii.String("m5.large")),
+//   	},
+//   	AmiType: eks.NodegroupAmiType_AL2_X86_64,
+//   })
+//
 type NodegroupAmiType string
 
 const (

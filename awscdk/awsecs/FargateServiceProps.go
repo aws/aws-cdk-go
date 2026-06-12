@@ -8,39 +8,35 @@ import (
 // The properties for defining a service using the Fargate launch type.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import cw "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var cluster Cluster
 //   var taskDefinition TaskDefinition
+//   var elbAlarm Alarm
 //
-//   serviceName := "MyFargateService"
+//
 //   service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
-//   	ServiceName: jsii.String(ServiceName),
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
 //   	MinHealthyPercent: jsii.Number(100),
-//   })
-//
-//   cpuMetric := cw.NewMetric(&MetricProps{
-//   	MetricName: jsii.String("CPUUtilization"),
-//   	Namespace: jsii.String("AWS/ECS"),
-//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
-//   	Statistic: jsii.String("Average"),
-//   	DimensionsMap: map[string]*string{
-//   		"ClusterName": cluster.clusterName,
-//   		// Using `service.serviceName` here will cause a circular dependency
-//   		"ServiceName": serviceName,
+//   	DeploymentAlarms: &DeploymentAlarmConfig{
+//   		AlarmNames: []*string{
+//   			elbAlarm.alarmName,
+//   		},
+//   		Behavior: ecs.AlarmBehavior_ROLLBACK_ON_ALARM,
 //   	},
 //   })
-//   myAlarm := cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
-//   	AlarmName: jsii.String("cpuAlarmName"),
-//   	Metric: cpuMetric,
+//
+//   // Defining a deployment alarm after the service has been created
+//   cpuAlarmName := "MyCpuMetricAlarm"
+//   cw.NewAlarm(this, jsii.String("CPUAlarm"), &AlarmProps{
+//   	AlarmName: cpuAlarmName,
+//   	Metric: service.MetricCpuUtilization(),
 //   	EvaluationPeriods: jsii.Number(2),
 //   	Threshold: jsii.Number(80),
 //   })
-//
 //   service.EnableDeploymentAlarms([]*string{
-//   	myAlarm.alarmName,
+//   	cpuAlarmName,
 //   }, &DeploymentAlarmOptions{
 //   	Behavior: ecs.AlarmBehavior_FAIL_ON_ALARM,
 //   })
@@ -104,6 +100,22 @@ type FargateServiceProps struct {
 	// Default: - undefined.
 	//
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	// Configuration for forcing a new deployment of the service.
+	//
+	// By default, deployments aren't forced. You can use this option to start
+	// a new deployment with no service definition changes. For example, you can
+	// update a service's tasks to use a newer Docker image with the same
+	// image/tag combination (`my_image:latest`) or to roll Fargate tasks onto
+	// a newer platform version.
+	//
+	// This is equivalent to calling the `forceNewDeployment()` method, but allows
+	// you to configure it declaratively at construction time, including the ability
+	// to explicitly disable it with `enabled: false`.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-forcenewdeployment.html
+	//
+	// Default: - no forced deployment.
+	//
+	ForceNewDeployment *ForceNewDeployment `field:"optional" json:"forceNewDeployment" yaml:"forceNewDeployment"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	// Default: - defaults to 60 seconds if at least one load balancer is in-use and it is not already set.
 	//

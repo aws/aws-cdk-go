@@ -69,7 +69,12 @@ type Dashboard interface {
 	// top of each other.
 	//
 	// Multiple widgets added in the same call to add() will be laid out next
-	// to each other.
+	// to each other. **However**, keep in mind that CloudWatch will vertically
+	// compact your dashboard. That means that if there is unused space
+	// above a widget, it will be shifted upwards as far as possible to fill
+	// that space. Add empty `TextWidget`s as a spacer in the row above
+	// your widgets you need to keep multiple side-by-side widgets
+	// consistently spaced.
 	AddWidgets(widgets ...IWidget)
 	// Override the cross-stack reference strength for this resource.
 	//

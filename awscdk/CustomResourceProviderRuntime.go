@@ -36,5 +36,7 @@ const (
 	CustomResourceProviderRuntime_NODEJS_20_X CustomResourceProviderRuntime = "NODEJS_20_X"
 	// Node.js 22.x.
 	CustomResourceProviderRuntime_NODEJS_22_X CustomResourceProviderRuntime = "NODEJS_22_X"
+	// Node.js 24.x.
+	CustomResourceProviderRuntime_NODEJS_24_X CustomResourceProviderRuntime = "NODEJS_24_X"
 )
 

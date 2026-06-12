@@ -2749,6 +2749,29 @@ service.ForceNewDeployment()
 service.ForceNewDeployment(jsii.String("my-custom-nonce-v2"))
 ```
 
+Alternatively, you can configure `forceNewDeployment` declaratively as a constructor option.
+This approach also allows you to explicitly disable the feature with `enabled: false`.
+
+```go
+var cluster Cluster
+var taskDefinition TaskDefinition
+
+
+// Force a new deployment on every `cdk deploy` by using a time-based nonce
+service := ecs.NewFargateService(this, jsii.String("Service"), &FargateServiceProps{
+	Cluster: Cluster,
+	TaskDefinition: TaskDefinition,
+	ForceNewDeployment: &ForceNewDeployment{
+		Enabled: jsii.Boolean(true),
+		Nonce: date.now().toString(),
+	},
+})
+```
+
+Calling the `forceNewDeployment()` method takes precedence over the constructor option. The nonce passed
+to the method (or the auto-generated one when none is provided) overrides any value configured through the
+`forceNewDeployment` property.
+
 ## Mixins
 
 ECS provides [mixins](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins) that can be applied to L1 and L2 constructs.

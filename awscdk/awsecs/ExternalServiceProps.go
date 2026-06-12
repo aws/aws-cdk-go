@@ -83,6 +83,22 @@ type ExternalServiceProps struct {
 	// Default: - undefined.
 	//
 	EnableExecuteCommand *bool `field:"optional" json:"enableExecuteCommand" yaml:"enableExecuteCommand"`
+	// Configuration for forcing a new deployment of the service.
+	//
+	// By default, deployments aren't forced. You can use this option to start
+	// a new deployment with no service definition changes. For example, you can
+	// update a service's tasks to use a newer Docker image with the same
+	// image/tag combination (`my_image:latest`) or to roll Fargate tasks onto
+	// a newer platform version.
+	//
+	// This is equivalent to calling the `forceNewDeployment()` method, but allows
+	// you to configure it declaratively at construction time, including the ability
+	// to explicitly disable it with `enabled: false`.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-forcenewdeployment.html
+	//
+	// Default: - no forced deployment.
+	//
+	ForceNewDeployment *ForceNewDeployment `field:"optional" json:"forceNewDeployment" yaml:"forceNewDeployment"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
 	// Default: - defaults to 60 seconds if at least one load balancer is in-use and it is not already set.
 	//
