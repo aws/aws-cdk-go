@@ -488,6 +488,26 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_MaintenanceCreateSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterContainerSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterContainerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterGroupSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterGroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterOutputConnectionMapProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterOutputConnectionMapProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterOutputDestinationSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterOutputDestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterOutputSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterOutputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaPackageAdditionalDestinationsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_MediaPackageAdditionalDestinationsProperty)(nil)).Elem(),
 	)

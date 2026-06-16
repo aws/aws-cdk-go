@@ -8,6 +8,26 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnDictionaryMixinProps",
+		reflect.TypeOf((*CfnDictionaryMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnDictionaryPropsMixin",
+		reflect.TypeOf((*CfnDictionaryPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDictionaryPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedMixinProps",
 		reflect.TypeOf((*CfnFeedMixinProps)(nil)).Elem(),
 	)
@@ -28,6 +48,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.AspectRatioProperty",
+		reflect.TypeOf((*CfnFeedPropsMixin_AspectRatioProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.ClippingConfigProperty",
 		reflect.TypeOf((*CfnFeedPropsMixin_ClippingConfigProperty)(nil)).Elem(),
 	)
@@ -38,5 +62,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.OutputConfigProperty",
 		reflect.TypeOf((*CfnFeedPropsMixin_OutputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.SubtitlingConfigProperty",
+		reflect.TypeOf((*CfnFeedPropsMixin_SubtitlingConfigProperty)(nil)).Elem(),
 	)
 }

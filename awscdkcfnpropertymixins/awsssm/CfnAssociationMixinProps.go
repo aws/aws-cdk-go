@@ -1,5 +1,8 @@
 package awsssm
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnAssociationPropsMixin.
 //
@@ -12,6 +15,7 @@ package awsssm
 //
 //   cfnAssociationMixinProps := &CfnAssociationMixinProps{
 //   	ApplyOnlyAtCronInterval: jsii.Boolean(false),
+//   	AssociationDispatchAssumeRole: jsii.String("associationDispatchAssumeRole"),
 //   	AssociationName: jsii.String("associationName"),
 //   	AutomationTargetParameterName: jsii.String("automationTargetParameterName"),
 //   	CalendarNames: []*string{
@@ -34,6 +38,12 @@ package awsssm
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	ScheduleOffset: jsii.Number(123),
 //   	SyncCompliance: jsii.String("syncCompliance"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Targets: []interface{}{
 //   		&TargetProperty{
 //   			Key: jsii.String("key"),
@@ -54,6 +64,10 @@ type CfnAssociationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
 	//
 	ApplyOnlyAtCronInterval interface{} `field:"optional" json:"applyOnlyAtCronInterval" yaml:"applyOnlyAtCronInterval"`
+	// A role used by association to take actions on your behalf.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationdispatchassumerole
+	//
+	AssociationDispatchAssumeRole *string `field:"optional" json:"associationDispatchAssumeRole" yaml:"associationDispatchAssumeRole"`
 	// Specify a descriptive name for the association.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 	//
@@ -149,6 +163,10 @@ type CfnAssociationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
 	//
 	SyncCompliance *string `field:"optional" json:"syncCompliance" yaml:"syncCompliance"`
+	// A key-value pair to associate with a resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The targets for the association.
 	//
 	// You must specify the `InstanceId` or `Targets` property. You can target all instances in an AWS account by specifying t he `InstanceIds` key with a value of `*` .

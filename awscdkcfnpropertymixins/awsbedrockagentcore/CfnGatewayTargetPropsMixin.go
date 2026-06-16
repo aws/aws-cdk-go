@@ -68,6 +68,22 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	PrivateEndpoint: &PrivateEndpointProperty{
+//   		ManagedVpcResource: &ManagedVpcResourceProperty{
+//   			EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   			RoutingDomain: jsii.String("routingDomain"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcIdentifier: jsii.String("vpcIdentifier"),
+//   		},
+//   		SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   			ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   		},
+//   	},
 //   	TargetConfiguration: &TargetConfigurationProperty{
 //   		Http: &HttpTargetConfigurationProperty{
 //   			AgentcoreRuntime: &RuntimeTargetConfigurationProperty{
@@ -145,6 +161,7 @@ import (
 //   						Uri: jsii.String("uri"),
 //   					},
 //   				},
+//   				ResourcePriority: jsii.Number(123),
 //   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),

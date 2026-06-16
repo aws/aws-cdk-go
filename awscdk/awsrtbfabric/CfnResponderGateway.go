@@ -32,8 +32,15 @@ import (
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	AcmCertificateArn: jsii.String("acmCertificateArn"),
 //   	Description: jsii.String("description"),
 //   	DomainName: jsii.String("domainName"),
+//   	GatewayType: jsii.String("gatewayType"),
+//   	ListenerConfig: &ListenerConfigProperty{
+//   		Protocols: []*string{
+//   			jsii.String("protocols"),
+//   		},
+//   	},
 //   	ManagedEndpointConfiguration: &ManagedEndpointConfigurationProperty{
 //   		AutoScalingGroupsConfiguration: &AutoScalingGroupsConfigurationProperty{
 //   			AutoScalingGroupNameList: []*string{
@@ -84,8 +91,12 @@ type CfnResponderGateway interface {
 	awscdk.IInspectable
 	interfacesawsrtbfabric.IResponderGatewayRef
 	awscdk.ITaggableV2
+	AcmCertificateArn() *string
+	SetAcmCertificateArn(val *string)
 	AttrArn() *string
+	AttrCertificateAssociationStatus() *string
 	AttrCreatedTimestamp() *string
+	AttrExternalInboundEndpoint() *string
 	AttrGatewayId() *string
 	AttrResponderGatewayStatus() *string
 	AttrUpdatedTimestamp() *string
@@ -108,6 +119,10 @@ type CfnResponderGateway interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	Env() *interfaces.ResourceEnvironment
+	GatewayType() *string
+	SetGatewayType(val *string)
+	ListenerConfig() interface{}
+	SetListenerConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -316,6 +331,16 @@ type jsiiProxy_CfnResponderGateway struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnResponderGateway) AcmCertificateArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"acmCertificateArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResponderGateway) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -326,11 +351,31 @@ func (j *jsiiProxy_CfnResponderGateway) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResponderGateway) AttrCertificateAssociationStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCertificateAssociationStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResponderGateway) AttrCreatedTimestamp() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrCreatedTimestamp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResponderGateway) AttrExternalInboundEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrExternalInboundEndpoint",
 		&returns,
 	)
 	return returns
@@ -451,6 +496,26 @@ func (j *jsiiProxy_CfnResponderGateway) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResponderGateway) GatewayType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"gatewayType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResponderGateway) ListenerConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"listenerConfig",
 		&returns,
 	)
 	return returns
@@ -636,6 +701,14 @@ func NewCfnResponderGateway_Override(c CfnResponderGateway, scope constructs.Con
 	)
 }
 
+func (j *jsiiProxy_CfnResponderGateway)SetAcmCertificateArn(val *string) {
+	_jsii_.Set(
+		j,
+		"acmCertificateArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnResponderGateway)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -648,6 +721,25 @@ func (j *jsiiProxy_CfnResponderGateway)SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResponderGateway)SetGatewayType(val *string) {
+	_jsii_.Set(
+		j,
+		"gatewayType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResponderGateway)SetListenerConfig(val interface{}) {
+	if err := j.validateSetListenerConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"listenerConfig",
 		val,
 	)
 }

@@ -18,6 +18,6 @@ type CfnTelemetryEnrichmentProps struct {
 	// Scope of the Telemetry Enrichment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-observabilityadmin-telemetryenrichment.html#cfn-observabilityadmin-telemetryenrichment-scope
 	//
-	Scope *string `field:"optional" json:"scope" yaml:"scope"`
+	Scope *string `field:"required" json:"scope" yaml:"scope"`
 }
 

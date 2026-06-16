@@ -60,6 +60,9 @@ import (
 //   		MpdLocation: jsii.String("mpdLocation"),
 //   		OriginManifestType: jsii.String("originManifestType"),
 //   	},
+//   	FunctionMapping: map[string]*string{
+//   		"functionMappingKey": jsii.String("functionMapping"),
+//   	},
 //   	HlsConfiguration: &HlsConfigurationProperty{
 //   		ManifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   	},
@@ -163,6 +166,9 @@ type CfnPlaybackConfiguration interface {
 	DashConfiguration() interface{}
 	SetDashConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// A map of event names to function identifiers for custom processing during session lifecycle events.
+	FunctionMapping() interface{}
+	SetFunctionMapping(val interface{})
 	// The configuration for HLS content.
 	HlsConfiguration() interface{}
 	SetHlsConfiguration(val interface{})
@@ -572,6 +578,16 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) Env() *interfaces.ResourceEnvironme
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) FunctionMapping() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"functionMapping",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) HlsConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -876,6 +892,17 @@ func (j *jsiiProxy_CfnPlaybackConfiguration)SetDashConfiguration(val interface{}
 	_jsii_.Set(
 		j,
 		"dashConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetFunctionMapping(val interface{}) {
+	if err := j.validateSetFunctionMappingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"functionMapping",
 		val,
 	)
 }

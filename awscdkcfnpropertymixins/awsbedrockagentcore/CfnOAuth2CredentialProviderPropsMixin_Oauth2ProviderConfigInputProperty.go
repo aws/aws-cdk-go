@@ -12,10 +12,21 @@ package awsbedrockagentcore
 //   	AtlassianOauth2ProviderConfig: &AtlassianOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   	CustomOauth2ProviderConfig: &CustomOauth2ProviderConfigInputProperty{
+//   		ClientAuthenticationMethod: jsii.String("clientAuthenticationMethod"),
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   		OauthDiscovery: &Oauth2DiscoveryProperty{
 //   			AuthorizationServerMetadata: &Oauth2AuthorizationServerMetadataProperty{
 //   				AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
@@ -40,34 +51,69 @@ package awsbedrockagentcore
 //   	GithubOauth2ProviderConfig: &GithubOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   	GoogleOauth2ProviderConfig: &GoogleOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   	IncludedOauth2ProviderConfig: &IncludedOauth2ProviderConfigInputProperty{
 //   		AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   		Issuer: jsii.String("issuer"),
 //   		TokenEndpoint: jsii.String("tokenEndpoint"),
 //   	},
 //   	LinkedinOauth2ProviderConfig: &LinkedinOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   	MicrosoftOauth2ProviderConfig: &MicrosoftOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   		TenantId: jsii.String("tenantId"),
 //   	},
 //   	SalesforceOauth2ProviderConfig: &SalesforceOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   	SlackOauth2ProviderConfig: &SlackOauth2ProviderConfigInputProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
+//   		ClientSecretConfig: &SecretReferenceProperty{
+//   			JsonKey: jsii.String("jsonKey"),
+//   			SecretId: jsii.String("secretId"),
+//   		},
+//   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   }
 //

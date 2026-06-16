@@ -62,6 +62,12 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetryConfig: &CapacityProviderTelemetryConfigProperty{
+//   		LoggingConfig: &CapacityProviderLoggingConfigProperty{
+//   			LogGroup: jsii.String("logGroup"),
+//   			SystemLogLevel: jsii.String("systemLogLevel"),
+//   		},
+//   	},
 //   	VpcConfig: &CapacityProviderVpcConfigProperty{
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),

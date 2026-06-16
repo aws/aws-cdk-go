@@ -38,6 +38,7 @@ package awsconnectcampaignsv2
 //   		LocalTimeZoneDetection: []*string{
 //   			jsii.String("localTimeZoneDetection"),
 //   		},
+//   		LocalTimeZoneDetectionScope: jsii.String("localTimeZoneDetectionScope"),
 //   	},
 //   	Sms: &TimeWindowProperty{
 //   		OpenHours: &OpenHoursProperty{

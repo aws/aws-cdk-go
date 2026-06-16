@@ -617,44 +617,6 @@ func CfnGeofenceCollection_ArnForGeofenceCollection(resource interfacesawslocati
 	return returns
 }
 
-// Creates a new IGeofenceCollectionRef from a collectionName.
-func CfnGeofenceCollection_FromCollectionName(scope constructs.Construct, id *string, collectionName *string) interfacesawslocation.IGeofenceCollectionRef {
-	_init_.Initialize()
-
-	if err := validateCfnGeofenceCollection_FromCollectionNameParameters(scope, id, collectionName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawslocation.IGeofenceCollectionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_location.CfnGeofenceCollection",
-		"fromCollectionName",
-		[]interface{}{scope, id, collectionName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IGeofenceCollectionRef from an ARN.
-func CfnGeofenceCollection_FromGeofenceCollectionArn(scope constructs.Construct, id *string, arn *string) interfacesawslocation.IGeofenceCollectionRef {
-	_init_.Initialize()
-
-	if err := validateCfnGeofenceCollection_FromGeofenceCollectionArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns interfacesawslocation.IGeofenceCollectionRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_location.CfnGeofenceCollection",
-		"fromGeofenceCollectionArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

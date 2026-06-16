@@ -16,7 +16,6 @@ package awslambda
 //   	ImageUri: jsii.String("imageUri"),
 //   	S3Bucket: jsii.String("s3Bucket"),
 //   	S3Key: jsii.String("s3Key"),
-//   	S3ObjectStorageMode: jsii.String("s3ObjectStorageMode"),
 //   	S3ObjectVersion: jsii.String("s3ObjectVersion"),
 //   	SourceKmsKeyArn: jsii.String("sourceKmsKeyArn"),
 //   	ZipFile: jsii.String("zipFile"),
@@ -39,9 +38,6 @@ type CfnFunctionPropsMixin_CodeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
 	//
 	S3Key *string `field:"optional" json:"s3Key" yaml:"s3Key"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectstoragemode
-	//
-	S3ObjectStorageMode *string `field:"optional" json:"s3ObjectStorageMode" yaml:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the deployment package object to use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion
 	//

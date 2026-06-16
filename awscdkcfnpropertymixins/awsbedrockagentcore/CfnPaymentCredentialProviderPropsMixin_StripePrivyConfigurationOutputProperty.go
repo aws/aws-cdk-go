@@ -13,10 +13,14 @@ package awsbedrockagentcore
 //   	AppSecretArn: &SecretInfoProperty{
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	AppSecretJsonKey: jsii.String("appSecretJsonKey"),
+//   	AppSecretSource: jsii.String("appSecretSource"),
 //   	AuthorizationId: jsii.String("authorizationId"),
 //   	AuthorizationPrivateKeyArn: &SecretInfoProperty{
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	AuthorizationPrivateKeyJsonKey: jsii.String("authorizationPrivateKeyJsonKey"),
+//   	AuthorizationPrivateKeySource: jsii.String("authorizationPrivateKeySource"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html
@@ -30,6 +34,16 @@ type CfnPaymentCredentialProviderPropsMixin_StripePrivyConfigurationOutputProper
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-appsecretarn
 	//
 	AppSecretArn interface{} `field:"optional" json:"appSecretArn" yaml:"appSecretArn"`
+	// The JSON key within the secret that contains the app secret value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-appsecretjsonkey
+	//
+	AppSecretJsonKey *string `field:"optional" json:"appSecretJsonKey" yaml:"appSecretJsonKey"`
+	// The source of the secret.
+	//
+	// Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-appsecretsource
+	//
+	AppSecretSource *string `field:"optional" json:"appSecretSource" yaml:"appSecretSource"`
 	// The authorization ID for the Stripe Privy integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-authorizationid
 	//
@@ -38,5 +52,15 @@ type CfnPaymentCredentialProviderPropsMixin_StripePrivyConfigurationOutputProper
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-authorizationprivatekeyarn
 	//
 	AuthorizationPrivateKeyArn interface{} `field:"optional" json:"authorizationPrivateKeyArn" yaml:"authorizationPrivateKeyArn"`
+	// The JSON key within the secret that contains the authorization private key value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-authorizationprivatekeyjsonkey
+	//
+	AuthorizationPrivateKeyJsonKey *string `field:"optional" json:"authorizationPrivateKeyJsonKey" yaml:"authorizationPrivateKeyJsonKey"`
+	// The source of the secret.
+	//
+	// Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput.html#cfn-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationoutput-authorizationprivatekeysource
+	//
+	AuthorizationPrivateKeySource *string `field:"optional" json:"authorizationPrivateKeySource" yaml:"authorizationPrivateKeySource"`
 }
 

@@ -24,6 +24,7 @@ import (
 //
 //   cfnPolicyTemplatePropsMixin := awscdkcfnpropertymixins.Aws_verifiedpermissions.NewCfnPolicyTemplatePropsMixin(&CfnPolicyTemplateMixinProps{
 //   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   	Statement: jsii.String("statement"),
 //   }, &CfnPropertyMixinOptions{

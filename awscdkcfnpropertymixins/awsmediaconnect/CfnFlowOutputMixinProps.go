@@ -48,6 +48,7 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiOutputTimecodeSource: jsii.String("ndiOutputTimecodeSource"),
 //   	NdiProgramName: jsii.String("ndiProgramName"),
 //   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),
@@ -127,6 +128,10 @@ type CfnFlowOutputMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The timecode source for the NDI output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndioutputtimecodesource
+	//
+	NdiOutputTimecodeSource *string `field:"optional" json:"ndiOutputTimecodeSource" yaml:"ndiOutputTimecodeSource"`
 	// A suffix for the names of the NDI sources that the flow creates.
 	//
 	// If a custom name isn't specified, MediaConnect uses the output name.

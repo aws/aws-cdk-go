@@ -164,7 +164,9 @@ import (
 //   	Cpu: jsii.String("cpu"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Family: jsii.String("family"),
+//   	IpcMode: jsii.String("ipcMode"),
 //   	Memory: jsii.String("memory"),
+//   	PidMode: jsii.String("pidMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -217,6 +219,9 @@ type CfnDaemonTaskDefinition interface {
 	// The name of a family that this daemon task definition is registered to.
 	Family() *string
 	SetFamily(val *string)
+	// The IPC namespace mode for the daemon.
+	IpcMode() *string
+	SetIpcMode(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -232,6 +237,9 @@ type CfnDaemonTaskDefinition interface {
 	SetMemory(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The PID namespace mode for the daemon.
+	PidMode() *string
+	SetPidMode(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -540,6 +548,16 @@ func (j *jsiiProxy_CfnDaemonTaskDefinition) Family() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDaemonTaskDefinition) IpcMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipcMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDaemonTaskDefinition) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -565,6 +583,16 @@ func (j *jsiiProxy_CfnDaemonTaskDefinition) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDaemonTaskDefinition) PidMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"pidMode",
 		&returns,
 	)
 	return returns
@@ -705,10 +733,26 @@ func (j *jsiiProxy_CfnDaemonTaskDefinition)SetFamily(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDaemonTaskDefinition)SetIpcMode(val *string) {
+	_jsii_.Set(
+		j,
+		"ipcMode",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDaemonTaskDefinition)SetMemory(val *string) {
 	_jsii_.Set(
 		j,
 		"memory",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDaemonTaskDefinition)SetPidMode(val *string) {
+	_jsii_.Set(
+		j,
+		"pidMode",
 		val,
 	)
 }

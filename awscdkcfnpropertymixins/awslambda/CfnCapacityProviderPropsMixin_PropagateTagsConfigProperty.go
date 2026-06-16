@@ -19,7 +19,6 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-propagatetagsconfig.html
 //
 type CfnCapacityProviderPropsMixin_PropagateTagsConfigProperty struct {
-	// A list of tags to explicitly propagate to managed resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-propagatetagsconfig.html#cfn-lambda-capacityprovider-propagatetagsconfig-explicittags
 	//
 	ExplicitTags interface{} `field:"optional" json:"explicitTags" yaml:"explicitTags"`

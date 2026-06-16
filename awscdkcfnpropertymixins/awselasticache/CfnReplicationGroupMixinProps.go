@@ -24,6 +24,7 @@ import (
 //   	CacheSubnetGroupName: jsii.String("cacheSubnetGroupName"),
 //   	ClusterMode: jsii.String("clusterMode"),
 //   	DataTieringEnabled: jsii.Boolean(false),
+//   	Durability: jsii.String("durability"),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalReplicationGroupId: jsii.String("globalReplicationGroupId"),
@@ -225,6 +226,12 @@ type CfnReplicationGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-datatieringenabled
 	//
 	DataTieringEnabled interface{} `field:"optional" json:"dataTieringEnabled" yaml:"dataTieringEnabled"`
+	// The durability setting for the replication group.
+	//
+	// Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-durability
+	//
+	Durability *string `field:"optional" json:"durability" yaml:"durability"`
 	// The name of the cache engine to be used for the clusters in this replication group.
 	//
 	// The value must be set to `valkey` or `redis` .

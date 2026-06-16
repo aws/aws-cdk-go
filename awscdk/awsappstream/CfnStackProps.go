@@ -27,6 +27,19 @@ import (
 //   	AttributesToDelete: []*string{
 //   		jsii.String("attributesToDelete"),
 //   	},
+//   	ContentRedirection: &ContentRedirectionProperty{
+//   		HostToClient: &UrlRedirectionConfigProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			AllowedUrls: []*string{
+//   				jsii.String("allowedUrls"),
+//   			},
+//   			DeniedUrls: []*string{
+//   				jsii.String("deniedUrls"),
+//   			},
+//   		},
+//   	},
 //   	DeleteStorageConnectors: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
@@ -86,6 +99,10 @@ type CfnStackProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-attributestodelete
 	//
 	AttributesToDelete *[]*string `field:"optional" json:"attributesToDelete" yaml:"attributesToDelete"`
+	// The content redirection settings for the stack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-contentredirection
+	//
+	ContentRedirection interface{} `field:"optional" json:"contentRedirection" yaml:"contentRedirection"`
 	// *This parameter has been deprecated.*.
 	//
 	// Deletes the storage connectors currently enabled for the stack.

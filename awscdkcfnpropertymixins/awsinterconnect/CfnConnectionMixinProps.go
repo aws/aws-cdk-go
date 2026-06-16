@@ -70,6 +70,7 @@ type CfnConnectionMixinProps struct {
 	// Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-interconnect-connection.html#cfn-interconnect-connection-remoteowneraccount
 	//
+	// Deprecated: this property has been deprecated.
 	RemoteOwnerAccount *string `field:"optional" json:"remoteOwnerAccount" yaml:"remoteOwnerAccount"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-interconnect-connection.html#cfn-interconnect-connection-tags

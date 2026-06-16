@@ -23,6 +23,11 @@ import (
 //
 //   	// the properties below are optional
 //   	ApiKey: jsii.String("apiKey"),
+//   	ApiKeySecretConfig: &SecretReferenceProperty{
+//   		JsonKey: jsii.String("jsonKey"),
+//   		SecretId: jsii.String("secretId"),
+//   	},
+//   	ApiKeySecretSource: jsii.String("apiKeySecretSource"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -43,8 +48,16 @@ type CfnApiKeyCredentialProvider interface {
 	SetApiKey(val *string)
 	// A reference to a ApiKeyCredentialProvider resource.
 	ApiKeyCredentialProviderRef() *interfacesawsbedrockagentcore.ApiKeyCredentialProviderReference
+	// A reference to a customer-provided secret stored in AWS Secrets Manager.
+	ApiKeySecretConfig() interface{}
+	SetApiKeySecretConfig(val interface{})
+	// The source of the API key secret.
+	ApiKeySecretSource() *string
+	SetApiKeySecretSource(val *string)
 	// Contains information about the API key secret in AWS Secrets Manager.
 	AttrApiKeySecretArn() awscdk.IResolvable
+	// The JSON key within the secret that contains the API key value.
+	AttrApiKeySecretJsonKey() *string
 	// The timestamp when the credential provider was created.
 	AttrCreatedTime() *string
 	// The Amazon Resource Name (ARN) of the API key credential provider.
@@ -272,11 +285,41 @@ func (j *jsiiProxy_CfnApiKeyCredentialProvider) ApiKeyCredentialProviderRef() *i
 	return returns
 }
 
+func (j *jsiiProxy_CfnApiKeyCredentialProvider) ApiKeySecretConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"apiKeySecretConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApiKeyCredentialProvider) ApiKeySecretSource() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"apiKeySecretSource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApiKeyCredentialProvider) AttrApiKeySecretArn() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
 		j,
 		"attrApiKeySecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApiKeyCredentialProvider) AttrApiKeySecretJsonKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApiKeySecretJsonKey",
 		&returns,
 	)
 	return returns
@@ -496,6 +539,25 @@ func (j *jsiiProxy_CfnApiKeyCredentialProvider)SetApiKey(val *string) {
 	_jsii_.Set(
 		j,
 		"apiKey",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApiKeyCredentialProvider)SetApiKeySecretConfig(val interface{}) {
+	if err := j.validateSetApiKeySecretConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"apiKeySecretConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApiKeyCredentialProvider)SetApiKeySecretSource(val *string) {
+	_jsii_.Set(
+		j,
+		"apiKeySecretSource",
 		val,
 	)
 }

@@ -304,12 +304,20 @@ func init() {
 		reflect.TypeOf((*CfnStackPropsMixin_ApplicationSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.ContentRedirectionProperty",
+		reflect.TypeOf((*CfnStackPropsMixin_ContentRedirectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.StorageConnectorProperty",
 		reflect.TypeOf((*CfnStackPropsMixin_StorageConnectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.StreamingExperienceSettingsProperty",
 		reflect.TypeOf((*CfnStackPropsMixin_StreamingExperienceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.UrlRedirectionConfigProperty",
+		reflect.TypeOf((*CfnStackPropsMixin_UrlRedirectionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.UserSettingProperty",

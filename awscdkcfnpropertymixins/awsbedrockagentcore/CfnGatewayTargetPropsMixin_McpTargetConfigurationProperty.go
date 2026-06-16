@@ -80,6 +80,7 @@ package awsbedrockagentcore
 //   				Uri: jsii.String("uri"),
 //   			},
 //   		},
+//   		ResourcePriority: jsii.Number(123),
 //   	},
 //   	OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   		InlinePayload: jsii.String("inlinePayload"),

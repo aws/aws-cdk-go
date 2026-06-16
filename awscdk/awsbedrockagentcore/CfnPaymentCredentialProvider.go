@@ -26,16 +26,38 @@ import (
 //   	ProviderConfigurationInput: &PaymentProviderConfigurationInputProperty{
 //   		CoinbaseCdpConfiguration: &CoinbaseCdpConfigurationInputProperty{
 //   			ApiKeyId: jsii.String("apiKeyId"),
-//   			ApiKeySecret: jsii.String("apiKeySecret"),
 //
 //   			// the properties below are optional
+//   			ApiKeySecret: jsii.String("apiKeySecret"),
+//   			ApiKeySecretConfig: &SecretReferenceProperty{
+//   				JsonKey: jsii.String("jsonKey"),
+//   				SecretId: jsii.String("secretId"),
+//   			},
+//   			ApiKeySecretSource: jsii.String("apiKeySecretSource"),
 //   			WalletSecret: jsii.String("walletSecret"),
+//   			WalletSecretConfig: &SecretReferenceProperty{
+//   				JsonKey: jsii.String("jsonKey"),
+//   				SecretId: jsii.String("secretId"),
+//   			},
+//   			WalletSecretSource: jsii.String("walletSecretSource"),
 //   		},
 //   		StripePrivyConfiguration: &StripePrivyConfigurationInputProperty{
 //   			AppId: jsii.String("appId"),
-//   			AppSecret: jsii.String("appSecret"),
 //   			AuthorizationId: jsii.String("authorizationId"),
+//
+//   			// the properties below are optional
+//   			AppSecret: jsii.String("appSecret"),
+//   			AppSecretConfig: &SecretReferenceProperty{
+//   				JsonKey: jsii.String("jsonKey"),
+//   				SecretId: jsii.String("secretId"),
+//   			},
+//   			AppSecretSource: jsii.String("appSecretSource"),
 //   			AuthorizationPrivateKey: jsii.String("authorizationPrivateKey"),
+//   			AuthorizationPrivateKeyConfig: &SecretReferenceProperty{
+//   				JsonKey: jsii.String("jsonKey"),
+//   				SecretId: jsii.String("secretId"),
+//   			},
+//   			AuthorizationPrivateKeySource: jsii.String("authorizationPrivateKeySource"),
 //   		},
 //   	},
 //   	Tags: []CfnTag{

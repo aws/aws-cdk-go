@@ -36,6 +36,7 @@ import (
 //   	LocalGatewayId: jsii.String("localGatewayId"),
 //   	NatGatewayId: jsii.String("natGatewayId"),
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   	OdbNetworkArn: jsii.String("odbNetworkArn"),
 //   	RouteTableId: jsii.String("routeTableId"),
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),

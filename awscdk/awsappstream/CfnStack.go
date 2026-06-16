@@ -34,6 +34,19 @@ import (
 //   	AttributesToDelete: []*string{
 //   		jsii.String("attributesToDelete"),
 //   	},
+//   	ContentRedirection: &ContentRedirectionProperty{
+//   		HostToClient: &UrlRedirectionConfigProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			AllowedUrls: []*string{
+//   				jsii.String("allowedUrls"),
+//   			},
+//   			DeniedUrls: []*string{
+//   				jsii.String("deniedUrls"),
+//   			},
+//   		},
+//   	},
 //   	DeleteStorageConnectors: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
@@ -96,6 +109,9 @@ type CfnStack interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// The content redirection settings for the stack.
+	ContentRedirection() interface{}
+	SetContentRedirection(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -390,6 +406,16 @@ func (j *jsiiProxy_CfnStack) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStack) ContentRedirection() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"contentRedirection",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStack) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -656,6 +682,17 @@ func (j *jsiiProxy_CfnStack)SetAttributesToDelete(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"attributesToDelete",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStack)SetContentRedirection(val interface{}) {
+	if err := j.validateSetContentRedirectionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"contentRedirection",
 		val,
 	)
 }

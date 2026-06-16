@@ -29,7 +29,6 @@ type CfnStackFleetAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsappstream.IStackFleetAssociationRef
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -228,16 +227,6 @@ type jsiiProxy_CfnStackFleetAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsappstreamIStackFleetAssociationRef
-}
-
-func (j *jsiiProxy_CfnStackFleetAssociation) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnStackFleetAssociation) CfnOptions() awscdk.ICfnResourceOptions {

@@ -149,7 +149,9 @@ import (
 //   	Cpu: jsii.String("cpu"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Family: jsii.String("family"),
+//   	IpcMode: jsii.String("ipcMode"),
 //   	Memory: jsii.String("memory"),
+//   	PidMode: jsii.String("pidMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -186,10 +188,24 @@ type CfnDaemonTaskDefinitionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-family
 	//
 	Family *string `field:"optional" json:"family" yaml:"family"`
+	// The IPC namespace mode for the daemon.
+	//
+	// The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-ipcmode
+	//
+	IpcMode *string `field:"optional" json:"ipcMode" yaml:"ipcMode"`
 	// The amount of memory (in MiB) used by the daemon task.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-memory
 	//
 	Memory *string `field:"optional" json:"memory" yaml:"memory"`
+	// The PID namespace mode for the daemon.
+	//
+	// The valid values are ``none`` and ``shared``. The default is ``none``.
+	//  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-pidmode
+	//
+	PidMode *string `field:"optional" json:"pidMode" yaml:"pidMode"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemontaskdefinition.html#cfn-ecs-daemontaskdefinition-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnCapacityProvider) validateSetTagsParameters(val *[]*awscdk
 	return nil
 }
 
+func (j *jsiiProxy_CfnCapacityProvider) validateSetTelemetryConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCapacityProvider) validateSetVpcConfigParameters(val interface{}) error {
 	return nil
 }

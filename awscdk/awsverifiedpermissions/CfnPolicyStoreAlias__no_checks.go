@@ -76,6 +76,14 @@ func (c *jsiiProxy_CfnPolicyStoreAlias) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnPolicyStoreAlias_ArnForPolicyStoreAliasParameters(resource interfacesawsverifiedpermissions.IPolicyStoreAliasRef) error {
+	return nil
+}
+
+func validateCfnPolicyStoreAlias_FromAliasNameParameters(scope constructs.Construct, id *string, aliasName *string) error {
+	return nil
+}
+
 func validateCfnPolicyStoreAlias_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

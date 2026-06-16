@@ -24,6 +24,11 @@ package awsobservabilityadmin
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		},
 //   	},
+//   	DestinationMetricsConfiguration: &DestinationMetricsConfigurationProperty{
+//   		BackupConfiguration: &MetricsBackupConfigurationProperty{
+//   			Region: jsii.String("region"),
+//   		},
+//   	},
 //   	Region: jsii.String("region"),
 //   }
 //
@@ -38,6 +43,9 @@ type CfnOrganizationCentralizationRulePropsMixin_CentralizationRuleDestinationPr
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationruledestination-destinationlogsconfiguration
 	//
 	DestinationLogsConfiguration interface{} `field:"optional" json:"destinationLogsConfiguration" yaml:"destinationLogsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationruledestination-destinationmetricsconfiguration
+	//
+	DestinationMetricsConfiguration interface{} `field:"optional" json:"destinationMetricsConfiguration" yaml:"destinationMetricsConfiguration"`
 	// The primary destination region to which telemetry data should be centralized.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationruledestination-region
 	//

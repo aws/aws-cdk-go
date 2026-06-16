@@ -9,6 +9,7 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   oauth2ProviderConfigOutputProperty := &Oauth2ProviderConfigOutputProperty{
+//   	ClientAuthenticationMethod: jsii.String("clientAuthenticationMethod"),
 //   	ClientId: jsii.String("clientId"),
 //   	OauthDiscovery: &Oauth2DiscoveryProperty{
 //   		AuthorizationServerMetadata: &Oauth2AuthorizationServerMetadataProperty{
@@ -35,6 +36,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html
 //
 type CfnOAuth2CredentialProviderPropsMixin_Oauth2ProviderConfigOutputProperty struct {
+	// The client authentication method used when authenticating with the token endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html#cfn-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput-clientauthenticationmethod
+	//
+	ClientAuthenticationMethod *string `field:"optional" json:"clientAuthenticationMethod" yaml:"clientAuthenticationMethod"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html#cfn-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput-clientid
 	//
 	ClientId *string `field:"optional" json:"clientId" yaml:"clientId"`

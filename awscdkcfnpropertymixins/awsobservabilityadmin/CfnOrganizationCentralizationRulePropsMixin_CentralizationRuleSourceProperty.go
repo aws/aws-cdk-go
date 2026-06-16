@@ -18,6 +18,9 @@ package awsobservabilityadmin
 //   		EncryptedLogGroupStrategy: jsii.String("encryptedLogGroupStrategy"),
 //   		LogGroupSelectionCriteria: jsii.String("logGroupSelectionCriteria"),
 //   	},
+//   	SourceMetricsConfiguration: &SourceMetricsConfigurationProperty{
+//   		MetricsSelectionCriteria: jsii.String("metricsSelectionCriteria"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrulesource.html
@@ -35,5 +38,8 @@ type CfnOrganizationCentralizationRulePropsMixin_CentralizationRuleSourcePropert
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrulesource.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationrulesource-sourcelogsconfiguration
 	//
 	SourceLogsConfiguration interface{} `field:"optional" json:"sourceLogsConfiguration" yaml:"sourceLogsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationrulesource.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationrulesource-sourcemetricsconfiguration
+	//
+	SourceMetricsConfiguration interface{} `field:"optional" json:"sourceMetricsConfiguration" yaml:"sourceMetricsConfiguration"`
 }
 

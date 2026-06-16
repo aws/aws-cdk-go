@@ -30,11 +30,6 @@ import (
 //   		},
 //   	},
 //   	EvaluationExecutionRoleArn: jsii.String("evaluationExecutionRoleArn"),
-//   	Evaluators: []interface{}{
-//   		&EvaluatorReferenceProperty{
-//   			EvaluatorId: jsii.String("evaluatorId"),
-//   		},
-//   	},
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
 //   	Rule: &RuleProperty{
 //   		SamplingConfig: &SamplingConfigProperty{
@@ -59,8 +54,23 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	ClusteringConfig: &ClusteringConfigProperty{
+//   		Frequencies: []*string{
+//   			jsii.String("frequencies"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	Evaluators: []interface{}{
+//   		&EvaluatorReferenceProperty{
+//   			EvaluatorId: jsii.String("evaluatorId"),
+//   		},
+//   	},
 //   	ExecutionStatus: jsii.String("executionStatus"),
+//   	Insights: []interface{}{
+//   		&InsightProperty{
+//   			InsightId: jsii.String("insightId"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -95,6 +105,9 @@ type CfnOnlineEvaluationConfig interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// The configuration for clustering analysis of evaluation results.
+	ClusteringConfig() interface{}
+	SetClusteringConfig(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -114,6 +127,9 @@ type CfnOnlineEvaluationConfig interface {
 	SetEvaluators(val interface{})
 	ExecutionStatus() *string
 	SetExecutionStatus(val *string)
+	// The list of insights to enable for failure analysis.
+	Insights() interface{}
+	SetInsights(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -417,6 +433,16 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) ClusteringConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"clusteringConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -482,6 +508,16 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) ExecutionStatus() *string {
 	_jsii_.Get(
 		j,
 		"executionStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) Insights() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"insights",
 		&returns,
 	)
 	return returns
@@ -617,6 +653,17 @@ func NewCfnOnlineEvaluationConfig_Override(c CfnOnlineEvaluationConfig, scope co
 	)
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetClusteringConfig(val interface{}) {
+	if err := j.validateSetClusteringConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"clusteringConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetDataSourceConfig(val interface{}) {
 	if err := j.validateSetDataSourceConfigParameters(val); err != nil {
 		panic(err)
@@ -662,6 +709,17 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetExecutionStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"executionStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetInsights(val interface{}) {
+	if err := j.validateSetInsightsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"insights",
 		val,
 	)
 }

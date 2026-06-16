@@ -83,6 +83,15 @@ package awsdeadline
 //   		StandbyWorkerCount: jsii.Number(123),
 //   		WorkerIdleDurationSeconds: jsii.Number(123),
 //   	},
+//   	PersistentVolumeConfiguration: &PersistentVolumeConfigurationProperty{
+//   		MountPath: jsii.String("mountPath"),
+//
+//   		// the properties below are optional
+//   		Iops: jsii.Number(123),
+//   		LastUsedTtlHours: jsii.Number(123),
+//   		SizeGiB: jsii.Number(123),
+//   		ThroughputMiB: jsii.Number(123),
+//   	},
 //   	StorageProfileId: jsii.String("storageProfileId"),
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		ResourceConfigurationArns: []*string{
@@ -105,6 +114,9 @@ type CfnFleet_ServiceManagedEc2FleetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-autoscalingconfiguration
 	//
 	AutoScalingConfiguration interface{} `field:"optional" json:"autoScalingConfiguration" yaml:"autoScalingConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-persistentvolumeconfiguration
+	//
+	PersistentVolumeConfiguration interface{} `field:"optional" json:"persistentVolumeConfiguration" yaml:"persistentVolumeConfiguration"`
 	// The storage profile ID for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
 	//

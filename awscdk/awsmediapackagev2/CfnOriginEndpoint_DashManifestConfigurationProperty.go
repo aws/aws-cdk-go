@@ -12,6 +12,7 @@ package awsmediapackagev2
 //   	ManifestName: jsii.String("manifestName"),
 //
 //   	// the properties below are optional
+//   	AudioTimelinePattern: jsii.String("audioTimelinePattern"),
 //   	AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
 //   		FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
 //   	},
@@ -93,6 +94,9 @@ type CfnOriginEndpoint_DashManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-manifestname
 	//
 	ManifestName *string `field:"required" json:"manifestName" yaml:"manifestName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-audiotimelinepattern
+	//
+	AudioTimelinePattern *string `field:"optional" json:"audioTimelinePattern" yaml:"audioTimelinePattern"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-availabilitystarttimeconfiguration
 	//
 	AvailabilityStartTimeConfiguration interface{} `field:"optional" json:"availabilityStartTimeConfiguration" yaml:"availabilityStartTimeConfiguration"`

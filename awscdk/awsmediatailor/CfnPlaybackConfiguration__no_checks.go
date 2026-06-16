@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetDashConfigurationParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetFunctionMappingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetHlsConfigurationParameters(val interface{}) error {
 	return nil
 }

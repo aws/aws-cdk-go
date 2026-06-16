@@ -429,6 +429,43 @@ func (j *jsiiProxy_CfnPolicyStoreAlias)SetPolicyStoreId(val *string) {
 	)
 }
 
+func CfnPolicyStoreAlias_ArnForPolicyStoreAlias(resource interfacesawsverifiedpermissions.IPolicyStoreAliasRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnPolicyStoreAlias_ArnForPolicyStoreAliasParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStoreAlias",
+		"arnForPolicyStoreAlias",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IPolicyStoreAliasRef from a aliasName.
+func CfnPolicyStoreAlias_FromAliasName(scope constructs.Construct, id *string, aliasName *string) interfacesawsverifiedpermissions.IPolicyStoreAliasRef {
+	_init_.Initialize()
+
+	if err := validateCfnPolicyStoreAlias_FromAliasNameParameters(scope, id, aliasName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsverifiedpermissions.IPolicyStoreAliasRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_verifiedpermissions.CfnPolicyStoreAlias",
+		"fromAliasName",
+		[]interface{}{scope, id, aliasName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

@@ -70,6 +70,12 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetryConfig: &CapacityProviderTelemetryConfigProperty{
+//   		LoggingConfig: &CapacityProviderLoggingConfigProperty{
+//   			LogGroup: jsii.String("logGroup"),
+//   			SystemLogLevel: jsii.String("systemLogLevel"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html
@@ -137,6 +143,8 @@ type CfnCapacityProvider interface {
 	// A key-value pair that provides metadata for the capacity provider.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	TelemetryConfig() interface{}
+	SetTelemetryConfig(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -511,6 +519,16 @@ func (j *jsiiProxy_CfnCapacityProvider) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCapacityProvider) TelemetryConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"telemetryConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCapacityProvider) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -638,6 +656,17 @@ func (j *jsiiProxy_CfnCapacityProvider)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityProvider)SetTelemetryConfig(val interface{}) {
+	if err := j.validateSetTelemetryConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"telemetryConfig",
 		val,
 	)
 }

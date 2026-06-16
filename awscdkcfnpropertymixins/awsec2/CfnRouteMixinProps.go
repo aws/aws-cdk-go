@@ -20,6 +20,7 @@ package awsec2
 //   	LocalGatewayId: jsii.String("localGatewayId"),
 //   	NatGatewayId: jsii.String("natGatewayId"),
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   	OdbNetworkArn: jsii.String("odbNetworkArn"),
 //   	RouteTableId: jsii.String("routeTableId"),
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),
@@ -81,6 +82,10 @@ type CfnRouteMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid
 	//
 	NetworkInterfaceId *string `field:"optional" json:"networkInterfaceId" yaml:"networkInterfaceId"`
+	// The Amazon Resource Name (ARN) of the ODB network.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-odbnetworkarn
+	//
+	OdbNetworkArn *string `field:"optional" json:"odbNetworkArn" yaml:"odbNetworkArn"`
 	// The ID of the route table for the route.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-routetableid
 	//

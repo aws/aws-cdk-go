@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnStack) validateSetApplicationSettingsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnStack) validateSetContentRedirectionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnStack) validateSetDeleteStorageConnectorsParameters(val interface{}) error {
 	return nil
 }

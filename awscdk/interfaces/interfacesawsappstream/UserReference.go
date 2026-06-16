@@ -9,11 +9,17 @@ package interfacesawsappstream
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   userReference := &UserReference{
-//   	UserId: jsii.String("userId"),
+//   	AuthenticationType: jsii.String("authenticationType"),
+//   	UserArn: jsii.String("userArn"),
+//   	UserName: jsii.String("userName"),
 //   }
 //
 type UserReference struct {
-	// The Id of the User resource.
-	UserId *string `field:"required" json:"userId" yaml:"userId"`
+	// The AuthenticationType of the User resource.
+	AuthenticationType *string `field:"required" json:"authenticationType" yaml:"authenticationType"`
+	// The ARN of the User resource.
+	UserArn *string `field:"required" json:"userArn" yaml:"userArn"`
+	// The UserName of the User resource.
+	UserName *string `field:"required" json:"userName" yaml:"userName"`
 }
 

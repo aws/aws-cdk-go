@@ -84,6 +84,11 @@ import (
 //   		// the properties below are optional
 //   		ControlPlanePlacement: &ControlPlanePlacementProperty{
 //   			GroupName: jsii.String("groupName"),
+//   			SpreadLevel: jsii.String("spreadLevel"),
+//   		},
+//   		EtcdInstanceType: jsii.String("etcdInstanceType"),
+//   		EtcdPlacement: &EtcdPlacementProperty{
+//   			SpreadLevel: jsii.String("spreadLevel"),
 //   		},
 //   	},
 //   	RemoteNetworkConfig: &RemoteNetworkConfigProperty{

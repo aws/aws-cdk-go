@@ -14,19 +14,27 @@ package awsbedrockagentcore
 //   		ApiKeySecretArn: &SecretInfoProperty{
 //   			SecretArn: jsii.String("secretArn"),
 //   		},
+//   		ApiKeySecretJsonKey: jsii.String("apiKeySecretJsonKey"),
+//   		ApiKeySecretSource: jsii.String("apiKeySecretSource"),
 //   		WalletSecretArn: &SecretInfoProperty{
 //   			SecretArn: jsii.String("secretArn"),
 //   		},
+//   		WalletSecretJsonKey: jsii.String("walletSecretJsonKey"),
+//   		WalletSecretSource: jsii.String("walletSecretSource"),
 //   	},
 //   	StripePrivyConfiguration: &StripePrivyConfigurationOutputProperty{
 //   		AppId: jsii.String("appId"),
 //   		AppSecretArn: &SecretInfoProperty{
 //   			SecretArn: jsii.String("secretArn"),
 //   		},
+//   		AppSecretJsonKey: jsii.String("appSecretJsonKey"),
+//   		AppSecretSource: jsii.String("appSecretSource"),
 //   		AuthorizationId: jsii.String("authorizationId"),
 //   		AuthorizationPrivateKeyArn: &SecretInfoProperty{
 //   			SecretArn: jsii.String("secretArn"),
 //   		},
+//   		AuthorizationPrivateKeyJsonKey: jsii.String("authorizationPrivateKeyJsonKey"),
+//   		AuthorizationPrivateKeySource: jsii.String("authorizationPrivateKeySource"),
 //   	},
 //   }
 //

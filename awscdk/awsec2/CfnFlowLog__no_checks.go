@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnFlowLog) validateSetResourceTypeParameters(val *string) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowLog) validateSetTagFieldSpecificationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowLog) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

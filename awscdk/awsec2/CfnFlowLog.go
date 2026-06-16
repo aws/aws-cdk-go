@@ -35,6 +35,14 @@ import (
 //   	LogFormat: jsii.String("logFormat"),
 //   	LogGroupName: jsii.String("logGroupName"),
 //   	MaxAggregationInterval: jsii.Number(123),
+//   	TagFieldSpecifications: []interface{}{
+//   		&TagFieldSpecificationProperty{
+//   			ResourceType: jsii.String("resourceType"),
+//   			TagKeys: []*string{
+//   				jsii.String("tagKeys"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -121,6 +129,9 @@ type CfnFlowLog interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+	TagFieldSpecifications() interface{}
+	SetTagFieldSpecifications(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// The tags to apply to the flow logs.
@@ -510,6 +521,16 @@ func (j *jsiiProxy_CfnFlowLog) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowLog) TagFieldSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagFieldSpecifications",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowLog) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -675,6 +696,17 @@ func (j *jsiiProxy_CfnFlowLog)SetResourceType(val *string) {
 	_jsii_.Set(
 		j,
 		"resourceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowLog)SetTagFieldSpecifications(val interface{}) {
+	if err := j.validateSetTagFieldSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tagFieldSpecifications",
 		val,
 	)
 }

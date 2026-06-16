@@ -212,6 +212,30 @@ func validateCfnOnlineEvaluationConfig_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetClusteringConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnOnlineEvaluationConfig_ClusteringConfigProperty:
+		val := val.(*CfnOnlineEvaluationConfig_ClusteringConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnOnlineEvaluationConfig_ClusteringConfigProperty:
+		val_ := val.(CfnOnlineEvaluationConfig_ClusteringConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOnlineEvaluationConfig_ClusteringConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetDataSourceConfigParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -248,9 +272,6 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetEvaluationExecutionRole
 }
 
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetEvaluatorsParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -298,6 +319,66 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetEvaluatorsParameters(va
 			default:
 				if !_jsii_.IsAnonymousProxy(v) {
 					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnOnlineEvaluationConfig_EvaluatorReferenceProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetInsightsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnOnlineEvaluationConfig_InsightProperty:
+				v := v.(*CfnOnlineEvaluationConfig_InsightProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnOnlineEvaluationConfig_InsightProperty:
+				v_ := v.(CfnOnlineEvaluationConfig_InsightProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnOnlineEvaluationConfig_InsightProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnOnlineEvaluationConfig_InsightProperty:
+				v := v.(*CfnOnlineEvaluationConfig_InsightProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnOnlineEvaluationConfig_InsightProperty:
+				v_ := v.(CfnOnlineEvaluationConfig_InsightProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnOnlineEvaluationConfig_InsightProperty; received %#v (a %T)", idx_97dfc6, v, v)
 				}
 			}
 		}

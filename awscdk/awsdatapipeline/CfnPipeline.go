@@ -660,17 +660,17 @@ func CfnPipeline_ArnForPipeline(resource interfacesawsdatapipeline.IPipelineRef)
 }
 
 // Creates a new IPipelineRef from a pipelineId.
-func CfnPipeline_FromPipelineID(scope constructs.Construct, id *string, pipelineId *string) interfacesawsdatapipeline.IPipelineRef {
+func CfnPipeline_FromPipelineId(scope constructs.Construct, id *string, pipelineId *string) interfacesawsdatapipeline.IPipelineRef {
 	_init_.Initialize()
 
-	if err := validateCfnPipeline_FromPipelineIDParameters(scope, id, pipelineId); err != nil {
+	if err := validateCfnPipeline_FromPipelineIdParameters(scope, id, pipelineId); err != nil {
 		panic(err)
 	}
 	var returns interfacesawsdatapipeline.IPipelineRef
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_datapipeline.CfnPipeline",
-		"fromPipelineID",
+		"fromPipelineId",
 		[]interface{}{scope, id, pipelineId},
 		&returns,
 	)

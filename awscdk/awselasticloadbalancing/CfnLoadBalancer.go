@@ -137,6 +137,7 @@ type CfnLoadBalancer interface {
 	// The DNS name for the load balancer.
 	AttrDnsName() *string
 	AttrId() *string
+	AttrSourceSecurityGroup() awscdk.IResolvable
 	// The name of the security group that you can use as part of your inbound rules for your load balancer's back-end instances.
 	AttrSourceSecurityGroupGroupName() *string
 	// The owner of the source security group.
@@ -441,6 +442,16 @@ func (j *jsiiProxy_CfnLoadBalancer) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLoadBalancer) AttrSourceSecurityGroup() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrSourceSecurityGroup",
 		&returns,
 	)
 	return returns

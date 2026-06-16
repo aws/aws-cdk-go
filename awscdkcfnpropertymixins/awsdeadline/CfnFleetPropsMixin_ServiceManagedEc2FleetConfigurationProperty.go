@@ -67,6 +67,13 @@ package awsdeadline
 //   	InstanceMarketOptions: &ServiceManagedEc2InstanceMarketOptionsProperty{
 //   		Type: jsii.String("type"),
 //   	},
+//   	PersistentVolumeConfiguration: &PersistentVolumeConfigurationProperty{
+//   		Iops: jsii.Number(123),
+//   		LastUsedTtlHours: jsii.Number(123),
+//   		MountPath: jsii.String("mountPath"),
+//   		SizeGiB: jsii.Number(123),
+//   		ThroughputMiB: jsii.Number(123),
+//   	},
 //   	StorageProfileId: jsii.String("storageProfileId"),
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		ResourceConfigurationArns: []*string{
@@ -89,6 +96,9 @@ type CfnFleetPropsMixin_ServiceManagedEc2FleetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancemarketoptions
 	//
 	InstanceMarketOptions interface{} `field:"optional" json:"instanceMarketOptions" yaml:"instanceMarketOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-persistentvolumeconfiguration
+	//
+	PersistentVolumeConfiguration interface{} `field:"optional" json:"persistentVolumeConfiguration" yaml:"persistentVolumeConfiguration"`
 	// The storage profile ID for the service managed EC2 fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
 	//

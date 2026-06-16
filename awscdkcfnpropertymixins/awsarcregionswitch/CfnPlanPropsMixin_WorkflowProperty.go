@@ -30,6 +30,28 @@ package awsarcregionswitch
 //   					},
 //   					TimeoutMinutes: jsii.Number(123),
 //   				},
+//   				AuroraProvisionedScalingConfig: &AuroraProvisionedScalingConfigurationProperty{
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					ExternalId: jsii.String("externalId"),
+//   					GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   					InstanceArns: map[string]*string{
+//   						"instanceArnsKey": jsii.String("instanceArns"),
+//   					},
+//   					RegionDatabaseClusterArns: map[string]*string{
+//   						"regionDatabaseClusterArnsKey": jsii.String("regionDatabaseClusterArns"),
+//   					},
+//   					TimeoutMinutes: jsii.Number(123),
+//   				},
+//   				AuroraServerlessScalingConfig: &AuroraServerlessScalingConfigurationProperty{
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					ExternalId: jsii.String("externalId"),
+//   					GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   					RegionDatabaseClusterArns: map[string]*string{
+//   						"regionDatabaseClusterArnsKey": jsii.String("regionDatabaseClusterArns"),
+//   					},
+//   					TargetPercent: jsii.Number(123),
+//   					TimeoutMinutes: jsii.Number(123),
+//   				},
 //   				CustomActionLambdaConfig: &CustomActionLambdaConfigurationProperty{
 //   					Lambdas: []interface{}{
 //   						&LambdasProperty{
@@ -148,6 +170,19 @@ package awsarcregionswitch
 //   					TimeoutMinutes: jsii.Number(123),
 //   					Ungraceful: &LambdaEventSourceMappingUngracefulProperty{
 //   						Behavior: jsii.String("behavior"),
+//   					},
+//   				},
+//   				NeptuneGlobalDatabaseConfig: &NeptuneGlobalDatabaseConfigurationProperty{
+//   					Behavior: jsii.String("behavior"),
+//   					CrossAccountRole: jsii.String("crossAccountRole"),
+//   					ExternalId: jsii.String("externalId"),
+//   					GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   					RegionDatabaseClusterArns: map[string]*string{
+//   						"regionDatabaseClusterArnsKey": jsii.String("regionDatabaseClusterArns"),
+//   					},
+//   					TimeoutMinutes: jsii.Number(123),
+//   					Ungraceful: &NeptuneUngracefulProperty{
+//   						Ungraceful: jsii.String("ungraceful"),
 //   					},
 //   				},
 //   				ParallelConfig: &ParallelExecutionBlockConfigurationProperty{

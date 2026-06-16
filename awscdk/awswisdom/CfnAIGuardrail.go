@@ -110,6 +110,7 @@ type CfnAIGuardrail interface {
 	AttrAiGuardrailId() *string
 	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AttrAssistantArn() *string
+	AttrModifiedTimeSeconds() awscdk.IResolvable
 	// The message to return when the AI Guardrail blocks a prompt.
 	BlockedInputMessaging() *string
 	SetBlockedInputMessaging(val *string)
@@ -380,6 +381,16 @@ func (j *jsiiProxy_CfnAIGuardrail) AttrAssistantArn() *string {
 	_jsii_.Get(
 		j,
 		"attrAssistantArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAIGuardrail) AttrModifiedTimeSeconds() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrModifiedTimeSeconds",
 		&returns,
 	)
 	return returns

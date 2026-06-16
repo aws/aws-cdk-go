@@ -30,6 +30,7 @@ import (
 //   		MinSearchCapacityInOcu: jsii.Number(123),
 //   	},
 //   	Description: jsii.String("description"),
+//   	Generation: jsii.String("generation"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -69,6 +70,9 @@ type CfnCollectionGroup interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The generation of Amazon OpenSearch Serverless for the collection group.
+	Generation() *string
+	SetGeneration(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -380,6 +384,16 @@ func (j *jsiiProxy_CfnCollectionGroup) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollectionGroup) Generation() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"generation",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollectionGroup) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -515,6 +529,14 @@ func (j *jsiiProxy_CfnCollectionGroup)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollectionGroup)SetGeneration(val *string) {
+	_jsii_.Set(
+		j,
+		"generation",
 		val,
 	)
 }

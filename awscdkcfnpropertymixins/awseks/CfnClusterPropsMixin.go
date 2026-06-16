@@ -84,6 +84,11 @@ import (
 //   		ControlPlaneInstanceType: jsii.String("controlPlaneInstanceType"),
 //   		ControlPlanePlacement: &ControlPlanePlacementProperty{
 //   			GroupName: jsii.String("groupName"),
+//   			SpreadLevel: jsii.String("spreadLevel"),
+//   		},
+//   		EtcdInstanceType: jsii.String("etcdInstanceType"),
+//   		EtcdPlacement: &EtcdPlacementProperty{
+//   			SpreadLevel: jsii.String("spreadLevel"),
 //   		},
 //   		OutpostArns: []*string{
 //   			jsii.String("outpostArns"),

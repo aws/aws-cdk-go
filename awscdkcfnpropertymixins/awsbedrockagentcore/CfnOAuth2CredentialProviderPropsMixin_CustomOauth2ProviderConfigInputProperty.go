@@ -9,8 +9,14 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   customOauth2ProviderConfigInputProperty := &CustomOauth2ProviderConfigInputProperty{
+//   	ClientAuthenticationMethod: jsii.String("clientAuthenticationMethod"),
 //   	ClientId: jsii.String("clientId"),
 //   	ClientSecret: jsii.String("clientSecret"),
+//   	ClientSecretConfig: &SecretReferenceProperty{
+//   		JsonKey: jsii.String("jsonKey"),
+//   		SecretId: jsii.String("secretId"),
+//   	},
+//   	ClientSecretSource: jsii.String("clientSecretSource"),
 //   	OauthDiscovery: &Oauth2DiscoveryProperty{
 //   		AuthorizationServerMetadata: &Oauth2AuthorizationServerMetadataProperty{
 //   			AuthorizationEndpoint: jsii.String("authorizationEndpoint"),
@@ -36,6 +42,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html
 //
 type CfnOAuth2CredentialProviderPropsMixin_CustomOauth2ProviderConfigInputProperty struct {
+	// The client authentication method to use when authenticating with the token endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-clientauthenticationmethod
+	//
+	ClientAuthenticationMethod *string `field:"optional" json:"clientAuthenticationMethod" yaml:"clientAuthenticationMethod"`
 	// The client ID for the custom OAuth2 provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-clientid
 	//
@@ -44,6 +54,14 @@ type CfnOAuth2CredentialProviderPropsMixin_CustomOauth2ProviderConfigInputProper
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-clientsecret
 	//
 	ClientSecret *string `field:"optional" json:"clientSecret" yaml:"clientSecret"`
+	// A reference to a customer-provided secret stored in AWS Secrets Manager.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-clientsecretconfig
+	//
+	ClientSecretConfig interface{} `field:"optional" json:"clientSecretConfig" yaml:"clientSecretConfig"`
+	// The source of the client secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-clientsecretsource
+	//
+	ClientSecretSource *string `field:"optional" json:"clientSecretSource" yaml:"clientSecretSource"`
 	// Discovery information for an OAuth2 provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-oauthdiscovery
 	//

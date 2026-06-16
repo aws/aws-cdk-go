@@ -23,6 +23,7 @@ import (
 //   		MinSearchCapacityInOcu: jsii.Number(123),
 //   	},
 //   	Description: jsii.String("description"),
+//   	Generation: jsii.String("generation"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -49,6 +50,12 @@ type CfnCollectionGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collectiongroup.html#cfn-opensearchserverless-collectiongroup-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The generation of Amazon OpenSearch Serverless for the collection group.
+	//
+	// Valid values are CLASSIC and NEXTGEN.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collectiongroup.html#cfn-opensearchserverless-collectiongroup-generation
+	//
+	Generation *string `field:"optional" json:"generation" yaml:"generation"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collectiongroup.html#cfn-opensearchserverless-collectiongroup-tags
 	//

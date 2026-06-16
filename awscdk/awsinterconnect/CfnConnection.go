@@ -117,7 +117,9 @@ type CfnConnection interface {
 	RemoteAccount() interface{}
 	SetRemoteAccount(val interface{})
 	// Deprecated.
+	// Deprecated: this property has been deprecated.
 	RemoteOwnerAccount() *string
+	// Deprecated: this property has been deprecated.
 	SetRemoteOwnerAccount(val *string)
 	// The stack in which this element is defined.
 	//

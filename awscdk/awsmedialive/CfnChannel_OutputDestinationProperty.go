@@ -15,6 +15,12 @@ package awsmedialive
 //   	LogicalInterfaceNames: []*string{
 //   		jsii.String("logicalInterfaceNames"),
 //   	},
+//   	MediaConnectRouterSettings: []interface{}{
+//   		&MediaConnectRouterOutputDestinationSettingsProperty{
+//   			EncryptionType: jsii.String("encryptionType"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   	},
 //   	MediaPackageSettings: []interface{}{
 //   		&MediaPackageOutputDestinationSettingsProperty{
 //   			ChannelEndpointId: jsii.String("channelEndpointId"),
@@ -57,6 +63,9 @@ type CfnChannel_OutputDestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-logicalinterfacenames
 	//
 	LogicalInterfaceNames *[]*string `field:"optional" json:"logicalInterfaceNames" yaml:"logicalInterfaceNames"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediaconnectroutersettings
+	//
+	MediaConnectRouterSettings interface{} `field:"optional" json:"mediaConnectRouterSettings" yaml:"mediaConnectRouterSettings"`
 	// The destination settings for a MediaPackage output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediapackagesettings
 	//

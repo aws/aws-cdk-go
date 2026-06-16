@@ -44,6 +44,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_DestinationLogsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationCentralizationRulePropsMixin.DestinationMetricsConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_DestinationMetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationCentralizationRulePropsMixin.LogGroupNameConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_LogGroupNameConfigurationProperty)(nil)).Elem(),
 	)
@@ -56,8 +60,16 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_LogsEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationCentralizationRulePropsMixin.MetricsBackupConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_MetricsBackupConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationCentralizationRulePropsMixin.SourceLogsConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_SourceLogsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationCentralizationRulePropsMixin.SourceMetricsConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_SourceMetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationTelemetryRuleMixinProps",

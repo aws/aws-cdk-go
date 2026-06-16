@@ -22,6 +22,11 @@ import (
 //
 //   cfnApiKeyCredentialProviderPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnApiKeyCredentialProviderPropsMixin(&CfnApiKeyCredentialProviderMixinProps{
 //   	ApiKey: jsii.String("apiKey"),
+//   	ApiKeySecretConfig: &SecretReferenceProperty{
+//   		JsonKey: jsii.String("jsonKey"),
+//   		SecretId: jsii.String("secretId"),
+//   	},
+//   	ApiKeySecretSource: jsii.String("apiKeySecretSource"),
 //   	Name: jsii.String("name"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

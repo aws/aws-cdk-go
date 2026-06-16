@@ -200,6 +200,34 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmMixinProps",
+		reflect.TypeOf((*CfnLogAlarmMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmPropsMixin",
+		reflect.TypeOf((*CfnLogAlarmPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnLogAlarmPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmPropsMixin.ScheduleConfigurationProperty",
+		reflect.TypeOf((*CfnLogAlarmPropsMixin_ScheduleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmPropsMixin.ScheduledQueryConfigurationProperty",
+		reflect.TypeOf((*CfnLogAlarmPropsMixin_ScheduledQueryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnMetricStreamMixinProps",
 		reflect.TypeOf((*CfnMetricStreamMixinProps)(nil)).Elem(),
 	)

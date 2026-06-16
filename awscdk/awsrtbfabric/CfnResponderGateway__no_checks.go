@@ -96,6 +96,10 @@ func validateCfnResponderGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnResponderGateway) validateSetListenerConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResponderGateway) validateSetManagedEndpointConfigurationParameters(val interface{}) error {
 	return nil
 }

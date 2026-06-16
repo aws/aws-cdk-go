@@ -23,11 +23,6 @@ import (
 //   		},
 //   	},
 //   	EvaluationExecutionRoleArn: jsii.String("evaluationExecutionRoleArn"),
-//   	Evaluators: []interface{}{
-//   		&EvaluatorReferenceProperty{
-//   			EvaluatorId: jsii.String("evaluatorId"),
-//   		},
-//   	},
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
 //   	Rule: &RuleProperty{
 //   		SamplingConfig: &SamplingConfigProperty{
@@ -52,8 +47,23 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	ClusteringConfig: &ClusteringConfigProperty{
+//   		Frequencies: []*string{
+//   			jsii.String("frequencies"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
+//   	Evaluators: []interface{}{
+//   		&EvaluatorReferenceProperty{
+//   			EvaluatorId: jsii.String("evaluatorId"),
+//   		},
+//   	},
 //   	ExecutionStatus: jsii.String("executionStatus"),
+//   	Insights: []interface{}{
+//   		&InsightProperty{
+//   			InsightId: jsii.String("insightId"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -73,10 +83,6 @@ type CfnOnlineEvaluationConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-evaluationexecutionrolearn
 	//
 	EvaluationExecutionRoleArn *string `field:"required" json:"evaluationExecutionRoleArn" yaml:"evaluationExecutionRoleArn"`
-	// The list of evaluators to apply during online evaluation.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-evaluators
-	//
-	Evaluators interface{} `field:"required" json:"evaluators" yaml:"evaluators"`
 	// The name of the online evaluation configuration.
 	//
 	// Must be unique within your account.
@@ -87,13 +93,25 @@ type CfnOnlineEvaluationConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-rule
 	//
 	Rule interface{} `field:"required" json:"rule" yaml:"rule"`
+	// The configuration for clustering analysis of evaluation results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-clusteringconfig
+	//
+	ClusteringConfig interface{} `field:"optional" json:"clusteringConfig" yaml:"clusteringConfig"`
 	// The description of the online evaluation configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The list of evaluators to apply during online evaluation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-evaluators
+	//
+	Evaluators interface{} `field:"optional" json:"evaluators" yaml:"evaluators"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-executionstatus
 	//
 	ExecutionStatus *string `field:"optional" json:"executionStatus" yaml:"executionStatus"`
+	// The list of insights to enable for failure analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-insights
+	//
+	Insights interface{} `field:"optional" json:"insights" yaml:"insights"`
 	// A list of tags to assign to the online evaluation configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-tags
 	//

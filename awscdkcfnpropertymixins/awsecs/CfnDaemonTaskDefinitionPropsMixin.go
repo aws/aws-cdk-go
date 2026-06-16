@@ -160,7 +160,9 @@ import (
 //   	Cpu: jsii.String("cpu"),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Family: jsii.String("family"),
+//   	IpcMode: jsii.String("ipcMode"),
 //   	Memory: jsii.String("memory"),
+//   	PidMode: jsii.String("pidMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

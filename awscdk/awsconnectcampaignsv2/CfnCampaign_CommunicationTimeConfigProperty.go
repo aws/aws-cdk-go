@@ -14,6 +14,7 @@ package awsconnectcampaignsv2
 //   		LocalTimeZoneDetection: []*string{
 //   			jsii.String("localTimeZoneDetection"),
 //   		},
+//   		LocalTimeZoneDetectionScope: jsii.String("localTimeZoneDetectionScope"),
 //   	},
 //
 //   	// the properties below are optional

@@ -92,6 +92,10 @@ func validateCfnApiKeyCredentialProvider_IsConstructParameters(x interface{}) er
 	return nil
 }
 
+func (j *jsiiProxy_CfnApiKeyCredentialProvider) validateSetApiKeySecretConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApiKeyCredentialProvider) validateSetNameParameters(val *string) error {
 	return nil
 }

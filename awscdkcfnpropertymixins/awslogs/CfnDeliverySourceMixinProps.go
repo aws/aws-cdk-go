@@ -12,6 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnDeliverySourceMixinProps := &CfnDeliverySourceMixinProps{
+//   	DeliverySourceConfiguration: map[string]*string{
+//   		"deliverySourceConfigurationKey": jsii.String("deliverySourceConfiguration"),
+//   	},
 //   	LogType: jsii.String("logType"),
 //   	Name: jsii.String("name"),
 //   	ResourceArn: jsii.String("resourceArn"),
@@ -26,6 +29,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html
 //
 type CfnDeliverySourceMixinProps struct {
+	// A map of key-value pairs to configure the delivery source.
+	//
+	// Both keys and values must be between 1 and 255 characters in length.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html#cfn-logs-deliverysource-deliverysourceconfiguration
+	//
+	DeliverySourceConfiguration interface{} `field:"optional" json:"deliverySourceConfiguration" yaml:"deliverySourceConfiguration"`
 	// The type of log that the source is sending.
 	//
 	// For valid values for this parameter, see the documentation for the source service.

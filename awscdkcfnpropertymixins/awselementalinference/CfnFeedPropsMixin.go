@@ -32,6 +32,15 @@ import (
 //   					CallbackMetadata: jsii.String("callbackMetadata"),
 //   				},
 //   				Cropping: cropping,
+//   				Subtitling: &SubtitlingConfigProperty{
+//   					AspectRatio: &AspectRatioProperty{
+//   						Height: jsii.Number(123),
+//   						Width: jsii.Number(123),
+//   					},
+//   					Dictionary: jsii.String("dictionary"),
+//   					Language: jsii.String("language"),
+//   					ProfanityFilter: jsii.String("profanityFilter"),
+//   				},
 //   			},
 //   			Status: jsii.String("status"),
 //   		},

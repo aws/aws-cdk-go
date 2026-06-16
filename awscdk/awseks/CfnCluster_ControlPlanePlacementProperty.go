@@ -12,6 +12,7 @@ package awseks
 //
 //   controlPlanePlacementProperty := &ControlPlanePlacementProperty{
 //   	GroupName: jsii.String("groupName"),
+//   	SpreadLevel: jsii.String("spreadLevel"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html
@@ -23,5 +24,11 @@ type CfnCluster_ControlPlanePlacementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html#cfn-eks-cluster-controlplaneplacement-groupname
 	//
 	GroupName *string `field:"optional" json:"groupName" yaml:"groupName"`
+	// Optional parameter to specify the placement group spread level for control plane instances.
+	//
+	// If not provided, EKS will deploy control plane instances without a placement group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html#cfn-eks-cluster-controlplaneplacement-spreadlevel
+	//
+	SpreadLevel *string `field:"optional" json:"spreadLevel" yaml:"spreadLevel"`
 }
 

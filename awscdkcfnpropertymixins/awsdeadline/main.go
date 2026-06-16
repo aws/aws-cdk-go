@@ -104,6 +104,10 @@ func init() {
 		reflect.TypeOf((*CfnFleetPropsMixin_MemoryMiBRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.PersistentVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnFleetPropsMixin_PersistentVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.ServiceManagedEc2AutoScalingConfigurationProperty",
 		reflect.TypeOf((*CfnFleetPropsMixin_ServiceManagedEc2AutoScalingConfigurationProperty)(nil)).Elem(),
 	)

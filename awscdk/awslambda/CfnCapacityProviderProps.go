@@ -63,6 +63,12 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TelemetryConfig: &CapacityProviderTelemetryConfigProperty{
+//   		LoggingConfig: &CapacityProviderLoggingConfigProperty{
+//   			LogGroup: jsii.String("logGroup"),
+//   			SystemLogLevel: jsii.String("systemLogLevel"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html
@@ -98,5 +104,8 @@ type CfnCapacityProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-telemetryconfig
+	//
+	TelemetryConfig interface{} `field:"optional" json:"telemetryConfig" yaml:"telemetryConfig"`
 }
 

@@ -116,6 +116,13 @@ package awsdeadline
 //   		InstanceMarketOptions: &ServiceManagedEc2InstanceMarketOptionsProperty{
 //   			Type: jsii.String("type"),
 //   		},
+//   		PersistentVolumeConfiguration: &PersistentVolumeConfigurationProperty{
+//   			Iops: jsii.Number(123),
+//   			LastUsedTtlHours: jsii.Number(123),
+//   			MountPath: jsii.String("mountPath"),
+//   			SizeGiB: jsii.Number(123),
+//   			ThroughputMiB: jsii.Number(123),
+//   		},
 //   		StorageProfileId: jsii.String("storageProfileId"),
 //   		VpcConfiguration: &VpcConfigurationProperty{
 //   			ResourceConfigurationArns: []*string{

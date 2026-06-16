@@ -21,6 +21,11 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnOnlineEvaluationConfigPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnOnlineEvaluationConfigPropsMixin(&CfnOnlineEvaluationConfigMixinProps{
+//   	ClusteringConfig: &ClusteringConfigProperty{
+//   		Frequencies: []*string{
+//   			jsii.String("frequencies"),
+//   		},
+//   	},
 //   	DataSourceConfig: &DataSourceConfigProperty{
 //   		CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
 //   			LogGroupNames: []*string{
@@ -39,6 +44,11 @@ import (
 //   		},
 //   	},
 //   	ExecutionStatus: jsii.String("executionStatus"),
+//   	Insights: []interface{}{
+//   		&InsightProperty{
+//   			InsightId: jsii.String("insightId"),
+//   		},
+//   	},
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
 //   	Rule: &RuleProperty{
 //   		Filters: []interface{}{

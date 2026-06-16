@@ -37,6 +37,7 @@ import (
 //   	LocalGatewayId: jsii.String("localGatewayId"),
 //   	NatGatewayId: jsii.String("natGatewayId"),
 //   	NetworkInterfaceId: jsii.String("networkInterfaceId"),
+//   	OdbNetworkArn: jsii.String("odbNetworkArn"),
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	VpcEndpointId: jsii.String("vpcEndpointId"),
 //   	VpcPeeringConnectionId: jsii.String("vpcPeeringConnectionId"),
@@ -106,6 +107,9 @@ type CfnRoute interface {
 	SetNetworkInterfaceId(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The Amazon Resource Name (ARN) of the ODB network.
+	OdbNetworkArn() *string
+	SetOdbNetworkArn(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -489,6 +493,16 @@ func (j *jsiiProxy_CfnRoute) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRoute) OdbNetworkArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"odbNetworkArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRoute) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -693,6 +707,14 @@ func (j *jsiiProxy_CfnRoute)SetNetworkInterfaceId(val *string) {
 	_jsii_.Set(
 		j,
 		"networkInterfaceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRoute)SetOdbNetworkArn(val *string) {
+	_jsii_.Set(
+		j,
+		"odbNetworkArn",
 		val,
 	)
 }

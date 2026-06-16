@@ -96,6 +96,10 @@ func validateCfnOnlineEvaluationConfig_IsConstructParameters(x interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetClusteringConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetDataSourceConfigParameters(val interface{}) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetEvaluationExecutionRole
 }
 
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetEvaluatorsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetInsightsParameters(val interface{}) error {
 	return nil
 }
 

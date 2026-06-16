@@ -16,6 +16,7 @@ package awsbedrockagentcore
 //   			Uri: jsii.String("uri"),
 //   		},
 //   	},
+//   	ResourcePriority: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html
@@ -30,5 +31,8 @@ type CfnGatewayTargetPropsMixin_McpServerTargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration-mcptoolschema
 	//
 	McpToolSchema interface{} `field:"optional" json:"mcpToolSchema" yaml:"mcpToolSchema"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration-resourcepriority
+	//
+	ResourcePriority *float64 `field:"optional" json:"resourcePriority" yaml:"resourcePriority"`
 }
 

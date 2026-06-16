@@ -26,6 +26,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html
@@ -60,6 +61,8 @@ type CfnPolicyTemplate interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	Name() *string
+	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The unique identifier of the policy store that contains the template.
@@ -329,6 +332,16 @@ func (j *jsiiProxy_CfnPolicyTemplate) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicyTemplate) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicyTemplate) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -443,6 +456,14 @@ func (j *jsiiProxy_CfnPolicyTemplate)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicyTemplate)SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
 		val,
 	)
 }

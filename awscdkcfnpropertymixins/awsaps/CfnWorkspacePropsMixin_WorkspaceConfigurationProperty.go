@@ -22,7 +22,9 @@ package awsaps
 //   			},
 //   		},
 //   	},
+//   	OutOfOrderTimeWindowInSeconds: jsii.Number(123),
 //   	RetentionPeriodInDays: jsii.Number(123),
+//   	RuleQueryOffsetInSeconds: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html
@@ -34,9 +36,17 @@ type CfnWorkspacePropsMixin_WorkspaceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html#cfn-aps-workspace-workspaceconfiguration-limitsperlabelsets
 	//
 	LimitsPerLabelSets interface{} `field:"optional" json:"limitsPerLabelSets" yaml:"limitsPerLabelSets"`
+	// The time window in seconds for accepting out-of-order samples.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html#cfn-aps-workspace-workspaceconfiguration-outofordertimewindowinseconds
+	//
+	OutOfOrderTimeWindowInSeconds *float64 `field:"optional" json:"outOfOrderTimeWindowInSeconds" yaml:"outOfOrderTimeWindowInSeconds"`
 	// Specifies how many days that metrics will be retained in the workspace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html#cfn-aps-workspace-workspaceconfiguration-retentionperiodindays
 	//
 	RetentionPeriodInDays *float64 `field:"optional" json:"retentionPeriodInDays" yaml:"retentionPeriodInDays"`
+	// Duration in seconds to offset rule evaluation queries into the past.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html#cfn-aps-workspace-workspaceconfiguration-rulequeryoffsetinseconds
+	//
+	RuleQueryOffsetInSeconds *float64 `field:"optional" json:"ruleQueryOffsetInSeconds" yaml:"ruleQueryOffsetInSeconds"`
 }
 

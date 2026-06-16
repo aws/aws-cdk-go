@@ -14,6 +14,11 @@ package awseks
 //   	ControlPlaneInstanceType: jsii.String("controlPlaneInstanceType"),
 //   	ControlPlanePlacement: &ControlPlanePlacementProperty{
 //   		GroupName: jsii.String("groupName"),
+//   		SpreadLevel: jsii.String("spreadLevel"),
+//   	},
+//   	EtcdInstanceType: jsii.String("etcdInstanceType"),
+//   	EtcdPlacement: &EtcdPlacementProperty{
+//   		SpreadLevel: jsii.String("spreadLevel"),
 //   	},
 //   	OutpostArns: []*string{
 //   		jsii.String("outpostArns"),
@@ -37,6 +42,16 @@ type CfnClusterPropsMixin_OutpostConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-controlplaneplacement
 	//
 	ControlPlanePlacement interface{} `field:"optional" json:"controlPlanePlacement" yaml:"controlPlanePlacement"`
+	// The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+	//
+	// This instance type applies to all etcd instances and cannot be changed after cluster creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-etcdinstancetype
+	//
+	EtcdInstanceType *string `field:"optional" json:"etcdInstanceType" yaml:"etcdInstanceType"`
+	// The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html#cfn-eks-cluster-outpostconfig-etcdplacement
+	//
+	EtcdPlacement interface{} `field:"optional" json:"etcdPlacement" yaml:"etcdPlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts.
 	//
 	// Only a single Outpost ARN is supported.

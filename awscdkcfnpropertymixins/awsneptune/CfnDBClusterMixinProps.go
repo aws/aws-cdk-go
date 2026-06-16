@@ -33,8 +33,10 @@ import (
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
+//   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	IamAuthEnabled: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	NetworkType: jsii.String("networkType"),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	RestoreToTime: jsii.String("restoreToTime"),
@@ -132,6 +134,10 @@ type CfnDBClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-engineversion
 	//
 	EngineVersion *string `field:"optional" json:"engineVersion" yaml:"engineVersion"`
+	// The ID of the Neptune global database to which this new DB cluster should be added.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-globalclusteridentifier
+	//
+	GlobalClusterIdentifier *string `field:"optional" json:"globalClusterIdentifier" yaml:"globalClusterIdentifier"`
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled
 	//
@@ -142,6 +148,10 @@ type CfnDBClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-kmskeyid
 	//
 	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// The network type of the DB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-networktype
+	//
+	NetworkType *string `field:"optional" json:"networkType" yaml:"networkType"`
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .
 	//
 	// An update may require some interruption.

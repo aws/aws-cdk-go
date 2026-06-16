@@ -139,9 +139,13 @@ type CfnAlarmMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluatelowsamplecountpercentile
 	//
 	EvaluateLowSampleCountPercentile *string `field:"optional" json:"evaluateLowSampleCountPercentile" yaml:"evaluateLowSampleCountPercentile"`
+	// The evaluation criteria for an alarm.
+	//
+	// This is a union type that currently supports ``PromQLCriteria``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationcriteria
 	//
 	EvaluationCriteria interface{} `field:"optional" json:"evaluationCriteria" yaml:"evaluationCriteria"`
+	// The frequency, in seconds, at which the alarm is evaluated.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationinterval
 	//
 	EvaluationInterval *float64 `field:"optional" json:"evaluationInterval" yaml:"evaluationInterval"`

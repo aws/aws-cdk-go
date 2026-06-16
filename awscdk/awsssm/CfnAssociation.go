@@ -27,6 +27,7 @@ import (
 //
 //   	// the properties below are optional
 //   	ApplyOnlyAtCronInterval: jsii.Boolean(false),
+//   	AssociationDispatchAssumeRole: jsii.String("associationDispatchAssumeRole"),
 //   	AssociationName: jsii.String("associationName"),
 //   	AutomationTargetParameterName: jsii.String("automationTargetParameterName"),
 //   	CalendarNames: []*string{
@@ -48,6 +49,12 @@ import (
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	ScheduleOffset: jsii.Number(123),
 //   	SyncCompliance: jsii.String("syncCompliance"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Targets: []interface{}{
 //   		&TargetProperty{
 //   			Key: jsii.String("key"),
@@ -65,9 +72,13 @@ type CfnAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsssm.IAssociationRef
+	awscdk.ITaggableV2
 	// By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified.
 	ApplyOnlyAtCronInterval() interface{}
 	SetApplyOnlyAtCronInterval(val interface{})
+	// A role used by association to take actions on your behalf.
+	AssociationDispatchAssumeRole() *string
+	SetAssociationDispatchAssumeRole(val *string)
 	// Specify a descriptive name for the association.
 	AssociationName() *string
 	SetAssociationName(val *string)
@@ -81,6 +92,8 @@ type CfnAssociation interface {
 	// The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under.
 	CalendarNames() *[]*string
 	SetCalendarNames(val *[]*string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -146,6 +159,9 @@ type CfnAssociation interface {
 	// The mode for generating association compliance.
 	SyncCompliance() *string
 	SetSyncCompliance(val *string)
+	// A key-value pair to associate with a resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The targets for the association.
 	Targets() interface{}
 	SetTargets(val interface{})
@@ -310,6 +326,7 @@ type jsiiProxy_CfnAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsssmIAssociationRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnAssociation) ApplyOnlyAtCronInterval() interface{} {
@@ -317,6 +334,16 @@ func (j *jsiiProxy_CfnAssociation) ApplyOnlyAtCronInterval() interface{} {
 	_jsii_.Get(
 		j,
 		"applyOnlyAtCronInterval",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssociation) AssociationDispatchAssumeRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"associationDispatchAssumeRole",
 		&returns,
 	)
 	return returns
@@ -367,6 +394,16 @@ func (j *jsiiProxy_CfnAssociation) CalendarNames() *[]*string {
 	_jsii_.Get(
 		j,
 		"calendarNames",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAssociation) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -582,6 +619,16 @@ func (j *jsiiProxy_CfnAssociation) SyncCompliance() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssociation) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssociation) Targets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -659,6 +706,14 @@ func (j *jsiiProxy_CfnAssociation)SetApplyOnlyAtCronInterval(val interface{}) {
 	_jsii_.Set(
 		j,
 		"applyOnlyAtCronInterval",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssociation)SetAssociationDispatchAssumeRole(val *string) {
+	_jsii_.Set(
+		j,
+		"associationDispatchAssumeRole",
 		val,
 	)
 }
@@ -780,6 +835,17 @@ func (j *jsiiProxy_CfnAssociation)SetSyncCompliance(val *string) {
 	_jsii_.Set(
 		j,
 		"syncCompliance",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssociation)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

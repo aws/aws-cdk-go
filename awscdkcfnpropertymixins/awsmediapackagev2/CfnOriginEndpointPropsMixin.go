@@ -26,6 +26,7 @@ import (
 //   	ContainerType: jsii.String("containerType"),
 //   	DashManifests: []interface{}{
 //   		&DashManifestConfigurationProperty{
+//   			AudioTimelinePattern: jsii.String("audioTimelinePattern"),
 //   			AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
 //   				FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
 //   			},

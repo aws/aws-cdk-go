@@ -38,6 +38,11 @@ import (
 //   					KmsKeyArn: jsii.String("kmsKeyArn"),
 //   				},
 //   			},
+//   			DestinationMetricsConfiguration: &DestinationMetricsConfigurationProperty{
+//   				BackupConfiguration: &MetricsBackupConfigurationProperty{
+//   					Region: jsii.String("region"),
+//   				},
+//   			},
 //   			Region: jsii.String("region"),
 //   		},
 //   		Source: &CentralizationRuleSourceProperty{
@@ -49,6 +54,9 @@ import (
 //   				DataSourceSelectionCriteria: jsii.String("dataSourceSelectionCriteria"),
 //   				EncryptedLogGroupStrategy: jsii.String("encryptedLogGroupStrategy"),
 //   				LogGroupSelectionCriteria: jsii.String("logGroupSelectionCriteria"),
+//   			},
+//   			SourceMetricsConfiguration: &SourceMetricsConfigurationProperty{
+//   				MetricsSelectionCriteria: jsii.String("metricsSelectionCriteria"),
 //   			},
 //   		},
 //   	},

@@ -27,6 +27,7 @@ import (
 //
 //   	// the properties below are optional
 //   	CollectionGroupName: jsii.String("collectionGroupName"),
+//   	DeletionProtection: jsii.String("deletionProtection"),
 //   	Description: jsii.String("description"),
 //   	EncryptionConfig: &EncryptionConfigProperty{
 //   		AwsOwnedKey: jsii.Boolean(false),
@@ -86,6 +87,9 @@ type CfnCollection interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The deletion protection state of the collection.
+	DeletionProtection() *string
+	SetDeletionProtection(val *string)
 	// A description of the collection.
 	Description() *string
 	SetDescription(val *string)
@@ -422,6 +426,16 @@ func (j *jsiiProxy_CfnCollection) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCollection) DeletionProtection() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deletionProtection",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCollection) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -606,6 +620,14 @@ func (j *jsiiProxy_CfnCollection)SetCollectionGroupName(val *string) {
 	_jsii_.Set(
 		j,
 		"collectionGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCollection)SetDeletionProtection(val *string) {
+	_jsii_.Set(
+		j,
+		"deletionProtection",
 		val,
 	)
 }

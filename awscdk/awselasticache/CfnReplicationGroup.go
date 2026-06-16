@@ -42,6 +42,7 @@ import (
 //   	CacheSubnetGroupName: jsii.String("cacheSubnetGroupName"),
 //   	ClusterMode: jsii.String("clusterMode"),
 //   	DataTieringEnabled: jsii.Boolean(false),
+//   	Durability: jsii.String("durability"),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalReplicationGroupId: jsii.String("globalReplicationGroupId"),
@@ -126,6 +127,10 @@ type CfnReplicationGroup interface {
 	AttrConfigurationEndPointAddress() *string
 	// The port number that the cache engine is listening on.
 	AttrConfigurationEndPointPort() *string
+	// The resolved durability state of the replication group after resolving the default value.
+	//
+	// This is a read-only property.
+	AttrEffectiveDurability() *string
 	AttrPrimaryEndPoint() awscdk.IResolvable
 	// The DNS address of the primary read-write cache node.
 	AttrPrimaryEndPointAddress() *string
@@ -192,6 +197,9 @@ type CfnReplicationGroup interface {
 	// Enables data tiering.
 	DataTieringEnabled() interface{}
 	SetDataTieringEnabled(val interface{})
+	// The durability setting for the replication group.
+	Durability() *string
+	SetDurability(val *string)
 	// The name of the cache engine to be used for the clusters in this replication group.
 	Engine() *string
 	SetEngine(val *string)
@@ -508,6 +516,16 @@ func (j *jsiiProxy_CfnReplicationGroup) AttrConfigurationEndPointPort() *string 
 	return returns
 }
 
+func (j *jsiiProxy_CfnReplicationGroup) AttrEffectiveDurability() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEffectiveDurability",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnReplicationGroup) AttrPrimaryEndPoint() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
@@ -753,6 +771,16 @@ func (j *jsiiProxy_CfnReplicationGroup) DataTieringEnabled() interface{} {
 	_jsii_.Get(
 		j,
 		"dataTieringEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationGroup) Durability() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"durability",
 		&returns,
 	)
 	return returns
@@ -1256,6 +1284,14 @@ func (j *jsiiProxy_CfnReplicationGroup)SetDataTieringEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"dataTieringEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnReplicationGroup)SetDurability(val *string) {
+	_jsii_.Set(
+		j,
+		"durability",
 		val,
 	)
 }

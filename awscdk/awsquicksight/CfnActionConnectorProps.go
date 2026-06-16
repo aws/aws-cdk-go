@@ -13,11 +13,6 @@ import (
 //
 //   cfnActionConnectorProps := &CfnActionConnectorProps{
 //   	ActionConnectorId: jsii.String("actionConnectorId"),
-//   	AwsAccountId: jsii.String("awsAccountId"),
-//   	Name: jsii.String("name"),
-//   	Type: jsii.String("type"),
-//
-//   	// the properties below are optional
 //   	AuthenticationConfig: &AuthConfigProperty{
 //   		AuthenticationMetadata: &AuthenticationMetadataProperty{
 //   			ApiKeyConnectionMetadata: &APIKeyConnectionMetadataProperty{
@@ -69,6 +64,11 @@ import (
 //   		},
 //   		AuthenticationType: jsii.String("authenticationType"),
 //   	},
+//   	AwsAccountId: jsii.String("awsAccountId"),
+//   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{
@@ -93,6 +93,9 @@ type CfnActionConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-actionconnector.html#cfn-quicksight-actionconnector-actionconnectorid
 	//
 	ActionConnectorId *string `field:"required" json:"actionConnectorId" yaml:"actionConnectorId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-actionconnector.html#cfn-quicksight-actionconnector-authenticationconfig
+	//
+	AuthenticationConfig interface{} `field:"required" json:"authenticationConfig" yaml:"authenticationConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-actionconnector.html#cfn-quicksight-actionconnector-awsaccountid
 	//
 	AwsAccountId *string `field:"required" json:"awsAccountId" yaml:"awsAccountId"`
@@ -102,9 +105,6 @@ type CfnActionConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-actionconnector.html#cfn-quicksight-actionconnector-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-actionconnector.html#cfn-quicksight-actionconnector-authenticationconfig
-	//
-	AuthenticationConfig interface{} `field:"optional" json:"authenticationConfig" yaml:"authenticationConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-actionconnector.html#cfn-quicksight-actionconnector-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

@@ -147,8 +147,10 @@ type CfnAlarm interface {
 	// Used only for alarms based on percentiles.
 	EvaluateLowSampleCountPercentile() *string
 	SetEvaluateLowSampleCountPercentile(val *string)
+	// The evaluation criteria for an alarm.
 	EvaluationCriteria() interface{}
 	SetEvaluationCriteria(val interface{})
+	// The frequency, in seconds, at which the alarm is evaluated.
 	EvaluationInterval() *float64
 	SetEvaluationInterval(val *float64)
 	// The number of periods over which data is compared to the specified threshold.

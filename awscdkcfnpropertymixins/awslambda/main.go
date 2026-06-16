@@ -60,12 +60,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.CapacityProviderLoggingConfigProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderLoggingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.CapacityProviderPermissionsConfigProperty",
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderPermissionsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.CapacityProviderScalingConfigProperty",
 		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.CapacityProviderTelemetryConfigProperty",
+		reflect.TypeOf((*CfnCapacityProviderPropsMixin_CapacityProviderTelemetryConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnCapacityProviderPropsMixin.CapacityProviderVpcConfigProperty",

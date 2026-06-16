@@ -66,8 +66,6 @@ type CfnStage interface {
 	// The API identifier.
 	ApiId() *string
 	SetApiId(val *string)
-	// The identifier.
-	AttrId() *string
 	// Specifies whether updates to an API automatically trigger a new deployment.
 	AutoDeploy() interface{}
 	SetAutoDeploy(val interface{})
@@ -317,16 +315,6 @@ func (j *jsiiProxy_CfnStage) ApiId() *string {
 	_jsii_.Get(
 		j,
 		"apiId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnStage) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

@@ -13,6 +13,7 @@ package awsconnectcampaignsv2
 //   	LocalTimeZoneDetection: []*string{
 //   		jsii.String("localTimeZoneDetection"),
 //   	},
+//   	LocalTimeZoneDetectionScope: jsii.String("localTimeZoneDetectionScope"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html
@@ -26,5 +27,9 @@ type CfnCampaignPropsMixin_LocalTimeZoneConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html#cfn-connectcampaignsv2-campaign-localtimezoneconfig-localtimezonedetection
 	//
 	LocalTimeZoneDetection *[]*string `field:"optional" json:"localTimeZoneDetection" yaml:"localTimeZoneDetection"`
+	// Local TimeZone Detection scope.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html#cfn-connectcampaignsv2-campaign-localtimezoneconfig-localtimezonedetectionscope
+	//
+	LocalTimeZoneDetectionScope *string `field:"optional" json:"localTimeZoneDetectionScope" yaml:"localTimeZoneDetectionScope"`
 }
 

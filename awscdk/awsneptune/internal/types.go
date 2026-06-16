@@ -13,3 +13,4 @@ type Type__interfacesawsneptuneIDBParameterGroupRef = interfacesawsneptune.IDBPa
 type Type__interfacesawsneptuneIDBSubnetGroupRef = interfacesawsneptune.IDBSubnetGroupRef
 type Type__interfacesawsneptuneIEventSubscriptionRef = interfacesawsneptune.IEventSubscriptionRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsneptuneIGlobalClusterRef = interfacesawsneptune.IGlobalClusterRef

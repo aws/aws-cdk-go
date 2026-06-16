@@ -9,6 +9,7 @@ package awsmediapackagev2
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   dashManifestConfigurationProperty := &DashManifestConfigurationProperty{
+//   	AudioTimelinePattern: jsii.String("audioTimelinePattern"),
 //   	AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
 //   		FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
 //   	},
@@ -81,6 +82,9 @@ package awsmediapackagev2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html
 //
 type CfnOriginEndpointPropsMixin_DashManifestConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-audiotimelinepattern
+	//
+	AudioTimelinePattern *string `field:"optional" json:"audioTimelinePattern" yaml:"audioTimelinePattern"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-availabilitystarttimeconfiguration
 	//
 	AvailabilityStartTimeConfiguration interface{} `field:"optional" json:"availabilityStartTimeConfiguration" yaml:"availabilityStartTimeConfiguration"`

@@ -23,6 +23,7 @@ import (
 //   			ManifestName: jsii.String("manifestName"),
 //
 //   			// the properties below are optional
+//   			AudioTimelinePattern: jsii.String("audioTimelinePattern"),
 //   			AvailabilityStartTimeConfiguration: &DashAvailabilityStartTimeConfigurationProperty{
 //   				FixedAvailabilityStartTime: jsii.String("fixedAvailabilityStartTime"),
 //   			},

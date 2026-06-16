@@ -10,6 +10,7 @@ package awsverifiedpermissions
 //
 //   cfnPolicyTemplateMixinProps := &CfnPolicyTemplateMixinProps{
 //   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   	Statement: jsii.String("statement"),
 //   }
@@ -21,6 +22,9 @@ type CfnPolicyTemplateMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The unique identifier of the policy store that contains the template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-policystoreid
 	//

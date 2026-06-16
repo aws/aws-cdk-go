@@ -34,7 +34,8 @@ type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsappstream.IUserRef
-	AttrId() *string
+	// Returns the Amazon Resource Name (ARN) for the Amazon AppStream User resource.
+	AttrArn() *string
 	// The authentication type for the user.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
@@ -244,11 +245,11 @@ type jsiiProxy_CfnUser struct {
 	internal.Type__interfacesawsappstreamIUserRef
 }
 
-func (j *jsiiProxy_CfnUser) AttrId() *string {
+func (j *jsiiProxy_CfnUser) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrArn",
 		&returns,
 	)
 	return returns
@@ -508,6 +509,24 @@ func (j *jsiiProxy_CfnUser)SetUserName(val *string) {
 		"userName",
 		val,
 	)
+}
+
+func CfnUser_ArnForUser(resource interfacesawsappstream.IUserRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnUser_ArnForUserParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnUser",
+		"arnForUser",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

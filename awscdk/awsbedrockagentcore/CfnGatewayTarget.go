@@ -117,6 +117,7 @@ import (
 //   						Uri: jsii.String("uri"),
 //   					},
 //   				},
+//   				ResourcePriority: jsii.Number(123),
 //   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),
@@ -185,6 +186,24 @@ import (
 //   			jsii.String("allowedResponseHeaders"),
 //   		},
 //   	},
+//   	PrivateEndpoint: &PrivateEndpointProperty{
+//   		ManagedVpcResource: &ManagedVpcResourceProperty{
+//   			EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   			// the properties below are optional
+//   			RoutingDomain: jsii.String("routingDomain"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   		},
+//   		SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   			ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html
@@ -198,6 +217,7 @@ type CfnGatewayTarget interface {
 	AttrCreatedAt() *string
 	AttrGatewayArn() *string
 	AttrLastSynchronizedAt() *string
+	AttrPrivateEndpointManagedResources() awscdk.IResolvable
 	AttrProtocolType() *string
 	// The status for the gateway target.
 	AttrStatus() *string
@@ -246,6 +266,8 @@ type CfnGatewayTarget interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	PrivateEndpoint() interface{}
+	SetPrivateEndpoint(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -458,6 +480,16 @@ func (j *jsiiProxy_CfnGatewayTarget) AttrLastSynchronizedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) AttrPrivateEndpointManagedResources() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrPrivateEndpointManagedResources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) AttrProtocolType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -648,6 +680,16 @@ func (j *jsiiProxy_CfnGatewayTarget) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) PrivateEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateEndpoint",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -773,6 +815,17 @@ func (j *jsiiProxy_CfnGatewayTarget)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGatewayTarget)SetPrivateEndpoint(val interface{}) {
+	if err := j.validateSetPrivateEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"privateEndpoint",
 		val,
 	)
 }

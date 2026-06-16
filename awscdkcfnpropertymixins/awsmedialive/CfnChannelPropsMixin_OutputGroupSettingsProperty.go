@@ -161,6 +161,11 @@ package awsmedialive
 //   		TimestampDeltaMilliseconds: jsii.Number(123),
 //   		TsFileMode: jsii.String("tsFileMode"),
 //   	},
+//   	MediaConnectRouterGroupSettings: &MediaConnectRouterGroupSettingsProperty{
+//   		AvailabilityZones: []*string{
+//   			jsii.String("availabilityZones"),
+//   		},
+//   	},
 //   	MediaPackageGroupSettings: &MediaPackageGroupSettingsProperty{
 //   		Destination: &OutputLocationRefProperty{
 //   			DestinationRefId: jsii.String("destinationRefId"),
@@ -258,6 +263,9 @@ type CfnChannelPropsMixin_OutputGroupSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-hlsgroupsettings
 	//
 	HlsGroupSettings interface{} `field:"optional" json:"hlsGroupSettings" yaml:"hlsGroupSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-mediaconnectroutergroupsettings
+	//
+	MediaConnectRouterGroupSettings interface{} `field:"optional" json:"mediaConnectRouterGroupSettings" yaml:"mediaConnectRouterGroupSettings"`
 	// The configuration of a MediaPackage output group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputgroupsettings.html#cfn-medialive-channel-outputgroupsettings-mediapackagegroupsettings
 	//

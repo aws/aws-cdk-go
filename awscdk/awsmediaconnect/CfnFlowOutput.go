@@ -65,6 +65,7 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiOutputTimecodeSource: jsii.String("ndiOutputTimecodeSource"),
 //   	NdiProgramName: jsii.String("ndiProgramName"),
 //   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),
@@ -158,6 +159,9 @@ type CfnFlowOutput interface {
 	// The name of the bridge's output.
 	Name() *string
 	SetName(val *string)
+	// The timecode source for the NDI output.
+	NdiOutputTimecodeSource() *string
+	SetNdiOutputTimecodeSource(val *string)
 	// A suffix for the names of the NDI sources that the flow creates.
 	NdiProgramName() *string
 	SetNdiProgramName(val *string)
@@ -555,6 +559,16 @@ func (j *jsiiProxy_CfnFlowOutput) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) NdiOutputTimecodeSource() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ndiOutputTimecodeSource",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) NdiProgramName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -832,6 +846,14 @@ func (j *jsiiProxy_CfnFlowOutput)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetNdiOutputTimecodeSource(val *string) {
+	_jsii_.Set(
+		j,
+		"ndiOutputTimecodeSource",
 		val,
 	)
 }

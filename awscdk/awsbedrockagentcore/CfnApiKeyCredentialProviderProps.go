@@ -16,6 +16,11 @@ import (
 //
 //   	// the properties below are optional
 //   	ApiKey: jsii.String("apiKey"),
+//   	ApiKeySecretConfig: &SecretReferenceProperty{
+//   		JsonKey: jsii.String("jsonKey"),
+//   		SecretId: jsii.String("secretId"),
+//   	},
+//   	ApiKeySecretSource: jsii.String("apiKeySecretSource"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -35,6 +40,16 @@ type CfnApiKeyCredentialProviderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-apikeycredentialprovider.html#cfn-bedrockagentcore-apikeycredentialprovider-apikey
 	//
 	ApiKey *string `field:"optional" json:"apiKey" yaml:"apiKey"`
+	// A reference to a customer-provided secret stored in AWS Secrets Manager.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-apikeycredentialprovider.html#cfn-bedrockagentcore-apikeycredentialprovider-apikeysecretconfig
+	//
+	ApiKeySecretConfig interface{} `field:"optional" json:"apiKeySecretConfig" yaml:"apiKeySecretConfig"`
+	// The source of the API key secret.
+	//
+	// Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-apikeycredentialprovider.html#cfn-bedrockagentcore-apikeycredentialprovider-apikeysecretsource
+	//
+	ApiKeySecretSource *string `field:"optional" json:"apiKeySecretSource" yaml:"apiKeySecretSource"`
 	// Tags to assign to the API key credential provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-apikeycredentialprovider.html#cfn-bedrockagentcore-apikeycredentialprovider-tags
 	//

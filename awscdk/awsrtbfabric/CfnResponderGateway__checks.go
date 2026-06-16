@@ -212,6 +212,30 @@ func validateCfnResponderGateway_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnResponderGateway) validateSetListenerConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnResponderGateway_ListenerConfigProperty:
+		val := val.(*CfnResponderGateway_ListenerConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnResponderGateway_ListenerConfigProperty:
+		val_ := val.(CfnResponderGateway_ListenerConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnResponderGateway_ListenerConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnResponderGateway) validateSetManagedEndpointConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

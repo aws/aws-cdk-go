@@ -23,8 +23,15 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnResponderGatewayPropsMixin := awscdkcfnpropertymixins.Aws_rtbfabric.NewCfnResponderGatewayPropsMixin(&CfnResponderGatewayMixinProps{
+//   	AcmCertificateArn: jsii.String("acmCertificateArn"),
 //   	Description: jsii.String("description"),
 //   	DomainName: jsii.String("domainName"),
+//   	GatewayType: jsii.String("gatewayType"),
+//   	ListenerConfig: &ListenerConfigProperty{
+//   		Protocols: []*string{
+//   			jsii.String("protocols"),
+//   		},
+//   	},
 //   	ManagedEndpointConfiguration: &ManagedEndpointConfigurationProperty{
 //   		AutoScalingGroupsConfiguration: &AutoScalingGroupsConfigurationProperty{
 //   			AutoScalingGroupNameList: []*string{

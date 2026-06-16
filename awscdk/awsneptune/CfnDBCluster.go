@@ -48,8 +48,10 @@ import (
 //   		jsii.String("enableCloudwatchLogsExports"),
 //   	},
 //   	EngineVersion: jsii.String("engineVersion"),
+//   	GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
 //   	IamAuthEnabled: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	NetworkType: jsii.String("networkType"),
 //   	PreferredBackupWindow: jsii.String("preferredBackupWindow"),
 //   	PreferredMaintenanceWindow: jsii.String("preferredMaintenanceWindow"),
 //   	RestoreToTime: jsii.String("restoreToTime"),
@@ -143,6 +145,9 @@ type CfnDBCluster interface {
 	EngineVersion() *string
 	SetEngineVersion(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The ID of the Neptune global database to which this new DB cluster should be added.
+	GlobalClusterIdentifier() *string
+	SetGlobalClusterIdentifier(val *string)
 	// True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 	IamAuthEnabled() interface{}
 	SetIamAuthEnabled(val interface{})
@@ -159,6 +164,9 @@ type CfnDBCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The network type of the DB cluster.
+	NetworkType() *string
+	SetNetworkType(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod` .
@@ -598,6 +606,16 @@ func (j *jsiiProxy_CfnDBCluster) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) GlobalClusterIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"globalClusterIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBCluster) IamAuthEnabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -623,6 +641,16 @@ func (j *jsiiProxy_CfnDBCluster) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) NetworkType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"networkType",
 		&returns,
 	)
 	return returns
@@ -933,6 +961,14 @@ func (j *jsiiProxy_CfnDBCluster)SetEngineVersion(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDBCluster)SetGlobalClusterIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"globalClusterIdentifier",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDBCluster)SetIamAuthEnabled(val interface{}) {
 	if err := j.validateSetIamAuthEnabledParameters(val); err != nil {
 		panic(err)
@@ -948,6 +984,14 @@ func (j *jsiiProxy_CfnDBCluster)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetNetworkType(val *string) {
+	_jsii_.Set(
+		j,
+		"networkType",
 		val,
 	)
 }

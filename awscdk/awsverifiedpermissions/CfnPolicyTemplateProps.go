@@ -14,6 +14,7 @@ package awsverifiedpermissions
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html
@@ -31,5 +32,8 @@ type CfnPolicyTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policytemplate.html#cfn-verifiedpermissions-policytemplate-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

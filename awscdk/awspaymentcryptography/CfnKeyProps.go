@@ -34,6 +34,7 @@ import (
 //   	DeriveKeyUsage: jsii.String("deriveKeyUsage"),
 //   	Enabled: jsii.Boolean(false),
 //   	KeyCheckValueAlgorithm: jsii.String("keyCheckValueAlgorithm"),
+//   	Policy: jsii.String("policy"),
 //   	ReplicationRegions: []*string{
 //   		jsii.String("replicationRegions"),
 //   	},
@@ -76,6 +77,10 @@ type CfnKeyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-keycheckvaluealgorithm
 	//
 	KeyCheckValueAlgorithm *string `field:"optional" json:"keyCheckValueAlgorithm" yaml:"keyCheckValueAlgorithm"`
+	// The resource-based policy attached to the key, in JSON format.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-policy
+	//
+	Policy *string `field:"optional" json:"policy" yaml:"policy"`
 	// The list of AWS Regions to remove from the key's replication configuration.
 	//
 	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.

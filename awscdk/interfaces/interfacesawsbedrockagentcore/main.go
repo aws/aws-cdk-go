@@ -28,6 +28,10 @@ func init() {
 		reflect.TypeOf((*CodeInterpreterCustomReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ConfigurationBundleReference",
+		reflect.TypeOf((*ConfigurationBundleReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.DatasetReference",
 		reflect.TypeOf((*DatasetReference)(nil)).Elem(),
 	)
@@ -122,6 +126,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICodeInterpreterCustomRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IConfigurationBundleRef",
+		reflect.TypeOf((*IConfigurationBundleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "configurationBundleRef", GoGetter: "ConfigurationBundleRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConfigurationBundleRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -256,6 +276,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IPaymentConnectorRef",
+		reflect.TypeOf((*IPaymentConnectorRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "paymentConnectorRef", GoGetter: "PaymentConnectorRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPaymentConnectorRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IPaymentCredentialProviderRef",
 		reflect.TypeOf((*IPaymentCredentialProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -266,6 +302,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IPaymentCredentialProviderRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IPaymentManagerRef",
+		reflect.TypeOf((*IPaymentManagerRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "paymentManagerRef", GoGetter: "PaymentManagerRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPaymentManagerRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -298,6 +350,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IResourcePolicyRef",
+		reflect.TypeOf((*IResourcePolicyRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourcePolicyRef", GoGetter: "ResourcePolicyRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IResourcePolicyRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -364,8 +432,16 @@ func init() {
 		reflect.TypeOf((*OnlineEvaluationConfigReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.PaymentConnectorReference",
+		reflect.TypeOf((*PaymentConnectorReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.PaymentCredentialProviderReference",
 		reflect.TypeOf((*PaymentCredentialProviderReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.PaymentManagerReference",
+		reflect.TypeOf((*PaymentManagerReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.PolicyEngineReference",
@@ -374,6 +450,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.PolicyReference",
 		reflect.TypeOf((*PolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ResourcePolicyReference",
+		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.RuntimeEndpointReference",

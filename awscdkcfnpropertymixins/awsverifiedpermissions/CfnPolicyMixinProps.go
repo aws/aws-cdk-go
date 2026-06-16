@@ -26,6 +26,7 @@ package awsverifiedpermissions
 //   			},
 //   		},
 //   	},
+//   	Name: jsii.String("name"),
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   }
 //
@@ -38,6 +39,9 @@ type CfnPolicyMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-definition
 	//
 	Definition interface{} `field:"optional" json:"definition" yaml:"definition"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-policystoreid
 	//

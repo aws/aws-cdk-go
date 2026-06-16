@@ -41,6 +41,7 @@ import (
 //   	CacheSubnetGroupName: jsii.String("cacheSubnetGroupName"),
 //   	ClusterMode: jsii.String("clusterMode"),
 //   	DataTieringEnabled: jsii.Boolean(false),
+//   	Durability: jsii.String("durability"),
 //   	Engine: jsii.String("engine"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	GlobalReplicationGroupId: jsii.String("globalReplicationGroupId"),

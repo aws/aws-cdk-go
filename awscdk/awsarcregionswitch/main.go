@@ -93,6 +93,14 @@ func init() {
 		reflect.TypeOf((*CfnPlan_AssociatedAlarmProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.AuroraProvisionedScalingConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_AuroraProvisionedScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.AuroraServerlessScalingConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_AuroraServerlessScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.CustomActionLambdaConfigurationProperty",
 		reflect.TypeOf((*CfnPlan_CustomActionLambdaConfigurationProperty)(nil)).Elem(),
 	)
@@ -179,6 +187,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.LambdasProperty",
 		reflect.TypeOf((*CfnPlan_LambdasProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.NeptuneGlobalDatabaseConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_NeptuneGlobalDatabaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.NeptuneUngracefulProperty",
+		reflect.TypeOf((*CfnPlan_NeptuneUngracefulProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.ParallelExecutionBlockConfigurationProperty",

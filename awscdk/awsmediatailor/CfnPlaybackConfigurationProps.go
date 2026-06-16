@@ -53,6 +53,9 @@ import (
 //   		MpdLocation: jsii.String("mpdLocation"),
 //   		OriginManifestType: jsii.String("originManifestType"),
 //   	},
+//   	FunctionMapping: map[string]*string{
+//   		"functionMappingKey": jsii.String("functionMapping"),
+//   	},
 //   	HlsConfiguration: &HlsConfigurationProperty{
 //   		ManifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   	},
@@ -151,6 +154,10 @@ type CfnPlaybackConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-dashconfiguration
 	//
 	DashConfiguration interface{} `field:"optional" json:"dashConfiguration" yaml:"dashConfiguration"`
+	// A map of event names to function identifiers for custom processing during session lifecycle events.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-functionmapping
+	//
+	FunctionMapping interface{} `field:"optional" json:"functionMapping" yaml:"functionMapping"`
 	// The configuration for HLS content.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-hlsconfiguration
 	//

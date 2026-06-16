@@ -520,6 +520,10 @@ func init() {
 		reflect.TypeOf((*CfnFlowLogPropsMixin_DestinationOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFlowLogPropsMixin.TagFieldSpecificationProperty",
+		reflect.TypeOf((*CfnFlowLogPropsMixin_TagFieldSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnGatewayRouteTableAssociationMixinProps",
 		reflect.TypeOf((*CfnGatewayRouteTableAssociationMixinProps)(nil)).Elem(),
 	)

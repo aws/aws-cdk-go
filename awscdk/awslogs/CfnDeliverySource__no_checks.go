@@ -104,6 +104,10 @@ func validateCfnDeliverySource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeliverySource) validateSetDeliverySourceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeliverySource) validateSetNameParameters(val *string) error {
 	return nil
 }

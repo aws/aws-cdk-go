@@ -31,6 +31,9 @@ package awsverifiedpermissions
 //   		},
 //   	},
 //   	PolicyStoreId: jsii.String("policyStoreId"),
+//
+//   	// the properties below are optional
+//   	Name: jsii.String("name"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html
@@ -46,5 +49,8 @@ type CfnPolicyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-policystoreid
 	//
 	PolicyStoreId *string `field:"required" json:"policyStoreId" yaml:"policyStoreId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html#cfn-verifiedpermissions-policy-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 }
 

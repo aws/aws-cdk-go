@@ -246,6 +246,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAiGuardrailArn", GoGetter: "AttrAiGuardrailArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAiGuardrailId", GoGetter: "AttrAiGuardrailId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAssistantArn", GoGetter: "AttrAssistantArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrModifiedTimeSeconds", GoGetter: "AttrModifiedTimeSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "blockedInputMessaging", GoGetter: "BlockedInputMessaging"},
 			_jsii_.MemberProperty{JsiiProperty: "blockedOutputsMessaging", GoGetter: "BlockedOutputsMessaging"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},

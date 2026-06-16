@@ -20,11 +20,6 @@ import (
 //
 //   cfnActionConnector := awscdk.Aws_quicksight.NewCfnActionConnector(this, jsii.String("MyCfnActionConnector"), &CfnActionConnectorProps{
 //   	ActionConnectorId: jsii.String("actionConnectorId"),
-//   	AwsAccountId: jsii.String("awsAccountId"),
-//   	Name: jsii.String("name"),
-//   	Type: jsii.String("type"),
-//
-//   	// the properties below are optional
 //   	AuthenticationConfig: &AuthConfigProperty{
 //   		AuthenticationMetadata: &AuthenticationMetadataProperty{
 //   			ApiKeyConnectionMetadata: &APIKeyConnectionMetadataProperty{
@@ -76,6 +71,11 @@ import (
 //   		},
 //   		AuthenticationType: jsii.String("authenticationType"),
 //   	},
+//   	AwsAccountId: jsii.String("awsAccountId"),
+//   	Name: jsii.String("name"),
+//   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	Permissions: []interface{}{
 //   		&ResourcePermissionProperty{

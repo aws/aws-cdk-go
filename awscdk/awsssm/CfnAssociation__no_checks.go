@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnAssociation) validateSetParametersParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssociation) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAssociation) validateSetTargetsParameters(val interface{}) error {
 	return nil
 }

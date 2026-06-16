@@ -79,6 +79,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_DestinationLogsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.DestinationMetricsConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRule_DestinationMetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.LogGroupNameConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_LogGroupNameConfigurationProperty)(nil)).Elem(),
 	)
@@ -91,8 +95,16 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_LogsEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.MetricsBackupConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRule_MetricsBackupConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.SourceLogsConfigurationProperty",
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_SourceLogsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.SourceMetricsConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRule_SourceMetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRuleProps",

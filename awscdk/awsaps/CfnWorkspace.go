@@ -57,7 +57,9 @@ import (
 //   				},
 //   			},
 //   		},
+//   		OutOfOrderTimeWindowInSeconds: jsii.Number(123),
 //   		RetentionPeriodInDays: jsii.Number(123),
+//   		RuleQueryOffsetInSeconds: jsii.Number(123),
 //   	},
 //   })
 //

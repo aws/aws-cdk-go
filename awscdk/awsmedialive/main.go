@@ -524,6 +524,26 @@ func init() {
 		reflect.TypeOf((*CfnChannel_MaintenanceUpdateSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaConnectRouterContainerSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MediaConnectRouterContainerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaConnectRouterGroupSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MediaConnectRouterGroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaConnectRouterOutputConnectionMapProperty",
+		reflect.TypeOf((*CfnChannel_MediaConnectRouterOutputConnectionMapProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaConnectRouterOutputDestinationSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MediaConnectRouterOutputDestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.MediaConnectRouterOutputSettingsProperty",
+		reflect.TypeOf((*CfnChannel_MediaConnectRouterOutputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.MediaPackageAdditionalDestinationsProperty",
 		reflect.TypeOf((*CfnChannel_MediaPackageAdditionalDestinationsProperty)(nil)).Elem(),
 	)

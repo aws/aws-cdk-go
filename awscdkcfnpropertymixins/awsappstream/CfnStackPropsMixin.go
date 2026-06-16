@@ -34,6 +34,17 @@ import (
 //   	AttributesToDelete: []*string{
 //   		jsii.String("attributesToDelete"),
 //   	},
+//   	ContentRedirection: &ContentRedirectionProperty{
+//   		HostToClient: &UrlRedirectionConfigProperty{
+//   			AllowedUrls: []*string{
+//   				jsii.String("allowedUrls"),
+//   			},
+//   			DeniedUrls: []*string{
+//   				jsii.String("deniedUrls"),
+//   			},
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	DeleteStorageConnectors: jsii.Boolean(false),
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),

@@ -28,6 +28,32 @@ package awsarcregionswitch
 //   		ExternalId: jsii.String("externalId"),
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	AuroraProvisionedScalingConfig: &AuroraProvisionedScalingConfigurationProperty{
+//   		GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   		InstanceArns: map[string]*string{
+//   			"instanceArnsKey": jsii.String("instanceArns"),
+//   		},
+//   		RegionDatabaseClusterArns: map[string]*string{
+//   			"regionDatabaseClusterArnsKey": jsii.String("regionDatabaseClusterArns"),
+//   		},
+//
+//   		// the properties below are optional
+//   		CrossAccountRole: jsii.String("crossAccountRole"),
+//   		ExternalId: jsii.String("externalId"),
+//   		TimeoutMinutes: jsii.Number(123),
+//   	},
+//   	AuroraServerlessScalingConfig: &AuroraServerlessScalingConfigurationProperty{
+//   		GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   		RegionDatabaseClusterArns: map[string]*string{
+//   			"regionDatabaseClusterArnsKey": jsii.String("regionDatabaseClusterArns"),
+//   		},
+//
+//   		// the properties below are optional
+//   		CrossAccountRole: jsii.String("crossAccountRole"),
+//   		ExternalId: jsii.String("externalId"),
+//   		TargetPercent: jsii.Number(123),
+//   		TimeoutMinutes: jsii.Number(123),
+//   	},
 //   	CustomActionLambdaConfig: &CustomActionLambdaConfigurationProperty{
 //   		Lambdas: []interface{}{
 //   			&LambdasProperty{
@@ -170,6 +196,21 @@ package awsarcregionswitch
 //   			Behavior: jsii.String("behavior"),
 //   		},
 //   	},
+//   	NeptuneGlobalDatabaseConfig: &NeptuneGlobalDatabaseConfigurationProperty{
+//   		Behavior: jsii.String("behavior"),
+//   		GlobalClusterIdentifier: jsii.String("globalClusterIdentifier"),
+//   		RegionDatabaseClusterArns: map[string]*string{
+//   			"regionDatabaseClusterArnsKey": jsii.String("regionDatabaseClusterArns"),
+//   		},
+//
+//   		// the properties below are optional
+//   		CrossAccountRole: jsii.String("crossAccountRole"),
+//   		ExternalId: jsii.String("externalId"),
+//   		TimeoutMinutes: jsii.Number(123),
+//   		Ungraceful: &NeptuneUngracefulProperty{
+//   			Ungraceful: jsii.String("ungraceful"),
+//   		},
+//   	},
 //   	ParallelConfig: &ParallelExecutionBlockConfigurationProperty{
 //   		Steps: []interface{}{
 //   			&StepProperty{
@@ -233,6 +274,12 @@ type CfnPlan_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-arcroutingcontrolconfig
 	//
 	ArcRoutingControlConfig interface{} `field:"optional" json:"arcRoutingControlConfig" yaml:"arcRoutingControlConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-auroraprovisionedscalingconfig
+	//
+	AuroraProvisionedScalingConfig interface{} `field:"optional" json:"auroraProvisionedScalingConfig" yaml:"auroraProvisionedScalingConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-auroraserverlessscalingconfig
+	//
+	AuroraServerlessScalingConfig interface{} `field:"optional" json:"auroraServerlessScalingConfig" yaml:"auroraServerlessScalingConfig"`
 	// An AWS Lambda execution block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-customactionlambdaconfig
 	//
@@ -263,6 +310,9 @@ type CfnPlan_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-lambdaeventsourcemappingconfig
 	//
 	LambdaEventSourceMappingConfig interface{} `field:"optional" json:"lambdaEventSourceMappingConfig" yaml:"lambdaEventSourceMappingConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-neptuneglobaldatabaseconfig
+	//
+	NeptuneGlobalDatabaseConfig interface{} `field:"optional" json:"neptuneGlobalDatabaseConfig" yaml:"neptuneGlobalDatabaseConfig"`
 	// A parallel configuration execution block.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-parallelconfig
 	//

@@ -26,6 +26,7 @@ import (
 //
 //   cfnCollectionPropsMixin := awscdkcfnpropertymixins.Aws_opensearchserverless.NewCfnCollectionPropsMixin(&CfnCollectionMixinProps{
 //   	CollectionGroupName: jsii.String("collectionGroupName"),
+//   	DeletionProtection: jsii.String("deletionProtection"),
 //   	Description: jsii.String("description"),
 //   	EncryptionConfig: &EncryptionConfigProperty{
 //   		AwsOwnedKey: jsii.Boolean(false),

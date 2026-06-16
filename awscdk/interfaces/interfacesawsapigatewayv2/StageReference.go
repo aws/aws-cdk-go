@@ -9,10 +9,13 @@ package interfacesawsapigatewayv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   stageReference := &StageReference{
+//   	ApiId: jsii.String("apiId"),
 //   	StageName: jsii.String("stageName"),
 //   }
 //
 type StageReference struct {
+	// The ApiId of the Stage resource.
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// The StageName of the Stage resource.
 	StageName *string `field:"required" json:"stageName" yaml:"stageName"`
 }

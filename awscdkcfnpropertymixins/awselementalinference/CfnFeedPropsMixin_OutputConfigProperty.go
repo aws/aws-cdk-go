@@ -13,6 +13,15 @@ package awselementalinference
 //   		CallbackMetadata: jsii.String("callbackMetadata"),
 //   	},
 //   	Cropping: cropping,
+//   	Subtitling: &SubtitlingConfigProperty{
+//   		AspectRatio: &AspectRatioProperty{
+//   			Height: jsii.Number(123),
+//   			Width: jsii.Number(123),
+//   		},
+//   		Dictionary: jsii.String("dictionary"),
+//   		Language: jsii.String("language"),
+//   		ProfanityFilter: jsii.String("profanityFilter"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-outputconfig.html
@@ -24,5 +33,8 @@ type CfnFeedPropsMixin_OutputConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-outputconfig.html#cfn-elementalinference-feed-outputconfig-cropping
 	//
 	Cropping interface{} `field:"optional" json:"cropping" yaml:"cropping"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-outputconfig.html#cfn-elementalinference-feed-outputconfig-subtitling
+	//
+	Subtitling interface{} `field:"optional" json:"subtitling" yaml:"subtitling"`
 }
 

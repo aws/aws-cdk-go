@@ -59,6 +59,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Name: jsii.String("name"),
 //   	PolicyStoreId: jsii.String("policyStoreId"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

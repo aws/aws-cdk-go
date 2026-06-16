@@ -312,6 +312,30 @@ func (j *jsiiProxy_CfnStack) validateSetApplicationSettingsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnStack) validateSetContentRedirectionParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnStack_ContentRedirectionProperty:
+		val := val.(*CfnStack_ContentRedirectionProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnStack_ContentRedirectionProperty:
+		val_ := val.(CfnStack_ContentRedirectionProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnStack_ContentRedirectionProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnStack) validateSetDeleteStorageConnectorsParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

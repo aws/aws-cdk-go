@@ -33,7 +33,6 @@ type CfnStackUserAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsappstream.IStackUserAssociationRef
-	AttrId() *string
 	// The authentication type for the user who is associated with the stack.
 	AuthenticationType() *string
 	SetAuthenticationType(val *string)
@@ -238,16 +237,6 @@ type jsiiProxy_CfnStackUserAssociation struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsappstreamIStackUserAssociationRef
-}
-
-func (j *jsiiProxy_CfnStackUserAssociation) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnStackUserAssociation) AuthenticationType() *string {

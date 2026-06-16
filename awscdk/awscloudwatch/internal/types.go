@@ -14,6 +14,7 @@ type Type__interfacesawscloudwatchICompositeAlarmRef = interfacesawscloudwatch.I
 type Type__interfacesawscloudwatchIDashboardRef = interfacesawscloudwatch.IDashboardRef
 type Type__interfacesawscloudwatchIInsightRuleRef = interfacesawscloudwatch.IInsightRuleRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawscloudwatchILogAlarmRef = interfacesawscloudwatch.ILogAlarmRef
 type Type__interfacesawscloudwatchIMetricStreamRef = interfacesawscloudwatch.IMetricStreamRef
 type Type__interfacesawscloudwatchIOTelEnrichmentRef = interfacesawscloudwatch.IOTelEnrichmentRef
 type Type__awscdkIResource = awscdk.IResource

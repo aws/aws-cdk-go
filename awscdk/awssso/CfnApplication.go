@@ -59,6 +59,8 @@ type CfnApplication interface {
 	ApplicationRef() *interfacesawssso.ApplicationReference
 	// The ARN of the application.
 	AttrApplicationArn() *string
+	// The ARN of the identity store associated with the Identity Center instance.
+	AttrIdentityStoreArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -297,6 +299,16 @@ func (j *jsiiProxy_CfnApplication) AttrApplicationArn() *string {
 	_jsii_.Get(
 		j,
 		"attrApplicationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) AttrIdentityStoreArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrIdentityStoreArn",
 		&returns,
 	)
 	return returns

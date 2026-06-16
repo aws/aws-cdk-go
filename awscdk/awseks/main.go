@@ -584,6 +584,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_EncryptionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.EtcdPlacementProperty",
+		reflect.TypeOf((*CfnCluster_EtcdPlacementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.KubernetesNetworkConfigProperty",
 		reflect.TypeOf((*CfnCluster_KubernetesNetworkConfigProperty)(nil)).Elem(),
 	)

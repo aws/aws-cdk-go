@@ -34,6 +34,14 @@ import (
 //   	MaxAggregationInterval: jsii.Number(123),
 //   	ResourceId: jsii.String("resourceId"),
 //   	ResourceType: jsii.String("resourceType"),
+//   	TagFieldSpecifications: []interface{}{
+//   		&TagFieldSpecificationProperty{
+//   			ResourceType: jsii.String("resourceType"),
+//   			TagKeys: []*string{
+//   				jsii.String("tagKeys"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

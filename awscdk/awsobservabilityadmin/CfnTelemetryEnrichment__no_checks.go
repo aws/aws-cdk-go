@@ -92,6 +92,10 @@ func validateCfnTelemetryEnrichment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTelemetryEnrichment) validateSetScopeParameters(val *string) error {
+	return nil
+}
+
 func validateNewCfnTelemetryEnrichmentParameters(scope constructs.Construct, id *string, props *CfnTelemetryEnrichmentProps) error {
 	return nil
 }

@@ -18,6 +18,6 @@ type CfnContactFlowModule_ExternalInvocationConfigurationProperty struct {
 	// Enable external invocation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-contactflowmodule-externalinvocationconfiguration.html#cfn-connect-contactflowmodule-externalinvocationconfiguration-enabled
 	//
-	Enabled interface{} `field:"required" json:"enabled" yaml:"enabled"`
+	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
 }
 

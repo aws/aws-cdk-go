@@ -26,6 +26,14 @@ import (
 //   	LogFormat: jsii.String("logFormat"),
 //   	LogGroupName: jsii.String("logGroupName"),
 //   	MaxAggregationInterval: jsii.Number(123),
+//   	TagFieldSpecifications: []interface{}{
+//   		&TagFieldSpecificationProperty{
+//   			ResourceType: jsii.String("resourceType"),
+//   			TagKeys: []*string{
+//   				jsii.String("tagKeys"),
+//   			},
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -110,6 +118,10 @@ type CfnFlowLogProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-maxaggregationinterval
 	//
 	MaxAggregationInterval *float64 `field:"optional" json:"maxAggregationInterval" yaml:"maxAggregationInterval"`
+	// The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tagfieldspecifications
+	//
+	TagFieldSpecifications interface{} `field:"optional" json:"tagFieldSpecifications" yaml:"tagFieldSpecifications"`
 	// The tags to apply to the flow logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-tags
 	//

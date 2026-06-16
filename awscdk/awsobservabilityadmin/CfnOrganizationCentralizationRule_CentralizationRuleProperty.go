@@ -32,6 +32,11 @@ package awsobservabilityadmin
 //   				KmsKeyArn: jsii.String("kmsKeyArn"),
 //   			},
 //   		},
+//   		DestinationMetricsConfiguration: &DestinationMetricsConfigurationProperty{
+//   			BackupConfiguration: &MetricsBackupConfigurationProperty{
+//   				Region: jsii.String("region"),
+//   			},
+//   		},
 //   	},
 //   	Source: &CentralizationRuleSourceProperty{
 //   		Regions: []*string{
@@ -46,6 +51,9 @@ package awsobservabilityadmin
 //   			// the properties below are optional
 //   			DataSourceSelectionCriteria: jsii.String("dataSourceSelectionCriteria"),
 //   			LogGroupSelectionCriteria: jsii.String("logGroupSelectionCriteria"),
+//   		},
+//   		SourceMetricsConfiguration: &SourceMetricsConfigurationProperty{
+//   			MetricsSelectionCriteria: jsii.String("metricsSelectionCriteria"),
 //   		},
 //   	},
 //   }

@@ -16,6 +16,7 @@ import (
 //
 //   	// the properties below are optional
 //   	CollectionGroupName: jsii.String("collectionGroupName"),
+//   	DeletionProtection: jsii.String("deletionProtection"),
 //   	Description: jsii.String("description"),
 //   	EncryptionConfig: &EncryptionConfigProperty{
 //   		AwsOwnedKey: jsii.Boolean(false),
@@ -52,6 +53,10 @@ type CfnCollectionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-collectiongroupname
 	//
 	CollectionGroupName *string `field:"optional" json:"collectionGroupName" yaml:"collectionGroupName"`
+	// The deletion protection state of the collection.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-deletionprotection
+	//
+	DeletionProtection *string `field:"optional" json:"deletionProtection" yaml:"deletionProtection"`
 	// A description of the collection.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-collection.html#cfn-opensearchserverless-collection-description
 	//

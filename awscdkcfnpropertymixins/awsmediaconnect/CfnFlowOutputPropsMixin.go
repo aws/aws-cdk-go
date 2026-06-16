@@ -58,6 +58,7 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiOutputTimecodeSource: jsii.String("ndiOutputTimecodeSource"),
 //   	NdiProgramName: jsii.String("ndiProgramName"),
 //   	NdiSpeedHqQuality: jsii.Number(123),
 //   	OutputStatus: jsii.String("outputStatus"),

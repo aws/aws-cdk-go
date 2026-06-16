@@ -410,6 +410,9 @@ func NewCfnTelemetryEnrichment_Override(c CfnTelemetryEnrichment, scope construc
 }
 
 func (j *jsiiProxy_CfnTelemetryEnrichment)SetScope(val *string) {
+	if err := j.validateSetScopeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"scope",

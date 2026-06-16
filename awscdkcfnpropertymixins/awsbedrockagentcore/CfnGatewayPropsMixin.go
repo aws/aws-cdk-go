@@ -82,6 +82,12 @@ import (
 //   		Mcp: &MCPGatewayConfigurationProperty{
 //   			Instructions: jsii.String("instructions"),
 //   			SearchType: jsii.String("searchType"),
+//   			SessionConfiguration: &SessionConfigurationProperty{
+//   				SessionTimeoutInSeconds: jsii.Number(123),
+//   			},
+//   			StreamingConfiguration: &StreamingConfigurationProperty{
+//   				EnableResponseStreaming: jsii.Boolean(false),
+//   			},
 //   			SupportedVersions: []*string{
 //   				jsii.String("supportedVersions"),
 //   			},

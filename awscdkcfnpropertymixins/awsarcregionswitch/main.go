@@ -44,6 +44,14 @@ func init() {
 		reflect.TypeOf((*CfnPlanPropsMixin_AssociatedAlarmProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.AuroraProvisionedScalingConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_AuroraProvisionedScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.AuroraServerlessScalingConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_AuroraServerlessScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.CustomActionLambdaConfigurationProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_CustomActionLambdaConfigurationProperty)(nil)).Elem(),
 	)
@@ -130,6 +138,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.LambdasProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_LambdasProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.NeptuneGlobalDatabaseConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_NeptuneGlobalDatabaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.NeptuneUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_NeptuneUngracefulProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.ParallelExecutionBlockConfigurationProperty",

@@ -150,6 +150,15 @@ import (
 //   				StandbyWorkerCount: jsii.Number(123),
 //   				WorkerIdleDurationSeconds: jsii.Number(123),
 //   			},
+//   			PersistentVolumeConfiguration: &PersistentVolumeConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//
+//   				// the properties below are optional
+//   				Iops: jsii.Number(123),
+//   				LastUsedTtlHours: jsii.Number(123),
+//   				SizeGiB: jsii.Number(123),
+//   				ThroughputMiB: jsii.Number(123),
+//   			},
 //   			StorageProfileId: jsii.String("storageProfileId"),
 //   			VpcConfiguration: &VpcConfigurationProperty{
 //   				ResourceConfigurationArns: []*string{

@@ -61,6 +61,7 @@ import (
 //   	DeriveKeyUsage: jsii.String("deriveKeyUsage"),
 //   	Enabled: jsii.Boolean(false),
 //   	KeyCheckValueAlgorithm: jsii.String("keyCheckValueAlgorithm"),
+//   	Policy: jsii.String("policy"),
 //   	ReplicationRegions: []*string{
 //   		jsii.String("replicationRegions"),
 //   	},
@@ -129,6 +130,9 @@ type CfnKey interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The resource-based policy attached to the key, in JSON format.
+	Policy() *string
+	SetPolicy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -494,6 +498,16 @@ func (j *jsiiProxy_CfnKey) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnKey) Policy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"policy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnKey) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -629,6 +643,14 @@ func (j *jsiiProxy_CfnKey)SetKeyCheckValueAlgorithm(val *string) {
 	_jsii_.Set(
 		j,
 		"keyCheckValueAlgorithm",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnKey)SetPolicy(val *string) {
+	_jsii_.Set(
+		j,
+		"policy",
 		val,
 	)
 }

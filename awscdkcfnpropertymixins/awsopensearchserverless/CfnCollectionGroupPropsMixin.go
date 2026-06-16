@@ -28,6 +28,7 @@ import (
 //   		MinSearchCapacityInOcu: jsii.Number(123),
 //   	},
 //   	Description: jsii.String("description"),
+//   	Generation: jsii.String("generation"),
 //   	Name: jsii.String("name"),
 //   	StandbyReplicas: jsii.String("standbyReplicas"),
 //   	Tags: []CfnTag{

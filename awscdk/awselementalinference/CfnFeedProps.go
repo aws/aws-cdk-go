@@ -20,6 +20,17 @@ package awselementalinference
 //   					CallbackMetadata: jsii.String("callbackMetadata"),
 //   				},
 //   				Cropping: cropping,
+//   				Subtitling: &SubtitlingConfigProperty{
+//   					Language: jsii.String("language"),
+//
+//   					// the properties below are optional
+//   					AspectRatio: &AspectRatioProperty{
+//   						Height: jsii.Number(123),
+//   						Width: jsii.Number(123),
+//   					},
+//   					Dictionary: jsii.String("dictionary"),
+//   					ProfanityFilter: jsii.String("profanityFilter"),
+//   				},
 //   			},
 //   			Status: jsii.String("status"),
 //

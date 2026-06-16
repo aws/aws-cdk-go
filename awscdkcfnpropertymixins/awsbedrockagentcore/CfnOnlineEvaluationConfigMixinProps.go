@@ -12,6 +12,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnOnlineEvaluationConfigMixinProps := &CfnOnlineEvaluationConfigMixinProps{
+//   	ClusteringConfig: &ClusteringConfigProperty{
+//   		Frequencies: []*string{
+//   			jsii.String("frequencies"),
+//   		},
+//   	},
 //   	DataSourceConfig: &DataSourceConfigProperty{
 //   		CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
 //   			LogGroupNames: []*string{
@@ -30,6 +35,11 @@ import (
 //   		},
 //   	},
 //   	ExecutionStatus: jsii.String("executionStatus"),
+//   	Insights: []interface{}{
+//   		&InsightProperty{
+//   			InsightId: jsii.String("insightId"),
+//   		},
+//   	},
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
 //   	Rule: &RuleProperty{
 //   		Filters: []interface{}{
@@ -61,6 +71,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html
 //
 type CfnOnlineEvaluationConfigMixinProps struct {
+	// The configuration for clustering analysis of evaluation results.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-clusteringconfig
+	//
+	ClusteringConfig interface{} `field:"optional" json:"clusteringConfig" yaml:"clusteringConfig"`
 	// The configuration that specifies where to read agent traces for online evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-datasourceconfig
 	//
@@ -80,6 +94,10 @@ type CfnOnlineEvaluationConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-executionstatus
 	//
 	ExecutionStatus *string `field:"optional" json:"executionStatus" yaml:"executionStatus"`
+	// The list of insights to enable for failure analysis.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-insights
+	//
+	Insights interface{} `field:"optional" json:"insights" yaml:"insights"`
 	// The name of the online evaluation configuration.
 	//
 	// Must be unique within your account.

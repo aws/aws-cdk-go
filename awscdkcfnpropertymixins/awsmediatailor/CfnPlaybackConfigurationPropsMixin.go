@@ -57,6 +57,9 @@ import (
 //   		MpdLocation: jsii.String("mpdLocation"),
 //   		OriginManifestType: jsii.String("originManifestType"),
 //   	},
+//   	FunctionMapping: map[string]*string{
+//   		"functionMappingKey": jsii.String("functionMapping"),
+//   	},
 //   	HlsConfiguration: &HlsConfigurationProperty{
 //   		ManifestEndpointPrefix: jsii.String("manifestEndpointPrefix"),
 //   	},

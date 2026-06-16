@@ -25,6 +25,7 @@ import (
 //
 //   cfnAssociationPropsMixin := awscdkcfnpropertymixins.Aws_ssm.NewCfnAssociationPropsMixin(&CfnAssociationMixinProps{
 //   	ApplyOnlyAtCronInterval: jsii.Boolean(false),
+//   	AssociationDispatchAssumeRole: jsii.String("associationDispatchAssumeRole"),
 //   	AssociationName: jsii.String("associationName"),
 //   	AutomationTargetParameterName: jsii.String("automationTargetParameterName"),
 //   	CalendarNames: []*string{
@@ -47,6 +48,12 @@ import (
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
 //   	ScheduleOffset: jsii.Number(123),
 //   	SyncCompliance: jsii.String("syncCompliance"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Targets: []interface{}{
 //   		&TargetProperty{
 //   			Key: jsii.String("key"),

@@ -33,6 +33,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnDeliverySourcePropsMixin := awscdkcfnpropertymixins.Aws_logs.NewCfnDeliverySourcePropsMixin(&CfnDeliverySourceMixinProps{
+//   	DeliverySourceConfiguration: map[string]*string{
+//   		"deliverySourceConfigurationKey": jsii.String("deliverySourceConfiguration"),
+//   	},
 //   	LogType: jsii.String("logType"),
 //   	Name: jsii.String("name"),
 //   	ResourceArn: jsii.String("resourceArn"),

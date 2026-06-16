@@ -34,6 +34,9 @@ import (
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
+//   	DeliverySourceConfiguration: map[string]*string{
+//   		"deliverySourceConfigurationKey": jsii.String("deliverySourceConfiguration"),
+//   	},
 //   	LogType: jsii.String("logType"),
 //   	ResourceArn: jsii.String("resourceArn"),
 //   	Tags: []CfnTag{
@@ -59,6 +62,12 @@ type CfnDeliverySource interface {
 	AttrResourceArns() *[]*string
 	// The AWS service that is sending logs.
 	AttrService() *string
+	// The status of this delivery source.
+	//
+	// The value can be ACTIVE or INACTIVE.
+	AttrStatus() *string
+	// The reason for the status of this delivery source, such as RESOURCE_DELETED.
+	AttrStatusReason() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -71,6 +80,9 @@ type CfnDeliverySource interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// A map of key-value pairs to configure the delivery source.
+	DeliverySourceConfiguration() interface{}
+	SetDeliverySourceConfiguration(val interface{})
 	// A reference to a DeliverySource resource.
 	DeliverySourceRef() *interfacesawslogs.DeliverySourceReference
 	Env() *interfaces.ResourceEnvironment
@@ -298,6 +310,26 @@ func (j *jsiiProxy_CfnDeliverySource) AttrService() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeliverySource) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeliverySource) AttrStatusReason() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatusReason",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeliverySource) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -353,6 +385,16 @@ func (j *jsiiProxy_CfnDeliverySource) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeliverySource) DeliverySourceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deliverySourceConfiguration",
 		&returns,
 	)
 	return returns
@@ -505,6 +547,17 @@ func NewCfnDeliverySource_Override(c CfnDeliverySource, scope constructs.Constru
 		"aws-cdk-lib.aws_logs.CfnDeliverySource",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliverySource)SetDeliverySourceConfiguration(val interface{}) {
+	if err := j.validateSetDeliverySourceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"deliverySourceConfiguration",
+		val,
 	)
 }
 

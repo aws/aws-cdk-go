@@ -103,6 +103,7 @@ package awsbedrockagentcore
 //   						Uri: jsii.String("uri"),
 //   					},
 //   				},
+//   				ResourcePriority: jsii.Number(123),
 //   			},
 //   			OpenApiSchema: &ApiSchemaConfigurationProperty{
 //   				InlinePayload: jsii.String("inlinePayload"),
@@ -171,6 +172,24 @@ package awsbedrockagentcore
 //   			jsii.String("allowedResponseHeaders"),
 //   		},
 //   	},
+//   	PrivateEndpoint: &PrivateEndpointProperty{
+//   		ManagedVpcResource: &ManagedVpcResourceProperty{
+//   			EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   			// the properties below are optional
+//   			RoutingDomain: jsii.String("routingDomain"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   		},
+//   		SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   			ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html
@@ -199,5 +218,8 @@ type CfnGatewayTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-metadataconfiguration
 	//
 	MetadataConfiguration interface{} `field:"optional" json:"metadataConfiguration" yaml:"metadataConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-privateendpoint
+	//
+	PrivateEndpoint interface{} `field:"optional" json:"privateEndpoint" yaml:"privateEndpoint"`
 }
 

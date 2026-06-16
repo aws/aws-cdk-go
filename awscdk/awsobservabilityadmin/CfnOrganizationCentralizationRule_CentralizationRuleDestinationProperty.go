@@ -31,6 +31,11 @@ package awsobservabilityadmin
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		},
 //   	},
+//   	DestinationMetricsConfiguration: &DestinationMetricsConfigurationProperty{
+//   		BackupConfiguration: &MetricsBackupConfigurationProperty{
+//   			Region: jsii.String("region"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html
@@ -48,5 +53,8 @@ type CfnOrganizationCentralizationRule_CentralizationRuleDestinationProperty str
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationruledestination-destinationlogsconfiguration
 	//
 	DestinationLogsConfiguration interface{} `field:"optional" json:"destinationLogsConfiguration" yaml:"destinationLogsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-centralizationruledestination.html#cfn-observabilityadmin-organizationcentralizationrule-centralizationruledestination-destinationmetricsconfiguration
+	//
+	DestinationMetricsConfiguration interface{} `field:"optional" json:"destinationMetricsConfiguration" yaml:"destinationMetricsConfiguration"`
 }
 

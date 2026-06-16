@@ -12,8 +12,15 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnResponderGatewayMixinProps := &CfnResponderGatewayMixinProps{
+//   	AcmCertificateArn: jsii.String("acmCertificateArn"),
 //   	Description: jsii.String("description"),
 //   	DomainName: jsii.String("domainName"),
+//   	GatewayType: jsii.String("gatewayType"),
+//   	ListenerConfig: &ListenerConfigProperty{
+//   		Protocols: []*string{
+//   			jsii.String("protocols"),
+//   		},
+//   	},
 //   	ManagedEndpointConfiguration: &ManagedEndpointConfigurationProperty{
 //   		AutoScalingGroupsConfiguration: &AutoScalingGroupsConfigurationProperty{
 //   			AutoScalingGroupNameList: []*string{
@@ -65,6 +72,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html
 //
 type CfnResponderGatewayMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-acmcertificatearn
+	//
+	AcmCertificateArn *string `field:"optional" json:"acmCertificateArn" yaml:"acmCertificateArn"`
 	// An optional description for the responder gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-description
 	//
@@ -73,6 +83,12 @@ type CfnResponderGatewayMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-domainname
 	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-gatewaytype
+	//
+	GatewayType *string `field:"optional" json:"gatewayType" yaml:"gatewayType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-listenerconfig
+	//
+	ListenerConfig interface{} `field:"optional" json:"listenerConfig" yaml:"listenerConfig"`
 	// The configuration for the managed endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-managedendpointconfiguration
 	//

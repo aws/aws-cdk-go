@@ -61,6 +61,7 @@ import (
 //   		KeyUsage: jsii.String("keyUsage"),
 //   	},
 //   	KeyCheckValueAlgorithm: jsii.String("keyCheckValueAlgorithm"),
+//   	Policy: jsii.String("policy"),
 //   	ReplicationRegions: []*string{
 //   		jsii.String("replicationRegions"),
 //   	},
