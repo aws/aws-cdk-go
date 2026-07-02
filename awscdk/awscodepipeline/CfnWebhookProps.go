@@ -1,5 +1,8 @@
 package awscodepipeline
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnWebhook`.
 //
@@ -28,6 +31,12 @@ package awscodepipeline
 //   	// the properties below are optional
 //   	Name: jsii.String("name"),
 //   	RegisterWithThirdParty: jsii.Boolean(false),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TargetPipelineVersion: jsii.Number(123),
 //   }
 //
@@ -74,6 +83,10 @@ type CfnWebhookProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-registerwiththirdparty
 	//
 	RegisterWithThirdParty interface{} `field:"optional" json:"registerWithThirdParty" yaml:"registerWithThirdParty"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// The version number of the pipeline to be connected to the trigger request.
 	//
 	// Required: Yes

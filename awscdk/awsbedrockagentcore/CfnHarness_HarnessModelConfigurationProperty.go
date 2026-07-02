@@ -11,6 +11,7 @@ package awsbedrockagentcore
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		Temperature: jsii.Number(123),
 //   		TopP: jsii.Number(123),
@@ -25,11 +26,22 @@ package awsbedrockagentcore
 //   		TopK: jsii.Number(123),
 //   		TopP: jsii.Number(123),
 //   	},
+//   	LiteLlmModelConfig: &HarnessLiteLlmModelConfigProperty{
+//   		ModelId: jsii.String("modelId"),
+//
+//   		// the properties below are optional
+//   		ApiBase: jsii.String("apiBase"),
+//   		ApiKeyArn: jsii.String("apiKeyArn"),
+//   		MaxTokens: jsii.Number(123),
+//   		Temperature: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   	OpenAiModelConfig: &HarnessOpenAiModelConfigProperty{
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		Temperature: jsii.Number(123),
 //   		TopP: jsii.Number(123),
@@ -45,6 +57,9 @@ type CfnHarness_HarnessModelConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmodelconfiguration.html#cfn-bedrockagentcore-harness-harnessmodelconfiguration-geminimodelconfig
 	//
 	GeminiModelConfig interface{} `field:"optional" json:"geminiModelConfig" yaml:"geminiModelConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmodelconfiguration.html#cfn-bedrockagentcore-harness-harnessmodelconfiguration-litellmmodelconfig
+	//
+	LiteLlmModelConfig interface{} `field:"optional" json:"liteLlmModelConfig" yaml:"liteLlmModelConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmodelconfiguration.html#cfn-bedrockagentcore-harness-harnessmodelconfiguration-openaimodelconfig
 	//
 	OpenAiModelConfig interface{} `field:"optional" json:"openAiModelConfig" yaml:"openAiModelConfig"`

@@ -23,12 +23,16 @@ import (
 //   		Cedar: &CedarPolicyProperty{
 //   			Statement: jsii.String("statement"),
 //   		},
+//   		Policy: &PolicyStatementProperty{
+//   			Statement: jsii.String("statement"),
+//   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	PolicyEngineId: jsii.String("policyEngineId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	EnforcementMode: jsii.String("enforcementMode"),
 //   	ValidationMode: jsii.String("validationMode"),
 //   })
 //
@@ -65,6 +69,9 @@ type CfnPolicy interface {
 	// A human-readable description of the policy's purpose and functionality.
 	Description() *string
 	SetDescription(val *string)
+	// Whether the policy contributes to the enforce decision returned to Gateway.
+	EnforcementMode() *string
+	SetEnforcementMode(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -388,6 +395,16 @@ func (j *jsiiProxy_CfnPolicy) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicy) EnforcementMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"enforcementMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicy) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -543,6 +560,14 @@ func (j *jsiiProxy_CfnPolicy)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicy)SetEnforcementMode(val *string) {
+	_jsii_.Set(
+		j,
+		"enforcementMode",
 		val,
 	)
 }

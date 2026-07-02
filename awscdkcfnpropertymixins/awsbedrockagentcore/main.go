@@ -416,12 +416,32 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_AuthorizationDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.ConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.ConnectorParameterOverrideProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ConnectorParameterOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.ConnectorSourceProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ConnectorSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.ConnectorTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_ConnectorTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.CredentialProviderConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_CredentialProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.CredentialProviderProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_CredentialProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.HttpApiSchemaConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_HttpApiSchemaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.HttpTargetConfigurationProperty",
@@ -468,6 +488,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_OAuthCredentialProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.PassthroughTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_PassthroughTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.PrivateEndpointProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_PrivateEndpointProperty)(nil)).Elem(),
 	)
@@ -486,6 +510,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.SelfManagedLatticeResourceProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_SelfManagedLatticeResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.StickinessConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_StickinessConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.TargetConfigurationProperty",
@@ -544,6 +572,10 @@ func init() {
 		reflect.TypeOf((*CfnHarnessPropsMixin_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.EfsAccessPointConfigurationProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_EfsAccessPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.FilesystemConfigurationProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_FilesystemConfigurationProperty)(nil)).Elem(),
 	)
@@ -596,6 +628,14 @@ func init() {
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessInlineFunctionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessLiteLlmModelConfigProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessLiteLlmModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessManagedMemoryConfigurationProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessManagedMemoryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessMemoryConfigurationProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessMemoryConfigurationProperty)(nil)).Elem(),
 	)
@@ -612,8 +652,24 @@ func init() {
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessRemoteMcpConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessSkillAwsSkillsSourceProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessSkillAwsSkillsSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessSkillGitAuthProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessSkillGitAuthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessSkillGitSourceProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessSkillGitSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessSkillProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessSkillProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessSkillS3SourceProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessSkillS3SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessSlidingWindowConfigurationProperty",
@@ -648,12 +704,32 @@ func init() {
 		reflect.TypeOf((*CfnHarnessPropsMixin_LifecycleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.ManagedVpcResourceProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_ManagedVpcResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.OAuthCredentialProviderProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_OAuthCredentialProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.PrivateEndpointOverrideProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_PrivateEndpointOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.PrivateEndpointProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_PrivateEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.S3FilesAccessPointConfigurationProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_S3FilesAccessPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.SelfManagedLatticeResourceProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_SelfManagedLatticeResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.SessionStorageConfigurationProperty",
@@ -1166,6 +1242,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPolicyPropsMixin.PolicyDefinitionProperty",
 		reflect.TypeOf((*CfnPolicyPropsMixin_PolicyDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPolicyPropsMixin.PolicyStatementProperty",
+		reflect.TypeOf((*CfnPolicyPropsMixin_PolicyStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnResourcePolicyMixinProps",

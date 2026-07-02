@@ -258,6 +258,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "monetizationConfig", GoGetter: "MonetizationConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -343,6 +344,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_CountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CryptoConfigProperty",
+		reflect.TypeOf((*CfnRuleGroup_CryptoConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CustomHTTPHeaderProperty",
 		reflect.TypeOf((*CfnRuleGroup_CustomHTTPHeaderProperty)(nil)).Elem(),
 	)
@@ -423,12 +428,28 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_LabelSummaryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.MonetizationConfigProperty",
+		reflect.TypeOf((*CfnRuleGroup_MonetizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.MonetizeActionProperty",
+		reflect.TypeOf((*CfnRuleGroup_MonetizeActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.NotStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_NotStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.OrStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_OrStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.PaymentNetworkProperty",
+		reflect.TypeOf((*CfnRuleGroup_PaymentNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.PriceProperty",
+		reflect.TypeOf((*CfnRuleGroup_PriceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.RateBasedStatementCustomKeyProperty",
@@ -562,6 +583,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "monetizationConfig", GoGetter: "MonetizationConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -685,6 +707,10 @@ func init() {
 		reflect.TypeOf((*CfnWebACL_CountActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.CryptoConfigProperty",
+		reflect.TypeOf((*CfnWebACL_CryptoConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.CustomHTTPHeaderProperty",
 		reflect.TypeOf((*CfnWebACL_CustomHTTPHeaderProperty)(nil)).Elem(),
 	)
@@ -793,6 +819,14 @@ func init() {
 		reflect.TypeOf((*CfnWebACL_ManagedRuleGroupStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.MonetizationConfigProperty",
+		reflect.TypeOf((*CfnWebACL_MonetizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.MonetizeActionProperty",
+		reflect.TypeOf((*CfnWebACL_MonetizeActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.NotStatementProperty",
 		reflect.TypeOf((*CfnWebACL_NotStatementProperty)(nil)).Elem(),
 	)
@@ -807,6 +841,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.OverrideActionProperty",
 		reflect.TypeOf((*CfnWebACL_OverrideActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.PaymentNetworkProperty",
+		reflect.TypeOf((*CfnWebACL_PaymentNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.PriceProperty",
+		reflect.TypeOf((*CfnWebACL_PriceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.RateBasedStatementCustomKeyProperty",

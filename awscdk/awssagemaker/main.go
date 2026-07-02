@@ -210,6 +210,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "restrictedInstanceGroups", GoGetter: "RestrictedInstanceGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "restrictedInstanceGroupsConfig", GoGetter: "RestrictedInstanceGroupsConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -319,12 +320,20 @@ func init() {
 		reflect.TypeOf((*CfnCluster_OrchestratorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.RestrictedInstanceGroupsConfigProperty",
+		reflect.TypeOf((*CfnCluster_RestrictedInstanceGroupsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.RollingUpdatePolicyProperty",
 		reflect.TypeOf((*CfnCluster_RollingUpdatePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ScheduledUpdateConfigProperty",
 		reflect.TypeOf((*CfnCluster_ScheduledUpdateConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.SharedEnvironmentConfigProperty",
+		reflect.TypeOf((*CfnCluster_SharedEnvironmentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.TieredStorageConfigProperty",

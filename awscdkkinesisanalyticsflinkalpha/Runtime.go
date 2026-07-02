@@ -45,7 +45,7 @@ func (j *jsiiProxy_Runtime) Value() *string {
 }
 
 
-// Create a new Runtime with with an arbitrary Flink version string.
+// Create a new Runtime with an arbitrary Flink version string.
 // Experimental.
 func Runtime_Of(value *string) Runtime {
 	_init_.Initialize()

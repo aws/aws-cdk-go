@@ -1,6 +1,8 @@
 package awslambda
 
 
+// Configuration that defines how tags are propagated to managed resources.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

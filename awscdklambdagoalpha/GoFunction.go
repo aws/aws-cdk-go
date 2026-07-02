@@ -84,7 +84,7 @@ type GoFunction interface {
 	GrantPrincipal() awsiam.IPrincipal
 	// Whether or not this Lambda function was bound to a VPC.
 	//
-	// If this is is `false`, trying to access the `connections` object will fail.
+	// If this is `false`, trying to access the `connections` object will fail.
 	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.

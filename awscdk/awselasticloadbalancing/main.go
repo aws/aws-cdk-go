@@ -25,7 +25,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCanonicalHostedZoneName", GoGetter: "AttrCanonicalHostedZoneName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCanonicalHostedZoneNameId", GoGetter: "AttrCanonicalHostedZoneNameId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDnsName", GoGetter: "AttrDnsName"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSecurityGroup", GoGetter: "AttrSourceSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSecurityGroupGroupName", GoGetter: "AttrSourceSecurityGroupGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSecurityGroupOwnerAlias", GoGetter: "AttrSourceSecurityGroupOwnerAlias"},

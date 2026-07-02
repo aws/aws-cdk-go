@@ -56,7 +56,7 @@ type IGraphqlApi interface {
 	GrantQuery(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
 	// Adds an IAM policy statement for Subscription access to this GraphQLApi to an IAM principal's policy.
 	GrantSubscription(grantee awsiam.IGrantable, fields ...*string) awsiam.Grant
-	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
+	// a unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId() *string
 	// the ARN of the API.
 	Arn() *string

@@ -7,6 +7,7 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   harnessBedrockModelConfigProperty := &HarnessBedrockModelConfigProperty{
+//   	ApiFormat: jsii.String("apiFormat"),
 //   	MaxTokens: jsii.Number(123),
 //   	ModelId: jsii.String("modelId"),
 //   	Temperature: jsii.Number(123),
@@ -16,6 +17,9 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html
 //
 type CfnHarnessPropsMixin_HarnessBedrockModelConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html#cfn-bedrockagentcore-harness-harnessbedrockmodelconfig-apiformat
+	//
+	ApiFormat *string `field:"optional" json:"apiFormat" yaml:"apiFormat"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html#cfn-bedrockagentcore-harness-harnessbedrockmodelconfig-maxtokens
 	//
 	MaxTokens *float64 `field:"optional" json:"maxTokens" yaml:"maxTokens"`

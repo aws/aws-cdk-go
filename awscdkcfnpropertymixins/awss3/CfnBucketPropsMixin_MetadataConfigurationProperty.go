@@ -11,6 +11,16 @@ package awss3
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   metadataConfigurationProperty := &MetadataConfigurationProperty{
+//   	AnnotationTableConfiguration: &AnnotationTableConfigurationProperty{
+//   		ConfigurationState: jsii.String("configurationState"),
+//   		EncryptionConfiguration: &MetadataTableEncryptionConfigurationProperty{
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			SseAlgorithm: jsii.String("sseAlgorithm"),
+//   		},
+//   		Role: jsii.String("role"),
+//   		TableArn: jsii.String("tableArn"),
+//   		TableName: jsii.String("tableName"),
+//   	},
 //   	Destination: &MetadataDestinationProperty{
 //   		TableBucketArn: jsii.String("tableBucketArn"),
 //   		TableBucketType: jsii.String("tableBucketType"),
@@ -42,6 +52,9 @@ package awss3
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html
 //
 type CfnBucketPropsMixin_MetadataConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html#cfn-s3-bucket-metadataconfiguration-annotationtableconfiguration
+	//
+	AnnotationTableConfiguration interface{} `field:"optional" json:"annotationTableConfiguration" yaml:"annotationTableConfiguration"`
 	// The destination information for the S3 Metadata configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html#cfn-s3-bucket-metadataconfiguration-destination
 	//

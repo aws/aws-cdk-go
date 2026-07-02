@@ -100,10 +100,6 @@ func (j *jsiiProxy_CfnGatewayTarget) validateSetMetadataConfigurationParameters(
 	return nil
 }
 
-func (j *jsiiProxy_CfnGatewayTarget) validateSetNameParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnGatewayTarget) validateSetPrivateEndpointParameters(val interface{}) error {
 	return nil
 }

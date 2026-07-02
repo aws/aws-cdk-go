@@ -14,6 +14,12 @@ package awscognito
 //   	},
 //   	Domain: jsii.String("domain"),
 //   	ManagedLoginVersion: jsii.Number(123),
+//   	Routing: &RoutingTypeProperty{
+//   		Failover: &FailoverTypeProperty{
+//   			PrimaryRoute53HealthCheckId: jsii.String("primaryRoute53HealthCheckId"),
+//   			SecondaryRegion: jsii.String("secondaryRegion"),
+//   		},
+//   	},
 //   	UserPoolId: jsii.String("userPoolId"),
 //   }
 //
@@ -40,6 +46,9 @@ type CfnUserPoolDomainMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-managedloginversion
 	//
 	ManagedLoginVersion *float64 `field:"optional" json:"managedLoginVersion" yaml:"managedLoginVersion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-routing
+	//
+	Routing interface{} `field:"optional" json:"routing" yaml:"routing"`
 	// The ID of the user pool that is associated with the domain you're updating.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-userpoolid
 	//

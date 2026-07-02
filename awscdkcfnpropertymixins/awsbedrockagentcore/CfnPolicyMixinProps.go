@@ -13,8 +13,12 @@ package awsbedrockagentcore
 //   		Cedar: &CedarPolicyProperty{
 //   			Statement: jsii.String("statement"),
 //   		},
+//   		Policy: &PolicyStatementProperty{
+//   			Statement: jsii.String("statement"),
+//   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	EnforcementMode: jsii.String("enforcementMode"),
 //   	Name: jsii.String("name"),
 //   	PolicyEngineId: jsii.String("policyEngineId"),
 //   	ValidationMode: jsii.String("validationMode"),
@@ -33,6 +37,14 @@ type CfnPolicyMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-policy.html#cfn-bedrockagentcore-policy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Whether the policy contributes to the enforce decision returned to Gateway.
+	//
+	// LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-policy.html#cfn-bedrockagentcore-policy-enforcementmode
+	//
+	// Default: - "ACTIVE".
+	//
+	EnforcementMode *string `field:"optional" json:"enforcementMode" yaml:"enforcementMode"`
 	// The customer-assigned immutable name for the policy.
 	//
 	// Must be unique within the policy engine.

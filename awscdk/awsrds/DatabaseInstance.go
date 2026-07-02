@@ -78,6 +78,8 @@ type DatabaseInstance interface {
 	// This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	InstanceResourceId() *string
 	InstanceType() awsec2.InstanceType
+	ManageMasterUserPassword() *bool
+	SetManageMasterUserPassword(val *bool)
 	NewCfnProps() *CfnDBInstanceProps
 	// The tree node.
 	Node() constructs.Node
@@ -324,6 +326,16 @@ func (j *jsiiProxy_DatabaseInstance) InstanceType() awsec2.InstanceType {
 	return returns
 }
 
+func (j *jsiiProxy_DatabaseInstance) ManageMasterUserPassword() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"manageMasterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DatabaseInstance) NewCfnProps() *CfnDBInstanceProps {
 	var returns *CfnDBInstanceProps
 	_jsii_.Get(
@@ -436,6 +448,14 @@ func (j *jsiiProxy_DatabaseInstance)SetEnableIamAuthentication(val *bool) {
 	_jsii_.Set(
 		j,
 		"enableIamAuthentication",
+		val,
+	)
+}
+
+func (j *jsiiProxy_DatabaseInstance)SetManageMasterUserPassword(val *bool) {
+	_jsii_.Set(
+		j,
+		"manageMasterUserPassword",
 		val,
 	)
 }

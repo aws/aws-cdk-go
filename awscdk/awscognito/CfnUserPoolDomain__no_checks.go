@@ -100,6 +100,10 @@ func (j *jsiiProxy_CfnUserPoolDomain) validateSetDomainParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserPoolDomain) validateSetRoutingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserPoolDomain) validateSetUserPoolIdParameters(val *string) error {
 	return nil
 }

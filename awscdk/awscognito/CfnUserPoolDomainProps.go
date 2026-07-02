@@ -17,6 +17,12 @@ package awscognito
 //   		CertificateArn: jsii.String("certificateArn"),
 //   	},
 //   	ManagedLoginVersion: jsii.Number(123),
+//   	Routing: &RoutingTypeProperty{
+//   		Failover: &FailoverTypeProperty{
+//   			PrimaryRoute53HealthCheckId: jsii.String("primaryRoute53HealthCheckId"),
+//   			SecondaryRegion: jsii.String("secondaryRegion"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html
@@ -46,5 +52,8 @@ type CfnUserPoolDomainProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-managedloginversion
 	//
 	ManagedLoginVersion *float64 `field:"optional" json:"managedLoginVersion" yaml:"managedLoginVersion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html#cfn-cognito-userpooldomain-routing
+	//
+	Routing interface{} `field:"optional" json:"routing" yaml:"routing"`
 }
 

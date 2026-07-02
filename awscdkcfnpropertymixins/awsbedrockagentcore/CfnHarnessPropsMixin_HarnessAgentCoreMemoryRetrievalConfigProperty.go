@@ -7,9 +7,9 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   harnessAgentCoreMemoryRetrievalConfigProperty := &HarnessAgentCoreMemoryRetrievalConfigProperty{
-//   	RelevanceScore: jsii.Number(123),
+//   	RelevanceScore: jsii.String("relevanceScore"),
 //   	StrategyId: jsii.String("strategyId"),
-//   	TopK: jsii.Number(123),
+//   	TopK: jsii.String("topK"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html
@@ -17,12 +17,12 @@ package awsbedrockagentcore
 type CfnHarnessPropsMixin_HarnessAgentCoreMemoryRetrievalConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html#cfn-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig-relevancescore
 	//
-	RelevanceScore *float64 `field:"optional" json:"relevanceScore" yaml:"relevanceScore"`
+	RelevanceScore interface{} `field:"optional" json:"relevanceScore" yaml:"relevanceScore"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html#cfn-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig-strategyid
 	//
 	StrategyId *string `field:"optional" json:"strategyId" yaml:"strategyId"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html#cfn-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig-topk
 	//
-	TopK *float64 `field:"optional" json:"topK" yaml:"topK"`
+	TopK interface{} `field:"optional" json:"topK" yaml:"topK"`
 }
 

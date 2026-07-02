@@ -973,6 +973,43 @@ rds.NewDatabaseInstance(this, jsii.String("InstanceWithCustomizedSecret"), &Data
 })
 ```
 
+### RDS-managed master password
+
+You can enable RDS to manage the master password in AWS Secrets Manager by setting `manageMasterUserPassword` to `true`. When enabled, RDS creates and manages the secret automatically, and you can only specify the `username` and optionally an `encryptionKey` in the credentials:
+
+```go
+var vpc Vpc
+var kmsKey Key
+
+
+// Database cluster with RDS-managed password
+// Database cluster with RDS-managed password
+rds.NewDatabaseCluster(this, jsii.String("Cluster"), &DatabaseClusterProps{
+	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+		Version: rds.AuroraMysqlEngineVersion_VER_3_01_0(),
+	}),
+	Writer: rds.ClusterInstance_ServerlessV2(jsii.String("writer")),
+	Vpc: Vpc,
+	ManageMasterUserPassword: jsii.Boolean(true),
+	Credentials: rds.Credentials_FromUsername(jsii.String("admin"), &CredentialsFromUsernameOptions{
+		EncryptionKey: kmsKey,
+	}),
+})
+
+// Database instance with RDS-managed password
+// Database instance with RDS-managed password
+rds.NewDatabaseInstance(this, jsii.String("Instance"), &DatabaseInstanceProps{
+	Engine: rds.DatabaseInstanceEngine_Postgres(&PostgresInstanceEngineProps{
+		Version: rds.PostgresEngineVersion_VER_16_3(),
+	}),
+	Vpc: Vpc,
+	ManageMasterUserPassword: jsii.Boolean(true),
+	Credentials: rds.Credentials_*FromUsername(jsii.String("postgres")),
+})
+```
+
+**Note**: When `manageMasterUserPassword` is enabled, you cannot use other credential properties like `password`, `secret`, `secretName`, `excludeCharacters`, `replicaRegions`, or `usernameAsString`. Only `username` and `encryptionKey` are allowed. The `secret` property exposes a read-only reference to the secret that RDS created, not a CDK-owned secret — `addToResourcePolicy()` is a no-op, so use `secret.grantRead(grantee)` to grant access.
+
 ### Snapshot credentials
 
 As noted above, Databases created with `DatabaseInstanceFromSnapshot` or `ServerlessClusterFromSnapshot` will not create user and auto-generated password by default because it's not possible to change the master username for a snapshot. Instead, they will use the existing username and password from the snapshot. You can still generate a new password - to generate a secret similarly to the other constructs, pass in credentials with `fromGeneratedSecret()` or `fromGeneratedPassword()`.

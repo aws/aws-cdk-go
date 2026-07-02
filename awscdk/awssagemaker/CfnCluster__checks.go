@@ -380,6 +380,30 @@ func (j *jsiiProxy_CfnCluster) validateSetRestrictedInstanceGroupsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetRestrictedInstanceGroupsConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_RestrictedInstanceGroupsConfigProperty:
+		val := val.(*CfnCluster_RestrictedInstanceGroupsConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_RestrictedInstanceGroupsConfigProperty:
+		val_ := val.(CfnCluster_RestrictedInstanceGroupsConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_RestrictedInstanceGroupsConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

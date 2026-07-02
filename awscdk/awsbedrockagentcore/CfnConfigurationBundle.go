@@ -38,6 +38,7 @@ import (
 //   		Arn: jsii.String("arn"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -98,6 +99,9 @@ type CfnConfigurationBundle interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// The ARN of the KMS key used to encrypt component configurations.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -483,6 +487,16 @@ func (j *jsiiProxy_CfnConfigurationBundle) Env() *interfaces.ResourceEnvironment
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationBundle) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationBundle) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -636,6 +650,14 @@ func (j *jsiiProxy_CfnConfigurationBundle)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationBundle)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
 		val,
 	)
 }

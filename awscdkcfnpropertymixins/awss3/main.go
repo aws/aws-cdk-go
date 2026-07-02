@@ -160,6 +160,10 @@ func init() {
 		reflect.TypeOf((*CfnBucketPropsMixin_AnalyticsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3.CfnBucketPropsMixin.AnnotationTableConfigurationProperty",
+		reflect.TypeOf((*CfnBucketPropsMixin_AnnotationTableConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3.CfnBucketPropsMixin.BlockedEncryptionTypesProperty",
 		reflect.TypeOf((*CfnBucketPropsMixin_BlockedEncryptionTypesProperty)(nil)).Elem(),
 	)

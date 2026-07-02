@@ -32,6 +32,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var connectorParameters interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnDataSourcePropsMixin := awscdkcfnpropertymixins.Aws_bedrock.NewCfnDataSourcePropsMixin(&CfnDataSourceMixinProps{
@@ -61,6 +62,24 @@ import (
 //   				CredentialsSecretArn: jsii.String("credentialsSecretArn"),
 //   				HostType: jsii.String("hostType"),
 //   				HostUrl: jsii.String("hostUrl"),
+//   			},
+//   		},
+//   		ManagedKnowledgeBaseConnectorConfiguration: &ManagedKnowledgeBaseConnectorConfigurationProperty{
+//   			ConnectorParameters: connectorParameters,
+//   			DeletionProtectionConfiguration: &DeletionProtectionConfigurationProperty{
+//   				DeletionProtectionStatus: jsii.String("deletionProtectionStatus"),
+//   				DeletionProtectionThreshold: jsii.Number(123),
+//   			},
+//   			MediaExtractionConfiguration: &MediaExtractionConfigurationProperty{
+//   				AudioExtractionConfiguration: &AudioExtractionConfigurationProperty{
+//   					AudioExtractionStatus: jsii.String("audioExtractionStatus"),
+//   				},
+//   				ImageExtractionConfiguration: &ImageExtractionConfigurationProperty{
+//   					ImageExtractionStatus: jsii.String("imageExtractionStatus"),
+//   				},
+//   				VideoExtractionConfiguration: &VideoExtractionConfigurationProperty{
+//   					VideoExtractionStatus: jsii.String("videoExtractionStatus"),
+//   				},
 //   			},
 //   		},
 //   		S3Configuration: &S3DataSourceConfigurationProperty{

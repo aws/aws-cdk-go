@@ -354,6 +354,15 @@ type DatabaseInstanceProps struct {
 	// Default: - A username of 'admin' (or 'postgres' for PostgreSQL) and SecretsManager-generated password.
 	//
 	Credentials Credentials `field:"optional" json:"credentials" yaml:"credentials"`
+	// Whether to use RDS native integration with AWS Secrets Manager for master user password management.
+	//
+	// When enabled, RDS generates and manages the master user password in Secrets Manager.
+	// Cannot be used together with credentials containing a password.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html
+	//
+	// Default: false.
+	//
+	ManageMasterUserPassword *bool `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// Indicates whether the DB instance is encrypted.
 	// Default: - true if storageEncryptionKey has been provided, false otherwise.
 	//

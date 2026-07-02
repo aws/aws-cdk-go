@@ -40,6 +40,12 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RegisterWithThirdParty: jsii.Boolean(false),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TargetAction: jsii.String("targetAction"),
 //   	TargetPipeline: jsii.String("targetPipeline"),
 //   	TargetPipelineVersion: jsii.Number(123),

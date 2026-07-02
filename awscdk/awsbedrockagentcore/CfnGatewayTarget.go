@@ -22,10 +22,10 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var parameterValues interface{}
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   cfnGatewayTarget := awscdk.Aws_bedrockagentcore.NewCfnGatewayTarget(this, jsii.String("MyCfnGatewayTarget"), &CfnGatewayTargetProps{
-//   	Name: jsii.String("name"),
 //   	TargetConfiguration: &TargetConfigurationProperty{
 //   		Http: &HttpTargetConfigurationProperty{
 //   			AgentcoreRuntime: &RuntimeTargetConfigurationProperty{
@@ -33,6 +33,36 @@ import (
 //
 //   				// the properties below are optional
 //   				Qualifier: jsii.String("qualifier"),
+//   				Schema: &HttpApiSchemaConfigurationProperty{
+//   					Source: &ApiSchemaConfigurationProperty{
+//   						InlinePayload: jsii.String("inlinePayload"),
+//   						S3: &S3ConfigurationProperty{
+//   							BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   							Uri: jsii.String("uri"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			Passthrough: &PassthroughTargetConfigurationProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//   				ProtocolType: jsii.String("protocolType"),
+//
+//   				// the properties below are optional
+//   				Schema: &HttpApiSchemaConfigurationProperty{
+//   					Source: &ApiSchemaConfigurationProperty{
+//   						InlinePayload: jsii.String("inlinePayload"),
+//   						S3: &S3ConfigurationProperty{
+//   							BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   							Uri: jsii.String("uri"),
+//   						},
+//   					},
+//   				},
+//   				StickinessConfiguration: &StickinessConfigurationProperty{
+//   					Identifier: jsii.String("identifier"),
+//
+//   					// the properties below are optional
+//   					Timeout: jsii.Number(123),
+//   				},
 //   			},
 //   		},
 //   		Mcp: &McpTargetConfigurationProperty{
@@ -61,6 +91,34 @@ import (
 //   				},
 //   				RestApiId: jsii.String("restApiId"),
 //   				Stage: jsii.String("stage"),
+//   			},
+//   			Connector: &ConnectorTargetConfigurationProperty{
+//   				Source: &ConnectorSourceProperty{
+//   					ConnectorId: jsii.String("connectorId"),
+//   				},
+//
+//   				// the properties below are optional
+//   				Configurations: []interface{}{
+//   					&ConnectorConfigurationProperty{
+//   						Name: jsii.String("name"),
+//
+//   						// the properties below are optional
+//   						Description: jsii.String("description"),
+//   						ParameterOverrides: []interface{}{
+//   							&ConnectorParameterOverrideProperty{
+//   								Path: jsii.String("path"),
+//
+//   								// the properties below are optional
+//   								Description: jsii.String("description"),
+//   								Visible: jsii.Boolean(false),
+//   							},
+//   						},
+//   						ParameterValues: parameterValues,
+//   					},
+//   				},
+//   				Enabled: []*string{
+//   					jsii.String("enabled"),
+//   				},
 //   			},
 //   			Lambda: &McpLambdaTargetConfigurationProperty{
 //   				LambdaArn: jsii.String("lambdaArn"),
@@ -186,6 +244,7 @@ import (
 //   			jsii.String("allowedResponseHeaders"),
 //   		},
 //   	},
+//   	Name: jsii.String("name"),
 //   	PrivateEndpoint: &PrivateEndpointProperty{
 //   		ManagedVpcResource: &ManagedVpcResourceProperty{
 //   			EndpointIpAddressType: jsii.String("endpointIpAddressType"),
@@ -809,9 +868,6 @@ func (j *jsiiProxy_CfnGatewayTarget)SetMetadataConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnGatewayTarget)SetName(val *string) {
-	if err := j.validateSetNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"name",

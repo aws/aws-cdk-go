@@ -76,7 +76,7 @@ const (
 	// The ExecuteComponents action runs components that are specified in the recipe for the current image being built.
 	// Experimental.
 	WorkflowAction_EXECUTE_COMPONENTS WorkflowAction = "EXECUTE_COMPONENTS"
-	// The ExecuteStateMachine action executes a the state machine provided and waits for completion as part of the workflow.
+	// The ExecuteStateMachine action executes the state machine provided and waits for completion as part of the workflow.
 	// Experimental.
 	WorkflowAction_EXECUTE_STATE_MACHINE WorkflowAction = "EXECUTE_STATE_MACHINE"
 	// The LaunchInstance action launches an instance using the settings from your recipe and infrastructure configuration resources.

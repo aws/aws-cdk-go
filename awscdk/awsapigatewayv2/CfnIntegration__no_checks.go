@@ -76,10 +76,6 @@ func (c *jsiiProxy_CfnIntegration) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnIntegration_ArnForIntegrationParameters(resource interfacesawsapigatewayv2.IIntegrationRef) error {
-	return nil
-}
-
 func validateCfnIntegration_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

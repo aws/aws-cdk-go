@@ -43,6 +43,11 @@ import (
 //   			},
 //   		},
 //   		ImageUri: jsii.String("imageUri"),
+//   		LinuxCapabilities: &LinuxCapabilitiesProperty{
+//   			Include: []*string{
+//   				jsii.String("include"),
+//   			},
+//   		},
 //   		MountPoints: []interface{}{
 //   			&ContainerMountPointProperty{
 //   				AccessLevel: jsii.String("accessLevel"),
@@ -91,6 +96,11 @@ import (
 //   				Timeout: jsii.Number(123),
 //   			},
 //   			ImageUri: jsii.String("imageUri"),
+//   			LinuxCapabilities: &LinuxCapabilitiesProperty{
+//   				Include: []*string{
+//   					jsii.String("include"),
+//   				},
+//   			},
 //   			MemoryHardLimitMebibytes: jsii.Number(123),
 //   			MountPoints: []interface{}{
 //   				&ContainerMountPointProperty{

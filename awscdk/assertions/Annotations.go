@@ -37,9 +37,9 @@ type Annotations interface {
 	HasNoError(constructPath *string, message interface{})
 	// Assert that an info with the given message does not exist in the synthesized CDK `Stack`.
 	HasNoInfo(constructPath *string, message interface{})
-	// Assert that an warning with the given message does not exist in the synthesized CDK `Stack`.
+	// Assert that a warning with the given message does not exist in the synthesized CDK `Stack`.
 	HasNoWarning(constructPath *string, message interface{})
-	// Assert that an warning with the given message exists in the synthesized CDK `Stack`.
+	// Assert that a warning with the given message exists in the synthesized CDK `Stack`.
 	HasWarning(constructPath *string, message interface{})
 }
 

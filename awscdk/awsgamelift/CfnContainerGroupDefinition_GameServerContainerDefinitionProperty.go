@@ -34,6 +34,11 @@ package awsgamelift
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	LinuxCapabilities: &LinuxCapabilitiesProperty{
+//   		Include: []*string{
+//   			jsii.String("include"),
+//   		},
+//   	},
 //   	MountPoints: []interface{}{
 //   		&ContainerMountPointProperty{
 //   			InstancePath: jsii.String("instancePath"),
@@ -88,6 +93,12 @@ type CfnContainerGroupDefinition_GameServerContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-environmentoverride
 	//
 	EnvironmentOverride interface{} `field:"optional" json:"environmentOverride" yaml:"environmentOverride"`
+	// A set of Linux capabilities that are added to a container's default Docker configuration.
+	//
+	// For more detailed information, see the capabilities(7) Linux manual page.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-linuxcapabilities
+	//
+	LinuxCapabilities interface{} `field:"optional" json:"linuxCapabilities" yaml:"linuxCapabilities"`
 	// A mount point that binds a path inside the container to a file or directory on the host system and lets it access the file or directory.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-mountpoints
 	//

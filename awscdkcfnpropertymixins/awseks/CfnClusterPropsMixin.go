@@ -111,6 +111,7 @@ import (
 //   		},
 //   	},
 //   	ResourcesVpcConfig: &ResourcesVpcConfigProperty{
+//   		ControlPlaneEgressMode: jsii.String("controlPlaneEgressMode"),
 //   		EndpointPrivateAccess: jsii.Boolean(false),
 //   		EndpointPublicAccess: jsii.Boolean(false),
 //   		PublicAccessCidrs: []*string{

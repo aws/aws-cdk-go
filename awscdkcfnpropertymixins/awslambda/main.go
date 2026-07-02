@@ -372,6 +372,90 @@ func init() {
 		reflect.TypeOf((*CfnLayerVersionPropsMixin_ContentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImageMixinProps",
+		reflect.TypeOf((*CfnMicrovmImageMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMicrovmImagePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.CloudWatchLoggingProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_CloudWatchLoggingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.CodeArtifactProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_CodeArtifactProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.CpuConfigurationProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_CpuConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.EnvironmentVariableProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_EnvironmentVariableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.HooksProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_HooksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.LoggingProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_LoggingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.MicrovmHooksProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_MicrovmHooksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.MicrovmImageHooksProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_MicrovmImageHooksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnMicrovmImagePropsMixin.ResourcesProperty",
+		reflect.TypeOf((*CfnMicrovmImagePropsMixin_ResourcesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnNetworkConnectorMixinProps",
+		reflect.TypeOf((*CfnNetworkConnectorMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnNetworkConnectorPropsMixin",
+		reflect.TypeOf((*CfnNetworkConnectorPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnNetworkConnectorPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnNetworkConnectorPropsMixin.ConfigProperty",
+		reflect.TypeOf((*CfnNetworkConnectorPropsMixin_ConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnNetworkConnectorPropsMixin.VpcEgressConfigurationProperty",
+		reflect.TypeOf((*CfnNetworkConnectorPropsMixin_VpcEgressConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnPermissionMixinProps",
 		reflect.TypeOf((*CfnPermissionMixinProps)(nil)).Elem(),
 	)

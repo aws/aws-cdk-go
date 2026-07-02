@@ -235,6 +235,30 @@ func (j *jsiiProxy_CfnUserPoolDomain) validateSetDomainParameters(val *string) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnUserPoolDomain) validateSetRoutingParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnUserPoolDomain_RoutingTypeProperty:
+		val := val.(*CfnUserPoolDomain_RoutingTypeProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnUserPoolDomain_RoutingTypeProperty:
+		val_ := val.(CfnUserPoolDomain_RoutingTypeProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnUserPoolDomain_RoutingTypeProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnUserPoolDomain) validateSetUserPoolIdParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

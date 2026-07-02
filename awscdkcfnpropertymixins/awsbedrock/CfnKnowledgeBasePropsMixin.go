@@ -41,6 +41,33 @@ import (
 //   		KendraKnowledgeBaseConfiguration: &KendraKnowledgeBaseConfigurationProperty{
 //   			KendraIndexArn: jsii.String("kendraIndexArn"),
 //   		},
+//   		ManagedKnowledgeBaseConfiguration: &ManagedKnowledgeBaseConfigurationProperty{
+//   			EmbeddingModelArn: jsii.String("embeddingModelArn"),
+//   			EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
+//   				BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
+//   					Audio: []interface{}{
+//   						&AudioConfigurationProperty{
+//   							SegmentationConfiguration: &AudioSegmentationConfigurationProperty{
+//   								FixedLengthDuration: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   					Dimensions: jsii.Number(123),
+//   					EmbeddingDataType: jsii.String("embeddingDataType"),
+//   					Video: []interface{}{
+//   						&VideoConfigurationProperty{
+//   							SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
+//   								FixedLengthDuration: jsii.Number(123),
+//   							},
+//   						},
+//   					},
+//   				},
+//   			},
+//   			EmbeddingModelType: jsii.String("embeddingModelType"),
+//   			ServerSideEncryptionConfiguration: &ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty{
+//   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   		},
 //   		SqlKnowledgeBaseConfiguration: &SqlKnowledgeBaseConfigurationProperty{
 //   			RedshiftConfiguration: &RedshiftConfigurationProperty{
 //   				QueryEngineConfiguration: &RedshiftQueryEngineConfigurationProperty{

@@ -37,6 +37,11 @@ import (
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   		LinuxCapabilities: &LinuxCapabilitiesProperty{
+//   			Include: []*string{
+//   				jsii.String("include"),
+//   			},
+//   		},
 //   		MountPoints: []interface{}{
 //   			&ContainerMountPointProperty{
 //   				InstancePath: jsii.String("instancePath"),
@@ -87,6 +92,11 @@ import (
 //   				Retries: jsii.Number(123),
 //   				StartPeriod: jsii.Number(123),
 //   				Timeout: jsii.Number(123),
+//   			},
+//   			LinuxCapabilities: &LinuxCapabilitiesProperty{
+//   				Include: []*string{
+//   					jsii.String("include"),
+//   				},
 //   			},
 //   			MemoryHardLimitMebibytes: jsii.Number(123),
 //   			MountPoints: []interface{}{

@@ -13,6 +13,7 @@ package awslambda
 //   	S3Key: jsii.String("s3Key"),
 //
 //   	// the properties below are optional
+//   	S3ObjectStorageMode: jsii.String("s3ObjectStorageMode"),
 //   	S3ObjectVersion: jsii.String("s3ObjectVersion"),
 //   }
 //
@@ -27,6 +28,10 @@ type CfnLayerVersion_ContentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3key
 	//
 	S3Key *string `field:"required" json:"s3Key" yaml:"s3Key"`
+	// Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3objectstoragemode
+	//
+	S3ObjectStorageMode *string `field:"optional" json:"s3ObjectStorageMode" yaml:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the layer archive object to use.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-layerversion-content.html#cfn-lambda-layerversion-content-s3objectversion
 	//

@@ -22,7 +22,7 @@ type BucketEncryption string
 const (
 	// Previous option.
 	//
-	// Buckets can not be unencrypted now.
+	// Buckets cannot be unencrypted now.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html
 	//
 	// Deprecated: S3 applies server-side encryption with SSE-S3 for every bucket

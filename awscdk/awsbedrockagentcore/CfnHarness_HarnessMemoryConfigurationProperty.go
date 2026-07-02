@@ -6,6 +6,8 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var disabled interface{}
+//
 //   harnessMemoryConfigurationProperty := &HarnessMemoryConfigurationProperty{
 //   	AgentCoreMemoryConfiguration: &HarnessAgentCoreMemoryConfigurationProperty{
 //   		Arn: jsii.String("arn"),
@@ -15,10 +17,19 @@ package awsbedrockagentcore
 //   		MessagesCount: jsii.Number(123),
 //   		RetrievalConfig: map[string]interface{}{
 //   			"retrievalConfigKey": &HarnessAgentCoreMemoryRetrievalConfigProperty{
-//   				"relevanceScore": jsii.Number(123),
+//   				"relevanceScore": jsii.String("relevanceScore"),
 //   				"strategyId": jsii.String("strategyId"),
-//   				"topK": jsii.Number(123),
+//   				"topK": jsii.String("topK"),
 //   			},
+//   		},
+//   	},
+//   	Disabled: disabled,
+//   	ManagedMemoryConfiguration: &HarnessManagedMemoryConfigurationProperty{
+//   		Arn: jsii.String("arn"),
+//   		EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   		EventExpiryDuration: jsii.Number(123),
+//   		Strategies: []*string{
+//   			jsii.String("strategies"),
 //   		},
 //   	},
 //   }
@@ -29,5 +40,15 @@ type CfnHarness_HarnessMemoryConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmemoryconfiguration.html#cfn-bedrockagentcore-harness-harnessmemoryconfiguration-agentcorememoryconfiguration
 	//
 	AgentCoreMemoryConfiguration interface{} `field:"optional" json:"agentCoreMemoryConfiguration" yaml:"agentCoreMemoryConfiguration"`
+	// Explicitly opt out of memory.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmemoryconfiguration.html#cfn-bedrockagentcore-harness-harnessmemoryconfiguration-disabled
+	//
+	Disabled interface{} `field:"optional" json:"disabled" yaml:"disabled"`
+	// Configuration for managed memory.
+	//
+	// The harness creates and manages a memory resource in the customer's account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmemoryconfiguration.html#cfn-bedrockagentcore-harness-harnessmemoryconfiguration-managedmemoryconfiguration
+	//
+	ManagedMemoryConfiguration interface{} `field:"optional" json:"managedMemoryConfiguration" yaml:"managedMemoryConfiguration"`
 }
 

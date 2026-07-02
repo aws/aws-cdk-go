@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A Step Functions Task to to modify an InstanceFleet on an EMR Cluster.
+// A Step Functions Task to modify an InstanceFleet on an EMR Cluster.
 //
 // Example:
 //   tasks.NewEmrModifyInstanceFleetByName(this, jsii.String("Task"), &EmrModifyInstanceFleetByNameProps{
@@ -579,7 +579,7 @@ func EmrModifyInstanceFleetByName_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
-// A Step Functions Task using JSONata to to modify an InstanceFleet on an EMR Cluster.
+// A Step Functions Task using JSONata to modify an InstanceFleet on an EMR Cluster.
 func EmrModifyInstanceFleetByName_Jsonata(scope constructs.Construct, id *string, props *EmrModifyInstanceFleetByNameJsonataProps) EmrModifyInstanceFleetByName {
 	_init_.Initialize()
 
@@ -598,7 +598,7 @@ func EmrModifyInstanceFleetByName_Jsonata(scope constructs.Construct, id *string
 	return returns
 }
 
-// A Step Functions Task using JSONPath to to modify an InstanceFleet on an EMR Cluster.
+// A Step Functions Task using JSONPath to modify an InstanceFleet on an EMR Cluster.
 func EmrModifyInstanceFleetByName_JsonPath(scope constructs.Construct, id *string, props *EmrModifyInstanceFleetByNameJsonPathProps) EmrModifyInstanceFleetByName {
 	_init_.Initialize()
 

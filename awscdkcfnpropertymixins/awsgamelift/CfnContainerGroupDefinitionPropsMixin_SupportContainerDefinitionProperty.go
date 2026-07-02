@@ -41,6 +41,11 @@ package awsgamelift
 //   		Timeout: jsii.Number(123),
 //   	},
 //   	ImageUri: jsii.String("imageUri"),
+//   	LinuxCapabilities: &LinuxCapabilitiesProperty{
+//   		Include: []*string{
+//   			jsii.String("include"),
+//   		},
+//   	},
 //   	MemoryHardLimitMebibytes: jsii.Number(123),
 //   	MountPoints: []interface{}{
 //   		&ContainerMountPointProperty{
@@ -101,6 +106,12 @@ type CfnContainerGroupDefinitionPropsMixin_SupportContainerDefinitionProperty st
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-supportcontainerdefinition.html#cfn-gamelift-containergroupdefinition-supportcontainerdefinition-imageuri
 	//
 	ImageUri *string `field:"optional" json:"imageUri" yaml:"imageUri"`
+	// A set of Linux capabilities that are added to a container's default Docker configuration.
+	//
+	// For more detailed information, see the capabilities(7) Linux manual page.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-supportcontainerdefinition.html#cfn-gamelift-containergroupdefinition-supportcontainerdefinition-linuxcapabilities
+	//
+	LinuxCapabilities interface{} `field:"optional" json:"linuxCapabilities" yaml:"linuxCapabilities"`
 	// The amount of memory that Amazon GameLift Servers makes available to the container.
 	//
 	// If memory limits aren't set for an individual container, the container shares the container group's total memory allocation.

@@ -57,6 +57,9 @@ package awsamazonmq
 //   		TimeOfDay: jsii.String("timeOfDay"),
 //   		TimeZone: jsii.String("timeZone"),
 //   	},
+//   	ResourceShareArns: []*string{
+//   		jsii.String("resourceShareArns"),
+//   	},
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
@@ -172,6 +175,10 @@ type CfnBrokerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
 	//
 	MaintenanceWindowStartTime interface{} `field:"optional" json:"maintenanceWindowStartTime" yaml:"maintenanceWindowStartTime"`
+	// The ARNs of the resource shares to be associated with the broker.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-resourcesharearns
+	//
+	ResourceShareArns *[]*string `field:"optional" json:"resourceShareArns" yaml:"resourceShareArns"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
 	//

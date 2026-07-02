@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A Step Functions Task to to modify an InstanceGroup on an EMR Cluster.
+// A Step Functions Task to modify an InstanceGroup on an EMR Cluster.
 //
 // Example:
 //   tasks.NewEmrModifyInstanceGroupByName(this, jsii.String("Task"), &EmrModifyInstanceGroupByNameProps{

@@ -11,6 +11,7 @@ type Type__interfacesawscodepipelineICustomActionTypeRef = interfacesawscodepipe
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawscodepipelineIPipelineRef = interfacesawscodepipeline.IPipelineRef
 type Type__interfacesawscodepipelineIWebhookRef = interfacesawscodepipeline.IWebhookRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__constructsConstruct = constructs.Construct
 type Type__awscodestarnotificationsINotificationRuleSource = awscodestarnotifications.INotificationRuleSource
 type Type__awscdkIResource = awscdk.IResource

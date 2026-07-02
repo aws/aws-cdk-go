@@ -47,4 +47,8 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ram.CfnResourceSharePropsMixin.ResourceShareConfigurationProperty",
+		reflect.TypeOf((*CfnResourceSharePropsMixin_ResourceShareConfigurationProperty)(nil)).Elem(),
+	)
 }

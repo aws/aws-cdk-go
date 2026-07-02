@@ -155,7 +155,7 @@ type CodeBuildStepProps struct {
 	Role awsiam.IRole `field:"optional" json:"role" yaml:"role"`
 	// Policy statements to add to role used during the synth.
 	//
-	// Can be used to add acces to a CodeArtifact repository etc.
+	// Can be used to add access to a CodeArtifact repository etc.
 	// Default: - No policy statements added to CodeBuild Project Role.
 	//
 	RolePolicyStatements *[]awsiam.PolicyStatement `field:"optional" json:"rolePolicyStatements" yaml:"rolePolicyStatements"`

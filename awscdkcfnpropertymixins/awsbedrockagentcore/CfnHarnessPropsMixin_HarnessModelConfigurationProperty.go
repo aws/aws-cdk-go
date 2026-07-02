@@ -8,6 +8,7 @@ package awsbedrockagentcore
 //
 //   harnessModelConfigurationProperty := &HarnessModelConfigurationProperty{
 //   	BedrockModelConfig: &HarnessBedrockModelConfigProperty{
+//   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		ModelId: jsii.String("modelId"),
 //   		Temperature: jsii.Number(123),
@@ -21,7 +22,16 @@ package awsbedrockagentcore
 //   		TopK: jsii.Number(123),
 //   		TopP: jsii.Number(123),
 //   	},
+//   	LiteLlmModelConfig: &HarnessLiteLlmModelConfigProperty{
+//   		ApiBase: jsii.String("apiBase"),
+//   		ApiKeyArn: jsii.String("apiKeyArn"),
+//   		MaxTokens: jsii.Number(123),
+//   		ModelId: jsii.String("modelId"),
+//   		Temperature: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   	OpenAiModelConfig: &HarnessOpenAiModelConfigProperty{
+//   		ApiFormat: jsii.String("apiFormat"),
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		MaxTokens: jsii.Number(123),
 //   		ModelId: jsii.String("modelId"),
@@ -39,6 +49,9 @@ type CfnHarnessPropsMixin_HarnessModelConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmodelconfiguration.html#cfn-bedrockagentcore-harness-harnessmodelconfiguration-geminimodelconfig
 	//
 	GeminiModelConfig interface{} `field:"optional" json:"geminiModelConfig" yaml:"geminiModelConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmodelconfiguration.html#cfn-bedrockagentcore-harness-harnessmodelconfiguration-litellmmodelconfig
+	//
+	LiteLlmModelConfig interface{} `field:"optional" json:"liteLlmModelConfig" yaml:"liteLlmModelConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmodelconfiguration.html#cfn-bedrockagentcore-harness-harnessmodelconfiguration-openaimodelconfig
 	//
 	OpenAiModelConfig interface{} `field:"optional" json:"openAiModelConfig" yaml:"openAiModelConfig"`

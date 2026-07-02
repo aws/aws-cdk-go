@@ -32,6 +32,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var connectorParameters interface{}
+//
 //   cfnDataSource := awscdk.Aws_bedrock.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &CfnDataSourceProps{
 //   	DataSourceConfiguration: &DataSourceConfigurationProperty{
 //   		Type: jsii.String("type"),
@@ -66,6 +68,26 @@ import (
 //   							},
 //   						},
 //   					},
+//   				},
+//   			},
+//   		},
+//   		ManagedKnowledgeBaseConnectorConfiguration: &ManagedKnowledgeBaseConnectorConfigurationProperty{
+//   			ConnectorParameters: connectorParameters,
+//   			DeletionProtectionConfiguration: &DeletionProtectionConfigurationProperty{
+//   				DeletionProtectionStatus: jsii.String("deletionProtectionStatus"),
+//
+//   				// the properties below are optional
+//   				DeletionProtectionThreshold: jsii.Number(123),
+//   			},
+//   			MediaExtractionConfiguration: &MediaExtractionConfigurationProperty{
+//   				AudioExtractionConfiguration: &AudioExtractionConfigurationProperty{
+//   					AudioExtractionStatus: jsii.String("audioExtractionStatus"),
+//   				},
+//   				ImageExtractionConfiguration: &ImageExtractionConfigurationProperty{
+//   					ImageExtractionStatus: jsii.String("imageExtractionStatus"),
+//   				},
+//   				VideoExtractionConfiguration: &VideoExtractionConfigurationProperty{
+//   					VideoExtractionStatus: jsii.String("videoExtractionStatus"),
 //   				},
 //   			},
 //   		},

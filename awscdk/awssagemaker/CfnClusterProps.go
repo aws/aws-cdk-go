@@ -147,12 +147,6 @@ import (
 //   	},
 //   	RestrictedInstanceGroups: []interface{}{
 //   		&ClusterRestrictedInstanceGroupProperty{
-//   			EnvironmentConfig: &EnvironmentConfigProperty{
-//   				FSxLustreConfig: &FSxLustreConfigProperty{
-//   					PerUnitStorageThroughput: jsii.Number(123),
-//   					SizeInGiB: jsii.Number(123),
-//   				},
-//   			},
 //   			ExecutionRole: jsii.String("executionRole"),
 //   			InstanceCount: jsii.Number(123),
 //   			InstanceGroupName: jsii.String("instanceGroupName"),
@@ -160,6 +154,12 @@ import (
 //
 //   			// the properties below are optional
 //   			CurrentCount: jsii.Number(123),
+//   			EnvironmentConfig: &EnvironmentConfigProperty{
+//   				FSxLustreConfig: &FSxLustreConfigProperty{
+//   					PerUnitStorageThroughput: jsii.Number(123),
+//   					SizeInGiB: jsii.Number(123),
+//   				},
+//   			},
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
@@ -195,6 +195,17 @@ import (
 //   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
+//   		},
+//   	},
+//   	RestrictedInstanceGroupsConfig: &RestrictedInstanceGroupsConfigProperty{
+//   		SharedEnvironmentConfig: &SharedEnvironmentConfigProperty{
+//   			FSxLustreDeletionPolicy: jsii.String("fSxLustreDeletionPolicy"),
+//
+//   			// the properties below are optional
+//   			FSxLustreConfig: &FSxLustreConfigProperty{
+//   				PerUnitStorageThroughput: jsii.Number(123),
+//   				SizeInGiB: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	Tags: []CfnTag{
@@ -262,6 +273,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-restrictedinstancegroups
 	//
 	RestrictedInstanceGroups interface{} `field:"optional" json:"restrictedInstanceGroups" yaml:"restrictedInstanceGroups"`
+	// The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-restrictedinstancegroupsconfig
+	//
+	RestrictedInstanceGroupsConfig interface{} `field:"optional" json:"restrictedInstanceGroupsConfig" yaml:"restrictedInstanceGroupsConfig"`
 	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 	//
 	// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .

@@ -284,7 +284,7 @@ func Workflow_ExtractNameFromArn(scope constructs.Construct, workflowArn *string
 	return returns
 }
 
-// Import an workflow from it's name.
+// Import a workflow from its name.
 // Experimental.
 func Workflow_FromWorkflowArn(scope constructs.Construct, id *string, workflowArn *string) IWorkflow {
 	_init_.Initialize()

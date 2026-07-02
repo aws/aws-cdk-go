@@ -519,6 +519,10 @@ const (
 	InstanceClass_GRAPHICS6_EFFICIENT InstanceClass = "GRAPHICS6_EFFICIENT"
 	// Cost-efficient GPU-based instances for AI inference and spatial computing workloads, 6th generation.
 	InstanceClass_G6E InstanceClass = "G6E"
+	// Cost-efficient GPU-based instances for AI inference and spatial computing workloads, 7th generation.
+	InstanceClass_GRAPHICS7_EFFICIENT InstanceClass = "GRAPHICS7_EFFICIENT"
+	// Cost-efficient GPU-based instances for AI inference and spatial computing workloads, 7th generation.
+	InstanceClass_G7E InstanceClass = "G7E"
 	// Graphics-optimized instances, 6th generation Gr6 instances offer a 1:8 vCPU to RAM ratio, making them better suited for graphics workloads with higher memory requirements.
 	InstanceClass_GRAPHICS_RAM_6 InstanceClass = "GRAPHICS_RAM_6"
 	// Graphics-optimized instances, 6th generation Gr6 instances offer a 1:8 vCPU to RAM ratio, making them better suited for graphics workloads with higher memory requirements.

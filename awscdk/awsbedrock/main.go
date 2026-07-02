@@ -893,6 +893,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.AudioExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_AudioExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.BedrockDataAutomationConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_BedrockDataAutomationConfigurationProperty)(nil)).Elem(),
 	)
@@ -937,6 +941,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.DeletionProtectionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_DeletionProtectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.EnrichmentStrategyConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_EnrichmentStrategyConfigurationProperty)(nil)).Elem(),
 	)
@@ -953,8 +961,20 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_HierarchicalChunkingLevelConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ImageExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ImageExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.IntermediateStorageProperty",
 		reflect.TypeOf((*CfnDataSource_IntermediateStorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.ManagedKnowledgeBaseConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ManagedKnowledgeBaseConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.MediaExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_MediaExtractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.ParsingConfigurationProperty",
@@ -1035,6 +1055,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.VectorIngestionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_VectorIngestionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.VideoExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_VideoExtractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.WebCrawlerConfigurationProperty",
@@ -2052,6 +2076,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.KnowledgeBaseConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBase_KnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.ManagedKnowledgeBaseConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_ManagedKnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBase_ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnKnowledgeBase.MongoDbAtlasConfigurationProperty",

@@ -175,6 +175,15 @@ import (
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
+//   	RestrictedInstanceGroupsConfig: &RestrictedInstanceGroupsConfigProperty{
+//   		SharedEnvironmentConfig: &SharedEnvironmentConfigProperty{
+//   			FSxLustreConfig: &FSxLustreConfigProperty{
+//   				PerUnitStorageThroughput: jsii.Number(123),
+//   				SizeInGiB: jsii.Number(123),
+//   			},
+//   			FSxLustreDeletionPolicy: jsii.String("fSxLustreDeletionPolicy"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -238,6 +247,10 @@ type CfnClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-restrictedinstancegroups
 	//
 	RestrictedInstanceGroups interface{} `field:"optional" json:"restrictedInstanceGroups" yaml:"restrictedInstanceGroups"`
+	// The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html#cfn-sagemaker-cluster-restrictedinstancegroupsconfig
+	//
+	RestrictedInstanceGroupsConfig interface{} `field:"optional" json:"restrictedInstanceGroupsConfig" yaml:"restrictedInstanceGroupsConfig"`
 	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 	//
 	// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .

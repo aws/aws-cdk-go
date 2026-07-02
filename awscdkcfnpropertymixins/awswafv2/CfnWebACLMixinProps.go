@@ -64,6 +64,10 @@ type CfnWebACLMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Configures monetization for the web ACL or rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-monetizationconfig
+	//
+	MonetizationConfig interface{} `field:"optional" json:"monetizationConfig" yaml:"monetizationConfig"`
 	// The name of the web ACL.
 	//
 	// You cannot change the name of a web ACL after you create it.

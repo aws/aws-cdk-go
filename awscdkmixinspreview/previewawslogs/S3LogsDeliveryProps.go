@@ -34,9 +34,13 @@ type S3LogsDeliveryProps struct {
 	// Experimental.
 	MandatoryFields *[]*string `field:"optional" json:"mandatoryFields" yaml:"mandatoryFields"`
 	// RecordFields the user has defined to be used in log delivery.
+	// Default: - no fields were provided.
+	//
 	// Experimental.
 	ProvidedFields *[]*string `field:"optional" json:"providedFields" yaml:"providedFields"`
 	// Format of the logs that are sent to the delivery destination specified.
+	// Default: - undefined, use whatever default the delivery destination specifies.
+	//
 	// Experimental.
 	OutputFormat *string `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// KMS key to use for encrypting logs in the S3 bucket.

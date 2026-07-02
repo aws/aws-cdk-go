@@ -37,6 +37,10 @@ package awsmedialive
 //   			OcrLanguage: jsii.String("ocrLanguage"),
 //   			Pid: jsii.Number(123),
 //   		},
+//   		SmartSubtitleSourceSettings: &SmartSubtitleSourceSettingsProperty{
+//   			CaptionSynchronizationMode: jsii.String("captionSynchronizationMode"),
+//   			InferenceFeedOutput: jsii.String("inferenceFeedOutput"),
+//   		},
 //   		TeletextSourceSettings: &TeletextSourceSettingsProperty{
 //   			OutputRectangle: &CaptionRectangleProperty{
 //   				Height: jsii.Number(123),

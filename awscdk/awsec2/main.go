@@ -10012,6 +10012,8 @@ func init() {
 			"G6": InstanceClass_G6,
 			"GRAPHICS6_EFFICIENT": InstanceClass_GRAPHICS6_EFFICIENT,
 			"G6E": InstanceClass_G6E,
+			"GRAPHICS7_EFFICIENT": InstanceClass_GRAPHICS7_EFFICIENT,
+			"G7E": InstanceClass_G7E,
 			"GRAPHICS_RAM_6": InstanceClass_GRAPHICS_RAM_6,
 			"GR6": InstanceClass_GR6,
 			"PARALLEL2": InstanceClass_PARALLEL2,

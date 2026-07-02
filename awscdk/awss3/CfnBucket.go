@@ -67,6 +67,10 @@ type CfnBucket interface {
 	//
 	// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
 	AttrDualStackDomainName() *string
+	// The ARN of the annotation table.
+	AttrMetadataConfigurationAnnotationTableConfigurationTableArn() *string
+	// The name of the annotation table.
+	AttrMetadataConfigurationAnnotationTableConfigurationTableName() *string
 	// The destination information for the S3 Metadata configuration.
 	AttrMetadataConfigurationDestination() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) for the inventory table.
@@ -418,6 +422,26 @@ func (j *jsiiProxy_CfnBucket) AttrDualStackDomainName() *string {
 	_jsii_.Get(
 		j,
 		"attrDualStackDomainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBucket) AttrMetadataConfigurationAnnotationTableConfigurationTableArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMetadataConfigurationAnnotationTableConfigurationTableArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBucket) AttrMetadataConfigurationAnnotationTableConfigurationTableName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMetadataConfigurationAnnotationTableConfigurationTableName",
 		&returns,
 	)
 	return returns

@@ -321,7 +321,7 @@ func (j *jsiiProxy_CfnParameter) ValueAsString() *string {
 
 // Creates a parameter construct.
 //
-// Note that the name (logical ID) of the parameter will derive from it's `coname` and location
+// Note that the name (logical ID) of the parameter will derive from its `coname` and location
 // within the stack. Therefore, it is recommended that parameters are defined at the stack level.
 func NewCfnParameter(scope constructs.Construct, id *string, props *CfnParameterProps) CfnParameter {
 	_init_.Initialize()
@@ -342,7 +342,7 @@ func NewCfnParameter(scope constructs.Construct, id *string, props *CfnParameter
 
 // Creates a parameter construct.
 //
-// Note that the name (logical ID) of the parameter will derive from it's `coname` and location
+// Note that the name (logical ID) of the parameter will derive from its `coname` and location
 // within the stack. Therefore, it is recommended that parameters are defined at the stack level.
 func NewCfnParameter_Override(c CfnParameter, scope constructs.Construct, id *string, props *CfnParameterProps) {
 	_init_.Initialize()

@@ -36,6 +36,10 @@ import (
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
+//   	ResourceShareConfiguration: &ResourceShareConfigurationProperty{
+//   		ExclusiveAccountAccess: jsii.Boolean(false),
+//   		RetainSharingOnAccountLeaveOrganization: jsii.Boolean(false),
+//   	},
 //   	Sources: []*string{
 //   		jsii.String("sources"),
 //   	},
@@ -115,6 +119,9 @@ type CfnResourceShare interface {
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
 	ResourceArns() *[]*string
 	SetResourceArns(val *[]*string)
+	// The configuration for a resource share.
+	ResourceShareConfiguration() interface{}
+	SetResourceShareConfiguration(val interface{})
 	// A reference to a ResourceShare resource.
 	ResourceShareRef() *interfacesawsram.ResourceShareReference
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
@@ -490,6 +497,16 @@ func (j *jsiiProxy_CfnResourceShare) ResourceArns() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceShare) ResourceShareConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceShareConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceShare) ResourceShareRef() *interfacesawsram.ResourceShareReference {
 	var returns *interfacesawsram.ResourceShareReference
 	_jsii_.Get(
@@ -632,6 +649,17 @@ func (j *jsiiProxy_CfnResourceShare)SetResourceArns(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"resourceArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceShare)SetResourceShareConfiguration(val interface{}) {
+	if err := j.validateSetResourceShareConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourceShareConfiguration",
 		val,
 	)
 }

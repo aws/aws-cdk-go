@@ -35,6 +35,9 @@ package awswafv2
 //   		Captcha: captcha,
 //   		Challenge: challenge,
 //   		Count: count,
+//   		Monetize: &MonetizeActionProperty{
+//   			PriceMultiplier: jsii.String("priceMultiplier"),
+//   		},
 //   	},
 //   	CaptchaConfig: &CaptchaConfigProperty{
 //   		ImmunityTimeProperty: &ImmunityTimePropertyProperty{

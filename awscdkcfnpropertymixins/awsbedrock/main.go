@@ -464,6 +464,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.AudioExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_AudioExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.BedrockDataAutomationConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_BedrockDataAutomationConfigurationProperty)(nil)).Elem(),
 	)
@@ -508,6 +512,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.DeletionProtectionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_DeletionProtectionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.EnrichmentStrategyConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_EnrichmentStrategyConfigurationProperty)(nil)).Elem(),
 	)
@@ -524,8 +532,20 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_HierarchicalChunkingLevelConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.ImageExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_ImageExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.IntermediateStorageProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_IntermediateStorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.ManagedKnowledgeBaseConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_ManagedKnowledgeBaseConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.MediaExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_MediaExtractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.ParsingConfigurationProperty",
@@ -606,6 +626,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.VectorIngestionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_VectorIngestionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.VideoExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_VideoExtractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.WebCrawlerConfigurationProperty",
@@ -1250,6 +1274,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePropsMixin.KnowledgeBaseConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_KnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePropsMixin.ManagedKnowledgeBaseConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_ManagedKnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePropsMixin.ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePropsMixin.MongoDbAtlasConfigurationProperty",

@@ -161,7 +161,7 @@ type StepFunctionsRestApiProps struct {
 	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// The default State Machine that handles all requests from this API.
 	//
-	// This stateMachine will be used as a the default integration for all methods in
+	// This stateMachine will be used as the default integration for all methods in
 	// this API, unless specified otherwise in `addMethod`.
 	StateMachine awsstepfunctions.IStateMachine `field:"required" json:"stateMachine" yaml:"stateMachine"`
 	// If the whole authorizer object, including custom context values should be in the execution input.

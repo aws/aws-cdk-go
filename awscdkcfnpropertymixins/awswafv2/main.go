@@ -144,6 +144,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_CookiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.CryptoConfigProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_CryptoConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.CustomResponseBodyProperty",
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_CustomResponseBodyProperty)(nil)).Elem(),
 	)
@@ -212,12 +216,28 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_LabelSummaryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.MonetizationConfigProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_MonetizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.MonetizeActionProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_MonetizeActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.NotStatementProperty",
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_NotStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.OrStatementProperty",
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_OrStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.PaymentNetworkProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_PaymentNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.PriceProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_PriceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.RateBasedStatementCustomKeyProperty",
@@ -432,6 +452,10 @@ func init() {
 		reflect.TypeOf((*CfnWebACLPropsMixin_CountActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.CryptoConfigProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_CryptoConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.CustomHTTPHeaderProperty",
 		reflect.TypeOf((*CfnWebACLPropsMixin_CustomHTTPHeaderProperty)(nil)).Elem(),
 	)
@@ -540,6 +564,14 @@ func init() {
 		reflect.TypeOf((*CfnWebACLPropsMixin_ManagedRuleGroupStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.MonetizationConfigProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_MonetizationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.MonetizeActionProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_MonetizeActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.NotStatementProperty",
 		reflect.TypeOf((*CfnWebACLPropsMixin_NotStatementProperty)(nil)).Elem(),
 	)
@@ -554,6 +586,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.OverrideActionProperty",
 		reflect.TypeOf((*CfnWebACLPropsMixin_OverrideActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.PaymentNetworkProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_PaymentNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.PriceProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_PriceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.RateBasedStatementCustomKeyProperty",

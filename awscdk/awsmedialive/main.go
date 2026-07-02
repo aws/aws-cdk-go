@@ -144,6 +144,10 @@ func init() {
 		reflect.TypeOf((*CfnChannel_AudioDolbyEDecodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.AudioFeedInputProperty",
+		reflect.TypeOf((*CfnChannel_AudioFeedInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AudioHlsRenditionSelectionProperty",
 		reflect.TypeOf((*CfnChannel_AudioHlsRenditionSelectionProperty)(nil)).Elem(),
 	)
@@ -160,8 +164,16 @@ func init() {
 		reflect.TypeOf((*CfnChannel_AudioOnlyHlsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.AudioPidProperty",
+		reflect.TypeOf((*CfnChannel_AudioPidProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AudioPidSelectionProperty",
 		reflect.TypeOf((*CfnChannel_AudioPidSelectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.AudioPreMixerSettingsProperty",
+		reflect.TypeOf((*CfnChannel_AudioPreMixerSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.AudioSelectorProperty",
@@ -734,6 +746,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.Scte35TimeSignalAposProperty",
 		reflect.TypeOf((*CfnChannel_Scte35TimeSignalAposProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnChannel.SmartSubtitleSourceSettingsProperty",
+		reflect.TypeOf((*CfnChannel_SmartSubtitleSourceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnChannel.SmpteTtDestinationSettingsProperty",

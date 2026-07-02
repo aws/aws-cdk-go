@@ -481,6 +481,10 @@ func init() {
 		reflect.TypeOf((*CfnReplicator_KafkaClusterEncryptionInTransitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterMtlsAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterMtlsAuthenticationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterProperty",
 		reflect.TypeOf((*CfnReplicator_KafkaClusterProperty)(nil)).Elem(),
 	)

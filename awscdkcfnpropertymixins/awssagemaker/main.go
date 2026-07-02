@@ -188,12 +188,20 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_OrchestratorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.RestrictedInstanceGroupsConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_RestrictedInstanceGroupsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.RollingUpdatePolicyProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_RollingUpdatePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.ScheduledUpdateConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ScheduledUpdateConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.SharedEnvironmentConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_SharedEnvironmentConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.TieredStorageConfigProperty",

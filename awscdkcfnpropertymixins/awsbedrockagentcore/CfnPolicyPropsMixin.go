@@ -25,8 +25,12 @@ import (
 //   		Cedar: &CedarPolicyProperty{
 //   			Statement: jsii.String("statement"),
 //   		},
+//   		Policy: &PolicyStatementProperty{
+//   			Statement: jsii.String("statement"),
+//   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	EnforcementMode: jsii.String("enforcementMode"),
 //   	Name: jsii.String("name"),
 //   	PolicyEngineId: jsii.String("policyEngineId"),
 //   	ValidationMode: jsii.String("validationMode"),

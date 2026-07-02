@@ -22,7 +22,7 @@ package awsappsync
 //   }
 //
 type EventApiAttributes struct {
-	// an unique AWS AppSync Event API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
+	// a unique AWS AppSync Event API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 	// the domain name of the Api's HTTP endpoint.
 	HttpDns *string `field:"required" json:"httpDns" yaml:"httpDns"`

@@ -786,6 +786,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -1244,12 +1245,32 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTarget_AuthorizationDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ConnectorParameterOverrideProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ConnectorParameterOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ConnectorSourceProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ConnectorSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ConnectorTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_ConnectorTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.CredentialProviderConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTarget_CredentialProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.CredentialProviderProperty",
 		reflect.TypeOf((*CfnGatewayTarget_CredentialProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.HttpApiSchemaConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_HttpApiSchemaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.HttpTargetConfigurationProperty",
@@ -1296,6 +1317,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTarget_OAuthCredentialProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.PassthroughTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_PassthroughTargetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.PrivateEndpointProperty",
 		reflect.TypeOf((*CfnGatewayTarget_PrivateEndpointProperty)(nil)).Elem(),
 	)
@@ -1314,6 +1339,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.SelfManagedLatticeResourceProperty",
 		reflect.TypeOf((*CfnGatewayTarget_SelfManagedLatticeResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.StickinessConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_StickinessConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.TargetConfigurationProperty",
@@ -1351,8 +1380,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEnvironmentAgentCoreRuntimeEnvironmentAgentRuntimeId", GoGetter: "AttrEnvironmentAgentCoreRuntimeEnvironmentAgentRuntimeId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEnvironmentAgentCoreRuntimeEnvironmentAgentRuntimeName", GoGetter: "AttrEnvironmentAgentCoreRuntimeEnvironmentAgentRuntimeName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHarnessId", GoGetter: "AttrHarnessId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMemoryManagedMemoryConfigurationArn", GoGetter: "AttrMemoryManagedMemoryConfigurationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVersion", GoGetter: "AttrVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerConfiguration", GoGetter: "AuthorizerConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -1432,6 +1463,10 @@ func init() {
 		reflect.TypeOf((*CfnHarness_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.EfsAccessPointConfigurationProperty",
+		reflect.TypeOf((*CfnHarness_EfsAccessPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.FilesystemConfigurationProperty",
 		reflect.TypeOf((*CfnHarness_FilesystemConfigurationProperty)(nil)).Elem(),
 	)
@@ -1484,6 +1519,14 @@ func init() {
 		reflect.TypeOf((*CfnHarness_HarnessInlineFunctionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessLiteLlmModelConfigProperty",
+		reflect.TypeOf((*CfnHarness_HarnessLiteLlmModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessManagedMemoryConfigurationProperty",
+		reflect.TypeOf((*CfnHarness_HarnessManagedMemoryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessMemoryConfigurationProperty",
 		reflect.TypeOf((*CfnHarness_HarnessMemoryConfigurationProperty)(nil)).Elem(),
 	)
@@ -1500,8 +1543,24 @@ func init() {
 		reflect.TypeOf((*CfnHarness_HarnessRemoteMcpConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSkillAwsSkillsSourceProperty",
+		reflect.TypeOf((*CfnHarness_HarnessSkillAwsSkillsSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSkillGitAuthProperty",
+		reflect.TypeOf((*CfnHarness_HarnessSkillGitAuthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSkillGitSourceProperty",
+		reflect.TypeOf((*CfnHarness_HarnessSkillGitSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSkillProperty",
 		reflect.TypeOf((*CfnHarness_HarnessSkillProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSkillS3SourceProperty",
+		reflect.TypeOf((*CfnHarness_HarnessSkillS3SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSlidingWindowConfigurationProperty",
@@ -1536,12 +1595,32 @@ func init() {
 		reflect.TypeOf((*CfnHarness_LifecycleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.ManagedVpcResourceProperty",
+		reflect.TypeOf((*CfnHarness_ManagedVpcResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnHarness_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.OAuthCredentialProviderProperty",
 		reflect.TypeOf((*CfnHarness_OAuthCredentialProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.PrivateEndpointOverrideProperty",
+		reflect.TypeOf((*CfnHarness_PrivateEndpointOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.PrivateEndpointProperty",
+		reflect.TypeOf((*CfnHarness_PrivateEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.S3FilesAccessPointConfigurationProperty",
+		reflect.TypeOf((*CfnHarness_S3FilesAccessPointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.SelfManagedLatticeResourceProperty",
+		reflect.TypeOf((*CfnHarness_SelfManagedLatticeResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.SessionStorageConfigurationProperty",
@@ -2319,6 +2398,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "enforcementMode", GoGetter: "EnforcementMode"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -2359,6 +2439,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnPolicy.PolicyDefinitionProperty",
 		reflect.TypeOf((*CfnPolicy_PolicyDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPolicy.PolicyStatementProperty",
+		reflect.TypeOf((*CfnPolicy_PolicyStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnPolicyEngine",

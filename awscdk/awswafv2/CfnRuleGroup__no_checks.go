@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnRuleGroup) validateSetCustomResponseBodiesParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuleGroup) validateSetMonetizationConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuleGroup) validateSetRulesParameters(val interface{}) error {
 	return nil
 }

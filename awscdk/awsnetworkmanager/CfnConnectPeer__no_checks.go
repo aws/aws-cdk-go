@@ -76,14 +76,6 @@ func (c *jsiiProxy_CfnConnectPeer) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
-func validateCfnConnectPeer_ArnForConnectPeerParameters(resource interfacesawsnetworkmanager.IConnectPeerRef) error {
-	return nil
-}
-
-func validateCfnConnectPeer_FromConnectPeerIdParameters(scope constructs.Construct, id *string, connectPeerId *string) error {
-	return nil
-}
-
 func validateCfnConnectPeer_IsCfnConnectPeerParameters(x interface{}) error {
 	return nil
 }

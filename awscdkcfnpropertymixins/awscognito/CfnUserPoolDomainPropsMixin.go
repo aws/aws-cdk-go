@@ -26,6 +26,12 @@ import (
 //   	},
 //   	Domain: jsii.String("domain"),
 //   	ManagedLoginVersion: jsii.Number(123),
+//   	Routing: &RoutingTypeProperty{
+//   		Failover: &FailoverTypeProperty{
+//   			PrimaryRoute53HealthCheckId: jsii.String("primaryRoute53HealthCheckId"),
+//   			SecondaryRegion: jsii.String("secondaryRegion"),
+//   		},
+//   	},
 //   	UserPoolId: jsii.String("userPoolId"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

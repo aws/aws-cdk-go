@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnService) validateSetLoadBalancersParameters(val interface{
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetMonitoringParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetNetworkConfigurationParameters(val interface{}) error {
 	return nil
 }

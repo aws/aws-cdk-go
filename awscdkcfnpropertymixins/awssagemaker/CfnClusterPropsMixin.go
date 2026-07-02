@@ -185,6 +185,15 @@ import (
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   		},
 //   	},
+//   	RestrictedInstanceGroupsConfig: &RestrictedInstanceGroupsConfigProperty{
+//   		SharedEnvironmentConfig: &SharedEnvironmentConfigProperty{
+//   			FSxLustreConfig: &FSxLustreConfigProperty{
+//   				PerUnitStorageThroughput: jsii.Number(123),
+//   				SizeInGiB: jsii.Number(123),
+//   			},
+//   			FSxLustreDeletionPolicy: jsii.String("fSxLustreDeletionPolicy"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

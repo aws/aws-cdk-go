@@ -68,6 +68,9 @@ package awswafv2
 //   				},
 //   			},
 //   		},
+//   		Monetize: &MonetizeActionProperty{
+//   			PriceMultiplier: jsii.String("priceMultiplier"),
+//   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   }

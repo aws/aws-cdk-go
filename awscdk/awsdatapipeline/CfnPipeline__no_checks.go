@@ -80,7 +80,7 @@ func validateCfnPipeline_ArnForPipelineParameters(resource interfacesawsdatapipe
 	return nil
 }
 
-func validateCfnPipeline_FromPipelineIdParameters(scope constructs.Construct, id *string, pipelineId *string) error {
+func validateCfnPipeline_FromPipelineIDParameters(scope constructs.Construct, id *string, pipelineId *string) error {
 	return nil
 }
 

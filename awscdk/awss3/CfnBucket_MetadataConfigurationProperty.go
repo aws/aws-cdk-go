@@ -31,6 +31,20 @@ package awss3
 //   	},
 //
 //   	// the properties below are optional
+//   	AnnotationTableConfiguration: &AnnotationTableConfigurationProperty{
+//   		ConfigurationState: jsii.String("configurationState"),
+//
+//   		// the properties below are optional
+//   		EncryptionConfiguration: &MetadataTableEncryptionConfigurationProperty{
+//   			SseAlgorithm: jsii.String("sseAlgorithm"),
+//
+//   			// the properties below are optional
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   		Role: jsii.String("role"),
+//   		TableArn: jsii.String("tableArn"),
+//   		TableName: jsii.String("tableName"),
+//   	},
 //   	Destination: &MetadataDestinationProperty{
 //   		TableBucketType: jsii.String("tableBucketType"),
 //
@@ -60,6 +74,9 @@ type CfnBucket_MetadataConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html#cfn-s3-bucket-metadataconfiguration-journaltableconfiguration
 	//
 	JournalTableConfiguration interface{} `field:"required" json:"journalTableConfiguration" yaml:"journalTableConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html#cfn-s3-bucket-metadataconfiguration-annotationtableconfiguration
+	//
+	AnnotationTableConfiguration interface{} `field:"optional" json:"annotationTableConfiguration" yaml:"annotationTableConfiguration"`
 	// The destination information for the S3 Metadata configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html#cfn-s3-bucket-metadataconfiguration-destination
 	//

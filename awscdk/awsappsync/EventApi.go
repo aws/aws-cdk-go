@@ -53,7 +53,7 @@ type EventApi interface {
 	EventApiBase
 	// the ARN of the API.
 	ApiArn() *string
-	// an unique AWS AppSync Event API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
+	// a unique AWS AppSync Event API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId() *string
 	// The configured API keys, if present.
 	//

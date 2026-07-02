@@ -112,6 +112,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_AudioDolbyEDecodeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AudioFeedInputProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_AudioFeedInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AudioHlsRenditionSelectionProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_AudioHlsRenditionSelectionProperty)(nil)).Elem(),
 	)
@@ -128,8 +132,16 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_AudioOnlyHlsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AudioPidProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_AudioPidProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AudioPidSelectionProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_AudioPidSelectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AudioPreMixerSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_AudioPreMixerSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AudioSelectorProperty",
@@ -698,6 +710,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.Scte35TimeSignalAposProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_Scte35TimeSignalAposProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.SmartSubtitleSourceSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_SmartSubtitleSourceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.SmpteTtDestinationSettingsProperty",

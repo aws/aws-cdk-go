@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnCluster) validateSetRestrictedInstanceGroupsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetRestrictedInstanceGroupsConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

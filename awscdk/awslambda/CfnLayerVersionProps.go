@@ -14,6 +14,7 @@ package awslambda
 //   		S3Key: jsii.String("s3Key"),
 //
 //   		// the properties below are optional
+//   		S3ObjectStorageMode: jsii.String("s3ObjectStorageMode"),
 //   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
 //   	},
 //

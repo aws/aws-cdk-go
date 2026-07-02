@@ -8,6 +8,7 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var parameterValues interface{}
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   cfnGatewayTargetMixinProps := &CfnGatewayTargetMixinProps{
@@ -74,6 +75,32 @@ package awsbedrockagentcore
 //   			AgentcoreRuntime: &RuntimeTargetConfigurationProperty{
 //   				Arn: jsii.String("arn"),
 //   				Qualifier: jsii.String("qualifier"),
+//   				Schema: &HttpApiSchemaConfigurationProperty{
+//   					Source: &ApiSchemaConfigurationProperty{
+//   						InlinePayload: jsii.String("inlinePayload"),
+//   						S3: &S3ConfigurationProperty{
+//   							BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   							Uri: jsii.String("uri"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			Passthrough: &PassthroughTargetConfigurationProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//   				ProtocolType: jsii.String("protocolType"),
+//   				Schema: &HttpApiSchemaConfigurationProperty{
+//   					Source: &ApiSchemaConfigurationProperty{
+//   						InlinePayload: jsii.String("inlinePayload"),
+//   						S3: &S3ConfigurationProperty{
+//   							BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   							Uri: jsii.String("uri"),
+//   						},
+//   					},
+//   				},
+//   				StickinessConfiguration: &StickinessConfigurationProperty{
+//   					Identifier: jsii.String("identifier"),
+//   					Timeout: jsii.Number(123),
+//   				},
 //   			},
 //   		},
 //   		Mcp: &McpTargetConfigurationProperty{
@@ -98,6 +125,28 @@ package awsbedrockagentcore
 //   				},
 //   				RestApiId: jsii.String("restApiId"),
 //   				Stage: jsii.String("stage"),
+//   			},
+//   			Connector: &ConnectorTargetConfigurationProperty{
+//   				Configurations: []interface{}{
+//   					&ConnectorConfigurationProperty{
+//   						Description: jsii.String("description"),
+//   						Name: jsii.String("name"),
+//   						ParameterOverrides: []interface{}{
+//   							&ConnectorParameterOverrideProperty{
+//   								Description: jsii.String("description"),
+//   								Path: jsii.String("path"),
+//   								Visible: jsii.Boolean(false),
+//   							},
+//   						},
+//   						ParameterValues: parameterValues,
+//   					},
+//   				},
+//   				Enabled: []*string{
+//   					jsii.String("enabled"),
+//   				},
+//   				Source: &ConnectorSourceProperty{
+//   					ConnectorId: jsii.String("connectorId"),
+//   				},
 //   			},
 //   			Lambda: &McpLambdaTargetConfigurationProperty{
 //   				LambdaArn: jsii.String("lambdaArn"),

@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// A Step Functions Task to to set Termination Protection on an EMR Cluster.
+// A Step Functions Task to set Termination Protection on an EMR Cluster.
 //
 // Example:
 //   tasks.NewEmrSetClusterTerminationProtection(this, jsii.String("Task"), &EmrSetClusterTerminationProtectionProps{

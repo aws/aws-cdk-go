@@ -23,7 +23,7 @@ import (
 type GraphqlApiBase interface {
 	awscdk.Resource
 	IGraphqlApi
-	// an unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
+	// a unique AWS AppSync GraphQL API identifier i.e. 'lxz775lwdrgcndgz3nurvac7oa'.
 	ApiId() *string
 	// the ARN of the API.
 	Arn() *string

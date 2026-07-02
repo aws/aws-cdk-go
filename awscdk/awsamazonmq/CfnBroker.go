@@ -88,6 +88,9 @@ import (
 //   		TimeOfDay: jsii.String("timeOfDay"),
 //   		TimeZone: jsii.String("timeZone"),
 //   	},
+//   	ResourceShareArns: []*string{
+//   		jsii.String("resourceShareArns"),
+//   	},
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
@@ -240,6 +243,9 @@ type CfnBroker interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The ARNs of the resource shares to be associated with the broker.
+	ResourceShareArns() *[]*string
+	SetResourceShareArns(val *[]*string)
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups() *[]*string
 	SetSecurityGroups(val *[]*string)
@@ -792,6 +798,16 @@ func (j *jsiiProxy_CfnBroker) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBroker) ResourceShareArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"resourceShareArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBroker) SecurityGroups() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -1061,6 +1077,14 @@ func (j *jsiiProxy_CfnBroker)SetPubliclyAccessible(val interface{}) {
 	_jsii_.Set(
 		j,
 		"publiclyAccessible",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBroker)SetResourceShareArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"resourceShareArns",
 		val,
 	)
 }

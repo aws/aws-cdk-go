@@ -18,6 +18,7 @@ package awslambda
 //   	Content: &ContentProperty{
 //   		S3Bucket: jsii.String("s3Bucket"),
 //   		S3Key: jsii.String("s3Key"),
+//   		S3ObjectStorageMode: jsii.String("s3ObjectStorageMode"),
 //   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
 //   	},
 //   	Description: jsii.String("description"),

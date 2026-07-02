@@ -77,6 +77,9 @@ type CfnRuleGroup interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Configures monetization for the web ACL or rule group.
+	MonetizationConfig() interface{}
+	SetMonetizationConfig(val interface{})
 	// The name of the rule group.
 	Name() *string
 	SetName(val *string)
@@ -418,6 +421,16 @@ func (j *jsiiProxy_CfnRuleGroup) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroup) MonetizationConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"monetizationConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroup) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -616,6 +629,17 @@ func (j *jsiiProxy_CfnRuleGroup)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroup)SetMonetizationConfig(val interface{}) {
+	if err := j.validateSetMonetizationConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"monetizationConfig",
 		val,
 	)
 }

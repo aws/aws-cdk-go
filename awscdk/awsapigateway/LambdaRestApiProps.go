@@ -170,7 +170,7 @@ type LambdaRestApiProps struct {
 	MinimumCompressionSize *float64 `field:"optional" json:"minimumCompressionSize" yaml:"minimumCompressionSize"`
 	// The default Lambda function that handles all requests from this API.
 	//
-	// This handler will be used as a the default integration for all methods in
+	// This handler will be used as the default integration for all methods in
 	// this API, unless specified otherwise in `addMethod`.
 	Handler awslambda.IFunction `field:"required" json:"handler" yaml:"handler"`
 	// Specific Lambda integration options.

@@ -786,7 +786,7 @@ iam.PermissionsBoundary_Of(customResource).Clear()
 ## OpenID Connect Providers
 
 OIDC identity providers are entities in IAM that describe an external identity
-provider (IdP) service that supports the [OpenID Connect](http://openid.net/connect) (OIDC) standard, such
+provider (IdP) service that supports the [OpenID Connect](https://openid.net/connect) (OIDC) standard, such
 as Google or Salesforce. You use an IAM OIDC identity provider when you want to
 establish trust between an OIDC-compatible IdP and your AWS account. This is
 useful when creating a mobile app or web application that requires access to AWS

@@ -189,6 +189,15 @@ type DatabaseClusterFromSnapshotProps struct {
 	// Default: InstanceUpdateBehaviour.BULK
 	//
 	InstanceUpdateBehaviour InstanceUpdateBehaviour `field:"optional" json:"instanceUpdateBehaviour" yaml:"instanceUpdateBehaviour"`
+	// Whether to use RDS native integration with AWS Secrets Manager for master user password management.
+	//
+	// When enabled, RDS generates and manages the master user password in Secrets Manager.
+	// This is supported when restoring from snapshots, allowing migration to RDS-managed passwords.
+	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html
+	//
+	// Default: false.
+	//
+	ManageMasterUserPassword *bool `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
 	// The interval between points when Amazon RDS collects enhanced monitoring metrics.
 	//
 	// If you enable `enableClusterLevelEnhancedMonitoring`, this property is applied to the cluster,

@@ -17,6 +17,35 @@ package awsbedrock
 //   	KendraKnowledgeBaseConfiguration: &KendraKnowledgeBaseConfigurationProperty{
 //   		KendraIndexArn: jsii.String("kendraIndexArn"),
 //   	},
+//   	ManagedKnowledgeBaseConfiguration: &ManagedKnowledgeBaseConfigurationProperty{
+//   		EmbeddingModelArn: jsii.String("embeddingModelArn"),
+//
+//   		// the properties below are optional
+//   		EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
+//   			BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
+//   				Audio: []interface{}{
+//   					&AudioConfigurationProperty{
+//   						SegmentationConfiguration: &AudioSegmentationConfigurationProperty{
+//   							FixedLengthDuration: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   				Dimensions: jsii.Number(123),
+//   				EmbeddingDataType: jsii.String("embeddingDataType"),
+//   				Video: []interface{}{
+//   					&VideoConfigurationProperty{
+//   						SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
+//   							FixedLengthDuration: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		EmbeddingModelType: jsii.String("embeddingModelType"),
+//   		ServerSideEncryptionConfiguration: &ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty{
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   	},
 //   	SqlKnowledgeBaseConfiguration: &SqlKnowledgeBaseConfigurationProperty{
 //   		Type: jsii.String("type"),
 //
@@ -142,6 +171,10 @@ type CfnKnowledgeBase_KnowledgeBaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-kendraknowledgebaseconfiguration
 	//
 	KendraKnowledgeBaseConfiguration interface{} `field:"optional" json:"kendraKnowledgeBaseConfiguration" yaml:"kendraKnowledgeBaseConfiguration"`
+	// Contains details about the model used to create vector embeddings for a managed knowledge base.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-managedknowledgebaseconfiguration
+	//
+	ManagedKnowledgeBaseConfiguration interface{} `field:"optional" json:"managedKnowledgeBaseConfiguration" yaml:"managedKnowledgeBaseConfiguration"`
 	// Specifies configurations for a knowledge base connected to an SQL database.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-sqlknowledgebaseconfiguration
 	//

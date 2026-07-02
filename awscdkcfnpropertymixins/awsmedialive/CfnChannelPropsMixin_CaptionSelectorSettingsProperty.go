@@ -34,6 +34,10 @@ package awsmedialive
 //   		OcrLanguage: jsii.String("ocrLanguage"),
 //   		Pid: jsii.Number(123),
 //   	},
+//   	SmartSubtitleSourceSettings: &SmartSubtitleSourceSettingsProperty{
+//   		CaptionSynchronizationMode: jsii.String("captionSynchronizationMode"),
+//   		InferenceFeedOutput: jsii.String("inferenceFeedOutput"),
+//   	},
 //   	TeletextSourceSettings: &TeletextSourceSettingsProperty{
 //   		OutputRectangle: &CaptionRectangleProperty{
 //   			Height: jsii.Number(123),
@@ -72,6 +76,9 @@ type CfnChannelPropsMixin_CaptionSelectorSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-scte27sourcesettings
 	//
 	Scte27SourceSettings interface{} `field:"optional" json:"scte27SourceSettings" yaml:"scte27SourceSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-smartsubtitlesourcesettings
+	//
+	SmartSubtitleSourceSettings interface{} `field:"optional" json:"smartSubtitleSourceSettings" yaml:"smartSubtitleSourceSettings"`
 	// Information about the Teletext captions to extract from the input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-captionselectorsettings.html#cfn-medialive-channel-captionselectorsettings-teletextsourcesettings
 	//

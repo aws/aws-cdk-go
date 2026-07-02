@@ -9,12 +9,6 @@ package awssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   clusterRestrictedInstanceGroupProperty := &ClusterRestrictedInstanceGroupProperty{
-//   	EnvironmentConfig: &EnvironmentConfigProperty{
-//   		FSxLustreConfig: &FSxLustreConfigProperty{
-//   			PerUnitStorageThroughput: jsii.Number(123),
-//   			SizeInGiB: jsii.Number(123),
-//   		},
-//   	},
 //   	ExecutionRole: jsii.String("executionRole"),
 //   	InstanceCount: jsii.Number(123),
 //   	InstanceGroupName: jsii.String("instanceGroupName"),
@@ -22,6 +16,12 @@ package awssagemaker
 //
 //   	// the properties below are optional
 //   	CurrentCount: jsii.Number(123),
+//   	EnvironmentConfig: &EnvironmentConfigProperty{
+//   		FSxLustreConfig: &FSxLustreConfigProperty{
+//   			PerUnitStorageThroughput: jsii.Number(123),
+//   			SizeInGiB: jsii.Number(123),
+//   		},
+//   	},
 //   	InstanceStorageConfigs: []interface{}{
 //   		&ClusterInstanceStorageConfigProperty{
 //   			EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
@@ -62,10 +62,6 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html
 //
 type CfnCluster_ClusterRestrictedInstanceGroupProperty struct {
-	// The configuration for the restricted instance groups (RIG) environment.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html#cfn-sagemaker-cluster-clusterrestrictedinstancegroup-environmentconfig
-	//
-	EnvironmentConfig interface{} `field:"required" json:"environmentConfig" yaml:"environmentConfig"`
 	// The execution role for the instance group to assume.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html#cfn-sagemaker-cluster-clusterrestrictedinstancegroup-executionrole
 	//
@@ -86,6 +82,10 @@ type CfnCluster_ClusterRestrictedInstanceGroupProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html#cfn-sagemaker-cluster-clusterrestrictedinstancegroup-currentcount
 	//
 	CurrentCount *float64 `field:"optional" json:"currentCount" yaml:"currentCount"`
+	// The configuration for the restricted instance groups (RIG) environment.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html#cfn-sagemaker-cluster-clusterrestrictedinstancegroup-environmentconfig
+	//
+	EnvironmentConfig interface{} `field:"optional" json:"environmentConfig" yaml:"environmentConfig"`
 	// The instance storage configuration for the instance group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html#cfn-sagemaker-cluster-clusterrestrictedinstancegroup-instancestorageconfigs
 	//

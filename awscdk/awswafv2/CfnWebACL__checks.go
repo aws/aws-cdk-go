@@ -419,6 +419,30 @@ func (j *jsiiProxy_CfnWebACL) validateSetDefaultActionParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebACL) validateSetMonetizationConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnWebACL_MonetizationConfigProperty:
+		val := val.(*CfnWebACL_MonetizationConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnWebACL_MonetizationConfigProperty:
+		val_ := val.(CfnWebACL_MonetizationConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnWebACL_MonetizationConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebACL) validateSetOnSourceDDoSProtectionConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

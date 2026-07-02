@@ -400,6 +400,30 @@ func (j *jsiiProxy_CfnRuleGroup) validateSetCustomResponseBodiesParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuleGroup) validateSetMonetizationConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnRuleGroup_MonetizationConfigProperty:
+		val := val.(*CfnRuleGroup_MonetizationConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnRuleGroup_MonetizationConfigProperty:
+		val_ := val.(CfnRuleGroup_MonetizationConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRuleGroup_MonetizationConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuleGroup) validateSetRulesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

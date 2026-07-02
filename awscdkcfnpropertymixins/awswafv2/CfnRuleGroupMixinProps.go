@@ -46,6 +46,10 @@ type CfnRuleGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Configures monetization for the web ACL or rule group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-monetizationconfig
+	//
+	MonetizationConfig interface{} `field:"optional" json:"monetizationConfig" yaml:"monetizationConfig"`
 	// The name of the rule group.
 	//
 	// You cannot change the name of a rule group after you create it.

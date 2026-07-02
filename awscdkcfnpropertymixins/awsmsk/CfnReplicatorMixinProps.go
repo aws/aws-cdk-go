@@ -23,6 +23,9 @@ import (
 //   				BootstrapBrokerString: jsii.String("bootstrapBrokerString"),
 //   			},
 //   			ClientAuthentication: &KafkaClusterClientAuthenticationProperty{
+//   				Mtls: &KafkaClusterMtlsAuthenticationProperty{
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
 //   				SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
 //   					Mechanism: jsii.String("mechanism"),
 //   					SecretArn: jsii.String("secretArn"),

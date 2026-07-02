@@ -13,7 +13,6 @@ package awscloudwatch
 //   	LogGroupIdentifiers: []*string{
 //   		jsii.String("logGroupIdentifiers"),
 //   	},
-//   	QueryLanguage: jsii.String("queryLanguage"),
 //   	QueryString: jsii.String("queryString"),
 //   	ScheduleConfiguration: &ScheduleConfigurationProperty{
 //   		ScheduleExpression: jsii.String("scheduleExpression"),
@@ -36,10 +35,6 @@ type CfnLogAlarm_ScheduledQueryConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html#cfn-cloudwatch-logalarm-scheduledqueryconfiguration-loggroupidentifiers
 	//
 	LogGroupIdentifiers *[]*string `field:"required" json:"logGroupIdentifiers" yaml:"logGroupIdentifiers"`
-	// The query language to use for the scheduled query (CWLI or SQL).
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html#cfn-cloudwatch-logalarm-scheduledqueryconfiguration-querylanguage
-	//
-	QueryLanguage *string `field:"required" json:"queryLanguage" yaml:"queryLanguage"`
 	// The query string to execute against the specified log groups.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html#cfn-cloudwatch-logalarm-scheduledqueryconfiguration-querystring
 	//

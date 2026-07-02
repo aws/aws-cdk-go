@@ -8,6 +8,7 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var parameterValues interface{}
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   mcpTargetConfigurationProperty := &McpTargetConfigurationProperty{
@@ -36,6 +37,34 @@ package awsbedrockagentcore
 //   		},
 //   		RestApiId: jsii.String("restApiId"),
 //   		Stage: jsii.String("stage"),
+//   	},
+//   	Connector: &ConnectorTargetConfigurationProperty{
+//   		Source: &ConnectorSourceProperty{
+//   			ConnectorId: jsii.String("connectorId"),
+//   		},
+//
+//   		// the properties below are optional
+//   		Configurations: []interface{}{
+//   			&ConnectorConfigurationProperty{
+//   				Name: jsii.String("name"),
+//
+//   				// the properties below are optional
+//   				Description: jsii.String("description"),
+//   				ParameterOverrides: []interface{}{
+//   					&ConnectorParameterOverrideProperty{
+//   						Path: jsii.String("path"),
+//
+//   						// the properties below are optional
+//   						Description: jsii.String("description"),
+//   						Visible: jsii.Boolean(false),
+//   					},
+//   				},
+//   				ParameterValues: parameterValues,
+//   			},
+//   		},
+//   		Enabled: []*string{
+//   			jsii.String("enabled"),
+//   		},
 //   	},
 //   	Lambda: &McpLambdaTargetConfigurationProperty{
 //   		LambdaArn: jsii.String("lambdaArn"),
@@ -116,6 +145,9 @@ type CfnGatewayTarget_McpTargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-apigateway
 	//
 	ApiGateway interface{} `field:"optional" json:"apiGateway" yaml:"apiGateway"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-connector
+	//
+	Connector interface{} `field:"optional" json:"connector" yaml:"connector"`
 	// The Lambda MCP configuration for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-mcptargetconfiguration-lambda
 	//

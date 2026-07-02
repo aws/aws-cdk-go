@@ -22,6 +22,9 @@ package awswafv2
 //   	Captcha: captcha,
 //   	Challenge: challenge,
 //   	Count: count,
+//   	Monetize: &MonetizeActionProperty{
+//   		PriceMultiplier: jsii.String("priceMultiplier"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
@@ -60,5 +63,9 @@ type CfnRuleGroup_RuleActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
 	//
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
+	// Monetize action for rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-monetize
+	//
+	Monetize interface{} `field:"optional" json:"monetize" yaml:"monetize"`
 }
 

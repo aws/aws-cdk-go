@@ -23,6 +23,10 @@ import (
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
+//   	ResourceShareConfiguration: &ResourceShareConfigurationProperty{
+//   		ExclusiveAccountAccess: jsii.Boolean(false),
+//   		RetainSharingOnAccountLeaveOrganization: jsii.Boolean(false),
+//   	},
 //   	Sources: []*string{
 //   		jsii.String("sources"),
 //   	},
@@ -67,6 +71,10 @@ type CfnResourceShareMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourcearns
 	//
 	ResourceArns *[]*string `field:"optional" json:"resourceArns" yaml:"resourceArns"`
+	// The configuration for a resource share.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-resourceshareconfiguration
+	//
+	ResourceShareConfiguration interface{} `field:"optional" json:"resourceShareConfiguration" yaml:"resourceShareConfiguration"`
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html#cfn-ram-resourceshare-sources
 	//

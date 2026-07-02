@@ -84,6 +84,9 @@ import (
 //   		TimeZone: jsii.String("timeZone"),
 //   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
+//   	ResourceShareArns: []*string{
+//   		jsii.String("resourceShareArns"),
+//   	},
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},

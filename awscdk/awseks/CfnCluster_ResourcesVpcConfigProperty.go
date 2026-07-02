@@ -20,6 +20,7 @@ package awseks
 //   	},
 //
 //   	// the properties below are optional
+//   	ControlPlaneEgressMode: jsii.String("controlPlaneEgressMode"),
 //   	EndpointPrivateAccess: jsii.Boolean(false),
 //   	EndpointPublicAccess: jsii.Boolean(false),
 //   	PublicAccessCidrs: []*string{
@@ -39,6 +40,12 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	// Specify the egress mode for the cluster control plane.
+	//
+	// If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-controlplaneegressmode
+	//
+	ControlPlaneEgressMode *string `field:"optional" json:"controlPlaneEgressMode" yaml:"controlPlaneEgressMode"`
 	// Set this value to `true` to enable private access for your cluster's Kubernetes API server endpoint.
 	//
 	// If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is `false` , which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that `publicAccessCidrs` includes the necessary CIDR blocks for communication with the nodes or Fargate pods. For more information, see [Cluster API server endpoint](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) in the **Amazon EKS User Guide** .

@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var awsIam interface{}
+//   var disabled interface{}
 //   var inputSchema interface{}
 //   var none interface{}
 //
@@ -46,6 +47,49 @@ import (
 //   				},
 //   			},
 //   			DiscoveryUrl: jsii.String("discoveryUrl"),
+//   			PrivateEndpoint: &PrivateEndpointProperty{
+//   				ManagedVpcResource: &ManagedVpcResourceProperty{
+//   					EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   					RoutingDomain: jsii.String("routingDomain"),
+//   					SecurityGroupIds: []*string{
+//   						jsii.String("securityGroupIds"),
+//   					},
+//   					SubnetIds: []*string{
+//   						jsii.String("subnetIds"),
+//   					},
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
+//   					VpcIdentifier: jsii.String("vpcIdentifier"),
+//   				},
+//   				SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   					ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   				},
+//   			},
+//   			PrivateEndpointOverrides: []interface{}{
+//   				&PrivateEndpointOverrideProperty{
+//   					Domain: jsii.String("domain"),
+//   					PrivateEndpoint: &PrivateEndpointProperty{
+//   						ManagedVpcResource: &ManagedVpcResourceProperty{
+//   							EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   							RoutingDomain: jsii.String("routingDomain"),
+//   							SecurityGroupIds: []*string{
+//   								jsii.String("securityGroupIds"),
+//   							},
+//   							SubnetIds: []*string{
+//   								jsii.String("subnetIds"),
+//   							},
+//   							Tags: map[string]*string{
+//   								"tagsKey": jsii.String("tags"),
+//   							},
+//   							VpcIdentifier: jsii.String("vpcIdentifier"),
+//   						},
+//   						SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   							ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	Environment: &HarnessEnvironmentProviderProperty{
@@ -55,6 +99,14 @@ import (
 //   			AgentRuntimeName: jsii.String("agentRuntimeName"),
 //   			FilesystemConfigurations: []interface{}{
 //   				&FilesystemConfigurationProperty{
+//   					EfsAccessPoint: &EfsAccessPointConfigurationProperty{
+//   						AccessPointArn: jsii.String("accessPointArn"),
+//   						MountPath: jsii.String("mountPath"),
+//   					},
+//   					S3FilesAccessPoint: &S3FilesAccessPointConfigurationProperty{
+//   						AccessPointArn: jsii.String("accessPointArn"),
+//   						MountPath: jsii.String("mountPath"),
+//   					},
 //   					SessionStorage: &SessionStorageConfigurationProperty{
 //   						MountPath: jsii.String("mountPath"),
 //   					},
@@ -96,15 +148,25 @@ import (
 //   			MessagesCount: jsii.Number(123),
 //   			RetrievalConfig: map[string]interface{}{
 //   				"retrievalConfigKey": &HarnessAgentCoreMemoryRetrievalConfigProperty{
-//   					"relevanceScore": jsii.Number(123),
+//   					"relevanceScore": jsii.String("relevanceScore"),
 //   					"strategyId": jsii.String("strategyId"),
-//   					"topK": jsii.Number(123),
+//   					"topK": jsii.String("topK"),
 //   				},
+//   			},
+//   		},
+//   		Disabled: disabled,
+//   		ManagedMemoryConfiguration: &HarnessManagedMemoryConfigurationProperty{
+//   			Arn: jsii.String("arn"),
+//   			EncryptionKeyArn: jsii.String("encryptionKeyArn"),
+//   			EventExpiryDuration: jsii.Number(123),
+//   			Strategies: []*string{
+//   				jsii.String("strategies"),
 //   			},
 //   		},
 //   	},
 //   	Model: &HarnessModelConfigurationProperty{
 //   		BedrockModelConfig: &HarnessBedrockModelConfigProperty{
+//   			ApiFormat: jsii.String("apiFormat"),
 //   			MaxTokens: jsii.Number(123),
 //   			ModelId: jsii.String("modelId"),
 //   			Temperature: jsii.Number(123),
@@ -118,7 +180,16 @@ import (
 //   			TopK: jsii.Number(123),
 //   			TopP: jsii.Number(123),
 //   		},
+//   		LiteLlmModelConfig: &HarnessLiteLlmModelConfigProperty{
+//   			ApiBase: jsii.String("apiBase"),
+//   			ApiKeyArn: jsii.String("apiKeyArn"),
+//   			MaxTokens: jsii.Number(123),
+//   			ModelId: jsii.String("modelId"),
+//   			Temperature: jsii.Number(123),
+//   			TopP: jsii.Number(123),
+//   		},
 //   		OpenAiModelConfig: &HarnessOpenAiModelConfigProperty{
+//   			ApiFormat: jsii.String("apiFormat"),
 //   			ApiKeyArn: jsii.String("apiKeyArn"),
 //   			MaxTokens: jsii.Number(123),
 //   			ModelId: jsii.String("modelId"),
@@ -128,7 +199,23 @@ import (
 //   	},
 //   	Skills: []interface{}{
 //   		&HarnessSkillProperty{
+//   			AwsSkills: &HarnessSkillAwsSkillsSourceProperty{
+//   				Paths: []*string{
+//   					jsii.String("paths"),
+//   				},
+//   			},
+//   			Git: &HarnessSkillGitSourceProperty{
+//   				Auth: &HarnessSkillGitAuthProperty{
+//   					CredentialArn: jsii.String("credentialArn"),
+//   					Username: jsii.String("username"),
+//   				},
+//   				Path: jsii.String("path"),
+//   				Url: jsii.String("url"),
+//   			},
 //   			Path: jsii.String("path"),
+//   			S3: &HarnessSkillS3SourceProperty{
+//   				Uri: jsii.String("uri"),
+//   			},
 //   		},
 //   	},
 //   	SystemPrompt: []interface{}{

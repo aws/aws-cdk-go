@@ -95,6 +95,16 @@ import (
 //   			TargetGroupArn: jsii.String("targetGroupArn"),
 //   		},
 //   	},
+//   	Monitoring: &MonitoringConfigurationProperty{
+//   		MetricConfigurations: []interface{}{
+//   			&MetricConfigurationProperty{
+//   				MetricNames: []*string{
+//   					jsii.String("metricNames"),
+//   				},
+//   				ResolutionSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		AwsvpcConfiguration: &AwsVpcConfigurationProperty{
 //   			AssignPublicIp: jsii.String("assignPublicIp"),
@@ -342,6 +352,9 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
 	//
 	LoadBalancers interface{} `field:"optional" json:"loadBalancers" yaml:"loadBalancers"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-monitoring
+	//
+	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`
 	// The network configuration for the service.
 	//
 	// This parameter is required for task definitions that use the `awsvpc` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide* .

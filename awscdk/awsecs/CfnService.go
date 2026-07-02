@@ -135,6 +135,8 @@ type CfnService interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	Monitoring() interface{}
+	SetMonitoring(val interface{})
 	// The network configuration for the service.
 	NetworkConfiguration() interface{}
 	SetNetworkConfiguration(val interface{})
@@ -567,6 +569,16 @@ func (j *jsiiProxy_CfnService) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) Monitoring() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"monitoring",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) NetworkConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -920,6 +932,17 @@ func (j *jsiiProxy_CfnService)SetLoadBalancers(val interface{}) {
 	_jsii_.Set(
 		j,
 		"loadBalancers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetMonitoring(val interface{}) {
+	if err := j.validateSetMonitoringParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"monitoring",
 		val,
 	)
 }

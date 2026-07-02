@@ -36,6 +36,10 @@ import (
 //   	ResourceArns: []*string{
 //   		jsii.String("resourceArns"),
 //   	},
+//   	ResourceShareConfiguration: &ResourceShareConfigurationProperty{
+//   		ExclusiveAccountAccess: jsii.Boolean(false),
+//   		RetainSharingOnAccountLeaveOrganization: jsii.Boolean(false),
+//   	},
 //   	Sources: []*string{
 //   		jsii.String("sources"),
 //   	},

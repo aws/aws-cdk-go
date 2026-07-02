@@ -156,12 +156,6 @@ import (
 //   	},
 //   	RestrictedInstanceGroups: []interface{}{
 //   		&ClusterRestrictedInstanceGroupProperty{
-//   			EnvironmentConfig: &EnvironmentConfigProperty{
-//   				FSxLustreConfig: &FSxLustreConfigProperty{
-//   					PerUnitStorageThroughput: jsii.Number(123),
-//   					SizeInGiB: jsii.Number(123),
-//   				},
-//   			},
 //   			ExecutionRole: jsii.String("executionRole"),
 //   			InstanceCount: jsii.Number(123),
 //   			InstanceGroupName: jsii.String("instanceGroupName"),
@@ -169,6 +163,12 @@ import (
 //
 //   			// the properties below are optional
 //   			CurrentCount: jsii.Number(123),
+//   			EnvironmentConfig: &EnvironmentConfigProperty{
+//   				FSxLustreConfig: &FSxLustreConfigProperty{
+//   					PerUnitStorageThroughput: jsii.Number(123),
+//   					SizeInGiB: jsii.Number(123),
+//   				},
+//   			},
 //   			InstanceStorageConfigs: []interface{}{
 //   				&ClusterInstanceStorageConfigProperty{
 //   					EbsVolumeConfig: &ClusterEbsVolumeConfigProperty{
@@ -204,6 +204,17 @@ import (
 //   			},
 //   			ThreadsPerCore: jsii.Number(123),
 //   			TrainingPlanArn: jsii.String("trainingPlanArn"),
+//   		},
+//   	},
+//   	RestrictedInstanceGroupsConfig: &RestrictedInstanceGroupsConfigProperty{
+//   		SharedEnvironmentConfig: &SharedEnvironmentConfigProperty{
+//   			FSxLustreDeletionPolicy: jsii.String("fSxLustreDeletionPolicy"),
+//
+//   			// the properties below are optional
+//   			FSxLustreConfig: &FSxLustreConfigProperty{
+//   				PerUnitStorageThroughput: jsii.Number(123),
+//   				SizeInGiB: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	Tags: []CfnTag{
@@ -299,6 +310,9 @@ type CfnCluster interface {
 	// The restricted instance groups of the SageMaker HyperPod cluster.
 	RestrictedInstanceGroups() interface{}
 	SetRestrictedInstanceGroups(val interface{})
+	// The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+	RestrictedInstanceGroupsConfig() interface{}
+	SetRestrictedInstanceGroupsConfig(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -703,6 +717,16 @@ func (j *jsiiProxy_CfnCluster) RestrictedInstanceGroups() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) RestrictedInstanceGroupsConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"restrictedInstanceGroupsConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -865,6 +889,17 @@ func (j *jsiiProxy_CfnCluster)SetRestrictedInstanceGroups(val interface{}) {
 	_jsii_.Set(
 		j,
 		"restrictedInstanceGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetRestrictedInstanceGroupsConfig(val interface{}) {
+	if err := j.validateSetRestrictedInstanceGroupsConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"restrictedInstanceGroupsConfig",
 		val,
 	)
 }

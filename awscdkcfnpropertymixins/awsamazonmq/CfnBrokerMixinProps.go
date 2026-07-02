@@ -51,6 +51,9 @@ package awsamazonmq
 //   		TimeZone: jsii.String("timeZone"),
 //   	},
 //   	PubliclyAccessible: jsii.Boolean(false),
+//   	ResourceShareArns: []*string{
+//   		jsii.String("resourceShareArns"),
+//   	},
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
@@ -164,6 +167,10 @@ type CfnBrokerMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
 	//
 	PubliclyAccessible interface{} `field:"optional" json:"publiclyAccessible" yaml:"publiclyAccessible"`
+	// The ARNs of the resource shares to be associated with the broker.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-resourcesharearns
+	//
+	ResourceShareArns *[]*string `field:"optional" json:"resourceShareArns" yaml:"resourceShareArns"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
 	//

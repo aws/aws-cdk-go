@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnResourceShare) validateSetNameParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnResourceShare) validateSetResourceShareConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnResourceShare) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

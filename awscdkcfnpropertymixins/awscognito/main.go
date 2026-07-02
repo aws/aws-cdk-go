@@ -228,6 +228,14 @@ func init() {
 		reflect.TypeOf((*CfnUserPoolDomainPropsMixin_CustomDomainConfigTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolDomainPropsMixin.FailoverTypeProperty",
+		reflect.TypeOf((*CfnUserPoolDomainPropsMixin_FailoverTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolDomainPropsMixin.RoutingTypeProperty",
+		reflect.TypeOf((*CfnUserPoolDomainPropsMixin_RoutingTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolGroupMixinProps",
 		reflect.TypeOf((*CfnUserPoolGroupMixinProps)(nil)).Elem(),
 	)

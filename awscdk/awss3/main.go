@@ -562,6 +562,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDomainName", GoGetter: "AttrDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDualStackDomainName", GoGetter: "AttrDualStackDomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMetadataConfigurationAnnotationTableConfigurationTableArn", GoGetter: "AttrMetadataConfigurationAnnotationTableConfigurationTableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMetadataConfigurationAnnotationTableConfigurationTableName", GoGetter: "AttrMetadataConfigurationAnnotationTableConfigurationTableName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMetadataConfigurationDestination", GoGetter: "AttrMetadataConfigurationDestination"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMetadataConfigurationInventoryTableConfigurationTableArn", GoGetter: "AttrMetadataConfigurationInventoryTableConfigurationTableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrMetadataConfigurationInventoryTableConfigurationTableName", GoGetter: "AttrMetadataConfigurationInventoryTableConfigurationTableName"},
@@ -645,6 +647,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnBucket.AnalyticsConfigurationProperty",
 		reflect.TypeOf((*CfnBucket_AnalyticsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnBucket.AnnotationTableConfigurationProperty",
+		reflect.TypeOf((*CfnBucket_AnnotationTableConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnBucket.BlockedEncryptionTypesProperty",

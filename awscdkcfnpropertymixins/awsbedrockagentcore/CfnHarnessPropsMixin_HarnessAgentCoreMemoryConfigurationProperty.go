@@ -12,9 +12,9 @@ package awsbedrockagentcore
 //   	MessagesCount: jsii.Number(123),
 //   	RetrievalConfig: map[string]interface{}{
 //   		"retrievalConfigKey": &HarnessAgentCoreMemoryRetrievalConfigProperty{
-//   			"relevanceScore": jsii.Number(123),
+//   			"relevanceScore": jsii.String("relevanceScore"),
 //   			"strategyId": jsii.String("strategyId"),
-//   			"topK": jsii.Number(123),
+//   			"topK": jsii.String("topK"),
 //   		},
 //   	},
 //   }

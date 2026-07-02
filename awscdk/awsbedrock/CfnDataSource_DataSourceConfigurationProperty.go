@@ -8,6 +8,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var connectorParameters interface{}
+//
 //   dataSourceConfigurationProperty := &DataSourceConfigurationProperty{
 //   	Type: jsii.String("type"),
 //
@@ -41,6 +43,26 @@ package awsbedrock
 //   						},
 //   					},
 //   				},
+//   			},
+//   		},
+//   	},
+//   	ManagedKnowledgeBaseConnectorConfiguration: &ManagedKnowledgeBaseConnectorConfigurationProperty{
+//   		ConnectorParameters: connectorParameters,
+//   		DeletionProtectionConfiguration: &DeletionProtectionConfigurationProperty{
+//   			DeletionProtectionStatus: jsii.String("deletionProtectionStatus"),
+//
+//   			// the properties below are optional
+//   			DeletionProtectionThreshold: jsii.Number(123),
+//   		},
+//   		MediaExtractionConfiguration: &MediaExtractionConfigurationProperty{
+//   			AudioExtractionConfiguration: &AudioExtractionConfigurationProperty{
+//   				AudioExtractionStatus: jsii.String("audioExtractionStatus"),
+//   			},
+//   			ImageExtractionConfiguration: &ImageExtractionConfigurationProperty{
+//   				ImageExtractionStatus: jsii.String("imageExtractionStatus"),
+//   			},
+//   			VideoExtractionConfiguration: &VideoExtractionConfigurationProperty{
+//   				VideoExtractionStatus: jsii.String("videoExtractionStatus"),
 //   			},
 //   		},
 //   	},
@@ -165,6 +187,10 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-confluenceconfiguration
 	//
 	ConfluenceConfiguration interface{} `field:"optional" json:"confluenceConfiguration" yaml:"confluenceConfiguration"`
+	// Configuration for managed knowledge base connector data sources.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-managedknowledgebaseconnectorconfiguration
+	//
+	ManagedKnowledgeBaseConnectorConfiguration interface{} `field:"optional" json:"managedKnowledgeBaseConnectorConfiguration" yaml:"managedKnowledgeBaseConnectorConfiguration"`
 	// The configuration information to connect to Amazon S3 as your data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html#cfn-bedrock-datasource-datasourceconfiguration-s3configuration
 	//

@@ -76,6 +76,8 @@ type DatabaseClusterFromSnapshot interface {
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
 	InstanceIdentifiers() *[]*string
+	ManageMasterUserPassword() *bool
+	SetManageMasterUserPassword(val *bool)
 	// The IAM role for the enhanced monitoring.
 	MonitoringRole() awsiam.IRole
 	// Application for multi user rotation to this cluster.
@@ -405,6 +407,16 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) InstanceIdentifiers() *[]*string
 	return returns
 }
 
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) ManageMasterUserPassword() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"manageMasterUserPassword",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_DatabaseClusterFromSnapshot) MonitoringRole() awsiam.IRole {
 	var returns awsiam.IRole
 	_jsii_.Get(
@@ -635,6 +647,14 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot)SetHasServerlessInstance(val *boo
 	_jsii_.Set(
 		j,
 		"hasServerlessInstance",
+		val,
+	)
+}
+
+func (j *jsiiProxy_DatabaseClusterFromSnapshot)SetManageMasterUserPassword(val *bool) {
+	_jsii_.Set(
+		j,
+		"manageMasterUserPassword",
 		val,
 	)
 }

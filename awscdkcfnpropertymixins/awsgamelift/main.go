@@ -164,6 +164,10 @@ func init() {
 		reflect.TypeOf((*CfnContainerGroupDefinitionPropsMixin_GameServerContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnContainerGroupDefinitionPropsMixin.LinuxCapabilitiesProperty",
+		reflect.TypeOf((*CfnContainerGroupDefinitionPropsMixin_LinuxCapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnContainerGroupDefinitionPropsMixin.PortConfigurationProperty",
 		reflect.TypeOf((*CfnContainerGroupDefinitionPropsMixin_PortConfigurationProperty)(nil)).Elem(),
 	)

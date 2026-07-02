@@ -355,6 +355,10 @@ func init() {
 		reflect.TypeOf((*CfnContainerGroupDefinition_GameServerContainerDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.LinuxCapabilitiesProperty",
+		reflect.TypeOf((*CfnContainerGroupDefinition_LinuxCapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnContainerGroupDefinition.PortConfigurationProperty",
 		reflect.TypeOf((*CfnContainerGroupDefinition_PortConfigurationProperty)(nil)).Elem(),
 	)

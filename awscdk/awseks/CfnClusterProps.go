@@ -18,6 +18,7 @@ import (
 //   		},
 //
 //   		// the properties below are optional
+//   		ControlPlaneEgressMode: jsii.String("controlPlaneEgressMode"),
 //   		EndpointPrivateAccess: jsii.Boolean(false),
 //   		EndpointPublicAccess: jsii.Boolean(false),
 //   		PublicAccessCidrs: []*string{

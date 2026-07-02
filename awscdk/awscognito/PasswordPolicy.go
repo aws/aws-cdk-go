@@ -26,7 +26,7 @@ type PasswordPolicy struct {
 	MinLength *float64 `field:"optional" json:"minLength" yaml:"minLength"`
 	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing.
 	//
-	// `passwordHistorySize` can not be set when `featurePlan` is `FeaturePlan.LITE`.
+	// `passwordHistorySize` cannot be set when `featurePlan` is `FeaturePlan.LITE`.
 	// Default: undefined - Cognito default setting is no restriction.
 	//
 	PasswordHistorySize *float64 `field:"optional" json:"passwordHistorySize" yaml:"passwordHistorySize"`

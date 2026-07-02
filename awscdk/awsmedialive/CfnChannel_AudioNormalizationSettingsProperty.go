@@ -13,6 +13,8 @@ package awsmedialive
 //   audioNormalizationSettingsProperty := &AudioNormalizationSettingsProperty{
 //   	Algorithm: jsii.String("algorithm"),
 //   	AlgorithmControl: jsii.String("algorithmControl"),
+//   	PeakCalculation: jsii.String("peakCalculation"),
+//   	PeakLimiterThreshold: jsii.Number(123),
 //   	TargetLkfs: jsii.Number(123),
 //   }
 //
@@ -31,6 +33,12 @@ type CfnChannel_AudioNormalizationSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html#cfn-medialive-channel-audionormalizationsettings-algorithmcontrol
 	//
 	AlgorithmControl *string `field:"optional" json:"algorithmControl" yaml:"algorithmControl"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html#cfn-medialive-channel-audionormalizationsettings-peakcalculation
+	//
+	PeakCalculation *string `field:"optional" json:"peakCalculation" yaml:"peakCalculation"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audionormalizationsettings.html#cfn-medialive-channel-audionormalizationsettings-peaklimiterthreshold
+	//
+	PeakLimiterThreshold *float64 `field:"optional" json:"peakLimiterThreshold" yaml:"peakLimiterThreshold"`
 	// The Target LKFS(loudness) to adjust volume to.
 	//
 	// If no value is entered, a default value is used according to the chosen algorithm. The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.

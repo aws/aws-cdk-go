@@ -28,7 +28,7 @@ import (
 type UserPoolClientOptions struct {
 	// Validity of the access token.
 	//
-	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
+	// Values between 5 minutes and 1 day are valid. The duration cannot be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
 	//
 	// Default: Duration.minutes(60)
@@ -77,7 +77,7 @@ type UserPoolClientOptions struct {
 	GenerateSecret *bool `field:"optional" json:"generateSecret" yaml:"generateSecret"`
 	// Validity of the ID token.
 	//
-	// Values between 5 minutes and 1 day are valid. The duration can not be longer than the refresh token validity.
+	// Values between 5 minutes and 1 day are valid. The duration cannot be longer than the refresh token validity.
 	// See: https://docs.aws.amazon.com/en_us/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-id-token
 	//
 	// Default: Duration.minutes(60)

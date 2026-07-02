@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnWebACL) validateSetDefaultActionParameters(val interface{}
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebACL) validateSetMonetizationConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebACL) validateSetOnSourceDDoSProtectionConfigParameters(val interface{}) error {
 	return nil
 }

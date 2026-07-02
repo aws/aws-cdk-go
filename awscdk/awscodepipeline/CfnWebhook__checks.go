@@ -343,6 +343,16 @@ func (j *jsiiProxy_CfnWebhook) validateSetRegisterWithThirdPartyParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebhook) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebhook) validateSetTargetActionParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

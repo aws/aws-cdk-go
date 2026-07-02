@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnWebhook) validateSetRegisterWithThirdPartyParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnWebhook) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWebhook) validateSetTargetActionParameters(val *string) error {
 	return nil
 }

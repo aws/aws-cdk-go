@@ -35,6 +35,7 @@ import (
 //   		Name: jsii.String("name"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

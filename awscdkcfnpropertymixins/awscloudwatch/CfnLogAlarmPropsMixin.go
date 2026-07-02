@@ -45,7 +45,6 @@ import (
 //   		LogGroupIdentifiers: []*string{
 //   			jsii.String("logGroupIdentifiers"),
 //   		},
-//   		QueryLanguage: jsii.String("queryLanguage"),
 //   		QueryString: jsii.String("queryString"),
 //   		ScheduleConfiguration: &ScheduleConfigurationProperty{
 //   			EndTimeOffset: jsii.Number(123),

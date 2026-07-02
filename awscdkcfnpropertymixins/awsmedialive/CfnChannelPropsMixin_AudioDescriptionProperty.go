@@ -17,6 +17,8 @@ package awsmedialive
 //   	AudioNormalizationSettings: &AudioNormalizationSettingsProperty{
 //   		Algorithm: jsii.String("algorithm"),
 //   		AlgorithmControl: jsii.String("algorithmControl"),
+//   		PeakCalculation: jsii.String("peakCalculation"),
+//   		PeakLimiterThreshold: jsii.Number(123),
 //   		TargetLkfs: jsii.Number(123),
 //   	},
 //   	AudioSelectorName: jsii.String("audioSelectorName"),

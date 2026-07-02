@@ -128,6 +128,16 @@ import (
 //   			TargetGroupArn: jsii.String("targetGroupArn"),
 //   		},
 //   	},
+//   	Monitoring: &MonitoringConfigurationProperty{
+//   		MetricConfigurations: []interface{}{
+//   			&MetricConfigurationProperty{
+//   				MetricNames: []*string{
+//   					jsii.String("metricNames"),
+//   				},
+//   				ResolutionSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		AwsvpcConfiguration: &AwsVpcConfigurationProperty{
 //   			AssignPublicIp: jsii.String("assignPublicIp"),

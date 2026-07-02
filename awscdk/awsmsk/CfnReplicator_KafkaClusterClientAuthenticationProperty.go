@@ -9,6 +9,9 @@ package awsmsk
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   kafkaClusterClientAuthenticationProperty := &KafkaClusterClientAuthenticationProperty{
+//   	Mtls: &KafkaClusterMtlsAuthenticationProperty{
+//   		SecretArn: jsii.String("secretArn"),
+//   	},
 //   	SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
 //   		Mechanism: jsii.String("mechanism"),
 //   		SecretArn: jsii.String("secretArn"),
@@ -18,9 +21,13 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html
 //
 type CfnReplicator_KafkaClusterClientAuthenticationProperty struct {
+	// Details for mTLS client authentication.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html#cfn-msk-replicator-kafkaclusterclientauthentication-mtls
+	//
+	Mtls interface{} `field:"optional" json:"mtls" yaml:"mtls"`
 	// Details for SASL/SCRAM client authentication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html#cfn-msk-replicator-kafkaclusterclientauthentication-saslscram
 	//
-	SaslScram interface{} `field:"required" json:"saslScram" yaml:"saslScram"`
+	SaslScram interface{} `field:"optional" json:"saslScram" yaml:"saslScram"`
 }
 

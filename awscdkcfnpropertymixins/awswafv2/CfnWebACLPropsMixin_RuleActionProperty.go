@@ -63,6 +63,9 @@ package awswafv2
 //   			},
 //   		},
 //   	},
+//   	Monetize: &MonetizeActionProperty{
+//   		PriceMultiplier: jsii.String("priceMultiplier"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
@@ -101,5 +104,9 @@ type CfnWebACLPropsMixin_RuleActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
 	//
 	Count interface{} `field:"optional" json:"count" yaml:"count"`
+	// Monetize action for rules.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-monetize
+	//
+	Monetize interface{} `field:"optional" json:"monetize" yaml:"monetize"`
 }
 

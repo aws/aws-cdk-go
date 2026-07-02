@@ -27,6 +27,12 @@ import (
 //   		CertificateArn: jsii.String("certificateArn"),
 //   	},
 //   	ManagedLoginVersion: jsii.Number(123),
+//   	Routing: &RoutingTypeProperty{
+//   		Failover: &FailoverTypeProperty{
+//   			PrimaryRoute53HealthCheckId: jsii.String("primaryRoute53HealthCheckId"),
+//   			SecondaryRegion: jsii.String("secondaryRegion"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html
@@ -74,6 +80,8 @@ type CfnUserPoolDomain interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	Routing() interface{}
+	SetRouting(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -373,6 +381,16 @@ func (j *jsiiProxy_CfnUserPoolDomain) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnUserPoolDomain) Routing() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"routing",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnUserPoolDomain) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -479,6 +497,17 @@ func (j *jsiiProxy_CfnUserPoolDomain)SetManagedLoginVersion(val *float64) {
 	_jsii_.Set(
 		j,
 		"managedLoginVersion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnUserPoolDomain)SetRouting(val interface{}) {
+	if err := j.validateSetRoutingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"routing",
 		val,
 	)
 }

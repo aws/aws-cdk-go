@@ -476,6 +476,14 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.MetricConfigurationProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_MetricConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.MonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_MonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_NetworkConfigurationProperty)(nil)).Elem(),
 	)
