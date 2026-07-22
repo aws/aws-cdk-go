@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnQuotaShare) validateAddPropertyOverrideParameters(property
 	return nil
 }
 
+func (c *jsiiProxy_CfnQuotaShare) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnQuotaShare) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -137,6 +145,14 @@ func (c *jsiiProxy_CfnQuotaShare) validateOverrideLogicalIdParameters(newLogical
 }
 
 func (c *jsiiProxy_CfnQuotaShare) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnQuotaShare) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

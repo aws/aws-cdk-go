@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnVehicle) validateAddPropertyOverrideParameters(propertyPat
 	return nil
 }
 
+func (c *jsiiProxy_CfnVehicle) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVehicle) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnVehicle) validateOverrideLogicalIdParameters(newLogicalId 
 }
 
 func (c *jsiiProxy_CfnVehicle) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVehicle) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

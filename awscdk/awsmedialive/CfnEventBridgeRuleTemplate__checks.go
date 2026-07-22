@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnEventBridgeRuleTemplate) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnEventBridgeRuleTemplate) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnEventBridgeRuleTemplate) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -137,6 +145,14 @@ func (c *jsiiProxy_CfnEventBridgeRuleTemplate) validateOverrideLogicalIdParamete
 }
 
 func (c *jsiiProxy_CfnEventBridgeRuleTemplate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnEventBridgeRuleTemplate) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

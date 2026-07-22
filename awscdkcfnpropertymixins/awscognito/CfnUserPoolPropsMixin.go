@@ -68,6 +68,13 @@ import (
 //   	EnabledMfas: []*string{
 //   		jsii.String("enabledMfas"),
 //   	},
+//   	IssuerConfiguration: &IssuerConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   	},
+//   	KeyConfiguration: &KeyConfigurationProperty{
+//   		KeyType: jsii.String("keyType"),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	LambdaConfig: &LambdaConfigProperty{
 //   		CreateAuthChallenge: jsii.String("createAuthChallenge"),
 //   		CustomEmailSender: &CustomEmailSenderProperty{

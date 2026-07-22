@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnQuotaShare) validateAddPropertyOverrideParameters(property
 	return nil
 }
 
+func (c *jsiiProxy_CfnQuotaShare) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnQuotaShare) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnQuotaShare) validateOverrideLogicalIdParameters(newLogical
 }
 
 func (c *jsiiProxy_CfnQuotaShare) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnQuotaShare) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

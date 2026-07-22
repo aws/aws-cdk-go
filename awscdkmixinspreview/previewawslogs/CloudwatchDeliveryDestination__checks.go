@@ -81,6 +81,14 @@ func (c *jsiiProxy_CloudwatchDeliveryDestination) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CloudwatchDeliveryDestination) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CloudwatchDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -138,6 +146,14 @@ func (c *jsiiProxy_CloudwatchDeliveryDestination) validateOverrideLogicalIdParam
 }
 
 func (c *jsiiProxy_CloudwatchDeliveryDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CloudwatchDeliveryDestination) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

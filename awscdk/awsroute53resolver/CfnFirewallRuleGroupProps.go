@@ -33,9 +33,13 @@ import (
 //   				FirewallAdvancedThreatCategory: &FirewallAdvancedThreatCategoryConfigProperty{
 //   					Category: jsii.String("category"),
 //   				},
+//   				PartnerThreatProtection: &PartnerThreatProtectionConfigProperty{
+//   					Partner: jsii.String("partner"),
+//   				},
 //   			},
 //   			FirewallThreatProtectionId: jsii.String("firewallThreatProtectionId"),
 //   			Qtype: jsii.String("qtype"),
+//   			Status: jsii.String("status"),
 //   		},
 //   	},
 //   	Name: jsii.String("name"),

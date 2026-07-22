@@ -38,7 +38,12 @@ import (
 //   		},
 //   		DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
 //   			Enable: jsii.Boolean(false),
+//   			ResetOnHealthyTask: jsii.Boolean(false),
 //   			Rollback: jsii.Boolean(false),
+//   			ThresholdConfiguration: &ThresholdConfigurationProperty{
+//   				Type: jsii.String("type"),
+//   				Value: jsii.Number(123),
+//   			},
 //   		},
 //   		LifecycleHooks: []interface{}{
 //   			&DeploymentLifecycleHookProperty{
@@ -324,6 +329,9 @@ type CfnServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
 	//
 	LoadBalancers interface{} `field:"optional" json:"loadBalancers" yaml:"loadBalancers"`
+	// The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics.
+	//
+	// When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-monitoring
 	//
 	Monitoring interface{} `field:"optional" json:"monitoring" yaml:"monitoring"`

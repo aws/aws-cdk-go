@@ -32,6 +32,7 @@ import (
 //   		DomainName: jsii.String("domainName"),
 //   		HostedZoneId: jsii.String("hostedZoneId"),
 //   	},
+//   	IdleTimeoutSeconds: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

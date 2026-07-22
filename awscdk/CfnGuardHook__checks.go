@@ -78,6 +78,14 @@ func (c *jsiiProxy_CfnGuardHook) validateAddPropertyOverrideParameters(propertyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnGuardHook) validateAddResourceDependencyParameters(target CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnGuardHook) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -135,6 +143,14 @@ func (c *jsiiProxy_CfnGuardHook) validateOverrideLogicalIdParameters(newLogicalI
 }
 
 func (c *jsiiProxy_CfnGuardHook) validateRemoveDependencyParameters(target CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnGuardHook) validateRemoveResourceDependencyParameters(target CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateAddPropertyOver
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateOverrideLogical
 }
 
 func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEnvironmentBlueprintConfiguration) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

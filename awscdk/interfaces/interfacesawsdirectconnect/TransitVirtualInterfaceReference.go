@@ -10,10 +10,13 @@ package interfacesawsdirectconnect
 //
 //   transitVirtualInterfaceReference := &TransitVirtualInterfaceReference{
 //   	VirtualInterfaceArn: jsii.String("virtualInterfaceArn"),
+//   	VirtualInterfaceId: jsii.String("virtualInterfaceId"),
 //   }
 //
 type TransitVirtualInterfaceReference struct {
 	// The VirtualInterfaceArn of the TransitVirtualInterface resource.
 	VirtualInterfaceArn *string `field:"required" json:"virtualInterfaceArn" yaml:"virtualInterfaceArn"`
+	// The VirtualInterfaceId of the TransitVirtualInterface resource.
+	VirtualInterfaceId *string `field:"required" json:"virtualInterfaceId" yaml:"virtualInterfaceId"`
 }
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnEmailIdentity) validateAddPropertyOverrideParameters(prope
 	return nil
 }
 
+func (c *jsiiProxy_CfnEmailIdentity) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEmailIdentity) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnEmailIdentity) validateOverrideLogicalIdParameters(newLogi
 }
 
 func (c *jsiiProxy_CfnEmailIdentity) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEmailIdentity) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

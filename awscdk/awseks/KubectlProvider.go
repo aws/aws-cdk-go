@@ -160,6 +160,13 @@ type KubectlProvider interface {
 	//
 	// This can be used to define dependencies between any two stacks within an
 	// app, and also supports nested stacks.
+	//
+	// Stack dependencies may not cross Stage boundaries.
+	//
+	// This method has been renamed to `addStackDependency` to more clearly
+	// set it apart from `construct.node.addDependency`. See the documentation
+	// of that function for more details.
+	// Deprecated: Use `addStackDependency` instead.
 	AddDependency(target awscdk.Stack, reason *string)
 	// Adds an arbitrary key-value pair, with information you want to record about the stack.
 	//
@@ -167,6 +174,17 @@ type KubectlProvider interface {
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
 	//
 	AddMetadata(key *string, value interface{})
+	// Add a dependency between this stack and another stack.
+	//
+	// This can be used to define dependencies between any two stacks within an
+	// app, and also supports nested stacks.
+	//
+	// Stack dependencies may not cross Stage boundaries.
+	//
+	// This method only adds dependencies between stacks. If you are looking
+	// for a generic construct-to-construct dependency mechanism, use
+	// `construct.node.addDependency` instead.
+	AddStackDependency(target awscdk.Stack, reason *string)
 	// Configure a stack tag.
 	//
 	// At deploy time, CloudFormation will automatically apply all stack tags to all resources in the stack.
@@ -882,6 +900,17 @@ func (k *jsiiProxy_KubectlProvider) AddMetadata(key *string, value interface{}) 
 		k,
 		"addMetadata",
 		[]interface{}{key, value},
+	)
+}
+
+func (k *jsiiProxy_KubectlProvider) AddStackDependency(target awscdk.Stack, reason *string) {
+	if err := k.validateAddStackDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		k,
+		"addStackDependency",
+		[]interface{}{target, reason},
 	)
 }
 

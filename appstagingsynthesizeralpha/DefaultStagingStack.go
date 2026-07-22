@@ -183,7 +183,13 @@ type DefaultStagingStack interface {
 	//
 	// This can be used to define dependencies between any two stacks within an
 	// app, and also supports nested stacks.
-	// Experimental.
+	//
+	// Stack dependencies may not cross Stage boundaries.
+	//
+	// This method has been renamed to `addStackDependency` to more clearly
+	// set it apart from `construct.node.addDependency`. See the documentation
+	// of that function for more details.
+	// Deprecated: Use `addStackDependency` instead.
 	AddDependency(target awscdk.Stack, reason *string)
 	// Return staging resource information for a docker asset.
 	// Experimental.
@@ -198,6 +204,18 @@ type DefaultStagingStack interface {
 	//
 	// Experimental.
 	AddMetadata(key *string, value interface{})
+	// Add a dependency between this stack and another stack.
+	//
+	// This can be used to define dependencies between any two stacks within an
+	// app, and also supports nested stacks.
+	//
+	// Stack dependencies may not cross Stage boundaries.
+	//
+	// This method only adds dependencies between stacks. If you are looking
+	// for a generic construct-to-construct dependency mechanism, use
+	// `construct.node.addDependency` instead.
+	// Experimental.
+	AddStackDependency(target awscdk.Stack, reason *string)
 	// Configure a stack tag.
 	//
 	// At deploy time, CloudFormation will automatically apply all stack tags to all resources in the stack.
@@ -930,6 +948,17 @@ func (d *jsiiProxy_DefaultStagingStack) AddMetadata(key *string, value interface
 		d,
 		"addMetadata",
 		[]interface{}{key, value},
+	)
+}
+
+func (d *jsiiProxy_DefaultStagingStack) AddStackDependency(target awscdk.Stack, reason *string) {
+	if err := d.validateAddStackDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		d,
+		"addStackDependency",
+		[]interface{}{target, reason},
 	)
 }
 

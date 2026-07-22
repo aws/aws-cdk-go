@@ -17,6 +17,9 @@ package awsroute53resolver
 //   	FirewallAdvancedThreatCategory: &FirewallAdvancedThreatCategoryConfigProperty{
 //   		Category: jsii.String("category"),
 //   	},
+//   	PartnerThreatProtection: &PartnerThreatProtectionConfigProperty{
+//   		Partner: jsii.String("partner"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallruletype.html
@@ -30,5 +33,9 @@ type CfnFirewallRuleGroup_FirewallRuleTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallruletype.html#cfn-route53resolver-firewallrulegroup-firewallruletype-firewalladvancedthreatcategory
 	//
 	FirewallAdvancedThreatCategory interface{} `field:"optional" json:"firewallAdvancedThreatCategory" yaml:"firewallAdvancedThreatCategory"`
+	// Configuration for a partner threat protection rule type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallruletype.html#cfn-route53resolver-firewallrulegroup-firewallruletype-partnerthreatprotection
+	//
+	PartnerThreatProtection interface{} `field:"optional" json:"partnerThreatProtection" yaml:"partnerThreatProtection"`
 }
 

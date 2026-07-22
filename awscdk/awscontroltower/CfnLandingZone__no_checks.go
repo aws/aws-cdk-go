@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLandingZone) validateAddPropertyOverrideParameters(propert
 	return nil
 }
 
+func (c *jsiiProxy_CfnLandingZone) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLandingZone) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnLandingZone) validateOverrideLogicalIdParameters(newLogica
 }
 
 func (c *jsiiProxy_CfnLandingZone) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLandingZone) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

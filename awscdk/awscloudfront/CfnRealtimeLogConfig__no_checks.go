@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateAddPropertyOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRealtimeLogConfig) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) validateOverrideLogicalIdParameters(new
 }
 
 func (c *jsiiProxy_CfnRealtimeLogConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnRealtimeLogConfig) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnGeofenceCollection) validateAddPropertyOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnGeofenceCollection) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGeofenceCollection) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnGeofenceCollection) validateOverrideLogicalIdParameters(ne
 }
 
 func (c *jsiiProxy_CfnGeofenceCollection) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGeofenceCollection) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

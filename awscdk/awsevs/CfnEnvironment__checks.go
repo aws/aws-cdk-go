@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnEnvironment) validateAddPropertyOverrideParameters(propert
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnvironment) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnvironment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -137,6 +145,14 @@ func (c *jsiiProxy_CfnEnvironment) validateOverrideLogicalIdParameters(newLogica
 }
 
 func (c *jsiiProxy_CfnEnvironment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnEnvironment) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
@@ -213,9 +229,6 @@ func validateCfnEnvironment_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnEnvironment) validateSetConnectivityInfoParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -324,9 +337,6 @@ func (j *jsiiProxy_CfnEnvironment) validateSetInitialVlansParameters(val interfa
 }
 
 func (j *jsiiProxy_CfnEnvironment) validateSetLicenseInfoParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -382,14 +392,6 @@ func (j *jsiiProxy_CfnEnvironment) validateSetServiceAccessSubnetIdParameters(va
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironment) validateSetSiteIdParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironment) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
@@ -421,9 +423,6 @@ func (j *jsiiProxy_CfnEnvironment) validateSetTermsAcceptedParameters(val interf
 }
 
 func (j *jsiiProxy_CfnEnvironment) validateSetVcfHostnamesParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

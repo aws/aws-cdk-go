@@ -184,6 +184,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolRegionalConfigurationAttachmentRef",
+		reflect.TypeOf((*IUserPoolRegionalConfigurationAttachmentRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolRegionalConfigurationAttachmentRef", GoGetter: "UserPoolRegionalConfigurationAttachmentRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUserPoolRegionalConfigurationAttachmentRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolReplicaRef",
+		reflect.TypeOf((*IUserPoolReplicaRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolReplicaRef", GoGetter: "UserPoolReplicaRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUserPoolReplicaRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolResourceServerRef",
 		reflect.TypeOf((*IUserPoolResourceServerRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -306,6 +338,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cognito.UserPoolReference",
 		reflect.TypeOf((*UserPoolReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cognito.UserPoolRegionalConfigurationAttachmentReference",
+		reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cognito.UserPoolReplicaReference",
+		reflect.TypeOf((*UserPoolReplicaReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cognito.UserPoolResourceServerReference",

@@ -9,10 +9,13 @@ package interfacesawscodepipeline
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   pipelineReference := &PipelineReference{
+//   	PipelineArn: jsii.String("pipelineArn"),
 //   	PipelineName: jsii.String("pipelineName"),
 //   }
 //
 type PipelineReference struct {
+	// The ARN of the Pipeline resource.
+	PipelineArn *string `field:"required" json:"pipelineArn" yaml:"pipelineArn"`
 	// The Name of the Pipeline resource.
 	PipelineName *string `field:"required" json:"pipelineName" yaml:"pipelineName"`
 }

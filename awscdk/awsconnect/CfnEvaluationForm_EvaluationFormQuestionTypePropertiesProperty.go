@@ -16,6 +16,19 @@ package awsconnect
 //   			&EvaluationFormMultiSelectQuestionOptionProperty{
 //   				RefId: jsii.String("refId"),
 //   				Text: jsii.String("text"),
+//
+//   				// the properties below are optional
+//   				AutomaticFail: jsii.Boolean(false),
+//   				AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   					TargetSection: jsii.String("targetSection"),
+//   				},
+//   				PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   					PointValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					IsBonus: jsii.Boolean(false),
+//   				},
+//   				Score: jsii.Number(123),
 //   			},
 //   		},
 //
@@ -64,6 +77,12 @@ package awsconnect
 //   				AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   					TargetSection: jsii.String("targetSection"),
 //   				},
+//   				PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   					PointValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					IsBonus: jsii.Boolean(false),
+//   				},
 //   				Score: jsii.Number(123),
 //   			},
 //   		},
@@ -78,6 +97,12 @@ package awsconnect
 //   				AutomaticFail: jsii.Boolean(false),
 //   				AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   					TargetSection: jsii.String("targetSection"),
+//   				},
+//   				PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   					PointValue: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					IsBonus: jsii.Boolean(false),
 //   				},
 //   				Score: jsii.Number(123),
 //   			},

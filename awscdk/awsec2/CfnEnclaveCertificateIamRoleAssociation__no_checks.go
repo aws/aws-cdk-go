@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddPropertyO
 	return nil
 }
 
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateOverrideLogi
 }
 
 func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

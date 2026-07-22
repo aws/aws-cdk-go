@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMicrovmImage) validateAddPropertyOverrideParameters(proper
 	return nil
 }
 
+func (c *jsiiProxy_CfnMicrovmImage) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMicrovmImage) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnMicrovmImage) validateOverrideLogicalIdParameters(newLogic
 }
 
 func (c *jsiiProxy_CfnMicrovmImage) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMicrovmImage) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

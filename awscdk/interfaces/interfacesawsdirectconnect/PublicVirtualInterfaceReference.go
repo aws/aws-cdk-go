@@ -10,10 +10,13 @@ package interfacesawsdirectconnect
 //
 //   publicVirtualInterfaceReference := &PublicVirtualInterfaceReference{
 //   	VirtualInterfaceArn: jsii.String("virtualInterfaceArn"),
+//   	VirtualInterfaceId: jsii.String("virtualInterfaceId"),
 //   }
 //
 type PublicVirtualInterfaceReference struct {
 	// The VirtualInterfaceArn of the PublicVirtualInterface resource.
 	VirtualInterfaceArn *string `field:"required" json:"virtualInterfaceArn" yaml:"virtualInterfaceArn"`
+	// The VirtualInterfaceId of the PublicVirtualInterface resource.
+	VirtualInterfaceId *string `field:"required" json:"virtualInterfaceId" yaml:"virtualInterfaceId"`
 }
 

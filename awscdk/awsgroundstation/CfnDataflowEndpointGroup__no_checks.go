@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataflowEndpointGroup) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataflowEndpointGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) validateOverrideLogicalIdParameters
 }
 
 func (c *jsiiProxy_CfnDataflowEndpointGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataflowEndpointGroup) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

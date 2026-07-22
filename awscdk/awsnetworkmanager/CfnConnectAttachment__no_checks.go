@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnConnectAttachment) validateAddPropertyOverrideParameters(p
 	return nil
 }
 
+func (c *jsiiProxy_CfnConnectAttachment) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConnectAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnConnectAttachment) validateRemoveDependencyParameters(targ
 	return nil
 }
 
+func (c *jsiiProxy_CfnConnectAttachment) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConnectAttachment) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -73,14 +81,6 @@ func (c *jsiiProxy_CfnConnectAttachment) validateReplaceDependencyParameters(tar
 }
 
 func (c *jsiiProxy_CfnConnectAttachment) validateValidatePropertiesParameters(_properties interface{}) error {
-	return nil
-}
-
-func validateCfnConnectAttachment_ArnForConnectAttachmentParameters(resource interfacesawsnetworkmanager.IConnectAttachmentRef) error {
-	return nil
-}
-
-func validateCfnConnectAttachment_FromAttachmentIdParameters(scope constructs.Construct, id *string, attachmentId *string) error {
 	return nil
 }
 

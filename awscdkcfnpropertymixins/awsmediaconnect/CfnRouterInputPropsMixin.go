@@ -146,6 +146,22 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ContentQualityAnalysisConfiguration: &RouterContentQualityAnalysisConfigurationProperty{
+//   		ContentLevel: &ContentQualityAnalysisFeatureConfigurationProperty{
+//   			BlackFrames: &BlackFramesConfigurationProperty{
+//   				State: jsii.String("state"),
+//   				ThresholdSeconds: jsii.Number(123),
+//   			},
+//   			FrozenFrames: &FrozenFramesConfigurationProperty{
+//   				State: jsii.String("state"),
+//   				ThresholdSeconds: jsii.Number(123),
+//   			},
+//   			SilentAudio: &SilentAudioConfigurationProperty{
+//   				State: jsii.String("state"),
+//   				ThresholdSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	MaintenanceConfiguration: &MaintenanceConfigurationProperty{
 //   		Default: default_,
 //   		PreferredDayTime: &PreferredDayTimeMaintenanceConfigurationProperty{

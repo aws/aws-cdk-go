@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnWirelessDevice) validateAddPropertyOverrideParameters(prop
 	return nil
 }
 
+func (c *jsiiProxy_CfnWirelessDevice) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnWirelessDevice) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnWirelessDevice) validateOverrideLogicalIdParameters(newLog
 }
 
 func (c *jsiiProxy_CfnWirelessDevice) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnWirelessDevice) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

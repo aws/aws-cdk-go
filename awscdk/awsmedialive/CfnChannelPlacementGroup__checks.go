@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnChannelPlacementGroup) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnChannelPlacementGroup) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnChannelPlacementGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -137,6 +145,14 @@ func (c *jsiiProxy_CfnChannelPlacementGroup) validateOverrideLogicalIdParameters
 }
 
 func (c *jsiiProxy_CfnChannelPlacementGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnChannelPlacementGroup) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

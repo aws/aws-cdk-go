@@ -13,6 +13,10 @@ package awsconnect
 //   	AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   		TargetSection: jsii.String("targetSection"),
 //   	},
+//   	PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   		IsBonus: jsii.Boolean(false),
+//   		PointValue: jsii.Number(123),
+//   	},
 //   	RefId: jsii.String("refId"),
 //   	Score: jsii.Number(123),
 //   	Text: jsii.String("text"),
@@ -31,6 +35,9 @@ type CfnEvaluationFormPropsMixin_EvaluationFormSingleSelectQuestionOptionPropert
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfailconfiguration
 	//
 	AutomaticFailConfiguration interface{} `field:"optional" json:"automaticFailConfiguration" yaml:"automaticFailConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-pointsconfiguration
+	//
+	PointsConfiguration interface{} `field:"optional" json:"pointsConfiguration" yaml:"pointsConfiguration"`
 	// The identifier of the answer option. An identifier must be unique within the question.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 40.

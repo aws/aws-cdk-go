@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSigningProfile) validateAddPropertyOverrideParameters(prop
 	return nil
 }
 
+func (c *jsiiProxy_CfnSigningProfile) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSigningProfile) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnSigningProfile) validateOverrideLogicalIdParameters(newLog
 }
 
 func (c *jsiiProxy_CfnSigningProfile) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSigningProfile) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

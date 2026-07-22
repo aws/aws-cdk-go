@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnExpressGatewayService) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnExpressGatewayService) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnExpressGatewayService) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnExpressGatewayService) validateRemoveDependencyParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnExpressGatewayService) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnExpressGatewayService) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -89,10 +97,6 @@ func validateCfnExpressGatewayService_IsCfnResourceParameters(x interface{}) err
 }
 
 func validateCfnExpressGatewayService_IsConstructParameters(x interface{}) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnExpressGatewayService) validateSetExecutionRoleArnParameters(val *string) error {
 	return nil
 }
 

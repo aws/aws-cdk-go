@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnGameSessionQueue) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGameSessionQueue) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnGameSessionQueue) validateOverrideLogicalIdParameters(newL
 }
 
 func (c *jsiiProxy_CfnGameSessionQueue) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGameSessionQueue) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

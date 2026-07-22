@@ -61,6 +61,7 @@ package awsecs
 //   		MinTaskCount: jsii.Number(123),
 //   	},
 //   	ServiceRevisionArn: jsii.String("serviceRevisionArn"),
+//   	TaskDefinitionArn: jsii.String("taskDefinitionArn"),
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
 //   }
 //
@@ -107,6 +108,9 @@ type CfnExpressGatewayServicePropsMixin_ExpressGatewayServiceConfigurationProper
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayserviceconfiguration.html#cfn-ecs-expressgatewayservice-expressgatewayserviceconfiguration-servicerevisionarn
 	//
 	ServiceRevisionArn *string `field:"optional" json:"serviceRevisionArn" yaml:"serviceRevisionArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayserviceconfiguration.html#cfn-ecs-expressgatewayservice-expressgatewayserviceconfiguration-taskdefinitionarn
+	//
+	TaskDefinitionArn *string `field:"optional" json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The ARN of the task role for the service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-expressgatewayservice-expressgatewayserviceconfiguration.html#cfn-ecs-expressgatewayservice-expressgatewayserviceconfiguration-taskrolearn
 	//

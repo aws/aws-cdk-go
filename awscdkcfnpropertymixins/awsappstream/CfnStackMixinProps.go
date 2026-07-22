@@ -18,6 +18,19 @@ import (
 //   			VpceId: jsii.String("vpceId"),
 //   		},
 //   	},
+//   	AgentAccessConfig: &AgentAccessConfigProperty{
+//   		S3BucketArn: jsii.String("s3BucketArn"),
+//   		ScreenImageFormat: jsii.String("screenImageFormat"),
+//   		ScreenResolution: jsii.String("screenResolution"),
+//   		ScreenshotsUploadEnabled: jsii.Boolean(false),
+//   		Settings: []interface{}{
+//   			&AgentAccessSettingProperty{
+//   				AgentAction: jsii.String("agentAction"),
+//   				Permission: jsii.String("permission"),
+//   			},
+//   		},
+//   		UserControlMode: jsii.String("userControlMode"),
+//   	},
 //   	ApplicationSettings: &ApplicationSettingsProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		SettingsGroup: jsii.String("settingsGroup"),
@@ -81,6 +94,12 @@ type CfnStackMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-accessendpoints
 	//
 	AccessEndpoints interface{} `field:"optional" json:"accessEndpoints" yaml:"accessEndpoints"`
+	// The configuration for agent access on a stack.
+	//
+	// Agent access enables AI agents to interact with desktop applications during streaming sessions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-agentaccessconfig
+	//
+	AgentAccessConfig interface{} `field:"optional" json:"agentAccessConfig" yaml:"agentAccessConfig"`
 	// The persistent application settings for users of the stack.
 	//
 	// When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.

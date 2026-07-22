@@ -287,6 +287,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "account", GoGetter: "Account"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addStackDependency", GoMethod: "AddStackDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addStackTag", GoMethod: "AddStackTag"},
 			_jsii_.MemberMethod{JsiiMethod: "addTransform", GoMethod: "AddTransform"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateLogicalId", GoMethod: "AllocateLogicalId"},

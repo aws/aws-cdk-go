@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnExpressGatewayService) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnExpressGatewayService) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnExpressGatewayService) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnExpressGatewayService) validateOverrideLogicalIdParameters
 }
 
 func (c *jsiiProxy_CfnExpressGatewayService) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnExpressGatewayService) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
@@ -203,14 +219,6 @@ func validateCfnExpressGatewayService_IsConstructParameters(x interface{}) error
 	return nil
 }
 
-func (j *jsiiProxy_CfnExpressGatewayService) validateSetExecutionRoleArnParameters(val *string) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func (j *jsiiProxy_CfnExpressGatewayService) validateSetInfrastructureRoleArnParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -244,9 +252,6 @@ func (j *jsiiProxy_CfnExpressGatewayService) validateSetNetworkConfigurationPara
 }
 
 func (j *jsiiProxy_CfnExpressGatewayService) validateSetPrimaryContainerParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

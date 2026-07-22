@@ -22,6 +22,14 @@ package awsconnect
 //   	},
 //
 //   	// the properties below are optional
+//   	Exclusion: &NotificationRecipientTypeProperty{
+//   		UserArns: []*string{
+//   			jsii.String("userArns"),
+//   		},
+//   		UserTags: map[string]*string{
+//   			"userTagsKey": jsii.String("userTags"),
+//   		},
+//   	},
 //   	Subject: jsii.String("subject"),
 //   }
 //
@@ -50,6 +58,10 @@ type CfnRule_SendNotificationActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-recipient
 	//
 	Recipient interface{} `field:"required" json:"recipient" yaml:"recipient"`
+	// The type of notification recipient.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-exclusion
+	//
+	Exclusion interface{} `field:"optional" json:"exclusion" yaml:"exclusion"`
 	// The subject of the email if the delivery method is `EMAIL` .
 	//
 	// Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Connect Customer Administrators Guide* .

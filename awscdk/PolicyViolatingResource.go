@@ -21,6 +21,9 @@ package awscdk
 //
 type PolicyViolatingResource struct {
 	// The locations in the CloudFormation template that pose the violations.
+	//
+	// TODO: Define whether this is from the root of the template, or from the
+	// resource itself. Not sure this is well-defined at the moment.
 	Locations *[]*string `field:"required" json:"locations" yaml:"locations"`
 	// The construct path of the violating construct.
 	//

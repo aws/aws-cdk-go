@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnAnycastIpList) validateAddPropertyOverrideParameters(prope
 	return nil
 }
 
+func (c *jsiiProxy_CfnAnycastIpList) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAnycastIpList) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnAnycastIpList) validateOverrideLogicalIdParameters(newLogi
 }
 
 func (c *jsiiProxy_CfnAnycastIpList) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAnycastIpList) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

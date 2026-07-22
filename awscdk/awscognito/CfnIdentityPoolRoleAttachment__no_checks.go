@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateOverrideLogicalIdParam
 }
 
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

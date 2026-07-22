@@ -12,6 +12,10 @@ func (n *jsiiProxy_NestedStack) validateAddMetadataParameters(key *string, value
 	return nil
 }
 
+func (n *jsiiProxy_NestedStack) validateAddStackDependencyParameters(target Stack) error {
+	return nil
+}
+
 func (n *jsiiProxy_NestedStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	return nil
 }

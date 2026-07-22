@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsdirectconnect"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -79,6 +80,14 @@ func (c *jsiiProxy_CfnTransitVirtualInterface) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitVirtualInterface) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitVirtualInterface) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -143,6 +152,14 @@ func (c *jsiiProxy_CfnTransitVirtualInterface) validateRemoveDependencyParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitVirtualInterface) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitVirtualInterface) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
@@ -166,6 +183,30 @@ func (c *jsiiProxy_CfnTransitVirtualInterface) validateReplaceDependencyParamete
 func (c *jsiiProxy_CfnTransitVirtualInterface) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitVirtualInterface_ArnForTransitVirtualInterfaceParameters(resource interfacesawsdirectconnect.ITransitVirtualInterfaceRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnTransitVirtualInterface_FromVirtualInterfaceIdParameters(scope constructs.Construct, id *string, virtualInterfaceId *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if virtualInterfaceId == nil {
+		return fmt.Errorf("parameter virtualInterfaceId is required, but nil was provided")
 	}
 
 	return nil

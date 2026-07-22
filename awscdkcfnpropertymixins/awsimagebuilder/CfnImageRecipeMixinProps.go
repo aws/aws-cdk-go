@@ -18,6 +18,9 @@ package awsimagebuilder
 //   	AmiTags: map[string]*string{
 //   		"amiTagsKey": jsii.String("amiTags"),
 //   	},
+//   	AmiWatermarks: []*string{
+//   		jsii.String("amiWatermarks"),
+//   	},
 //   	BlockDeviceMappings: []interface{}{
 //   		&InstanceBlockDeviceMappingProperty{
 //   			DeviceName: jsii.String("deviceName"),
@@ -71,6 +74,12 @@ type CfnImageRecipeMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-amitags
 	//
 	AmiTags interface{} `field:"optional" json:"amiTags" yaml:"amiTags"`
+	// The AMI watermark names to attach to the output AMI from this recipe.
+	//
+	// AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-amiwatermarks
+	//
+	AmiWatermarks *[]*string `field:"optional" json:"amiWatermarks" yaml:"amiWatermarks"`
 	// The block device mappings to apply when creating images from this recipe.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
 	//

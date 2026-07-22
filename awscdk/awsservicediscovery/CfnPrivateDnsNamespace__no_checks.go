@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) validateAddPropertyOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateDnsNamespace) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateDnsNamespace) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) validateOverrideLogicalIdParameters(n
 }
 
 func (c *jsiiProxy_CfnPrivateDnsNamespace) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPrivateDnsNamespace) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

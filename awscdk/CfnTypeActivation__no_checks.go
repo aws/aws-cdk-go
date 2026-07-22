@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTypeActivation) validateAddPropertyOverrideParameters(prop
 	return nil
 }
 
+func (c *jsiiProxy_CfnTypeActivation) validateAddResourceDependencyParameters(target CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTypeActivation) validateApplyCrossStackReferenceStrengthParameters(strength ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnTypeActivation) validateOverrideLogicalIdParameters(newLog
 }
 
 func (c *jsiiProxy_CfnTypeActivation) validateRemoveDependencyParameters(target CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTypeActivation) validateRemoveResourceDependencyParameters(target CfnResource) error {
 	return nil
 }
 

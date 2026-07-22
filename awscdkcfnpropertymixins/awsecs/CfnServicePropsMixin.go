@@ -77,7 +77,12 @@ import (
 //   		},
 //   		DeploymentCircuitBreaker: &DeploymentCircuitBreakerProperty{
 //   			Enable: jsii.Boolean(false),
+//   			ResetOnHealthyTask: jsii.Boolean(false),
 //   			Rollback: jsii.Boolean(false),
+//   			ThresholdConfiguration: &ThresholdConfigurationProperty{
+//   				Type: jsii.String("type"),
+//   				Value: jsii.Number(123),
+//   			},
 //   		},
 //   		LifecycleHooks: []interface{}{
 //   			&DeploymentLifecycleHookProperty{

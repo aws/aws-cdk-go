@@ -27,6 +27,10 @@ package awsconnect
 //   			},
 //   			MaxValue: jsii.Number(123),
 //   			MinValue: jsii.Number(123),
+//   			PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   				IsBonus: jsii.Boolean(false),
+//   				PointValue: jsii.Number(123),
+//   			},
 //   			Score: jsii.Number(123),
 //   		},
 //   	},

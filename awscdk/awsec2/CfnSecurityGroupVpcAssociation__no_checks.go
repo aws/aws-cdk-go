@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSecurityGroupVpcAssociation) validateAddPropertyOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnSecurityGroupVpcAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSecurityGroupVpcAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnSecurityGroupVpcAssociation) validateOverrideLogicalIdPara
 }
 
 func (c *jsiiProxy_CfnSecurityGroupVpcAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSecurityGroupVpcAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

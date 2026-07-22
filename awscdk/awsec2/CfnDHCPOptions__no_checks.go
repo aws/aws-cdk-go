@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnDHCPOptions) validateAddPropertyOverrideParameters(propert
 	return nil
 }
 
+func (c *jsiiProxy_CfnDHCPOptions) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDHCPOptions) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnDHCPOptions) validateOverrideLogicalIdParameters(newLogica
 }
 
 func (c *jsiiProxy_CfnDHCPOptions) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDHCPOptions) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

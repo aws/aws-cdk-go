@@ -32,6 +32,9 @@ import (
 //   	AmiTags: map[string]*string{
 //   		"amiTagsKey": jsii.String("amiTags"),
 //   	},
+//   	AmiWatermarks: []*string{
+//   		jsii.String("amiWatermarks"),
+//   	},
 //   	BlockDeviceMappings: []interface{}{
 //   		&InstanceBlockDeviceMappingProperty{
 //   			DeviceName: jsii.String("deviceName"),

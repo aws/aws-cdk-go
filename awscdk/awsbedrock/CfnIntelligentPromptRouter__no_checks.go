@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIntelligentPromptRouter) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnIntelligentPromptRouter) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIntelligentPromptRouter) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnIntelligentPromptRouter) validateOverrideLogicalIdParamete
 }
 
 func (c *jsiiProxy_CfnIntelligentPromptRouter) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnIntelligentPromptRouter) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

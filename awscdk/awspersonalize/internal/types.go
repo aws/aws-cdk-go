@@ -5,6 +5,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawspersonalizeIDataDeletionJobRef = interfacesawspersonalize.IDataDeletionJobRef
 type Type__interfacesawspersonalizeIDatasetRef = interfacesawspersonalize.IDatasetRef
 type Type__interfacesawspersonalizeIDatasetGroupRef = interfacesawspersonalize.IDatasetGroupRef
 type Type__interfacesawspersonalizeISchemaRef = interfacesawspersonalize.ISchemaRef

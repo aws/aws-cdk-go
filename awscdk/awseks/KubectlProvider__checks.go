@@ -32,6 +32,14 @@ func (k *jsiiProxy_KubectlProvider) validateAddMetadataParameters(key *string, v
 	return nil
 }
 
+func (k *jsiiProxy_KubectlProvider) validateAddStackDependencyParameters(target awscdk.Stack) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (k *jsiiProxy_KubectlProvider) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	if tagName == nil {
 		return fmt.Errorf("parameter tagName is required, but nil was provided")

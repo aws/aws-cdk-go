@@ -331,7 +331,7 @@ cluster.AddCapacity(jsii.String("graviton-cluster"), &AddCapacityOptions{
 })
 ```
 
-### Amazon Linux 2 (Neuron) Instances
+### Neuron Instances
 
 To launch Amazon EC2 Inf1, Trn1 or Inf2 instances, you can use the Amazon ECS optimized Amazon Linux 2 (Neuron) AMI. It comes pre-configured with AWS Inferentia and AWS Trainium drivers and the AWS Neuron runtime for Docker which makes running machine learning inference workloads easier on Amazon ECS.
 

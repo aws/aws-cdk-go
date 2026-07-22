@@ -348,6 +348,17 @@ func OriginRequestPolicy_ELEMENTAL_MEDIA_TAILOR() IOriginRequestPolicy {
 	return returns
 }
 
+func OriginRequestPolicy_HOST_HEADER_ONLY() IOriginRequestPolicy {
+	_init_.Initialize()
+	var returns IOriginRequestPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.OriginRequestPolicy",
+		"HOST_HEADER_ONLY",
+		&returns,
+	)
+	return returns
+}
+
 func OriginRequestPolicy_PROPERTY_INJECTION_ID() *string {
 	_init_.Initialize()
 	var returns *string

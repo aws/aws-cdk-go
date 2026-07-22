@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSourceLocation) validateAddPropertyOverrideParameters(prop
 	return nil
 }
 
+func (c *jsiiProxy_CfnSourceLocation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSourceLocation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnSourceLocation) validateRemoveDependencyParameters(target 
 	return nil
 }
 
+func (c *jsiiProxy_CfnSourceLocation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSourceLocation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -77,6 +85,14 @@ func (c *jsiiProxy_CfnSourceLocation) validateValidatePropertiesParameters(_prop
 }
 
 func validateCfnSourceLocation_ArnForSourceLocationParameters(resource interfacesawsmediatailor.ISourceLocationRef) error {
+	return nil
+}
+
+func validateCfnSourceLocation_FromSourceLocationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnSourceLocation_FromSourceLocationNameParameters(scope constructs.Construct, id *string, sourceLocationName *string) error {
 	return nil
 }
 

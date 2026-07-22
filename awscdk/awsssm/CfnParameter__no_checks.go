@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnParameter) validateAddPropertyOverrideParameters(propertyP
 	return nil
 }
 
+func (c *jsiiProxy_CfnParameter) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnParameter) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnParameter) validateRemoveDependencyParameters(target awscd
 	return nil
 }
 
+func (c *jsiiProxy_CfnParameter) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnParameter) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -73,6 +81,10 @@ func (c *jsiiProxy_CfnParameter) validateReplaceDependencyParameters(target awsc
 }
 
 func (c *jsiiProxy_CfnParameter) validateValidatePropertiesParameters(_properties interface{}) error {
+	return nil
+}
+
+func validateCfnParameter_ArnForParameterParameters(resource interfacesawsssm.IParameterRef) error {
 	return nil
 }
 

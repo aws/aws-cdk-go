@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMultiRegionEndpoint) validateAddPropertyOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionEndpoint) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnMultiRegionEndpoint) validateOverrideLogicalIdParameters(n
 }
 
 func (c *jsiiProxy_CfnMultiRegionEndpoint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMultiRegionEndpoint) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

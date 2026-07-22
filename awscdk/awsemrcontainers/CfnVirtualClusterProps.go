@@ -25,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	SecurityConfigurationId: jsii.String("securityConfigurationId"),
+//   	SessionEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -48,6 +49,10 @@ type CfnVirtualClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-securityconfigurationid
 	//
 	SecurityConfigurationId *string `field:"optional" json:"securityConfigurationId" yaml:"securityConfigurationId"`
+	// Whether the virtual cluster is session-enabled for Spark Connect.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-sessionenabled
+	//
+	SessionEnabled interface{} `field:"optional" json:"sessionEnabled" yaml:"sessionEnabled"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

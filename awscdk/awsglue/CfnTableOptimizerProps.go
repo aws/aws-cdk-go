@@ -17,6 +17,13 @@ package awsglue
 //   		RoleArn: jsii.String("roleArn"),
 //
 //   		// the properties below are optional
+//   		CompactionConfiguration: &CompactionConfigurationProperty{
+//   			IcebergConfiguration: &IcebergCompactionConfigurationProperty{
+//   				DeleteFileThreshold: jsii.Number(123),
+//   				MinInputFiles: jsii.Number(123),
+//   				Strategy: jsii.String("strategy"),
+//   			},
+//   		},
 //   		OrphanFileDeletionConfiguration: &OrphanFileDeletionConfigurationProperty{
 //   			IcebergConfiguration: &IcebergConfigurationProperty{
 //   				Location: jsii.String("location"),

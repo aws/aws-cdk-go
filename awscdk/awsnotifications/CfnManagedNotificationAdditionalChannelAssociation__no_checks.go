@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateA
 	return nil
 }
 
+func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateO
 }
 
 func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

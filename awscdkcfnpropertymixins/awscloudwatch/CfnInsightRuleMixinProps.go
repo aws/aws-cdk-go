@@ -32,6 +32,8 @@ type CfnInsightRuleMixinProps struct {
 	// Valid values are `TRUE` and `FALSE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-applyontransformedlogs
 	//
+	// Default: - false.
+	//
 	ApplyOnTransformedLogs interface{} `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`
 	// The definition of the rule, as a JSON object.
 	//

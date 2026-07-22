@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTransitVirtualInterface) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitVirtualInterface) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitVirtualInterface) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnTransitVirtualInterface) validateRemoveDependencyParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitVirtualInterface) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitVirtualInterface) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -73,6 +81,14 @@ func (c *jsiiProxy_CfnTransitVirtualInterface) validateReplaceDependencyParamete
 }
 
 func (c *jsiiProxy_CfnTransitVirtualInterface) validateValidatePropertiesParameters(_properties interface{}) error {
+	return nil
+}
+
+func validateCfnTransitVirtualInterface_ArnForTransitVirtualInterfaceParameters(resource interfacesawsdirectconnect.ITransitVirtualInterfaceRef) error {
+	return nil
+}
+
+func validateCfnTransitVirtualInterface_FromVirtualInterfaceIdParameters(scope constructs.Construct, id *string, virtualInterfaceId *string) error {
 	return nil
 }
 

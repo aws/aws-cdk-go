@@ -9,11 +9,11 @@ package interfacesawsservicecatalog
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   acceptedPortfolioShareReference := &AcceptedPortfolioShareReference{
-//   	AcceptedPortfolioShareId: jsii.String("acceptedPortfolioShareId"),
+//   	PortfolioId: jsii.String("portfolioId"),
 //   }
 //
 type AcceptedPortfolioShareReference struct {
-	// The Id of the AcceptedPortfolioShare resource.
-	AcceptedPortfolioShareId *string `field:"required" json:"acceptedPortfolioShareId" yaml:"acceptedPortfolioShareId"`
+	// The PortfolioId of the AcceptedPortfolioShare resource.
+	PortfolioId *string `field:"required" json:"portfolioId" yaml:"portfolioId"`
 }
 

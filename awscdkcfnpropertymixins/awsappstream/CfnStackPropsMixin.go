@@ -27,6 +27,19 @@ import (
 //   			VpceId: jsii.String("vpceId"),
 //   		},
 //   	},
+//   	AgentAccessConfig: &AgentAccessConfigProperty{
+//   		S3BucketArn: jsii.String("s3BucketArn"),
+//   		ScreenImageFormat: jsii.String("screenImageFormat"),
+//   		ScreenResolution: jsii.String("screenResolution"),
+//   		ScreenshotsUploadEnabled: jsii.Boolean(false),
+//   		Settings: []interface{}{
+//   			&AgentAccessSettingProperty{
+//   				AgentAction: jsii.String("agentAction"),
+//   				Permission: jsii.String("permission"),
+//   			},
+//   		},
+//   		UserControlMode: jsii.String("userControlMode"),
+//   	},
 //   	ApplicationSettings: &ApplicationSettingsProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		SettingsGroup: jsii.String("settingsGroup"),

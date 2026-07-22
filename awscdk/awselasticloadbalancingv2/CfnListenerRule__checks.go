@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnListenerRule) validateAddPropertyOverrideParameters(proper
 	return nil
 }
 
+func (c *jsiiProxy_CfnListenerRule) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnListenerRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnListenerRule) validateOverrideLogicalIdParameters(newLogic
 }
 
 func (c *jsiiProxy_CfnListenerRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnListenerRule) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}
@@ -332,6 +348,16 @@ func (j *jsiiProxy_CfnListenerRule) validateSetConditionsParameters(val interfac
 func (j *jsiiProxy_CfnListenerRule) validateSetPriorityParameters(val *float64) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnListenerRule) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

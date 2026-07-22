@@ -60,7 +60,16 @@ package awsconnect
 //   			DisplayAs: jsii.String("displayAs"),
 //   			Options: []interface{}{
 //   				&EvaluationFormMultiSelectQuestionOptionProperty{
+//   					AutomaticFail: jsii.Boolean(false),
+//   					AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   						TargetSection: jsii.String("targetSection"),
+//   					},
+//   					PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   						IsBonus: jsii.Boolean(false),
+//   						PointValue: jsii.Number(123),
+//   					},
 //   					RefId: jsii.String("refId"),
+//   					Score: jsii.Number(123),
 //   					Text: jsii.String("text"),
 //   				},
 //   			},
@@ -84,6 +93,10 @@ package awsconnect
 //   					},
 //   					MaxValue: jsii.Number(123),
 //   					MinValue: jsii.Number(123),
+//   					PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   						IsBonus: jsii.Boolean(false),
+//   						PointValue: jsii.Number(123),
+//   					},
 //   					Score: jsii.Number(123),
 //   				},
 //   			},
@@ -111,6 +124,10 @@ package awsconnect
 //   					AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   						TargetSection: jsii.String("targetSection"),
 //   					},
+//   					PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   						IsBonus: jsii.Boolean(false),
+//   						PointValue: jsii.Number(123),
+//   					},
 //   					RefId: jsii.String("refId"),
 //   					Score: jsii.Number(123),
 //   					Text: jsii.String("text"),
@@ -126,6 +143,21 @@ package awsconnect
 //   		},
 //   	},
 //   	RefId: jsii.String("refId"),
+//   	ScoringConfiguration: &EvaluationFormQuestionScoringConfigurationProperty{
+//   		IsExcludedFromScoring: jsii.Boolean(false),
+//   		PointsConfiguration: &QuestionPointsConfigurationProperty{
+//   			IsBonus: jsii.Boolean(false),
+//   			MaxPointValue: jsii.Number(123),
+//   			MinPointValue: jsii.Number(123),
+//   		},
+//   		ScoreThresholds: []interface{}{
+//   			&EvaluationFormScoreThresholdProperty{
+//   				MaxScorePercentage: jsii.Number(123),
+//   				MinScorePercentage: jsii.Number(123),
+//   				PerformanceCategory: jsii.String("performanceCategory"),
+//   			},
+//   		},
+//   	},
 //   	Title: jsii.String("title"),
 //   	Weight: jsii.Number(123),
 //   }
@@ -165,6 +197,9 @@ type CfnEvaluationFormPropsMixin_EvaluationFormQuestionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-refid
 	//
 	RefId *string `field:"optional" json:"refId" yaml:"refId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-scoringconfiguration
+	//
+	ScoringConfiguration interface{} `field:"optional" json:"scoringConfiguration" yaml:"scoringConfiguration"`
 	// The title of the question.
 	//
 	// *Length Constraints* : Minimum length of 1. Maximum length of 350.

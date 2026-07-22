@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnVirtualCluster) validateAddPropertyOverrideParameters(prop
 	return nil
 }
 
+func (c *jsiiProxy_CfnVirtualCluster) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVirtualCluster) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnVirtualCluster) validateOverrideLogicalIdParameters(newLog
 }
 
 func (c *jsiiProxy_CfnVirtualCluster) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVirtualCluster) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -109,6 +117,10 @@ func (j *jsiiProxy_CfnVirtualCluster) validateSetContainerProviderParameters(val
 }
 
 func (j *jsiiProxy_CfnVirtualCluster) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnVirtualCluster) validateSetSessionEnabledParameters(val interface{}) error {
 	return nil
 }
 

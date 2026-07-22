@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateAddPropertyOverrid
 	return nil
 }
 
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateOverrideLogicalIdP
 }
 
 func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

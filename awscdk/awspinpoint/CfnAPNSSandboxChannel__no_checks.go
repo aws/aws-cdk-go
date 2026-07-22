@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateAddPropertyOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnAPNSSandboxChannel) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAPNSSandboxChannel) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) validateOverrideLogicalIdParameters(ne
 }
 
 func (c *jsiiProxy_CfnAPNSSandboxChannel) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAPNSSandboxChannel) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

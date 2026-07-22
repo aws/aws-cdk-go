@@ -15,6 +15,7 @@ package awsconnect
 //   evaluationFormBaseItemProperty := &EvaluationFormBaseItemProperty{
 //   	Section: &EvaluationFormSectionProperty{
 //   		Instructions: jsii.String("instructions"),
+//   		IsExcludedFromScoring: jsii.Boolean(false),
 //   		Items: []interface{}{
 //   			&EvaluationFormItemProperty{
 //   				Question: &EvaluationFormQuestionProperty{
@@ -69,7 +70,16 @@ package awsconnect
 //   							DisplayAs: jsii.String("displayAs"),
 //   							Options: []interface{}{
 //   								&EvaluationFormMultiSelectQuestionOptionProperty{
+//   									AutomaticFail: jsii.Boolean(false),
+//   									AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   										TargetSection: jsii.String("targetSection"),
+//   									},
+//   									PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   										IsBonus: jsii.Boolean(false),
+//   										PointValue: jsii.Number(123),
+//   									},
 //   									RefId: jsii.String("refId"),
+//   									Score: jsii.Number(123),
 //   									Text: jsii.String("text"),
 //   								},
 //   							},
@@ -93,6 +103,10 @@ package awsconnect
 //   									},
 //   									MaxValue: jsii.Number(123),
 //   									MinValue: jsii.Number(123),
+//   									PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   										IsBonus: jsii.Boolean(false),
+//   										PointValue: jsii.Number(123),
+//   									},
 //   									Score: jsii.Number(123),
 //   								},
 //   							},
@@ -120,6 +134,10 @@ package awsconnect
 //   									AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   										TargetSection: jsii.String("targetSection"),
 //   									},
+//   									PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   										IsBonus: jsii.Boolean(false),
+//   										PointValue: jsii.Number(123),
+//   									},
 //   									RefId: jsii.String("refId"),
 //   									Score: jsii.Number(123),
 //   									Text: jsii.String("text"),
@@ -135,6 +153,21 @@ package awsconnect
 //   						},
 //   					},
 //   					RefId: jsii.String("refId"),
+//   					ScoringConfiguration: &EvaluationFormQuestionScoringConfigurationProperty{
+//   						IsExcludedFromScoring: jsii.Boolean(false),
+//   						PointsConfiguration: &QuestionPointsConfigurationProperty{
+//   							IsBonus: jsii.Boolean(false),
+//   							MaxPointValue: jsii.Number(123),
+//   							MinPointValue: jsii.Number(123),
+//   						},
+//   						ScoreThresholds: []interface{}{
+//   							&EvaluationFormScoreThresholdProperty{
+//   								MaxScorePercentage: jsii.Number(123),
+//   								MinScorePercentage: jsii.Number(123),
+//   								PerformanceCategory: jsii.String("performanceCategory"),
+//   							},
+//   						},
+//   					},
 //   					Title: jsii.String("title"),
 //   					Weight: jsii.Number(123),
 //   				},
@@ -142,6 +175,13 @@ package awsconnect
 //   			},
 //   		},
 //   		RefId: jsii.String("refId"),
+//   		ScoreThresholds: []interface{}{
+//   			&EvaluationFormScoreThresholdProperty{
+//   				MaxScorePercentage: jsii.Number(123),
+//   				MinScorePercentage: jsii.Number(123),
+//   				PerformanceCategory: jsii.String("performanceCategory"),
+//   			},
+//   		},
 //   		Title: jsii.String("title"),
 //   		Weight: jsii.Number(123),
 //   	},

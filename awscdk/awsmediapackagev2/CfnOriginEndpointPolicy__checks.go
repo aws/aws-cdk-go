@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnOriginEndpointPolicy) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnOriginEndpointPolicy) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnOriginEndpointPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnOriginEndpointPolicy) validateOverrideLogicalIdParameters(
 }
 
 func (c *jsiiProxy_CfnOriginEndpointPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnOriginEndpointPolicy) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

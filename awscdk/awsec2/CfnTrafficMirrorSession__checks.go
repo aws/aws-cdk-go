@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnTrafficMirrorSession) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnTrafficMirrorSession) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -137,6 +145,14 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) validateOverrideLogicalIdParameters(
 }
 
 func (c *jsiiProxy_CfnTrafficMirrorSession) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnTrafficMirrorSession) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

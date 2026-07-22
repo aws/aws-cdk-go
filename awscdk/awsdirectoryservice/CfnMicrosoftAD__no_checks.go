@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateAddPropertyOverrideParameters(propert
 	return nil
 }
 
+func (c *jsiiProxy_CfnMicrosoftAD) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMicrosoftAD) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateOverrideLogicalIdParameters(newLogica
 }
 
 func (c *jsiiProxy_CfnMicrosoftAD) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMicrosoftAD) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

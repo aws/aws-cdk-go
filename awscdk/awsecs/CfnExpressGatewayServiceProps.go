@@ -12,8 +12,22 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnExpressGatewayServiceProps := &CfnExpressGatewayServiceProps{
-//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
+//
+//   	// the properties below are optional
+//   	Cluster: jsii.String("cluster"),
+//   	Cpu: jsii.String("cpu"),
+//   	ExecutionRoleArn: jsii.String("executionRoleArn"),
+//   	HealthCheckPath: jsii.String("healthCheckPath"),
+//   	Memory: jsii.String("memory"),
+//   	NetworkConfiguration: &ExpressGatewayServiceNetworkConfigurationProperty{
+//   		SecurityGroups: []*string{
+//   			jsii.String("securityGroups"),
+//   		},
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
+//   	},
 //   	PrimaryContainer: &ExpressGatewayContainerProperty{
 //   		Image: jsii.String("image"),
 //
@@ -42,20 +56,6 @@ import (
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Cluster: jsii.String("cluster"),
-//   	Cpu: jsii.String("cpu"),
-//   	HealthCheckPath: jsii.String("healthCheckPath"),
-//   	Memory: jsii.String("memory"),
-//   	NetworkConfiguration: &ExpressGatewayServiceNetworkConfigurationProperty{
-//   		SecurityGroups: []*string{
-//   			jsii.String("securityGroups"),
-//   		},
-//   		Subnets: []*string{
-//   			jsii.String("subnets"),
-//   		},
-//   	},
 //   	ScalingTarget: &ExpressGatewayScalingTargetProperty{
 //   		AutoScalingMetric: jsii.String("autoScalingMetric"),
 //   		AutoScalingTargetValue: jsii.Number(123),
@@ -69,24 +69,17 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskDefinitionArn: jsii.String("taskDefinitionArn"),
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html
 //
 type CfnExpressGatewayServiceProps struct {
-	// The ARN of the task execution role for the service revision.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-executionrolearn
-	//
-	ExecutionRoleArn *string `field:"required" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The ARN of the infrastructure role that manages AWS resources for the Express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-infrastructurerolearn
 	//
 	InfrastructureRoleArn *string `field:"required" json:"infrastructureRoleArn" yaml:"infrastructureRoleArn"`
-	// The primary container configuration for this service revision.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-primarycontainer
-	//
-	PrimaryContainer interface{} `field:"required" json:"primaryContainer" yaml:"primaryContainer"`
 	// The short name or full ARN of the cluster that hosts the Express service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-cluster
 	//
@@ -99,6 +92,10 @@ type CfnExpressGatewayServiceProps struct {
 	// Default: - "256".
 	//
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
+	// The ARN of the task execution role for the service revision.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-executionrolearn
+	//
+	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
 	// The health check path for this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-healthcheckpath
 	//
@@ -115,6 +112,10 @@ type CfnExpressGatewayServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// The primary container configuration for this service revision.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-primarycontainer
+	//
+	PrimaryContainer interface{} `field:"optional" json:"primaryContainer" yaml:"primaryContainer"`
 	// The auto-scaling configuration for this service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-scalingtarget
 	//
@@ -127,6 +128,9 @@ type CfnExpressGatewayServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-taskdefinitionarn
+	//
+	TaskDefinitionArn *string `field:"optional" json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The ARN of the task role for the service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-taskrolearn
 	//

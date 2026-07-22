@@ -125,6 +125,9 @@ import (
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	RollbackConfig: &RollbackConfigProperty{
+//   		TimeoutMinutes: jsii.Number(123),
+//   	},
 //   	StorageConfig: &StorageConfigProperty{
 //   		BlockStorage: &BlockStorageProperty{
 //   			Enabled: jsii.Boolean(false),

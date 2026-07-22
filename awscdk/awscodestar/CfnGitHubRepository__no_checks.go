@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnGitHubRepository) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnGitHubRepository) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGitHubRepository) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnGitHubRepository) validateOverrideLogicalIdParameters(newL
 }
 
 func (c *jsiiProxy_CfnGitHubRepository) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGitHubRepository) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

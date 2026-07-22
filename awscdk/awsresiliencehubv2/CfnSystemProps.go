@@ -17,6 +17,7 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	SharingEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -40,6 +41,14 @@ type CfnSystemProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-system.html#cfn-resiliencehubv2-system-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// Whether the system is enabled to be shared with other members of the Organization.
+	//
+	// Only applicable if the system owner is a management account or delegated admin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-system.html#cfn-resiliencehubv2-system-sharingenabled
+	//
+	// Default: - false.
+	//
+	SharingEnabled interface{} `field:"optional" json:"sharingEnabled" yaml:"sharingEnabled"`
 	// Tags assigned to the system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-system.html#cfn-resiliencehubv2-system-tags
 	//

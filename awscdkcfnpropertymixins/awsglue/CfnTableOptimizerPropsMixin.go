@@ -25,6 +25,13 @@ import (
 //   	DatabaseName: jsii.String("databaseName"),
 //   	TableName: jsii.String("tableName"),
 //   	TableOptimizerConfiguration: &TableOptimizerConfigurationProperty{
+//   		CompactionConfiguration: &CompactionConfigurationProperty{
+//   			IcebergConfiguration: &IcebergCompactionConfigurationProperty{
+//   				DeleteFileThreshold: jsii.Number(123),
+//   				MinInputFiles: jsii.Number(123),
+//   				Strategy: jsii.String("strategy"),
+//   			},
+//   		},
 //   		Enabled: jsii.Boolean(false),
 //   		OrphanFileDeletionConfiguration: &OrphanFileDeletionConfigurationProperty{
 //   			IcebergConfiguration: &IcebergConfigurationProperty{

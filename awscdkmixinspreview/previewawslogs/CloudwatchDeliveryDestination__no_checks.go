@@ -32,6 +32,10 @@ func (c *jsiiProxy_CloudwatchDeliveryDestination) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CloudwatchDeliveryDestination) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CloudwatchDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CloudwatchDeliveryDestination) validateOverrideLogicalIdParam
 }
 
 func (c *jsiiProxy_CloudwatchDeliveryDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CloudwatchDeliveryDestination) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

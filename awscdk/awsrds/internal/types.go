@@ -25,6 +25,7 @@ type Type__interfacesawsrdsIEventSubscriptionRef = interfacesawsrds.IEventSubscr
 type Type__interfacesawsrdsIGlobalClusterRef = interfacesawsrds.IGlobalClusterRef
 type Type__interfacesawsrdsIIntegrationRef = interfacesawsrds.IIntegrationRef
 type Type__interfacesawsrdsIOptionGroupRef = interfacesawsrds.IOptionGroupRef
+type Type__interfacesawsrdsIReservedDBInstanceRef = interfacesawsrds.IReservedDBInstanceRef
 type Type__awscdkResource = awscdk.Resource
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awssecretsmanagerISecretAttachmentTarget = awssecretsmanager.ISecretAttachmentTarget

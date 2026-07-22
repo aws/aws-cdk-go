@@ -10,6 +10,7 @@ package awslambda
 //
 //   durableConfigProperty := &DurableConfigProperty{
 //   	ExecutionTimeout: jsii.Number(123),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	RetentionPeriodInDays: jsii.Number(123),
 //   }
 //
@@ -22,6 +23,9 @@ type CfnFunctionPropsMixin_DurableConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html#cfn-lambda-function-durableconfig-executiontimeout
 	//
 	ExecutionTimeout *float64 `field:"optional" json:"executionTimeout" yaml:"executionTimeout"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html#cfn-lambda-function-durableconfig-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// The number of days to retain execution history after a durable execution completes.
 	//
 	// After this period, execution history is no longer available through the GetDurableExecutionHistory API.

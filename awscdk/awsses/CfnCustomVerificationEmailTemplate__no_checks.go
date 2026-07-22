@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnCustomVerificationEmailTemplate) validateAddPropertyOverri
 	return nil
 }
 
+func (c *jsiiProxy_CfnCustomVerificationEmailTemplate) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnCustomVerificationEmailTemplate) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnCustomVerificationEmailTemplate) validateOverrideLogicalId
 }
 
 func (c *jsiiProxy_CfnCustomVerificationEmailTemplate) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnCustomVerificationEmailTemplate) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

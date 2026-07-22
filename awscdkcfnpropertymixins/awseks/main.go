@@ -200,6 +200,10 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_ResourcesVpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.RollbackConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_RollbackConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.StorageConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_StorageConfigProperty)(nil)).Elem(),
 	)

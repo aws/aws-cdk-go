@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateAddPropertyOverri
 	return nil
 }
 
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateOverrideLogicalId
 }
 
 func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

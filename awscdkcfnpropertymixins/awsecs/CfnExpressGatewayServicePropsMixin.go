@@ -80,6 +80,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskDefinitionArn: jsii.String("taskDefinitionArn"),
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

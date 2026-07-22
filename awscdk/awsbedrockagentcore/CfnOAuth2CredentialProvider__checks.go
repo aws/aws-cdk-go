@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateOverrideLogicalIdParamet
 }
 
 func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

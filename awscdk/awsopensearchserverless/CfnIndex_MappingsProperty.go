@@ -16,6 +16,8 @@ package awsopensearchserverless
 //   			"type": jsii.String("type"),
 //
 //   			// the properties below are optional
+//   			"analyzer": jsii.String("analyzer"),
+//   			"compressionLevel": jsii.String("compressionLevel"),
 //   			"dimension": jsii.Number(123),
 //   			"index": jsii.Boolean(false),
 //   			"method": &MethodProperty{
@@ -32,6 +34,7 @@ package awsopensearchserverless
 //   			"properties": map[string]interface{}{
 //   				"propertiesKey": propertyMappingProperty_,
 //   			},
+//   			"spaceType": jsii.String("spaceType"),
 //   			"value": jsii.String("value"),
 //   		},
 //   	},

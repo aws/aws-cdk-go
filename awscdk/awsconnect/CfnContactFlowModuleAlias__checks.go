@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnContactFlowModuleAlias) validateAddPropertyOverrideParamet
 	return nil
 }
 
+func (c *jsiiProxy_CfnContactFlowModuleAlias) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnContactFlowModuleAlias) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -137,6 +145,14 @@ func (c *jsiiProxy_CfnContactFlowModuleAlias) validateOverrideLogicalIdParameter
 }
 
 func (c *jsiiProxy_CfnContactFlowModuleAlias) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnContactFlowModuleAlias) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

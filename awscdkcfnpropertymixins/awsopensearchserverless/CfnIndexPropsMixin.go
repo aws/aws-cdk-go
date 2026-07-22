@@ -27,6 +27,8 @@ import (
 //   	Mappings: &MappingsProperty{
 //   		Properties: map[string]interface{}{
 //   			"propertiesKey": &PropertyMappingProperty{
+//   				"analyzer": jsii.String("analyzer"),
+//   				"compressionLevel": jsii.String("compressionLevel"),
 //   				"dimension": jsii.Number(123),
 //   				"index": jsii.Boolean(false),
 //   				"method": &MethodProperty{
@@ -41,12 +43,27 @@ import (
 //   				"properties": map[string]interface{}{
 //   					"propertiesKey": propertyMappingProperty_,
 //   				},
+//   				"spaceType": jsii.String("spaceType"),
 //   				"type": jsii.String("type"),
 //   				"value": jsii.String("value"),
 //   			},
 //   		},
 //   	},
 //   	Settings: &IndexSettingsProperty{
+//   		Analysis: &AnalysisProperty{
+//   			Analyzer: map[string]interface{}{
+//   				"analyzerKey": &AnalyzerItemsProperty{
+//   					"charFilter": []*string{
+//   						jsii.String("charFilter"),
+//   					},
+//   					"filter": []*string{
+//   						jsii.String("filter"),
+//   					},
+//   					"tokenizer": jsii.String("tokenizer"),
+//   					"type": jsii.String("type"),
+//   				},
+//   			},
+//   		},
 //   		Index: &IndexProperty{
 //   			Knn: jsii.Boolean(false),
 //   			KnnAlgoParamEfSearch: jsii.Number(123),

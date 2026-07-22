@@ -34,6 +34,7 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	SecurityConfigurationId: jsii.String("securityConfigurationId"),
+//   	SessionEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

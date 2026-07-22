@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dataCatalogEncryptionSettingsReference := &DataCatalogEncryptionSettingsReference{
-//   	DataCatalogEncryptionSettingsId: jsii.String("dataCatalogEncryptionSettingsId"),
+//   	CatalogId: jsii.String("catalogId"),
 //   }
 //
 type DataCatalogEncryptionSettingsReference struct {
-	// The Id of the DataCatalogEncryptionSettings resource.
-	DataCatalogEncryptionSettingsId *string `field:"required" json:"dataCatalogEncryptionSettingsId" yaml:"dataCatalogEncryptionSettingsId"`
+	// The CatalogId of the DataCatalogEncryptionSettings resource.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
 }
 

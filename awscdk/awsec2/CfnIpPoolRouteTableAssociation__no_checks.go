@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnIpPoolRouteTableAssociation) validateAddPropertyOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnIpPoolRouteTableAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnIpPoolRouteTableAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnIpPoolRouteTableAssociation) validateOverrideLogicalIdPara
 }
 
 func (c *jsiiProxy_CfnIpPoolRouteTableAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnIpPoolRouteTableAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -12,6 +12,10 @@ func (s *jsiiProxy_Stack) validateAddMetadataParameters(key *string, value inter
 	return nil
 }
 
+func (s *jsiiProxy_Stack) validateAddStackDependencyParameters(target Stack) error {
+	return nil
+}
+
 func (s *jsiiProxy_Stack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	return nil
 }

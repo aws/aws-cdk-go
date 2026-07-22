@@ -9,6 +9,13 @@ package awsglue
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   tableOptimizerConfigurationProperty := &TableOptimizerConfigurationProperty{
+//   	CompactionConfiguration: &CompactionConfigurationProperty{
+//   		IcebergConfiguration: &IcebergCompactionConfigurationProperty{
+//   			DeleteFileThreshold: jsii.Number(123),
+//   			MinInputFiles: jsii.Number(123),
+//   			Strategy: jsii.String("strategy"),
+//   		},
+//   	},
 //   	Enabled: jsii.Boolean(false),
 //   	OrphanFileDeletionConfiguration: &OrphanFileDeletionConfigurationProperty{
 //   		IcebergConfiguration: &IcebergConfigurationProperty{
@@ -32,6 +39,9 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html
 //
 type CfnTableOptimizerPropsMixin_TableOptimizerConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-compactionconfiguration
+	//
+	CompactionConfiguration interface{} `field:"optional" json:"compactionConfiguration" yaml:"compactionConfiguration"`
 	// Whether the table optimization is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-enabled
 	//

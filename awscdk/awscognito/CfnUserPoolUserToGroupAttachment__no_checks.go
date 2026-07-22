@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateAddPropertyOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateOverrideLogicalIdPa
 }
 
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

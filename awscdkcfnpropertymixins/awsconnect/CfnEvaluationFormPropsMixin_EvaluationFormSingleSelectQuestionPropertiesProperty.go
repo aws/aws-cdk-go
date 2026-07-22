@@ -31,6 +31,10 @@ package awsconnect
 //   			AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   				TargetSection: jsii.String("targetSection"),
 //   			},
+//   			PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   				IsBonus: jsii.Boolean(false),
+//   				PointValue: jsii.Number(123),
+//   			},
 //   			RefId: jsii.String("refId"),
 //   			Score: jsii.Number(123),
 //   			Text: jsii.String("text"),

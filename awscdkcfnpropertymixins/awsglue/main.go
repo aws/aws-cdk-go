@@ -704,6 +704,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTableOptimizerPropsMixin.CompactionConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizerPropsMixin_CompactionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTableOptimizerPropsMixin.IcebergCompactionConfigurationProperty",
+		reflect.TypeOf((*CfnTableOptimizerPropsMixin_IcebergCompactionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTableOptimizerPropsMixin.IcebergConfigurationProperty",
 		reflect.TypeOf((*CfnTableOptimizerPropsMixin_IcebergConfigurationProperty)(nil)).Elem(),
 	)

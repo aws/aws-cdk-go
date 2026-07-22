@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateOverrideLogicalIdPar
 }
 
 func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

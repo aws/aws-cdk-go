@@ -24,6 +24,9 @@ package awsimagebuilder
 //   		},
 //   		ImageScanningEnabled: jsii.Boolean(false),
 //   	},
+//   	ImageTags: map[string]*string{
+//   		"imageTagsKey": jsii.String("imageTags"),
+//   	},
 //   	ImageTestsConfiguration: &ImageTestsConfigurationProperty{
 //   		ImageTestsEnabled: jsii.Boolean(false),
 //   		TimeoutMinutes: jsii.Number(123),
@@ -95,6 +98,10 @@ type CfnImagePipelineMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagescanningconfiguration
 	//
 	ImageScanningConfiguration interface{} `field:"optional" json:"imageScanningConfiguration" yaml:"imageScanningConfiguration"`
+	// The tags to be applied to images created by this pipeline.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetags
+	//
+	ImageTags interface{} `field:"optional" json:"imageTags" yaml:"imageTags"`
 	// The configuration of the image tests that run after image creation to ensure the quality of the image that was created.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
 	//

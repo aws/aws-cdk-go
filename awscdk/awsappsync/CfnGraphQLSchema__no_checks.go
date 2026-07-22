@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnGraphQLSchema) validateAddPropertyOverrideParameters(prope
 	return nil
 }
 
+func (c *jsiiProxy_CfnGraphQLSchema) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnGraphQLSchema) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnGraphQLSchema) validateOverrideLogicalIdParameters(newLogi
 }
 
 func (c *jsiiProxy_CfnGraphQLSchema) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnGraphQLSchema) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -20,6 +20,22 @@ import (
 //   		AssignContactCategoryActions: []interface{}{
 //   			assignContactCategoryActions,
 //   		},
+//   		AssignSlaActions: []interface{}{
+//   			&AssignSlaActionProperty{
+//   				CaseSlaConfiguration: &CaseSlaConfigurationProperty{
+//   					FieldId: jsii.String("fieldId"),
+//   					Name: jsii.String("name"),
+//   					TargetFieldValues: []interface{}{
+//   						&SlaTargetFieldValueProperty{
+//   							StringValue: jsii.String("stringValue"),
+//   						},
+//   					},
+//   					TargetSlaMinutes: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   				SlaAssignmentType: jsii.String("slaAssignmentType"),
+//   			},
+//   		},
 //   		CreateCaseActions: []interface{}{
 //   			&CreateCaseActionProperty{
 //   				Fields: []interface{}{
@@ -49,6 +65,14 @@ import (
 //   				Content: jsii.String("content"),
 //   				ContentType: jsii.String("contentType"),
 //   				DeliveryMethod: jsii.String("deliveryMethod"),
+//   				Exclusion: &NotificationRecipientTypeProperty{
+//   					UserArns: []*string{
+//   						jsii.String("userArns"),
+//   					},
+//   					UserTags: map[string]*string{
+//   						"userTagsKey": jsii.String("userTags"),
+//   					},
+//   				},
 //   				Recipient: &NotificationRecipientTypeProperty{
 //   					UserArns: []*string{
 //   						jsii.String("userArns"),

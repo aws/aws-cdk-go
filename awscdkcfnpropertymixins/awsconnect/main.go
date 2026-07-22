@@ -360,8 +360,16 @@ func init() {
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormQuestionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.EvaluationFormQuestionScoringConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormQuestionScoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.EvaluationFormQuestionTypePropertiesProperty",
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormQuestionTypePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.EvaluationFormScoreThresholdProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_EvaluationFormScoreThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.EvaluationFormSectionProperty",
@@ -414,6 +422,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.NumericQuestionPropertyValueAutomationProperty",
 		reflect.TypeOf((*CfnEvaluationFormPropsMixin_NumericQuestionPropertyValueAutomationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.QuestionOptionPointsConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_QuestionOptionPointsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.QuestionPointsConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluationFormPropsMixin_QuestionPointsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnEvaluationFormPropsMixin.ScoringStrategyProperty",
@@ -704,6 +720,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnQuickConnectPropsMixin.FlowQuickConnectConfigProperty",
+		reflect.TypeOf((*CfnQuickConnectPropsMixin_FlowQuickConnectConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnQuickConnectPropsMixin.PhoneNumberQuickConnectConfigProperty",
 		reflect.TypeOf((*CfnQuickConnectPropsMixin_PhoneNumberQuickConnectConfigProperty)(nil)).Elem(),
 	)
@@ -784,6 +804,14 @@ func init() {
 		reflect.TypeOf((*CfnRulePropsMixin_ActionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.AssignSlaActionProperty",
+		reflect.TypeOf((*CfnRulePropsMixin_AssignSlaActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.CaseSlaConfigurationProperty",
+		reflect.TypeOf((*CfnRulePropsMixin_CaseSlaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.CreateCaseActionProperty",
 		reflect.TypeOf((*CfnRulePropsMixin_CreateCaseActionProperty)(nil)).Elem(),
 	)
@@ -814,6 +842,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.SendNotificationActionProperty",
 		reflect.TypeOf((*CfnRulePropsMixin_SendNotificationActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.SlaTargetFieldValueProperty",
+		reflect.TypeOf((*CfnRulePropsMixin_SlaTargetFieldValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.SubmitAutoEvaluationActionProperty",
@@ -938,6 +970,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTaskTemplatePropsMixin.RequiredFieldInfoProperty",
 		reflect.TypeOf((*CfnTaskTemplatePropsMixin_RequiredFieldInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTestCaseMixinProps",
+		reflect.TypeOf((*CfnTestCaseMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTestCasePropsMixin",
+		reflect.TypeOf((*CfnTestCasePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTestCasePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTestCasePropsMixin.ChatEntryPointParametersProperty",
+		reflect.TypeOf((*CfnTestCasePropsMixin_ChatEntryPointParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTestCasePropsMixin.EntryPointProperty",
+		reflect.TypeOf((*CfnTestCasePropsMixin_EntryPointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTestCasePropsMixin.VoiceCallEntryPointParametersProperty",
+		reflect.TypeOf((*CfnTestCasePropsMixin_VoiceCallEntryPointParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTrafficDistributionGroupMixinProps",

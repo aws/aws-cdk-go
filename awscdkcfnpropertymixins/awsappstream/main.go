@@ -300,6 +300,14 @@ func init() {
 		reflect.TypeOf((*CfnStackPropsMixin_AccessEndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.AgentAccessConfigProperty",
+		reflect.TypeOf((*CfnStackPropsMixin_AgentAccessConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.AgentAccessSettingProperty",
+		reflect.TypeOf((*CfnStackPropsMixin_AgentAccessSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appstream.CfnStackPropsMixin.ApplicationSettingsProperty",
 		reflect.TypeOf((*CfnStackPropsMixin_ApplicationSettingsProperty)(nil)).Elem(),
 	)

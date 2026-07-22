@@ -24,6 +24,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	Name: jsii.String("name"),
+//   	SharingEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

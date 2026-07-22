@@ -13,6 +13,13 @@ package awsglue
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	CompactionConfiguration: &CompactionConfigurationProperty{
+//   		IcebergConfiguration: &IcebergCompactionConfigurationProperty{
+//   			DeleteFileThreshold: jsii.Number(123),
+//   			MinInputFiles: jsii.Number(123),
+//   			Strategy: jsii.String("strategy"),
+//   		},
+//   	},
 //   	OrphanFileDeletionConfiguration: &OrphanFileDeletionConfigurationProperty{
 //   		IcebergConfiguration: &IcebergConfigurationProperty{
 //   			Location: jsii.String("location"),
@@ -42,6 +49,9 @@ type CfnTableOptimizer_TableOptimizerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-compactionconfiguration
+	//
+	CompactionConfiguration interface{} `field:"optional" json:"compactionConfiguration" yaml:"compactionConfiguration"`
 	// `OrphanFileDeletionConfiguration` is a property that can be included within the TableOptimizer resource.
 	//
 	// It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.

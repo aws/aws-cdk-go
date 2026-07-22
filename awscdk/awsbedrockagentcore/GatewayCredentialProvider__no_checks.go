@@ -12,6 +12,10 @@ func validateGatewayCredentialProvider_FromApiKeyIdentityArnParameters(props *Ap
 	return nil
 }
 
+func validateGatewayCredentialProvider_FromIamRoleParameters(props *GatewayIamRoleCredentialProviderProps) error {
+	return nil
+}
+
 func validateGatewayCredentialProvider_FromOauthIdentityParameters(provider IOAuth2CredentialProvider, options *FromOauthIdentityOptions) error {
 	return nil
 }

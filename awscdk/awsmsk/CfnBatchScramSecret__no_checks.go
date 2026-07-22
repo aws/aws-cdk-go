@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateAddPropertyOverrideParameters(pr
 	return nil
 }
 
+func (c *jsiiProxy_CfnBatchScramSecret) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnBatchScramSecret) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnBatchScramSecret) validateOverrideLogicalIdParameters(newL
 }
 
 func (c *jsiiProxy_CfnBatchScramSecret) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBatchScramSecret) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

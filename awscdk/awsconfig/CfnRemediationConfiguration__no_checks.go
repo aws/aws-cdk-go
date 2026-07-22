@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnRemediationConfiguration) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRemediationConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateRemoveDependencyParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnRemediationConfiguration) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnRemediationConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -73,14 +81,6 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateReplaceDependencyParamet
 }
 
 func (c *jsiiProxy_CfnRemediationConfiguration) validateValidatePropertiesParameters(_properties interface{}) error {
-	return nil
-}
-
-func validateCfnRemediationConfiguration_ArnForRemediationConfigurationParameters(resource interfacesawsconfig.IRemediationConfigurationRef) error {
-	return nil
-}
-
-func validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope constructs.Construct, id *string, remediationConfigurationId *string) error {
 	return nil
 }
 

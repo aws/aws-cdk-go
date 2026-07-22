@@ -1,5 +1,8 @@
 package awselasticloadbalancingv2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnListenerRulePropsMixin.
 //
@@ -138,6 +141,12 @@ package awselasticloadbalancingv2
 //   	},
 //   	ListenerArn: jsii.String("listenerArn"),
 //   	Priority: jsii.Number(123),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Transforms: []interface{}{
 //   		&TransformProperty{
 //   			HostHeaderRewriteConfig: &RewriteConfigObjectProperty{
@@ -186,6 +195,9 @@ type CfnListenerRuleMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
 	//
 	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-transforms
 	//
 	Transforms interface{} `field:"optional" json:"transforms" yaml:"transforms"`

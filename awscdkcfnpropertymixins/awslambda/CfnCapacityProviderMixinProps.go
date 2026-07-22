@@ -91,6 +91,7 @@ type CfnCapacityProviderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-permissionsconfig
 	//
 	PermissionsConfig interface{} `field:"optional" json:"permissionsConfig" yaml:"permissionsConfig"`
+	// Configuration that defines how tags are propagated to managed resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-propagatetags
 	//
 	PropagateTags interface{} `field:"optional" json:"propagateTags" yaml:"propagateTags"`

@@ -187,11 +187,20 @@ type CfnLink interface {
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
-	// This can be used for resources across stacks (or nested stack) boundaries
-	// and the dependency will automatically be transferred to the relevant scope.
+	// This method has been renamed to `addResourceDependency` to more clearly
+	// set it apart from `construct.node.addDependency`. See the documentation
+	// of that function for more details.
+	// Deprecated: Use `addResourceDependency` instead.
 	AddDependency(target awscdk.CfnResource)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-	// Deprecated: use addDependency.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	//
+	// This method has been renamed to `addResourceDependency`, which makes it
+	// more clear that this method operates at a different level from the
+	// construct-level `construct.node.addDependency()` mechanism.
+	// Deprecated: Use `addResourceDependency` instead.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -251,6 +260,15 @@ type CfnLink interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	//
+	// This method only adds dependencies between L1 resources. If you are
+	// looking for a generic construct-to-construct dependency mechanism that works
+	// for all constructs including L2s, use `construct.node.addDependency` instead.
+	AddResourceDependency(target awscdk.CfnResource, reason *string)
 	// Sets the cross-stack reference strength for this resource.
 	//
 	// When set, any cross-stack reference to this resource will use the specified
@@ -287,20 +305,25 @@ type CfnLink interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Retrieves an array of resources this resource depends on.
+	// Retrieves an array of resources and stacks this resource depends on.
 	//
-	// This assembles dependencies on resources across stacks (including nested stacks)
-	// automatically.
+	// For resources depended on directly, returns the `CfnResource` object. For
+	// dependencies on other stacks, returns the `Stack` object. The order of the
+	// array is not guaranteed.
 	ObtainDependencies() *[]interface{}
-	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
-	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
 	// This can be used for resources across stacks (including nested stacks)
 	// and the dependency will automatically be removed from the relevant scope.
+	// Deprecated: Use `removeResourceDependency` instead.
 	RemoveDependency(target awscdk.CfnResource)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveResourceDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Replaces one dependency with another.
 	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
@@ -911,6 +934,17 @@ func (c *jsiiProxy_CfnLink) AddPropertyOverride(propertyPath *string, value inte
 	)
 }
 
+func (c *jsiiProxy_CfnLink) AddResourceDependency(target awscdk.CfnResource, reason *string) {
+	if err := c.validateAddResourceDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addResourceDependency",
+		[]interface{}{target, reason},
+	)
+}
+
 func (c *jsiiProxy_CfnLink) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
 	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
 		panic(err)
@@ -1005,19 +1039,6 @@ func (c *jsiiProxy_CfnLink) ObtainDependencies() *[]interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CfnLink) ObtainResourceDependencies() *[]awscdk.CfnResource {
-	var returns *[]awscdk.CfnResource
-
-	_jsii_.Invoke(
-		c,
-		"obtainResourceDependencies",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnLink) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -1036,6 +1057,17 @@ func (c *jsiiProxy_CfnLink) RemoveDependency(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
 		"removeDependency",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnLink) RemoveResourceDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveResourceDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeResourceDependency",
 		[]interface{}{target},
 	)
 }

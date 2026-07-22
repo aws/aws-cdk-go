@@ -10,8 +10,6 @@ package awsbedrock
 //
 //   managedKnowledgeBaseConfigurationProperty := &ManagedKnowledgeBaseConfigurationProperty{
 //   	EmbeddingModelArn: jsii.String("embeddingModelArn"),
-//
-//   	// the properties below are optional
 //   	EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
 //   		BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
 //   			Audio: []interface{}{
@@ -44,7 +42,7 @@ type CfnKnowledgeBase_ManagedKnowledgeBaseConfigurationProperty struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-managedknowledgebaseconfiguration-embeddingmodelarn
 	//
-	EmbeddingModelArn *string `field:"required" json:"embeddingModelArn" yaml:"embeddingModelArn"`
+	EmbeddingModelArn *string `field:"optional" json:"embeddingModelArn" yaml:"embeddingModelArn"`
 	// The embeddings model configuration details for the vector model used in Knowledge Base.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-managedknowledgebaseconfiguration-embeddingmodelconfiguration
 	//

@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateAddPropertyOverrideParameters
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserToGroupAddition) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserToGroupAddition) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnUserToGroupAddition) validateOverrideLogicalIdParameters(n
 }
 
 func (c *jsiiProxy_CfnUserToGroupAddition) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserToGroupAddition) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

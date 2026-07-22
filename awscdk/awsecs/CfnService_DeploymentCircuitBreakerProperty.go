@@ -15,6 +15,13 @@ package awsecs
 //   deploymentCircuitBreakerProperty := &DeploymentCircuitBreakerProperty{
 //   	Enable: jsii.Boolean(false),
 //   	Rollback: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	ResetOnHealthyTask: jsii.Boolean(false),
+//   	ThresholdConfiguration: &ThresholdConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   		Value: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
@@ -30,5 +37,11 @@ type CfnService_DeploymentCircuitBreakerProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
 	//
 	Rollback interface{} `field:"required" json:"rollback" yaml:"rollback"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-resetonhealthytask
+	//
+	ResetOnHealthyTask interface{} `field:"optional" json:"resetOnHealthyTask" yaml:"resetOnHealthyTask"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-thresholdconfiguration
+	//
+	ThresholdConfiguration interface{} `field:"optional" json:"thresholdConfiguration" yaml:"thresholdConfiguration"`
 }
 

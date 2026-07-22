@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnSlackChannelConfiguration) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSlackChannelConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) validateOverrideLogicalIdParame
 }
 
 func (c *jsiiProxy_CfnSlackChannelConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSlackChannelConfiguration) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

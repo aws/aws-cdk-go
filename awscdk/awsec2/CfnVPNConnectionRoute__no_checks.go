@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnVPNConnectionRoute) validateAddPropertyOverrideParameters(
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPNConnectionRoute) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPNConnectionRoute) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnVPNConnectionRoute) validateOverrideLogicalIdParameters(ne
 }
 
 func (c *jsiiProxy_CfnVPNConnectionRoute) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPNConnectionRoute) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

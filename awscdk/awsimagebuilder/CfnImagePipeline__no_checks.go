@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnImagePipeline) validateAddPropertyOverrideParameters(prope
 	return nil
 }
 
+func (c *jsiiProxy_CfnImagePipeline) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnImagePipeline) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnImagePipeline) validateOverrideLogicalIdParameters(newLogi
 }
 
 func (c *jsiiProxy_CfnImagePipeline) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnImagePipeline) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -101,6 +109,10 @@ func (j *jsiiProxy_CfnImagePipeline) validateSetEnhancedImageMetadataEnabledPara
 }
 
 func (j *jsiiProxy_CfnImagePipeline) validateSetImageScanningConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnImagePipeline) validateSetImageTagsParameters(val interface{}) error {
 	return nil
 }
 

@@ -1126,6 +1126,28 @@ func InterfaceVpcEndpointAwsService_CODEWHISPERER() InterfaceVpcEndpointAwsServi
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_COGNITO_IDENTITY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"COGNITO_IDENTITY",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_COGNITO_IDENTITY_FIPS() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"COGNITO_IDENTITY_FIPS",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_COGNITO_IDP() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

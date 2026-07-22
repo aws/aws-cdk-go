@@ -54,6 +54,14 @@ func (d *jsiiProxy_DefaultStagingStack) validateAddMetadataParameters(key *strin
 	return nil
 }
 
+func (d *jsiiProxy_DefaultStagingStack) validateAddStackDependencyParameters(target awscdk.Stack) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (d *jsiiProxy_DefaultStagingStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	if tagName == nil {
 		return fmt.Errorf("parameter tagName is required, but nil was provided")

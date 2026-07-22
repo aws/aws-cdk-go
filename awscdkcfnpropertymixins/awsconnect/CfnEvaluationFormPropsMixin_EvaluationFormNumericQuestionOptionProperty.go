@@ -15,6 +15,10 @@ package awsconnect
 //   	},
 //   	MaxValue: jsii.Number(123),
 //   	MinValue: jsii.Number(123),
+//   	PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   		IsBonus: jsii.Boolean(false),
+//   		PointValue: jsii.Number(123),
+//   	},
 //   	Score: jsii.Number(123),
 //   }
 //
@@ -39,6 +43,9 @@ type CfnEvaluationFormPropsMixin_EvaluationFormNumericQuestionOptionProperty str
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-minvalue
 	//
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-pointsconfiguration
+	//
+	PointsConfiguration interface{} `field:"optional" json:"pointsConfiguration" yaml:"pointsConfiguration"`
 	// The score assigned to answer values within the range option.
 	//
 	// *Minimum* : 0

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateAddProperty
 	return nil
 }
 
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateOverrideLog
 }
 
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

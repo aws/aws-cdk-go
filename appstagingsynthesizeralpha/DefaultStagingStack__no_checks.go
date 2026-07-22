@@ -20,6 +20,10 @@ func (d *jsiiProxy_DefaultStagingStack) validateAddMetadataParameters(key *strin
 	return nil
 }
 
+func (d *jsiiProxy_DefaultStagingStack) validateAddStackDependencyParameters(target awscdk.Stack) error {
+	return nil
+}
+
 func (d *jsiiProxy_DefaultStagingStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	return nil
 }

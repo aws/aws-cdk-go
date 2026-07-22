@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateOverrideLogic
 }
 
 func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

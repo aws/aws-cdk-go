@@ -14,11 +14,9 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderloggingconfig.html
 //
 type CfnCapacityProviderPropsMixin_CapacityProviderLoggingConfigProperty struct {
-	// The log group name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderloggingconfig.html#cfn-lambda-capacityprovider-capacityproviderloggingconfig-loggroup
 	//
 	LogGroup *string `field:"optional" json:"logGroup" yaml:"logGroup"`
-	// System log granularity level.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderloggingconfig.html#cfn-lambda-capacityprovider-capacityproviderloggingconfig-systemloglevel
 	//
 	SystemLogLevel *string `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`

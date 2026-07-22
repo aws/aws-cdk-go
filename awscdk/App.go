@@ -74,6 +74,7 @@ type App interface {
 	// synthesis will be interrupted and the report displayed to the user.
 	// Default: - no validation plugins are used.
 	//
+	// Deprecated: Do not use this function to look up validation plugins. Use `Validations.of(stage).plugins` instead.
 	PolicyValidationBeta1() *[]IPolicyValidationPluginBeta1
 	// The default region for all resources defined within this stage.
 	Region() *string

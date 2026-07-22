@@ -49,6 +49,7 @@ import (
 //   		ImageUri: jsii.String("imageUri"),
 //   		S3Bucket: jsii.String("s3Bucket"),
 //   		S3Key: jsii.String("s3Key"),
+//   		S3ObjectStorageMode: jsii.String("s3ObjectStorageMode"),
 //   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
 //   		SourceKmsKeyArn: jsii.String("sourceKmsKeyArn"),
 //   		ZipFile: jsii.String("zipFile"),
@@ -60,6 +61,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	DurableConfig: &DurableConfigProperty{
 //   		ExecutionTimeout: jsii.Number(123),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		RetentionPeriodInDays: jsii.Number(123),
 //   	},
 //   	Environment: &EnvironmentProperty{

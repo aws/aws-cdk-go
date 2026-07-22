@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateOverrideLogicalIdParam
 }
 
 func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnClientVpnAuthorizationRule) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

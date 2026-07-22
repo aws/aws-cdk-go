@@ -79,6 +79,14 @@ func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateA
 	return nil
 }
 
+func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -136,6 +144,14 @@ func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateO
 }
 
 func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (c *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

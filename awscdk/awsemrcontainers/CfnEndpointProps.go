@@ -52,6 +52,7 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	SessionIdleTimeoutInMinutes: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -86,6 +87,10 @@ type CfnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-endpoint.html#cfn-emrcontainers-endpoint-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The idle timeout in minutes for sessions on the managed endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-endpoint.html#cfn-emrcontainers-endpoint-sessionidletimeoutinminutes
+	//
+	SessionIdleTimeoutInMinutes *float64 `field:"optional" json:"sessionIdleTimeoutInMinutes" yaml:"sessionIdleTimeoutInMinutes"`
 	// An array of key-value pairs to apply to this managed endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-endpoint.html#cfn-emrcontainers-endpoint-tags
 	//

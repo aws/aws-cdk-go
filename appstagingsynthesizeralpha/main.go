@@ -79,6 +79,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addDockerImage", GoMethod: "AddDockerImage"},
 			_jsii_.MemberMethod{JsiiMethod: "addFile", GoMethod: "AddFile"},
 			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addStackDependency", GoMethod: "AddStackDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addStackTag", GoMethod: "AddStackTag"},
 			_jsii_.MemberMethod{JsiiMethod: "addTransform", GoMethod: "AddTransform"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateLogicalId", GoMethod: "AllocateLogicalId"},

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateOverrideLogic
 }
 
 func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnAutoshiftObserverNotificationStatus) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

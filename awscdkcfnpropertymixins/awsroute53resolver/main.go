@@ -8,6 +8,26 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallConfigMixinProps",
+		reflect.TypeOf((*CfnFirewallConfigMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallConfigPropsMixin",
+		reflect.TypeOf((*CfnFirewallConfigPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFirewallConfigPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallDomainListMixinProps",
 		reflect.TypeOf((*CfnFirewallDomainListMixinProps)(nil)).Elem(),
 	)
@@ -82,6 +102,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallRuleGroupPropsMixin.FirewallRuleTypeProperty",
 		reflect.TypeOf((*CfnFirewallRuleGroupPropsMixin_FirewallRuleTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnFirewallRuleGroupPropsMixin.PartnerThreatProtectionConfigProperty",
+		reflect.TypeOf((*CfnFirewallRuleGroupPropsMixin_PartnerThreatProtectionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53resolver.CfnOutpostResolverMixinProps",

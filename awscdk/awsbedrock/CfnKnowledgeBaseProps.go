@@ -18,8 +18,6 @@ package awsbedrock
 //   		},
 //   		ManagedKnowledgeBaseConfiguration: &ManagedKnowledgeBaseConfigurationProperty{
 //   			EmbeddingModelArn: jsii.String("embeddingModelArn"),
-//
-//   			// the properties below are optional
 //   			EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
 //   				BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
 //   					Audio: []interface{}{

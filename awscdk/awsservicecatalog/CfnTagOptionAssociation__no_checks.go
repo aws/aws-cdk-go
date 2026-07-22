@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTagOptionAssociation) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnTagOptionAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTagOptionAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnTagOptionAssociation) validateOverrideLogicalIdParameters(
 }
 
 func (c *jsiiProxy_CfnTagOptionAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTagOptionAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

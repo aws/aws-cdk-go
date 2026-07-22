@@ -32,6 +32,14 @@ func (i *jsiiProxy_IntegTestCaseStack) validateAddMetadataParameters(key *string
 	return nil
 }
 
+func (i *jsiiProxy_IntegTestCaseStack) validateAddStackDependencyParameters(target awscdk.Stack) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (i *jsiiProxy_IntegTestCaseStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	if tagName == nil {
 		return fmt.Errorf("parameter tagName is required, but nil was provided")

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocationObjectStorage) validateAddPropertyOverrideParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationObjectStorage) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationObjectStorage) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnLocationObjectStorage) validateOverrideLogicalIdParameters
 }
 
 func (c *jsiiProxy_CfnLocationObjectStorage) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocationObjectStorage) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

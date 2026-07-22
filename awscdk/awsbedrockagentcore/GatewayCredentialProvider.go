@@ -12,44 +12,27 @@ import (
 //   	GatewayName: jsii.String("my-gateway"),
 //   })
 //
-//   // OAuth2 (recommended): use OAuth2CredentialProvider + bindForGatewayOAuthTarget, or ARNs from console/API
-//   oauthProviderArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/oauth2credentialprovider/my-oauth"
-//   oauthSecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-oauth-secret-abc123"
+//   // Outbound auth: ApiKeyCredentialProvider + bindForGatewayApiKeyTarget, or ARNs from console/API
+//   apiKeyIdentityArn := "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/abc123/apikeycredentialprovider/my-apikey"
+//   apiKeySecretArn := "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-apikey-secret-abc123"
 //
-//   // Add an MCP server target directly to the gateway
-//   mcpTarget := gateway.AddMcpServerTarget(jsii.String("MyMcpServer"), &AddMcpServerTargetOptions{
-//   	GatewayTargetName: jsii.String("my-mcp-server"),
-//   	Description: jsii.String("External MCP server integration"),
-//   	Endpoint: jsii.String("https://my-mcp-server.example.com"),
+//   opneapiSchema := agentcore.ApiSchema_FromLocalAsset(path.join(__dirname, jsii.String("mySchema.yml")))
+//   opneapiSchema.Bind(this)
+//
+//   // Create a gateway target with OpenAPI Schema
+//   target := agentcore.GatewayTarget_ForOpenApi(this, jsii.String("MyTarget"), &GatewayTargetOpenApiProps{
+//   	GatewayTargetName: jsii.String("my-api-target"),
+//   	Description: jsii.String("Target for external API integration"),
+//   	Gateway: gateway,
+//   	 // Note: you need to pass the gateway reference
+//   	ApiSchema: opneapiSchema,
 //   	CredentialProviderConfigurations: []ICredentialProviderConfig{
-//   		agentcore.GatewayCredentialProvider_FromOauthIdentityArn(&OAuthConfiguration{
-//   			ProviderArn: oauthProviderArn,
-//   			SecretArn: oauthSecretArn,
-//   			Scopes: []*string{
-//   				jsii.String("mcp-runtime-server/invoke"),
-//   			},
+//   		agentcore.GatewayCredentialProvider_FromApiKeyIdentityArn(&ApiKeyCredentialProviderOptions{
+//   			ProviderArn: apiKeyIdentityArn,
+//   			SecretArn: apiKeySecretArn,
 //   		}),
 //   	},
 //   })
-//
-//   // Grant sync permission to a Lambda function that will trigger synchronization
-//   syncFunction := lambda.NewFunction(this, jsii.String("SyncFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_PYTHON_3_12(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String(`
-//   	import boto3
-//
-//   	def handler(event, context):
-//   	    client = boto3.client('bedrock-agentcore')
-//   	    response = client.synchronize_gateway_targets(
-//   	        gatewayIdentifier=event['gatewayId'],
-//   	        targetIds=[event['targetId']]
-//   	    )
-//   	    return response
-//   	  `)),
-//   })
-//
-//   mcpTarget.GrantSync(syncFunction)
 //
 type GatewayCredentialProvider interface {
 }
@@ -113,16 +96,24 @@ func GatewayCredentialProvider_FromApiKeyIdentityArn(props *ApiKeyCredentialProv
 
 // Create an IAM role credential provider.
 //
-// Returns: IIamRoleCredentialProvider configured for IAM role authentication.
-func GatewayCredentialProvider_FromIamRole() ICredentialProviderConfig {
+// The gateway authenticates outbound requests using its own execution role (SigV4).
+// Provide `service` and optionally `region` to explicitly choose the SigV4 signing
+// service / region instead of relying on the gateway's inference from the target
+// endpoint. Useful for cross-region calls and for targets where the service can't be
+// inferred from the URL. Explicit `service` / `region` is only supported for MCP Server
+// and OpenAPI targets; other target types must use the bare `fromIamRole()`.
+func GatewayCredentialProvider_FromIamRole(props *GatewayIamRoleCredentialProviderProps) ICredentialProviderConfig {
 	_init_.Initialize()
 
+	if err := validateGatewayCredentialProvider_FromIamRoleParameters(props); err != nil {
+		panic(err)
+	}
 	var returns ICredentialProviderConfig
 
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_bedrockagentcore.GatewayCredentialProvider",
 		"fromIamRole",
-		nil, // no parameters
+		[]interface{}{props},
 		&returns,
 	)
 

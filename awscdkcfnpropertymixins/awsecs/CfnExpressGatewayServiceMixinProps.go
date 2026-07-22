@@ -65,6 +65,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TaskDefinitionArn: jsii.String("taskDefinitionArn"),
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
 //   }
 //
@@ -123,6 +124,9 @@ type CfnExpressGatewayServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-taskdefinitionarn
+	//
+	TaskDefinitionArn *string `field:"optional" json:"taskDefinitionArn" yaml:"taskDefinitionArn"`
 	// The ARN of the task role for the service revision.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-expressgatewayservice.html#cfn-ecs-expressgatewayservice-taskrolearn
 	//

@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnPipeline) validateAddPropertyOverrideParameters(propertyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnPipeline) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnPipeline) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -144,6 +152,14 @@ func (c *jsiiProxy_CfnPipeline) validateRemoveDependencyParameters(target awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnPipeline) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnPipeline) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
@@ -175,6 +191,22 @@ func (c *jsiiProxy_CfnPipeline) validateValidatePropertiesParameters(_properties
 func validateCfnPipeline_ArnForPipelineParameters(resource interfacesawscodepipeline.IPipelineRef) error {
 	if resource == nil {
 		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnPipeline_FromPipelineArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
 	}
 
 	return nil

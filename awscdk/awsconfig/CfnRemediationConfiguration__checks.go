@@ -8,7 +8,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -80,6 +79,14 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnRemediationConfiguration) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnRemediationConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -144,6 +151,14 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateRemoveDependencyParamete
 	return nil
 }
 
+func (c *jsiiProxy_CfnRemediationConfiguration) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnRemediationConfiguration) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
@@ -167,30 +182,6 @@ func (c *jsiiProxy_CfnRemediationConfiguration) validateReplaceDependencyParamet
 func (c *jsiiProxy_CfnRemediationConfiguration) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnRemediationConfiguration_ArnForRemediationConfigurationParameters(resource interfacesawsconfig.IRemediationConfigurationRef) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnRemediationConfiguration_FromRemediationConfigurationIdParameters(scope constructs.Construct, id *string, remediationConfigurationId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if remediationConfigurationId == nil {
-		return fmt.Errorf("parameter remediationConfigurationId is required, but nil was provided")
 	}
 
 	return nil

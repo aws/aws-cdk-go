@@ -17,6 +17,12 @@ package awsconnect
 //   	AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   		TargetSection: jsii.String("targetSection"),
 //   	},
+//   	PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   		PointValue: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		IsBonus: jsii.Boolean(false),
+//   	},
 //   	Score: jsii.Number(123),
 //   }
 //
@@ -41,6 +47,9 @@ type CfnEvaluationForm_EvaluationFormNumericQuestionOptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-automaticfailconfiguration
 	//
 	AutomaticFailConfiguration interface{} `field:"optional" json:"automaticFailConfiguration" yaml:"automaticFailConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-pointsconfiguration
+	//
+	PointsConfiguration interface{} `field:"optional" json:"pointsConfiguration" yaml:"pointsConfiguration"`
 	// The score assigned to answer values within the range option.
 	//
 	// *Minimum* : 0

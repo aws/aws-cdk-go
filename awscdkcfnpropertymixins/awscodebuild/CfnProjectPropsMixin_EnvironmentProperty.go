@@ -27,6 +27,7 @@ package awscodebuild
 //   	Fleet: &ProjectFleetProperty{
 //   		FleetArn: jsii.String("fleetArn"),
 //   	},
+//   	HostKernel: jsii.String("hostKernel"),
 //   	Image: jsii.String("image"),
 //   	ImagePullCredentialsType: jsii.String("imagePullCredentialsType"),
 //   	PrivilegedMode: jsii.Boolean(false),
@@ -90,6 +91,9 @@ type CfnProjectPropsMixin_EnvironmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-fleet
 	//
 	Fleet interface{} `field:"optional" json:"fleet" yaml:"fleet"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-hostkernel
+	//
+	HostKernel *string `field:"optional" json:"hostKernel" yaml:"hostKernel"`
 	// The image tag or image digest that identifies the Docker image to use for this build project.
 	//
 	// Use the following formats:

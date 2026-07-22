@@ -154,6 +154,12 @@ import (
 //   	},
 //   	ListenerArn: jsii.String("listenerArn"),
 //   	Priority: jsii.Number(123),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	Transforms: []interface{}{
 //   		&TransformProperty{
 //   			HostHeaderRewriteConfig: &RewriteConfigObjectProperty{

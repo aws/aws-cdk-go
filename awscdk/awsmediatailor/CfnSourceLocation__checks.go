@@ -80,6 +80,14 @@ func (c *jsiiProxy_CfnSourceLocation) validateAddPropertyOverrideParameters(prop
 	return nil
 }
 
+func (c *jsiiProxy_CfnSourceLocation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnSourceLocation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -144,6 +152,14 @@ func (c *jsiiProxy_CfnSourceLocation) validateRemoveDependencyParameters(target 
 	return nil
 }
 
+func (c *jsiiProxy_CfnSourceLocation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_CfnSourceLocation) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
@@ -175,6 +191,38 @@ func (c *jsiiProxy_CfnSourceLocation) validateValidatePropertiesParameters(_prop
 func validateCfnSourceLocation_ArnForSourceLocationParameters(resource interfacesawsmediatailor.ISourceLocationRef) error {
 	if resource == nil {
 		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnSourceLocation_FromSourceLocationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateCfnSourceLocation_FromSourceLocationNameParameters(scope constructs.Construct, id *string, sourceLocationName *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if sourceLocationName == nil {
+		return fmt.Errorf("parameter sourceLocationName is required, but nil was provided")
 	}
 
 	return nil

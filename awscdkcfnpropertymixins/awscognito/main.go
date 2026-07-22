@@ -332,6 +332,14 @@ func init() {
 		reflect.TypeOf((*CfnUserPoolPropsMixin_InviteMessageTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolPropsMixin.IssuerConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolPropsMixin_IssuerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolPropsMixin.KeyConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolPropsMixin_KeyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolPropsMixin.LambdaConfigProperty",
 		reflect.TypeOf((*CfnUserPoolPropsMixin_LambdaConfigProperty)(nil)).Elem(),
 	)
@@ -386,6 +394,74 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolPropsMixin.VerificationMessageTemplateProperty",
 		reflect.TypeOf((*CfnUserPoolPropsMixin_VerificationMessageTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentMixinProps",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnUserPoolRegionalConfigurationAttachmentPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.CustomEmailSenderProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_CustomEmailSenderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.CustomSMSSenderProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_CustomSMSSenderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.EmailConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_EmailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.InboundFederationProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_InboundFederationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.LambdaConfigProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_LambdaConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.PreTokenGenerationConfigProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_PreTokenGenerationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.SmsConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_SmsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolReplicaMixinProps",
+		reflect.TypeOf((*CfnUserPoolReplicaMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolReplicaPropsMixin",
+		reflect.TypeOf((*CfnUserPoolReplicaPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnUserPoolReplicaPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolResourceServerMixinProps",

@@ -16,6 +16,9 @@ import (
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
 //   	QuickConnectConfig: &QuickConnectConfigProperty{
+//   		FlowConfig: &FlowQuickConnectConfigProperty{
+//   			ContactFlowArn: jsii.String("contactFlowArn"),
+//   		},
 //   		PhoneConfig: &PhoneNumberQuickConnectConfigProperty{
 //   			PhoneNumber: jsii.String("phoneNumber"),
 //   		},

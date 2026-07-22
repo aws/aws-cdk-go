@@ -12,6 +12,14 @@ package awsconnect
 //   	Content: jsii.String("content"),
 //   	ContentType: jsii.String("contentType"),
 //   	DeliveryMethod: jsii.String("deliveryMethod"),
+//   	Exclusion: &NotificationRecipientTypeProperty{
+//   		UserArns: []*string{
+//   			jsii.String("userArns"),
+//   		},
+//   		UserTags: map[string]*string{
+//   			"userTagsKey": jsii.String("userTags"),
+//   		},
+//   	},
 //   	Recipient: &NotificationRecipientTypeProperty{
 //   		UserArns: []*string{
 //   			jsii.String("userArns"),
@@ -44,6 +52,10 @@ type CfnRulePropsMixin_SendNotificationActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-deliverymethod
 	//
 	DeliveryMethod *string `field:"optional" json:"deliveryMethod" yaml:"deliveryMethod"`
+	// The type of notification recipient.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-exclusion
+	//
+	Exclusion interface{} `field:"optional" json:"exclusion" yaml:"exclusion"`
 	// Notification recipient.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html#cfn-connect-rule-sendnotificationaction-recipient
 	//

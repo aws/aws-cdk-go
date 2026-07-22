@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateOverrideLogicalIdParame
 }
 
 func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnSnapshotBlockPublicAccess) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -19,6 +19,7 @@ import (
 //   		DomainName: jsii.String("domainName"),
 //   		HostedZoneId: jsii.String("hostedZoneId"),
 //   	},
+//   	IdleTimeoutSeconds: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -54,6 +55,9 @@ type CfnServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html#cfn-vpclattice-service-dnsentry
 	//
 	DnsEntry interface{} `field:"optional" json:"dnsEntry" yaml:"dnsEntry"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html#cfn-vpclattice-service-idletimeoutseconds
+	//
+	IdleTimeoutSeconds *float64 `field:"optional" json:"idleTimeoutSeconds" yaml:"idleTimeoutSeconds"`
 	// The name of the service.
 	//
 	// The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.

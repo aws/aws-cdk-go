@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPrivateVirtualInterface) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateVirtualInterface) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateVirtualInterface) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnPrivateVirtualInterface) validateRemoveDependencyParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateVirtualInterface) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateVirtualInterface) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -73,6 +81,14 @@ func (c *jsiiProxy_CfnPrivateVirtualInterface) validateReplaceDependencyParamete
 }
 
 func (c *jsiiProxy_CfnPrivateVirtualInterface) validateValidatePropertiesParameters(_properties interface{}) error {
+	return nil
+}
+
+func validateCfnPrivateVirtualInterface_ArnForPrivateVirtualInterfaceParameters(resource interfacesawsdirectconnect.IPrivateVirtualInterfaceRef) error {
+	return nil
+}
+
+func validateCfnPrivateVirtualInterface_FromVirtualInterfaceIdParameters(scope constructs.Construct, id *string, virtualInterfaceId *string) error {
 	return nil
 }
 

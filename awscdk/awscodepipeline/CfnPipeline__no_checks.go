@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPipeline) validateAddPropertyOverrideParameters(propertyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnPipeline) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPipeline) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -64,6 +68,10 @@ func (c *jsiiProxy_CfnPipeline) validateRemoveDependencyParameters(target awscdk
 	return nil
 }
 
+func (c *jsiiProxy_CfnPipeline) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPipeline) validateRenderPropertiesParameters(props *map[string]interface{}) error {
 	return nil
 }
@@ -77,6 +85,10 @@ func (c *jsiiProxy_CfnPipeline) validateValidatePropertiesParameters(_properties
 }
 
 func validateCfnPipeline_ArnForPipelineParameters(resource interfacesawscodepipeline.IPipelineRef) error {
+	return nil
+}
+
+func validateCfnPipeline_FromPipelineArnParameters(scope constructs.Construct, id *string, arn *string) error {
 	return nil
 }
 

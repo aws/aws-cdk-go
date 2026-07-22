@@ -59,6 +59,7 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	SessionIdleTimeoutInMinutes: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -76,6 +77,8 @@ type CfnEndpoint interface {
 	awscdk.ITaggableV2
 	// The ARN of the managed endpoint.
 	AttrArn() *string
+	// The auth proxy URL for Spark Connect connections.
+	AttrAuthProxyUrl() *string
 	AttrCertificateAuthority() awscdk.IResolvable
 	// The date and time when the managed endpoint was created.
 	AttrCreatedAt() *string
@@ -134,6 +137,9 @@ type CfnEndpoint interface {
 	// The Amazon EMR release label.
 	ReleaseLabel() *string
 	SetReleaseLabel(val *string)
+	// The idle timeout in minutes for sessions on the managed endpoint.
+	SessionIdleTimeoutInMinutes() *float64
+	SetSessionIdleTimeoutInMinutes(val *float64)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -164,11 +170,20 @@ type CfnEndpoint interface {
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
-	// This can be used for resources across stacks (or nested stack) boundaries
-	// and the dependency will automatically be transferred to the relevant scope.
+	// This method has been renamed to `addResourceDependency` to more clearly
+	// set it apart from `construct.node.addDependency`. See the documentation
+	// of that function for more details.
+	// Deprecated: Use `addResourceDependency` instead.
 	AddDependency(target awscdk.CfnResource)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
-	// Deprecated: use addDependency.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	//
+	// This method has been renamed to `addResourceDependency`, which makes it
+	// more clear that this method operates at a different level from the
+	// construct-level `construct.node.addDependency()` mechanism.
+	// Deprecated: Use `addResourceDependency` instead.
 	AddDependsOn(target awscdk.CfnResource)
 	// Add a value to the CloudFormation Resource Metadata.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
@@ -228,6 +243,15 @@ type CfnEndpoint interface {
 	//
 	// Syntactic sugar for `addOverride("Properties.<...>", value)`.
 	AddPropertyOverride(propertyPath *string, value interface{})
+	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+	//
+	// This can be used for resources across stacks (or nested stack) boundaries
+	// and the dependency will automatically be transferred to the relevant scope.
+	//
+	// This method only adds dependencies between L1 resources. If you are
+	// looking for a generic construct-to-construct dependency mechanism that works
+	// for all constructs including L2s, use `construct.node.addDependency` instead.
+	AddResourceDependency(target awscdk.CfnResource, reason *string)
 	// Sets the cross-stack reference strength for this resource.
 	//
 	// When set, any cross-stack reference to this resource will use the specified
@@ -264,20 +288,25 @@ type CfnEndpoint interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Retrieves an array of resources this resource depends on.
+	// Retrieves an array of resources and stacks this resource depends on.
 	//
-	// This assembles dependencies on resources across stacks (including nested stacks)
-	// automatically.
+	// For resources depended on directly, returns the `CfnResource` object. For
+	// dependencies on other stacks, returns the `Stack` object. The order of the
+	// array is not guaranteed.
 	ObtainDependencies() *[]interface{}
-	// Get a shallow copy of dependencies between this resource and other resources in the same stack.
-	ObtainResourceDependencies() *[]awscdk.CfnResource
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)
 	// Indicates that this resource no longer depends on another resource.
 	//
 	// This can be used for resources across stacks (including nested stacks)
 	// and the dependency will automatically be removed from the relevant scope.
+	// Deprecated: Use `removeResourceDependency` instead.
 	RemoveDependency(target awscdk.CfnResource)
+	// Indicates that this resource no longer depends on another resource.
+	//
+	// This can be used for resources across stacks (including nested stacks)
+	// and the dependency will automatically be removed from the relevant scope.
+	RemoveResourceDependency(target awscdk.CfnResource)
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	// Replaces one dependency with another.
 	ReplaceDependency(target awscdk.CfnResource, newTarget awscdk.CfnResource)
@@ -313,6 +342,16 @@ func (j *jsiiProxy_CfnEndpoint) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpoint) AttrAuthProxyUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAuthProxyUrl",
 		&returns,
 	)
 	return returns
@@ -548,6 +587,16 @@ func (j *jsiiProxy_CfnEndpoint) ReleaseLabel() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpoint) SessionIdleTimeoutInMinutes() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"sessionIdleTimeoutInMinutes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpoint) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -675,6 +724,14 @@ func (j *jsiiProxy_CfnEndpoint)SetReleaseLabel(val *string) {
 	_jsii_.Set(
 		j,
 		"releaseLabel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpoint)SetSessionIdleTimeoutInMinutes(val *float64) {
+	_jsii_.Set(
+		j,
+		"sessionIdleTimeoutInMinutes",
 		val,
 	)
 }
@@ -915,6 +972,17 @@ func (c *jsiiProxy_CfnEndpoint) AddPropertyOverride(propertyPath *string, value 
 	)
 }
 
+func (c *jsiiProxy_CfnEndpoint) AddResourceDependency(target awscdk.CfnResource, reason *string) {
+	if err := c.validateAddResourceDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"addResourceDependency",
+		[]interface{}{target, reason},
+	)
+}
+
 func (c *jsiiProxy_CfnEndpoint) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
 	if err := c.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
 		panic(err)
@@ -1009,19 +1077,6 @@ func (c *jsiiProxy_CfnEndpoint) ObtainDependencies() *[]interface{} {
 	return returns
 }
 
-func (c *jsiiProxy_CfnEndpoint) ObtainResourceDependencies() *[]awscdk.CfnResource {
-	var returns *[]awscdk.CfnResource
-
-	_jsii_.Invoke(
-		c,
-		"obtainResourceDependencies",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 func (c *jsiiProxy_CfnEndpoint) OverrideLogicalId(newLogicalId *string) {
 	if err := c.validateOverrideLogicalIdParameters(newLogicalId); err != nil {
 		panic(err)
@@ -1040,6 +1095,17 @@ func (c *jsiiProxy_CfnEndpoint) RemoveDependency(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
 		"removeDependency",
+		[]interface{}{target},
+	)
+}
+
+func (c *jsiiProxy_CfnEndpoint) RemoveResourceDependency(target awscdk.CfnResource) {
+	if err := c.validateRemoveResourceDependencyParameters(target); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"removeResourceDependency",
 		[]interface{}{target},
 	)
 }

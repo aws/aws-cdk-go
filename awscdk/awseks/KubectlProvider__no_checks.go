@@ -12,6 +12,10 @@ func (k *jsiiProxy_KubectlProvider) validateAddMetadataParameters(key *string, v
 	return nil
 }
 
+func (k *jsiiProxy_KubectlProvider) validateAddStackDependencyParameters(target awscdk.Stack) error {
+	return nil
+}
+
 func (k *jsiiProxy_KubectlProvider) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	return nil
 }

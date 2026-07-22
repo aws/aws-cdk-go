@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserPool) validateAddPropertyOverrideParameters(propertyPa
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPool) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPool) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnUserPool) validateOverrideLogicalIdParameters(newLogicalId
 }
 
 func (c *jsiiProxy_CfnUserPool) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPool) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -117,6 +125,14 @@ func (j *jsiiProxy_CfnUserPool) validateSetDeviceConfigurationParameters(val int
 }
 
 func (j *jsiiProxy_CfnUserPool) validateSetEmailConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUserPool) validateSetIssuerConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUserPool) validateSetKeyConfigurationParameters(val interface{}) error {
 	return nil
 }
 

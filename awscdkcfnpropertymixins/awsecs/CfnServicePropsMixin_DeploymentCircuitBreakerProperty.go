@@ -14,7 +14,12 @@ package awsecs
 //
 //   deploymentCircuitBreakerProperty := &DeploymentCircuitBreakerProperty{
 //   	Enable: jsii.Boolean(false),
+//   	ResetOnHealthyTask: jsii.Boolean(false),
 //   	Rollback: jsii.Boolean(false),
+//   	ThresholdConfiguration: &ThresholdConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   		Value: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
@@ -24,11 +29,17 @@ type CfnServicePropsMixin_DeploymentCircuitBreakerProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
 	//
 	Enable interface{} `field:"optional" json:"enable" yaml:"enable"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-resetonhealthytask
+	//
+	ResetOnHealthyTask interface{} `field:"optional" json:"resetOnHealthyTask" yaml:"resetOnHealthyTask"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails.
 	//
 	// If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
 	//
 	Rollback interface{} `field:"optional" json:"rollback" yaml:"rollback"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-thresholdconfiguration
+	//
+	ThresholdConfiguration interface{} `field:"optional" json:"thresholdConfiguration" yaml:"thresholdConfiguration"`
 }
 

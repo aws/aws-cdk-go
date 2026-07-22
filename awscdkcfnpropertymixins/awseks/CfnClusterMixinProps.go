@@ -102,6 +102,9 @@ import (
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	RollbackConfig: &RollbackConfigProperty{
+//   		TimeoutMinutes: jsii.Number(123),
+//   	},
 //   	StorageConfig: &StorageConfigProperty{
 //   		BlockStorage: &BlockStorageProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -203,6 +206,10 @@ type CfnClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
 	//
 	RoleArn interface{} `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// The rollback configuration to use for the cluster version rollback.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rollbackconfig
+	//
+	RollbackConfig interface{} `field:"optional" json:"rollbackConfig" yaml:"rollbackConfig"`
 	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster.
 	//
 	// For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .

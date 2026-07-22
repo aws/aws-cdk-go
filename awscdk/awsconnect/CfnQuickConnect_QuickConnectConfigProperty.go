@@ -12,6 +12,9 @@ package awsconnect
 //   	QuickConnectType: jsii.String("quickConnectType"),
 //
 //   	// the properties below are optional
+//   	FlowConfig: &FlowQuickConnectConfigProperty{
+//   		ContactFlowArn: jsii.String("contactFlowArn"),
+//   	},
 //   	PhoneConfig: &PhoneNumberQuickConnectConfigProperty{
 //   		PhoneNumber: jsii.String("phoneNumber"),
 //   	},
@@ -34,6 +37,12 @@ type CfnQuickConnect_QuickConnectConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
 	//
 	QuickConnectType *string `field:"required" json:"quickConnectType" yaml:"quickConnectType"`
+	// The flow configuration.
+	//
+	// This is required only if QuickConnectType is FLOW.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-flowconfig
+	//
+	FlowConfig interface{} `field:"optional" json:"flowConfig" yaml:"flowConfig"`
 	// The phone configuration.
 	//
 	// This is required only if QuickConnectType is PHONE_NUMBER.

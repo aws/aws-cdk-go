@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnListenerRule) validateAddPropertyOverrideParameters(proper
 	return nil
 }
 
+func (c *jsiiProxy_CfnListenerRule) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnListenerRule) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnListenerRule) validateOverrideLogicalIdParameters(newLogic
 }
 
 func (c *jsiiProxy_CfnListenerRule) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnListenerRule) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 
@@ -101,6 +109,10 @@ func (j *jsiiProxy_CfnListenerRule) validateSetConditionsParameters(val interfac
 }
 
 func (j *jsiiProxy_CfnListenerRule) validateSetPriorityParameters(val *float64) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnListenerRule) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

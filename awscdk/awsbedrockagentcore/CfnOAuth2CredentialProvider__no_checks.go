@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateOverrideLogicalIdParamet
 }
 
 func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnOAuth2CredentialProvider) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

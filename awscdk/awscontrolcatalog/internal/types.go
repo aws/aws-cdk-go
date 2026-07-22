@@ -1,0 +1,9 @@
+package internal
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscontrolcatalog"
+)
+type Type__awscdkCfnResource = awscdk.CfnResource
+type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawscontrolcatalogICommonControlRef = interfacesawscontrolcatalog.ICommonControlRef
+type Type__interfacesawscontrolcatalogIControlRef = interfacesawscontrolcatalog.IControlRef

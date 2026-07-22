@@ -548,6 +548,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_ServiceVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.ThresholdConfigurationProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_ThresholdConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.TimeoutConfigurationProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_TimeoutConfigurationProperty)(nil)).Elem(),
 	)

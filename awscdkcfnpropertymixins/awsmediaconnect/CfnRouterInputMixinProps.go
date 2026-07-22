@@ -138,6 +138,22 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ContentQualityAnalysisConfiguration: &RouterContentQualityAnalysisConfigurationProperty{
+//   		ContentLevel: &ContentQualityAnalysisFeatureConfigurationProperty{
+//   			BlackFrames: &BlackFramesConfigurationProperty{
+//   				State: jsii.String("state"),
+//   				ThresholdSeconds: jsii.Number(123),
+//   			},
+//   			FrozenFrames: &FrozenFramesConfigurationProperty{
+//   				State: jsii.String("state"),
+//   				ThresholdSeconds: jsii.Number(123),
+//   			},
+//   			SilentAudio: &SilentAudioConfigurationProperty{
+//   				State: jsii.String("state"),
+//   				ThresholdSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	MaintenanceConfiguration: &MaintenanceConfigurationProperty{
 //   		Default: default_,
 //   		PreferredDayTime: &PreferredDayTimeMaintenanceConfigurationProperty{
@@ -179,6 +195,12 @@ type CfnRouterInputMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
+	// The content quality analysis configuration for the router input.
+	//
+	// The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-contentqualityanalysisconfiguration
+	//
+	ContentQualityAnalysisConfiguration interface{} `field:"optional" json:"contentQualityAnalysisConfiguration" yaml:"contentQualityAnalysisConfiguration"`
 	// The maintenance configuration settings applied to this router input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routerinput.html#cfn-mediaconnect-routerinput-maintenanceconfiguration
 	//

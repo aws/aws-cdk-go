@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTestGridProject) validateAddPropertyOverrideParameters(pro
 	return nil
 }
 
+func (c *jsiiProxy_CfnTestGridProject) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTestGridProject) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnTestGridProject) validateOverrideLogicalIdParameters(newLo
 }
 
 func (c *jsiiProxy_CfnTestGridProject) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTestGridProject) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

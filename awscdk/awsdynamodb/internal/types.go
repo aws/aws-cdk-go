@@ -8,6 +8,7 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsdynamodbIGlobalTableRef = interfacesawsdynamodb.IGlobalTableRef
+type Type__interfacesawsdynamodbIStreamRef = interfacesawsdynamodb.IStreamRef
 type Type__interfacesawsdynamodbITableRef = interfacesawsdynamodb.ITableRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsapplicationautoscalingIScalableTargetRef = interfacesawsapplicationautoscaling.IScalableTargetRef

@@ -31,6 +31,14 @@ func (n *jsiiProxy_NestedStack) validateAddMetadataParameters(key *string, value
 	return nil
 }
 
+func (n *jsiiProxy_NestedStack) validateAddStackDependencyParameters(target Stack) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (n *jsiiProxy_NestedStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	if tagName == nil {
 		return fmt.Errorf("parameter tagName is required, but nil was provided")

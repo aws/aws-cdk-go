@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnConfiguredTableAssociation) validateAddPropertyOverridePar
 	return nil
 }
 
+func (c *jsiiProxy_CfnConfiguredTableAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnConfiguredTableAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnConfiguredTableAssociation) validateOverrideLogicalIdParam
 }
 
 func (c *jsiiProxy_CfnConfiguredTableAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnConfiguredTableAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

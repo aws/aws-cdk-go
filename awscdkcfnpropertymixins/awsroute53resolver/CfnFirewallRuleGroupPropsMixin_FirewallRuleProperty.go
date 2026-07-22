@@ -25,10 +25,14 @@ package awsroute53resolver
 //   		FirewallAdvancedThreatCategory: &FirewallAdvancedThreatCategoryConfigProperty{
 //   			Category: jsii.String("category"),
 //   		},
+//   		PartnerThreatProtection: &PartnerThreatProtectionConfigProperty{
+//   			Partner: jsii.String("partner"),
+//   		},
 //   	},
 //   	FirewallThreatProtectionId: jsii.String("firewallThreatProtectionId"),
 //   	Priority: jsii.Number(123),
 //   	Qtype: jsii.String("qtype"),
+//   	Status: jsii.String("status"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
@@ -138,5 +142,9 @@ type CfnFirewallRuleGroupPropsMixin_FirewallRuleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-qtype
 	//
 	Qtype *string `field:"optional" json:"qtype" yaml:"qtype"`
+	// The status of the firewall rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-status
+	//
+	Status *string `field:"optional" json:"status" yaml:"status"`
 }
 

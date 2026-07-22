@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateAddPropertyOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateOverrideLogica
 }
 
 func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNetworkInsightsAccessScopeAnalysis) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

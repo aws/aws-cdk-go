@@ -35,6 +35,7 @@ package awscodebuild
 //   	Fleet: &ProjectFleetProperty{
 //   		FleetArn: jsii.String("fleetArn"),
 //   	},
+//   	HostKernel: jsii.String("hostKernel"),
 //   	ImagePullCredentialsType: jsii.String("imagePullCredentialsType"),
 //   	PrivilegedMode: jsii.Boolean(false),
 //   	RegistryCredential: &RegistryCredentialProperty{
@@ -115,6 +116,9 @@ type CfnProject_EnvironmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-fleet
 	//
 	Fleet interface{} `field:"optional" json:"fleet" yaml:"fleet"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-hostkernel
+	//
+	HostKernel *string `field:"optional" json:"hostKernel" yaml:"hostKernel"`
 	// The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:.
 	//
 	// - `CODEBUILD` specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild service principal.

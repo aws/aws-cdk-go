@@ -436,6 +436,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.BlackFramesConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_BlackFramesConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.ContentQualityAnalysisFeatureConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_ContentQualityAnalysisFeatureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.FailoverRouterInputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_FailoverRouterInputConfigurationProperty)(nil)).Elem(),
 	)
@@ -450,6 +458,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.FlowTransitEncryptionProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_FlowTransitEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.FrozenFramesConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_FrozenFramesConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.MaintenanceConfigurationProperty",
@@ -488,6 +500,10 @@ func init() {
 		reflect.TypeOf((*CfnRouterInputPropsMixin_RistRouterInputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.RouterContentQualityAnalysisConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_RouterContentQualityAnalysisConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.RouterInputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_RouterInputConfigurationProperty)(nil)).Elem(),
 	)
@@ -510,6 +526,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.SecretsManagerEncryptionKeyConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_SecretsManagerEncryptionKeyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.SilentAudioConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_SilentAudioConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.SrtCallerRouterInputConfigurationProperty",

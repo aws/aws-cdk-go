@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateAddPropertyOverrideP
 	return nil
 }
 
+func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateOverrideLogicalIdPar
 }
 
 func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMailManagerAddonSubscription) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -80,6 +80,7 @@ import (
 //   		Fleet: &ProjectFleetProperty{
 //   			FleetArn: jsii.String("fleetArn"),
 //   		},
+//   		HostKernel: jsii.String("hostKernel"),
 //   		Image: jsii.String("image"),
 //   		ImagePullCredentialsType: jsii.String("imagePullCredentialsType"),
 //   		PrivilegedMode: jsii.Boolean(false),

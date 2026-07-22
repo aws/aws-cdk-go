@@ -52,6 +52,19 @@ package awsconnect
 //   				&EvaluationFormMultiSelectQuestionOptionProperty{
 //   					RefId: jsii.String("refId"),
 //   					Text: jsii.String("text"),
+//
+//   					// the properties below are optional
+//   					AutomaticFail: jsii.Boolean(false),
+//   					AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
+//   						TargetSection: jsii.String("targetSection"),
+//   					},
+//   					PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   						PointValue: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						IsBonus: jsii.Boolean(false),
+//   					},
+//   					Score: jsii.Number(123),
 //   				},
 //   			},
 //
@@ -100,6 +113,12 @@ package awsconnect
 //   					AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   						TargetSection: jsii.String("targetSection"),
 //   					},
+//   					PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   						PointValue: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						IsBonus: jsii.Boolean(false),
+//   					},
 //   					Score: jsii.Number(123),
 //   				},
 //   			},
@@ -114,6 +133,12 @@ package awsconnect
 //   					AutomaticFail: jsii.Boolean(false),
 //   					AutomaticFailConfiguration: &AutomaticFailConfigurationProperty{
 //   						TargetSection: jsii.String("targetSection"),
+//   					},
+//   					PointsConfiguration: &QuestionOptionPointsConfigurationProperty{
+//   						PointValue: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						IsBonus: jsii.Boolean(false),
 //   					},
 //   					Score: jsii.Number(123),
 //   				},
@@ -142,6 +167,23 @@ package awsconnect
 //   				AnswerSource: &EvaluationFormQuestionAutomationAnswerSourceProperty{
 //   					SourceType: jsii.String("sourceType"),
 //   				},
+//   			},
+//   		},
+//   	},
+//   	ScoringConfiguration: &EvaluationFormQuestionScoringConfigurationProperty{
+//   		IsExcludedFromScoring: jsii.Boolean(false),
+//   		PointsConfiguration: &QuestionPointsConfigurationProperty{
+//   			IsBonus: jsii.Boolean(false),
+//   			MaxPointValue: jsii.Number(123),
+//   			MinPointValue: jsii.Number(123),
+//   		},
+//   		ScoreThresholds: []interface{}{
+//   			&EvaluationFormScoreThresholdProperty{
+//   				PerformanceCategory: jsii.String("performanceCategory"),
+//
+//   				// the properties below are optional
+//   				MaxScorePercentage: jsii.Number(123),
+//   				MinScorePercentage: jsii.Number(123),
 //   			},
 //   		},
 //   	},
@@ -189,6 +231,9 @@ type CfnEvaluationForm_EvaluationFormQuestionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-questiontypeproperties
 	//
 	QuestionTypeProperties interface{} `field:"optional" json:"questionTypeProperties" yaml:"questionTypeProperties"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-scoringconfiguration
+	//
+	ScoringConfiguration interface{} `field:"optional" json:"scoringConfiguration" yaml:"scoringConfiguration"`
 	// The scoring weight of the section.
 	//
 	// *Minimum* : 0

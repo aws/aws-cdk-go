@@ -53,6 +53,13 @@ package awscognito
 //   	EnabledMfas: []*string{
 //   		jsii.String("enabledMfas"),
 //   	},
+//   	IssuerConfiguration: &IssuerConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   	},
+//   	KeyConfiguration: &KeyConfigurationProperty{
+//   		KeyType: jsii.String("keyType"),
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	LambdaConfig: &LambdaConfigProperty{
 //   		CreateAuthChallenge: jsii.String("createAuthChallenge"),
 //   		CustomEmailSender: &CustomEmailSenderProperty{
@@ -236,6 +243,12 @@ type CfnUserPoolProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-enabledmfas
 	//
 	EnabledMfas *[]*string `field:"optional" json:"enabledMfas" yaml:"enabledMfas"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-issuerconfiguration
+	//
+	IssuerConfiguration interface{} `field:"optional" json:"issuerConfiguration" yaml:"issuerConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-keyconfiguration
+	//
+	KeyConfiguration interface{} `field:"optional" json:"keyConfiguration" yaml:"keyConfiguration"`
 	// A collection of user pool Lambda triggers.
 	//
 	// Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.

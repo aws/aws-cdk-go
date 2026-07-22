@@ -10,12 +10,14 @@ package awsconnect
 //
 //   afterContactWorkConfigPerChannelProperty := &AfterContactWorkConfigPerChannelProperty{
 //   	AfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   		AfterContactWorkMode: jsii.String("afterContactWorkMode"),
 //   		AfterContactWorkTimeLimit: jsii.Number(123),
 //   	},
 //   	Channel: jsii.String("channel"),
 //
 //   	// the properties below are optional
 //   	AgentFirstCallbackAfterContactWorkConfig: &AfterContactWorkConfigProperty{
+//   		AfterContactWorkMode: jsii.String("afterContactWorkMode"),
 //   		AfterContactWorkTimeLimit: jsii.Number(123),
 //   	},
 //   }

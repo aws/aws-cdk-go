@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddPropertyOverride
 	return nil
 }
 
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateOverrideLogicalIdPa
 }
 
 func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

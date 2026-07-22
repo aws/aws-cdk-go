@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateAddPropertyOve
 	return nil
 }
 
+func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateOverrideLogica
 }
 
 func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnMicrosoftTeamsChannelConfiguration) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

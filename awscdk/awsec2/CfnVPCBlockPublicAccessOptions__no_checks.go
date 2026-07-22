@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnVPCBlockPublicAccessOptions) validateAddPropertyOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnVPCBlockPublicAccessOptions) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnVPCBlockPublicAccessOptions) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnVPCBlockPublicAccessOptions) validateOverrideLogicalIdPara
 }
 
 func (c *jsiiProxy_CfnVPCBlockPublicAccessOptions) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnVPCBlockPublicAccessOptions) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

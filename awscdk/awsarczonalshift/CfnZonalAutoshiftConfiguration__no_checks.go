@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateAddPropertyOverridePa
 	return nil
 }
 
+func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateOverrideLogicalIdPara
 }
 
 func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnZonalAutoshiftConfiguration) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnS3AccessPointAttachment) validateAddPropertyOverrideParame
 	return nil
 }
 
+func (c *jsiiProxy_CfnS3AccessPointAttachment) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnS3AccessPointAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnS3AccessPointAttachment) validateOverrideLogicalIdParamete
 }
 
 func (c *jsiiProxy_CfnS3AccessPointAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnS3AccessPointAttachment) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

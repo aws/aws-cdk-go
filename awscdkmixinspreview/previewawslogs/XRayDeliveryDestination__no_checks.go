@@ -32,6 +32,10 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (x *jsiiProxy_XRayDeliveryDestination) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (x *jsiiProxy_XRayDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateOverrideLogicalIdParameters(
 }
 
 func (x *jsiiProxy_XRayDeliveryDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (x *jsiiProxy_XRayDeliveryDestination) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

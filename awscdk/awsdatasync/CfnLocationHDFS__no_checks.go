@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocationHDFS) validateAddPropertyOverrideParameters(proper
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocationHDFS) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocationHDFS) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnLocationHDFS) validateOverrideLogicalIdParameters(newLogic
 }
 
 func (c *jsiiProxy_CfnLocationHDFS) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocationHDFS) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

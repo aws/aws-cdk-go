@@ -9,11 +9,11 @@ package interfacesawsconfig
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   remediationConfigurationReference := &RemediationConfigurationReference{
-//   	RemediationConfigurationId: jsii.String("remediationConfigurationId"),
+//   	ConfigRuleName: jsii.String("configRuleName"),
 //   }
 //
 type RemediationConfigurationReference struct {
-	// The Id of the RemediationConfiguration resource.
-	RemediationConfigurationId *string `field:"required" json:"remediationConfigurationId" yaml:"remediationConfigurationId"`
+	// The ConfigRuleName of the RemediationConfiguration resource.
+	ConfigRuleName *string `field:"required" json:"configRuleName" yaml:"configRuleName"`
 }
 

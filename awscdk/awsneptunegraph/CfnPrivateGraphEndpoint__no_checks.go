@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateOverrideLogicalIdParameters(
 }
 
 func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPrivateGraphEndpoint) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

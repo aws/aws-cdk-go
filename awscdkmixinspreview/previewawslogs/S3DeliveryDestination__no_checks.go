@@ -32,6 +32,10 @@ func (s *jsiiProxy_S3DeliveryDestination) validateAddPropertyOverrideParameters(
 	return nil
 }
 
+func (s *jsiiProxy_S3DeliveryDestination) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (s *jsiiProxy_S3DeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (s *jsiiProxy_S3DeliveryDestination) validateOverrideLogicalIdParameters(ne
 }
 
 func (s *jsiiProxy_S3DeliveryDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (s *jsiiProxy_S3DeliveryDestination) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) validateAddPrope
 	return nil
 }
 
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) validateOverride
 }
 
 func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnStorageLens) validateAddPropertyOverrideParameters(propert
 	return nil
 }
 
+func (c *jsiiProxy_CfnStorageLens) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnStorageLens) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnStorageLens) validateOverrideLogicalIdParameters(newLogica
 }
 
 func (c *jsiiProxy_CfnStorageLens) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnStorageLens) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

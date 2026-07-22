@@ -50,6 +50,8 @@ type CfnInsightRuleProps struct {
 	// Valid values are `TRUE` and `FALSE` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-applyontransformedlogs
 	//
+	// Default: - false.
+	//
 	ApplyOnTransformedLogs interface{} `field:"optional" json:"applyOnTransformedLogs" yaml:"applyOnTransformedLogs"`
 	// A list of key-value pairs to associate with the Contributor Insights rule.
 	//

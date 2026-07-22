@@ -52,6 +52,7 @@ import (
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	Name: jsii.String("name"),
 //   	ReleaseLabel: jsii.String("releaseLabel"),
+//   	SessionIdleTimeoutInMinutes: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

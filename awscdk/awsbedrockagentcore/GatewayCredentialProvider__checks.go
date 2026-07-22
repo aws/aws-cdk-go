@@ -31,6 +31,14 @@ func validateGatewayCredentialProvider_FromApiKeyIdentityArnParameters(props *Ap
 	return nil
 }
 
+func validateGatewayCredentialProvider_FromIamRoleParameters(props *GatewayIamRoleCredentialProviderProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateGatewayCredentialProvider_FromOauthIdentityParameters(provider IOAuth2CredentialProvider, options *FromOauthIdentityOptions) error {
 	if provider == nil {
 		return fmt.Errorf("parameter provider is required, but nil was provided")

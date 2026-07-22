@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateAddPropertyO
 	return nil
 }
 
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateOverrideLogi
 }
 
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

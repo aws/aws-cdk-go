@@ -32,6 +32,10 @@ func (f *jsiiProxy_FirehoseDeliveryDestination) validateAddPropertyOverrideParam
 	return nil
 }
 
+func (f *jsiiProxy_FirehoseDeliveryDestination) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (f *jsiiProxy_FirehoseDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (f *jsiiProxy_FirehoseDeliveryDestination) validateOverrideLogicalIdParamet
 }
 
 func (f *jsiiProxy_FirehoseDeliveryDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (f *jsiiProxy_FirehoseDeliveryDestination) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

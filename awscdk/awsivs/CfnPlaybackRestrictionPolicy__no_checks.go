@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateAddPropertyOverridePara
 	return nil
 }
 
+func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateOverrideLogicalIdParame
 }
 
 func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnPlaybackRestrictionPolicy) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

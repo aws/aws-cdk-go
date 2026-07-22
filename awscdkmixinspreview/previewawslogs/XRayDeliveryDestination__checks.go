@@ -81,6 +81,14 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateAddPropertyOverrideParameter
 	return nil
 }
 
+func (x *jsiiProxy_XRayDeliveryDestination) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (x *jsiiProxy_XRayDeliveryDestination) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")
@@ -138,6 +146,14 @@ func (x *jsiiProxy_XRayDeliveryDestination) validateOverrideLogicalIdParameters(
 }
 
 func (x *jsiiProxy_XRayDeliveryDestination) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	if target == nil {
+		return fmt.Errorf("parameter target is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (x *jsiiProxy_XRayDeliveryDestination) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	if target == nil {
 		return fmt.Errorf("parameter target is required, but nil was provided")
 	}

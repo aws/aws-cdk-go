@@ -12,6 +12,10 @@ func (i *jsiiProxy_IntegTestCaseStack) validateAddMetadataParameters(key *string
 	return nil
 }
 
+func (i *jsiiProxy_IntegTestCaseStack) validateAddStackDependencyParameters(target awscdk.Stack) error {
+	return nil
+}
+
 func (i *jsiiProxy_IntegTestCaseStack) validateAddStackTagParameters(tagName *string, tagValue *string) error {
 	return nil
 }

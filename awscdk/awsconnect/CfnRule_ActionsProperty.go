@@ -16,6 +16,24 @@ package awsconnect
 //   	AssignContactCategoryActions: []interface{}{
 //   		assignContactCategoryActions,
 //   	},
+//   	AssignSlaActions: []interface{}{
+//   		&AssignSlaActionProperty{
+//   			CaseSlaConfiguration: &CaseSlaConfigurationProperty{
+//   				Name: jsii.String("name"),
+//   				TargetSlaMinutes: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//
+//   				// the properties below are optional
+//   				FieldId: jsii.String("fieldId"),
+//   				TargetFieldValues: []interface{}{
+//   					&SlaTargetFieldValueProperty{
+//   						StringValue: jsii.String("stringValue"),
+//   					},
+//   				},
+//   			},
+//   			SlaAssignmentType: jsii.String("slaAssignmentType"),
+//   		},
+//   	},
 //   	CreateCaseActions: []interface{}{
 //   		&CreateCaseActionProperty{
 //   			Fields: []interface{}{
@@ -55,6 +73,14 @@ package awsconnect
 //   			},
 //
 //   			// the properties below are optional
+//   			Exclusion: &NotificationRecipientTypeProperty{
+//   				UserArns: []*string{
+//   					jsii.String("userArns"),
+//   				},
+//   				UserTags: map[string]*string{
+//   					"userTagsKey": jsii.String("userTags"),
+//   				},
+//   			},
 //   			Subject: jsii.String("subject"),
 //   		},
 //   	},
@@ -104,6 +130,10 @@ type CfnRule_ActionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-assigncontactcategoryactions
 	//
 	AssignContactCategoryActions interface{} `field:"optional" json:"assignContactCategoryActions" yaml:"assignContactCategoryActions"`
+	// This action will assign an SLA when a rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-assignslaactions
+	//
+	AssignSlaActions interface{} `field:"optional" json:"assignSlaActions" yaml:"assignSlaActions"`
 	// This action will create a case when a rule is triggered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-createcaseactions
 	//

@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateOverrideLogic
 }
 
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

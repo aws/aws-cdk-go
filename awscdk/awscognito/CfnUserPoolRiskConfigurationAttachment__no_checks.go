@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateAddPropertyOv
 	return nil
 }
 
+func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateOverrideLogic
 }
 
 func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

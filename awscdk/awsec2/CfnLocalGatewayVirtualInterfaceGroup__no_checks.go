@@ -32,6 +32,10 @@ func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateAddPropertyOver
 	return nil
 }
 
+func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
 func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }
@@ -61,6 +65,10 @@ func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateOverrideLogical
 }
 
 func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnLocalGatewayVirtualInterfaceGroup) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
 	return nil
 }
 

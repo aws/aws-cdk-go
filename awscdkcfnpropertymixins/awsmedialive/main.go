@@ -1160,6 +1160,34 @@ func init() {
 		reflect.TypeOf((*CfnNetworkPropsMixin_RouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnNodeMixinProps",
+		reflect.TypeOf((*CfnNodeMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnNodePropsMixin",
+		reflect.TypeOf((*CfnNodePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnNodePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnNodePropsMixin.NodeInterfaceMappingProperty",
+		reflect.TypeOf((*CfnNodePropsMixin_NodeInterfaceMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnNodePropsMixin.SdiSourceMappingProperty",
+		reflect.TypeOf((*CfnNodePropsMixin_SdiSourceMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnSdiSourceMixinProps",
 		reflect.TypeOf((*CfnSdiSourceMixinProps)(nil)).Elem(),
 	)

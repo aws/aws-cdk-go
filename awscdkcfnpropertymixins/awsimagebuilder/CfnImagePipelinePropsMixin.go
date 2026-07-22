@@ -38,6 +38,9 @@ import (
 //   		},
 //   		ImageScanningEnabled: jsii.Boolean(false),
 //   	},
+//   	ImageTags: map[string]*string{
+//   		"imageTagsKey": jsii.String("imageTags"),
+//   	},
 //   	ImageTestsConfiguration: &ImageTestsConfigurationProperty{
 //   		ImageTestsEnabled: jsii.Boolean(false),
 //   		TimeoutMinutes: jsii.Number(123),

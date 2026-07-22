@@ -9,12 +9,17 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   afterContactWorkConfigProperty := &AfterContactWorkConfigProperty{
+//   	AfterContactWorkMode: jsii.String("afterContactWorkMode"),
 //   	AfterContactWorkTimeLimit: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-aftercontactworkconfig.html
 //
 type CfnUser_AfterContactWorkConfigProperty struct {
+	// The after contact work (ACW) mode for the channel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-aftercontactworkconfig.html#cfn-connect-user-aftercontactworkconfig-aftercontactworkmode
+	//
+	AfterContactWorkMode *string `field:"optional" json:"afterContactWorkMode" yaml:"afterContactWorkMode"`
 	// The After Call Work (ACW) timeout setting, in seconds.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-aftercontactworkconfig.html#cfn-connect-user-aftercontactworkconfig-aftercontactworktimelimit
 	//

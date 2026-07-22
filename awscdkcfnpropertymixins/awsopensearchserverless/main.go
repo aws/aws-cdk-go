@@ -124,6 +124,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_opensearchserverless.CfnIndexPropsMixin.AnalysisProperty",
+		reflect.TypeOf((*CfnIndexPropsMixin_AnalysisProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_opensearchserverless.CfnIndexPropsMixin.AnalyzerItemsProperty",
+		reflect.TypeOf((*CfnIndexPropsMixin_AnalyzerItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_opensearchserverless.CfnIndexPropsMixin.IndexProperty",
 		reflect.TypeOf((*CfnIndexPropsMixin_IndexProperty)(nil)).Elem(),
 	)

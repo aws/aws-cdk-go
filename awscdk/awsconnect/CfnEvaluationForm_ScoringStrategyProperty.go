@@ -11,6 +11,17 @@ package awsconnect
 //   scoringStrategyProperty := &ScoringStrategyProperty{
 //   	Mode: jsii.String("mode"),
 //   	Status: jsii.String("status"),
+//
+//   	// the properties below are optional
+//   	ScoreThresholds: []interface{}{
+//   		&EvaluationFormScoreThresholdProperty{
+//   			PerformanceCategory: jsii.String("performanceCategory"),
+//
+//   			// the properties below are optional
+//   			MaxScorePercentage: jsii.Number(123),
+//   			MinScorePercentage: jsii.Number(123),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html
@@ -28,5 +39,8 @@ type CfnEvaluationForm_ScoringStrategyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html#cfn-connect-evaluationform-scoringstrategy-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html#cfn-connect-evaluationform-scoringstrategy-scorethresholds
+	//
+	ScoreThresholds interface{} `field:"optional" json:"scoreThresholds" yaml:"scoreThresholds"`
 }
 
