@@ -239,9 +239,6 @@ type CfnDBCluster interface {
 	AddDependency(target awscdk.CfnResource)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
 	//
-	// This can be used for resources across stacks (or nested stack) boundaries
-	// and the dependency will automatically be transferred to the relevant scope.
-	//
 	// This method has been renamed to `addResourceDependency`, which makes it
 	// more clear that this method operates at a different level from the
 	// construct-level `construct.node.addDependency()` mechanism.
@@ -350,11 +347,10 @@ type CfnDBCluster interface {
 	GetMetadata(key *string) interface{}
 	// Examines the CloudFormation resource and discloses attributes.
 	Inspect(inspector awscdk.TreeInspector)
-	// Retrieves an array of resources and stacks this resource depends on.
+	// Retrieves an array of resources this resource depends on.
 	//
-	// For resources depended on directly, returns the `CfnResource` object. For
-	// dependencies on other stacks, returns the `Stack` object. The order of the
-	// array is not guaranteed.
+	// This assembles dependencies on resources across stacks (including nested stacks)
+	// automatically.
 	ObtainDependencies() *[]interface{}
 	// Overrides the auto-generated logical ID with a specific ID.
 	OverrideLogicalId(newLogicalId *string)

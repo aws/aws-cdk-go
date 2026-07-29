@@ -39,7 +39,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Properties: &AwsCloudFormationStackProperties{
+//   	Properties: &TreeArtifactProperties{
 //   		TemplateFile: jsii.String("templateFile"),
 //
 //   		// the properties below are optional
