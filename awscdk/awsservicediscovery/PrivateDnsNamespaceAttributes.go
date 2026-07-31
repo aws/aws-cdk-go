@@ -2,15 +2,22 @@ package awsservicediscovery
 
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc Vpc
 //
-//   privateDnsNamespaceAttributes := &PrivateDnsNamespaceAttributes{
-//   	NamespaceArn: jsii.String("namespaceArn"),
-//   	NamespaceId: jsii.String("namespaceId"),
-//   	NamespaceName: jsii.String("namespaceName"),
-//   }
+//
+//   importedNamespace := cloudmap.PrivateDnsNamespace_FromPrivateDnsNamespaceAttributes(this, jsii.String("ImportedNamespace"), &PrivateDnsNamespaceAttributes{
+//   	NamespaceId: jsii.String("ns-xxxxxxxxxxxxx"),
+//   	NamespaceArn: jsii.String("arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-xxxxxxxxxxxxx"),
+//   	NamespaceName: jsii.String("example.local"),
+//   })
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+//   	Vpc: Vpc,
+//   })
+//
+//   cluster.AddExistingDefaultCloudMapNamespace(&ExistingCloudMapNamespaceOptions{
+//   	Namespace: importedNamespace,
+//   })
 //
 type PrivateDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.

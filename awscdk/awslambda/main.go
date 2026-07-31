@@ -2416,6 +2416,17 @@ func init() {
 		"aws-cdk-lib.aws_lambda.Permission",
 		reflect.TypeOf((*Permission)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.PropagateTags",
+		reflect.TypeOf((*PropagateTags)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "explicitTags", GoGetter: "ExplicitTags"},
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PropagateTags{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.ProvisionedPollerConfig",
 		reflect.TypeOf((*ProvisionedPollerConfig)(nil)).Elem(),

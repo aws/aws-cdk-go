@@ -21,12 +21,12 @@ import (
 // `addFargateProfile`.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
 //
 //
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_35(),
-//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_36(),
+//   	KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
 //   })
 //
 type FargateCluster interface {

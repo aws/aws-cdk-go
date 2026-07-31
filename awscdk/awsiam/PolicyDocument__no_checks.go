@@ -8,6 +8,10 @@ func (p *jsiiProxy_PolicyDocument) validateResolveParameters(context awscdk.IRes
 	return nil
 }
 
+func (p *jsiiProxy_PolicyDocument) validateValidateForResourcePolicyParameters(options *ResourcePolicyValidationOptions) error {
+	return nil
+}
+
 func validatePolicyDocument_FromJsonParameters(obj interface{}) error {
 	return nil
 }

@@ -1,0 +1,18 @@
+package internal
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmediaconnect"
+)
+type Type__awscdkResource = awscdk.Resource
+type Type__interfacesawsmediaconnectIBridgeRef = interfacesawsmediaconnect.IBridgeRef
+type Type__awscdkIResource = awscdk.IResource
+type Type__interfacesawsmediaconnectIBridgeOutputRef = interfacesawsmediaconnect.IBridgeOutputRef
+type Type__interfacesawsmediaconnectIBridgeSourceRef = interfacesawsmediaconnect.IBridgeSourceRef
+type Type__interfacesawsmediaconnectIFlowRef = interfacesawsmediaconnect.IFlowRef
+type Type__interfacesawsmediaconnectIFlowEntitlementRef = interfacesawsmediaconnect.IFlowEntitlementRef
+type Type__interfacesawsmediaconnectIFlowOutputRef = interfacesawsmediaconnect.IFlowOutputRef
+type Type__interfacesawsmediaconnectIFlowSourceRef = interfacesawsmediaconnect.IFlowSourceRef
+type Type__interfacesawsmediaconnectIGatewayRef = interfacesawsmediaconnect.IGatewayRef
+type Type__interfacesawsmediaconnectIRouterInputRef = interfacesawsmediaconnect.IRouterInputRef
+type Type__interfacesawsmediaconnectIRouterNetworkInterfaceRef = interfacesawsmediaconnect.IRouterNetworkInterfaceRef
+type Type__interfacesawsmediaconnectIRouterOutputRef = interfacesawsmediaconnect.IRouterOutputRef

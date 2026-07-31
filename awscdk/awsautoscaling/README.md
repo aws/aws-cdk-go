@@ -572,6 +572,52 @@ The following update policies are available:
   configured on the AutoScalingGroup), the old AutoScalingGroup is deleted.
   If the deployment needs to be rolled back, the new AutoScalingGroup is
   deleted and the old one is left unchanged.
+* `UpdatePolicy.instanceRefresh([options])`: gradually replace the existing
+  instances with new instances by having Amazon EC2 Auto Scaling perform an
+  instance refresh, keeping a configurable percentage of the group healthy and
+  in service throughout.
+
+To customize the instance refresh, pass options:
+
+```go
+var vpc Vpc
+var instanceType InstanceType
+var machineImage IMachineImage
+var alarm Alarm
+
+
+autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+	Vpc: Vpc,
+	InstanceType: InstanceType,
+	MachineImage: MachineImage,
+
+	UpdatePolicy: autoscaling.UpdatePolicy_InstanceRefresh(&InstanceRefreshOptions{
+		Strategy: autoscaling.InstanceRefreshStrategy_ROLLING,
+		MinHealthyPercentage: jsii.Number(90),
+		MaxHealthyPercentage: jsii.Number(100),
+		InstanceWarmup: awscdk.Duration_Seconds(jsii.Number(300)),
+		CheckpointPercentages: []*f64{
+			jsii.Number(50),
+			jsii.Number(100),
+		},
+		CheckpointDelay: awscdk.Duration_Minutes(jsii.Number(10)),
+		Alarms: []IAlarmRef{
+			alarm,
+		},
+	}),
+})
+```
+
+> **Note:** CloudFormation reads the `UpdatePolicy` from the *rollback target*
+> template (the template being rolled back to), not from the template that
+> triggered the update. Keep the `updatePolicy` on the Auto Scaling group
+> permanently — if you remove it after the triggering update, a subsequent
+> rollback will not perform an instance refresh.
+
+If you omit `minHealthyPercentage`/`maxHealthyPercentage`, they fall back to the
+Auto Scaling group's instance maintenance policy when one is defined; otherwise
+CloudFormation defaults to `100`/`110` for the `Rolling` strategy
+(launch-before-terminate with a 10% surge) and `90`/`100` for `ReplaceRootVolume`.
 
 ## Allowing Connections
 

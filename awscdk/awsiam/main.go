@@ -2031,6 +2031,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "validateForAnyPolicy", GoMethod: "ValidateForAnyPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "validateForIdentityPolicy", GoMethod: "ValidateForIdentityPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "validateForResourcePolicy", GoMethod: "ValidateForResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "validateForTrustPolicy", GoMethod: "ValidateForTrustPolicy"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PolicyDocument{}
@@ -2089,6 +2090,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "validateForAnyPolicy", GoMethod: "ValidateForAnyPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "validateForIdentityPolicy", GoMethod: "ValidateForIdentityPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "validateForResourcePolicy", GoMethod: "ValidateForResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "validateForTrustPolicy", GoMethod: "ValidateForTrustPolicy"},
 		},
 		func() interface{} {
 			return &jsiiProxy_PolicyStatement{}
@@ -2159,6 +2161,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_PrincipalBase)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iam.ResourcePolicyValidationOptions",
+		reflect.TypeOf((*ResourcePolicyValidationOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_iam.ResourceWithPolicies",

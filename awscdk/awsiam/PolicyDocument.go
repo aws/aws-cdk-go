@@ -81,7 +81,15 @@ type PolicyDocument interface {
 	// Returns: An array of validation error messages, or an empty array if the document is valid.
 	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json
 	//
-	ValidateForResourcePolicy() *[]*string
+	ValidateForResourcePolicy(options *ResourcePolicyValidationOptions) *[]*string
+	// Validate that all policy statements in the policy document satisfies the requirements for a trust policy (assume role policy).
+	//
+	// Trust policies are a special type of resource-based policy where the resource is implicit (the role itself).
+	//
+	// Returns: An array of validation error messages, or an empty array if the document is valid.
+	// See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html
+	//
+	ValidateForTrustPolicy() *[]*string
 }
 
 // The jsii proxy struct for PolicyDocument
@@ -249,12 +257,28 @@ func (p *jsiiProxy_PolicyDocument) ValidateForIdentityPolicy() *[]*string {
 	return returns
 }
 
-func (p *jsiiProxy_PolicyDocument) ValidateForResourcePolicy() *[]*string {
+func (p *jsiiProxy_PolicyDocument) ValidateForResourcePolicy(options *ResourcePolicyValidationOptions) *[]*string {
+	if err := p.validateValidateForResourcePolicyParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		p,
 		"validateForResourcePolicy",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PolicyDocument) ValidateForTrustPolicy() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validateForTrustPolicy",
 		nil, // no parameters
 		&returns,
 	)

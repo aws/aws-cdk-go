@@ -11,21 +11,21 @@ import (
 // Common configuration props for EKS clusters.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
-//
-//   // or
-//   var vpc Vpc
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
 //
 //
-//   eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-//   	KubectlMemory: awscdk.Size_Gibibytes(jsii.Number(4)),
-//   	Version: eks.KubernetesVersion_V1_35(),
-//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+//   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
+//   	Version: eks.KubernetesVersion_V1_36(),
+//   	DefaultCapacity: jsii.Number(0),
+//   	KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
 //   })
-//   eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &ClusterAttributes{
-//   	KubectlMemory: awscdk.Size_*Gibibytes(jsii.Number(4)),
-//   	Vpc: Vpc,
-//   	ClusterName: jsii.String("cluster-name"),
+//
+//   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
+//   	InstanceTypes: []InstanceType{
+//   		ec2.NewInstanceType(jsii.String("m5.large")),
+//   	},
+//   	MinSize: jsii.Number(4),
+//   	DiskSize: jsii.Number(100),
 //   })
 //
 type ClusterProps struct {
@@ -120,6 +120,16 @@ type ClusterProps struct {
 	// Default: - none.
 	//
 	ClusterLogging *[]ClusterLoggingTypes `field:"optional" json:"clusterLogging" yaml:"clusterLogging"`
+	// The control plane scaling tier for EKS Provisioned Control Plane.
+	//
+	// Provisioned Control Plane allows you to select a scaling tier to ensure
+	// high and predictable performance for demanding workloads such as
+	// AI training/inference, high-performance computing, or large-scale data processing.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane.html
+	//
+	// Default: - Standard control plane (no provisioned tier).
+	//
+	ControlPlaneScalingTier ControlPlaneScalingTier `field:"optional" json:"controlPlaneScalingTier" yaml:"controlPlaneScalingTier"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)
 	//

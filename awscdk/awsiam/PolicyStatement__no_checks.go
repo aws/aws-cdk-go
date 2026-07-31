@@ -48,6 +48,10 @@ func (p *jsiiProxy_PolicyStatement) validateCopyParameters(overrides *PolicyStat
 	return nil
 }
 
+func (p *jsiiProxy_PolicyStatement) validateValidateForResourcePolicyParameters(options *ResourcePolicyValidationOptions) error {
+	return nil
+}
+
 func validatePolicyStatement_FromJsonParameters(obj interface{}) error {
 	return nil
 }

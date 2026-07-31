@@ -11,12 +11,12 @@ import (
 // Configuration props for EKS Fargate.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
 //
 //
 //   cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_35(),
-//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_36(),
+//   	KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
 //   })
 //
 type FargateClusterProps struct {
@@ -111,6 +111,16 @@ type FargateClusterProps struct {
 	// Default: - none.
 	//
 	ClusterLogging *[]ClusterLoggingTypes `field:"optional" json:"clusterLogging" yaml:"clusterLogging"`
+	// The control plane scaling tier for EKS Provisioned Control Plane.
+	//
+	// Provisioned Control Plane allows you to select a scaling tier to ensure
+	// high and predictable performance for demanding workloads such as
+	// AI training/inference, high-performance computing, or large-scale data processing.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane.html
+	//
+	// Default: - Standard control plane (no provisioned tier).
+	//
+	ControlPlaneScalingTier ControlPlaneScalingTier `field:"optional" json:"controlPlaneScalingTier" yaml:"controlPlaneScalingTier"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)
 	//

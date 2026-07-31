@@ -4,25 +4,24 @@ package awscloudwatch
 // Properties needed to make an alarm from a metric.
 //
 // Example:
-//   var channelGroup ChannelGroup
-//   var channel Channel
-//   var endpoint OriginEndpoint
+//   var flow Flow
+//   var stack Stack
 //
 //
-//   // Create a CloudWatch alarm on channel group egress bytes
-//   alarm := channelGroup.metricEgressBytes().CreateAlarm(this, jsii.String("HighEgress"), &CreateAlarmOptions{
-//   	Threshold: jsii.Number(1000),
+//   // Create a CloudWatch alarm on source bitrate
+//   alarm := flow.metricSourceBitrate().CreateAlarm(stack, jsii.String("LowBitrate"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(1000000),
 //   	EvaluationPeriods: jsii.Number(1),
 //   })
 //
-//   // Monitor channel ingress response time
-//   channel.metricIngressResponseTime().CreateAlarm(this, jsii.String("SlowIngress"), &CreateAlarmOptions{
-//   	Threshold: jsii.Number(1000),
+//   // Monitor unrecovered packets
+//   flow.metricSourceNotRecoveredPackets().CreateAlarm(stack, jsii.String("PacketLoss"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(100),
 //   	EvaluationPeriods: jsii.Number(2),
 //   })
 //
-//   // Track origin endpoint request count
-//   requestMetric := endpoint.metricEgressRequestCount(&MetricOptions{
+//   // Track total packets with custom options
+//   totalPackets := flow.metricSourceTotalPackets(&MetricOptions{
 //   	Statistic: jsii.String("sum"),
 //   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })

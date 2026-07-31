@@ -1700,6 +1700,55 @@ ecsService.AssociateCloudMapService(&AssociateCloudMapServiceOptions{
 })
 ```
 
+### Using an Existing Cloud Map Namespace
+
+You can use an existing Cloud Map namespace as the default namespace for a cluster
+instead of creating a new one. This is useful when you want to share a namespace
+across multiple clusters or when you want to use a namespace that was created
+outside of CDK:
+
+```go
+var vpc Vpc
+
+
+// Create or reference an existing namespace
+existingNamespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("Namespace"), &PrivateDnsNamespaceProps{
+	Name: jsii.String("example.local"),
+	Vpc: Vpc,
+})
+
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+// Use the existing namespace as the default
+cluster.AddExistingDefaultCloudMapNamespace(&ExistingCloudMapNamespaceOptions{
+	Namespace: existingNamespace,
+	UseForServiceConnect: jsii.Boolean(true),
+})
+```
+
+You can also import an existing namespace:
+
+```go
+var vpc Vpc
+
+
+importedNamespace := cloudmap.PrivateDnsNamespace_FromPrivateDnsNamespaceAttributes(this, jsii.String("ImportedNamespace"), &PrivateDnsNamespaceAttributes{
+	NamespaceId: jsii.String("ns-xxxxxxxxxxxxx"),
+	NamespaceArn: jsii.String("arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-xxxxxxxxxxxxx"),
+	NamespaceName: jsii.String("example.local"),
+})
+
+cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
+	Vpc: Vpc,
+})
+
+cluster.AddExistingDefaultCloudMapNamespace(&ExistingCloudMapNamespaceOptions{
+	Namespace: importedNamespace,
+})
+```
+
 ## Capacity Providers
 
 There are two major families of Capacity Providers: [AWS

@@ -11,7 +11,7 @@ import (
 //
 // Example:
 //   eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_34(),
+//   	Version: eks.KubernetesVersion_V1_36(),
 //   	AlbController: &AlbControllerOptions{
 //   		Version: eks.AlbControllerVersion_V3_2_2(),
 //   		OverwriteServiceAccount: jsii.Boolean(true),

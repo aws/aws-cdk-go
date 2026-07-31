@@ -23,24 +23,22 @@ import (
 // alarms and graphs.
 //
 // Example:
-//   // Create a metric
-//   metric := cloudwatch.NewMetric(&MetricProps{
-//   	Namespace: jsii.String("AWS/EC2"),
-//   	MetricName: jsii.String("CPUUtilization"),
-//   	Statistic: jsii.String("Average"),
-//   	Period: awscdk.Duration_Hours(jsii.Number(1)),
-//   })
+//   var serverlessCache ServerlessCache
 //
-//   // Create an anomaly detection alarm
-//   alarm := cloudwatch.NewAnomalyDetectionAlarm(this, jsii.String("AnomalyAlarm"), &AnomalyDetectionAlarmProps{
-//   	Metric: metric,
+//
+//   // The 5 minutes average of the total number of successful read-only key lookups in the cache.
+//   cacheHits := serverlessCache.MetricCacheHitCount()
+//
+//   // The 5 minutes average of the total number of bytes used by the data stored in the cache.
+//   bytesUsedForCache := serverlessCache.MetricDataStored()
+//
+//   // The 5 minutes average of the total number of ElastiCacheProcessingUnits (ECPUs) consumed by the requests executed on the cache.
+//   elastiCacheProcessingUnits := serverlessCache.MetricProcessingUnitsConsumed()
+//
+//   // Create an alarm for ECPUs.
+//   elastiCacheProcessingUnits.CreateAlarm(this, jsii.String("ElastiCacheProcessingUnitsAlarm"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(50),
 //   	EvaluationPeriods: jsii.Number(1),
-//
-//   	// Number of standard deviations for the band (default: 2)
-//   	StdDevs: jsii.Number(2),
-//   	// Alarm outside on either side of the band, or just below or above it (default: outside)
-//   	ComparisonOperator: cloudwatch.ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD,
-//   	AlarmDescription: jsii.String("Alarm when metric is outside the expected band"),
 //   })
 //
 type Metric interface {

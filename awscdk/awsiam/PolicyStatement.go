@@ -192,7 +192,13 @@ type PolicyStatement interface {
 	// Validate that the policy statement satisfies all requirements for a resource-based policy.
 	//
 	// Returns: An array of validation error messages, or an empty array if the statement is valid.
-	ValidateForResourcePolicy() *[]*string
+	ValidateForResourcePolicy(options *ResourcePolicyValidationOptions) *[]*string
+	// Validate that the policy statement satisfies all requirements for a trust policy (assume role policy).
+	//
+	// Trust policies are a special type of resource-based policy where the resource is implicit (the role itself).
+	//
+	// Returns: An array of validation error messages, or an empty array if the statement is valid.
+	ValidateForTrustPolicy() *[]*string
 }
 
 // The jsii proxy struct for PolicyStatement
@@ -705,12 +711,28 @@ func (p *jsiiProxy_PolicyStatement) ValidateForIdentityPolicy() *[]*string {
 	return returns
 }
 
-func (p *jsiiProxy_PolicyStatement) ValidateForResourcePolicy() *[]*string {
+func (p *jsiiProxy_PolicyStatement) ValidateForResourcePolicy(options *ResourcePolicyValidationOptions) *[]*string {
+	if err := p.validateValidateForResourcePolicyParameters(options); err != nil {
+		panic(err)
+	}
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		p,
 		"validateForResourcePolicy",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PolicyStatement) ValidateForTrustPolicy() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validateForTrustPolicy",
 		nil, // no parameters
 		&returns,
 	)

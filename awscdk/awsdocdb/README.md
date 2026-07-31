@@ -334,3 +334,27 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 **Note**: `StorageType.IOPT1` is supported starting with engine version 5.0.0.
 
 **Note**: For serverless clusters, storage type is managed automatically and cannot be specified.
+
+## Maintenance Windows
+
+DocumentDB has two independent maintenance windows: one for cluster-wide events (engine upgrades, etc.) and one per instance (reboots, patches). Use `preferredMaintenanceWindow` to control the cluster window and `instanceMaintenanceWindow` to control the window applied to every auto-created instance.
+
+**Note**: `instanceMaintenanceWindow` only applies to provisioned clusters. It has no effect on serverless clusters because they don't create instances.
+
+```go
+var vpc Vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+	PreferredMaintenanceWindow: jsii.String("tue:04:17-tue:04:47"),
+	 // cluster-wide events
+	InstanceMaintenanceWindow: jsii.String("sat:09:00-sat:09:30"),
+})
+```
+
+If you want both the cluster and its instances to share the same window, set both props to the same value. When `instanceMaintenanceWindow` is not provided, a random 30-minute window is picked for each instance, which can cause maintenance events outside the cluster window.

@@ -4,6 +4,10 @@ package awsautoscaling
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func validateUpdatePolicy_InstanceRefreshParameters(options *InstanceRefreshOptions) error {
+	return nil
+}
+
 func validateUpdatePolicy_RollingUpdateParameters(options *RollingUpdateOptions) error {
 	return nil
 }

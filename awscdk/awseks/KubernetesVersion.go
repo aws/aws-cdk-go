@@ -8,13 +8,13 @@ import (
 // Kubernetes cluster version.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
 //
 //
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_35(),
+//   	Version: eks.KubernetesVersion_V1_36(),
 //   	DefaultCapacity: jsii.Number(0),
-//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
 //   })
 //
 //   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{
@@ -304,6 +304,17 @@ func KubernetesVersion_V1_35() KubernetesVersion {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_eks.KubernetesVersion",
 		"V1_35",
+		&returns,
+	)
+	return returns
+}
+
+func KubernetesVersion_V1_36() KubernetesVersion {
+	_init_.Initialize()
+	var returns KubernetesVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"V1_36",
 		&returns,
 	)
 	return returns

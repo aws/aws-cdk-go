@@ -8,11 +8,32 @@ import (
 // How existing instances should be updated.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc Vpc
+//   var instanceType InstanceType
+//   var machineImage IMachineImage
+//   var alarm Alarm
 //
-//   updatePolicy := awscdk.Aws_autoscaling.UpdatePolicy_ReplacingUpdate()
+//
+//   autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	InstanceType: InstanceType,
+//   	MachineImage: MachineImage,
+//
+//   	UpdatePolicy: autoscaling.UpdatePolicy_InstanceRefresh(&InstanceRefreshOptions{
+//   		Strategy: autoscaling.InstanceRefreshStrategy_ROLLING,
+//   		MinHealthyPercentage: jsii.Number(90),
+//   		MaxHealthyPercentage: jsii.Number(100),
+//   		InstanceWarmup: awscdk.Duration_Seconds(jsii.Number(300)),
+//   		CheckpointPercentages: []*f64{
+//   			jsii.Number(50),
+//   			jsii.Number(100),
+//   		},
+//   		CheckpointDelay: awscdk.Duration_Minutes(jsii.Number(10)),
+//   		Alarms: []IAlarmRef{
+//   			alarm,
+//   		},
+//   	}),
+//   })
 //
 type UpdatePolicy interface {
 }
@@ -30,6 +51,29 @@ func NewUpdatePolicy_Override(u UpdatePolicy) {
 		nil, // no parameters
 		u,
 	)
+}
+
+// Use instance refresh to update the instances in the AutoScalingGroup.
+//
+// When properties that trigger an instance refresh change (such as LaunchTemplate
+// or MixedInstancesPolicy), CloudFormation starts an instance refresh to replace
+// instances gradually while maintaining availability.
+func UpdatePolicy_InstanceRefresh(options *InstanceRefreshOptions) UpdatePolicy {
+	_init_.Initialize()
+
+	if err := validateUpdatePolicy_InstanceRefreshParameters(options); err != nil {
+		panic(err)
+	}
+	var returns UpdatePolicy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
+		"instanceRefresh",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
 }
 
 // Create a new AutoScalingGroup and switch over to it.

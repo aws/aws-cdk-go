@@ -111,6 +111,23 @@ type DatabaseClusterProps struct {
 	// identifier is automatically generated.
 	//
 	InstanceIdentifierBase *string `field:"optional" json:"instanceIdentifierBase" yaml:"instanceIdentifierBase"`
+	// The weekly time range during which system maintenance can occur on the cluster's instances.
+	//
+	// The cluster-level `preferredMaintenanceWindow` applies to cluster-wide maintenance events; this prop
+	// applies to each auto-created instance independently. To use the same window for both, set this prop
+	// to the same value as `preferredMaintenanceWindow`.
+	//
+	// Format: `ddd:hh24:mi-ddd:hh24:mi`. Must be at least 30 minutes long.
+	// Example: 'sat:09:00-sat:09:30'
+	//
+	// Only applicable to provisioned clusters; has no effect on serverless clusters because they do not
+	// create instances.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-maintain.html#maintenance-window
+	//
+	// Default: - a 30-minute window selected at random from an 8-hour block of time for each AWS Region,
+	// occurring on a random day of the week.
+	//
+	InstanceMaintenanceWindow *string `field:"optional" json:"instanceMaintenanceWindow" yaml:"instanceMaintenanceWindow"`
 	// The removal policy to apply to the cluster's instances.
 	//
 	// Cannot be set to `SNAPSHOT`.

@@ -108,6 +108,14 @@ func (p *jsiiProxy_PolicyStatement) validateCopyParameters(overrides *PolicyStat
 	return nil
 }
 
+func (p *jsiiProxy_PolicyStatement) validateValidateForResourcePolicyParameters(options *ResourcePolicyValidationOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validatePolicyStatement_FromJsonParameters(obj interface{}) error {
 	if obj == nil {
 		return fmt.Errorf("parameter obj is required, but nil was provided")

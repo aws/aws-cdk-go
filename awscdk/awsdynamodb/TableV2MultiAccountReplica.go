@@ -19,7 +19,7 @@ import (
 // It inherits the schema (partition key, sort key, and indexes) from the source table.
 //
 // Permissions on the replica side are automatically configured. You must manually add
-// permissions to the source table using `sourceTable.grants.nultiAccountReplicationTo(replica.tableArn)`.
+// permissions to the source table using `sourceTable.grants.multiAccountReplicationTo(replica.tableArn)`.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"

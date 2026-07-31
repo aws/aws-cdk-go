@@ -30,7 +30,7 @@ const (
 	RouterType_CARRIER_GATEWAY RouterType = "CARRIER_GATEWAY"
 	// Egress-only Internet Gateway.
 	RouterType_EGRESS_ONLY_INTERNET_GATEWAY RouterType = "EGRESS_ONLY_INTERNET_GATEWAY"
-	// Internet Gateway.
+	// Internet Gateway or Virtual Private Gateway.
 	RouterType_GATEWAY RouterType = "GATEWAY"
 	// Instance.
 	RouterType_INSTANCE RouterType = "INSTANCE"

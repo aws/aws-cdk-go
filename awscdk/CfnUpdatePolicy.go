@@ -12,6 +12,29 @@ package awscdk
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnUpdatePolicy := &CfnUpdatePolicy{
+//   	AutoScalingInstanceRefresh: &CfnAutoScalingInstanceRefresh{
+//   		Strategy: jsii.String("strategy"),
+//
+//   		// the properties below are optional
+//   		Preferences: &CfnAutoScalingInstanceRefreshPreferences{
+//   			AlarmSpecification: &CfnAutoScalingInstanceRefreshAlarmSpecification{
+//   				Alarms: []*string{
+//   					jsii.String("alarms"),
+//   				},
+//   			},
+//   			BakeTime: jsii.Number(123),
+//   			CheckpointDelay: jsii.Number(123),
+//   			CheckpointPercentages: []*f64{
+//   				jsii.Number(123),
+//   			},
+//   			InstanceWarmup: jsii.Number(123),
+//   			MaxHealthyPercentage: jsii.Number(123),
+//   			MinHealthyPercentage: jsii.Number(123),
+//   			ScaleInProtectedInstances: jsii.String("scaleInProtectedInstances"),
+//   			SkipMatching: jsii.Boolean(false),
+//   			StandbyInstances: jsii.String("standbyInstances"),
+//   		},
+//   	},
 //   	AutoScalingReplacingUpdate: &CfnAutoScalingReplacingUpdate{
 //   		WillReplace: jsii.Boolean(false),
 //   	},
@@ -42,6 +65,12 @@ package awscdk
 //   }
 //
 type CfnUpdatePolicy struct {
+	// To specify how AWS CloudFormation handles instance refresh for an Auto Scaling group, use the AutoScalingInstanceRefresh policy.
+	//
+	// This policy triggers an instance refresh when certain properties
+	// of the Auto Scaling group change (such as launch template or mixed instances policy), replacing
+	// instances gradually while maintaining availability.
+	AutoScalingInstanceRefresh *CfnAutoScalingInstanceRefresh `field:"optional" json:"autoScalingInstanceRefresh" yaml:"autoScalingInstanceRefresh"`
 	// Specifies whether an Auto Scaling group and the instances it contains are replaced during an update.
 	//
 	// During replacement,

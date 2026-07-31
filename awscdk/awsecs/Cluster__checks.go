@@ -64,6 +64,17 @@ func (c *jsiiProxy_Cluster) validateAddDefaultCloudMapNamespaceParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddExistingDefaultCloudMapNamespaceParameters(options *ExistingCloudMapNamespaceOptions) error {
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateAddManagedInstancesCapacityProviderParameters(provider ManagedInstancesCapacityProvider) error {
 	if provider == nil {
 		return fmt.Errorf("parameter provider is required, but nil was provided")

@@ -39,7 +39,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Properties: &TreeArtifactProperties{
+//   	Properties: &NestedCloudAssemblyProperties{
 //   		TemplateFile: jsii.String("templateFile"),
 //
 //   		// the properties below are optional

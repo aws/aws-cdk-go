@@ -961,6 +961,18 @@ func init() {
 		reflect.TypeOf((*InstanceLifecyclePolicy)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.InstanceRefreshOptions",
+		reflect.TypeOf((*InstanceRefreshOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_autoscaling.InstanceRefreshStrategy",
+		reflect.TypeOf((*InstanceRefreshStrategy)(nil)).Elem(),
+		map[string]interface{}{
+			"ROLLING": InstanceRefreshStrategy_ROLLING,
+			"REPLACE_ROOT_VOLUME": InstanceRefreshStrategy_REPLACE_ROOT_VOLUME,
+		},
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.InstancesDistribution",
 		reflect.TypeOf((*InstancesDistribution)(nil)).Elem(),
 	)
@@ -1087,6 +1099,15 @@ func init() {
 		reflect.TypeOf((*RollingUpdateOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_autoscaling.ScaleInProtectedInstances",
+		reflect.TypeOf((*ScaleInProtectedInstances)(nil)).Elem(),
+		map[string]interface{}{
+			"REFRESH": ScaleInProtectedInstances_REFRESH,
+			"IGNORE": ScaleInProtectedInstances_IGNORE,
+			"WAIT": ScaleInProtectedInstances_WAIT,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_autoscaling.ScalingEvent",
 		reflect.TypeOf((*ScalingEvent)(nil)).Elem(),
 		map[string]interface{}{
@@ -1184,6 +1205,15 @@ func init() {
 			"CAPACITY_OPTIMIZED": SpotAllocationStrategy_CAPACITY_OPTIMIZED,
 			"CAPACITY_OPTIMIZED_PRIORITIZED": SpotAllocationStrategy_CAPACITY_OPTIMIZED_PRIORITIZED,
 			"PRICE_CAPACITY_OPTIMIZED": SpotAllocationStrategy_PRICE_CAPACITY_OPTIMIZED,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_autoscaling.StandbyInstances",
+		reflect.TypeOf((*StandbyInstances)(nil)).Elem(),
+		map[string]interface{}{
+			"TERMINATE": StandbyInstances_TERMINATE,
+			"IGNORE": StandbyInstances_IGNORE,
+			"WAIT": StandbyInstances_WAIT,
 		},
 	)
 	_jsii_.RegisterClass(

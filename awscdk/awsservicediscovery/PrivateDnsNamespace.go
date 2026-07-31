@@ -14,47 +14,31 @@ import (
 // Define a Service Discovery HTTP Namespace.
 //
 // Example:
-//   import ec2 "github.com/aws/aws-cdk-go/awscdk"
-//   import elbv2 "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   app := cdk.NewApp()
-//   stack := cdk.NewStack(app, jsii.String("aws-servicediscovery-integ"))
-//
-//   vpc := ec2.NewVpc(stack, jsii.String("Vpc"), &VpcProps{
-//   	MaxAzs: jsii.Number(2),
-//   })
-//
-//   namespace := servicediscovery.NewPrivateDnsNamespace(stack, jsii.String("Namespace"), &PrivateDnsNamespaceProps{
-//   	Name: jsii.String("boobar.com"),
+//   var mesh Mesh
+//   vpc := ec2.NewVpc(this, jsii.String("vpc"))
+//   namespace := cloudmap.NewPrivateDnsNamespace(this, jsii.String("test-namespace"), &PrivateDnsNamespaceProps{
 //   	Vpc: Vpc,
+//   	Name: jsii.String("domain.local"),
 //   })
-//
-//   service := namespace.CreateService(jsii.String("Service"), &DnsServiceProps{
-//   	DnsRecordType: servicediscovery.DnsRecordType_A_AAAA,
-//   	DnsTtl: cdk.Duration_Seconds(jsii.Number(30)),
-//   	LoadBalancer: jsii.Boolean(true),
-//   })
-//
-//   loadbalancer := elbv2.NewApplicationLoadBalancer(stack, jsii.String("LB"), &ApplicationLoadBalancerProps{
-//   	Vpc: Vpc,
-//   	InternetFacing: jsii.Boolean(true),
-//   })
-//
-//   service.RegisterLoadBalancer(jsii.String("Loadbalancer"), loadbalancer)
-//
-//   arnService := namespace.CreateService(jsii.String("ArnService"), &DnsServiceProps{
-//   	DiscoveryType: servicediscovery.DiscoveryType_API,
-//   })
-//
-//   arnService.RegisterNonIpInstance(jsii.String("NonIpInstance"), &NonIpInstanceBaseProps{
-//   	CustomAttributes: map[string]*string{
-//   		"arn": jsii.String("arn://"),
+//   service := namespace.CreateService(jsii.String("Svc"))
+//   node := mesh.addVirtualNode(jsii.String("virtual-node"), &VirtualNodeBaseProps{
+//   	ServiceDiscovery: appmesh.ServiceDiscovery_CloudMap(service),
+//   	Listeners: []VirtualNodeListener{
+//   		appmesh.VirtualNodeListener_Http(&HttpVirtualNodeListenerOptions{
+//   			Port: jsii.Number(8081),
+//   			HealthCheck: appmesh.HealthCheck_Http(&HttpHealthCheckOptions{
+//   				HealthyThreshold: jsii.Number(3),
+//   				Interval: awscdk.Duration_Seconds(jsii.Number(5)),
+//   				 // minimum
+//   				Path: jsii.String("/health-check-path"),
+//   				Timeout: awscdk.Duration_*Seconds(jsii.Number(2)),
+//   				 // minimum
+//   				UnhealthyThreshold: jsii.Number(2),
+//   			}),
+//   		}),
 //   	},
+//   	AccessLog: appmesh.AccessLog_FromFilePath(jsii.String("/dev/stdout")),
 //   })
-//
-//   app.Synth()
 //
 type PrivateDnsNamespace interface {
 	awscdk.Resource

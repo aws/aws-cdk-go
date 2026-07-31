@@ -1601,6 +1601,10 @@ func init() {
 		reflect.TypeOf((*CloudMapNamespaceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CloudMapNamespaceOptionsBase",
+		reflect.TypeOf((*CloudMapNamespaceOptionsBase)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CloudMapOptions",
 		reflect.TypeOf((*CloudMapOptions)(nil)).Elem(),
 	)
@@ -1612,6 +1616,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addCapacity", GoMethod: "AddCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCapacityProviderStrategy", GoMethod: "AddDefaultCapacityProviderStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCloudMapNamespace", GoMethod: "AddDefaultCloudMapNamespace"},
+			_jsii_.MemberMethod{JsiiMethod: "addExistingDefaultCloudMapNamespace", GoMethod: "AddExistingDefaultCloudMapNamespace"},
 			_jsii_.MemberMethod{JsiiMethod: "addManagedInstancesCapacityProvider", GoMethod: "AddManagedInstancesCapacityProvider"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -2142,6 +2147,10 @@ func init() {
 			"DEFAULT": ExecuteCommandLogging_DEFAULT,
 			"OVERRIDE": ExecuteCommandLogging_OVERRIDE,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.ExistingCloudMapNamespaceOptions",
+		reflect.TypeOf((*ExistingCloudMapNamespaceOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.ExternalService",

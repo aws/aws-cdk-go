@@ -273,6 +273,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnAutoScalingInstanceRefresh",
+		reflect.TypeOf((*CfnAutoScalingInstanceRefresh)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnAutoScalingInstanceRefreshAlarmSpecification",
+		reflect.TypeOf((*CfnAutoScalingInstanceRefreshAlarmSpecification)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnAutoScalingInstanceRefreshPreferences",
+		reflect.TypeOf((*CfnAutoScalingInstanceRefreshPreferences)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnAutoScalingReplacingUpdate",
 		reflect.TypeOf((*CfnAutoScalingReplacingUpdate)(nil)).Elem(),
 	)

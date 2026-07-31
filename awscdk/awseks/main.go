@@ -1063,6 +1063,17 @@ func init() {
 		reflect.TypeOf((*CommonClusterOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_eks.ControlPlaneScalingTier",
+		reflect.TypeOf((*ControlPlaneScalingTier)(nil)).Elem(),
+		map[string]interface{}{
+			"STANDARD": ControlPlaneScalingTier_STANDARD,
+			"TIER_XL": ControlPlaneScalingTier_TIER_XL,
+			"TIER_2XL": ControlPlaneScalingTier_TIER_2XL,
+			"TIER_4XL": ControlPlaneScalingTier_TIER_4XL,
+			"TIER_8XL": ControlPlaneScalingTier_TIER_8XL,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_eks.CoreDnsComputeType",
 		reflect.TypeOf((*CoreDnsComputeType)(nil)).Elem(),
 		map[string]interface{}{

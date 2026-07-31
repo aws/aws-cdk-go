@@ -20,6 +20,10 @@ func (c *jsiiProxy_Cluster) validateAddDefaultCloudMapNamespaceParameters(option
 	return nil
 }
 
+func (c *jsiiProxy_Cluster) validateAddExistingDefaultCloudMapNamespaceParameters(options *ExistingCloudMapNamespaceOptions) error {
+	return nil
+}
+
 func (c *jsiiProxy_Cluster) validateAddManagedInstancesCapacityProviderParameters(provider ManagedInstancesCapacityProvider) error {
 	return nil
 }

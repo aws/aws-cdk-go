@@ -879,6 +879,59 @@ excludeCapacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapac
 })
 ```
 
+### System Logging
+
+You can configure system logging to monitor capacity provider scaling activity:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import logs "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProvider"), &CapacityProviderProps{
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	LogGroup: logs.NewLogGroup(this, jsii.String("CpLogs"), &LogGroupProps{
+		LogGroupName: jsii.String("/aws/lambda/capacity-provider/my-cp"),
+	}),
+	SystemLogLevel: lambda.SystemLogLevel_DEBUG,
+})
+```
+
+### Tag Propagation
+
+You can propagate explicit tags to managed resources (EC2 instances, ENIs, EBS volumes) launched by the capacity provider:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProvider"), &CapacityProviderProps{
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	PropagateTags: lambda.PropagateTags_Explicit(map[string]*string{
+		"CostCenter": jsii.String("Engineering"),
+		"Project": jsii.String("MyProject"),
+	}),
+})
+```
+
+Use `PropagateTags.none()` to explicitly disable propagation, or omit the prop entirely (defaults to no propagation). Up to 40 tags can be specified with `PropagateTags.explicit()`.
+
 ### Using a Capacity Provider with Lambda Functions
 
 Once you have a capacity provider, you can configure Lambda functions to use it:
@@ -1001,6 +1054,8 @@ capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProv
 | maxVCpuCount | number | No | Maximum number of EC2 instances for scaling. |
 | scalingOptions | ScalingOptions | No | Scaling configuration including policies. |
 | kmsKey | IKey | No | KMS key for encrypting capacity provider data. |
+| logGroup | ILogGroup | No | CloudWatch log group for capacity provider system logs. |
+| systemLogLevel | SystemLogLevel | No | Level of detail for capacity provider system logs (DEBUG, INFO, WARN). |
 
 ## Lambda Insights
 

@@ -4,12 +4,14 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawslogs"
 )
 
 // Properties for creating a Lambda capacity provider.
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
@@ -22,9 +24,10 @@ import (
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
-//   	ScalingOptions: lambda.ScalingOptions_Manual([]TargetTrackingScalingPolicy{
-//   		lambda.TargetTrackingScalingPolicy_CpuUtilization(jsii.Number(70)),
+//   	LogGroup: logs.NewLogGroup(this, jsii.String("CpLogs"), &LogGroupProps{
+//   		LogGroupName: jsii.String("/aws/lambda/capacity-provider/my-cp"),
 //   	}),
+//   	SystemLogLevel: lambda.SystemLogLevel_DEBUG,
 //   })
 //
 type CapacityProviderProps struct {
@@ -57,6 +60,10 @@ type CapacityProviderProps struct {
 	// Default: - No KMS key specified, uses an AWS-managed key instead.
 	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	// The CloudWatch log group for capacity provider system logs.
+	// Default: - Service creates a default log group at /aws/lambda/capacity-provider/<name>.
+	//
+	LogGroup interfacesawslogs.ILogGroupRef `field:"optional" json:"logGroup" yaml:"logGroup"`
 	// The maximum number of vCPUs that the capacity provider can scale up to.
 	// Default: - No maximum limit specified, service default is 400.
 	//
@@ -65,9 +72,21 @@ type CapacityProviderProps struct {
 	// Default: - A role will be generated containing the AWSLambdaManagedEC2ResourceOperator managed policy.
 	//
 	OperatorRole awsiam.IRole `field:"optional" json:"operatorRole" yaml:"operatorRole"`
+	// Configuration for tag propagation to managed resources (EC2 instances, ENIs, EBS volumes).
+	//
+	// Use the static factory methods on `PropagateTags` to create:
+	// - `PropagateTags.none()` - Explicitly disable tag propagation
+	// - `PropagateTags.explicit(tags)` - Propagate specified tags
+	// Default: - No tag propagation; tags are not propagated to managed resources.
+	//
+	PropagateTags PropagateTags `field:"optional" json:"propagateTags" yaml:"propagateTags"`
 	// The options for scaling a capacity provider, including scaling policies.
 	// Default: - The `Auto` option is applied by default.
 	//
 	ScalingOptions ScalingOptions `field:"optional" json:"scalingOptions" yaml:"scalingOptions"`
+	// The level of detail for capacity provider system logs.
+	// Default: - Service default applies (INFO).
+	//
+	SystemLogLevel SystemLogLevel `field:"optional" json:"systemLogLevel" yaml:"systemLogLevel"`
 }
 

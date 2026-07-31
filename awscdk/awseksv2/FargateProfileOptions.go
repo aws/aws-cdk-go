@@ -10,7 +10,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("ManagedNodeCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_34(),
+//   	Version: eks.KubernetesVersion_V1_36(),
 //   	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 //   })
 //

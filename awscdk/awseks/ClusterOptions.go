@@ -61,6 +61,7 @@ import (
 //   		awscdk.*Aws_eks.ClusterLoggingTypes_API,
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
+//   	ControlPlaneScalingTier: awscdk.*Aws_eks.ControlPlaneScalingTier_STANDARD,
 //   	CoreDnsComputeType: awscdk.*Aws_eks.CoreDnsComputeType_EC2,
 //   	DeletionProtection: jsii.Boolean(false),
 //   	EndpointAccess: endpointAccess,
@@ -206,6 +207,16 @@ type ClusterOptions struct {
 	// Default: - none.
 	//
 	ClusterLogging *[]ClusterLoggingTypes `field:"optional" json:"clusterLogging" yaml:"clusterLogging"`
+	// The control plane scaling tier for EKS Provisioned Control Plane.
+	//
+	// Provisioned Control Plane allows you to select a scaling tier to ensure
+	// high and predictable performance for demanding workloads such as
+	// AI training/inference, high-performance computing, or large-scale data processing.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane.html
+	//
+	// Default: - Standard control plane (no provisioned tier).
+	//
+	ControlPlaneScalingTier ControlPlaneScalingTier `field:"optional" json:"controlPlaneScalingTier" yaml:"controlPlaneScalingTier"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)
 	//

@@ -309,12 +309,34 @@ func Runtime_JAVA_11() Runtime {
 	return returns
 }
 
+func Runtime_JAVA_11_AL2023() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"JAVA_11_AL2023",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_JAVA_17() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_17",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_JAVA_17_AL2023() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"JAVA_17_AL2023",
 		&returns,
 	)
 	return returns
@@ -348,6 +370,17 @@ func Runtime_JAVA_8() Runtime {
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_lambda.Runtime",
 		"JAVA_8",
+		&returns,
+	)
+	return returns
+}
+
+func Runtime_JAVA_8_AL2023() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_lambda.Runtime",
+		"JAVA_8_AL2023",
 		&returns,
 	)
 	return returns

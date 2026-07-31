@@ -19,43 +19,44 @@ import (
 // A regional grouping of one or more container instances on which you can run tasks and services.
 //
 // Example:
-//   vpc := ec2.Vpc_FromLookup(this, jsii.String("Vpc"), &VpcLookupOptions{
-//   	IsDefault: jsii.Boolean(true),
-//   })
+//   var vpc Vpc
 //
-//   cluster := ecs.NewCluster(this, jsii.String("FargateCluster"), &ClusterProps{
+//
+//   cluster := ecs.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 //   	Vpc: Vpc,
 //   })
 //
-//   taskDefinition := ecs.NewTaskDefinition(this, jsii.String("TD"), &TaskDefinitionProps{
-//   	MemoryMiB: jsii.String("512"),
-//   	Cpu: jsii.String("256"),
-//   	Compatibility: ecs.Compatibility_FARGATE,
+//   autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
+//   	Vpc: Vpc,
+//   	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),
+//   	MachineImage: ecs.EcsOptimizedImage_AmazonLinux2(),
+//   	MinCapacity: jsii.Number(0),
+//   	MaxCapacity: jsii.Number(100),
 //   })
 //
-//   containerDefinition := taskDefinition.AddContainer(jsii.String("TheContainer"), &ContainerDefinitionOptions{
-//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("foo/bar")),
-//   	MemoryLimitMiB: jsii.Number(256),
+//   capacityProvider := ecs.NewAsgCapacityProvider(this, jsii.String("AsgCapacityProvider"), &AsgCapacityProviderProps{
+//   	AutoScalingGroup: AutoScalingGroup,
+//   	InstanceWarmupPeriod: jsii.Number(300),
+//   })
+//   cluster.AddAsgCapacityProvider(capacityProvider)
+//
+//   taskDefinition := ecs.NewEc2TaskDefinition(this, jsii.String("TaskDef"))
+//
+//   taskDefinition.AddContainer(jsii.String("web"), &ContainerDefinitionOptions{
+//   	Image: ecs.ContainerImage_FromRegistry(jsii.String("amazon/amazon-ecs-sample")),
+//   	MemoryReservationMiB: jsii.Number(256),
 //   })
 //
-//   runTask := tasks.NewEcsRunTask(this, jsii.String("RunFargate"), &EcsRunTaskProps{
-//   	IntegrationPattern: sfn.IntegrationPattern_RUN_JOB,
+//   ecs.NewEc2Service(this, jsii.String("EC2Service"), &Ec2ServiceProps{
 //   	Cluster: Cluster,
 //   	TaskDefinition: TaskDefinition,
-//   	AssignPublicIp: jsii.Boolean(true),
-//   	ContainerOverrides: []ContainerOverride{
-//   		&ContainerOverride{
-//   			ContainerDefinition: *ContainerDefinition,
-//   			Environment: []TaskEnvironmentVariable{
-//   				&TaskEnvironmentVariable{
-//   					Name: jsii.String("SOME_KEY"),
-//   					Value: sfn.JsonPath_StringAt(jsii.String("$.SomeKey")),
-//   				},
-//   			},
+//   	MinHealthyPercent: jsii.Number(100),
+//   	CapacityProviderStrategies: []CapacityProviderStrategy{
+//   		&CapacityProviderStrategy{
+//   			CapacityProvider: capacityProvider.CapacityProviderName,
+//   			Weight: jsii.Number(1),
 //   		},
 //   	},
-//   	LaunchTarget: tasks.NewEcsFargateLaunchTarget(),
-//   	PropagatedTagSource: ecs.PropagatedTagSource_TASK_DEFINITION,
 //   })
 //
 type Cluster interface {
@@ -126,6 +127,12 @@ type Cluster interface {
 	// NOTE: HttpNamespaces are supported only for use cases involving Service Connect. For use cases involving both Service-
 	// Discovery and Service Connect, customers should manage the HttpNamespace outside of the Cluster.addDefaultCloudMapNamespace method.
 	AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace
+	// Use an existing AWS Cloud Map namespace as the default namespace for this cluster.
+	//
+	// Unlike `addDefaultCloudMapNamespace`, this method does not create a new namespace;
+	// it registers a namespace that already exists (created elsewhere in the app or
+	// imported) as the cluster's default namespace.
+	AddExistingDefaultCloudMapNamespace(options *ExistingCloudMapNamespaceOptions) awsservicediscovery.INamespace
 	// This method adds a Managed Instances Capacity Provider to a cluster.
 	AddManagedInstancesCapacityProvider(provider ManagedInstancesCapacityProvider)
 	// Override the cross-stack reference strength for this resource.
@@ -598,6 +605,22 @@ func (c *jsiiProxy_Cluster) AddDefaultCloudMapNamespace(options *CloudMapNamespa
 	_jsii_.Invoke(
 		c,
 		"addDefaultCloudMapNamespace",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (c *jsiiProxy_Cluster) AddExistingDefaultCloudMapNamespace(options *ExistingCloudMapNamespaceOptions) awsservicediscovery.INamespace {
+	if err := c.validateAddExistingDefaultCloudMapNamespaceParameters(options); err != nil {
+		panic(err)
+	}
+	var returns awsservicediscovery.INamespace
+
+	_jsii_.Invoke(
+		c,
+		"addExistingDefaultCloudMapNamespace",
 		[]interface{}{options},
 		&returns,
 	)

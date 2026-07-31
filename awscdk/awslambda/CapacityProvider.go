@@ -15,6 +15,7 @@ import (
 //
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import logs "github.com/aws/aws-cdk-go/awscdk"
 //
 //
 //   vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
@@ -27,9 +28,10 @@ import (
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
-//   	ScalingOptions: lambda.ScalingOptions_Manual([]TargetTrackingScalingPolicy{
-//   		lambda.TargetTrackingScalingPolicy_CpuUtilization(jsii.Number(70)),
+//   	LogGroup: logs.NewLogGroup(this, jsii.String("CpLogs"), &LogGroupProps{
+//   		LogGroupName: jsii.String("/aws/lambda/capacity-provider/my-cp"),
 //   	}),
+//   	SystemLogLevel: lambda.SystemLogLevel_DEBUG,
 //   })
 //
 type CapacityProvider interface {
