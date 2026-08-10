@@ -131,6 +131,7 @@ import (
 //   		Enabled: jsii.Boolean(false),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EngineMode: jsii.String("engineMode"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	IdentityCenterOptions: &IdentityCenterOptionsProperty{
 //   		EnabledApiAccess: jsii.Boolean(false),
@@ -172,6 +173,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseCase: jsii.String("useCase"),
 //   	VpcOptions: &VPCOptionsProperty{
 //   		EgressEnabled: jsii.Boolean(false),
 //   		SecurityGroupIds: []*string{
@@ -268,6 +270,9 @@ type CfnDomain interface {
 	// Whether the domain should encrypt data at rest, and if so, the AWS  key to use.
 	EncryptionAtRestOptions() interface{}
 	SetEncryptionAtRestOptions(val interface{})
+	// The engine mode of the domain.
+	EngineMode() *string
+	SetEngineMode(val *string)
 	// The version of OpenSearch to use.
 	EngineVersion() *string
 	SetEngineVersion(val *string)
@@ -334,6 +339,9 @@ type CfnDomain interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The primary use case of the domain.
+	UseCase() *string
+	SetUseCase(val *string)
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	VpcOptions() interface{}
 	SetVpcOptions(val interface{})
@@ -864,6 +872,16 @@ func (j *jsiiProxy_CfnDomain) EncryptionAtRestOptions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomain) EngineMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"engineMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomain) EngineVersion() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1039,6 +1057,16 @@ func (j *jsiiProxy_CfnDomain) UpdatedProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDomain) UseCase() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"useCase",
 		&returns,
 	)
 	return returns
@@ -1221,6 +1249,14 @@ func (j *jsiiProxy_CfnDomain)SetEncryptionAtRestOptions(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDomain)SetEngineMode(val *string) {
+	_jsii_.Set(
+		j,
+		"engineMode",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDomain)SetEngineVersion(val *string) {
 	_jsii_.Set(
 		j,
@@ -1321,6 +1357,14 @@ func (j *jsiiProxy_CfnDomain)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetUseCase(val *string) {
+	_jsii_.Set(
+		j,
+		"useCase",
 		val,
 	)
 }

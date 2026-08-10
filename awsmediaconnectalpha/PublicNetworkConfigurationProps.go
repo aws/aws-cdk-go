@@ -47,8 +47,10 @@ package awsmediaconnectalpha
 //
 // Experimental.
 type PublicNetworkConfigurationProps struct {
-	// CIDR blocks allowed to access the network interface.
+	// CIDR blocks allowed to send inbound traffic to the network interface.
+	// Default: - no inbound allowed (outbound only).
+	//
 	// Experimental.
-	Cidr *[]*string `field:"required" json:"cidr" yaml:"cidr"`
+	Cidr *[]*string `field:"optional" json:"cidr" yaml:"cidr"`
 }
 

@@ -65,6 +65,37 @@ import (
 //   				},
 //   			},
 //   		},
+//   		Inference: &InferenceTargetConfigurationProperty{
+//   			Connector: &InferenceConnectorTargetConfigurationProperty{
+//   				Source: &InferenceConnectorSourceProperty{
+//   					ConnectorId: jsii.String("connectorId"),
+//   				},
+//   			},
+//   			Provider: &InferenceProviderTargetConfigurationProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//
+//   				// the properties below are optional
+//   				ModelMapping: &ModelMappingProperty{
+//   					ProviderPrefix: &ProviderPrefixProperty{
+//   						Separator: jsii.String("separator"),
+//   						Strip: jsii.Boolean(false),
+//   					},
+//   				},
+//   				Operations: []interface{}{
+//   					&InferenceOperationConfigurationProperty{
+//   						Path: jsii.String("path"),
+//
+//   						// the properties below are optional
+//   						Models: []interface{}{
+//   							&ModelEntryProperty{
+//   								Model: jsii.String("model"),
+//   							},
+//   						},
+//   						ProviderPath: jsii.String("providerPath"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		Mcp: &McpTargetConfigurationProperty{
 //   			ApiGateway: &ApiGatewayTargetConfigurationProperty{
 //   				ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{

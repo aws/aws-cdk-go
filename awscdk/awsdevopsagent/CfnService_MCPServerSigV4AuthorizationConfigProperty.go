@@ -10,13 +10,14 @@ package awsdevopsagent
 //
 //   mCPServerSigV4AuthorizationConfigProperty := &MCPServerSigV4AuthorizationConfigProperty{
 //   	Region: jsii.String("region"),
-//   	RoleArn: jsii.String("roleArn"),
 //   	Service: jsii.String("service"),
 //
 //   	// the properties below are optional
 //   	CustomHeaders: map[string]*string{
 //   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
+//   	McpRoleArn: jsii.String("mcpRoleArn"),
+//   	RoleArn: jsii.String("roleArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html
@@ -28,10 +29,6 @@ type CfnService_MCPServerSigV4AuthorizationConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-region
 	//
 	Region *string `field:"required" json:"region" yaml:"region"`
-	// IAM role ARN to assume for SigV4 signing.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-rolearn
-	//
-	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
 	// AWS service name for SigV4 signing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-service
 	//
@@ -40,5 +37,17 @@ type CfnService_MCPServerSigV4AuthorizationConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-customheaders
 	//
 	CustomHeaders interface{} `field:"optional" json:"customHeaders" yaml:"customHeaders"`
+	// IAM role ARN to assume for SigV4 signing.
+	//
+	// Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-mcprolearn
+	//
+	McpRoleArn *string `field:"optional" json:"mcpRoleArn" yaml:"mcpRoleArn"`
+	// Deprecated - use McpRoleArn instead.
+	//
+	// IAM role ARN to assume for SigV4 signing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-rolearn
+	//
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

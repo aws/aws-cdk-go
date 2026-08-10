@@ -35,6 +35,15 @@ package awssagemaker
 //   		LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   		SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   		SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   		TrainingPlanArn: jsii.String("trainingPlanArn"),
+//   	},
+//   	EmrSettings: &EmrSettingsProperty{
+//   		AssumableRoleArns: []*string{
+//   			jsii.String("assumableRoleArns"),
+//   		},
+//   		ExecutionRoleArns: []*string{
+//   			jsii.String("executionRoleArns"),
+//   		},
 //   	},
 //   	LifecycleConfigArns: []*string{
 //   		jsii.String("lifecycleConfigArns"),
@@ -66,6 +75,10 @@ type CfnUserProfilePropsMixin_JupyterLabAppSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-defaultresourcespec
 	//
 	DefaultResourceSpec interface{} `field:"optional" json:"defaultResourceSpec" yaml:"defaultResourceSpec"`
+	// Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-emrsettings
+	//
+	EmrSettings interface{} `field:"optional" json:"emrSettings" yaml:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the lifecycle configurations attached to the user profile or domain.
 	//
 	// To remove a lifecycle config, you must set `LifecycleConfigArns` to an empty list.

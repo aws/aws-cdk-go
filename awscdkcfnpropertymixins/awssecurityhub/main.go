@@ -228,6 +228,42 @@ func init() {
 		reflect.TypeOf((*CfnConfigurationPolicyPropsMixin_SecurityHubPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorMixinProps",
+		reflect.TypeOf((*CfnConnectorMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorPropsMixin",
+		reflect.TypeOf((*CfnConnectorPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnConnectorPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorPropsMixin.AzureProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_AzureProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorPropsMixin.AzureScopeConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_AzureScopeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorPropsMixin.HealthIssueProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_HealthIssueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorPropsMixin.ProviderProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_ProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorV2MixinProps",
 		reflect.TypeOf((*CfnConnectorV2MixinProps)(nil)).Elem(),
 	)
@@ -246,6 +282,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorV2PropsMixin.AzureProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_AzureProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorV2PropsMixin.AzureScopeConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_AzureScopeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorV2PropsMixin.HealthIssueProperty",
+		reflect.TypeOf((*CfnConnectorV2PropsMixin_HealthIssueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnConnectorV2PropsMixin.JiraCloudProviderConfigurationProperty",

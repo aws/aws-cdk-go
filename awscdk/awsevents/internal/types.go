@@ -14,6 +14,7 @@ type Type__interfacesawseventsIEndpointRef = interfacesawsevents.IEndpointRef
 type Type__interfacesawseventsIEventBusRef = interfacesawsevents.IEventBusRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawseventsIEventBusPolicyRef = interfacesawsevents.IEventBusPolicyRef
+type Type__interfacesawseventsIReplayRef = interfacesawsevents.IReplayRef
 type Type__interfacesawseventsIRuleRef = interfacesawsevents.IRuleRef
 type Type__awsiamIResourceWithPolicy = awsiam.IResourceWithPolicy
 type Type__awscdkIResolvable = awscdk.IResolvable

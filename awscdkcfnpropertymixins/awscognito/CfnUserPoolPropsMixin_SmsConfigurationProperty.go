@@ -11,6 +11,15 @@ package awscognito
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   smsConfigurationProperty := &SmsConfigurationProperty{
+//   	EumsSms: &EumsSmsConfigurationProperty{
+//   		CallerArn: jsii.String("callerArn"),
+//   		ConfigurationSetName: jsii.String("configurationSetName"),
+//   		ExternalId: jsii.String("externalId"),
+//   		InEntityId: jsii.String("inEntityId"),
+//   		InTemplateId: jsii.String("inTemplateId"),
+//   		OriginationIdentity: jsii.String("originationIdentity"),
+//   		Region: jsii.String("region"),
+//   	},
 //   	ExternalId: jsii.String("externalId"),
 //   	SnsCallerArn: jsii.String("snsCallerArn"),
 //   	SnsRegion: jsii.String("snsRegion"),
@@ -19,6 +28,9 @@ package awscognito
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html
 //
 type CfnUserPoolPropsMixin_SmsConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html#cfn-cognito-userpool-smsconfiguration-eumssms
+	//
+	EumsSms interface{} `field:"optional" json:"eumsSms" yaml:"eumsSms"`
 	// The external ID provides additional security for your IAM role.
 	//
 	// You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .

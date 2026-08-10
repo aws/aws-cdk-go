@@ -43,6 +43,7 @@ type CfnEvaluationFormPropsMixin_EvaluationFormNumericQuestionOptionProperty str
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-minvalue
 	//
 	MinValue *float64 `field:"optional" json:"minValue" yaml:"minValue"`
+	// Information about the points configuration for an answer option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-pointsconfiguration
 	//
 	PointsConfiguration interface{} `field:"optional" json:"pointsConfiguration" yaml:"pointsConfiguration"`

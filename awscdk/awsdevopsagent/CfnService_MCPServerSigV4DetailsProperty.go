@@ -11,13 +11,14 @@ package awsdevopsagent
 //   mCPServerSigV4DetailsProperty := &MCPServerSigV4DetailsProperty{
 //   	AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
 //   		Region: jsii.String("region"),
-//   		RoleArn: jsii.String("roleArn"),
 //   		Service: jsii.String("service"),
 //
 //   		// the properties below are optional
 //   		CustomHeaders: map[string]*string{
 //   			"customHeadersKey": jsii.String("customHeaders"),
 //   		},
+//   		McpRoleArn: jsii.String("mcpRoleArn"),
+//   		RoleArn: jsii.String("roleArn"),
 //   	},
 //   	Endpoint: jsii.String("endpoint"),
 //   	Name: jsii.String("name"),

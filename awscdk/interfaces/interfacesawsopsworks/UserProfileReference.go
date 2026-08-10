@@ -9,11 +9,8 @@ package interfacesawsopsworks
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   userProfileReference := &UserProfileReference{
-//   	UserProfileId: jsii.String("userProfileId"),
 //   }
 //
 type UserProfileReference struct {
-	// The Id of the UserProfile resource.
-	UserProfileId *string `field:"required" json:"userProfileId" yaml:"userProfileId"`
 }
 

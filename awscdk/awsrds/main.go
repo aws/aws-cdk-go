@@ -1043,6 +1043,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDbSubnetGroupArn", GoGetter: "AttrDbSubnetGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -1356,80 +1357,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.CfnOptionGroupProps",
 		reflect.TypeOf((*CfnOptionGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_rds.CfnReservedDBInstance",
-		reflect.TypeOf((*CfnReservedDBInstance)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
-			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrCurrencyCode", GoGetter: "AttrCurrencyCode"},
-			_jsii_.MemberProperty{JsiiProperty: "attrDbInstanceClass", GoGetter: "AttrDbInstanceClass"},
-			_jsii_.MemberProperty{JsiiProperty: "attrDuration", GoGetter: "AttrDuration"},
-			_jsii_.MemberProperty{JsiiProperty: "attrFixedPrice", GoGetter: "AttrFixedPrice"},
-			_jsii_.MemberProperty{JsiiProperty: "attrMultiAz", GoGetter: "AttrMultiAz"},
-			_jsii_.MemberProperty{JsiiProperty: "attrOfferingType", GoGetter: "AttrOfferingType"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProductDescription", GoGetter: "AttrProductDescription"},
-			_jsii_.MemberProperty{JsiiProperty: "attrRecurringCharges", GoGetter: "AttrRecurringCharges"},
-			_jsii_.MemberProperty{JsiiProperty: "attrReservedDbInstanceArn", GoGetter: "AttrReservedDbInstanceArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrReservedDbInstanceId", GoGetter: "AttrReservedDbInstanceId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrReservedDbInstancesOfferingId", GoGetter: "AttrReservedDbInstancesOfferingId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrStartTime", GoGetter: "AttrStartTime"},
-			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
-			_jsii_.MemberProperty{JsiiProperty: "attrTags", GoGetter: "AttrTags"},
-			_jsii_.MemberProperty{JsiiProperty: "attrUsagePrice", GoGetter: "AttrUsagePrice"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "dbInstanceCount", GoGetter: "DbInstanceCount"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
-			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberProperty{JsiiProperty: "reservedDbInstanceRef", GoGetter: "ReservedDbInstanceRef"},
-			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnReservedDBInstance{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesawsrdsIReservedDBInstanceRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.CfnReservedDBInstance.RecurringChargeProperty",
-		reflect.TypeOf((*CfnReservedDBInstance_RecurringChargeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.CfnReservedDBInstanceProps",
-		reflect.TypeOf((*CfnReservedDBInstanceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_rds.ClientPasswordAuthType",

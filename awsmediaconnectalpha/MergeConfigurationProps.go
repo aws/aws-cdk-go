@@ -21,6 +21,9 @@ import (
 //   	Protocols: []RouterInputProtocol{
 //   		routerInputProtocol,
 //   	},
+//
+//   	// the properties below are optional
+//   	AvailabilityZone: jsii.String("availabilityZone"),
 //   }
 //
 // Experimental.
@@ -34,5 +37,10 @@ type MergeConfigurationProps struct {
 	// Array of exactly 2 protocol configurations for merge (must be same non-SRT protocol type).
 	// Experimental.
 	Protocols *[]RouterInputProtocol `field:"required" json:"protocols" yaml:"protocols"`
+	// The availability zone where the router input is located.
+	// Default: - assigned by the MediaConnect service.
+	//
+	// Experimental.
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 }
 

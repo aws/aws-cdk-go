@@ -1,5 +1,8 @@
 package awsconfig
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnOrganizationConformancePack`.
 //
@@ -22,6 +25,12 @@ package awsconfig
 //   	DeliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
 //   	ExcludedAccounts: []*string{
 //   		jsii.String("excludedAccounts"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   	TemplateBody: jsii.String("templateBody"),
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
@@ -54,6 +63,10 @@ type CfnOrganizationConformancePackProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
 	//
 	ExcludedAccounts *[]*string `field:"optional" json:"excludedAccounts" yaml:"excludedAccounts"`
+	// The tags for the organization conformance pack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A string containing full conformance pack template body.
 	//
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.

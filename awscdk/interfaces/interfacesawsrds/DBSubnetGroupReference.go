@@ -9,10 +9,13 @@ package interfacesawsrds
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dBSubnetGroupReference := &DBSubnetGroupReference{
+//   	DbSubnetGroupArn: jsii.String("dbSubnetGroupArn"),
 //   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   }
 //
 type DBSubnetGroupReference struct {
+	// The ARN of the DBSubnetGroup resource.
+	DbSubnetGroupArn *string `field:"required" json:"dbSubnetGroupArn" yaml:"dbSubnetGroupArn"`
 	// The DBSubnetGroupName of the DBSubnetGroup resource.
 	DbSubnetGroupName *string `field:"required" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 }

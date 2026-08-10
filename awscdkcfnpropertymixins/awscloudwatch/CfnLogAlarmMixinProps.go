@@ -41,6 +41,12 @@ import (
 //   			StartTimeOffset: jsii.Number(123),
 //   		},
 //   		ScheduledQueryRoleArn: jsii.String("scheduledQueryRoleArn"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

@@ -648,6 +648,34 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_WebSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDefaultPromptRouterMixinProps",
+		reflect.TypeOf((*CfnDefaultPromptRouterMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDefaultPromptRouterPropsMixin",
+		reflect.TypeOf((*CfnDefaultPromptRouterPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDefaultPromptRouterPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDefaultPromptRouterPropsMixin.PromptRouterTargetModelProperty",
+		reflect.TypeOf((*CfnDefaultPromptRouterPropsMixin_PromptRouterTargetModelProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDefaultPromptRouterPropsMixin.RoutingCriteriaProperty",
+		reflect.TypeOf((*CfnDefaultPromptRouterPropsMixin_RoutingCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnEnforcedGuardrailConfigurationMixinProps",
 		reflect.TypeOf((*CfnEnforcedGuardrailConfigurationMixinProps)(nil)).Elem(),
 	)
@@ -1231,6 +1259,26 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBaseMixinProps",
 		reflect.TypeOf((*CfnKnowledgeBaseMixinProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePolicyMixinProps",
+		reflect.TypeOf((*CfnKnowledgeBasePolicyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePolicyPropsMixin",
+		reflect.TypeOf((*CfnKnowledgeBasePolicyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnKnowledgeBasePolicyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePropsMixin",
 		reflect.TypeOf((*CfnKnowledgeBasePropsMixin)(nil)).Elem(),
@@ -1418,6 +1466,46 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnKnowledgeBasePropsMixin.VideoSegmentationConfigurationProperty",
 		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_VideoSegmentationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobMixinProps",
+		reflect.TypeOf((*CfnModelInvocationJobMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobPropsMixin",
+		reflect.TypeOf((*CfnModelInvocationJobPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnModelInvocationJobPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobPropsMixin.ModelInvocationJobInputDataConfigProperty",
+		reflect.TypeOf((*CfnModelInvocationJobPropsMixin_ModelInvocationJobInputDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobPropsMixin.ModelInvocationJobOutputDataConfigProperty",
+		reflect.TypeOf((*CfnModelInvocationJobPropsMixin_ModelInvocationJobOutputDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobPropsMixin.ModelInvocationJobS3InputDataConfigProperty",
+		reflect.TypeOf((*CfnModelInvocationJobPropsMixin_ModelInvocationJobS3InputDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobPropsMixin.ModelInvocationJobS3OutputDataConfigProperty",
+		reflect.TypeOf((*CfnModelInvocationJobPropsMixin_ModelInvocationJobS3OutputDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnModelInvocationJobPropsMixin.VpcConfigProperty",
+		reflect.TypeOf((*CfnModelInvocationJobPropsMixin_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnPromptMixinProps",

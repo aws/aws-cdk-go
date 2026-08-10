@@ -8,5 +8,6 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsworkspacesIConnectionAliasRef = interfacesawsworkspaces.IConnectionAliasRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsworkspacesIWorkspaceRef = interfacesawsworkspaces.IWorkspaceRef
-type Type__interfacesawsworkspacesIWorkspacesPoolRef = interfacesawsworkspaces.IWorkspacesPoolRef
+type Type__interfacesawsworkspacesIWorkspaceIpGroupRef = interfacesawsworkspaces.IWorkspaceIpGroupRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsworkspacesIWorkspacesPoolRef = interfacesawsworkspaces.IWorkspacesPoolRef

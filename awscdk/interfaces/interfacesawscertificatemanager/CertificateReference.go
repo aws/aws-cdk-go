@@ -9,11 +9,11 @@ package interfacesawscertificatemanager
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   certificateReference := &CertificateReference{
-//   	CertificateId: jsii.String("certificateId"),
+//   	CertificateArn: jsii.String("certificateArn"),
 //   }
 //
 type CertificateReference struct {
-	// The Id of the Certificate resource.
-	CertificateId *string `field:"required" json:"certificateId" yaml:"certificateId"`
+	// The CertificateArn of the Certificate resource.
+	CertificateArn *string `field:"required" json:"certificateArn" yaml:"certificateArn"`
 }
 

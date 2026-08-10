@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnAlarm) validateSetEvaluationCriteriaParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnAlarm) validateSetEvaluationWindowParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAlarm) validateSetMetricsParameters(val interface{}) error {
 	return nil
 }

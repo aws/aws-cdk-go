@@ -5,5 +5,4 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawscontrolcatalogICommonControlRef = interfacesawscontrolcatalog.ICommonControlRef
-type Type__interfacesawscontrolcatalogIControlRef = interfacesawscontrolcatalog.IControlRef
+type Type__interfacesawscontrolcatalogIObjectiveRef = interfacesawscontrolcatalog.IObjectiveRef

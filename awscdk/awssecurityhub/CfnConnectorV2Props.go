@@ -11,6 +11,20 @@ package awssecurityhub
 //   cfnConnectorV2Props := &CfnConnectorV2Props{
 //   	Name: jsii.String("name"),
 //   	Provider: &ProviderProperty{
+//   		Azure: &AzureProviderConfigurationProperty{
+//   			AwsConfigConnectorArn: jsii.String("awsConfigConnectorArn"),
+//   			AzureRegions: []*string{
+//   				jsii.String("azureRegions"),
+//   			},
+//   			ScopeConfiguration: &AzureScopeConfigurationProperty{
+//   				ScopeType: jsii.String("scopeType"),
+//
+//   				// the properties below are optional
+//   				ScopeValues: []*string{
+//   					jsii.String("scopeValues"),
+//   				},
+//   			},
+//   		},
 //   		JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   			ProjectKey: jsii.String("projectKey"),
 //   		},

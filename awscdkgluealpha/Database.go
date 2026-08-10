@@ -98,12 +98,12 @@ import (
 type Database interface {
 	awscdk.Resource
 	IDatabase
-	// ARN of the Glue catalog in which this database is stored.
+	// The catalog this database belongs to.
+	//
+	// Defaults to the implicit, account-wide catalog, materialized on first
+	// access.
 	// Experimental.
-	CatalogArn() *string
-	// The catalog id of the database (usually, the AWS account id).
-	// Experimental.
-	CatalogId() *string
+	Catalog() ICatalog
 	// The ARN of the database.
 	// Experimental.
 	DatabaseArn() *string
@@ -197,21 +197,11 @@ type jsiiProxy_Database struct {
 	jsiiProxy_IDatabase
 }
 
-func (j *jsiiProxy_Database) CatalogArn() *string {
-	var returns *string
+func (j *jsiiProxy_Database) Catalog() ICatalog {
+	var returns ICatalog
 	_jsii_.Get(
 		j,
-		"catalogArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Database) CatalogId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"catalogId",
+		"catalog",
 		&returns,
 	)
 	return returns

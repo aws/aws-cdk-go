@@ -21,6 +21,16 @@ package awsbedrockagentcore
 //   	AllowedScopes: []*string{
 //   		jsii.String("allowedScopes"),
 //   	},
+//   	AllowedWorkloadConfiguration: &AllowedWorkloadConfigurationProperty{
+//   		HostingEnvironments: []interface{}{
+//   			&HostingEnvironmentProperty{
+//   				Arn: jsii.String("arn"),
+//   			},
+//   		},
+//   		WorkloadIdentities: []*string{
+//   			jsii.String("workloadIdentities"),
+//   		},
+//   	},
 //   	CustomClaims: []interface{}{
 //   		&CustomClaimValidationTypeProperty{
 //   			AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
@@ -34,6 +44,53 @@ package awsbedrockagentcore
 //   			},
 //   			InboundTokenClaimName: jsii.String("inboundTokenClaimName"),
 //   			InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
+//   		},
+//   	},
+//   	PrivateEndpoint: &PrivateEndpointProperty{
+//   		ManagedVpcResource: &ManagedVpcResourceProperty{
+//   			EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   			// the properties below are optional
+//   			RoutingDomain: jsii.String("routingDomain"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			Tags: map[string]*string{
+//   				"tagsKey": jsii.String("tags"),
+//   			},
+//   		},
+//   		SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   			ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   		},
+//   	},
+//   	PrivateEndpointOverrides: []interface{}{
+//   		&PrivateEndpointOverrideProperty{
+//   			Domain: jsii.String("domain"),
+//   			PrivateEndpoint: &PrivateEndpointProperty{
+//   				ManagedVpcResource: &ManagedVpcResourceProperty{
+//   					EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   					SubnetIds: []*string{
+//   						jsii.String("subnetIds"),
+//   					},
+//   					VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   					// the properties below are optional
+//   					RoutingDomain: jsii.String("routingDomain"),
+//   					SecurityGroupIds: []*string{
+//   						jsii.String("securityGroupIds"),
+//   					},
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
+//   				},
+//   				SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   					ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -57,9 +114,25 @@ type CfnRuntime_CustomJWTAuthorizerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-allowedscopes
 	//
 	AllowedScopes *[]*string `field:"optional" json:"allowedScopes" yaml:"allowedScopes"`
+	// Allow-list of upstream workloads permitted to reach this resource via the workload identity chain.
+	//
+	// When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-allowedworkloadconfiguration
+	//
+	AllowedWorkloadConfiguration interface{} `field:"optional" json:"allowedWorkloadConfiguration" yaml:"allowedWorkloadConfiguration"`
 	// List of required custom claims.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-customclaims
 	//
 	CustomClaims interface{} `field:"optional" json:"customClaims" yaml:"customClaims"`
+	// Private endpoint configuration.
+	//
+	// Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-privateendpoint
+	//
+	PrivateEndpoint interface{} `field:"optional" json:"privateEndpoint" yaml:"privateEndpoint"`
+	// List of private endpoint overrides.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-runtime-customjwtauthorizerconfiguration-privateendpointoverrides
+	//
+	PrivateEndpointOverrides interface{} `field:"optional" json:"privateEndpointOverrides" yaml:"privateEndpointOverrides"`
 }
 

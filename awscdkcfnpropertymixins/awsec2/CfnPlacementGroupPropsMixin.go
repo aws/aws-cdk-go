@@ -27,6 +27,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnPlacementGroupPropsMixin := awscdkcfnpropertymixins.Aws_ec2.NewCfnPlacementGroupPropsMixin(&CfnPlacementGroupMixinProps{
+//   	ParentGroupId: jsii.String("parentGroupId"),
 //   	PartitionCount: jsii.Number(123),
 //   	SpreadLevel: jsii.String("spreadLevel"),
 //   	Strategy: jsii.String("strategy"),

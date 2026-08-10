@@ -11,6 +11,7 @@ package awscognito
 //   cfnUserPoolDomainMixinProps := &CfnUserPoolDomainMixinProps{
 //   	CustomDomainConfig: &CustomDomainConfigTypeProperty{
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		SecurityPolicy: jsii.String("securityPolicy"),
 //   	},
 //   	Domain: jsii.String("domain"),
 //   	ManagedLoginVersion: jsii.Number(123),

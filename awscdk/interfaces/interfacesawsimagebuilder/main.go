@@ -8,6 +8,14 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.AllImageBuildVersionsReference",
+		reflect.TypeOf((*AllImageBuildVersionsReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.AllWorkflowBuildVersionsReference",
+		reflect.TypeOf((*AllWorkflowBuildVersionsReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_imagebuilder.ComponentReference",
 		reflect.TypeOf((*ComponentReference)(nil)).Elem(),
 	)
@@ -18,6 +26,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_imagebuilder.DistributionConfigurationReference",
 		reflect.TypeOf((*DistributionConfigurationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.IAllImageBuildVersionsRef",
+		reflect.TypeOf((*IAllImageBuildVersionsRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "allImageBuildVersionsRef", GoGetter: "AllImageBuildVersionsRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAllImageBuildVersionsRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.IAllWorkflowBuildVersionsRef",
+		reflect.TypeOf((*IAllWorkflowBuildVersionsRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "allWorkflowBuildVersionsRef", GoGetter: "AllWorkflowBuildVersionsRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAllWorkflowBuildVersionsRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_imagebuilder.IComponentRef",
@@ -148,6 +188,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.IWorkflowExecutionRef",
+		reflect.TypeOf((*IWorkflowExecutionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowExecutionRef", GoGetter: "WorkflowExecutionRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkflowExecutionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_imagebuilder.IWorkflowRef",
 		reflect.TypeOf((*IWorkflowRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -158,6 +214,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IWorkflowRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.IWorkflowStepExecutionRef",
+		reflect.TypeOf((*IWorkflowStepExecutionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowStepExecutionRef", GoGetter: "WorkflowStepExecutionRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkflowStepExecutionRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -184,7 +256,15 @@ func init() {
 		reflect.TypeOf((*LifecyclePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.WorkflowExecutionReference",
+		reflect.TypeOf((*WorkflowExecutionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_imagebuilder.WorkflowReference",
 		reflect.TypeOf((*WorkflowReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_imagebuilder.WorkflowStepExecutionReference",
+		reflect.TypeOf((*WorkflowStepExecutionReference)(nil)).Elem(),
 	)
 }

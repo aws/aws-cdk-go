@@ -1,5 +1,8 @@
 package awscloudwatch
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // The scheduled query configuration for the log alarm.
 //
@@ -20,6 +23,12 @@ package awscloudwatch
 //   		StartTimeOffset: jsii.Number(123),
 //   	},
 //   	ScheduledQueryRoleArn: jsii.String("scheduledQueryRoleArn"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html
@@ -45,5 +54,9 @@ type CfnLogAlarmPropsMixin_ScheduledQueryConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html#cfn-cloudwatch-logalarm-scheduledqueryconfiguration-scheduledqueryrolearn
 	//
 	ScheduledQueryRoleArn *string `field:"optional" json:"scheduledQueryRoleArn" yaml:"scheduledQueryRoleArn"`
+	// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-logalarm-scheduledqueryconfiguration.html#cfn-cloudwatch-logalarm-scheduledqueryconfiguration-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

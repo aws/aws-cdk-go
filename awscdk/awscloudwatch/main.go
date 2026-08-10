@@ -12,6 +12,7 @@ func init() {
 		reflect.TypeOf((*Alarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addAlarmMuteRule", GoMethod: "AddAlarmMuteRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addInsufficientDataAction", GoMethod: "AddInsufficientDataAction"},
 			_jsii_.MemberMethod{JsiiMethod: "addOkAction", GoMethod: "AddOkAction"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmActionArns", GoGetter: "AlarmActionArns"},
@@ -50,6 +51,7 @@ func init() {
 		reflect.TypeOf((*AlarmBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addAlarmMuteRule", GoMethod: "AddAlarmMuteRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addInsufficientDataAction", GoMethod: "AddInsufficientDataAction"},
 			_jsii_.MemberMethod{JsiiMethod: "addOkAction", GoMethod: "AddOkAction"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmActionArns", GoGetter: "AlarmActionArns"},
@@ -77,6 +79,41 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAlarm)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.AlarmMuteRule",
+		reflect.TypeOf((*AlarmMuteRule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addAlarm", GoMethod: "AddAlarm"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmMuteRuleArn", GoGetter: "AlarmMuteRuleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmMuteRuleName", GoGetter: "AlarmMuteRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmMuteRuleRef", GoGetter: "AlarmMuteRuleRef"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AlarmMuteRule{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAlarmMuteRule)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleOptions",
+		reflect.TypeOf((*AlarmMuteRuleOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.AlarmMuteRuleProps",
+		reflect.TypeOf((*AlarmMuteRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.AlarmProps",
@@ -161,6 +198,7 @@ func init() {
 		reflect.TypeOf((*AnomalyDetectionAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addAlarmMuteRule", GoMethod: "AddAlarmMuteRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addInsufficientDataAction", GoMethod: "AddInsufficientDataAction"},
 			_jsii_.MemberMethod{JsiiMethod: "addOkAction", GoMethod: "AddOkAction"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmActionArns", GoGetter: "AlarmActionArns"},
@@ -198,6 +236,10 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.AnomalyDetectionMetricOptions",
 		reflect.TypeOf((*AnomalyDetectionMetricOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CalendarDateTime",
+		reflect.TypeOf((*CalendarDateTime)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
 		reflect.TypeOf((*CfnAlarm)(nil)).Elem(),
@@ -233,6 +275,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "evaluationCriteria", GoGetter: "EvaluationCriteria"},
 			_jsii_.MemberProperty{JsiiProperty: "evaluationInterval", GoGetter: "EvaluationInterval"},
 			_jsii_.MemberProperty{JsiiProperty: "evaluationPeriods", GoGetter: "EvaluationPeriods"},
+			_jsii_.MemberProperty{JsiiProperty: "evaluationWindow", GoGetter: "EvaluationWindow"},
 			_jsii_.MemberProperty{JsiiProperty: "extendedStatistic", GoGetter: "ExtendedStatistic"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -288,6 +331,10 @@ func init() {
 		reflect.TypeOf((*CfnAlarm_EvaluationCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.EvaluationWindowProperty",
+		reflect.TypeOf((*CfnAlarm_EvaluationWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.MetricDataQueryProperty",
 		reflect.TypeOf((*CfnAlarm_MetricDataQueryProperty)(nil)).Elem(),
 	)
@@ -298,6 +345,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.MetricStatProperty",
 		reflect.TypeOf((*CfnAlarm_MetricStatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.WallClockWindowProperty",
+		reflect.TypeOf((*CfnAlarm_WallClockWindowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarmMuteRule",
@@ -935,6 +986,7 @@ func init() {
 		reflect.TypeOf((*CompositeAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addAlarmMuteRule", GoMethod: "AddAlarmMuteRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addInsufficientDataAction", GoMethod: "AddInsufficientDataAction"},
 			_jsii_.MemberMethod{JsiiMethod: "addOkAction", GoMethod: "AddOkAction"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmActionArns", GoGetter: "AlarmActionArns"},
@@ -989,6 +1041,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CreateAlarmOptions",
 		reflect.TypeOf((*CreateAlarmOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CronOptions",
+		reflect.TypeOf((*CronOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.CustomWidget",
@@ -1168,6 +1224,26 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_IAlarmAction{}
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_cloudwatch.IAlarmMuteRule",
+		reflect.TypeOf((*IAlarmMuteRule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "alarmMuteRuleArn", GoGetter: "AlarmMuteRuleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmMuteRuleName", GoGetter: "AlarmMuteRuleName"},
+			_jsii_.MemberProperty{JsiiProperty: "alarmMuteRuleRef", GoGetter: "AlarmMuteRuleRef"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAlarmMuteRule{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawscloudwatchIAlarmMuteRuleRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1369,6 +1445,7 @@ func init() {
 		reflect.TypeOf((*PromQLAlarm)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAlarmAction", GoMethod: "AddAlarmAction"},
+			_jsii_.MemberMethod{JsiiMethod: "addAlarmMuteRule", GoMethod: "AddAlarmMuteRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addInsufficientDataAction", GoMethod: "AddInsufficientDataAction"},
 			_jsii_.MemberMethod{JsiiMethod: "addOkAction", GoMethod: "AddOkAction"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmActionArns", GoGetter: "AlarmActionArns"},
@@ -1415,6 +1492,17 @@ func init() {
 			j := jsiiProxy_Row{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWidget)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.ScheduleExpression",
+		reflect.TypeOf((*ScheduleExpression)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "expressionString", GoGetter: "ExpressionString"},
+			_jsii_.MemberProperty{JsiiProperty: "timeZone", GoGetter: "TimeZone"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ScheduleExpression{}
 		},
 	)
 	_jsii_.RegisterStruct(

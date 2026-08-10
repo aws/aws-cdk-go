@@ -56,6 +56,11 @@ import (
 //   					ApiKeyName: jsii.String("apiKeyName"),
 //   					ApiKeyValue: jsii.String("apiKeyValue"),
 //   				},
+//   				BearerToken: &BearerTokenDetailsProperty{
+//   					AuthorizationHeader: jsii.String("authorizationHeader"),
+//   					TokenName: jsii.String("tokenName"),
+//   					TokenValue: jsii.String("tokenValue"),
+//   				},
 //   				OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   					ClientId: jsii.String("clientId"),
 //   					ClientName: jsii.String("clientName"),
@@ -106,6 +111,7 @@ import (
 //   				CustomHeaders: map[string]*string{
 //   					"customHeadersKey": jsii.String("customHeaders"),
 //   				},
+//   				McpRoleArn: jsii.String("mcpRoleArn"),
 //   				Region: jsii.String("region"),
 //   				RoleArn: jsii.String("roleArn"),
 //   				Service: jsii.String("service"),

@@ -83,6 +83,7 @@ type CfnApi interface {
 	AttrApiEndpoint() *string
 	// The API identifier.
 	AttrApiId() *string
+	AttrExecuteApiArn() *string
 	// Specifies how to interpret the base path of the API during import.
 	BasePath() *string
 	SetBasePath(val *string)
@@ -383,6 +384,16 @@ func (j *jsiiProxy_CfnApi) AttrApiId() *string {
 	_jsii_.Get(
 		j,
 		"attrApiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApi) AttrExecuteApiArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrExecuteApiArn",
 		&returns,
 	)
 	return returns

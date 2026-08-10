@@ -9,6 +9,8 @@ import (
 
 // The collection of versions of the ADOT Lambda Layer for Java SDK.
 //
+// **Note:** These are legacy ADOT Lambda layers with an embedded collector.
+//
 // Example:
 //   var fn Function
 //

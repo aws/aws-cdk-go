@@ -118,6 +118,12 @@ import (
 //   	Port: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
 //   	SslPolicy: jsii.String("sslPolicy"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

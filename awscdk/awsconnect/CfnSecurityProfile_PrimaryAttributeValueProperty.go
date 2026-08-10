@@ -22,14 +22,14 @@ type CfnSecurityProfile_PrimaryAttributeValueProperty struct {
 	// The value's access type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributevalue.html#cfn-connect-securityprofile-primaryattributevalue-accesstype
 	//
-	AccessType *string `field:"required" json:"accessType" yaml:"accessType"`
+	AccessType *string `field:"optional" json:"accessType" yaml:"accessType"`
 	// The value's attribute name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributevalue.html#cfn-connect-securityprofile-primaryattributevalue-attributename
 	//
-	AttributeName *string `field:"required" json:"attributeName" yaml:"attributeName"`
+	AttributeName *string `field:"optional" json:"attributeName" yaml:"attributeName"`
 	// The value's values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributevalue.html#cfn-connect-securityprofile-primaryattributevalue-values
 	//
-	Values *[]*string `field:"required" json:"values" yaml:"values"`
+	Values *[]*string `field:"optional" json:"values" yaml:"values"`
 }
 

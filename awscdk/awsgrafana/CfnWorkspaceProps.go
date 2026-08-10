@@ -69,6 +69,12 @@ package awsgrafana
 //   		},
 //   	},
 //   	StackSetName: jsii.String("stackSetName"),
+//   	Tags: []TagsItemsProperty{
+//   		&TagsItemsProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
@@ -172,6 +178,10 @@ type CfnWorkspaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-stacksetname
 	//
 	StackSetName *string `field:"optional" json:"stackSetName" yaml:"stackSetName"`
+	// The list of tags associated with the workspace.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html#cfn-grafana-workspace-tags
+	//
+	Tags *[]*CfnWorkspace_TagsItemsProperty `field:"optional" json:"tags" yaml:"tags"`
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).

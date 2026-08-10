@@ -164,6 +164,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "nodeLifecycleActions", GoGetter: "NodeLifecycleActions"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "purchaseOption", GoGetter: "PurchaseOption"},
@@ -207,8 +208,24 @@ func init() {
 		reflect.TypeOf((*CfnComputeNodeGroup_InstanceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup.NodeLifecycleActionsProperty",
+		reflect.TypeOf((*CfnComputeNodeGroup_NodeLifecycleActionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup.NodeLifecycleScriptProperty",
+		reflect.TypeOf((*CfnComputeNodeGroup_NodeLifecycleScriptProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup.NodeLifecycleStagesProperty",
+		reflect.TypeOf((*CfnComputeNodeGroup_NodeLifecycleStagesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup.ScalingConfigurationProperty",
 		reflect.TypeOf((*CfnComputeNodeGroup_ScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup.ScriptSourceProperty",
+		reflect.TypeOf((*CfnComputeNodeGroup_ScriptSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_pcs.CfnComputeNodeGroup.SlurmConfigurationProperty",

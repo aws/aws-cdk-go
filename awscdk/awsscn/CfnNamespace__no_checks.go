@@ -1,0 +1,122 @@
+//go:build no_runtime_type_checking
+
+package awsscn
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_CfnNamespace) validateAddDeletionOverrideParameters(path *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddDependsOnParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddMetadataParameters(key *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddOverrideParameters(path *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddPropertyDeletionOverrideParameters(propertyPath *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddPropertyOverrideParameters(propertyPath *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateGetAttParameters(attributeName *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateGetMetadataParameters(key *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateInspectParameters(inspector awscdk.TreeInspector) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnNamespace) validateValidatePropertiesParameters(_properties interface{}) error {
+	return nil
+}
+
+func validateCfnNamespace_ArnForNamespaceParameters(resource interfacesawsscn.INamespaceRef) error {
+	return nil
+}
+
+func validateCfnNamespace_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnNamespace_IsCfnNamespaceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnNamespace_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnNamespace_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnNamespace) validateSetInstanceIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnNamespace) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnNamespace) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func validateNewCfnNamespaceParameters(scope constructs.Construct, id *string, props *CfnNamespaceProps) error {
+	return nil
+}
+

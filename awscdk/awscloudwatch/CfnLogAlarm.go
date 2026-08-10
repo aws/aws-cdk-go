@@ -26,18 +26,26 @@ import (
 //   	QueryResultsToEvaluate: jsii.Number(123),
 //   	ScheduledQueryConfiguration: &ScheduledQueryConfigurationProperty{
 //   		AggregationExpression: jsii.String("aggregationExpression"),
-//   		LogGroupIdentifiers: []*string{
-//   			jsii.String("logGroupIdentifiers"),
-//   		},
 //   		QueryString: jsii.String("queryString"),
 //   		ScheduleConfiguration: &ScheduleConfigurationProperty{
 //   			ScheduleExpression: jsii.String("scheduleExpression"),
+//   			StartTimeOffset: jsii.Number(123),
 //
 //   			// the properties below are optional
 //   			EndTimeOffset: jsii.Number(123),
-//   			StartTimeOffset: jsii.Number(123),
 //   		},
 //   		ScheduledQueryRoleArn: jsii.String("scheduledQueryRoleArn"),
+//
+//   		// the properties below are optional
+//   		LogGroupIdentifiers: []*string{
+//   			jsii.String("logGroupIdentifiers"),
+//   		},
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   	},
 //   	Threshold: jsii.Number(123),
 //

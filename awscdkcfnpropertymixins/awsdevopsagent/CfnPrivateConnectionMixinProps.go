@@ -18,6 +18,7 @@ import (
 //   			ResourceConfigurationId: jsii.String("resourceConfigurationId"),
 //   		},
 //   		ServiceManaged: &ServiceManagedModeProperty{
+//   			DnsResolution: jsii.String("dnsResolution"),
 //   			HostAddress: jsii.String("hostAddress"),
 //   			IpAddressType: jsii.String("ipAddressType"),
 //   			Ipv4AddressesPerEni: jsii.Number(123),

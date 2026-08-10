@@ -14,6 +14,7 @@ package awsdevopsagent
 //   	},
 //   	Description: jsii.String("description"),
 //   	Endpoint: jsii.String("endpoint"),
+//   	McpRoleArn: jsii.String("mcpRoleArn"),
 //   	Name: jsii.String("name"),
 //   	Region: jsii.String("region"),
 //   	RoleArn: jsii.String("roleArn"),
@@ -35,6 +36,12 @@ type CfnServicePropsMixin_RegisteredMCPServerSigV4DetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-endpoint
 	//
 	Endpoint *string `field:"optional" json:"endpoint" yaml:"endpoint"`
+	// IAM role ARN for SigV4 signing.
+	//
+	// Absent when no dedicated role is configured.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-mcprolearn
+	//
+	McpRoleArn *string `field:"optional" json:"mcpRoleArn" yaml:"mcpRoleArn"`
 	// The MCP server name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-name
 	//
@@ -43,6 +50,8 @@ type CfnServicePropsMixin_RegisteredMCPServerSigV4DetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Deprecated - use McpRoleArn instead.
+	//
 	// IAM role ARN for SigV4 signing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-rolearn
 	//

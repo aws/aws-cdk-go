@@ -88,10 +88,6 @@ func validateCfnCertificate_ArnForCertificateParameters(resource interfacesawsdm
 	return nil
 }
 
-func validateCfnCertificate_FromCertificateIdParameters(scope constructs.Construct, id *string, certificateId *string) error {
-	return nil
-}
-
 func validateCfnCertificate_IsCfnCertificateParameters(x interface{}) error {
 	return nil
 }

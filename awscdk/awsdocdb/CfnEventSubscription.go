@@ -45,7 +45,6 @@ type CfnEventSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdocdb.IEventSubscriptionRef
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -275,16 +274,6 @@ type jsiiProxy_CfnEventSubscription struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsdocdbIEventSubscriptionRef
-}
-
-func (j *jsiiProxy_CfnEventSubscription) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnEventSubscription) CfnOptions() awscdk.ICfnResourceOptions {
@@ -559,6 +548,43 @@ func (j *jsiiProxy_CfnEventSubscription)SetSubscriptionName(val *string) {
 		"subscriptionName",
 		val,
 	)
+}
+
+func CfnEventSubscription_ArnForEventSubscription(resource interfacesawsdocdb.IEventSubscriptionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnEventSubscription_ArnForEventSubscriptionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdb.CfnEventSubscription",
+		"arnForEventSubscription",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IEventSubscriptionRef from a subscriptionName.
+func CfnEventSubscription_FromSubscriptionName(scope constructs.Construct, id *string, subscriptionName *string) interfacesawsdocdb.IEventSubscriptionRef {
+	_init_.Initialize()
+
+	if err := validateCfnEventSubscription_FromSubscriptionNameParameters(scope, id, subscriptionName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdocdb.IEventSubscriptionRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_docdb.CfnEventSubscription",
+		"fromSubscriptionName",
+		[]interface{}{scope, id, subscriptionName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

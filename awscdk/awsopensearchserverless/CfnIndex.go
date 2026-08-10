@@ -33,6 +33,7 @@ import (
 //   				// the properties below are optional
 //   				"analyzer": jsii.String("analyzer"),
 //   				"compressionLevel": jsii.String("compressionLevel"),
+//   				"dataType": jsii.String("dataType"),
 //   				"dimension": jsii.Number(123),
 //   				"index": jsii.Boolean(false),
 //   				"method": &MethodProperty{

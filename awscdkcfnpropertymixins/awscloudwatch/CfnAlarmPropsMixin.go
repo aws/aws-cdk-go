@@ -23,6 +23,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mergeStrategy IMergeStrategy
+//   var slidingWindow interface{}
 //
 //   cfnAlarmPropsMixin := awscdkcfnpropertymixins.Aws_cloudwatch.NewCfnAlarmPropsMixin(&CfnAlarmMixinProps{
 //   	ActionsEnabled: jsii.Boolean(false),
@@ -49,6 +50,12 @@ import (
 //   	},
 //   	EvaluationInterval: jsii.Number(123),
 //   	EvaluationPeriods: jsii.Number(123),
+//   	EvaluationWindow: &EvaluationWindowProperty{
+//   		SlidingWindow: slidingWindow,
+//   		WallClockWindow: &WallClockWindowProperty{
+//   			Timezone: jsii.String("timezone"),
+//   		},
+//   	},
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),

@@ -35,6 +35,12 @@ import (
 //   		jsii.String("excludedAccounts"),
 //   	},
 //   	OrganizationConformancePackName: jsii.String("organizationConformancePackName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TemplateBody: jsii.String("templateBody"),
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
 //   }, &CfnPropertyMixinOptions{

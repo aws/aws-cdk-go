@@ -28,6 +28,34 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnGeneratedTemplateMixinProps",
+		reflect.TypeOf((*CfnGeneratedTemplateMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnGeneratedTemplatePropsMixin",
+		reflect.TypeOf((*CfnGeneratedTemplatePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnGeneratedTemplatePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnGeneratedTemplatePropsMixin.TemplateConfigurationProperty",
+		reflect.TypeOf((*CfnGeneratedTemplatePropsMixin_TemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnGeneratedTemplatePropsMixin.TemplateProgressProperty",
+		reflect.TypeOf((*CfnGeneratedTemplatePropsMixin_TemplateProgressProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnGuardHookMixinProps",
 		reflect.TypeOf((*CfnGuardHookMixinProps)(nil)).Elem(),
 	)
@@ -164,6 +192,10 @@ func init() {
 		reflect.TypeOf((*CfnLambdaHookPropsMixin_HookTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnLambdaHookPropsMixin.LoggingConfigProperty",
+		reflect.TypeOf((*CfnLambdaHookPropsMixin_LoggingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnLambdaHookPropsMixin.StackFiltersProperty",
 		reflect.TypeOf((*CfnLambdaHookPropsMixin_StackFiltersProperty)(nil)).Elem(),
 	)
@@ -298,6 +330,30 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceScanMixinProps",
+		reflect.TypeOf((*CfnResourceScanMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceScanPropsMixin",
+		reflect.TypeOf((*CfnResourceScanPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnResourceScanPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceScanPropsMixin.ScanFilterProperty",
+		reflect.TypeOf((*CfnResourceScanPropsMixin_ScanFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceVersionMixinProps",

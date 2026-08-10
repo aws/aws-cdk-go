@@ -361,6 +361,30 @@ func (j *jsiiProxy_CfnAlarm) validateSetEvaluationCriteriaParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnAlarm) validateSetEvaluationWindowParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAlarm_EvaluationWindowProperty:
+		val := val.(*CfnAlarm_EvaluationWindowProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAlarm_EvaluationWindowProperty:
+		val_ := val.(CfnAlarm_EvaluationWindowProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAlarm_EvaluationWindowProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAlarm) validateSetMetricsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

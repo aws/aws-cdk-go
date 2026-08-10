@@ -22,6 +22,41 @@ package awspcs
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
+//   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
+//   		Stages: &NodeLifecycleStagesProperty{
+//   			NodeBootstrapped: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					Name: jsii.String("name"),
+//   					OnError: jsii.String("onError"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//   					},
+//   				},
+//   			},
+//   			NodeReady: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					Name: jsii.String("name"),
+//   					OnError: jsii.String("onError"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	PurchaseOption: jsii.String("purchaseOption"),
 //   	ScalingConfiguration: &ScalingConfigurationProperty{
 //   		MaxInstanceCount: jsii.Number(123),
@@ -78,6 +113,10 @@ type CfnComputeNodeGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Custom scripts that run at defined points in a compute node's lifecycle.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-nodelifecycleactions
+	//
+	NodeLifecycleActions interface{} `field:"optional" json:"nodeLifecycleActions" yaml:"nodeLifecycleActions"`
 	// Specifies how EC2 instances are purchased on your behalf.
 	//
 	// AWS PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon Elastic Compute Cloud User Guide* . For more information about AWS PCS support for Capacity Blocks, see [Using Amazon EC2 Capacity Blocks for ML with AWS PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html) in the *AWS PCS User Guide* . If you don't provide this option, it defaults to On-Demand.

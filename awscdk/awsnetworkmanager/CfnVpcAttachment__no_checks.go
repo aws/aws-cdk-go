@@ -84,6 +84,14 @@ func (c *jsiiProxy_CfnVpcAttachment) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnVpcAttachment_ArnForVpcAttachmentParameters(resource interfacesawsnetworkmanager.IVpcAttachmentRef) error {
+	return nil
+}
+
+func validateCfnVpcAttachment_FromAttachmentIdParameters(scope constructs.Construct, id *string, attachmentId *string) error {
+	return nil
+}
+
 func validateCfnVpcAttachment_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

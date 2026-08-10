@@ -9,11 +9,8 @@ package interfacesawsopsworks
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   elasticLoadBalancerAttachmentReference := &ElasticLoadBalancerAttachmentReference{
-//   	ElasticLoadBalancerAttachmentId: jsii.String("elasticLoadBalancerAttachmentId"),
 //   }
 //
 type ElasticLoadBalancerAttachmentReference struct {
-	// The Id of the ElasticLoadBalancerAttachment resource.
-	ElasticLoadBalancerAttachmentId *string `field:"required" json:"elasticLoadBalancerAttachmentId" yaml:"elasticLoadBalancerAttachmentId"`
 }
 

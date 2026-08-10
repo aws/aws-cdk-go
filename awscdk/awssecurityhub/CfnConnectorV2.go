@@ -21,6 +21,20 @@ import (
 //   cfnConnectorV2 := awscdk.Aws_securityhub.NewCfnConnectorV2(this, jsii.String("MyCfnConnectorV2"), &CfnConnectorV2Props{
 //   	Name: jsii.String("name"),
 //   	Provider: &ProviderProperty{
+//   		Azure: &AzureProviderConfigurationProperty{
+//   			AwsConfigConnectorArn: jsii.String("awsConfigConnectorArn"),
+//   			AzureRegions: []*string{
+//   				jsii.String("azureRegions"),
+//   			},
+//   			ScopeConfiguration: &AzureScopeConfigurationProperty{
+//   				ScopeType: jsii.String("scopeType"),
+//
+//   				// the properties below are optional
+//   				ScopeValues: []*string{
+//   					jsii.String("scopeValues"),
+//   				},
+//   			},
+//   		},
 //   		JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   			ProjectKey: jsii.String("projectKey"),
 //   		},
@@ -53,6 +67,12 @@ type CfnConnectorV2 interface {
 	AttrConnectorStatus() *string
 	// The timestamp when the V2 connector was created.
 	AttrCreatedAt() *string
+	// The enablement status of the connector.
+	AttrEnablementStatus() *string
+	// The reason for the enablement status of the connector.
+	AttrEnablementStatusReason() *string
+	// The list of health issues associated with the connector.
+	AttrIssues() awscdk.IResolvable
 	// The most recent timestamp when the V2 connector was checked on health status.
 	AttrLastCheckedAt() *string
 	// The most recent timestamp when the V2 connector was updated.
@@ -325,6 +345,36 @@ func (j *jsiiProxy_CfnConnectorV2) AttrCreatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectorV2) AttrEnablementStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEnablementStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectorV2) AttrEnablementStatusReason() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEnablementStatusReason",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectorV2) AttrIssues() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrIssues",
 		&returns,
 	)
 	return returns

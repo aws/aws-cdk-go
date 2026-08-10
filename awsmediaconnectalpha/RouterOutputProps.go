@@ -30,10 +30,10 @@ type RouterOutputProps struct {
 	// Configuration for the Router Output (standard, MediaConnect Flow, or MediaLive).
 	// Experimental.
 	Configuration RouterOutputConfiguration `field:"required" json:"configuration" yaml:"configuration"`
-	// Maximum bitrate in bits per second that the Router Output can handle.
+	// The maximum bitrate for the router output.
 	// Experimental.
 	MaximumBitrate awscdk.Bitrate `field:"required" json:"maximumBitrate" yaml:"maximumBitrate"`
-	// Routing scope for the Router Output.
+	// Indicates whether the router output is configured for Regional or global routing.
 	// Experimental.
 	RoutingScope RoutingScope `field:"required" json:"routingScope" yaml:"routingScope"`
 	// Maintenance window configuration.
@@ -41,7 +41,7 @@ type RouterOutputProps struct {
 	//
 	// Experimental.
 	MaintenanceConfiguration *MaintenanceConfiguration `field:"optional" json:"maintenanceConfiguration" yaml:"maintenanceConfiguration"`
-	// AWS region where the Router Output will be created.
+	// The AWS Region where the router output is located.
 	// Default: - Defaults to the same region as stack.
 	//
 	// Experimental.
@@ -56,7 +56,7 @@ type RouterOutputProps struct {
 	//
 	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// Routing tier that determines the maximum number of outputs.
+	// Select a tier based on your maximum bitrate requirements.
 	// Default: RouterOutputTier.OUTPUT_20
 	//
 	// Experimental.

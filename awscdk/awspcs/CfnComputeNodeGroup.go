@@ -45,6 +45,51 @@ import (
 //   	// the properties below are optional
 //   	AmiId: jsii.String("amiId"),
 //   	Name: jsii.String("name"),
+//   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
+//   		Stages: &NodeLifecycleStagesProperty{
+//   			NodeBootstrapped: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Name: jsii.String("name"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//
+//   						// the properties below are optional
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   					},
+//
+//   					// the properties below are optional
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					OnError: jsii.String("onError"),
+//   				},
+//   			},
+//   			NodeReady: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Name: jsii.String("name"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//
+//   						// the properties below are optional
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   					},
+//
+//   					// the properties below are optional
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					OnError: jsii.String("onError"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
+//   	},
 //   	PurchaseOption: jsii.String("purchaseOption"),
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
 //   		ScaleDownIdleTimeInSeconds: jsii.Number(123),
@@ -125,6 +170,9 @@ type CfnComputeNodeGroup interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Custom scripts that run at defined points in a compute node's lifecycle.
+	NodeLifecycleActions() interface{}
+	SetNodeLifecycleActions(val interface{})
 	// Specifies how EC2 instances are purchased on your behalf.
 	PurchaseOption() *string
 	SetPurchaseOption(val *string)
@@ -532,6 +580,16 @@ func (j *jsiiProxy_CfnComputeNodeGroup) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeNodeGroup) NodeLifecycleActions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"nodeLifecycleActions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeNodeGroup) PurchaseOption() *string {
 	var returns *string
 	_jsii_.Get(
@@ -718,6 +776,17 @@ func (j *jsiiProxy_CfnComputeNodeGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComputeNodeGroup)SetNodeLifecycleActions(val interface{}) {
+	if err := j.validateSetNodeLifecycleActionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"nodeLifecycleActions",
 		val,
 	)
 }

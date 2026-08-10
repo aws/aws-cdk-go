@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnVPC) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) e
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPC) validateSetVpcEncryptionControlParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnVPCParameters(scope constructs.Construct, id *string, props *CfnVPCProps) error {
 	return nil
 }

@@ -47,7 +47,7 @@ type OpsWorksAlert_OpsWorksAlertProps struct {
 	// instance-id property.
 	//
 	// Specify an array of string values to match this event if the actual value of instance-id is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
-	// Default: - Filter with the Instance reference.
+	// Default: - Do not filter on this field.
 	//
 	// Experimental.
 	InstanceId *[]*string `field:"optional" json:"instanceId" yaml:"instanceId"`

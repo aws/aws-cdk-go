@@ -6,3 +6,4 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsgrafanaIWorkspaceRef = interfacesawsgrafana.IWorkspaceRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2

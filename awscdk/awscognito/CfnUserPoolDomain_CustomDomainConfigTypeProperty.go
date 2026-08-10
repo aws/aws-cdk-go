@@ -10,6 +10,7 @@ package awscognito
 //
 //   customDomainConfigTypeProperty := &CustomDomainConfigTypeProperty{
 //   	CertificateArn: jsii.String("certificateArn"),
+//   	SecurityPolicy: jsii.String("securityPolicy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html
@@ -21,5 +22,8 @@ type CfnUserPoolDomain_CustomDomainConfigTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html#cfn-cognito-userpooldomain-customdomainconfigtype-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html#cfn-cognito-userpooldomain-customdomainconfigtype-securitypolicy
+	//
+	SecurityPolicy *string `field:"optional" json:"securityPolicy" yaml:"securityPolicy"`
 }
 

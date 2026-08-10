@@ -48,6 +48,10 @@ func init() {
 		reflect.TypeOf((*CfnWorkspacePropsMixin_SamlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_grafana.CfnWorkspacePropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_grafana.CfnWorkspacePropsMixin.VpcConfigurationProperty",
 		reflect.TypeOf((*CfnWorkspacePropsMixin_VpcConfigurationProperty)(nil)).Elem(),
 	)

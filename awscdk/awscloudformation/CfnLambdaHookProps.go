@@ -19,6 +19,11 @@ package awscloudformation
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoUpdate: jsii.Boolean(false),
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		LogGroupName: jsii.String("logGroupName"),
+//   		LogRoleArn: jsii.String("logRoleArn"),
+//   	},
 //   	StackFilters: &StackFiltersProperty{
 //   		FilteringCriteria: jsii.String("filteringCriteria"),
 //
@@ -103,6 +108,16 @@ type CfnLambdaHookProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-targetoperations
 	//
 	TargetOperations *[]*string `field:"required" json:"targetOperations" yaml:"targetOperations"`
+	// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-autoupdate
+	//
+	// Default: - true.
+	//
+	AutoUpdate interface{} `field:"optional" json:"autoUpdate" yaml:"autoUpdate"`
+	// Contains logging configuration information for an extension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-loggingconfig
+	//
+	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// Specifies the stack level filters for the Hook.
 	//
 	// Example stack level filter in JSON:

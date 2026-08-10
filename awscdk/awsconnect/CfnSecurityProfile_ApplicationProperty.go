@@ -15,8 +15,6 @@ package awsconnect
 //   		jsii.String("applicationPermissions"),
 //   	},
 //   	Namespace: jsii.String("namespace"),
-//
-//   	// the properties below are optional
 //   	Type: jsii.String("type"),
 //   }
 //
@@ -28,11 +26,11 @@ type CfnSecurityProfile_ApplicationProperty struct {
 	// For third-party applications, only the `ACCESS` permission is supported. For MCP Servers, the permissions are tool Identifiers accepted by MCP Server.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-applicationpermissions
 	//
-	ApplicationPermissions *[]*string `field:"required" json:"applicationPermissions" yaml:"applicationPermissions"`
+	ApplicationPermissions *[]*string `field:"optional" json:"applicationPermissions" yaml:"applicationPermissions"`
 	// Namespace of the application that you want to give access to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-namespace
 	//
-	Namespace *string `field:"required" json:"namespace" yaml:"namespace"`
+	Namespace *string `field:"optional" json:"namespace" yaml:"namespace"`
 	// The type of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html#cfn-connect-securityprofile-application-type
 	//

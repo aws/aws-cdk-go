@@ -121,7 +121,7 @@ type Flow interface {
 	Stack() awscdk.Stack
 	// Add an output to this flow.
 	// Experimental.
-	AddOutput(id *string, outputConfig OutputConfiguration) IFlowOutput
+	AddOutput(id *string, options *AddFlowOutputOptions) IFlowOutput
 	// Add a VPC interface to this flow.
 	// Experimental.
 	AddVpcInterface(vpc *VpcInterfaceConfig) *VpcInterfaceConfig
@@ -564,8 +564,8 @@ func Flow_PROPERTY_INJECTION_ID() *string {
 	return returns
 }
 
-func (f *jsiiProxy_Flow) AddOutput(id *string, outputConfig OutputConfiguration) IFlowOutput {
-	if err := f.validateAddOutputParameters(id, outputConfig); err != nil {
+func (f *jsiiProxy_Flow) AddOutput(id *string, options *AddFlowOutputOptions) IFlowOutput {
+	if err := f.validateAddOutputParameters(id, options); err != nil {
 		panic(err)
 	}
 	var returns IFlowOutput
@@ -573,7 +573,7 @@ func (f *jsiiProxy_Flow) AddOutput(id *string, outputConfig OutputConfiguration)
 	_jsii_.Invoke(
 		f,
 		"addOutput",
-		[]interface{}{id, outputConfig},
+		[]interface{}{id, options},
 		&returns,
 	)
 

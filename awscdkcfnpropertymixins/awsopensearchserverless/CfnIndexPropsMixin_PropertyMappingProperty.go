@@ -13,6 +13,7 @@ package awsopensearchserverless
 //   propertyMappingProperty := &PropertyMappingProperty{
 //   	Analyzer: jsii.String("analyzer"),
 //   	CompressionLevel: jsii.String("compressionLevel"),
+//   	DataType: jsii.String("dataType"),
 //   	Dimension: jsii.Number(123),
 //   	Index: jsii.Boolean(false),
 //   	Method: &MethodProperty{
@@ -43,6 +44,10 @@ type CfnIndexPropsMixin_PropertyMappingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-propertymapping.html#cfn-opensearchserverless-index-propertymapping-compressionlevel
 	//
 	CompressionLevel *string `field:"optional" json:"compressionLevel" yaml:"compressionLevel"`
+	// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-propertymapping.html#cfn-opensearchserverless-index-propertymapping-datatype
+	//
+	DataType *string `field:"optional" json:"dataType" yaml:"dataType"`
 	// Dimension size for vector fields, defines the number of dimensions in the vector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-propertymapping.html#cfn-opensearchserverless-index-propertymapping-dimension
 	//

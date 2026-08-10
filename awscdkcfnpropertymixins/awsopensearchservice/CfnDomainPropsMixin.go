@@ -130,6 +130,7 @@ import (
 //   		Enabled: jsii.Boolean(false),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EngineMode: jsii.String("engineMode"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	IdentityCenterOptions: &IdentityCenterOptionsProperty{
 //   		EnabledApiAccess: jsii.Boolean(false),
@@ -171,6 +172,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseCase: jsii.String("useCase"),
 //   	VpcOptions: &VPCOptionsProperty{
 //   		EgressEnabled: jsii.Boolean(false),
 //   		SecurityGroupIds: []interface{}{

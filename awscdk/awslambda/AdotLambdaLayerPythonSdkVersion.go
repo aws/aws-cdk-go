@@ -9,6 +9,8 @@ import (
 
 // The collection of versions of the ADOT Lambda Layer for Python SDK.
 //
+// **Note:** These are legacy ADOT Lambda layers with an embedded collector.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -22,7 +22,7 @@ const (
 	// Weak reference: uses Fn::GetStackOutput to read an output directly from the producing stack.
 	//
 	// The producing stack or resource can be deleted independently of consumers.
-	// This will cause infrastructure in consuming stacks to temporarily reference a nonexistant
+	// This will cause infrastructure in consuming stacks to temporarily reference a nonexistent
 	// resource until the consumers are updated as well, causing any accesses in that time
 	// frame to fail.
 	//

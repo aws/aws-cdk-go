@@ -90,6 +90,7 @@ import (
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
+//   	StorageSize: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),

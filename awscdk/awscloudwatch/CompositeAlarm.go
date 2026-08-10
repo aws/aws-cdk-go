@@ -69,6 +69,8 @@ type CompositeAlarm interface {
 	//
 	// Typically SnsAction or AutoScalingAction.
 	AddAlarmAction(actions ...IAlarmAction)
+	// Add an alarm mute rule.
+	AddAlarmMuteRule(id *string, options *AlarmMuteRuleOptions) AlarmMuteRule
 	// Trigger this action if there is insufficient data to evaluate the alarm.
 	//
 	// Typically SnsAction or AutoScalingAction.
@@ -412,6 +414,22 @@ func (c *jsiiProxy_CompositeAlarm) AddAlarmAction(actions ...IAlarmAction) {
 		"addAlarmAction",
 		args,
 	)
+}
+
+func (c *jsiiProxy_CompositeAlarm) AddAlarmMuteRule(id *string, options *AlarmMuteRuleOptions) AlarmMuteRule {
+	if err := c.validateAddAlarmMuteRuleParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns AlarmMuteRule
+
+	_jsii_.Invoke(
+		c,
+		"addAlarmMuteRule",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (c *jsiiProxy_CompositeAlarm) AddInsufficientDataAction(actions ...IAlarmAction) {

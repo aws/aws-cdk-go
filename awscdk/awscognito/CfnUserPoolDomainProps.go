@@ -15,6 +15,7 @@ package awscognito
 //   	// the properties below are optional
 //   	CustomDomainConfig: &CustomDomainConfigTypeProperty{
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		SecurityPolicy: jsii.String("securityPolicy"),
 //   	},
 //   	ManagedLoginVersion: jsii.Number(123),
 //   	Routing: &RoutingTypeProperty{

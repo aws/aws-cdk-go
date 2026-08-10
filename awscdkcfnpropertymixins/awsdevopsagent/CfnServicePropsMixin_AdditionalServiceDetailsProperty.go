@@ -47,6 +47,7 @@ package awsdevopsagent
 //   		},
 //   		Description: jsii.String("description"),
 //   		Endpoint: jsii.String("endpoint"),
+//   		McpRoleArn: jsii.String("mcpRoleArn"),
 //   		Name: jsii.String("name"),
 //   		Region: jsii.String("region"),
 //   		RoleArn: jsii.String("roleArn"),

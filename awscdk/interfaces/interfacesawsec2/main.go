@@ -1460,6 +1460,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayPolicyTableAssociationRef",
+		reflect.TypeOf((*ITransitGatewayPolicyTableAssociationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPolicyTableAssociationRef", GoGetter: "TransitGatewayPolicyTableAssociationRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayPolicyTableAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayPolicyTableRef",
+		reflect.TypeOf((*ITransitGatewayPolicyTableRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPolicyTableRef", GoGetter: "TransitGatewayPolicyTableRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayPolicyTableRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayRef",
 		reflect.TypeOf((*ITransitGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2150,6 +2182,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPeeringAttachmentReference",
 		reflect.TypeOf((*TransitGatewayPeeringAttachmentReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPolicyTableAssociationReference",
+		reflect.TypeOf((*TransitGatewayPolicyTableAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPolicyTableReference",
+		reflect.TypeOf((*TransitGatewayPolicyTableReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayReference",

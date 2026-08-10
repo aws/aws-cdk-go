@@ -23,6 +23,7 @@ import (
 //   cfnUserPoolDomainPropsMixin := awscdkcfnpropertymixins.Aws_cognito.NewCfnUserPoolDomainPropsMixin(&CfnUserPoolDomainMixinProps{
 //   	CustomDomainConfig: &CustomDomainConfigTypeProperty{
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		SecurityPolicy: jsii.String("securityPolicy"),
 //   	},
 //   	Domain: jsii.String("domain"),
 //   	ManagedLoginVersion: jsii.Number(123),

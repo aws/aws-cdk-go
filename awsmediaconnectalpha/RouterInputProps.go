@@ -38,10 +38,10 @@ type RouterInputProps struct {
 	// Configuration for the Router Input (standard, failover, merge, or MediaConnect flow).
 	// Experimental.
 	Configuration RouterInputConfiguration `field:"required" json:"configuration" yaml:"configuration"`
-	// Maximum bitrate in bits per second that the Router Input can handle.
+	// The maximum bitrate for the router input.
 	// Experimental.
 	MaximumBitrate awscdk.Bitrate `field:"required" json:"maximumBitrate" yaml:"maximumBitrate"`
-	// Routing scope for the Router Input.
+	// Indicates whether the router input is configured for Regional or global routing.
 	// Experimental.
 	RoutingScope RoutingScope `field:"required" json:"routingScope" yaml:"routingScope"`
 	// Maintenance window configuration.
@@ -49,11 +49,8 @@ type RouterInputProps struct {
 	//
 	// Experimental.
 	MaintenanceConfiguration *MaintenanceConfiguration `field:"optional" json:"maintenanceConfiguration" yaml:"maintenanceConfiguration"`
-	// AWS region where the Router Input will be created (i.e. us-east-1).
-	//
-	// Must match the region of the flows, flow outputs, and network interfaces it connects to —
-	// MediaConnect rejects a cross-region connection at deploy.
-	// Default: - Same as the stack's region.
+	// The AWS Region where the router input is located.
+	// Default: - Defaults to the same region as stack.
 	//
 	// Experimental.
 	RegionName *string `field:"optional" json:"regionName" yaml:"regionName"`

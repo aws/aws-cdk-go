@@ -9,6 +9,8 @@ import (
 
 // The collection of versions of the ADOT Lambda Layer for JavaScript SDK.
 //
+// **Note:** These are legacy ADOT Lambda layers with an embedded collector.
+//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //

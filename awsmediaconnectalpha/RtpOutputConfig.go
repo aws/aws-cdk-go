@@ -11,13 +11,6 @@ import (
 //   // The values are placeholders you should change.
 //   import mediaconnect_alpha "github.com/aws/aws-cdk-go/awsmediaconnectalpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var networkInterface NetworkInterface
-//   var role Role
-//   var securityGroup SecurityGroup
-//   var subnet Subnet
 //
 //   rtpOutputConfig := &RtpOutputConfig{
 //   	Destination: jsii.String("destination"),
@@ -25,20 +18,7 @@ import (
 //
 //   	// the properties below are optional
 //   	SmoothingLatency: cdk.Duration_Minutes(jsii.Number(30)),
-//   	VpcInterfaceAttachment: &VpcInterfaceConfig{
-//   		Name: jsii.String("name"),
-//   		Role: role,
-//   		SecurityGroups: []ISecurityGroup{
-//   			securityGroup,
-//   		},
-//   		Subnet: subnet,
-//
-//   		// the properties below are optional
-//   		NetworkInterfaceIds: []*string{
-//   			jsii.String("networkInterfaceIds"),
-//   		},
-//   		NetworkInterfaceType: networkInterface,
-//   	},
+//   	VpcInterfaceAttachmentName: jsii.String("vpcInterfaceAttachmentName"),
 //   }
 //
 // Experimental.
@@ -58,6 +38,6 @@ type RtpOutputConfig struct {
 	// Default: - no VPC interface attachment.
 	//
 	// Experimental.
-	VpcInterfaceAttachment *VpcInterfaceConfig `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`
+	VpcInterfaceAttachmentName *string `field:"optional" json:"vpcInterfaceAttachmentName" yaml:"vpcInterfaceAttachmentName"`
 }
 

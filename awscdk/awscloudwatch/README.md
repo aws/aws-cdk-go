@@ -589,6 +589,39 @@ cloudwatch.NewCompositeAlarm(this, jsii.String("CompositeAlarm"), &CompositeAlar
 })
 ```
 
+## Alarm Mute Rules
+
+Alarm Mute Rules is a CloudWatch feature that provides you a mechanism to
+automatically mute alarm actions during predefined time windows.
+When you create a mute rule, you define specific time periods and target
+alarms whose actions will be muted.
+CloudWatch will continue monitoring and evaluating alarm states while preventing
+unwanted notifications or automated alarm actions during expected operational events.
+
+```go
+var alarm1 Alarm
+var alarm2 Alarm
+
+
+alarmMuteRule := cloudwatch.NewAlarmMuteRule(this, jsii.String("AlarmMuteRule"), &AlarmMuteRuleProps{
+	Alarms: []IAlarmRef{
+		alarm1,
+	},
+	// Defines the mute period begins at 0:00 everyday in UTC
+	Schedule: cloudwatch.ScheduleExpression_Cron(&CronOptions{
+		Minute: jsii.String("0"),
+		Hour: jsii.String("0"),
+	}),
+	// Specifies the mute rule lasts 1 hour.
+	Duration: awscdk.Duration_Hours(jsii.Number(1)),
+})
+
+// The mute target can be added after construction.
+alarmMuteRule.AddAlarm(alarm2)
+```
+
+For more information on alarm mute rules, see the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html).
+
 ## Dashboards
 
 Dashboards are set of Widgets stored server-side which can be accessed quickly

@@ -30,5 +30,10 @@ type StandardOutputConfigurationProps struct {
 	// Protocol configuration for the output.
 	// Experimental.
 	Protocol RouterOutputProtocol `field:"required" json:"protocol" yaml:"protocol"`
+	// The availability zone where the router output is located.
+	// Default: - assigned by the MediaConnect service.
+	//
+	// Experimental.
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 }
 

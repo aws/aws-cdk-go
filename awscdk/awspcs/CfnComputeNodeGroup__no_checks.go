@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnComputeNodeGroup) validateSetInstanceConfigsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnComputeNodeGroup) validateSetNodeLifecycleActionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnComputeNodeGroup) validateSetScalingConfigurationParameters(val interface{}) error {
 	return nil
 }

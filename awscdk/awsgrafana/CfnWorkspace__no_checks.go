@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnWorkspace) validateSetSamlConfigurationParameters(val inte
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkspace) validateSetTagsParameters(val *[]*CfnWorkspace_TagsItemsProperty) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkspace) validateSetVpcConfigurationParameters(val interface{}) error {
 	return nil
 }

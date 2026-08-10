@@ -45,6 +45,7 @@ type CfnDBSubnetGroup interface {
 	awscdk.IInspectable
 	interfacesawsrds.IDBSubnetGroupRef
 	awscdk.ITaggable
+	AttrDbSubnetGroupArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -273,6 +274,16 @@ type jsiiProxy_CfnDBSubnetGroup struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsrdsIDBSubnetGroupRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBSubnetGroup) AttrDbSubnetGroupArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDbSubnetGroupArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBSubnetGroup) CfnOptions() awscdk.ICfnResourceOptions {
@@ -524,6 +535,24 @@ func (j *jsiiProxy_CfnDBSubnetGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnDBSubnetGroup_ArnForDBSubnetGroup(resource interfacesawsrds.IDBSubnetGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBSubnetGroup_ArnForDBSubnetGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"arnForDBSubnetGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks whether the given object is a CfnDBSubnetGroup.

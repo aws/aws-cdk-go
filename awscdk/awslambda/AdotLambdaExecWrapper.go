@@ -3,6 +3,10 @@ package awslambda
 
 // The wrapper script to be used for the Lambda function in order to enable auto instrumentation with ADOT.
 //
+// **Note:** These wrappers are for the legacy ADOT Lambda layers with an embedded collector.
+// The recommended optimized ADOT Lambda layers use `/opt/otel-instrument` set via the
+// `AWS_LAMBDA_EXEC_WRAPPER` environment variable directly.
+//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //

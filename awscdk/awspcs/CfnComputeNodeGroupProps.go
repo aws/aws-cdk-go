@@ -33,6 +33,51 @@ package awspcs
 //   	// the properties below are optional
 //   	AmiId: jsii.String("amiId"),
 //   	Name: jsii.String("name"),
+//   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
+//   		Stages: &NodeLifecycleStagesProperty{
+//   			NodeBootstrapped: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Name: jsii.String("name"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//
+//   						// the properties below are optional
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   					},
+//
+//   					// the properties below are optional
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					OnError: jsii.String("onError"),
+//   				},
+//   			},
+//   			NodeReady: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Name: jsii.String("name"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//
+//   						// the properties below are optional
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   					},
+//
+//   					// the properties below are optional
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					OnError: jsii.String("onError"),
+//   				},
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
+//   	},
 //   	PurchaseOption: jsii.String("purchaseOption"),
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
 //   		ScaleDownIdleTimeInSeconds: jsii.Number(123),
@@ -92,6 +137,10 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Custom scripts that run at defined points in a compute node's lifecycle.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-nodelifecycleactions
+	//
+	NodeLifecycleActions interface{} `field:"optional" json:"nodeLifecycleActions" yaml:"nodeLifecycleActions"`
 	// Specifies how EC2 instances are purchased on your behalf.
 	//
 	// AWS PCS supports On-Demand Instances, Spot Instances, and Amazon EC2 Capacity Blocks for ML. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon Elastic Compute Cloud User Guide* . For more information about AWS PCS support for Capacity Blocks, see [Using Amazon EC2 Capacity Blocks for ML with AWS PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html) in the *AWS PCS User Guide* . If you don't provide this option, it defaults to On-Demand.

@@ -11,6 +11,7 @@ package awselasticloadbalancingv2
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   sourceIpConfigProperty := &SourceIpConfigProperty{
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	Values: []*string{
 //   		jsii.String("values"),
 //   	},
@@ -19,6 +20,9 @@ package awselasticloadbalancingv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html
 //
 type CfnListenerRulePropsMixin_SourceIpConfigProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-sourceipconfig.html#cfn-elasticloadbalancingv2-listenerrule-sourceipconfig-ipaddresstype
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 	//
 	// If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.

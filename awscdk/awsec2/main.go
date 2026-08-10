@@ -4300,6 +4300,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrGroupId", GoGetter: "AttrGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrGroupName", GoGetter: "AttrGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -4315,6 +4316,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "parentGroupId", GoGetter: "ParentGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionCount", GoGetter: "PartitionCount"},
 			_jsii_.MemberProperty{JsiiProperty: "placementGroupRef", GoGetter: "PlacementGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -6688,6 +6690,124 @@ func init() {
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachmentProps",
 		reflect.TypeOf((*CfnTransitGatewayPeeringAttachmentProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPolicyTable",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTable)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrTransitGatewayPolicyTableId", GoGetter: "AttrTransitGatewayPolicyTableId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayId", GoGetter: "TransitGatewayId"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPolicyTableRef", GoGetter: "TransitGatewayPolicyTableRef"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTransitGatewayPolicyTable{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsec2ITransitGatewayPolicyTableRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPolicyTableAssociation",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTableAssociation)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentId", GoGetter: "TransitGatewayAttachmentId"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPolicyTableAssociationRef", GoGetter: "TransitGatewayPolicyTableAssociationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPolicyTableId", GoGetter: "TransitGatewayPolicyTableId"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTransitGatewayPolicyTableAssociation{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsec2ITransitGatewayPolicyTableAssociationRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPolicyTableAssociationProps",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTableAssociationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPolicyTableProps",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTableProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayProps",
 		reflect.TypeOf((*CfnTransitGatewayProps)(nil)).Elem(),
@@ -7008,6 +7128,35 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDefaultNetworkAcl", GoGetter: "AttrDefaultNetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDefaultSecurityGroup", GoGetter: "AttrDefaultSecurityGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIpv6CidrBlocks", GoGetter: "AttrIpv6CidrBlocks"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusions", GoGetter: "AttrVpcEncryptionControlResourceExclusions"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway", GoGetter: "AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsElasticFileSystem", GoGetter: "AttrVpcEncryptionControlResourceExclusionsElasticFileSystem"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsElasticFileSystemState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsElasticFileSystemState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsElasticFileSystemStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsElasticFileSystemStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsInternetGateway", GoGetter: "AttrVpcEncryptionControlResourceExclusionsInternetGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsInternetGatewayState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsInternetGatewayState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsInternetGatewayStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsInternetGatewayStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsLambda", GoGetter: "AttrVpcEncryptionControlResourceExclusionsLambda"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsLambdaState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsLambdaState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsLambdaStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsLambdaStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsNatGateway", GoGetter: "AttrVpcEncryptionControlResourceExclusionsNatGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsNatGatewayState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsNatGatewayState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsNatGatewayStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsNatGatewayStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVirtualPrivateGateway", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGateway"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVpcLattice", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVpcLattice"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVpcLatticeState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVpcLatticeState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVpcLatticeStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVpcLatticeStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVpcPeering", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVpcPeering"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVpcPeeringState", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVpcPeeringState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlResourceExclusionsVpcPeeringStateMessage", GoGetter: "AttrVpcEncryptionControlResourceExclusionsVpcPeeringStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlState", GoGetter: "AttrVpcEncryptionControlState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlStateMessage", GoGetter: "AttrVpcEncryptionControlStateMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlVpcEncryptionControlId", GoGetter: "AttrVpcEncryptionControlVpcEncryptionControlId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrVpcEncryptionControlVpcId", GoGetter: "AttrVpcEncryptionControlVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrVpcId", GoGetter: "AttrVpcId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -7042,6 +7191,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEncryptionControl", GoGetter: "VpcEncryptionControl"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcRef", GoGetter: "VpcRef"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
@@ -7053,6 +7203,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPC.VpcEncryptionControlExclusionProperty",
+		reflect.TypeOf((*CfnVPC_VpcEncryptionControlExclusionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPC.VpcEncryptionControlExclusionsProperty",
+		reflect.TypeOf((*CfnVPC_VpcEncryptionControlExclusionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.CfnVPC.VpcEncryptionControlProperty",
+		reflect.TypeOf((*CfnVPC_VpcEncryptionControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.CfnVPCBlockPublicAccessExclusion",

@@ -17,6 +17,13 @@ package awsdevopsagent
 //   			ApiKeyName: jsii.String("apiKeyName"),
 //   			ApiKeyValue: jsii.String("apiKeyValue"),
 //   		},
+//   		BearerToken: &BearerTokenDetailsProperty{
+//   			TokenName: jsii.String("tokenName"),
+//   			TokenValue: jsii.String("tokenValue"),
+//
+//   			// the properties below are optional
+//   			AuthorizationHeader: jsii.String("authorizationHeader"),
+//   		},
 //   		OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   			ClientId: jsii.String("clientId"),
 //   			ClientSecret: jsii.String("clientSecret"),

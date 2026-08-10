@@ -78,6 +78,8 @@ type AnomalyDetectionAlarm interface {
 	//
 	// Typically SnsAction or AutoScalingAction.
 	AddAlarmAction(actions ...IAlarmAction)
+	// Add an alarm mute rule.
+	AddAlarmMuteRule(id *string, options *AlarmMuteRuleOptions) AlarmMuteRule
 	// Trigger this action if there is insufficient data to evaluate the alarm.
 	//
 	// Typically SnsAction or AutoScalingAction.
@@ -457,6 +459,22 @@ func (a *jsiiProxy_AnomalyDetectionAlarm) AddAlarmAction(actions ...IAlarmAction
 		"addAlarmAction",
 		args,
 	)
+}
+
+func (a *jsiiProxy_AnomalyDetectionAlarm) AddAlarmMuteRule(id *string, options *AlarmMuteRuleOptions) AlarmMuteRule {
+	if err := a.validateAddAlarmMuteRuleParameters(id, options); err != nil {
+		panic(err)
+	}
+	var returns AlarmMuteRule
+
+	_jsii_.Invoke(
+		a,
+		"addAlarmMuteRule",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
 }
 
 func (a *jsiiProxy_AnomalyDetectionAlarm) AddInsufficientDataAction(actions ...IAlarmAction) {

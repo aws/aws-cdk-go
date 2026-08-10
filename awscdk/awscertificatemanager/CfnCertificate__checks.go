@@ -196,22 +196,6 @@ func validateCfnCertificate_ArnForCertificateParameters(resource interfacesawsce
 	return nil
 }
 
-func validateCfnCertificate_FromCertificateIdParameters(scope constructs.Construct, id *string, certificateId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if certificateId == nil {
-		return fmt.Errorf("parameter certificateId is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateCfnCertificate_IsCfnCertificateParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")

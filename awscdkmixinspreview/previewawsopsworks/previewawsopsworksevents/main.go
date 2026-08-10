@@ -8,18 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.InstanceEvents",
-		reflect.TypeOf((*InstanceEvents)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "opsWorksAlertPattern", GoMethod: "OpsWorksAlertPattern"},
-			_jsii_.MemberMethod{JsiiMethod: "opsWorksCommandStateChangePattern", GoMethod: "OpsWorksCommandStateChangePattern"},
-			_jsii_.MemberMethod{JsiiMethod: "opsWorksInstanceStateChangePattern", GoMethod: "OpsWorksInstanceStateChangePattern"},
-		},
-		func() interface{} {
-			return &jsiiProxy_InstanceEvents{}
-		},
-	)
-	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksAlert",
 		reflect.TypeOf((*OpsWorksAlert)(nil)).Elem(),
 		nil, // no members
@@ -66,15 +54,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_opsworks.events.OpsWorksInstanceStateChange.OpsWorksInstanceStateChangeProps",
 		reflect.TypeOf((*OpsWorksInstanceStateChange_OpsWorksInstanceStateChangeProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_opsworks.events.StackEvents",
-		reflect.TypeOf((*StackEvents)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "opsWorksDeploymentStateChangePattern", GoMethod: "OpsWorksDeploymentStateChangePattern"},
-		},
-		func() interface{} {
-			return &jsiiProxy_StackEvents{}
-		},
 	)
 }

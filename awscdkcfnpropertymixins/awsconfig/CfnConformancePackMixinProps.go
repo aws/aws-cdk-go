@@ -1,5 +1,8 @@
 package awsconfig
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnConformancePackPropsMixin.
 //
@@ -20,6 +23,12 @@ package awsconfig
 //   	ConformancePackName: jsii.String("conformancePackName"),
 //   	DeliveryS3Bucket: jsii.String("deliveryS3Bucket"),
 //   	DeliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TemplateBody: jsii.String("templateBody"),
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
 //   	TemplateSsmDocumentDetails: templateSsmDocumentDetails,
@@ -44,6 +53,10 @@ type CfnConformancePackMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
 	//
 	DeliveryS3KeyPrefix *string `field:"optional" json:"deliveryS3KeyPrefix" yaml:"deliveryS3KeyPrefix"`
+	// The tags for the conformance pack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 	// A string containing full conformance pack template body.
 	//
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.

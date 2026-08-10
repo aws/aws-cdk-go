@@ -68,7 +68,7 @@ type FlowProps struct {
 	// Default: - chosen by MediaConnect.
 	//
 	// Experimental.
-	Maintenance *MaintenanceWindow `field:"optional" json:"maintenance" yaml:"maintenance"`
+	MaintenanceConfiguration *MaintenanceWindow `field:"optional" json:"maintenanceConfiguration" yaml:"maintenanceConfiguration"`
 	// The media streams that are associated with the flow.
 	//
 	// After you associate a media stream with a source, you can also associate it with outputs on the flow.
@@ -94,8 +94,6 @@ type FlowProps struct {
 	// Experimental.
 	SourceMonitoringConfig *SourceMonitoringConfig `field:"optional" json:"sourceMonitoringConfig" yaml:"sourceMonitoringConfig"`
 	// The VPC Interfaces for this flow.
-	//
-	// Use this instead of the FlowVpcInterface construct.
 	// Default: No VPC Interface configuration applied.
 	//
 	// Experimental.

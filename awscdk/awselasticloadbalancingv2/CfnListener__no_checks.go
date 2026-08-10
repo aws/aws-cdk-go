@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnListener) validateSetMutualAuthenticationParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnListener) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnListenerParameters(scope constructs.Construct, id *string, props *CfnListenerProps) error {
 	return nil
 }

@@ -47,6 +47,13 @@ package awsdevopsagent
 //   				ApiKeyName: jsii.String("apiKeyName"),
 //   				ApiKeyValue: jsii.String("apiKeyValue"),
 //   			},
+//   			BearerToken: &BearerTokenDetailsProperty{
+//   				TokenName: jsii.String("tokenName"),
+//   				TokenValue: jsii.String("tokenValue"),
+//
+//   				// the properties below are optional
+//   				AuthorizationHeader: jsii.String("authorizationHeader"),
+//   			},
 //   			OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   				ClientId: jsii.String("clientId"),
 //   				ClientSecret: jsii.String("clientSecret"),
@@ -105,13 +112,14 @@ package awsdevopsagent
 //   	McpServerSigV4: &MCPServerSigV4DetailsProperty{
 //   		AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
 //   			Region: jsii.String("region"),
-//   			RoleArn: jsii.String("roleArn"),
 //   			Service: jsii.String("service"),
 //
 //   			// the properties below are optional
 //   			CustomHeaders: map[string]*string{
 //   				"customHeadersKey": jsii.String("customHeaders"),
 //   			},
+//   			McpRoleArn: jsii.String("mcpRoleArn"),
+//   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),

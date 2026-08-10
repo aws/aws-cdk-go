@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPlacementGroupProps := &CfnPlacementGroupProps{
+//   	ParentGroupId: jsii.String("parentGroupId"),
 //   	PartitionCount: jsii.Number(123),
 //   	SpreadLevel: jsii.String("spreadLevel"),
 //   	Strategy: jsii.String("strategy"),
@@ -26,6 +27,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
 //
 type CfnPlacementGroupProps struct {
+	// The ID of a parent placement group.
+	//
+	// Valid for strategies that support parent group linking.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-parentgroupid
+	//
+	ParentGroupId *string `field:"optional" json:"parentGroupId" yaml:"parentGroupId"`
 	// The number of partitions.
 	//
 	// Valid only when *Strategy* is set to `partition` .

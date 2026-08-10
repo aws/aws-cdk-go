@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about the points configuration for a question.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -15,7 +17,7 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionpointsconfiguration.html
 //
 type CfnEvaluationFormPropsMixin_QuestionPointsConfigurationProperty struct {
-	// Whether the question is a bonus question.
+	// The flag to mark the question as a bonus question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionpointsconfiguration.html#cfn-connect-evaluationform-questionpointsconfiguration-isbonus
 	//
 	IsBonus interface{} `field:"optional" json:"isBonus" yaml:"isBonus"`

@@ -64,6 +64,13 @@ import (
 //   					ApiKeyName: jsii.String("apiKeyName"),
 //   					ApiKeyValue: jsii.String("apiKeyValue"),
 //   				},
+//   				BearerToken: &BearerTokenDetailsProperty{
+//   					TokenName: jsii.String("tokenName"),
+//   					TokenValue: jsii.String("tokenValue"),
+//
+//   					// the properties below are optional
+//   					AuthorizationHeader: jsii.String("authorizationHeader"),
+//   				},
 //   				OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   					ClientId: jsii.String("clientId"),
 //   					ClientSecret: jsii.String("clientSecret"),
@@ -122,13 +129,14 @@ import (
 //   		McpServerSigV4: &MCPServerSigV4DetailsProperty{
 //   			AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
 //   				Region: jsii.String("region"),
-//   				RoleArn: jsii.String("roleArn"),
 //   				Service: jsii.String("service"),
 //
 //   				// the properties below are optional
 //   				CustomHeaders: map[string]*string{
 //   					"customHeadersKey": jsii.String("customHeaders"),
 //   				},
+//   				McpRoleArn: jsii.String("mcpRoleArn"),
+//   				RoleArn: jsii.String("roleArn"),
 //   			},
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
@@ -239,7 +247,7 @@ type CfnService interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified.
+	// Service-specific configuration details - MCPServerSigV4 supports in-place updates;.
 	ServiceDetails() interface{}
 	SetServiceDetails(val interface{})
 	// A reference to a Service resource.

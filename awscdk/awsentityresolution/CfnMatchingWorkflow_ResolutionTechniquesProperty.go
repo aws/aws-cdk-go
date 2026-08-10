@@ -9,6 +9,7 @@ package awsentityresolution
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   resolutionTechniquesProperty := &ResolutionTechniquesProperty{
+//   	EnableRealTimeMatching: jsii.Boolean(false),
 //   	ProviderProperties: &ProviderPropertiesProperty{
 //   		ProviderServiceArn: jsii.String("providerServiceArn"),
 //
@@ -53,6 +54,12 @@ package awsentityresolution
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html
 //
 type CfnMatchingWorkflow_ResolutionTechniquesProperty struct {
+	// Enables the workflow to use real-time matching.
+	//
+	// Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-enablerealtimematching
+	//
+	EnableRealTimeMatching interface{} `field:"optional" json:"enableRealTimeMatching" yaml:"enableRealTimeMatching"`
 	// The properties of the provider service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-providerproperties
 	//

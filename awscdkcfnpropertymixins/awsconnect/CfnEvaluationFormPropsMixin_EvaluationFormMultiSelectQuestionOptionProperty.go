@@ -25,6 +25,9 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html
 //
 type CfnEvaluationFormPropsMixin_EvaluationFormMultiSelectQuestionOptionProperty struct {
+	// The flag to mark the option as automatic fail.
+	//
+	// If an automatic fail answer is provided, the overall evaluation gets a score of 0.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html#cfn-connect-evaluationform-evaluationformmultiselectquestionoption-automaticfail
 	//
 	AutomaticFail interface{} `field:"optional" json:"automaticFail" yaml:"automaticFail"`
@@ -32,6 +35,7 @@ type CfnEvaluationFormPropsMixin_EvaluationFormMultiSelectQuestionOptionProperty
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html#cfn-connect-evaluationform-evaluationformmultiselectquestionoption-automaticfailconfiguration
 	//
 	AutomaticFailConfiguration interface{} `field:"optional" json:"automaticFailConfiguration" yaml:"automaticFailConfiguration"`
+	// Information about the points configuration for an answer option.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html#cfn-connect-evaluationform-evaluationformmultiselectquestionoption-pointsconfiguration
 	//
 	PointsConfiguration interface{} `field:"optional" json:"pointsConfiguration" yaml:"pointsConfiguration"`

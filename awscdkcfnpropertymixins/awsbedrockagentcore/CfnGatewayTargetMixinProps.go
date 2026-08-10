@@ -103,6 +103,33 @@ package awsbedrockagentcore
 //   				},
 //   			},
 //   		},
+//   		Inference: &InferenceTargetConfigurationProperty{
+//   			Connector: &InferenceConnectorTargetConfigurationProperty{
+//   				Source: &InferenceConnectorSourceProperty{
+//   					ConnectorId: jsii.String("connectorId"),
+//   				},
+//   			},
+//   			Provider: &InferenceProviderTargetConfigurationProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//   				ModelMapping: &ModelMappingProperty{
+//   					ProviderPrefix: &ProviderPrefixProperty{
+//   						Separator: jsii.String("separator"),
+//   						Strip: jsii.Boolean(false),
+//   					},
+//   				},
+//   				Operations: []interface{}{
+//   					&InferenceOperationConfigurationProperty{
+//   						Models: []interface{}{
+//   							&ModelEntryProperty{
+//   								Model: jsii.String("model"),
+//   							},
+//   						},
+//   						Path: jsii.String("path"),
+//   						ProviderPath: jsii.String("providerPath"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		Mcp: &McpTargetConfigurationProperty{
 //   			ApiGateway: &ApiGatewayTargetConfigurationProperty{
 //   				ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{

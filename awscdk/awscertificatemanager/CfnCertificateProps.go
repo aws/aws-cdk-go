@@ -21,8 +21,6 @@ import (
 //   	DomainValidationOptions: []interface{}{
 //   		&DomainValidationOptionProperty{
 //   			DomainName: jsii.String("domainName"),
-//
-//   			// the properties below are optional
 //   			HostedZoneId: jsii.String("hostedZoneId"),
 //   			ValidationDomain: jsii.String("validationDomain"),
 //   		},

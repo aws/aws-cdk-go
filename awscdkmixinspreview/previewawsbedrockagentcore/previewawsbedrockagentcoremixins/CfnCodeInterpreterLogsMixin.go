@@ -1,0 +1,165 @@
+package previewawsbedrockagentcoremixins
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawsbedrockagentcore/previewawsbedrockagentcoremixins/internal"
+	"github.com/aws/aws-cdk-go/awscdkmixinspreview/v2/previewawslogs"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Definition of AWS::BedrockAgentCore::CodeInterpreter Resource Type.
+//
+// This is a read-only resource representing the AWS-managed default code interpreter (aws.codeinterpreter.v1).
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
+//
+//   var logsDelivery ILogsDelivery
+//
+//   cfnCodeInterpreterLogsMixin := awscdkmixinspreview.Mixins.NewCfnCodeInterpreterLogsMixin(jsii.String("logType"), logsDelivery)
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpreter.html
+//
+type CfnCodeInterpreterLogsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	LogDelivery() previewawslogs.ILogsDelivery
+	LogType() *string
+	// Apply vended logs configuration to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct (has vendedLogs property).
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnCodeInterpreterLogsMixin
+type jsiiProxy_CfnCodeInterpreterLogsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnCodeInterpreterLogsMixin) LogDelivery() previewawslogs.ILogsDelivery {
+	var returns previewawslogs.ILogsDelivery
+	_jsii_.Get(
+		j,
+		"logDelivery",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCodeInterpreterLogsMixin) LogType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logType",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to enable vended logs for `AWS::BedrockAgentCore::CodeInterpreter`.
+func NewCfnCodeInterpreterLogsMixin(logType *string, logDelivery previewawslogs.ILogsDelivery) CfnCodeInterpreterLogsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnCodeInterpreterLogsMixinParameters(logType, logDelivery); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnCodeInterpreterLogsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterLogsMixin",
+		[]interface{}{logType, logDelivery},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to enable vended logs for `AWS::BedrockAgentCore::CodeInterpreter`.
+func NewCfnCodeInterpreterLogsMixin_Override(c CfnCodeInterpreterLogsMixin, logType *string, logDelivery previewawslogs.ILogsDelivery) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterLogsMixin",
+		[]interface{}{logType, logDelivery},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnCodeInterpreterLogsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnCodeInterpreterLogsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterLogsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnCodeInterpreterLogsMixin_APPLICATION_LOGS() CfnCodeInterpreterApplicationLogs {
+	_init_.Initialize()
+	var returns CfnCodeInterpreterApplicationLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterLogsMixin",
+		"APPLICATION_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func CfnCodeInterpreterLogsMixin_USAGE_LOGS() CfnCodeInterpreterUsageLogs {
+	_init_.Initialize()
+	var returns CfnCodeInterpreterUsageLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterLogsMixin",
+		"USAGE_LOGS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnCodeInterpreterLogsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnCodeInterpreterLogsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

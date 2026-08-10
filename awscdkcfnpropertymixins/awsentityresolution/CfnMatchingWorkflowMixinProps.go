@@ -41,6 +41,7 @@ import (
 //   		},
 //   	},
 //   	ResolutionTechniques: &ResolutionTechniquesProperty{
+//   		EnableRealTimeMatching: jsii.Boolean(false),
 //   		ProviderProperties: &ProviderPropertiesProperty{
 //   			IntermediateSourceConfiguration: &IntermediateSourceConfigurationProperty{
 //   				IntermediateS3Path: jsii.String("intermediateS3Path"),

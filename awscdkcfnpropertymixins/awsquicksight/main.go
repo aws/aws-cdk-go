@@ -80,6 +80,46 @@ func init() {
 		reflect.TypeOf((*CfnActionConnectorPropsMixin_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentMixinProps",
+		reflect.TypeOf((*CfnAgentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentPropsMixin",
+		reflect.TypeOf((*CfnAgentPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAgentPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentPropsMixin.AgentTagProperty",
+		reflect.TypeOf((*CfnAgentPropsMixin_AgentTagProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentPropsMixin.CustomPromptInputParametersProperty",
+		reflect.TypeOf((*CfnAgentPropsMixin_CustomPromptInputParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentPropsMixin.CustomPromptInputProperty",
+		reflect.TypeOf((*CfnAgentPropsMixin_CustomPromptInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentPropsMixin.CustomPromptInterfaceProperty",
+		reflect.TypeOf((*CfnAgentPropsMixin_CustomPromptInterfaceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAgentPropsMixin.CustomPromptProfileProperty",
+		reflect.TypeOf((*CfnAgentPropsMixin_CustomPromptProfileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAnalysisMixinProps",
 		reflect.TypeOf((*CfnAnalysisMixinProps)(nil)).Elem(),
 	)
@@ -2318,54 +2358,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAnalysisPropsMixin.YAxisOptionsProperty",
 		reflect.TypeOf((*CfnAnalysisPropsMixin_YAxisOptionsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAssetBundleExportJobMixinProps",
-		reflect.TypeOf((*CfnAssetBundleExportJobMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAssetBundleExportJobPropsMixin",
-		reflect.TypeOf((*CfnAssetBundleExportJobPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnAssetBundleExportJobPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAssetBundleImportJobMixinProps",
-		reflect.TypeOf((*CfnAssetBundleImportJobMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAssetBundleImportJobPropsMixin",
-		reflect.TypeOf((*CfnAssetBundleImportJobPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnAssetBundleImportJobPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAssetBundleImportJobPropsMixin.AssetBundleImportJobOverrideValidationStrategyProperty",
-		reflect.TypeOf((*CfnAssetBundleImportJobPropsMixin_AssetBundleImportJobOverrideValidationStrategyProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnAssetBundleImportJobPropsMixin.AssetBundleImportSourceDescriptionProperty",
-		reflect.TypeOf((*CfnAssetBundleImportJobPropsMixin_AssetBundleImportSourceDescriptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnCustomPermissionsMixinProps",
@@ -5368,6 +5360,58 @@ func init() {
 		reflect.TypeOf((*CfnFolderPropsMixin_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBaseMixinProps",
+		reflect.TypeOf((*CfnKnowledgeBaseMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnKnowledgeBasePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.AccessControlConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_AccessControlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.AudioExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_AudioExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.ImageExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_ImageExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.KbTemplateConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_KbTemplateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.KnowledgeBaseConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_KnowledgeBaseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.MediaExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_MediaExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.ResourcePermissionProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_ResourcePermissionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnKnowledgeBasePropsMixin.VideoExtractionConfigurationProperty",
+		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_VideoExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnOAuthClientApplicationMixinProps",
 		reflect.TypeOf((*CfnOAuthClientApplicationMixinProps)(nil)).Elem(),
 	)
@@ -5422,6 +5466,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnRefreshSchedulePropsMixin.ScheduleFrequencyProperty",
 		reflect.TypeOf((*CfnRefreshSchedulePropsMixin_ScheduleFrequencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnSpaceMixinProps",
+		reflect.TypeOf((*CfnSpaceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnSpacePropsMixin",
+		reflect.TypeOf((*CfnSpacePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSpacePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnSpacePropsMixin.ResourcePermissionProperty",
+		reflect.TypeOf((*CfnSpacePropsMixin_ResourcePermissionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnSpacePropsMixin.SpaceResourceProperty",
+		reflect.TypeOf((*CfnSpacePropsMixin_SpaceResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTemplateMixinProps",

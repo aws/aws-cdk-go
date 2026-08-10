@@ -9,6 +9,7 @@ type Type__interfacesawsomicsIAnnotationStoreRef = interfacesawsomics.IAnnotatio
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsomicsIConfigurationRef = interfacesawsomics.IConfigurationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsomicsIReferenceRef = interfacesawsomics.IReferenceRef
 type Type__interfacesawsomicsIReferenceStoreRef = interfacesawsomics.IReferenceStoreRef
 type Type__interfacesawsomicsIRunGroupRef = interfacesawsomics.IRunGroupRef
 type Type__interfacesawsomicsISequenceStoreRef = interfacesawsomics.ISequenceStoreRef

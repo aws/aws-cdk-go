@@ -104,7 +104,6 @@ type CfnInstance interface {
 	SetArchitecture(val *string)
 	// The Availability Zone of the OpsWorks instance, such as `us-east-2a` .
 	AttrAvailabilityZone() *string
-	AttrId() *string
 	// The private DNS name of the OpsWorks instance.
 	AttrPrivateDnsName() *string
 	// The private IP address of the OpsWorks instance, such as `192.0.2.0` .
@@ -419,16 +418,6 @@ func (j *jsiiProxy_CfnInstance) AttrAvailabilityZone() *string {
 	_jsii_.Get(
 		j,
 		"attrAvailabilityZone",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInstance) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

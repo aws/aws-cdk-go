@@ -13,14 +13,10 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var encryptionAlgorithm EncryptionAlgorithm
-//   var networkInterface NetworkInterface
 //   var role Role
 //   var secret Secret
-//   var securityGroup SecurityGroup
-//   var subnet Subnet
 //
 //   zixiPushOutputConfig := &ZixiPushOutputConfig{
 //   	Destination: jsii.String("destination"),
@@ -39,20 +35,7 @@ import (
 //   		// the properties below are optional
 //   		Role: role,
 //   	},
-//   	VpcInterfaceAttachment: &VpcInterfaceConfig{
-//   		Name: jsii.String("name"),
-//   		Role: role,
-//   		SecurityGroups: []ISecurityGroup{
-//   			securityGroup,
-//   		},
-//   		Subnet: subnet,
-//
-//   		// the properties below are optional
-//   		NetworkInterfaceIds: []*string{
-//   			jsii.String("networkInterfaceIds"),
-//   		},
-//   		NetworkInterfaceType: networkInterface,
-//   	},
+//   	VpcInterfaceAttachmentName: jsii.String("vpcInterfaceAttachmentName"),
 //   }
 //
 // Experimental.
@@ -81,10 +64,10 @@ type ZixiPushOutputConfig struct {
 	//
 	// Experimental.
 	Encryption *StaticKeyEncryption `field:"optional" json:"encryption" yaml:"encryption"`
-	// The VPC interface attachment to use for this output.
+	// The name of the VPC interface attachment to use for this output.
 	// Default: - no VPC interface attachment.
 	//
 	// Experimental.
-	VpcInterfaceAttachment *VpcInterfaceConfig `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`
+	VpcInterfaceAttachmentName *string `field:"optional" json:"vpcInterfaceAttachmentName" yaml:"vpcInterfaceAttachmentName"`
 }
 

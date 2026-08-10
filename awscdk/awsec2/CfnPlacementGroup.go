@@ -25,6 +25,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnPlacementGroup := awscdk.Aws_ec2.NewCfnPlacementGroup(this, jsii.String("MyCfnPlacementGroup"), &CfnPlacementGroupProps{
+//   	ParentGroupId: jsii.String("parentGroupId"),
 //   	PartitionCount: jsii.Number(123),
 //   	SpreadLevel: jsii.String("spreadLevel"),
 //   	Strategy: jsii.String("strategy"),
@@ -43,6 +44,8 @@ type CfnPlacementGroup interface {
 	awscdk.IInspectable
 	interfacesawsec2.IPlacementGroupRef
 	awscdk.ITaggable
+	// The ID of the placement group.
+	AttrGroupId() *string
 	// The name of the placement group.
 	AttrGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -68,6 +71,9 @@ type CfnPlacementGroup interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The ID of a parent placement group.
+	ParentGroupId() *string
+	SetParentGroupId(val *string)
 	// The number of partitions.
 	PartitionCount() *float64
 	SetPartitionCount(val *float64)
@@ -273,6 +279,16 @@ type jsiiProxy_CfnPlacementGroup struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnPlacementGroup) AttrGroupId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrGroupId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlacementGroup) AttrGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -358,6 +374,16 @@ func (j *jsiiProxy_CfnPlacementGroup) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlacementGroup) ParentGroupId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"parentGroupId",
 		&returns,
 	)
 	return returns
@@ -490,6 +516,14 @@ func NewCfnPlacementGroup_Override(c CfnPlacementGroup, scope constructs.Constru
 		"aws-cdk-lib.aws_ec2.CfnPlacementGroup",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnPlacementGroup)SetParentGroupId(val *string) {
+	_jsii_.Set(
+		j,
+		"parentGroupId",
+		val,
 	)
 }
 

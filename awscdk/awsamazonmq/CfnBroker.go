@@ -94,6 +94,7 @@ import (
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
+//   	StorageSize: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -253,6 +254,9 @@ type CfnBroker interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The broker's storage size in GB.
+	StorageSize() *float64
+	SetStorageSize(val *float64)
 	// The broker's storage type.
 	StorageType() *string
 	SetStorageType(val *string)
@@ -847,6 +851,16 @@ func (j *jsiiProxy_CfnBroker) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBroker) StorageSize() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"storageSize",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBroker) StorageType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1112,6 +1126,14 @@ func (j *jsiiProxy_CfnBroker)SetSecurityGroups(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"securityGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBroker)SetStorageSize(val *float64) {
+	_jsii_.Set(
+		j,
+		"storageSize",
 		val,
 	)
 }

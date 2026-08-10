@@ -60,6 +60,34 @@ func init() {
 		reflect.TypeOf((*CfnPackageGroupPropsMixin_RestrictionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_codeartifact.CfnPackageMixinProps",
+		reflect.TypeOf((*CfnPackageMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_codeartifact.CfnPackagePropsMixin",
+		reflect.TypeOf((*CfnPackagePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPackagePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_codeartifact.CfnPackagePropsMixin.OriginConfigurationProperty",
+		reflect.TypeOf((*CfnPackagePropsMixin_OriginConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_codeartifact.CfnPackagePropsMixin.RestrictionsProperty",
+		reflect.TypeOf((*CfnPackagePropsMixin_RestrictionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_codeartifact.CfnRepositoryMixinProps",
 		reflect.TypeOf((*CfnRepositoryMixinProps)(nil)).Elem(),
 	)

@@ -11,6 +11,21 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
+func (p *jsiiProxy_PromQLAlarm) validateAddAlarmMuteRuleParameters(id *string, options *AlarmMuteRuleOptions) error {
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_PromQLAlarm) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")

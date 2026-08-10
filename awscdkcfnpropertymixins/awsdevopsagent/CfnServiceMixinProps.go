@@ -48,6 +48,11 @@ import (
 //   					ApiKeyName: jsii.String("apiKeyName"),
 //   					ApiKeyValue: jsii.String("apiKeyValue"),
 //   				},
+//   				BearerToken: &BearerTokenDetailsProperty{
+//   					AuthorizationHeader: jsii.String("authorizationHeader"),
+//   					TokenName: jsii.String("tokenName"),
+//   					TokenValue: jsii.String("tokenValue"),
+//   				},
 //   				OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   					ClientId: jsii.String("clientId"),
 //   					ClientName: jsii.String("clientName"),
@@ -98,6 +103,7 @@ import (
 //   				CustomHeaders: map[string]*string{
 //   					"customHeadersKey": jsii.String("customHeaders"),
 //   				},
+//   				McpRoleArn: jsii.String("mcpRoleArn"),
 //   				Region: jsii.String("region"),
 //   				RoleArn: jsii.String("roleArn"),
 //   				Service: jsii.String("service"),
@@ -159,7 +165,9 @@ type CfnServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified.
+	// Service-specific configuration details - MCPServerSigV4 supports in-place updates;
+	//
+	// GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-servicedetails
 	//
 	ServiceDetails interface{} `field:"optional" json:"serviceDetails" yaml:"serviceDetails"`

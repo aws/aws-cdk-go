@@ -11,13 +11,16 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 )
 
-func (i *jsiiProxy_IFlow) validateAddOutputParameters(id *string, outputConfig OutputConfiguration) error {
+func (i *jsiiProxy_IFlow) validateAddOutputParameters(id *string, options *AddFlowOutputOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
-	if outputConfig == nil {
-		return fmt.Errorf("parameter outputConfig is required, but nil was provided")
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

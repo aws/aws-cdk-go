@@ -84,6 +84,10 @@ func (c *jsiiProxy_CfnDBSubnetGroup) validateValidatePropertiesParameters(_prope
 	return nil
 }
 
+func validateCfnDBSubnetGroup_ArnForDBSubnetGroupParameters(resource interfacesawsrds.IDBSubnetGroupRef) error {
+	return nil
+}
+
 func validateCfnDBSubnetGroup_IsCfnDBSubnetGroupParameters(x interface{}) error {
 	return nil
 }

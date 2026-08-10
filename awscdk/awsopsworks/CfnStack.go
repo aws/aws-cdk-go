@@ -100,7 +100,6 @@ type CfnStack interface {
 	// One or more user-defined key-value pairs to be added to the stack attributes.
 	Attributes() interface{}
 	SetAttributes(val interface{})
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -401,16 +400,6 @@ func (j *jsiiProxy_CfnStack) Attributes() interface{} {
 	_jsii_.Get(
 		j,
 		"attributes",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnStack) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns
@@ -1056,43 +1045,6 @@ func (j *jsiiProxy_CfnStack)SetVpcId(val *string) {
 		"vpcId",
 		val,
 	)
-}
-
-func CfnStack_ArnForStack(resource interfacesawsopsworks.IStackRef) *string {
-	_init_.Initialize()
-
-	if err := validateCfnStack_ArnForStackParameters(resource); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_opsworks.CfnStack",
-		"arnForStack",
-		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IStackRef from a stackId.
-func CfnStack_FromStackId(scope constructs.Construct, id *string, stackId *string) interfacesawsopsworks.IStackRef {
-	_init_.Initialize()
-
-	if err := validateCfnStack_FromStackIdParameters(scope, id, stackId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsopsworks.IStackRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_opsworks.CfnStack",
-		"fromStackId",
-		[]interface{}{scope, id, stackId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

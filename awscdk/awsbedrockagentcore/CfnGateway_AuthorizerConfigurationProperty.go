@@ -35,6 +35,24 @@ package awsbedrockagentcore
 //   				InboundTokenClaimValueType: jsii.String("inboundTokenClaimValueType"),
 //   			},
 //   		},
+//   		PrivateEndpoint: &PrivateEndpointProperty{
+//   			ManagedVpcResource: &ManagedVpcResourceProperty{
+//   				EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   				SubnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   				VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   				// the properties below are optional
+//   				RoutingDomain: jsii.String("routingDomain"),
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   			},
+//   			SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   				ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   			},
+//   		},
 //   	},
 //   }
 //

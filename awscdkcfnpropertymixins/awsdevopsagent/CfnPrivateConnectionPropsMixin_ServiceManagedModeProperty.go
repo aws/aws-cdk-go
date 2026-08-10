@@ -9,6 +9,7 @@ package awsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   serviceManagedModeProperty := &ServiceManagedModeProperty{
+//   	DnsResolution: jsii.String("dnsResolution"),
 //   	HostAddress: jsii.String("hostAddress"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
@@ -27,6 +28,12 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-privateconnection-servicemanagedmode.html
 //
 type CfnPrivateConnectionPropsMixin_ServiceManagedModeProperty struct {
+	// DNS resolution mode for the resource gateway.
+	//
+	// Defaults to PUBLIC when not set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-privateconnection-servicemanagedmode.html#cfn-devopsagent-privateconnection-servicemanagedmode-dnsresolution
+	//
+	DnsResolution *string `field:"optional" json:"dnsResolution" yaml:"dnsResolution"`
 	// IP address or DNS name of the target resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-privateconnection-servicemanagedmode.html#cfn-devopsagent-privateconnection-servicemanagedmode-hostaddress
 	//

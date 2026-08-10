@@ -13,6 +13,7 @@ package awsdevopsagent
 //   		CustomHeaders: map[string]*string{
 //   			"customHeadersKey": jsii.String("customHeaders"),
 //   		},
+//   		McpRoleArn: jsii.String("mcpRoleArn"),
 //   		Region: jsii.String("region"),
 //   		RoleArn: jsii.String("roleArn"),
 //   		Service: jsii.String("service"),

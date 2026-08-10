@@ -590,6 +590,10 @@ func init() {
 		reflect.TypeOf((*CfnUserPool_EmailConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPool.EumsSmsConfigurationProperty",
+		reflect.TypeOf((*CfnUserPool_EumsSmsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPool.InboundFederationProperty",
 		reflect.TypeOf((*CfnUserPool_InboundFederationProperty)(nil)).Elem(),
 	)
@@ -1017,6 +1021,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPoolRegionalConfigurationAttachment.EmailConfigurationProperty",
 		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachment_EmailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRegionalConfigurationAttachment.EumsSmsConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachment_EumsSmsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cognito.CfnUserPoolRegionalConfigurationAttachment.InboundFederationProperty",

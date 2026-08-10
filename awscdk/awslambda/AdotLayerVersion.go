@@ -7,6 +7,10 @@ import (
 
 // An ADOT Lambda layer version that's specific to a lambda layer type and an architecture.
 //
+// **Note:** These resolve to the legacy ADOT Lambda layers with an embedded collector.
+// For the recommended optimized layers, use `LayerVersion.fromLayerVersionArn()` with
+// an `AWSOpenTelemetryDistro*` layer ARN instead.
+//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //

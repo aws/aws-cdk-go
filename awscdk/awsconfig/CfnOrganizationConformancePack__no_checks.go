@@ -84,6 +84,10 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnOrganizationConformancePack_ArnForOrganizationConformancePackParameters(resource interfacesawsconfig.IOrganizationConformancePackRef) error {
+	return nil
+}
+
 func validateCfnOrganizationConformancePack_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) validateSetConformancePackInp
 }
 
 func (j *jsiiProxy_CfnOrganizationConformancePack) validateSetOrganizationConformancePackNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOrganizationConformancePack) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

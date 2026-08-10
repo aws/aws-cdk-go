@@ -1,7 +1,7 @@
 package awsmediaconnectalpha
 
 
-// Maintenance Window configuration for MediaConnect Flow.
+// Configuration for scheduled maintenance windows.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -9,19 +9,19 @@ package awsmediaconnectalpha
 //   import mediaconnect_alpha "github.com/aws/aws-cdk-go/awsmediaconnectalpha"
 //
 //   maintenanceWindow := &MaintenanceWindow{
-//   	MaintenanceDay: mediaconnect_alpha.MaintenanceDay_MONDAY,
-//   	MaintenanceStartHour: jsii.String("maintenanceStartHour"),
+//   	Day: mediaconnect_alpha.MaintenanceDay_MONDAY,
+//   	Time: jsii.String("time"),
 //   }
 //
 // Experimental.
 type MaintenanceWindow struct {
 	// A day of a week when the maintenance will happen.
 	// Experimental.
-	MaintenanceDay MaintenanceDay `field:"required" json:"maintenanceDay" yaml:"maintenanceDay"`
-	// UTC time when the maintenance will happen.
+	Day MaintenanceDay `field:"required" json:"day" yaml:"day"`
+	// The maintenance start time in UTC, 24-hour HH:MM format.
 	//
-	// Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00.
+	// Minutes must be 00 (e.g., '02:00', '13:00').
 	// Experimental.
-	MaintenanceStartHour *string `field:"required" json:"maintenanceStartHour" yaml:"maintenanceStartHour"`
+	Time *string `field:"required" json:"time" yaml:"time"`
 }
 

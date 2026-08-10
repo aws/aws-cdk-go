@@ -78,7 +78,6 @@ type CfnApp interface {
 	// One or more user-defined key/value pairs to be added to the stack attributes.
 	Attributes() interface{}
 	SetAttributes(val interface{})
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -345,16 +344,6 @@ func (j *jsiiProxy_CfnApp) Attributes() interface{} {
 	_jsii_.Get(
 		j,
 		"attributes",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnApp) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

@@ -20,6 +20,7 @@ package awsdevopsagent
 //   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	McpRoleArn: jsii.String("mcpRoleArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html
@@ -37,6 +38,8 @@ type CfnService_RegisteredMCPServerSigV4DetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-region
 	//
 	Region *string `field:"required" json:"region" yaml:"region"`
+	// Deprecated - use McpRoleArn instead.
+	//
 	// IAM role ARN for SigV4 signing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-rolearn
 	//
@@ -53,5 +56,11 @@ type CfnService_RegisteredMCPServerSigV4DetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// IAM role ARN for SigV4 signing.
+	//
+	// Absent when no dedicated role is configured.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html#cfn-devopsagent-service-registeredmcpserversigv4details-mcprolearn
+	//
+	McpRoleArn *string `field:"optional" json:"mcpRoleArn" yaml:"mcpRoleArn"`
 }
 

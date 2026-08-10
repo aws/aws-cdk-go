@@ -12,6 +12,7 @@ package awsdevopsagent
 //   	CustomHeaders: map[string]*string{
 //   		"customHeadersKey": jsii.String("customHeaders"),
 //   	},
+//   	McpRoleArn: jsii.String("mcpRoleArn"),
 //   	Region: jsii.String("region"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	Service: jsii.String("service"),
@@ -24,12 +25,20 @@ type CfnServicePropsMixin_MCPServerSigV4AuthorizationConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-customheaders
 	//
 	CustomHeaders interface{} `field:"optional" json:"customHeaders" yaml:"customHeaders"`
+	// IAM role ARN to assume for SigV4 signing.
+	//
+	// Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-mcprolearn
+	//
+	McpRoleArn *string `field:"optional" json:"mcpRoleArn" yaml:"mcpRoleArn"`
 	// AWS region for SigV4 signing.
 	//
 	// Use '*' for SigV4a multi-region signing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-region
 	//
 	Region *string `field:"optional" json:"region" yaml:"region"`
+	// Deprecated - use McpRoleArn instead.
+	//
 	// IAM role ARN to assume for SigV4 signing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-rolearn
 	//

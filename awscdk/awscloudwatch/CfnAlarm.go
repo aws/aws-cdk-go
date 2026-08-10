@@ -22,6 +22,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var slidingWindow interface{}
+//
 //   cfnAlarm := awscdk.Aws_cloudwatch.NewCfnAlarm(this, jsii.String("MyCfnAlarm"), &CfnAlarmProps{
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	AlarmActions: []interface{}{
@@ -47,6 +49,12 @@ import (
 //   	},
 //   	EvaluationInterval: jsii.Number(123),
 //   	EvaluationPeriods: jsii.Number(123),
+//   	EvaluationWindow: &EvaluationWindowProperty{
+//   		SlidingWindow: slidingWindow,
+//   		WallClockWindow: &WallClockWindowProperty{
+//   			Timezone: jsii.String("timezone"),
+//   		},
+//   	},
 //   	ExtendedStatistic: jsii.String("extendedStatistic"),
 //   	InsufficientDataActions: []interface{}{
 //   		jsii.String("insufficientDataActions"),
@@ -156,6 +164,8 @@ type CfnAlarm interface {
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
+	EvaluationWindow() interface{}
+	SetEvaluationWindow(val interface{})
 	// The percentile statistic for the metric associated with the alarm.
 	//
 	// Specify a value between p0.0 and p100.
@@ -600,6 +610,16 @@ func (j *jsiiProxy_CfnAlarm) EvaluationPeriods() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAlarm) EvaluationWindow() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"evaluationWindow",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAlarm) ExtendedStatistic() *string {
 	var returns *string
 	_jsii_.Get(
@@ -913,6 +933,17 @@ func (j *jsiiProxy_CfnAlarm)SetEvaluationPeriods(val *float64) {
 	_jsii_.Set(
 		j,
 		"evaluationPeriods",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarm)SetEvaluationWindow(val interface{}) {
+	if err := j.validateSetEvaluationWindowParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"evaluationWindow",
 		val,
 	)
 }

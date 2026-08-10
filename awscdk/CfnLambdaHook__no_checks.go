@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnLambdaHook) validateSetAliasParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLambdaHook) validateSetAutoUpdateParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLambdaHook) validateSetExecutionRoleParameters(val *string) error {
 	return nil
 }
@@ -117,6 +121,10 @@ func (j *jsiiProxy_CfnLambdaHook) validateSetHookStatusParameters(val *string) e
 }
 
 func (j *jsiiProxy_CfnLambdaHook) validateSetLambdaFunctionParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnLambdaHook) validateSetLoggingConfigParameters(val interface{}) error {
 	return nil
 }
 

@@ -324,6 +324,10 @@ func init() {
 		reflect.TypeOf((*CfnUserPoolPropsMixin_EmailConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolPropsMixin.EumsSmsConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolPropsMixin_EumsSmsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolPropsMixin.InboundFederationProperty",
 		reflect.TypeOf((*CfnUserPoolPropsMixin_InboundFederationProperty)(nil)).Elem(),
 	)
@@ -426,6 +430,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.EmailConfigurationProperty",
 		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_EmailConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.EumsSmsConfigurationProperty",
+		reflect.TypeOf((*CfnUserPoolRegionalConfigurationAttachmentPropsMixin_EumsSmsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRegionalConfigurationAttachmentPropsMixin.InboundFederationProperty",

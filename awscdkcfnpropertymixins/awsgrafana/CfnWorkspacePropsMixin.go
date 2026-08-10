@@ -79,6 +79,12 @@ import (
 //   		},
 //   	},
 //   	StackSetName: jsii.String("stackSetName"),
+//   	Tags: []TagsItemsProperty{
+//   		&TagsItemsProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),

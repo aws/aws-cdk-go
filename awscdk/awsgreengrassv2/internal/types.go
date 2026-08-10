@@ -5,6 +5,9 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsgreengrassv2IComponentRef = interfacesawsgreengrassv2.IComponentRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsgreengrassv2IComponentVersionRef = interfacesawsgreengrassv2.IComponentVersionRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsgreengrassv2ICoreDeviceRef = interfacesawsgreengrassv2.ICoreDeviceRef
 type Type__interfacesawsgreengrassv2IDeploymentRef = interfacesawsgreengrassv2.IDeploymentRef

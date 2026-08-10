@@ -205,8 +205,13 @@ type Gateway interface {
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this gateway.
 	//
-	// By default, the metric will be calculated as a sum over a period of 5 minutes.
-	// You can customize this by using the `statistic` and `period` properties.
+	// The metric is scoped to this gateway. By default, the metric will be calculated
+	// as a sum over a period of 5 minutes. You can customize this by using the `statistic`
+	// and `period` properties.
+	//
+	// By default this emits the `Operation`, `Protocol`, and `Resource` dimensions. To target a
+	// different dimension combination, override or extend them via `props.dimensionsMap`; any
+	// dimensions you supply are merged on top of the defaults.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the duration of requests for this gateway.
 	//
@@ -228,6 +233,10 @@ type Gateway interface {
 	// to the total latency.
 	MetricTargetExecutionTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of requests served by each target type for this gateway.
+	//
+	// By default this emits the `TargetType` and `Resource` dimensions. Any dimensions
+	// supplied via `props.dimensionsMap` are spread last, so a caller MAY add extra
+	// dimensions or override any default (including `TargetType`) by reusing its key.
 	MetricTargetType(targetType *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of throttled requests (429 status code) for this gateway.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric

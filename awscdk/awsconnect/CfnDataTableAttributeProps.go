@@ -10,9 +10,12 @@ package awsconnect
 //
 //   cfnDataTableAttributeProps := &CfnDataTableAttributeProps{
 //   	DataTableArn: jsii.String("dataTableArn"),
-//   	Description: jsii.String("description"),
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
+//   	ValueType: jsii.String("valueType"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	Primary: jsii.Boolean(false),
 //   	Validation: &ValidationProperty{
 //   		Enum: &EnumProperty{
@@ -31,7 +34,6 @@ package awsconnect
 //   		MinValues: jsii.Number(123),
 //   		MultipleOf: jsii.Number(123),
 //   	},
-//   	ValueType: jsii.String("valueType"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html
@@ -40,21 +42,27 @@ type CfnDataTableAttributeProps struct {
 	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-datatablearn
 	//
-	DataTableArn *string `field:"optional" json:"dataTableArn" yaml:"dataTableArn"`
-	// An optional description explaining the purpose and usage of this attribute.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-description
-	//
-	Description *string `field:"optional" json:"description" yaml:"description"`
+	DataTableArn *string `field:"required" json:"dataTableArn" yaml:"dataTableArn"`
 	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 	// The human-readable name of the attribute.
 	//
 	// Must be unique within the data table and conform to Connect naming standards.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-name
 	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// The type of value allowed for this attribute.
+	//
+	// Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-valuetype
+	//
+	ValueType *string `field:"required" json:"valueType" yaml:"valueType"`
+	// An optional description explaining the purpose and usage of this attribute.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-description
+	//
+	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Boolean indicating whether this attribute is used as a primary key for record identification.
 	//
 	// Primary attributes must have unique value combinations and cannot contain expressions.
@@ -67,11 +75,5 @@ type CfnDataTableAttributeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-validation
 	//
 	Validation interface{} `field:"optional" json:"validation" yaml:"validation"`
-	// The type of value allowed for this attribute.
-	//
-	// Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html#cfn-connect-datatableattribute-valuetype
-	//
-	ValueType *string `field:"optional" json:"valueType" yaml:"valueType"`
 }
 

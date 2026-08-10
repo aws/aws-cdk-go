@@ -44,8 +44,6 @@ import (
 //   				jsii.String("applicationPermissions"),
 //   			},
 //   			Namespace: jsii.String("namespace"),
-//
-//   			// the properties below are optional
 //   			Type: jsii.String("type"),
 //   		},
 //   	},

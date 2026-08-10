@@ -4,24 +4,17 @@ package awsglue
 // Properties for defining a `CfnDataCatalogEncryptionSettings`.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnDataCatalogEncryptionSettingsProps := &CfnDataCatalogEncryptionSettingsProps{
-//   	CatalogId: jsii.String("catalogId"),
+//
+//   awscdk.NewCfnDataCatalogEncryptionSettings(this, jsii.String("Encryption"), &CfnDataCatalogEncryptionSettingsProps{
+//   	CatalogId: jsii.String("my-catalog-id"),
 //   	DataCatalogEncryptionSettings: &DataCatalogEncryptionSettingsProperty{
-//   		ConnectionPasswordEncryption: &ConnectionPasswordEncryptionProperty{
-//   			KmsKeyId: jsii.String("kmsKeyId"),
-//   			ReturnConnectionPasswordEncrypted: jsii.Boolean(false),
-//   		},
 //   		EncryptionAtRest: &EncryptionAtRestProperty{
-//   			CatalogEncryptionMode: jsii.String("catalogEncryptionMode"),
-//   			CatalogEncryptionServiceRole: jsii.String("catalogEncryptionServiceRole"),
-//   			SseAwsKmsKeyId: jsii.String("sseAwsKmsKeyId"),
+//   			CatalogEncryptionMode: jsii.String("SSE-KMS"),
 //   		},
 //   	},
-//   }
+//   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html
 //

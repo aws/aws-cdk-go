@@ -34,8 +34,6 @@ import (
 //   	DomainValidationOptions: []interface{}{
 //   		&DomainValidationOptionProperty{
 //   			DomainName: jsii.String("domainName"),
-//
-//   			// the properties below are optional
 //   			HostedZoneId: jsii.String("hostedZoneId"),
 //   			ValidationDomain: jsii.String("validationDomain"),
 //   		},
@@ -60,6 +58,8 @@ type CfnCertificate interface {
 	awscdk.IInspectable
 	interfacesawscertificatemanager.ICertificateRef
 	awscdk.ITaggable
+	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
+	AttrCertificateArn() *string
 	AttrId() *string
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
 	CertificateAuthorityArn() *string
@@ -302,6 +302,16 @@ type jsiiProxy_CfnCertificate struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscertificatemanagerICertificateRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnCertificate) AttrCertificateArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCertificateArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCertificate) AttrId() *string {
@@ -667,25 +677,6 @@ func CfnCertificate_ArnForCertificate(resource interfacesawscertificatemanager.I
 		"aws-cdk-lib.aws_certificatemanager.CfnCertificate",
 		"arnForCertificate",
 		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawscertificatemanager.ICertificateRef {
-	_init_.Initialize()
-
-	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawscertificatemanager.ICertificateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_certificatemanager.CfnCertificate",
-		"fromCertificateId",
-		[]interface{}{scope, id, certificateId},
 		&returns,
 	)
 

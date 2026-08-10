@@ -22,6 +22,7 @@ import (
 //   		Arn: jsii.String("arn"),
 //   		HttpPort: jsii.Number(123),
 //   		HttpsPort: jsii.Number(123),
+//   		IpAddressType: jsii.String("ipAddressType"),
 //   		Name: jsii.String("name"),
 //   		OriginProtocolPolicy: jsii.String("originProtocolPolicy"),
 //   		OriginSslProtocols: []*string{

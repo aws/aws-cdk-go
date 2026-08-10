@@ -122,6 +122,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrApiEndpoint", GoGetter: "AttrApiEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrApiId", GoGetter: "AttrApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrExecuteApiArn", GoGetter: "AttrExecuteApiArn"},
 			_jsii_.MemberProperty{JsiiProperty: "basePath", GoGetter: "BasePath"},
 			_jsii_.MemberProperty{JsiiProperty: "body", GoGetter: "Body"},
 			_jsii_.MemberProperty{JsiiProperty: "bodyS3Location", GoGetter: "BodyS3Location"},

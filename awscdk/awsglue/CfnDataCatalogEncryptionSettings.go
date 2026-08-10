@@ -16,21 +16,14 @@ import (
 // After the configuration has been set, the specified encryption is applied to every catalog write thereafter.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   cfnDataCatalogEncryptionSettings := awscdk.Aws_glue.NewCfnDataCatalogEncryptionSettings(this, jsii.String("MyCfnDataCatalogEncryptionSettings"), &CfnDataCatalogEncryptionSettingsProps{
-//   	CatalogId: jsii.String("catalogId"),
+//
+//   awscdk.NewCfnDataCatalogEncryptionSettings(this, jsii.String("Encryption"), &CfnDataCatalogEncryptionSettingsProps{
+//   	CatalogId: jsii.String("my-catalog-id"),
 //   	DataCatalogEncryptionSettings: &DataCatalogEncryptionSettingsProperty{
-//   		ConnectionPasswordEncryption: &ConnectionPasswordEncryptionProperty{
-//   			KmsKeyId: jsii.String("kmsKeyId"),
-//   			ReturnConnectionPasswordEncrypted: jsii.Boolean(false),
-//   		},
 //   		EncryptionAtRest: &EncryptionAtRestProperty{
-//   			CatalogEncryptionMode: jsii.String("catalogEncryptionMode"),
-//   			CatalogEncryptionServiceRole: jsii.String("catalogEncryptionServiceRole"),
-//   			SseAwsKmsKeyId: jsii.String("sseAwsKmsKeyId"),
+//   			CatalogEncryptionMode: jsii.String("SSE-KMS"),
 //   		},
 //   	},
 //   })

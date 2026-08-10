@@ -10,8 +10,6 @@ package awscertificatemanager
 //
 //   domainValidationOptionProperty := &DomainValidationOptionProperty{
 //   	DomainName: jsii.String("domainName"),
-//
-//   	// the properties below are optional
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   	ValidationDomain: jsii.String("validationDomain"),
 //   }
@@ -22,7 +20,7 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 	// A fully qualified domain name (FQDN) in the certificate request.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-domainname
 	//
-	DomainName *string `field:"required" json:"domainName" yaml:"domainName"`
+	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
 	// The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record.
 	//
 	// Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.

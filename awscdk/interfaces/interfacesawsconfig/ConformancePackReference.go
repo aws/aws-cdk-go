@@ -9,10 +9,13 @@ package interfacesawsconfig
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   conformancePackReference := &ConformancePackReference{
+//   	ConformancePackArn: jsii.String("conformancePackArn"),
 //   	ConformancePackName: jsii.String("conformancePackName"),
 //   }
 //
 type ConformancePackReference struct {
+	// The ARN of the ConformancePack resource.
+	ConformancePackArn *string `field:"required" json:"conformancePackArn" yaml:"conformancePackArn"`
 	// The ConformancePackName of the ConformancePack resource.
 	ConformancePackName *string `field:"required" json:"conformancePackName" yaml:"conformancePackName"`
 }

@@ -4,7 +4,7 @@ package awsmediaconnectalpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (f *jsiiProxy_Flow) validateAddOutputParameters(id *string, outputConfig OutputConfiguration) error {
+func (f *jsiiProxy_Flow) validateAddOutputParameters(id *string, options *AddFlowOutputOptions) error {
 	return nil
 }
 

@@ -29,7 +29,6 @@ type CfnElasticLoadBalancerAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsopsworks.IElasticLoadBalancerAttachmentRef
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -247,16 +246,6 @@ type jsiiProxy_CfnElasticLoadBalancerAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsopsworksIElasticLoadBalancerAttachmentRef
-}
-
-func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnElasticLoadBalancerAttachment) CfnOptions() awscdk.ICfnResourceOptions {

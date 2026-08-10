@@ -28,6 +28,42 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningJobMixinProps",
+		reflect.TypeOf((*CfnSigningJobMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningJobPropsMixin",
+		reflect.TypeOf((*CfnSigningJobPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSigningJobPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningJobPropsMixin.S3SignedObjectProperty",
+		reflect.TypeOf((*CfnSigningJobPropsMixin_S3SignedObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningJobPropsMixin.S3SourceProperty",
+		reflect.TypeOf((*CfnSigningJobPropsMixin_S3SourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningJobPropsMixin.SignedObjectProperty",
+		reflect.TypeOf((*CfnSigningJobPropsMixin_SignedObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningJobPropsMixin.SourceProperty",
+		reflect.TypeOf((*CfnSigningJobPropsMixin_SourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_signer.CfnSigningProfileMixinProps",
 		reflect.TypeOf((*CfnSigningProfileMixinProps)(nil)).Elem(),
 	)

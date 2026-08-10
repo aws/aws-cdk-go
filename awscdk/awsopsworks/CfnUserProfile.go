@@ -36,7 +36,6 @@ type CfnUserProfile interface {
 	// Whether users can specify their own SSH public key through the My Settings page.
 	AllowSelfManagement() interface{}
 	SetAllowSelfManagement(val interface{})
-	AttrId() *string
 	// The user's SSH user name, as a string.
 	AttrSshUsername() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -266,16 +265,6 @@ func (j *jsiiProxy_CfnUserProfile) AllowSelfManagement() interface{} {
 	_jsii_.Get(
 		j,
 		"allowSelfManagement",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnUserProfile) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

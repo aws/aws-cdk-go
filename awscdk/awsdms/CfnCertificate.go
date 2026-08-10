@@ -30,7 +30,8 @@ type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsdms.ICertificateRef
-	AttrId() *string
+	// The certificate Arn.
+	AttrCertificateArn() *string
 	// A customer-assigned name for the certificate.
 	CertificateIdentifier() *string
 	SetCertificateIdentifier(val *string)
@@ -253,11 +254,11 @@ type jsiiProxy_CfnCertificate struct {
 	internal.Type__interfacesawsdmsICertificateRef
 }
 
-func (j *jsiiProxy_CfnCertificate) AttrId() *string {
+func (j *jsiiProxy_CfnCertificate) AttrCertificateArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrCertificateArn",
 		&returns,
 	)
 	return returns
@@ -489,25 +490,6 @@ func CfnCertificate_ArnForCertificate(resource interfacesawsdms.ICertificateRef)
 		"aws-cdk-lib.aws_dms.CfnCertificate",
 		"arnForCertificate",
 		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICertificateRef from a certificateId.
-func CfnCertificate_FromCertificateId(scope constructs.Construct, id *string, certificateId *string) interfacesawsdms.ICertificateRef {
-	_init_.Initialize()
-
-	if err := validateCfnCertificate_FromCertificateIdParameters(scope, id, certificateId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsdms.ICertificateRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnCertificate",
-		"fromCertificateId",
-		[]interface{}{scope, id, certificateId},
 		&returns,
 	)
 

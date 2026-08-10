@@ -46,6 +46,15 @@ package awscognito
 //   		VerifyAuthChallengeResponse: jsii.String("verifyAuthChallengeResponse"),
 //   	},
 //   	SmsConfiguration: &SmsConfigurationProperty{
+//   		EumsSms: &EumsSmsConfigurationProperty{
+//   			CallerArn: jsii.String("callerArn"),
+//   			ConfigurationSetName: jsii.String("configurationSetName"),
+//   			ExternalId: jsii.String("externalId"),
+//   			InEntityId: jsii.String("inEntityId"),
+//   			InTemplateId: jsii.String("inTemplateId"),
+//   			OriginationIdentity: jsii.String("originationIdentity"),
+//   			Region: jsii.String("region"),
+//   		},
 //   		ExternalId: jsii.String("externalId"),
 //   		SnsCallerArn: jsii.String("snsCallerArn"),
 //   		SnsRegion: jsii.String("snsRegion"),

@@ -100,7 +100,15 @@ func validateCfnDataTableRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataTableRecord) validateSetDataTableArnParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataTableRecord) validateSetDataTableRecordParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTableRecord) validateSetInstanceArnParameters(val *string) error {
 	return nil
 }
 

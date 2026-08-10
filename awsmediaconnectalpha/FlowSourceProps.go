@@ -23,10 +23,7 @@ type FlowSourceProps struct {
 	// The flow must have Failover enabled to add an additional source.
 	// Experimental.
 	Flow IFlow `field:"required" json:"flow" yaml:"flow"`
-	// Additional Source Configuration.
-	//
-	// Set the source's name via `name` on the configuration (e.g. `SourceConfiguration.rtp({ name })`).
-	// When no name is set there, one is generated from construct naming.
+	// Flow Source Configuration.
 	// Experimental.
 	Source SourceConfiguration `field:"required" json:"source" yaml:"source"`
 }

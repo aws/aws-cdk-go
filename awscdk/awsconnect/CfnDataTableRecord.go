@@ -468,6 +468,9 @@ func NewCfnDataTableRecord_Override(c CfnDataTableRecord, scope constructs.Const
 }
 
 func (j *jsiiProxy_CfnDataTableRecord)SetDataTableArn(val *string) {
+	if err := j.validateSetDataTableArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataTableArn",
@@ -487,6 +490,9 @@ func (j *jsiiProxy_CfnDataTableRecord)SetDataTableRecord(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnDataTableRecord)SetInstanceArn(val *string) {
+	if err := j.validateSetInstanceArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceArn",

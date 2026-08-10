@@ -9,6 +9,20 @@ package awssecurityhub
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   providerProperty := &ProviderProperty{
+//   	Azure: &AzureProviderConfigurationProperty{
+//   		AwsConfigConnectorArn: jsii.String("awsConfigConnectorArn"),
+//   		AzureRegions: []*string{
+//   			jsii.String("azureRegions"),
+//   		},
+//   		ScopeConfiguration: &AzureScopeConfigurationProperty{
+//   			ScopeType: jsii.String("scopeType"),
+//
+//   			// the properties below are optional
+//   			ScopeValues: []*string{
+//   				jsii.String("scopeValues"),
+//   			},
+//   		},
+//   	},
 //   	JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   		ProjectKey: jsii.String("projectKey"),
 //   	},
@@ -21,6 +35,10 @@ package awssecurityhub
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-provider.html
 //
 type CfnConnectorV2_ProviderProperty struct {
+	// The configuration settings required to establish an integration between AWS Security Hub and Azure.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-provider.html#cfn-securityhub-connectorv2-provider-azure
+	//
+	Azure interface{} `field:"optional" json:"azure" yaml:"azure"`
 	// Details about a Jira Cloud integration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-provider.html#cfn-securityhub-connectorv2-provider-jiracloud
 	//

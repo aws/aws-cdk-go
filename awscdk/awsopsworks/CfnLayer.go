@@ -114,7 +114,6 @@ type CfnLayer interface {
 	// One or more user-defined key-value pairs to be added to the stack attributes.
 	Attributes() interface{}
 	SetAttributes(val interface{})
-	AttrId() *string
 	// Whether to automatically assign an [Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html) .
 	AutoAssignElasticIps() interface{}
 	SetAutoAssignElasticIps(val interface{})
@@ -390,16 +389,6 @@ func (j *jsiiProxy_CfnLayer) Attributes() interface{} {
 	_jsii_.Get(
 		j,
 		"attributes",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnLayer) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

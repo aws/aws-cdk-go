@@ -9,11 +9,8 @@ package interfacesawsopsworks
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   layerReference := &LayerReference{
-//   	LayerId: jsii.String("layerId"),
 //   }
 //
 type LayerReference struct {
-	// The Id of the Layer resource.
-	LayerId *string `field:"required" json:"layerId" yaml:"layerId"`
 }
 

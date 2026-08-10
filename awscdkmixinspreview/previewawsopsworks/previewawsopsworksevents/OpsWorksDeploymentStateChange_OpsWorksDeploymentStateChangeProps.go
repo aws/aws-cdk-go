@@ -81,7 +81,7 @@ type OpsWorksDeploymentStateChange_OpsWorksDeploymentStateChangeProps struct {
 	// stack-id property.
 	//
 	// Specify an array of string values to match this event if the actual value of stack-id is one of the values in the array. Use one of the constructors on the `aws_events.Match`  for more advanced matching options.
-	// Default: - Filter with the Stack reference.
+	// Default: - Do not filter on this field.
 	//
 	// Experimental.
 	StackId *[]*string `field:"optional" json:"stackId" yaml:"stackId"`

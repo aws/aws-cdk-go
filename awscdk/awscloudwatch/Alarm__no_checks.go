@@ -4,6 +4,10 @@ package awscloudwatch
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (a *jsiiProxy_Alarm) validateAddAlarmMuteRuleParameters(id *string, options *AlarmMuteRuleOptions) error {
+	return nil
+}
+
 func (a *jsiiProxy_Alarm) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	return nil
 }

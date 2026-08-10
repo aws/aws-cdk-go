@@ -13,6 +13,7 @@ package awsdevopsagent
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
+//   	DnsResolution: jsii.String("dnsResolution"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Ipv4AddressesPerEni: jsii.Number(123),
 //   	PortRanges: []*string{
@@ -37,6 +38,12 @@ type CfnPrivateConnection_ServiceManagedModeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-privateconnection-servicemanagedmode.html#cfn-devopsagent-privateconnection-servicemanagedmode-vpcid
 	//
 	VpcId *string `field:"required" json:"vpcId" yaml:"vpcId"`
+	// DNS resolution mode for the resource gateway.
+	//
+	// Defaults to PUBLIC when not set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-privateconnection-servicemanagedmode.html#cfn-devopsagent-privateconnection-servicemanagedmode-dnsresolution
+	//
+	DnsResolution *string `field:"optional" json:"dnsResolution" yaml:"dnsResolution"`
 	// IP address type of the service-managed Resource Gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-privateconnection-servicemanagedmode.html#cfn-devopsagent-privateconnection-servicemanagedmode-ipaddresstype
 	//

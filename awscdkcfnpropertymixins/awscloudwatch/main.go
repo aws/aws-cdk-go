@@ -72,6 +72,10 @@ func init() {
 		reflect.TypeOf((*CfnAlarmPropsMixin_EvaluationCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.EvaluationWindowProperty",
+		reflect.TypeOf((*CfnAlarmPropsMixin_EvaluationWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.MetricDataQueryProperty",
 		reflect.TypeOf((*CfnAlarmPropsMixin_MetricDataQueryProperty)(nil)).Elem(),
 	)
@@ -82,6 +86,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.MetricStatProperty",
 		reflect.TypeOf((*CfnAlarmPropsMixin_MetricStatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.WallClockWindowProperty",
+		reflect.TypeOf((*CfnAlarmPropsMixin_WallClockWindowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAnomalyDetectorMixinProps",

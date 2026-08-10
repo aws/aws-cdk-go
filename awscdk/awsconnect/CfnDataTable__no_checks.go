@@ -104,7 +104,27 @@ func validateCfnDataTable_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataTable) validateSetInstanceArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTable) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTable) validateSetStatusParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataTable) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTable) validateSetTimeZoneParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTable) validateSetValueLockLevelParameters(val *string) error {
 	return nil
 }
 

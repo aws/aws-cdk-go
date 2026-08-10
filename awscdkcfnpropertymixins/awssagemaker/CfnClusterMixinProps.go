@@ -23,6 +23,30 @@ import (
 //   	ClusterRole: jsii.String("clusterRole"),
 //   	InstanceGroups: []interface{}{
 //   		&ClusterInstanceGroupProperty{
+//   			AutoPatchConfig: &AutoPatchConfigProperty{
+//   				DeploymentConfig: &DeploymentConfigProperty{
+//   					AutoRollbackConfiguration: []interface{}{
+//   						&AlarmDetailsProperty{
+//   							AlarmName: jsii.String("alarmName"),
+//   						},
+//   					},
+//   					RollingUpdatePolicy: &RollingUpdatePolicyProperty{
+//   						MaximumBatchSize: &CapacitySizeConfigProperty{
+//   							Type: jsii.String("type"),
+//   							Value: jsii.Number(123),
+//   						},
+//   						RollbackMaximumBatchSize: &CapacitySizeConfigProperty{
+//   							Type: jsii.String("type"),
+//   							Value: jsii.Number(123),
+//   						},
+//   					},
+//   					WaitIntervalInSeconds: jsii.Number(123),
+//   				},
+//   				PatchingStrategy: jsii.String("patchingStrategy"),
+//   				PatchSchedule: &PatchScheduleProperty{
+//   					NextPatchDate: jsii.String("nextPatchDate"),
+//   				},
+//   			},
 //   			CapacityRequirements: &ClusterCapacityRequirementsProperty{
 //   				OnDemand: onDemand,
 //   				Spot: spot,

@@ -21,18 +21,20 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnDataTable := awscdk.Aws_connect.NewCfnDataTable(this, jsii.String("MyCfnDataTable"), &CfnDataTableProps{
-//   	Description: jsii.String("description"),
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
 //   	Status: jsii.String("status"),
+//   	TimeZone: jsii.String("timeZone"),
+//   	ValueLockLevel: jsii.String("valueLockLevel"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	TimeZone: jsii.String("timeZone"),
-//   	ValueLockLevel: jsii.String("valueLockLevel"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatable.html
@@ -590,6 +592,9 @@ func (j *jsiiProxy_CfnDataTable)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataTable)SetInstanceArn(val *string) {
+	if err := j.validateSetInstanceArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceArn",
@@ -598,6 +603,9 @@ func (j *jsiiProxy_CfnDataTable)SetInstanceArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataTable)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -606,6 +614,9 @@ func (j *jsiiProxy_CfnDataTable)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataTable)SetStatus(val *string) {
+	if err := j.validateSetStatusParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"status",
@@ -625,6 +636,9 @@ func (j *jsiiProxy_CfnDataTable)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnDataTable)SetTimeZone(val *string) {
+	if err := j.validateSetTimeZoneParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"timeZone",
@@ -633,6 +647,9 @@ func (j *jsiiProxy_CfnDataTable)SetTimeZone(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataTable)SetValueLockLevel(val *string) {
+	if err := j.validateSetValueLockLevelParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"valueLockLevel",

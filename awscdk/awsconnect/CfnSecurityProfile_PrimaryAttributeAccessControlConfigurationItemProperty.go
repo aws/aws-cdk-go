@@ -26,6 +26,6 @@ type CfnSecurityProfile_PrimaryAttributeAccessControlConfigurationItemProperty s
 	// The item's primary attribute values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem.html#cfn-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem-primaryattributevalues
 	//
-	PrimaryAttributeValues interface{} `field:"required" json:"primaryAttributeValues" yaml:"primaryAttributeValues"`
+	PrimaryAttributeValues interface{} `field:"optional" json:"primaryAttributeValues" yaml:"primaryAttributeValues"`
 }
 

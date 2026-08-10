@@ -24,7 +24,7 @@ type RouterNetworkInterfaceProps struct {
 	// Network configuration for the router network interface.
 	// Experimental.
 	Configuration RouterNetworkConfiguration `field:"required" json:"configuration" yaml:"configuration"`
-	// The AWS Region where the router network interface will be created.
+	// Select a region for your router network interface.
 	// Default: - Same region as the stack.
 	//
 	// Experimental.

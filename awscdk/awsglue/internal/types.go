@@ -5,8 +5,9 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsglueICatalogRef = interfacesawsglue.ICatalogRef
+type Type__interfacesawsglueIBlueprintRef = interfacesawsglue.IBlueprintRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsglueICatalogRef = interfacesawsglue.ICatalogRef
 type Type__interfacesawsglueIClassifierRef = interfacesawsglue.IClassifierRef
 type Type__interfacesawsglueIConnectionRef = interfacesawsglue.IConnectionRef
 type Type__interfacesawsglueICrawlerRef = interfacesawsglue.ICrawlerRef
@@ -31,4 +32,5 @@ type Type__interfacesawsglueITableRef = interfacesawsglue.ITableRef
 type Type__interfacesawsglueITableOptimizerRef = interfacesawsglue.ITableOptimizerRef
 type Type__interfacesawsglueITriggerRef = interfacesawsglue.ITriggerRef
 type Type__interfacesawsglueIUsageProfileRef = interfacesawsglue.IUsageProfileRef
+type Type__interfacesawsglueIUserDefinedFunctionRef = interfacesawsglue.IUserDefinedFunctionRef
 type Type__interfacesawsglueIWorkflowRef = interfacesawsglue.IWorkflowRef

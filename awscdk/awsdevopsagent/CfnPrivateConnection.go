@@ -28,6 +28,7 @@ import (
 //   			VpcId: jsii.String("vpcId"),
 //
 //   			// the properties below are optional
+//   			DnsResolution: jsii.String("dnsResolution"),
 //   			IpAddressType: jsii.String("ipAddressType"),
 //   			Ipv4AddressesPerEni: jsii.Number(123),
 //   			PortRanges: []*string{

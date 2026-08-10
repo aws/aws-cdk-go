@@ -3,6 +3,11 @@ package awslambda
 
 // Properties for an ADOT instrumentation in Lambda.
 //
+// **Note:** This uses the legacy ADOT Lambda layers that bundle an embedded collector.
+// For the recommended optimized ADOT Lambda layers (the `AWSOpenTelemetryDistro*` family),
+// add the layer via `Function.addLayers()` and set the `AWS_LAMBDA_EXEC_WRAPPER`
+// environment variable to `/opt/otel-instrument` instead.
+//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
@@ -16,6 +21,8 @@ package awslambda
 //   		ExecWrapper: awscdk.AdotLambdaExecWrapper_REGULAR_HANDLER,
 //   	},
 //   })
+//
+// See: https://aws-otel.github.io/docs/getting-started/lambda
 //
 type AdotInstrumentationConfig struct {
 	// The startup script to run, see ADOT documentation to pick the right script for your use case: https://aws-otel.github.io/docs/getting-started/lambda.

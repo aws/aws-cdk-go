@@ -144,6 +144,38 @@ func init() {
 		reflect.TypeOf((*CfnFrameworkPropsMixin_FrameworkControlProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnLegalHoldMixinProps",
+		reflect.TypeOf((*CfnLegalHoldMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnLegalHoldPropsMixin",
+		reflect.TypeOf((*CfnLegalHoldPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnLegalHoldPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnLegalHoldPropsMixin.DateRangeProperty",
+		reflect.TypeOf((*CfnLegalHoldPropsMixin_DateRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnLegalHoldPropsMixin.RecoveryPointSelectionProperty",
+		reflect.TypeOf((*CfnLegalHoldPropsMixin_RecoveryPointSelectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_backup.CfnLegalHoldPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnLegalHoldPropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_backup.CfnLogicallyAirGappedBackupVaultMixinProps",
 		reflect.TypeOf((*CfnLogicallyAirGappedBackupVaultMixinProps)(nil)).Elem(),
 	)

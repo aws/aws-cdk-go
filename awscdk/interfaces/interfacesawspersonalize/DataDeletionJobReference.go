@@ -10,13 +10,10 @@ package interfacesawspersonalize
 //
 //   dataDeletionJobReference := &DataDeletionJobReference{
 //   	DataDeletionJobArn: jsii.String("dataDeletionJobArn"),
-//   	DataDeletionJobId: jsii.String("dataDeletionJobId"),
 //   }
 //
 type DataDeletionJobReference struct {
-	// The ARN of the DataDeletionJob resource.
+	// The DataDeletionJobArn of the DataDeletionJob resource.
 	DataDeletionJobArn *string `field:"required" json:"dataDeletionJobArn" yaml:"dataDeletionJobArn"`
-	// The Id of the DataDeletionJob resource.
-	DataDeletionJobId *string `field:"required" json:"dataDeletionJobId" yaml:"dataDeletionJobId"`
 }
 

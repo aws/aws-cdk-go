@@ -8,6 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsconfig"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -187,6 +188,14 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) validateValidatePropertiesPar
 	return nil
 }
 
+func validateCfnOrganizationConformancePack_ArnForOrganizationConformancePackParameters(resource interfacesawsconfig.IOrganizationConformancePackRef) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnOrganizationConformancePack_IsCfnElementParameters(x interface{}) error {
 	if x == nil {
 		return fmt.Errorf("parameter x is required, but nil was provided")
@@ -282,6 +291,16 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) validateSetConformancePackInp
 func (j *jsiiProxy_CfnOrganizationConformancePack) validateSetOrganizationConformancePackNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnOrganizationConformancePack) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
 	}
 
 	return nil

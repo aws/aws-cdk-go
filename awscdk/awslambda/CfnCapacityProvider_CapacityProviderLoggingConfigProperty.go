@@ -1,6 +1,8 @@
 package awslambda
 
 
+// The capacity provider's Amazon CloudWatch Logs configuration settings.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

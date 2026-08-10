@@ -14,6 +14,7 @@ package awsimagebuilder
 //   	},
 //   	PipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
 //   	ScheduleExpression: jsii.String("scheduleExpression"),
+//   	Timezone: jsii.String("timezone"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
@@ -35,5 +36,11 @@ type CfnImagePipeline_ScheduleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
 	//
 	ScheduleExpression *string `field:"optional" json:"scheduleExpression" yaml:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format.
+	//
+	// If not specified, this defaults to UTC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-timezone
+	//
+	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
 }
 

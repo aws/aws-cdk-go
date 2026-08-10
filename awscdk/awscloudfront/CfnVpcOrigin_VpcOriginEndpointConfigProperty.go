@@ -15,6 +15,7 @@ package awscloudfront
 //   	// the properties below are optional
 //   	HttpPort: jsii.Number(123),
 //   	HttpsPort: jsii.Number(123),
+//   	IpAddressType: jsii.String("ipAddressType"),
 //   	OriginProtocolPolicy: jsii.String("originProtocolPolicy"),
 //   	OriginSslProtocols: []*string{
 //   		jsii.String("originSslProtocols"),
@@ -48,6 +49,11 @@ type CfnVpcOrigin_VpcOriginEndpointConfigProperty struct {
 	// Default: - 443.
 	//
 	HttpsPort *float64 `field:"optional" json:"httpsPort" yaml:"httpsPort"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-vpcorigin-vpcoriginendpointconfig.html#cfn-cloudfront-vpcorigin-vpcoriginendpointconfig-ipaddresstype
+	//
+	// Default: - "ipv4".
+	//
+	IpAddressType *string `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-vpcorigin-vpcoriginendpointconfig.html#cfn-cloudfront-vpcorigin-vpcoriginendpointconfig-originprotocolpolicy
 	//

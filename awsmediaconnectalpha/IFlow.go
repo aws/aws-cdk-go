@@ -18,7 +18,7 @@ type IFlow interface {
 	awscdk.IResource
 	// Add an output to this flow.
 	// Experimental.
-	AddOutput(id *string, outputConfig OutputConfiguration) IFlowOutput
+	AddOutput(id *string, options *AddFlowOutputOptions) IFlowOutput
 	// Create a CloudWatch metric for this flow.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -125,8 +125,8 @@ type jsiiProxy_IFlow struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_IFlow) AddOutput(id *string, outputConfig OutputConfiguration) IFlowOutput {
-	if err := i.validateAddOutputParameters(id, outputConfig); err != nil {
+func (i *jsiiProxy_IFlow) AddOutput(id *string, options *AddFlowOutputOptions) IFlowOutput {
+	if err := i.validateAddOutputParameters(id, options); err != nil {
 		panic(err)
 	}
 	var returns IFlowOutput
@@ -134,7 +134,7 @@ func (i *jsiiProxy_IFlow) AddOutput(id *string, outputConfig OutputConfiguration
 	_jsii_.Invoke(
 		i,
 		"addOutput",
-		[]interface{}{id, outputConfig},
+		[]interface{}{id, options},
 		&returns,
 	)
 

@@ -57,6 +57,7 @@ import (
 //   		},
 //   		PipelineExecutionStartCondition: jsii.String("pipelineExecutionStartCondition"),
 //   		ScheduleExpression: jsii.String("scheduleExpression"),
+//   		Timezone: jsii.String("timezone"),
 //   	},
 //   	Status: jsii.String("status"),
 //   	Tags: map[string]*string{

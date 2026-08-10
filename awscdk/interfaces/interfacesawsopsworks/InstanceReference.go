@@ -9,11 +9,8 @@ package interfacesawsopsworks
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   instanceReference := &InstanceReference{
-//   	InstanceId: jsii.String("instanceId"),
 //   }
 //
 type InstanceReference struct {
-	// The Id of the Instance resource.
-	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
 }
 

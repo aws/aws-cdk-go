@@ -122,6 +122,7 @@ import (
 //   		Enabled: jsii.Boolean(false),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	EngineMode: jsii.String("engineMode"),
 //   	EngineVersion: jsii.String("engineVersion"),
 //   	IdentityCenterOptions: &IdentityCenterOptionsProperty{
 //   		EnabledApiAccess: jsii.Boolean(false),
@@ -163,6 +164,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	UseCase: jsii.String("useCase"),
 //   	VpcOptions: &VPCOptionsProperty{
 //   		EgressEnabled: jsii.Boolean(false),
 //   		SecurityGroupIds: []interface{}{
@@ -244,6 +246,12 @@ type CfnDomainMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-encryptionatrestoptions
 	//
 	EncryptionAtRestOptions interface{} `field:"optional" json:"encryptionAtRestOptions" yaml:"encryptionAtRestOptions"`
+	// The engine mode of the domain.
+	//
+	// Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-enginemode
+	//
+	EngineMode *string `field:"optional" json:"engineMode" yaml:"engineMode"`
 	// The version of OpenSearch to use.
 	//
 	// The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
@@ -295,6 +303,12 @@ type CfnDomainMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The primary use case of the domain.
+	//
+	// Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-usecase
+	//
+	UseCase *string `field:"optional" json:"useCase" yaml:"useCase"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain.
 	//
 	// For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .

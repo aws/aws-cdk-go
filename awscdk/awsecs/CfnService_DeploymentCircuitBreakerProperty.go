@@ -37,9 +37,16 @@ type CfnService_DeploymentCircuitBreakerProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
 	//
 	Rollback interface{} `field:"required" json:"rollback" yaml:"rollback"`
+	// Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state.
+	//
+	// When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-resetonhealthytask
 	//
 	ResetOnHealthyTask interface{} `field:"optional" json:"resetOnHealthyTask" yaml:"resetOnHealthyTask"`
+	// Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment.
+	//
+	// The ``type`` and ``value`` together determine the number of task failures that are tolerated before the circuit breaker triggers.
+	//  By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-thresholdconfiguration
 	//
 	ThresholdConfiguration interface{} `field:"optional" json:"thresholdConfiguration" yaml:"thresholdConfiguration"`

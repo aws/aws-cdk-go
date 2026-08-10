@@ -61,6 +61,7 @@ package awsdevopsagent
 //   			"customHeadersKey": jsii.String("customHeaders"),
 //   		},
 //   		Description: jsii.String("description"),
+//   		McpRoleArn: jsii.String("mcpRoleArn"),
 //   	},
 //   	McpServerSplunk: &RegisteredMCPServerDetailsProperty{
 //   		AuthorizationMethod: jsii.String("authorizationMethod"),

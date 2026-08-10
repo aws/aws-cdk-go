@@ -1,6 +1,8 @@
 package awsconnect
 
 
+// Information about a score threshold for a performance category.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,11 +23,11 @@ type CfnEvaluationForm_EvaluationFormScoreThresholdProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html#cfn-connect-evaluationform-evaluationformscorethreshold-performancecategory
 	//
 	PerformanceCategory *string `field:"required" json:"performanceCategory" yaml:"performanceCategory"`
-	// The maximum score percentage for this threshold.
+	// The maximum score percentage for the performance category.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html#cfn-connect-evaluationform-evaluationformscorethreshold-maxscorepercentage
 	//
 	MaxScorePercentage *float64 `field:"optional" json:"maxScorePercentage" yaml:"maxScorePercentage"`
-	// The minimum score percentage for this threshold.
+	// The minimum score percentage for the performance category.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html#cfn-connect-evaluationform-evaluationformscorethreshold-minscorepercentage
 	//
 	MinScorePercentage *float64 `field:"optional" json:"minScorePercentage" yaml:"minScorePercentage"`

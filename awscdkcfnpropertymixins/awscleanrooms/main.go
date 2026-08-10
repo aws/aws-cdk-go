@@ -336,6 +336,58 @@ func init() {
 		reflect.TypeOf((*CfnIdNamespaceAssociationPropsMixin_IdNamespaceAssociationInputReferencePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTableMixinProps",
+		reflect.TypeOf((*CfnIntermediateTableMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIntermediateTablePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.DifferentialPrivacyColumnProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_DifferentialPrivacyColumnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.DifferentialPrivacyProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_DifferentialPrivacyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.IntermediateTableAnalysisRuleCustomProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_IntermediateTableAnalysisRuleCustomProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.IntermediateTableAnalysisRulePolicyProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_IntermediateTableAnalysisRulePolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.IntermediateTableAnalysisRulePolicyV1Property",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_IntermediateTableAnalysisRulePolicyV1Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.IntermediateTableAnalysisRuleProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_IntermediateTableAnalysisRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.PopulationAnalysisConfigurationProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_PopulationAnalysisConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.PopulationAnalysisSqlParametersProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_PopulationAnalysisSqlParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnMembershipMixinProps",
 		reflect.TypeOf((*CfnMembershipMixinProps)(nil)).Elem(),
 	)

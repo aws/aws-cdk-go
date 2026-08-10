@@ -112,8 +112,24 @@ func init() {
 		reflect.TypeOf((*CfnComputeNodeGroupPropsMixin_InstanceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupPropsMixin.NodeLifecycleActionsProperty",
+		reflect.TypeOf((*CfnComputeNodeGroupPropsMixin_NodeLifecycleActionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupPropsMixin.NodeLifecycleScriptProperty",
+		reflect.TypeOf((*CfnComputeNodeGroupPropsMixin_NodeLifecycleScriptProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupPropsMixin.NodeLifecycleStagesProperty",
+		reflect.TypeOf((*CfnComputeNodeGroupPropsMixin_NodeLifecycleStagesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupPropsMixin.ScalingConfigurationProperty",
 		reflect.TypeOf((*CfnComputeNodeGroupPropsMixin_ScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupPropsMixin.ScriptSourceProperty",
+		reflect.TypeOf((*CfnComputeNodeGroupPropsMixin_ScriptSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_pcs.CfnComputeNodeGroupPropsMixin.SlurmConfigurationProperty",

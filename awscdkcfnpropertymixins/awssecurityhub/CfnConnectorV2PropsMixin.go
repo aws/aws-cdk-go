@@ -25,6 +25,18 @@ import (
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	Provider: &ProviderProperty{
+//   		Azure: &AzureProviderConfigurationProperty{
+//   			AwsConfigConnectorArn: jsii.String("awsConfigConnectorArn"),
+//   			AzureRegions: []*string{
+//   				jsii.String("azureRegions"),
+//   			},
+//   			ScopeConfiguration: &AzureScopeConfigurationProperty{
+//   				ScopeType: jsii.String("scopeType"),
+//   				ScopeValues: []*string{
+//   					jsii.String("scopeValues"),
+//   				},
+//   			},
+//   		},
 //   		JiraCloud: &JiraCloudProviderConfigurationProperty{
 //   			ProjectKey: jsii.String("projectKey"),
 //   		},

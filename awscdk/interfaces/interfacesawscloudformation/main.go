@@ -12,6 +12,10 @@ func init() {
 		reflect.TypeOf((*CustomResourceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cloudformation.GeneratedTemplateReference",
+		reflect.TypeOf((*GeneratedTemplateReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudformation.GuardHookReference",
 		reflect.TypeOf((*GuardHookReference)(nil)).Elem(),
 	)
@@ -38,6 +42,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICustomResourceRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cloudformation.IGeneratedTemplateRef",
+		reflect.TypeOf((*IGeneratedTemplateRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "generatedTemplateRef", GoGetter: "GeneratedTemplateRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IGeneratedTemplateRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -220,6 +240,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cloudformation.IResourceScanRef",
+		reflect.TypeOf((*IResourceScanRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceScanRef", GoGetter: "ResourceScanRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IResourceScanRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_cloudformation.IResourceVersionRef",
 		reflect.TypeOf((*IResourceVersionRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -342,6 +378,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudformation.ResourceDefaultVersionReference",
 		reflect.TypeOf((*ResourceDefaultVersionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cloudformation.ResourceScanReference",
+		reflect.TypeOf((*ResourceScanReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudformation.ResourceVersionReference",

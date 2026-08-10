@@ -35,6 +35,12 @@ import (
 //   	ExcludedAccounts: []*string{
 //   		jsii.String("excludedAccounts"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TemplateBody: jsii.String("templateBody"),
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
 //   })
@@ -45,6 +51,11 @@ type CfnOrganizationConformancePack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconfig.IOrganizationConformancePackRef
+	awscdk.ITaggableV2
+	// Amazon Resource Name (ARN) of the organization conformance pack.
+	AttrOrganizationConformancePackArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -94,6 +105,9 @@ type CfnOrganizationConformancePack interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags for the organization conformance pack.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// A string containing full conformance pack template body.
 	TemplateBody() *string
 	SetTemplateBody(val *string)
@@ -277,6 +291,27 @@ type jsiiProxy_CfnOrganizationConformancePack struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconfigIOrganizationConformancePackRef
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnOrganizationConformancePack) AttrOrganizationConformancePackArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOrganizationConformancePackArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOrganizationConformancePack) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnOrganizationConformancePack) CfnOptions() awscdk.ICfnResourceOptions {
@@ -439,6 +474,16 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOrganizationConformancePack) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOrganizationConformancePack) TemplateBody() *string {
 	var returns *string
 	_jsii_.Get(
@@ -555,6 +600,17 @@ func (j *jsiiProxy_CfnOrganizationConformancePack)SetOrganizationConformancePack
 	)
 }
 
+func (j *jsiiProxy_CfnOrganizationConformancePack)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnOrganizationConformancePack)SetTemplateBody(val *string) {
 	_jsii_.Set(
 		j,
@@ -569,6 +625,24 @@ func (j *jsiiProxy_CfnOrganizationConformancePack)SetTemplateS3Uri(val *string) 
 		"templateS3Uri",
 		val,
 	)
+}
+
+func CfnOrganizationConformancePack_ArnForOrganizationConformancePack(resource interfacesawsconfig.IOrganizationConformancePackRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnOrganizationConformancePack_ArnForOrganizationConformancePackParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"arnForOrganizationConformancePack",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

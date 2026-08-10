@@ -57,6 +57,13 @@ import (
 //   					ApiKeyName: jsii.String("apiKeyName"),
 //   					ApiKeyValue: jsii.String("apiKeyValue"),
 //   				},
+//   				BearerToken: &BearerTokenDetailsProperty{
+//   					TokenName: jsii.String("tokenName"),
+//   					TokenValue: jsii.String("tokenValue"),
+//
+//   					// the properties below are optional
+//   					AuthorizationHeader: jsii.String("authorizationHeader"),
+//   				},
 //   				OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   					ClientId: jsii.String("clientId"),
 //   					ClientSecret: jsii.String("clientSecret"),
@@ -115,13 +122,14 @@ import (
 //   		McpServerSigV4: &MCPServerSigV4DetailsProperty{
 //   			AuthorizationConfig: &MCPServerSigV4AuthorizationConfigProperty{
 //   				Region: jsii.String("region"),
-//   				RoleArn: jsii.String("roleArn"),
 //   				Service: jsii.String("service"),
 //
 //   				// the properties below are optional
 //   				CustomHeaders: map[string]*string{
 //   					"customHeadersKey": jsii.String("customHeaders"),
 //   				},
+//   				McpRoleArn: jsii.String("mcpRoleArn"),
+//   				RoleArn: jsii.String("roleArn"),
 //   			},
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
@@ -195,7 +203,9 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
-	// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified.
+	// Service-specific configuration details - MCPServerSigV4 supports in-place updates;
+	//
+	// GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-servicedetails
 	//
 	ServiceDetails interface{} `field:"optional" json:"serviceDetails" yaml:"serviceDetails"`

@@ -32,6 +32,11 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AutoUpdate: jsii.Boolean(false),
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		LogGroupName: jsii.String("logGroupName"),
+//   		LogRoleArn: jsii.String("logRoleArn"),
+//   	},
 //   	StackFilters: &StackFiltersProperty{
 //   		FilteringCriteria: jsii.String("filteringCriteria"),
 //
@@ -88,6 +93,9 @@ type CfnLambdaHook interface {
 	SetAlias(val *string)
 	// Returns the ARN of a Lambda Hook.
 	AttrHookArn() *string
+	// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+	AutoUpdate() interface{}
+	SetAutoUpdate(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -115,6 +123,9 @@ type CfnLambdaHook interface {
 	SetLambdaFunction(val *string)
 	// A reference to a LambdaHook resource.
 	LambdaHookRef() *interfacesawscloudformation.LambdaHookReference
+	// Contains logging configuration information for an extension.
+	LoggingConfig() interface{}
+	SetLoggingConfig(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -344,6 +355,16 @@ func (j *jsiiProxy_CfnLambdaHook) AttrHookArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLambdaHook) AutoUpdate() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoUpdate",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLambdaHook) CfnOptions() ICfnResourceOptions {
 	var returns ICfnResourceOptions
 	_jsii_.Get(
@@ -449,6 +470,16 @@ func (j *jsiiProxy_CfnLambdaHook) LambdaHookRef() *interfacesawscloudformation.L
 	_jsii_.Get(
 		j,
 		"lambdaHookRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLambdaHook) LoggingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfig",
 		&returns,
 	)
 	return returns
@@ -585,6 +616,17 @@ func (j *jsiiProxy_CfnLambdaHook)SetAlias(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnLambdaHook)SetAutoUpdate(val interface{}) {
+	if err := j.validateSetAutoUpdateParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoUpdate",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnLambdaHook)SetExecutionRole(val *string) {
 	if err := j.validateSetExecutionRoleParameters(val); err != nil {
 		panic(err)
@@ -625,6 +667,17 @@ func (j *jsiiProxy_CfnLambdaHook)SetLambdaFunction(val *string) {
 	_jsii_.Set(
 		j,
 		"lambdaFunction",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLambdaHook)SetLoggingConfig(val interface{}) {
+	if err := j.validateSetLoggingConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"loggingConfig",
 		val,
 	)
 }

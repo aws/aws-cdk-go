@@ -10,12 +10,9 @@ import (
 // Experimental.
 type IDatabase interface {
 	awscdk.IResource
-	// The ARN of the catalog.
+	// The catalog this database belongs to.
 	// Experimental.
-	CatalogArn() *string
-	// The catalog id of the database (usually, the AWS account id).
-	// Experimental.
-	CatalogId() *string
+	Catalog() ICatalog
 	// The ARN of the database.
 	// Experimental.
 	DatabaseArn() *string
@@ -29,21 +26,11 @@ type jsiiProxy_IDatabase struct {
 	internal.Type__awscdkIResource
 }
 
-func (j *jsiiProxy_IDatabase) CatalogArn() *string {
-	var returns *string
+func (j *jsiiProxy_IDatabase) Catalog() ICatalog {
+	var returns ICatalog
 	_jsii_.Get(
 		j,
-		"catalogArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IDatabase) CatalogId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"catalogId",
+		"catalog",
 		&returns,
 	)
 	return returns

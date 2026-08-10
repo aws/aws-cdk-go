@@ -24,6 +24,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_redshiftserverless.IRecoveryPointRef",
+		reflect.TypeOf((*IRecoveryPointRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "recoveryPointRef", GoGetter: "RecoveryPointRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRecoveryPointRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_redshiftserverless.ISnapshotRef",
 		reflect.TypeOf((*ISnapshotRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -58,6 +74,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_redshiftserverless.NamespaceReference",
 		reflect.TypeOf((*NamespaceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_redshiftserverless.RecoveryPointReference",
+		reflect.TypeOf((*RecoveryPointReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_redshiftserverless.SnapshotReference",

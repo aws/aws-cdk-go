@@ -14,6 +14,13 @@ package awsdevopsagent
 //   		ApiKeyName: jsii.String("apiKeyName"),
 //   		ApiKeyValue: jsii.String("apiKeyValue"),
 //   	},
+//   	BearerToken: &BearerTokenDetailsProperty{
+//   		TokenName: jsii.String("tokenName"),
+//   		TokenValue: jsii.String("tokenValue"),
+//
+//   		// the properties below are optional
+//   		AuthorizationHeader: jsii.String("authorizationHeader"),
+//   	},
 //   	OAuthClientCredentials: &MCPServerOAuthClientCredentialsConfigProperty{
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),
@@ -35,6 +42,10 @@ type CfnService_MCPServerAuthorizationConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserverauthorizationconfig.html#cfn-devopsagent-service-mcpserverauthorizationconfig-apikey
 	//
 	ApiKey interface{} `field:"optional" json:"apiKey" yaml:"apiKey"`
+	// Bearer token authentication details.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserverauthorizationconfig.html#cfn-devopsagent-service-mcpserverauthorizationconfig-bearertoken
+	//
+	BearerToken interface{} `field:"optional" json:"bearerToken" yaml:"bearerToken"`
 	// MCP server OAuth client credentials configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserverauthorizationconfig.html#cfn-devopsagent-service-mcpserverauthorizationconfig-oauthclientcredentials
 	//

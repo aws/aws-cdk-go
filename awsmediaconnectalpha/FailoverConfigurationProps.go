@@ -38,6 +38,11 @@ type FailoverConfigurationProps struct {
 	// Array of exactly 2 protocol configurations for failover (must be same protocol type).
 	// Experimental.
 	Protocols *[]RouterInputProtocol `field:"required" json:"protocols" yaml:"protocols"`
+	// The availability zone where the router input is located.
+	// Default: - assigned by the MediaConnect service.
+	//
+	// Experimental.
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 	// Source priority configuration for failover.
 	// Default: SourcePriorityConfig.none()
 	//

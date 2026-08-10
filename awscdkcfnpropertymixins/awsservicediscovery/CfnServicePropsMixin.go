@@ -19,7 +19,6 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mergeStrategy IMergeStrategy
-//   var serviceAttributes interface{}
 //
 //   cfnServicePropsMixin := awscdkcfnpropertymixins.Aws_servicediscovery.NewCfnServicePropsMixin(&CfnServiceMixinProps{
 //   	Description: jsii.String("description"),
@@ -43,7 +42,9 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	NamespaceId: jsii.String("namespaceId"),
-//   	ServiceAttributes: serviceAttributes,
+//   	ServiceAttributes: map[string]*string{
+//   		"serviceAttributesKey": jsii.String("serviceAttributes"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

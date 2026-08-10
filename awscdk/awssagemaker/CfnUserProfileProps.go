@@ -50,6 +50,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -110,6 +111,15 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
+//   			},
+//   			EmrSettings: &EmrSettingsProperty{
+//   				AssumableRoleArns: []*string{
+//   					jsii.String("assumableRoleArns"),
+//   				},
+//   				ExecutionRoleArns: []*string{
+//   					jsii.String("executionRoleArns"),
+//   				},
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -121,6 +131,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),
@@ -141,6 +152,7 @@ import (
 //   				LifecycleConfigArn: jsii.String("lifecycleConfigArn"),
 //   				SageMakerImageArn: jsii.String("sageMakerImageArn"),
 //   				SageMakerImageVersionArn: jsii.String("sageMakerImageVersionArn"),
+//   				TrainingPlanArn: jsii.String("trainingPlanArn"),
 //   			},
 //   			LifecycleConfigArns: []*string{
 //   				jsii.String("lifecycleConfigArns"),

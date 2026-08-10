@@ -74,7 +74,7 @@ import (
 type CfnResponderGatewayMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-acmcertificatearn
 	//
-	AcmCertificateArn *string `field:"optional" json:"acmCertificateArn" yaml:"acmCertificateArn"`
+	AcmCertificateArn interface{} `field:"optional" json:"acmCertificateArn" yaml:"acmCertificateArn"`
 	// An optional description for the responder gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rtbfabric-respondergateway.html#cfn-rtbfabric-respondergateway-description
 	//

@@ -153,6 +153,7 @@ import (
 //   				jsii.String("regexValues"),
 //   			},
 //   			SourceIpConfig: &SourceIpConfigProperty{
+//   				IpAddressType: jsii.String("ipAddressType"),
 //   				Values: []*string{
 //   					jsii.String("values"),
 //   				},

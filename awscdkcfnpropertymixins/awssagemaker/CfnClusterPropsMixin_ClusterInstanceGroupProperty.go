@@ -12,6 +12,30 @@ package awssagemaker
 //   var spot interface{}
 //
 //   clusterInstanceGroupProperty := &ClusterInstanceGroupProperty{
+//   	AutoPatchConfig: &AutoPatchConfigProperty{
+//   		DeploymentConfig: &DeploymentConfigProperty{
+//   			AutoRollbackConfiguration: []interface{}{
+//   				&AlarmDetailsProperty{
+//   					AlarmName: jsii.String("alarmName"),
+//   				},
+//   			},
+//   			RollingUpdatePolicy: &RollingUpdatePolicyProperty{
+//   				MaximumBatchSize: &CapacitySizeConfigProperty{
+//   					Type: jsii.String("type"),
+//   					Value: jsii.Number(123),
+//   				},
+//   				RollbackMaximumBatchSize: &CapacitySizeConfigProperty{
+//   					Type: jsii.String("type"),
+//   					Value: jsii.Number(123),
+//   				},
+//   			},
+//   			WaitIntervalInSeconds: jsii.Number(123),
+//   		},
+//   		PatchingStrategy: jsii.String("patchingStrategy"),
+//   		PatchSchedule: &PatchScheduleProperty{
+//   			NextPatchDate: jsii.String("nextPatchDate"),
+//   		},
+//   	},
 //   	CapacityRequirements: &ClusterCapacityRequirementsProperty{
 //   		OnDemand: onDemand,
 //   		Spot: spot,
@@ -111,6 +135,12 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html
 //
 type CfnClusterPropsMixin_ClusterInstanceGroupProperty struct {
+	// The configuration for automatic patching of the instance group.
+	//
+	// Enables workload-aware, patch-level AMI updates.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-autopatchconfig
+	//
+	AutoPatchConfig interface{} `field:"optional" json:"autoPatchConfig" yaml:"autoPatchConfig"`
 	// Specifies the capacity requirements configuration for an instance group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html#cfn-sagemaker-cluster-clusterinstancegroup-capacityrequirements
 	//

@@ -24,11 +24,9 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assignslaaction.html
 //
 type CfnRulePropsMixin_AssignSlaActionProperty struct {
-	// The SLA configuration for cases.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assignslaaction.html#cfn-connect-rule-assignslaaction-caseslaconfiguration
 	//
 	CaseSlaConfiguration interface{} `field:"optional" json:"caseSlaConfiguration" yaml:"caseSlaConfiguration"`
-	// The type of SLA assignment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assignslaaction.html#cfn-connect-rule-assignslaaction-slaassignmenttype
 	//
 	SlaAssignmentType *string `field:"optional" json:"slaAssignmentType" yaml:"slaAssignmentType"`

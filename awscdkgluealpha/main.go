@@ -25,6 +25,80 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.Catalog",
+		reflect.TypeOf((*Catalog)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogArn", GoGetter: "CatalogArn"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogRef", GoGetter: "CatalogRef"},
+			_jsii_.MemberMethod{JsiiMethod: "configureEncryption", GoMethod: "ConfigureEncryption"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionPasswordKey", GoGetter: "ConnectionPasswordKey"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Catalog{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_CatalogBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.CatalogBase",
+		reflect.TypeOf((*CatalogBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogArn", GoGetter: "CatalogArn"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogRef", GoGetter: "CatalogRef"},
+			_jsii_.MemberMethod{JsiiMethod: "configureEncryption", GoMethod: "ConfigureEncryption"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionPasswordKey", GoGetter: "ConnectionPasswordKey"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CatalogBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICatalog)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.CatalogEncryptionMode",
+		reflect.TypeOf((*CatalogEncryptionMode)(nil)).Elem(),
+		map[string]interface{}{
+			"DISABLED": CatalogEncryptionMode_DISABLED,
+			"SSE_KMS": CatalogEncryptionMode_SSE_KMS,
+			"SSE_KMS_WITH_SERVICE_ROLE": CatalogEncryptionMode_SSE_KMS_WITH_SERVICE_ROLE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.CatalogEncryptionOptions",
+		reflect.TypeOf((*CatalogEncryptionOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.CatalogProps",
+		reflect.TypeOf((*CatalogProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.ClassificationString",
 		reflect.TypeOf((*ClassificationString)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -129,6 +203,10 @@ func init() {
 		reflect.TypeOf((*ConnectionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.ConnectionPasswordEncryption",
+		reflect.TypeOf((*ConnectionPasswordEncryption)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.ConnectionProps",
 		reflect.TypeOf((*ConnectionProps)(nil)).Elem(),
 	)
@@ -166,6 +244,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.DailyScheduleTriggerOptions",
 		reflect.TypeOf((*DailyScheduleTriggerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.DataCatalogEncryptionAtRest",
+		reflect.TypeOf((*DataCatalogEncryptionAtRest)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
+			_jsii_.MemberProperty{JsiiProperty: "mode", GoGetter: "Mode"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DataCatalogEncryptionAtRest{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.DataFormat",
@@ -230,8 +320,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "catalogArn", GoGetter: "CatalogArn"},
-			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
+			_jsii_.MemberProperty{JsiiProperty: "catalog", GoGetter: "Catalog"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseArn", GoGetter: "DatabaseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -348,6 +437,28 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@aws-cdk/aws-glue-alpha.ICatalog",
+		reflect.TypeOf((*ICatalog)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogArn", GoGetter: "CatalogArn"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
+			_jsii_.MemberProperty{JsiiProperty: "catalogRef", GoGetter: "CatalogRef"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionPasswordKey", GoGetter: "ConnectionPasswordKey"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICatalog{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglueICatalogRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@aws-cdk/aws-glue-alpha.IConnection",
 		reflect.TypeOf((*IConnection)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -388,8 +499,7 @@ func init() {
 		reflect.TypeOf((*IDatabase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "catalogArn", GoGetter: "CatalogArn"},
-			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
+			_jsii_.MemberProperty{JsiiProperty: "catalog", GoGetter: "Catalog"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseArn", GoGetter: "DatabaseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

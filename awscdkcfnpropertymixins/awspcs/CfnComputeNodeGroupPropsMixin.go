@@ -36,6 +36,41 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
+//   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
+//   		Stages: &NodeLifecycleStagesProperty{
+//   			NodeBootstrapped: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					Name: jsii.String("name"),
+//   					OnError: jsii.String("onError"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//   					},
+//   				},
+//   			},
+//   			NodeReady: []interface{}{
+//   				&NodeLifecycleScriptProperty{
+//   					Arguments: []*string{
+//   						jsii.String("arguments"),
+//   					},
+//   					ExecutionPolicy: jsii.String("executionPolicy"),
+//   					Name: jsii.String("name"),
+//   					OnError: jsii.String("onError"),
+//   					ScriptSource: &ScriptSourceProperty{
+//   						Checksum: jsii.String("checksum"),
+//   						S3VersionId: jsii.String("s3VersionId"),
+//   						ScriptLocation: jsii.String("scriptLocation"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	PurchaseOption: jsii.String("purchaseOption"),
 //   	ScalingConfiguration: &ScalingConfigurationProperty{
 //   		MaxInstanceCount: jsii.Number(123),

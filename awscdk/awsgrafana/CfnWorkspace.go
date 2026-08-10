@@ -81,6 +81,12 @@ import (
 //   		},
 //   	},
 //   	StackSetName: jsii.String("stackSetName"),
+//   	Tags: []TagsItemsProperty{
+//   		&TagsItemsProperty{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	VpcConfiguration: &VpcConfigurationProperty{
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
@@ -97,6 +103,7 @@ type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsgrafana.IWorkspaceRef
+	awscdk.ITaggableV2
 	// Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization.
 	AccountAccessType() *string
 	SetAccountAccessType(val *string)
@@ -139,6 +146,8 @@ type CfnWorkspace interface {
 	// Specifies whether this workspace uses SAML 2.0, SSOlong , or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html) .
 	AuthenticationProviders() *[]*string
 	SetAuthenticationProviders(val *[]*string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -213,6 +222,9 @@ type CfnWorkspace interface {
 	// The name of the AWS CloudFormation stack set that is used to generate IAM roles to be used for this workspace.
 	StackSetName() *string
 	SetStackSetName(val *string)
+	// The list of tags associated with the workspace.
+	Tags() *[]*CfnWorkspace_TagsItemsProperty
+	SetTags(val *[]*CfnWorkspace_TagsItemsProperty)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -395,6 +407,7 @@ type jsiiProxy_CfnWorkspace struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsgrafanaIWorkspaceRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnWorkspace) AccountAccessType() *string {
@@ -492,6 +505,16 @@ func (j *jsiiProxy_CfnWorkspace) AuthenticationProviders() *[]*string {
 	_jsii_.Get(
 		j,
 		"authenticationProviders",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkspace) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -737,6 +760,16 @@ func (j *jsiiProxy_CfnWorkspace) StackSetName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkspace) Tags() *[]*CfnWorkspace_TagsItemsProperty {
+	var returns *[]*CfnWorkspace_TagsItemsProperty
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkspace) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -949,6 +982,17 @@ func (j *jsiiProxy_CfnWorkspace)SetStackSetName(val *string) {
 	_jsii_.Set(
 		j,
 		"stackSetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkspace)SetTags(val *[]*CfnWorkspace_TagsItemsProperty) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

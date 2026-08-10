@@ -26,10 +26,15 @@ import (
 //
 //   cfnLambdaHookPropsMixin := awscdkcfnpropertymixins.Aws_cloudformation.NewCfnLambdaHookPropsMixin(&CfnLambdaHookMixinProps{
 //   	Alias: jsii.String("alias"),
+//   	AutoUpdate: jsii.Boolean(false),
 //   	ExecutionRole: jsii.String("executionRole"),
 //   	FailureMode: jsii.String("failureMode"),
 //   	HookStatus: jsii.String("hookStatus"),
 //   	LambdaFunction: jsii.String("lambdaFunction"),
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		LogGroupName: jsii.String("logGroupName"),
+//   		LogRoleArn: jsii.String("logRoleArn"),
+//   	},
 //   	StackFilters: &StackFiltersProperty{
 //   		FilteringCriteria: jsii.String("filteringCriteria"),
 //   		StackNames: &StackNamesProperty{

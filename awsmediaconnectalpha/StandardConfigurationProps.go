@@ -53,5 +53,10 @@ type StandardConfigurationProps struct {
 	// Protocol configuration for the input.
 	// Experimental.
 	Protocol RouterInputProtocol `field:"required" json:"protocol" yaml:"protocol"`
+	// The availability zone where the router input is located.
+	// Default: - assigned by the MediaConnect service.
+	//
+	// Experimental.
+	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
 }
 

@@ -36,6 +36,10 @@ func init() {
 		reflect.TypeOf((*ContactFlowVersionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_connect.DataLakeAssociationReference",
+		reflect.TypeOf((*DataLakeAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.DataTableAttributeReference",
 		reflect.TypeOf((*DataTableAttributeReference)(nil)).Elem(),
 	)
@@ -166,6 +170,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IContactFlowVersionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_connect.IDataLakeAssociationRef",
+		reflect.TypeOf((*IDataLakeAssociationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dataLakeAssociationRef", GoGetter: "DataLakeAssociationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDataLakeAssociationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

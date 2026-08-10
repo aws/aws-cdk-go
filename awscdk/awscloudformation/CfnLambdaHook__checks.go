@@ -227,6 +227,23 @@ func (j *jsiiProxy_CfnLambdaHook) validateSetAliasParameters(val *string) error 
 	return nil
 }
 
+func (j *jsiiProxy_CfnLambdaHook) validateSetAutoUpdateParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLambdaHook) validateSetExecutionRoleParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -254,6 +271,30 @@ func (j *jsiiProxy_CfnLambdaHook) validateSetHookStatusParameters(val *string) e
 func (j *jsiiProxy_CfnLambdaHook) validateSetLambdaFunctionParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnLambdaHook) validateSetLoggingConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLambdaHook_LoggingConfigProperty:
+		val := val.(*CfnLambdaHook_LoggingConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLambdaHook_LoggingConfigProperty:
+		val_ := val.(CfnLambdaHook_LoggingConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLambdaHook_LoggingConfigProperty; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

@@ -798,6 +798,43 @@ func (j *jsiiProxy_CfnConnectAttachment)SetTransportAttachmentId(val *string) {
 	)
 }
 
+func CfnConnectAttachment_ArnForConnectAttachment(resource interfacesawsnetworkmanager.IConnectAttachmentRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnectAttachment_ArnForConnectAttachmentParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment",
+		"arnForConnectAttachment",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IConnectAttachmentRef from a attachmentId.
+func CfnConnectAttachment_FromAttachmentId(scope constructs.Construct, id *string, attachmentId *string) interfacesawsnetworkmanager.IConnectAttachmentRef {
+	_init_.Initialize()
+
+	if err := validateCfnConnectAttachment_FromAttachmentIdParameters(scope, id, attachmentId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsnetworkmanager.IConnectAttachmentRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment",
+		"fromAttachmentId",
+		[]interface{}{scope, id, attachmentId},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks whether the given object is a CfnConnectAttachment.
 func CfnConnectAttachment_IsCfnConnectAttachment(x interface{}) *bool {
 	_init_.Initialize()

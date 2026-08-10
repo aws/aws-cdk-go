@@ -219,6 +219,30 @@ func validateCfnDataTableAttribute_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetDataTableArnParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetInstanceArnParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataTableAttribute) validateSetPrimaryParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:
@@ -260,6 +284,14 @@ func (j *jsiiProxy_CfnDataTableAttribute) validateSetValidationParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetValueTypeParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateNewCfnDataTableAttributeParameters(scope constructs.Construct, id *string, props *CfnDataTableAttributeProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -269,6 +301,9 @@ func validateNewCfnDataTableAttributeParameters(scope constructs.Construct, id *
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

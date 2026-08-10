@@ -40,10 +40,9 @@ type SrtCallerOutputConfig struct {
 	Encryption *SrtPasswordEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// The minimum latency in milliseconds for SRT-based streams.
 	//
-	// The value you set on your
-	// MediaConnect output represents the minimal potential latency of that connection. The
-	// latency of the stream is set to the higher of the sender's minimum latency and the
-	// receiver's minimum latency.
+	// In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents
+	// the minimal potential latency of that connection. The latency of the stream is set to the highest number between
+	// the sender’s minimum latency and the receiver’s minimum latency.
 	// Default: - no minimum latency.
 	//
 	// Experimental.
@@ -53,10 +52,10 @@ type SrtCallerOutputConfig struct {
 	//
 	// Experimental.
 	StreamId *string `field:"optional" json:"streamId" yaml:"streamId"`
-	// The VPC interface attachment to use for this output.
+	// The name of the VPC interface attachment to use for this output.
 	// Default: - no VPC interface attachment.
 	//
 	// Experimental.
-	VpcInterfaceAttachment *VpcInterfaceConfig `field:"optional" json:"vpcInterfaceAttachment" yaml:"vpcInterfaceAttachment"`
+	VpcInterfaceAttachmentName *string `field:"optional" json:"vpcInterfaceAttachmentName" yaml:"vpcInterfaceAttachmentName"`
 }
 

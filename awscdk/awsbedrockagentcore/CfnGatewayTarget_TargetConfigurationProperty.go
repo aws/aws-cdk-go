@@ -50,6 +50,37 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	Inference: &InferenceTargetConfigurationProperty{
+//   		Connector: &InferenceConnectorTargetConfigurationProperty{
+//   			Source: &InferenceConnectorSourceProperty{
+//   				ConnectorId: jsii.String("connectorId"),
+//   			},
+//   		},
+//   		Provider: &InferenceProviderTargetConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//
+//   			// the properties below are optional
+//   			ModelMapping: &ModelMappingProperty{
+//   				ProviderPrefix: &ProviderPrefixProperty{
+//   					Separator: jsii.String("separator"),
+//   					Strip: jsii.Boolean(false),
+//   				},
+//   			},
+//   			Operations: []interface{}{
+//   				&InferenceOperationConfigurationProperty{
+//   					Path: jsii.String("path"),
+//
+//   					// the properties below are optional
+//   					Models: []interface{}{
+//   						&ModelEntryProperty{
+//   							Model: jsii.String("model"),
+//   						},
+//   					},
+//   					ProviderPath: jsii.String("providerPath"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Mcp: &McpTargetConfigurationProperty{
 //   		ApiGateway: &ApiGatewayTargetConfigurationProperty{
 //   			ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
@@ -185,6 +216,9 @@ type CfnGatewayTarget_TargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-http
 	//
 	Http interface{} `field:"optional" json:"http" yaml:"http"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-inference
+	//
+	Inference interface{} `field:"optional" json:"inference" yaml:"inference"`
 	// The target configuration definition for MCP.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-mcp
 	//

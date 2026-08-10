@@ -57,6 +57,7 @@ package awsamazonmq
 //   	SecurityGroups: []*string{
 //   		jsii.String("securityGroups"),
 //   	},
+//   	StorageSize: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
@@ -175,6 +176,10 @@ type CfnBrokerMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
 	//
 	SecurityGroups *[]*string `field:"optional" json:"securityGroups" yaml:"securityGroups"`
+	// The broker's storage size in GB.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-storagesize
+	//
+	StorageSize *float64 `field:"optional" json:"storageSize" yaml:"storageSize"`
 	// The broker's storage type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-storagetype
 	//

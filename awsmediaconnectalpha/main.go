@@ -8,6 +8,10 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-mediaconnect-alpha.AddFlowOutputOptions",
+		reflect.TypeOf((*AddFlowOutputOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-mediaconnect-alpha.AudioStreamOrderOptions",
 		reflect.TypeOf((*AudioStreamOrderOptions)(nil)).Elem(),

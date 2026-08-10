@@ -10,10 +10,15 @@ package awscloudformation
 //
 //   cfnLambdaHookMixinProps := &CfnLambdaHookMixinProps{
 //   	Alias: jsii.String("alias"),
+//   	AutoUpdate: jsii.Boolean(false),
 //   	ExecutionRole: jsii.String("executionRole"),
 //   	FailureMode: jsii.String("failureMode"),
 //   	HookStatus: jsii.String("hookStatus"),
 //   	LambdaFunction: jsii.String("lambdaFunction"),
+//   	LoggingConfig: &LoggingConfigProperty{
+//   		LogGroupName: jsii.String("logGroupName"),
+//   		LogRoleArn: jsii.String("logRoleArn"),
+//   	},
 //   	StackFilters: &StackFiltersProperty{
 //   		FilteringCriteria: jsii.String("filteringCriteria"),
 //   		StackNames: &StackNamesProperty{
@@ -65,6 +70,12 @@ type CfnLambdaHookMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-alias
 	//
 	Alias *string `field:"optional" json:"alias" yaml:"alias"`
+	// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-autoupdate
+	//
+	// Default: - true.
+	//
+	AutoUpdate interface{} `field:"optional" json:"autoUpdate" yaml:"autoUpdate"`
 	// The IAM role that the Hook assumes to invoke your Lambda function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-executionrole
 	//
@@ -89,6 +100,10 @@ type CfnLambdaHookMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-lambdafunction
 	//
 	LambdaFunction *string `field:"optional" json:"lambdaFunction" yaml:"lambdaFunction"`
+	// Contains logging configuration information for an extension.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html#cfn-cloudformation-lambdahook-loggingconfig
+	//
+	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`
 	// Specifies the stack level filters for the Hook.
 	//
 	// Example stack level filter in JSON:

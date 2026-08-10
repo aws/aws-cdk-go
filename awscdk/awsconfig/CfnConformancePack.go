@@ -34,6 +34,12 @@ import (
 //   	},
 //   	DeliveryS3Bucket: jsii.String("deliveryS3Bucket"),
 //   	DeliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TemplateBody: jsii.String("templateBody"),
 //   	TemplateS3Uri: jsii.String("templateS3Uri"),
 //   	TemplateSsmDocumentDetails: templateSsmDocumentDetails,
@@ -45,6 +51,11 @@ type CfnConformancePack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconfig.IConformancePackRef
+	awscdk.ITaggableV2
+	// Amazon Resource Name (ARN) of the conformance pack.
+	AttrConformancePackArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -91,6 +102,9 @@ type CfnConformancePack interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags for the conformance pack.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// A string containing full conformance pack template body.
 	TemplateBody() *string
 	SetTemplateBody(val *string)
@@ -277,6 +291,27 @@ type jsiiProxy_CfnConformancePack struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconfigIConformancePackRef
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnConformancePack) AttrConformancePackArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrConformancePackArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConformancePack) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnConformancePack) CfnOptions() awscdk.ICfnResourceOptions {
@@ -429,6 +464,16 @@ func (j *jsiiProxy_CfnConformancePack) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConformancePack) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConformancePack) TemplateBody() *string {
 	var returns *string
 	_jsii_.Get(
@@ -547,6 +592,17 @@ func (j *jsiiProxy_CfnConformancePack)SetDeliveryS3KeyPrefix(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnConformancePack)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnConformancePack)SetTemplateBody(val *string) {
 	_jsii_.Set(
 		j,
@@ -572,6 +628,24 @@ func (j *jsiiProxy_CfnConformancePack)SetTemplateSsmDocumentDetails(val interfac
 		"templateSsmDocumentDetails",
 		val,
 	)
+}
+
+func CfnConformancePack_ArnForConformancePack(resource interfacesawsconfig.IConformancePackRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConformancePack_ArnForConformancePackParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"arnForConformancePack",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks whether the given object is a CfnConformancePack.

@@ -22,9 +22,12 @@ import (
 //
 //   cfnDataTableAttribute := awscdk.Aws_connect.NewCfnDataTableAttribute(this, jsii.String("MyCfnDataTableAttribute"), &CfnDataTableAttributeProps{
 //   	DataTableArn: jsii.String("dataTableArn"),
-//   	Description: jsii.String("description"),
 //   	InstanceArn: jsii.String("instanceArn"),
 //   	Name: jsii.String("name"),
+//   	ValueType: jsii.String("valueType"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
 //   	Primary: jsii.Boolean(false),
 //   	Validation: &ValidationProperty{
 //   		Enum: &EnumProperty{
@@ -43,7 +46,6 @@ import (
 //   		MinValues: jsii.Number(123),
 //   		MultipleOf: jsii.Number(123),
 //   	},
-//   	ValueType: jsii.String("valueType"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatableattribute.html
@@ -564,6 +566,9 @@ func NewCfnDataTableAttribute_Override(c CfnDataTableAttribute, scope constructs
 }
 
 func (j *jsiiProxy_CfnDataTableAttribute)SetDataTableArn(val *string) {
+	if err := j.validateSetDataTableArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"dataTableArn",
@@ -580,6 +585,9 @@ func (j *jsiiProxy_CfnDataTableAttribute)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataTableAttribute)SetInstanceArn(val *string) {
+	if err := j.validateSetInstanceArnParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"instanceArn",
@@ -588,6 +596,9 @@ func (j *jsiiProxy_CfnDataTableAttribute)SetInstanceArn(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataTableAttribute)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -618,6 +629,9 @@ func (j *jsiiProxy_CfnDataTableAttribute)SetValidation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnDataTableAttribute)SetValueType(val *string) {
+	if err := j.validateSetValueTypeParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"valueType",

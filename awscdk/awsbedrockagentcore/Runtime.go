@@ -172,10 +172,12 @@ type Runtime interface {
 	//
 	// By default, the metric will be calculated as a sum over a period of 5 minutes.
 	// You can customize this by using the `statistic` and `period` properties.
+	//
+	// The metric is scoped to this agent runtime and its default endpoint.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of invocations for this agent runtime.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Return a metric containing the total number of invocations across all resources.
+	// Return a metric containing the total number of invocations across all agent runtimes in this account.
 	MetricInvocationsAggregated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the latency of requests for this agent runtime.
 	//
@@ -184,7 +186,7 @@ type Runtime interface {
 	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of agent sessions for this agent runtime.
 	MetricSessionCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Return a metric containing the total number of sessions across all resources.
+	// Return a metric containing the total number of sessions across all agent runtimes in this account.
 	MetricSessionsAggregated(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of system errors for this agent runtime.
 	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric

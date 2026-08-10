@@ -37,6 +37,55 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VpcEncryptionControl: &VpcEncryptionControlProperty{
+//   		EgressOnlyInternetGatewayExclusion: jsii.String("egressOnlyInternetGatewayExclusion"),
+//   		ElasticFileSystemExclusion: jsii.String("elasticFileSystemExclusion"),
+//   		InternetGatewayExclusion: jsii.String("internetGatewayExclusion"),
+//   		LambdaExclusion: jsii.String("lambdaExclusion"),
+//   		Mode: jsii.String("mode"),
+//   		NatGatewayExclusion: jsii.String("natGatewayExclusion"),
+//   		ResourceExclusions: &VpcEncryptionControlExclusionsProperty{
+//   			EgressOnlyInternetGateway: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			ElasticFileSystem: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			InternetGateway: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			Lambda: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			NatGateway: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			VirtualPrivateGateway: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			VpcLattice: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   			VpcPeering: &VpcEncryptionControlExclusionProperty{
+//   				State: jsii.String("state"),
+//   				StateMessage: jsii.String("stateMessage"),
+//   			},
+//   		},
+//   		State: jsii.String("state"),
+//   		StateMessage: jsii.String("stateMessage"),
+//   		VirtualPrivateGatewayExclusion: jsii.String("virtualPrivateGatewayExclusion"),
+//   		VpcEncryptionControlId: jsii.String("vpcEncryptionControlId"),
+//   		VpcId: jsii.String("vpcId"),
+//   		VpcLatticeExclusion: jsii.String("vpcLatticeExclusion"),
+//   		VpcPeeringExclusion: jsii.String("vpcPeeringExclusion"),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

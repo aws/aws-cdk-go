@@ -54,6 +54,7 @@ import (
 //   		},
 //   	},
 //   	ResolutionTechniques: &ResolutionTechniquesProperty{
+//   		EnableRealTimeMatching: jsii.Boolean(false),
 //   		ProviderProperties: &ProviderPropertiesProperty{
 //   			ProviderServiceArn: jsii.String("providerServiceArn"),
 //

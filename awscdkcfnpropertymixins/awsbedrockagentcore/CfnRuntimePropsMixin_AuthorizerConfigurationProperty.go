@@ -19,6 +19,16 @@ package awsbedrockagentcore
 //   		AllowedScopes: []*string{
 //   			jsii.String("allowedScopes"),
 //   		},
+//   		AllowedWorkloadConfiguration: &AllowedWorkloadConfigurationProperty{
+//   			HostingEnvironments: []interface{}{
+//   				&HostingEnvironmentProperty{
+//   					Arn: jsii.String("arn"),
+//   				},
+//   			},
+//   			WorkloadIdentities: []*string{
+//   				jsii.String("workloadIdentities"),
+//   			},
+//   		},
 //   		CustomClaims: []interface{}{
 //   			&CustomClaimValidationTypeProperty{
 //   				AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
@@ -35,6 +45,49 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   		DiscoveryUrl: jsii.String("discoveryUrl"),
+//   		PrivateEndpoint: &PrivateEndpointProperty{
+//   			ManagedVpcResource: &ManagedVpcResourceProperty{
+//   				EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   				RoutingDomain: jsii.String("routingDomain"),
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				SubnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//   				Tags: map[string]*string{
+//   					"tagsKey": jsii.String("tags"),
+//   				},
+//   				VpcIdentifier: jsii.String("vpcIdentifier"),
+//   			},
+//   			SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   				ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   			},
+//   		},
+//   		PrivateEndpointOverrides: []interface{}{
+//   			&PrivateEndpointOverrideProperty{
+//   				Domain: jsii.String("domain"),
+//   				PrivateEndpoint: &PrivateEndpointProperty{
+//   					ManagedVpcResource: &ManagedVpcResourceProperty{
+//   						EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   						RoutingDomain: jsii.String("routingDomain"),
+//   						SecurityGroupIds: []*string{
+//   							jsii.String("securityGroupIds"),
+//   						},
+//   						SubnetIds: []*string{
+//   							jsii.String("subnetIds"),
+//   						},
+//   						Tags: map[string]*string{
+//   							"tagsKey": jsii.String("tags"),
+//   						},
+//   						VpcIdentifier: jsii.String("vpcIdentifier"),
+//   					},
+//   					SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   						ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   }
 //

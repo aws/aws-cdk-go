@@ -37,13 +37,13 @@ type CfnDataTableRecordProps struct {
 	// Does not include version aliases.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatablerecord.html#cfn-connect-datatablerecord-datatablearn
 	//
-	DataTableArn *string `field:"optional" json:"dataTableArn" yaml:"dataTableArn"`
+	DataTableArn *string `field:"required" json:"dataTableArn" yaml:"dataTableArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatablerecord.html#cfn-connect-datatablerecord-datatablerecord
 	//
-	DataTableRecord interface{} `field:"optional" json:"dataTableRecord" yaml:"dataTableRecord"`
+	DataTableRecord interface{} `field:"required" json:"dataTableRecord" yaml:"dataTableRecord"`
 	// The Amazon Resource Name (ARN) of the instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-datatablerecord.html#cfn-connect-datatablerecord-instancearn
 	//
-	InstanceArn *string `field:"optional" json:"instanceArn" yaml:"instanceArn"`
+	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
 }
 

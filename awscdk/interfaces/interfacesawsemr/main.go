@@ -60,6 +60,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_emr.INotebookExecutionRef",
+		reflect.TypeOf((*INotebookExecutionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "notebookExecutionRef", GoGetter: "NotebookExecutionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_INotebookExecutionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_emr.ISecurityConfigurationRef",
 		reflect.TypeOf((*ISecurityConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -146,6 +162,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_emr.InstanceGroupConfigReference",
 		reflect.TypeOf((*InstanceGroupConfigReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_emr.NotebookExecutionReference",
+		reflect.TypeOf((*NotebookExecutionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_emr.SecurityConfigurationReference",

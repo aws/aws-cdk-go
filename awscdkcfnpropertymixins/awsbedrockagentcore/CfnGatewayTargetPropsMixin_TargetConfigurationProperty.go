@@ -44,6 +44,33 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	Inference: &InferenceTargetConfigurationProperty{
+//   		Connector: &InferenceConnectorTargetConfigurationProperty{
+//   			Source: &InferenceConnectorSourceProperty{
+//   				ConnectorId: jsii.String("connectorId"),
+//   			},
+//   		},
+//   		Provider: &InferenceProviderTargetConfigurationProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//   			ModelMapping: &ModelMappingProperty{
+//   				ProviderPrefix: &ProviderPrefixProperty{
+//   					Separator: jsii.String("separator"),
+//   					Strip: jsii.Boolean(false),
+//   				},
+//   			},
+//   			Operations: []interface{}{
+//   				&InferenceOperationConfigurationProperty{
+//   					Models: []interface{}{
+//   						&ModelEntryProperty{
+//   							Model: jsii.String("model"),
+//   						},
+//   					},
+//   					Path: jsii.String("path"),
+//   					ProviderPath: jsii.String("providerPath"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Mcp: &McpTargetConfigurationProperty{
 //   		ApiGateway: &ApiGatewayTargetConfigurationProperty{
 //   			ApiGatewayToolConfiguration: &ApiGatewayToolConfigurationProperty{
@@ -161,6 +188,9 @@ type CfnGatewayTargetPropsMixin_TargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-http
 	//
 	Http interface{} `field:"optional" json:"http" yaml:"http"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-inference
+	//
+	Inference interface{} `field:"optional" json:"inference" yaml:"inference"`
 	// The target configuration definition for MCP.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-targetconfiguration-mcp
 	//

@@ -32,6 +32,30 @@ func init() {
 		reflect.TypeOf((*CfnConnectionAliasPropsMixin_ConnectionAliasAssociationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_workspaces.CfnWorkspaceIpGroupMixinProps",
+		reflect.TypeOf((*CfnWorkspaceIpGroupMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_workspaces.CfnWorkspaceIpGroupPropsMixin",
+		reflect.TypeOf((*CfnWorkspaceIpGroupPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWorkspaceIpGroupPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_workspaces.CfnWorkspaceIpGroupPropsMixin.IpRuleItemProperty",
+		reflect.TypeOf((*CfnWorkspaceIpGroupPropsMixin_IpRuleItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_workspaces.CfnWorkspaceMixinProps",
 		reflect.TypeOf((*CfnWorkspaceMixinProps)(nil)).Elem(),
 	)

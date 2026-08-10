@@ -33,10 +33,13 @@ type CfnDataDeletionJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawspersonalize.IDataDeletionJobRef
+	// The creation date and time of the data deletion job.
 	AttrCreationDateTime() *string
+	// The Amazon Resource Name (ARN) of the data deletion job.
 	AttrDataDeletionJobArn() *string
-	AttrId() *string
+	// The date and time the data deletion job was last updated.
 	AttrLastUpdatedDateTime() *string
+	// The status of the data deletion job.
 	AttrStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -50,11 +53,14 @@ type CfnDataDeletionJob interface {
 	CreationStack() *[]*string
 	// A reference to a DataDeletionJob resource.
 	DataDeletionJobRef() *interfacesawspersonalize.DataDeletionJobReference
+	// The Amazon Resource Name (ARN) of the dataset group that has the datasets you want to delete records from.
 	DatasetGroupArn() *string
 	SetDatasetGroupArn(val *string)
+	// The Amazon S3 bucket that contains the list of userIds to delete.
 	DataSource() interface{}
 	SetDataSource(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// The name for the data deletion job.
 	JobName() *string
 	SetJobName(val *string)
 	// The logical ID for this CloudFormation stack element.
@@ -74,6 +80,7 @@ type CfnDataDeletionJob interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the Amazon S3 data source.
 	RoleArn() *string
 	SetRoleArn(val *string)
 	// The stack in which this element is defined.
@@ -274,16 +281,6 @@ func (j *jsiiProxy_CfnDataDeletionJob) AttrDataDeletionJobArn() *string {
 	_jsii_.Get(
 		j,
 		"attrDataDeletionJobArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDataDeletionJob) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

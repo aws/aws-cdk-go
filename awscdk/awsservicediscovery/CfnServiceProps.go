@@ -11,8 +11,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var serviceAttributes interface{}
-//
 //   cfnServiceProps := &CfnServiceProps{
 //   	Description: jsii.String("description"),
 //   	DnsConfig: &DnsConfigProperty{
@@ -39,7 +37,9 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	NamespaceId: jsii.String("namespaceId"),
-//   	ServiceAttributes: serviceAttributes,
+//   	ServiceAttributes: map[string]*string{
+//   		"serviceAttributesKey": jsii.String("serviceAttributes"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

@@ -56,6 +56,38 @@ func init() {
 		reflect.TypeOf((*CfnApplicationPropsMixin_SignInOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnApplicationProviderMixinProps",
+		reflect.TypeOf((*CfnApplicationProviderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnApplicationProviderPropsMixin",
+		reflect.TypeOf((*CfnApplicationProviderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnApplicationProviderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnApplicationProviderPropsMixin.DisplayDataProperty",
+		reflect.TypeOf((*CfnApplicationProviderPropsMixin_DisplayDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnApplicationProviderPropsMixin.ResourceServerConfigProperty",
+		reflect.TypeOf((*CfnApplicationProviderPropsMixin_ResourceServerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnApplicationProviderPropsMixin.ResourceServerScopeDetailsProperty",
+		reflect.TypeOf((*CfnApplicationProviderPropsMixin_ResourceServerScopeDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sso.CfnAssignmentMixinProps",
 		reflect.TypeOf((*CfnAssignmentMixinProps)(nil)).Elem(),
 	)

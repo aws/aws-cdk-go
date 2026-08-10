@@ -69,6 +69,55 @@ type CfnVPC interface {
 	//
 	// For example, [ 2001:db8:1234:1a00::/56 ].
 	AttrIpv6CidrBlocks() *[]*string
+	AttrVpcEncryptionControlResourceExclusions() awscdk.IResolvable
+	AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsElasticFileSystem() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsElasticFileSystemState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsElasticFileSystemStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsInternetGateway() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsInternetGatewayState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsInternetGatewayStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsLambda() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsLambdaState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsLambdaStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsNatGateway() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsNatGatewayState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsNatGatewayStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGateway() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsVpcLattice() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsVpcLatticeState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsVpcLatticeStateMessage() *string
+	AttrVpcEncryptionControlResourceExclusionsVpcPeering() awscdk.IResolvable
+	// The exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsVpcPeeringState() *string
+	// A message describing the exclusion state of the resource type.
+	AttrVpcEncryptionControlResourceExclusionsVpcPeeringStateMessage() *string
+	// The state of the VPC encryption control.
+	AttrVpcEncryptionControlState() *string
+	// A message describing the state of the VPC encryption control.
+	AttrVpcEncryptionControlStateMessage() *string
+	// The ID of the VPC encryption control.
+	AttrVpcEncryptionControlVpcEncryptionControlId() *string
+	// The ID of the VPC.
+	AttrVpcEncryptionControlVpcId() *string
 	// The ID of the VPC.
 	AttrVpcId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -139,6 +188,8 @@ type CfnVPC interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VpcEncryptionControl() interface{}
+	SetVpcEncryptionControl(val interface{})
 	// A reference to a VPC resource.
 	VpcRef() *interfacesawsec2.VPCReference
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -358,6 +409,296 @@ func (j *jsiiProxy_CfnVPC) AttrIpv6CidrBlocks() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusions() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsElasticFileSystem() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsElasticFileSystem",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsElasticFileSystemState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsElasticFileSystemState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsElasticFileSystemStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsElasticFileSystemStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsInternetGateway() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsInternetGateway",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsInternetGatewayState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsInternetGatewayState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsInternetGatewayStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsInternetGatewayStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsLambda() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsLambda",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsLambdaState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsLambdaState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsLambdaStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsLambdaStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsNatGateway() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsNatGateway",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsNatGatewayState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsNatGatewayState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsNatGatewayStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsNatGatewayStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGateway() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVirtualPrivateGateway",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVpcLattice() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVpcLattice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVpcLatticeState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVpcLatticeState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVpcLatticeStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVpcLatticeStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVpcPeering() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVpcPeering",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVpcPeeringState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVpcPeeringState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlResourceExclusionsVpcPeeringStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlResourceExclusionsVpcPeeringStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlStateMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlStateMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlVpcEncryptionControlId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlVpcEncryptionControlId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPC) AttrVpcEncryptionControlVpcId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrVpcEncryptionControlVpcId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPC) AttrVpcId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -568,6 +909,16 @@ func (j *jsiiProxy_CfnVPC) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPC) VpcEncryptionControl() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcEncryptionControl",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPC) VpcRef() *interfacesawsec2.VPCReference {
 	var returns *interfacesawsec2.VPCReference
 	_jsii_.Get(
@@ -669,6 +1020,17 @@ func (j *jsiiProxy_CfnVPC)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPC)SetVpcEncryptionControl(val interface{}) {
+	if err := j.validateSetVpcEncryptionControlParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcEncryptionControl",
 		val,
 	)
 }

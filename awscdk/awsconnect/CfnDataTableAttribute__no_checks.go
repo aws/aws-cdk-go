@@ -100,11 +100,27 @@ func validateCfnDataTableAttribute_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetDataTableArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetInstanceArnParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetNameParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataTableAttribute) validateSetPrimaryParameters(val interface{}) error {
 	return nil
 }
 
 func (j *jsiiProxy_CfnDataTableAttribute) validateSetValidationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDataTableAttribute) validateSetValueTypeParameters(val *string) error {
 	return nil
 }
 
