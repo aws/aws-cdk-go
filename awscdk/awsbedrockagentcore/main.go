@@ -4319,6 +4319,10 @@ func init() {
 		"aws-cdk-lib.aws_bedrockagentcore.InvocationConfiguration",
 		reflect.TypeOf((*InvocationConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.KinesisStreamDeliveryOptions",
+		reflect.TypeOf((*KinesisStreamDeliveryOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.LambdaInterceptor",
 		reflect.TypeOf((*LambdaInterceptor)(nil)).Elem(),
@@ -4492,6 +4496,7 @@ func init() {
 		reflect.TypeOf((*Memory)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addMemoryStrategy", GoMethod: "AddMemoryStrategy"},
+			_jsii_.MemberMethod{JsiiMethod: "addStreamDeliveryResource", GoMethod: "AddStreamDeliveryResource"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "createdAt", GoGetter: "CreatedAt"},
@@ -4531,6 +4536,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberProperty{JsiiProperty: "streamDeliveryResources", GoGetter: "StreamDeliveryResources"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedAt", GoGetter: "UpdatedAt"},
@@ -5177,6 +5183,36 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.SpotifyOAuth2CredentialProviderProps",
 		reflect.TypeOf((*SpotifyOAuth2CredentialProviderProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.StreamDeliveryContentConfiguration",
+		reflect.TypeOf((*StreamDeliveryContentConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_bedrockagentcore.StreamDeliveryContentLevel",
+		reflect.TypeOf((*StreamDeliveryContentLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"METADATA_ONLY": StreamDeliveryContentLevel_METADATA_ONLY,
+			"FULL_CONTENT": StreamDeliveryContentLevel_FULL_CONTENT,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_bedrockagentcore.StreamDeliveryContentType",
+		reflect.TypeOf((*StreamDeliveryContentType)(nil)).Elem(),
+		map[string]interface{}{
+			"MEMORY_RECORDS": StreamDeliveryContentType_MEMORY_RECORDS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrockagentcore.StreamDeliveryResource",
+		reflect.TypeOf((*StreamDeliveryResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "contentConfigurations", GoGetter: "ContentConfigurations"},
+			_jsii_.MemberProperty{JsiiProperty: "stream", GoGetter: "Stream"},
+		},
+		func() interface{} {
+			return &jsiiProxy_StreamDeliveryResource{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.TargetConfigurationConfig",

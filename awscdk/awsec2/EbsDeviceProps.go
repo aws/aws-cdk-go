@@ -1,6 +1,7 @@
 package awsec2
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 )
 
@@ -9,10 +10,12 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var key Key
+//   var size Size
 //
 //   ebsDeviceProps := &EbsDeviceProps{
 //   	DeleteOnTermination: jsii.Boolean(false),
@@ -21,6 +24,7 @@ import (
 //   	KmsKey: key,
 //   	SnapshotId: jsii.String("snapshotId"),
 //   	Throughput: jsii.Number(123),
+//   	VolumeInitializationRate: size,
 //   	VolumeSize: jsii.Number(123),
 //   	VolumeType: awscdk.Aws_ec2.EbsDeviceVolumeType_STANDARD,
 //   }
@@ -52,6 +56,15 @@ type EbsDeviceProps struct {
 	// Default: - 125 MiB/s.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// The Amazon EBS Provisioned Rate for Volume Initialization, at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// Valid range is between 100 and 300 MiB/s.
+	// This parameter is supported only for volumes created from snapshots.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate
+	//
+	// Default: undefined - The volume initialization rate is not set.
+	//
+	VolumeInitializationRate awscdk.Size `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//

@@ -150,6 +150,30 @@ type DatabaseClusterProps struct {
 	// Default: - default master key.
 	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	// Specifies whether to manage the master user password with AWS Secrets Manager.
+	//
+	// When set to true, Amazon DocumentDB will automatically generate and manage the master user password in AWS Secrets Manager.
+	// This provides enhanced security and automatic password rotation capabilities.
+	//
+	// Constraint: You can't manage the master user password with AWS Secrets Manager if `masterUser.password` is specified.
+	//
+	// The `secret` property of the cluster is not set when using this option. See the
+	// module README for how to access the managed secret.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-secrets-manager.html
+	//
+	// Default: false.
+	//
+	ManageMasterUserPassword *bool `field:"optional" json:"manageMasterUserPassword" yaml:"manageMasterUserPassword"`
+	// The AWS KMS key to encrypt a secret that is automatically generated and managed in AWS Secrets Manager.
+	//
+	// This setting is valid only if the master user password is managed by Amazon DocumentDB in AWS Secrets Manager
+	// for the DB cluster (i.e. when `manageMasterUserPassword` is true).
+	// If you don't specify this property, then the `aws/secretsmanager` KMS key is used to encrypt the secret.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-secrets-manager.html
+	//
+	// Default: - default AWS managed key `aws/secretsmanager`.
+	//
+	MasterUserSecretKmsKey awskms.IKey `field:"optional" json:"masterUserSecretKmsKey" yaml:"masterUserSecretKmsKey"`
 	// The DB parameter group to associate with the instance.
 	// Default: no parameter group.
 	//

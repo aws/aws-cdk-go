@@ -205,6 +205,10 @@ type TableProps struct {
 	// Experimental.
 	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
 	// S3 prefix under which table objects are stored.
+	//
+	// When the table shares a bucket with other tables or consumers, set this so
+	// that the `grant*` methods scope S3 access to this table's data. Without a
+	// prefix, those grants cover the entire bucket.
 	// Default: - No prefix. The data will be stored under the root of the bucket.
 	//
 	// Experimental.

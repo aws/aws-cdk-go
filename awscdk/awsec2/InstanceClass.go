@@ -10,21 +10,19 @@ package awsec2
 // 'R4' means.
 //
 // Example:
-//   // Creates a distribution from an EC2 instance
 //   var vpc Vpc
 //
-//   // Create an EC2 instance in a VPC. 'subnetType' can be private.
-//   instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
-//   	Vpc: Vpc,
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_MICRO),
-//   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
-//   	},
-//   })
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
-//   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.VpcOrigin_WithEc2Instance(instance),
+//   cluster := rds.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+//   	Engine: rds.DatabaseClusterEngine_AuroraMysql(&AuroraMysqlClusterEngineProps{
+//   		Version: rds.AuroraMysqlEngineVersion_VER_3_03_0(),
+//   	}),
+//   	Instances: jsii.Number(2),
+//   	InstanceProps: &InstanceProps{
+//   		InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_BURSTABLE3, ec2.InstanceSize_SMALL),
+//   		VpcSubnets: &SubnetSelection{
+//   			SubnetType: ec2.SubnetType_PUBLIC,
+//   		},
+//   		Vpc: *Vpc,
 //   	},
 //   })
 //

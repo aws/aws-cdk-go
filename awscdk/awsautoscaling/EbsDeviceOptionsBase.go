@@ -1,17 +1,24 @@
 package awsautoscaling
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Base block device options for an EBS volume.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var size Size
 //
 //   ebsDeviceOptionsBase := &EbsDeviceOptionsBase{
 //   	DeleteOnTermination: jsii.Boolean(false),
 //   	Iops: jsii.Number(123),
 //   	Throughput: jsii.Number(123),
+//   	VolumeInitializationRate: size,
 //   	VolumeType: awscdk.Aws_autoscaling.EbsDeviceVolumeType_STANDARD,
 //   }
 //
@@ -37,6 +44,15 @@ type EbsDeviceOptionsBase struct {
 	// Default: - 125 MiB/s. Only valid on gp3 volumes.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// The Amazon EBS Provisioned Rate for Volume Initialization, at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// Valid range is between 100 and 300 MiB/s.
+	// This parameter is supported only for volumes created from snapshots.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate
+	//
+	// Default: undefined - The volume initialization rate is not set.
+	//
+	VolumeInitializationRate awscdk.Size `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//

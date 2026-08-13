@@ -8,10 +8,18 @@ import (
 // An AWS service for an interface VPC endpoint.
 //
 // Example:
+//   // Interface endpoint with IPv6
 //   vpc.addInterfaceEndpoint(jsii.String("ExampleEndpoint"), &InterfaceVpcEndpointOptions{
 //   	Service: ec2.InterfaceVpcEndpointAwsService_ECR(),
 //   	IpAddressType: ec2.VpcEndpointIpAddressType_IPV6,
 //   	DnsRecordIpType: ec2.VpcEndpointDnsRecordIpType_IPV6,
+//   })
+//
+//   // Gateway endpoint with dualstack
+//   vpc.addGatewayEndpoint(jsii.String("S3DualstackEndpoint"), &GatewayVpcEndpointOptions{
+//   	Service: ec2.GatewayVpcEndpointAwsService_S3(),
+//   	IpAddressType: ec2.VpcEndpointIpAddressType_DUALSTACK,
+//   	DnsRecordIpType: ec2.VpcEndpointDnsRecordIpType_DUALSTACK,
 //   })
 //
 type InterfaceVpcEndpointAwsService interface {

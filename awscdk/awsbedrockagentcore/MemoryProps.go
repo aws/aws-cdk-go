@@ -9,20 +9,25 @@ import (
 // Properties for creating a Memory resource.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("MemoryExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")),
-//   	},
+//   // Create a Kinesis Data Stream
+//   stream := kinesis.NewStream(this, jsii.String("MemoryEventStream"), &StreamProps{
+//   	StreamName: jsii.String("memory-events"),
 //   })
 //
-//   // Create memory with custom execution role
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my_memory"),
-//   	Description: jsii.String("Memory with custom execution role"),
+//   memory := agentcore.NewMemory(this, jsii.String("MemoryWithStreamDelivery"), &MemoryProps{
+//   	MemoryName: jsii.String("memory_with_stream"),
+//   	Description: jsii.String("Memory with Kinesis stream delivery"),
 //   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	ExecutionRole: executionRole,
+//   	StreamDeliveryResources: []StreamDeliveryResource{
+//   		agentcore.StreamDeliveryResource_Kinesis(stream, &KinesisStreamDeliveryOptions{
+//   			ContentConfigurations: []StreamDeliveryContentConfiguration{
+//   				&StreamDeliveryContentConfiguration{
+//   					Type: agentcore.StreamDeliveryContentType_MEMORY_RECORDS,
+//   					Level: agentcore.StreamDeliveryContentLevel_METADATA_ONLY,
+//   				},
+//   			},
+//   		}),
+//   	},
 //   })
 //
 type MemoryProps struct {
@@ -53,6 +58,31 @@ type MemoryProps struct {
 	// Default: - No extraction strategies (short term memory only).
 	//
 	MemoryStrategies *[]IMemoryStrategy `field:"optional" json:"memoryStrategies" yaml:"memoryStrategies"`
+	// Stream delivery resources for real-time push-based streaming of memory record lifecycle events (created, updated, deleted) to Amazon Kinesis Data Streams.
+	//
+	// The memory execution role will automatically be granted write permissions to each stream.
+	//
+	// Only one stream delivery resource is currently supported (CloudFormation maximum);
+	// providing more than one fails at synth with `TooManyStreamDeliveryResources`:
+	//
+	// ```ts
+	// declare const stream: kinesis.IStream;
+	// new agentcore.Memory(this, 'Memory', {
+	//   streamDeliveryResources: [
+	//     agentcore.StreamDeliveryResource.kinesis(stream, {
+	//       contentConfigurations: [{
+	//         type: agentcore.StreamDeliveryContentType.MEMORY_RECORDS,
+	//         level: agentcore.StreamDeliveryContentLevel.METADATA_ONLY,
+	//       }],
+	//     }),
+	//   ],
+	// });
+	// ```.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-record-streaming.html
+	//
+	// Default: - No stream delivery (events are not pushed to Kinesis).
+	//
+	StreamDeliveryResources *[]StreamDeliveryResource `field:"optional" json:"streamDeliveryResources" yaml:"streamDeliveryResources"`
 	// Tags (optional) A list of key:value pairs of tags to apply to this memory resource.
 	// Default: - no tags.
 	//

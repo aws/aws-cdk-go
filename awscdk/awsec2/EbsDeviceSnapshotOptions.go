@@ -1,20 +1,23 @@
 package awsec2
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Block device options for an EBS volume created from a snapshot.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   ebsDeviceSnapshotOptions := &EbsDeviceSnapshotOptions{
-//   	DeleteOnTermination: jsii.Boolean(false),
-//   	Iops: jsii.Number(123),
-//   	Throughput: jsii.Number(123),
-//   	VolumeSize: jsii.Number(123),
-//   	VolumeType: awscdk.Aws_ec2.EbsDeviceVolumeType_STANDARD,
-//   }
+//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   	BlockDevices: []BlockDevice{
+//   		&BlockDevice{
+//   			DeviceName: jsii.String("deviceName"),
+//   			Volume: ec2.BlockDeviceVolume_EbsFromSnapshot(jsii.String("snap-1234567890abcdef0"), &EbsDeviceSnapshotOptions{
+//   				VolumeSize: jsii.Number(150),
+//   				VolumeInitializationRate: awscdk.Size_Mebibytes(jsii.Number(200)),
+//   			}),
+//   		},
+//   	},
+//   })
 //
 type EbsDeviceSnapshotOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -43,6 +46,15 @@ type EbsDeviceSnapshotOptions struct {
 	// Default: - 125 MiB/s.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// The Amazon EBS Provisioned Rate for Volume Initialization, at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// Valid range is between 100 and 300 MiB/s.
+	// This parameter is supported only for volumes created from snapshots.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate
+	//
+	// Default: undefined - The volume initialization rate is not set.
+	//
+	VolumeInitializationRate awscdk.Size `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//

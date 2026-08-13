@@ -237,6 +237,18 @@ func init() {
 		reflect.TypeOf((*AnomalyDetectionMetricOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.AtLeastOptions",
+		reflect.TypeOf((*AtLeastOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudwatch.AtLeastThreshold",
+		reflect.TypeOf((*AtLeastThreshold)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_AtLeastThreshold{}
+		},
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CalendarDateTime",
 		reflect.TypeOf((*CalendarDateTime)(nil)).Elem(),
 	)

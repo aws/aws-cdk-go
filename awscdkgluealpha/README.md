@@ -204,7 +204,7 @@ glue.NewPySparkStreamingJob(stack, jsii.String("PySparkStreamingJob"), &PySparkS
 
 The flexible execution class is appropriate for non-urgent jobs such as
 pre-production jobs, testing, and one-time data loads. Flexible jobs default
-to Glue version 3.0 and worker type `G_2X`. The following best practice
+to Glue version 5.0 and worker type `G_2X`. The following best practice
 features are enabled by default:
 `—enable-metrics, —enable-spark-ui, —enable-continuous-cloudwatch-log`
 
@@ -500,6 +500,13 @@ glue.NewConnection(this, jsii.String("RdsConnection"), &ConnectionProps{
 })
 ```
 
+Connection `properties` are emitted verbatim into the CloudFormation template, so
+any credential placed there in plaintext is stored in plaintext in the template,
+`cdk.out`, and source control. Reference a Secrets Manager secret through
+`SECRET_ID` (as above) instead. If a property key looks like a credential (for
+example `PASSWORD`, `SECRET`, or `TOKEN`) and holds a plaintext literal, the
+construct emits a synthesis-time warning.
+
 If you need to use a connection type that doesn't exist as a static member on `ConnectionType`, you can instantiate a `ConnectionType` object, e.g: `new glue.ConnectionType('NEW_TYPE')`.
 
 See [Adding a Connection to Your Data Store](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html) and [Connection Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-Connection) documentation for more information on the supported data stores and their configurations.
@@ -706,6 +713,20 @@ A `Database` is a logical grouping of `Tables` in the Glue Catalog.
 glue.NewDatabase(this, jsii.String("MyDatabase"), &DatabaseProps{
 	DatabaseName: jsii.String("my_database"),
 	Description: jsii.String("my_database_description"),
+})
+```
+
+Because a database is a container for tables and their metadata, it is retained
+by default when removed from the stack, to avoid accidental data loss. Set
+`removalPolicy` to `RemovalPolicy.DESTROY` to have it deleted instead:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+glue.NewDatabase(this, jsii.String("MyDatabase"), &DatabaseProps{
+	DatabaseName: jsii.String("my_database"),
+	RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
 })
 ```
 

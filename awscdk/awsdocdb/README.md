@@ -107,6 +107,105 @@ cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClus
 })
 ```
 
+## AWS Secrets Manager Integration
+
+DocumentDB clusters can integrate with AWS Secrets Manager to automatically manage master user passwords. This provides enhanced security through automatic password generation and rotation capabilities.
+
+### Managed Master User Password
+
+To enable AWS Secrets Manager to manage the master user password, set `manageMasterUserPassword` to `true`:
+
+```go
+var vpc Vpc
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	ManageMasterUserPassword: jsii.Boolean(true),
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+})
+```
+
+When `manageMasterUserPassword` is enabled:
+
+* Amazon DocumentDB automatically generates a secure password
+* The password is stored in AWS Secrets Manager
+* You cannot specify `masterUser.password` (it will be auto-generated)
+* The secret is automatically rotated every 7 days by default
+
+By default (without `manageMasterUserPassword`), the construct creates and manages a Secrets Manager
+secret for the master password, and rotation must be configured explicitly with `addRotationSingleUser()`,
+which deploys a rotation Lambda function. The `manageMasterUserPassword` option delegates password management
+entirely to the DocumentDB service, which includes built-in automatic rotation every 7 days without requiring
+Lambda functions.
+
+### Custom KMS Key for Secret Encryption
+
+You can specify a custom KMS key to encrypt the managed secret:
+
+```go
+var vpc Vpc
+var myKmsKey Key
+
+
+cluster := docdb.NewDatabaseCluster(this, jsii.String("Database"), &DatabaseClusterProps{
+	ManageMasterUserPassword: jsii.Boolean(true),
+	MasterUser: &Login{
+		Username: jsii.String("myuser"),
+	},
+	MasterUserSecretKmsKey: myKmsKey,
+	 // KMS Key for secret encryption
+	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_MEMORY5, ec2.InstanceSize_LARGE),
+	Vpc: Vpc,
+})
+```
+
+### Accessing the Managed Secret
+
+The ARN of the secret created by `manageMasterUserPassword` is not provided by CloudFormation currently
+(unlike `AWS::RDS::DBCluster`, the `AWS::DocDB::DBCluster` resource has no `MasterUserSecret.SecretArn`
+attribute), so the `secret` property of the cluster remains `undefined` and cannot be used to grant
+access to the managed secret.
+
+You can retrieve the secret ARN dynamically using a custom resource:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import iam "github.com/aws/aws-cdk-go/awscdk"
+import secretsmanager "github.com/aws/aws-cdk-go/awscdk"
+
+var cluster DatabaseCluster
+var role Role
+
+
+// Call rds:DescribeDBClusters to retrieve the managed secret ARN at deploy time
+getSecretArn := cr.NewAwsCustomResource(this, jsii.String("GetManagedSecretArn"), &AwsCustomResourceProps{
+	OnUpdate: &AwsSdkCall{
+		Service: jsii.String("DocDB"),
+		Action: jsii.String("describeDBClusters"),
+		Parameters: map[string]*string{
+			"DBClusterIdentifier": cluster.clusterIdentifier,
+		},
+		PhysicalResourceId: cr.PhysicalResourceId_Of(jsii.String("GetManagedSecretArn")),
+	},
+	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
+		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
+	}),
+})
+
+managedSecret := secretsmanager.Secret_FromSecretAttributes(this, jsii.String("ManagedSecret"), &SecretAttributes{
+	SecretCompleteArn: getSecretArn.GetResponseField(jsii.String("DBClusters.0.MasterUserSecret.SecretArn")),
+})
+managedSecret.GrantRead(role)
+```
+
+If the secret is encrypted with a customer managed KMS key (`masterUserSecretKmsKey`), also pass
+`encryptionKey` to `Secret.fromSecretAttributes()` so that `grantRead()` grants `kms:Decrypt` on the
+key as well.
+
 ## Rotating credentials
 
 When the master password is generated and stored in AWS Secrets Manager, it can be rotated automatically:

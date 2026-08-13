@@ -100,6 +100,44 @@ func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 	return returns
 }
 
+// function to create an AT_LEAST expression for the given alarm state.
+func AlarmRule_AtLeast(alarmState AlarmState, options *AtLeastOptions) IAlarmRule {
+	_init_.Initialize()
+
+	if err := validateAlarmRule_AtLeastParameters(alarmState, options); err != nil {
+		panic(err)
+	}
+	var returns IAlarmRule
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"atLeast",
+		[]interface{}{alarmState, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// function to create an AT_LEAST expression for the negated alarm state.
+func AlarmRule_AtLeastNot(alarmState AlarmState, options *AtLeastOptions) IAlarmRule {
+	_init_.Initialize()
+
+	if err := validateAlarmRule_AtLeastNotParameters(alarmState, options); err != nil {
+		panic(err)
+	}
+	var returns IAlarmRule
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudwatch.AlarmRule",
+		"atLeastNot",
+		[]interface{}{alarmState, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // function to build Rule Expression for given IAlarm and AlarmState.
 func AlarmRule_FromAlarm(alarm interfacesawscloudwatch.IAlarmRef, alarmState AlarmState) IAlarmRule {
 	_init_.Initialize()

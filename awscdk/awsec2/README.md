@@ -1351,13 +1351,21 @@ Alternatively, existing security groups can be used by specifying the `securityG
 
 As IPv4 addresses are running out, many AWS services are adding support for IPv6 or Dualstack (IPv4 and IPv6 support) for their VPC Endpoints.
 
-IPv6 and Dualstack address types can be configured by using:
+IPv6 and Dualstack address types can be configured for both interface and gateway endpoints using `ipAddressType` and `dnsRecordIpType`:
 
 ```go
+// Interface endpoint with IPv6
 vpc.addInterfaceEndpoint(jsii.String("ExampleEndpoint"), &InterfaceVpcEndpointOptions{
 	Service: ec2.InterfaceVpcEndpointAwsService_ECR(),
 	IpAddressType: ec2.VpcEndpointIpAddressType_IPV6,
 	DnsRecordIpType: ec2.VpcEndpointDnsRecordIpType_IPV6,
+})
+
+// Gateway endpoint with dualstack
+vpc.addGatewayEndpoint(jsii.String("S3DualstackEndpoint"), &GatewayVpcEndpointOptions{
+	Service: ec2.GatewayVpcEndpointAwsService_S3(),
+	IpAddressType: ec2.VpcEndpointIpAddressType_DUALSTACK,
+	DnsRecordIpType: ec2.VpcEndpointDnsRecordIpType_DUALSTACK,
 })
 ```
 
@@ -2914,6 +2922,22 @@ To use [AWS Systems Manager parameters instead of AMI IDs](https://docs.aws.amaz
 ```go
 launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
 	MachineImage: ec2.MachineImage_ResolveSsmParameterAtLaunch(jsii.String("parameterName")),
+})
+```
+
+To specify the EBS Provisioned Rate for Volume Initialization for a snapshot-backed EBS volume in a launch template, use the `volumeInitializationRate` property. The snapshot can be specified explicitly with `BlockDeviceVolume.ebsFromSnapshot(...)` or inherited from the AMI block device mapping when overriding an existing AMI device such as the root volume.
+
+```go
+launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+	BlockDevices: []BlockDevice{
+		&BlockDevice{
+			DeviceName: jsii.String("deviceName"),
+			Volume: ec2.BlockDeviceVolume_EbsFromSnapshot(jsii.String("snap-1234567890abcdef0"), &EbsDeviceSnapshotOptions{
+				VolumeSize: jsii.Number(150),
+				VolumeInitializationRate: awscdk.Size_Mebibytes(jsii.Number(200)),
+			}),
+		},
+	},
 })
 ```
 

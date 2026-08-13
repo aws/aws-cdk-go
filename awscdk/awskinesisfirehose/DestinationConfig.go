@@ -144,6 +144,87 @@ import (
 //   		},
 //   		S3BackupMode: jsii.String("s3BackupMode"),
 //   	},
+//   	HttpEndpointDestinationConfiguration: &HttpEndpointDestinationConfigurationProperty{
+//   		EndpointConfiguration: &HttpEndpointConfigurationProperty{
+//   			Url: jsii.String("url"),
+//
+//   			// the properties below are optional
+//   			AccessKey: jsii.String("accessKey"),
+//   			Name: jsii.String("name"),
+//   		},
+//   		S3Configuration: &S3DestinationConfigurationProperty{
+//   			BucketArn: jsii.String("bucketArn"),
+//   			RoleArn: jsii.String("roleArn"),
+//
+//   			// the properties below are optional
+//   			BufferingHints: &BufferingHintsProperty{
+//   				IntervalInSeconds: jsii.Number(123),
+//   				SizeInMBs: jsii.Number(123),
+//   			},
+//   			CloudWatchLoggingOptions: &CloudWatchLoggingOptionsProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				LogGroupName: jsii.String("logGroupName"),
+//   				LogStreamName: jsii.String("logStreamName"),
+//   			},
+//   			CompressionFormat: jsii.String("compressionFormat"),
+//   			EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   				KmsEncryptionConfig: &KMSEncryptionConfigProperty{
+//   					AwskmsKeyArn: jsii.String("awskmsKeyArn"),
+//   				},
+//   				NoEncryptionConfig: jsii.String("noEncryptionConfig"),
+//   			},
+//   			ErrorOutputPrefix: jsii.String("errorOutputPrefix"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//
+//   		// the properties below are optional
+//   		BufferingHints: &BufferingHintsProperty{
+//   			IntervalInSeconds: jsii.Number(123),
+//   			SizeInMBs: jsii.Number(123),
+//   		},
+//   		CloudWatchLoggingOptions: &CloudWatchLoggingOptionsProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			LogStreamName: jsii.String("logStreamName"),
+//   		},
+//   		ProcessingConfiguration: &ProcessingConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			Processors: []interface{}{
+//   				&ProcessorProperty{
+//   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					Parameters: []interface{}{
+//   						&ProcessorParameterProperty{
+//   							ParameterName: jsii.String("parameterName"),
+//   							ParameterValue: jsii.String("parameterValue"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		RequestConfiguration: &HttpEndpointRequestConfigurationProperty{
+//   			CommonAttributes: []interface{}{
+//   				&HttpEndpointCommonAttributeProperty{
+//   					AttributeName: jsii.String("attributeName"),
+//   					AttributeValue: jsii.String("attributeValue"),
+//   				},
+//   			},
+//   			ContentEncoding: jsii.String("contentEncoding"),
+//   		},
+//   		RetryOptions: &RetryOptionsProperty{
+//   			DurationInSeconds: jsii.Number(123),
+//   		},
+//   		RoleArn: jsii.String("roleArn"),
+//   		S3BackupMode: jsii.String("s3BackupMode"),
+//   		SecretsManagerConfiguration: &SecretsManagerConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			RoleArn: jsii.String("roleArn"),
+//   			SecretArn: jsii.String("secretArn"),
+//   		},
+//   	},
 //   }
 //
 type DestinationConfig struct {
@@ -155,5 +236,9 @@ type DestinationConfig struct {
 	// Default: - S3 destination is not used.
 	//
 	ExtendedS3DestinationConfiguration *CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty `field:"optional" json:"extendedS3DestinationConfiguration" yaml:"extendedS3DestinationConfiguration"`
+	// Datadog destination configuration properties.
+	// Default: - HTTP destination is not used.
+	//
+	HttpEndpointDestinationConfiguration *CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty `field:"optional" json:"httpEndpointDestinationConfiguration" yaml:"httpEndpointDestinationConfiguration"`
 }
 

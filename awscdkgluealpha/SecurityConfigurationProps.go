@@ -1,5 +1,8 @@
 package awscdkgluealpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Constructions properties of `SecurityConfiguration`.
 //
@@ -28,6 +31,11 @@ type SecurityConfigurationProps struct {
 	//
 	// Experimental.
 	JobBookmarksEncryption *JobBookmarksEncryption `field:"optional" json:"jobBookmarksEncryption" yaml:"jobBookmarksEncryption"`
+	// Policy to apply when the security configuration is removed from the stack.
+	// Default: - resource will be destroyed.
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
 	// Default: no s3 encryption.
 	//

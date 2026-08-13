@@ -4,20 +4,32 @@ package awscloudwatch
 // Enumeration indicates state of Alarm used in building Alarm Rule.
 //
 // Example:
-//   var dashboard Dashboard
-//   var errorAlarm Alarm
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //
-//   dashboard.AddWidgets(cloudwatch.NewAlarmStatusWidget(&AlarmStatusWidgetProps{
-//   	Title: jsii.String("Errors"),
-//   	Alarms: []IAlarmRef{
-//   		errorAlarm,
+//   metric := cloudwatch.NewMetric(&MetricProps{
+//   	Namespace: jsii.String("MyNamespace"),
+//   	MetricName: jsii.String("MyMetric"),
+//   	DimensionsMap: map[string]*string{
+//   		"MyDimension": jsii.String("MyDimensionValue"),
 //   	},
-//   	SortBy: cloudwatch.AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,
-//   	States: []AlarmState{
-//   		cloudwatch.AlarmState_ALARM,
+//   })
+//   alarm := cloudwatch.NewAlarm(this, jsii.String("MyAlarm"), &AlarmProps{
+//   	Metric: metric,
+//   	Threshold: jsii.Number(100),
+//   	EvaluationPeriods: jsii.Number(3),
+//   	DatapointsToAlarm: jsii.Number(2),
+//   })
+//
+//   topicRule := iot.NewTopicRule(this, jsii.String("TopicRule"), &TopicRuleProps{
+//   	Sql: iot.IotSql_FromStringAsVer20160323(jsii.String("SELECT topic(2) as device_id FROM 'device/+/data'")),
+//   	Actions: []IAction{
+//   		actions.NewCloudWatchSetAlarmStateAction(alarm, &CloudWatchSetAlarmStateActionProps{
+//   			Reason: jsii.String("AWS Iot Rule action is triggered"),
+//   			AlarmStateToSet: cloudwatch.AlarmState_ALARM,
+//   		}),
 //   	},
-//   }))
+//   })
 //
 type AlarmState string
 

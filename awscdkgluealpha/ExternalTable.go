@@ -147,8 +147,13 @@ type ExternalTable interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
-	// Grant the given identity custom permissions.
+	// Grant the given identity custom permissions on this table.
 	//
+	// This is a low-level escape hatch: the `actions` are applied verbatim,
+	// scoped to this table's ARN. Prefer the intent-based `grantRead` /
+	// `grantWrite` / `grantReadWrite` methods, which grant a curated set of
+	// actions and also cover the underlying S3 data. Only pass the specific
+	// actions the grantee needs - avoid service wildcards such as `glue:*`.
 	// [disable-awslint:no-grants].
 	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
@@ -158,9 +163,15 @@ type ExternalTable interface {
 	// Grant read and write permissions to the table [disable-awslint:no-grants].
 	// Experimental.
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant the given identity custom permissions to ALL underlying resources of the table.
+	// Grant the given identity custom permissions on this table AND its parent catalog and database.
 	//
-	// Permissions will be granted to the catalog, the database, and the table.
+	// This is a low-level escape hatch for actions (such as certain Lake
+	// Formation or crawler operations) that must be authorized against the
+	// catalog and database in addition to the table. The `actions` are applied
+	// verbatim to all three ARNs (table, catalog, database), so scope them
+	// tightly: pass only the specific actions the grantee needs and avoid
+	// service wildcards such as `glue:*`, which would grant broad access across
+	// every resource in the catalog and database.
 	// [disable-awslint:no-grants].
 	// Experimental.
 	GrantToUnderlyingResources(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant

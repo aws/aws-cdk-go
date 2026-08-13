@@ -1,5 +1,8 @@
 package awsautoscaling
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Block device options for an EBS volume.
 //
@@ -46,6 +49,15 @@ type EbsDeviceOptions struct {
 	// Default: - 125 MiB/s. Only valid on gp3 volumes.
 	//
 	Throughput *float64 `field:"optional" json:"throughput" yaml:"throughput"`
+	// The Amazon EBS Provisioned Rate for Volume Initialization, at which to download the snapshot blocks from Amazon S3 to the volume.
+	//
+	// Valid range is between 100 and 300 MiB/s.
+	// This parameter is supported only for volumes created from snapshots.
+	// See: https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate
+	//
+	// Default: undefined - The volume initialization rate is not set.
+	//
+	VolumeInitializationRate awscdk.Size `field:"optional" json:"volumeInitializationRate" yaml:"volumeInitializationRate"`
 	// The EBS volume type.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 	//

@@ -5,8 +5,40 @@ package awscloudwatch
 import (
 	"fmt"
 
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudwatch"
 )
+
+func validateAlarmRule_AtLeastParameters(alarmState AlarmState, options *AtLeastOptions) error {
+	if alarmState == "" {
+		return fmt.Errorf("parameter alarmState is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func validateAlarmRule_AtLeastNotParameters(alarmState AlarmState, options *AtLeastOptions) error {
+	if alarmState == "" {
+		return fmt.Errorf("parameter alarmState is required, but nil was provided")
+	}
+
+	if options == nil {
+		return fmt.Errorf("parameter options is required, but nil was provided")
+	}
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
 
 func validateAlarmRule_FromAlarmParameters(alarm interfacesawscloudwatch.IAlarmRef, alarmState AlarmState) error {
 	if alarm == nil {

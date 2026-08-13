@@ -16,6 +16,7 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataQualityTargetTable DataQualityTargetTable
 //
@@ -26,6 +27,7 @@ import (
 //   	// the properties below are optional
 //   	ClientToken: jsii.String("clientToken"),
 //   	Description: jsii.String("description"),
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	RulesetName: jsii.String("rulesetName"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),

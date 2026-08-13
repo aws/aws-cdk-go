@@ -423,6 +423,32 @@ func init() {
 		reflect.TypeOf((*DataProcessorProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.Datadog",
+		reflect.TypeOf((*Datadog)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Datadog{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_HttpEndpoint)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.DatadogEndpoint",
+		reflect.TypeOf((*DatadogEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DatadogEndpoint{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.DatadogProps",
+		reflect.TypeOf((*DatadogProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_kinesisfirehose.DecompressionProcessor",
 		reflect.TypeOf((*DecompressionProcessor)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -563,6 +589,54 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_kinesisfirehose.HiveJsonInputFormatProps",
 		reflect.TypeOf((*HiveJsonInputFormatProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpAttribute",
+		reflect.TypeOf((*HttpAttribute)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpBackupMode",
+		reflect.TypeOf((*HttpBackupMode)(nil)).Elem(),
+		map[string]interface{}{
+			"FAILED": HttpBackupMode_FAILED,
+			"ALL": HttpBackupMode_ALL,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpBufferingHints",
+		reflect.TypeOf((*HttpBufferingHints)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpCompression",
+		reflect.TypeOf((*HttpCompression)(nil)).Elem(),
+		map[string]interface{}{
+			"GZIP": HttpCompression_GZIP,
+			"NONE": HttpCompression_NONE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpEndpoint",
+		reflect.TypeOf((*HttpEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HttpEndpoint{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDestination)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpEndpointConfig",
+		reflect.TypeOf((*HttpEndpointConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpEndpointProps",
+		reflect.TypeOf((*HttpEndpointProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_kinesisfirehose.HttpRetryOptions",
+		reflect.TypeOf((*HttpRetryOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_kinesisfirehose.IDataProcessor",

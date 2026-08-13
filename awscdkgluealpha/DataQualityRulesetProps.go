@@ -1,5 +1,8 @@
 package awscdkgluealpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Construction properties for `DataQualityRuleset`.
 //
@@ -7,6 +10,7 @@ package awscdkgluealpha
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var dataQualityTargetTable DataQualityTargetTable
 //
@@ -17,6 +21,7 @@ package awscdkgluealpha
 //   	// the properties below are optional
 //   	ClientToken: jsii.String("clientToken"),
 //   	Description: jsii.String("description"),
+//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
 //   	RulesetName: jsii.String("rulesetName"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -37,6 +42,11 @@ type DataQualityRulesetProps struct {
 	// The description of the ruleset.
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Policy to apply when the ruleset is removed from the stack.
+	// Default: - resource will be destroyed.
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 	// The name of the ruleset.
 	// Default: cloudformation generated name.
 	//

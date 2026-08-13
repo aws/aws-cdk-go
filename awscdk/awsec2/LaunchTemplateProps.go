@@ -8,22 +8,18 @@ import (
 // Properties of a LaunchTemplate.
 //
 // Example:
-//   var vpc Vpc
+//   var instanceType InstanceType
 //
 //
-//   sg1 := ec2.NewSecurityGroup(this, jsii.String("sg1"), &SecurityGroupProps{
-//   	Vpc: vpc,
-//   })
-//   sg2 := ec2.NewSecurityGroup(this, jsii.String("sg2"), &SecurityGroupProps{
-//   	Vpc: vpc,
+//   pg := ec2.NewPlacementGroup(this, jsii.String("test-pg"), &PlacementGroupProps{
+//   	Strategy: ec2.PlacementGroupStrategy_SPREAD,
 //   })
 //
-//   launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+//   	InstanceType: InstanceType,
 //   	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
-//   	SecurityGroup: sg1,
+//   	PlacementGroup: pg,
 //   })
-//
-//   launchTemplate.AddSecurityGroup(sg2)
 //
 type LaunchTemplateProps struct {
 	// Whether instances should have a public IP addresses associated with them.

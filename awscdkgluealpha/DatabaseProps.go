@@ -1,5 +1,8 @@
 package awscdkgluealpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Example:
 //   glue.NewDatabase(this, jsii.String("MyDatabase"), &DatabaseProps{
@@ -31,5 +34,13 @@ type DatabaseProps struct {
 	//
 	// Experimental.
 	LocationUri *string `field:"optional" json:"locationUri" yaml:"locationUri"`
+	// Policy to apply when the database is removed from the stack.
+	//
+	// A database is a container for tables and their metadata, so it is retained
+	// by default to avoid accidental data loss when it is removed from a stack.
+	// Default: RemovalPolicy.RETAIN
+	//
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `field:"optional" json:"removalPolicy" yaml:"removalPolicy"`
 }
 

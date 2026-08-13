@@ -34,6 +34,14 @@ package awsec2
 type GatewayVpcEndpointProps struct {
 	// The service to use for this gateway VPC endpoint.
 	Service IGatewayVpcEndpointService `field:"required" json:"service" yaml:"service"`
+	// Type of DNS records created for the VPC endpoint.
+	// Default: not specified.
+	//
+	DnsRecordIpType VpcEndpointDnsRecordIpType `field:"optional" json:"dnsRecordIpType" yaml:"dnsRecordIpType"`
+	// The IP address type for the endpoint.
+	// Default: not specified.
+	//
+	IpAddressType VpcEndpointIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Where to add endpoint routing.
 	//
 	// By default, this endpoint will be routable from all subnets in the VPC.

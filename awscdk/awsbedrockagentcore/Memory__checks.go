@@ -21,6 +21,14 @@ func (m *jsiiProxy_Memory) validateAddMemoryStrategyParameters(memoryStrategy IM
 	return nil
 }
 
+func (m *jsiiProxy_Memory) validateAddStreamDeliveryResourceParameters(resource StreamDeliveryResource) error {
+	if resource == nil {
+		return fmt.Errorf("parameter resource is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (m *jsiiProxy_Memory) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
 	if strength == "" {
 		return fmt.Errorf("parameter strength is required, but nil was provided")

@@ -4,44 +4,31 @@ package awsec2
 // Options to add a gateway endpoint to a VPC.
 //
 // Example:
-//   // Add gateway endpoints when creating the VPC
-//   vpc := ec2.NewVpc(this, jsii.String("MyVpc"), &VpcProps{
-//   	GatewayEndpoints: map[string]GatewayVpcEndpointOptions{
-//   		"S3": &GatewayVpcEndpointOptions{
-//   			"service": ec2.GatewayVpcEndpointAwsService_S3(),
-//   		},
-//   	},
+//   // Interface endpoint with IPv6
+//   vpc.addInterfaceEndpoint(jsii.String("ExampleEndpoint"), &InterfaceVpcEndpointOptions{
+//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR(),
+//   	IpAddressType: ec2.VpcEndpointIpAddressType_IPV6,
+//   	DnsRecordIpType: ec2.VpcEndpointDnsRecordIpType_IPV6,
 //   })
 //
-//   // Alternatively gateway endpoints can be added on the VPC
-//   dynamoDbEndpoint := vpc.addGatewayEndpoint(jsii.String("DynamoDbEndpoint"), &GatewayVpcEndpointOptions{
-//   	Service: ec2.GatewayVpcEndpointAwsService_DYNAMODB(),
-//   })
-//
-//   // This allows to customize the endpoint policy
-//   dynamoDbEndpoint.AddToPolicy(
-//   iam.NewPolicyStatement(&PolicyStatementProps{
-//   	 // Restrict to listing and describing tables
-//   	Principals: []IPrincipal{
-//   		iam.NewAnyPrincipal(),
-//   	},
-//   	Actions: []*string{
-//   		jsii.String("dynamodb:DescribeTable"),
-//   		jsii.String("dynamodb:ListTables"),
-//   	},
-//   	Resources: []*string{
-//   		jsii.String("*"),
-//   	},
-//   }))
-//
-//   // Add an interface endpoint
-//   vpc.addInterfaceEndpoint(jsii.String("EcrDockerEndpoint"), &InterfaceVpcEndpointOptions{
-//   	Service: ec2.InterfaceVpcEndpointAwsService_ECR_DOCKER(),
+//   // Gateway endpoint with dualstack
+//   vpc.addGatewayEndpoint(jsii.String("S3DualstackEndpoint"), &GatewayVpcEndpointOptions{
+//   	Service: ec2.GatewayVpcEndpointAwsService_S3(),
+//   	IpAddressType: ec2.VpcEndpointIpAddressType_DUALSTACK,
+//   	DnsRecordIpType: ec2.VpcEndpointDnsRecordIpType_DUALSTACK,
 //   })
 //
 type GatewayVpcEndpointOptions struct {
 	// The service to use for this gateway VPC endpoint.
 	Service IGatewayVpcEndpointService `field:"required" json:"service" yaml:"service"`
+	// Type of DNS records created for the VPC endpoint.
+	// Default: not specified.
+	//
+	DnsRecordIpType VpcEndpointDnsRecordIpType `field:"optional" json:"dnsRecordIpType" yaml:"dnsRecordIpType"`
+	// The IP address type for the endpoint.
+	// Default: not specified.
+	//
+	IpAddressType VpcEndpointIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Where to add endpoint routing.
 	//
 	// By default, this endpoint will be routable from all subnets in the VPC.

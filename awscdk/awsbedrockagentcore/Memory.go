@@ -19,20 +19,25 @@ import (
 // semantic facts (e.g. learned info) and interaction summaries for context optimization.
 //
 // Example:
-//   // Create a custom execution role
-//   executionRole := iam.NewRole(this, jsii.String("MemoryExecutionRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("bedrock-agentcore.amazonaws.com")),
-//   	ManagedPolicies: []IManagedPolicy{
-//   		iam.ManagedPolicy_FromAwsManagedPolicyName(jsii.String("AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")),
-//   	},
+//   // Create a Kinesis Data Stream
+//   stream := kinesis.NewStream(this, jsii.String("MemoryEventStream"), &StreamProps{
+//   	StreamName: jsii.String("memory-events"),
 //   })
 //
-//   // Create memory with custom execution role
-//   memory := agentcore.NewMemory(this, jsii.String("MyMemory"), &MemoryProps{
-//   	MemoryName: jsii.String("my_memory"),
-//   	Description: jsii.String("Memory with custom execution role"),
+//   memory := agentcore.NewMemory(this, jsii.String("MemoryWithStreamDelivery"), &MemoryProps{
+//   	MemoryName: jsii.String("memory_with_stream"),
+//   	Description: jsii.String("Memory with Kinesis stream delivery"),
 //   	ExpirationDuration: cdk.Duration_Days(jsii.Number(90)),
-//   	ExecutionRole: executionRole,
+//   	StreamDeliveryResources: []StreamDeliveryResource{
+//   		agentcore.StreamDeliveryResource_Kinesis(stream, &KinesisStreamDeliveryOptions{
+//   			ContentConfigurations: []StreamDeliveryContentConfiguration{
+//   				&StreamDeliveryContentConfiguration{
+//   					Type: agentcore.StreamDeliveryContentType_MEMORY_RECORDS,
+//   					Level: agentcore.StreamDeliveryContentLevel_METADATA_ONLY,
+//   				},
+//   			},
+//   		}),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html
@@ -87,6 +92,8 @@ type Memory interface {
 	Stack() awscdk.Stack
 	// The status of the memory.
 	Status() *string
+	// The stream delivery resources configured for this memory.
+	StreamDeliveryResources() *[]StreamDeliveryResource
 	// Tags applied to this browser resource A map of key-value pairs for resource tagging.
 	// Default: - No tags applied.
 	//
@@ -97,6 +104,12 @@ type Memory interface {
 	// Default: - No memory strategies.
 	//
 	AddMemoryStrategy(memoryStrategy IMemoryStrategy)
+	// Add a stream delivery resource to the memory.
+	//
+	// Grants Kinesis write permissions to the execution role automatically.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-record-streaming.html
+	//
+	AddStreamDeliveryResource(resource StreamDeliveryResource)
 	// Override the cross-stack reference strength for this resource.
 	//
 	// When set, any cross-stack reference to this resource will use the specified
@@ -455,6 +468,16 @@ func (j *jsiiProxy_Memory) Status() *string {
 	return returns
 }
 
+func (j *jsiiProxy_Memory) StreamDeliveryResources() *[]StreamDeliveryResource {
+	var returns *[]StreamDeliveryResource
+	_jsii_.Get(
+		j,
+		"streamDeliveryResources",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_Memory) Tags() *map[string]*string {
 	var returns *map[string]*string
 	_jsii_.Get(
@@ -616,6 +639,17 @@ func (m *jsiiProxy_Memory) AddMemoryStrategy(memoryStrategy IMemoryStrategy) {
 		m,
 		"addMemoryStrategy",
 		[]interface{}{memoryStrategy},
+	)
+}
+
+func (m *jsiiProxy_Memory) AddStreamDeliveryResource(resource StreamDeliveryResource) {
+	if err := m.validateAddStreamDeliveryResourceParameters(resource); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		m,
+		"addStreamDeliveryResource",
+		[]interface{}{resource},
 	)
 }
 
