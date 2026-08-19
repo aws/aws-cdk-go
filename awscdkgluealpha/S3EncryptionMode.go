@@ -2,20 +2,6 @@ package awscdkgluealpha
 
 
 // Encryption mode for S3.
-//
-// Example:
-//   glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
-//   	CloudWatchEncryption: &CloudWatchEncryption{
-//   		Mode: glue.CloudWatchEncryptionMode_KMS,
-//   	},
-//   	JobBookmarksEncryption: &JobBookmarksEncryption{
-//   		Mode: glue.JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
-//   	},
-//   	S3Encryption: &S3Encryption{
-//   		Mode: glue.S3EncryptionMode_KMS,
-//   	},
-//   })
-//
 // See: https://docs.aws.amazon.com/glue/latest/webapi/API_S3Encryption.html#Glue-Type-S3Encryption-S3EncryptionMode
 //
 // Experimental.

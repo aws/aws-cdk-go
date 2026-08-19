@@ -56,7 +56,6 @@ import (
 //   	Description: jsii.String("description"),
 //   	EnableMetrics: jsii.Boolean(false),
 //   	EnableObservabilityMetrics: jsii.Boolean(false),
-//   	EnableProfilingMetrics: jsii.Boolean(false),
 //   	GlueVersion: glue_alpha.GlueVersion_V0_9,
 //   	JobName: jsii.String("jobName"),
 //   	JobRunQueuingEnabled: jsii.Boolean(false),
@@ -69,7 +68,6 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   	WorkerType: glue_alpha.WorkerType_STANDARD,
 //   })
 //
 // Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.

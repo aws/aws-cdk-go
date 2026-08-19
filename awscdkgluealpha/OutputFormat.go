@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   outputFormat := glue_alpha.NewOutputFormat(jsii.String("className"))
+//   outputFormat := glue_alpha.OutputFormat_AVRO()
 //
 // Experimental.
 type OutputFormat interface {
@@ -65,9 +65,9 @@ func NewOutputFormat_Override(o OutputFormat, className *string) {
 	)
 }
 
-func OutputFormat_AVRO() InputFormat {
+func OutputFormat_AVRO() OutputFormat {
 	_init_.Initialize()
-	var returns InputFormat
+	var returns OutputFormat
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.OutputFormat",
 		"AVRO",
@@ -87,9 +87,9 @@ func OutputFormat_HIVE_IGNORE_KEY_TEXT() OutputFormat {
 	return returns
 }
 
-func OutputFormat_ORC() InputFormat {
+func OutputFormat_ORC() OutputFormat {
 	_init_.Initialize()
-	var returns InputFormat
+	var returns OutputFormat
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.OutputFormat",
 		"ORC",

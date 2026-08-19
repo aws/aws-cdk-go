@@ -74,6 +74,12 @@ type Table interface {
 	// different than the stack they were imported into.
 	// Deprecated: Use {@link S3Table } instead.
 	Env() *interfaces.ResourceEnvironment
+	// Whether the data stored in the table is encrypted.
+	//
+	// Emitted as the
+	// `has_encrypted_data` table parameter.
+	// Deprecated: Use {@link S3Table } instead.
+	HasEncryptedData() *bool
 	// The tree node.
 	// Deprecated: Use {@link S3Table } instead.
 	Node() constructs.Node
@@ -295,6 +301,16 @@ func (j *jsiiProxy_Table) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) HasEncryptedData() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"hasEncryptedData",
 		&returns,
 	)
 	return returns

@@ -31,6 +31,16 @@ type FargateClusterProps struct {
 	// Default: - Automatically generated name.
 	//
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
+	// The scaling tier for the cluster's provisioned control plane.
+	//
+	// Provisioned Control Plane allows you to select a scaling tier to ensure
+	// high and predictable performance for demanding workloads such as
+	// AI training/inference, high-performance computing, or large-scale data processing.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane.html
+	//
+	// Default: - Standard control plane (no provisioned tier).
+	//
+	ControlPlaneScalingTier ControlPlaneScalingTier `field:"optional" json:"controlPlaneScalingTier" yaml:"controlPlaneScalingTier"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)
 	//

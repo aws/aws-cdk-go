@@ -8,11 +8,11 @@ import (
 // Properties of a DataQualityTargetTable.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//
-//   dataQualityTargetTable := glue_alpha.NewDataQualityTargetTable(jsii.String("databaseName"), jsii.String("tableName"))
+//   glue.NewDataQualityRuleset(this, jsii.String("MyRuleset"), &DataQualityRulesetProps{
+//   	RulesetName: jsii.String("my_ruleset"),
+//   	Dqdl: glue.Dqdl_FromString(jsii.String("Rules = [ RowCount > 100, IsComplete \"order_id\" ]")),
+//   	TargetTable: glue.NewDataQualityTargetTable(jsii.String("my_database"), jsii.String("my_table")),
+//   })
 //
 // Experimental.
 type DataQualityTargetTable interface {

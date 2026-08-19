@@ -108,15 +108,12 @@ func init() {
 			return &jsiiProxy_ClassificationString{}
 		},
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.CloudWatchEncryption",
 		reflect.TypeOf((*CloudWatchEncryption)(nil)).Elem(),
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/aws-glue-alpha.CloudWatchEncryptionMode",
-		reflect.TypeOf((*CloudWatchEncryptionMode)(nil)).Elem(),
-		map[string]interface{}{
-			"KMS": CloudWatchEncryptionMode_KMS,
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CloudWatchEncryption{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -362,6 +359,14 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.DatePartitionProjectionConfigurationProps",
 		reflect.TypeOf((*DatePartitionProjectionConfigurationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.Dqdl",
+		reflect.TypeOf((*Dqdl)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Dqdl{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.EnumPartitionProjectionConfigurationProps",
 		reflect.TypeOf((*EnumPartitionProjectionConfigurationProps)(nil)).Elem(),
@@ -399,6 +404,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantToUnderlyingResources", GoMethod: "GrantToUnderlyingResources"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "hasEncryptedData", GoGetter: "HasEncryptedData"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
@@ -702,15 +708,12 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.JobBookmarksEncryption",
 		reflect.TypeOf((*JobBookmarksEncryption)(nil)).Elem(),
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/aws-glue-alpha.JobBookmarksEncryptionMode",
-		reflect.TypeOf((*JobBookmarksEncryptionMode)(nil)).Elem(),
-		map[string]interface{}{
-			"CLIENT_SIDE_KMS": JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_JobBookmarksEncryption{}
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -1095,9 +1098,13 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.S3Encryption",
 		reflect.TypeOf((*S3Encryption)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_S3Encryption{}
+		},
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.S3EncryptionMode",
@@ -1131,6 +1138,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantToUnderlyingResources", GoMethod: "GrantToUnderlyingResources"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "hasEncryptedData", GoGetter: "HasEncryptedData"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
@@ -1479,6 +1487,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantToUnderlyingResources", GoMethod: "GrantToUnderlyingResources"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "hasEncryptedData", GoGetter: "HasEncryptedData"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
@@ -1524,6 +1533,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "grantToUnderlyingResources", GoMethod: "GrantToUnderlyingResources"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
+			_jsii_.MemberProperty{JsiiProperty: "hasEncryptedData", GoGetter: "HasEncryptedData"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
@@ -1584,6 +1594,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.WeeklyScheduleTriggerOptions",
 		reflect.TypeOf((*WeeklyScheduleTriggerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.WorkerConfiguration",
+		reflect.TypeOf((*WorkerConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.WorkerType",

@@ -44,7 +44,6 @@ import (
 //   	Description: jsii.String("description"),
 //   	EnableMetrics: jsii.Boolean(false),
 //   	EnableObservabilityMetrics: jsii.Boolean(false),
-//   	EnableProfilingMetrics: jsii.Boolean(false),
 //   	GlueVersion: glue_alpha.GlueVersion_V0_9,
 //   	JobName: jsii.String("jobName"),
 //   	JobRunQueuingEnabled: jsii.Boolean(false),
@@ -57,7 +56,6 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   	WorkerType: glue_alpha.WorkerType_STANDARD,
 //   }
 //
 // Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
@@ -118,15 +116,6 @@ type RayJobProps struct {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Enables the collection of metrics for job profiling.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Default: - no profiling metrics emitted.
-	//
-	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
-	// Migrate to Amazon EKS with KubeRay Operator. See
-	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
-	EnableProfilingMetrics *bool `field:"optional" json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
 	// Glue Version The version of Glue to use to execute this job.
 	// Default: 3.0 for ETL
 	//
@@ -158,13 +147,6 @@ type RayJobProps struct {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
-	// Number of Workers (optional) Number of workers for Glue to use during job execution.
-	// Default: 10.
-	//
-	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
-	// Migrate to Amazon EKS with KubeRay Operator. See
-	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
-	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// Security Configuration (optional) Defines the encryption options for the Glue job.
 	// Default: - no security configuration.
 	//
@@ -188,15 +170,6 @@ type RayJobProps struct {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
-	// Worker Type (optional) Type of Worker for Glue to use during job execution Enum options: Standard, G_1X, G_2X, G_025X.
-	//
-	// G_4X, G_8X, Z_2X.
-	// Default: WorkerType.G_1X
-	//
-	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
-	// Migrate to Amazon EKS with KubeRay Operator. See
-	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
-	WorkerType WorkerType `field:"optional" json:"workerType" yaml:"workerType"`
 	// Enable profiling metrics for the Glue job.
 	//
 	// When enabled, adds '--enable-metrics' to job arguments.
@@ -228,6 +201,15 @@ type RayJobProps struct {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	JobRunQueuingEnabled *bool `field:"optional" json:"jobRunQueuingEnabled" yaml:"jobRunQueuingEnabled"`
+	// The number of workers allocated when a job runs.
+	//
+	// Ray jobs only support the Z.2X worker type, so the worker type is not configurable.
+	// Default: 3.
+	//
+	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
+	// Migrate to Amazon EKS with KubeRay Operator. See
+	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
+	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// Sets the Ray runtime environment version.
 	// Default: - Runtime version will default to Ray2.4
 	//

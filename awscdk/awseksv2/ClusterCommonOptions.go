@@ -21,6 +21,7 @@ import (
 //
 //   var additionalHelmChartValues interface{}
 //   var albControllerVersion AlbControllerVersion
+//   var controlPlaneScalingTier ControlPlaneScalingTier
 //   var endpointAccess EndpointAccess
 //   var keyRef IKeyRef
 //   var kubernetesVersion KubernetesVersion
@@ -53,6 +54,7 @@ import (
 //   		awscdk.Aws_eks_v2.ClusterLoggingTypes_API,
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
+//   	ControlPlaneScalingTier: controlPlaneScalingTier,
 //   	CoreDnsComputeType: awscdk.*Aws_eks_v2.CoreDnsComputeType_EC2,
 //   	EndpointAccess: endpointAccess,
 //   	IpFamily: awscdk.*Aws_eks_v2.IpFamily_IP_V4,
@@ -135,6 +137,16 @@ type ClusterCommonOptions struct {
 	// Default: - Automatically generated name.
 	//
 	ClusterName *string `field:"optional" json:"clusterName" yaml:"clusterName"`
+	// The scaling tier for the cluster's provisioned control plane.
+	//
+	// Provisioned Control Plane allows you to select a scaling tier to ensure
+	// high and predictable performance for demanding workloads such as
+	// AI training/inference, high-performance computing, or large-scale data processing.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane.html
+	//
+	// Default: - Standard control plane (no provisioned tier).
+	//
+	ControlPlaneScalingTier ControlPlaneScalingTier `field:"optional" json:"controlPlaneScalingTier" yaml:"controlPlaneScalingTier"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Default: CoreDnsComputeType.EC2 (for `FargateCluster` the default is FARGATE)
 	//

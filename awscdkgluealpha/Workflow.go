@@ -17,17 +17,27 @@ import (
 // Triggers are used to initiate an AWS Glue Workflow. You can configure different types of triggers, such as on-demand, scheduled, event-based, or conditional triggers, to start your Workflow based on specific conditions or events.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
-//   workflow := glue_alpha.NewWorkflow(this, jsii.String("MyWorkflow"), &WorkflowProps{
-//   	DefaultRunProperties: map[string]*string{
-//   		"defaultRunPropertiesKey": jsii.String("defaultRunProperties"),
+//
+//   // Create a job to run from the workflow
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   })
+//
+//   // Create a workflow and add a trigger that runs the job
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
+//   	Actions: []Action{
+//   		&Action{
+//   			Job: *Job,
+//   		},
 //   	},
-//   	Description: jsii.String("description"),
-//   	MaxConcurrentRuns: jsii.Number(123),
-//   	WorkflowName: jsii.String("workflowName"),
 //   })
 //
 // See: https://docs.aws.amazon.com/glue/latest/dg/about-triggers.html

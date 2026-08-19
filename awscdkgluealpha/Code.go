@@ -20,21 +20,20 @@ import (
 //   var script Code
 //
 //
-//   // Disable both metrics for cost optimization
-//   // Disable both metrics for cost optimization
-//   glue.NewPySparkEtlJob(stack, jsii.String("CostOptimizedJob"), &PySparkEtlJobProps{
+//   // Create a job to run from the workflow
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
 //   	Role: Role,
 //   	Script: Script,
-//   	EnableMetrics: jsii.Boolean(false),
-//   	EnableObservabilityMetrics: jsii.Boolean(false),
 //   })
 //
-//   // Selective control - keep observability, disable profiling
-//   // Selective control - keep observability, disable profiling
-//   glue.NewPySparkEtlJob(stack, jsii.String("SelectiveJob"), &PySparkEtlJobProps{
-//   	Role: Role,
-//   	Script: Script,
-//   	EnableMetrics: jsii.Boolean(false),
+//   // Create a workflow and add a trigger that runs the job
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
+//   	Actions: []Action{
+//   		&Action{
+//   			Job: *Job,
+//   		},
+//   	},
 //   })
 //
 // Experimental.

@@ -16,18 +16,17 @@ package awscdkgluealpha
 //   glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProps{
 //   	JobName: jsii.String("PythonShellJobCustomName"),
 //   	Description: jsii.String("This is a description"),
-//   	PythonVersion: glue.PythonVersion_TWO,
+//   	PythonVersion: glue.PythonVersion_THREE_NINE,
 //   	MaxCapacity: glue.MaxCapacity_DPU_1,
 //   	Role: Role,
 //   	Script: Script,
 //   	ExtraPythonFiles: []Code{
 //   		extraPythonFile,
 //   	},
-//   	GlueVersion: glue.GlueVersion_V2_0,
+//   	GlueVersion: glue.GlueVersion_V3_0,
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),
 //   	},
-//   	WorkerType: glue.WorkerType_G_2X,
 //   	MaxConcurrentRuns: jsii.Number(100),
 //   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 //   	Connections: []IConnection{
@@ -39,7 +38,6 @@ package awscdkgluealpha
 //   		"SecondTagName": jsii.String("SecondTagValue"),
 //   		"XTagName": jsii.String("XTagValue"),
 //   	},
-//   	NumberOfWorkers: jsii.Number(2),
 //   	MaxRetries: jsii.Number(2),
 //   })
 //

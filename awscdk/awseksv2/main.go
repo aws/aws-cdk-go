@@ -278,6 +278,16 @@ func init() {
 		"aws-cdk-lib.aws_eks_v2.ComputeConfig",
 		reflect.TypeOf((*ComputeConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_eks_v2.ControlPlaneScalingTier",
+		reflect.TypeOf((*ControlPlaneScalingTier)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ControlPlaneScalingTier{}
+		},
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_eks_v2.CoreDnsComputeType",
 		reflect.TypeOf((*CoreDnsComputeType)(nil)).Elem(),

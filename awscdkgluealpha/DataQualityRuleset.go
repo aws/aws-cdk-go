@@ -13,25 +13,10 @@ import (
 // A Glue Data Quality ruleset.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var dataQualityTargetTable DataQualityTargetTable
-//
-//   dataQualityRuleset := glue_alpha.NewDataQualityRuleset(this, jsii.String("MyDataQualityRuleset"), &DataQualityRulesetProps{
-//   	RulesetDqdl: jsii.String("rulesetDqdl"),
-//   	TargetTable: dataQualityTargetTable,
-//
-//   	// the properties below are optional
-//   	ClientToken: jsii.String("clientToken"),
-//   	Description: jsii.String("description"),
-//   	RemovalPolicy: cdk.RemovalPolicy_DESTROY,
-//   	RulesetName: jsii.String("rulesetName"),
-//   	Tags: map[string]*string{
-//   		"tagsKey": jsii.String("tags"),
-//   	},
+//   glue.NewDataQualityRuleset(this, jsii.String("MyRuleset"), &DataQualityRulesetProps{
+//   	RulesetName: jsii.String("my_ruleset"),
+//   	Dqdl: glue.Dqdl_FromString(jsii.String("Rules = [ RowCount > 100, IsComplete \"order_id\" ]")),
+//   	TargetTable: glue.NewDataQualityTargetTable(jsii.String("my_database"), jsii.String("my_table")),
 //   })
 //
 // Experimental.

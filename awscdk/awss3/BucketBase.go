@@ -121,10 +121,15 @@ type BucketBase interface {
 	// This is identical to calling
 	// `onEvent(EventType.OBJECT_REMOVED)`.
 	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
-	// Function to add required permissions to the destination bucket for cross account replication.
+	// Adds resource policy statements to this bucket that permit cross-account replication.
 	//
-	// These permissions will be added as a resource based policy on the bucket.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+	// Call this method on the destination bucket. If the destination bucket is a referenced bucket,
+	// its policy cannot be modified by CDK and the permissions must be added in the destination
+	// account.
+	//
+	// To change replica ownership to the destination bucket owner, set `accessControlTransition` to
+	// true and provide the source bucket owner's account ID.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-change-owner.html
 	//
 	AddReplicationPolicy(roleArn *string, accessControlTransition *bool, account *string)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.

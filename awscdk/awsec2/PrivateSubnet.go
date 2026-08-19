@@ -88,8 +88,8 @@ type PrivateSubnet interface {
 	AddDefaultNatRoute(natGatewayId *string)
 	// Create a default IPv6 route that points to a passed EIGW.
 	AddIpv6DefaultEgressOnlyInternetRoute(gatewayId *string)
-	// Create a default IPv6 route that points to a passed IGW.
-	AddIpv6DefaultInternetRoute(gatewayId *string)
+	// Create a default IPv6 route that points to a passed IGW, with a dependency on the IGW's attachment to the VPC.
+	AddIpv6DefaultInternetRoute(gatewayId *string, gatewayAttachment constructs.IDependable)
 	// Adds an entry to this subnets route table that points to the passed NATGatewayId.
 	//
 	// Uses the known 64:ff9b::/96 prefix.
@@ -535,14 +535,14 @@ func (p *jsiiProxy_PrivateSubnet) AddIpv6DefaultEgressOnlyInternetRoute(gatewayI
 	)
 }
 
-func (p *jsiiProxy_PrivateSubnet) AddIpv6DefaultInternetRoute(gatewayId *string) {
+func (p *jsiiProxy_PrivateSubnet) AddIpv6DefaultInternetRoute(gatewayId *string, gatewayAttachment constructs.IDependable) {
 	if err := p.validateAddIpv6DefaultInternetRouteParameters(gatewayId); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		p,
 		"addIpv6DefaultInternetRoute",
-		[]interface{}{gatewayId},
+		[]interface{}{gatewayId, gatewayAttachment},
 	)
 }
 

@@ -74,7 +74,9 @@ similar constructors. ETL jobs default to the G2 worker type, but you can
 override this default with other supported worker type values (G1, G2, G4
 and G8). ETL jobs defaults to Glue version 4.0, which you can override to 3.0.
 The following ETL features are enabled by default:
-`—enable-metrics, —enable-spark-ui, —enable-continuous-cloudwatch-log.`
+`—enable-metrics, —enable-continuous-cloudwatch-log.`
+The Spark UI (`—enable-spark-ui`) is off by default; enable it by setting the
+`sparkUI` prop.
 You can find more details about version, worker type and other features in
 [Glue's public documentation](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html).
 
@@ -118,7 +120,10 @@ glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 	ContinuousLogging: &ContinuousLoggingProps{
 		Enabled: jsii.Boolean(false),
 	},
-	WorkerType: glue.WorkerType_G_2X,
+	WorkerConfiguration: &WorkerConfiguration{
+		WorkerType: glue.WorkerType_G_2X,
+		NumberOfWorkers: jsii.Number(2),
+	},
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 	Connections: []IConnection{
@@ -130,7 +135,6 @@ glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 		"SecondTagName": jsii.String("SecondTagValue"),
 		"XTagName": jsii.String("XTagValue"),
 	},
-	NumberOfWorkers: jsii.Number(2),
 	MaxRetries: jsii.Number(2),
 })
 ```
@@ -140,11 +144,12 @@ glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 Streaming jobs are similar to ETL jobs, except that they perform ETL on data
 streams using the Apache Spark Structured Streaming framework. Some Spark
 job features are not available to Streaming ETL jobs. They support Scala
-and pySpark languages. PySpark streaming jobs default Python 3.9,
-which you can override with any non-deprecated version of Python. It
+and pySpark languages. PySpark streaming jobs run on Python 3. It
 defaults to the G2 worker type and Glue 4.0, both of which you can override.
 The following best practice features are enabled by default:
-`—enable-metrics, —enable-spark-ui, —enable-continuous-cloudwatch-log`.
+`—enable-metrics, —enable-continuous-cloudwatch-log`.
+The Spark UI (`—enable-spark-ui`) is off by default; enable it by setting the
+`sparkUI` prop.
 
 Reference the pyspark-streaming-jobs.test.ts and scalaspark-streaming-jobs.test.ts
 unit tests for examples of required-only and optional job parameters when creating
@@ -183,7 +188,10 @@ glue.NewPySparkStreamingJob(stack, jsii.String("PySparkStreamingJob"), &PySparkS
 	ContinuousLogging: &ContinuousLoggingProps{
 		Enabled: jsii.Boolean(false),
 	},
-	WorkerType: glue.WorkerType_G_2X,
+	WorkerConfiguration: &WorkerConfiguration{
+		WorkerType: glue.WorkerType_G_2X,
+		NumberOfWorkers: jsii.Number(2),
+	},
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 	Connections: []IConnection{
@@ -195,7 +203,6 @@ glue.NewPySparkStreamingJob(stack, jsii.String("PySparkStreamingJob"), &PySparkS
 		"SecondTagName": jsii.String("SecondTagValue"),
 		"XTagName": jsii.String("XTagValue"),
 	},
-	NumberOfWorkers: jsii.Number(2),
 	MaxRetries: jsii.Number(2),
 })
 ```
@@ -206,7 +213,9 @@ The flexible execution class is appropriate for non-urgent jobs such as
 pre-production jobs, testing, and one-time data loads. Flexible jobs default
 to Glue version 5.0 and worker type `G_2X`. The following best practice
 features are enabled by default:
-`—enable-metrics, —enable-spark-ui, —enable-continuous-cloudwatch-log`
+`—enable-metrics, —enable-continuous-cloudwatch-log`
+The Spark UI (`—enable-spark-ui`) is off by default; enable it by setting the
+`sparkUI` prop.
 
 Reference the pyspark-flex-etl-jobs.test.ts and scalaspark-flex-etl-jobs.test.ts
 unit tests for examples of required-only and optional job parameters when creating
@@ -236,8 +245,8 @@ var stack Stack
 var role IRole
 var script Code
 
-glue.NewPySparkEtlJob(stack, jsii.String("pySparkEtlJob"), &PySparkEtlJobProps{
-	JobName: jsii.String("pySparkEtlJob"),
+glue.NewPySparkFlexEtlJob(stack, jsii.String("pySparkFlexEtlJob"), &PySparkFlexEtlJobProps{
+	JobName: jsii.String("pySparkFlexEtlJob"),
 	Description: jsii.String("This is a description"),
 	Role: Role,
 	Script: Script,
@@ -245,7 +254,10 @@ glue.NewPySparkEtlJob(stack, jsii.String("pySparkEtlJob"), &PySparkEtlJobProps{
 	ContinuousLogging: &ContinuousLoggingProps{
 		Enabled: jsii.Boolean(false),
 	},
-	WorkerType: glue.WorkerType_G_2X,
+	WorkerConfiguration: &WorkerConfiguration{
+		WorkerType: glue.WorkerType_G_2X,
+		NumberOfWorkers: jsii.Number(2),
+	},
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 	Connections: []IConnection{
@@ -257,7 +269,6 @@ glue.NewPySparkEtlJob(stack, jsii.String("pySparkEtlJob"), &PySparkEtlJobProps{
 		"SecondTagName": jsii.String("SecondTagValue"),
 		"XTagName": jsii.String("XTagValue"),
 	},
-	NumberOfWorkers: jsii.Number(2),
 	MaxRetries: jsii.Number(2),
 })
 ```
@@ -302,18 +313,17 @@ var extraPythonFile Code
 glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProps{
 	JobName: jsii.String("PythonShellJobCustomName"),
 	Description: jsii.String("This is a description"),
-	PythonVersion: glue.PythonVersion_TWO,
+	PythonVersion: glue.PythonVersion_THREE_NINE,
 	MaxCapacity: glue.MaxCapacity_DPU_1,
 	Role: Role,
 	Script: Script,
 	ExtraPythonFiles: []Code{
 		extraPythonFile,
 	},
-	GlueVersion: glue.GlueVersion_V2_0,
+	GlueVersion: glue.GlueVersion_V3_0,
 	ContinuousLogging: &ContinuousLoggingProps{
 		Enabled: jsii.Boolean(false),
 	},
-	WorkerType: glue.WorkerType_G_2X,
 	MaxConcurrentRuns: jsii.Number(100),
 	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 	Connections: []IConnection{
@@ -325,7 +335,6 @@ glue.NewPythonShellJob(stack, jsii.String("PythonShellJob"), &PythonShellJobProp
 		"SecondTagName": jsii.String("SecondTagValue"),
 		"XTagName": jsii.String("XTagValue"),
 	},
-	NumberOfWorkers: jsii.Number(2),
 	MaxRetries: jsii.Number(2),
 })
 ```
@@ -392,10 +401,12 @@ glue.NewPySparkEtlJob(stack, jsii.String("PySparkETLJob"), &PySparkEtlJobProps{
 
 ### Uploading scripts from the CDK app repository to S3
 
-Similar to other L2 constructs, the Glue L2 automates uploading / updating
-scripts to S3 via an optional fromAsset parameter pointing to a script
-in the local file structure. You provide the existing S3 bucket and
-path to which you'd like the script to be uploaded.
+Similar to other L2 constructs, the Glue L2 automates uploading local
+scripts to S3. Use `glue.Code.fromAsset(path)` to point at a script in your
+local file structure; it is uploaded to the CDK-managed asset bucket. To
+reference a script that already exists in S3, use
+`glue.Code.fromBucket(bucket, key)`, which performs no upload. A `script` is
+required for every job.
 
 Reference the unit tests for examples of repo and S3 code target examples.
 
@@ -407,14 +418,41 @@ jobs, and triggers. Standalone triggers are an anti-pattern, so you must
 create triggers from within a workflow using the L2 construct.
 
 Within a workflow object, there are functions to create different
-types of triggers with actions and predicates. You then add those triggers
-to jobs.
+types of triggers with actions and predicates. You add triggers to the
+workflow, and each trigger references the jobs or crawlers it runs as its
+actions.
 
-StartOnCreation defaults to true for all trigger types, but you can
-override it if you prefer for your trigger not to start on creation.
+`startOnCreation` applies to scheduled triggers (and, via
+`ConditionalTriggerOptions`, conditional triggers) only. It defaults to `false`,
+but you can override it if you prefer for your trigger to start on creation.
 
 Reference the workflow-triggers.test.ts unit tests for examples of creating
 workflows and triggers.
+
+```go
+import cdk "github.com/aws/aws-cdk-go/awscdk"
+import iam "github.com/aws/aws-cdk-go/awscdk"
+var stack Stack
+var role IRole
+var script Code
+
+
+// Create a job to run from the workflow
+job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
+	Role: Role,
+	Script: Script,
+})
+
+// Create a workflow and add a trigger that runs the job
+workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
+	Actions: []Action{
+		&Action{
+			Job: *Job,
+		},
+	},
+})
+```
 
 #### **1. On-Demand Triggers**
 
@@ -426,7 +464,7 @@ actions list using the job or crawler objects using conditional types.
 #### **2. Scheduled Triggers**
 
 You can create scheduled triggers using cron expressions. This construct
-provides daily, weekly, and monthly convenience functions,
+provides daily and weekly convenience functions,
 as well as a custom function that allows you to create your own
 custom timing using the [existing event Schedule class](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_events.Schedule.html)
 without having to build your own cron expressions. The L2 extracts
@@ -515,32 +553,29 @@ See [Adding a Connection to Your Data Store](https://docs.aws.amazon.com/glue/la
 
 A `SecurityConfiguration` is a set of security properties that can be used by AWS Glue to encrypt data at rest.
 
+Each encryption config is built with a factory that pairs the encryption mode
+with its key, so illegal combinations (such as an S3-managed encryption carrying
+a KMS key) cannot be expressed:
+
 ```go
 glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
-	CloudWatchEncryption: &CloudWatchEncryption{
-		Mode: glue.CloudWatchEncryptionMode_KMS,
-	},
-	JobBookmarksEncryption: &JobBookmarksEncryption{
-		Mode: glue.JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
-	},
-	S3Encryption: &S3Encryption{
-		Mode: glue.S3EncryptionMode_KMS,
-	},
+	CloudWatchEncryption: glue.CloudWatchEncryption_Kms(),
+	JobBookmarksEncryption: glue.JobBookmarksEncryption_ClientSideKms(),
+	S3Encryption: glue.S3Encryption_Kms(),
 })
 ```
 
-By default, a shared KMS key is created for use with the encryption configurations that require one. You can also supply your own key for each encryption config, for example, for CloudWatch encryption:
+By default, a shared KMS key is created for use with the encryption configurations that require one. You can also supply your own key to any factory, for example, for CloudWatch encryption:
 
 ```go
 var key Key
 
 glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
-	CloudWatchEncryption: &CloudWatchEncryption{
-		Mode: glue.CloudWatchEncryptionMode_KMS,
-		KmsKey: key,
-	},
+	CloudWatchEncryption: glue.CloudWatchEncryption_Kms(key),
 })
 ```
+
+Use `glue.S3Encryption.s3Managed()` for S3-managed (SSE-S3) encryption, which takes no key.
 
 See [documentation](https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html) for more info for Glue encrypting data written by Crawlers, Jobs, and Development Endpoints.
 
@@ -604,7 +639,7 @@ glue.NewCatalog(this, jsii.String("MyCatalog"), &CatalogProps{
 ### Encryption at rest
 
 Configure Data Catalog encryption at rest through the `encryptionAtRest` option
-(on `Catalog.encryptAccount`, the `Catalog` constructor, or the import factories).
+(on `Catalog.encryptAccount` or the `Catalog` constructor).
 It accepts a `DataCatalogEncryptionAtRest` describing the mode:
 
 ```go
@@ -898,7 +933,7 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 Alternatively, you can call the `addPartitionIndex()` function on a table:
 
 ```go
-var myTable Table
+var myTable S3Table
 
 myTable.AddPartitionIndex(&PartitionIndex{
 	IndexName: jsii.String("my-index"),
@@ -1181,6 +1216,25 @@ glue.NewExternalTable(this, jsii.String("MyTable"), &ExternalTableProps{
 })
 ```
 
+## Data Quality Ruleset
+
+A `DataQualityRuleset` defines a set of data quality rules — authored in Glue's
+Data Quality Definition Language (DQDL) — that are evaluated against a table in
+the Data Catalog.
+
+```go
+glue.NewDataQualityRuleset(this, jsii.String("MyRuleset"), &DataQualityRulesetProps{
+	RulesetName: jsii.String("my_ruleset"),
+	Dqdl: glue.Dqdl_FromString(jsii.String("Rules = [ RowCount > 100, IsComplete \"order_id\" ]")),
+	TargetTable: glue.NewDataQualityTargetTable(jsii.String("my_database"), jsii.String("my_table")),
+})
+```
+
+Build the DQDL document with `Dqdl.fromString(...)`. Glue parses and validates the
+DQDL when the ruleset is deployed; see the
+[DQDL reference](https://docs.aws.amazon.com/glue/latest/dg/dqdl.html) for the
+full rule syntax.
+
 ## [Encryption](https://docs.aws.amazon.com/athena/latest/ug/encryption.html)
 
 When the table creates its own S3 bucket (i.e. you do not pass an explicit `bucket`), that bucket enforces SSL: a bucket policy denies any request made over plain HTTP. If you provide your own bucket, enabling `enforceSSL` on it is your responsibility.
@@ -1301,6 +1355,31 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 
 *Note: you cannot provide a `Bucket` when creating the `S3Table` if you wish to use server-side encryption (`KMS`, `KMS_MANAGED` or `S3_MANAGED`)*.
 
+### Marking table data as encrypted
+
+Both `S3Table` and `ExternalTable` set the `has_encrypted_data` table parameter, which
+Athena reads when querying client-side (`CSE-KMS`) encrypted datasets. It defaults to `true`.
+Set `hasEncryptedData` to `false` when the underlying data is not encrypted:
+
+```go
+var myDatabase Database
+
+glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
+	HasEncryptedData: jsii.Boolean(false),
+	Database: myDatabase,
+	Columns: []Column{
+		&Column{
+			Name: jsii.String("col1"),
+			Type: glue.Schema_STRING(),
+		},
+	},
+	DataFormat: glue.DataFormat_JSON(),
+})
+```
+
+Do not set `has_encrypted_data` through the free-form `parameters` map as well - a value
+there that conflicts with `hasEncryptedData` is rejected at synthesis time.
+
 ## Types
 
 A table's schema is a collection of columns, each of which have a `name` and a `type`. Types are recursive structures, consisting of primitive and complex types:
@@ -1322,7 +1401,7 @@ glue.NewS3Table(this, jsii.String("MyTable"), &S3TableProps{
 		&Column{
 			Name: jsii.String("map_column"),
 			Type: glue.Schema_Map(glue.Schema_STRING(), glue.Schema_TIMESTAMP()),
-			Comment: jsii.String("map<string,string>"),
+			Comment: jsii.String("map<string,timestamp>"),
 		},
 		&Column{
 			Name: jsii.String("struct_column"),

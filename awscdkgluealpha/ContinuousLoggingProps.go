@@ -22,7 +22,10 @@ import (
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),
 //   	},
-//   	WorkerType: glue.WorkerType_G_2X,
+//   	WorkerConfiguration: &WorkerConfiguration{
+//   		WorkerType: glue.WorkerType_G_2X,
+//   		NumberOfWorkers: jsii.Number(2),
+//   	},
 //   	MaxConcurrentRuns: jsii.Number(100),
 //   	Timeout: cdk.Duration_Hours(jsii.Number(2)),
 //   	Connections: []IConnection{
@@ -34,7 +37,6 @@ import (
 //   		"SecondTagName": jsii.String("SecondTagValue"),
 //   		"XTagName": jsii.String("XTagValue"),
 //   	},
-//   	NumberOfWorkers: jsii.Number(2),
 //   	MaxRetries: jsii.Number(2),
 //   })
 //

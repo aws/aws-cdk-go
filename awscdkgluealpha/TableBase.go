@@ -48,6 +48,12 @@ type TableBase interface {
 	// different than the stack they were imported into.
 	// Experimental.
 	Env() *interfaces.ResourceEnvironment
+	// Whether the data stored in the table is encrypted.
+	//
+	// Emitted as the
+	// `has_encrypted_data` table parameter.
+	// Experimental.
+	HasEncryptedData() *bool
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -223,6 +229,16 @@ func (j *jsiiProxy_TableBase) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TableBase) HasEncryptedData() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"hasEncryptedData",
 		&returns,
 	)
 	return returns

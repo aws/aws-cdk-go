@@ -4,7 +4,7 @@ package awscdkgluealpha
 // Properties of a Partition Index.
 //
 // Example:
-//   var myTable Table
+//   var myTable S3Table
 //
 //   myTable.AddPartitionIndex(&PartitionIndex{
 //   	IndexName: jsii.String("my-index"),

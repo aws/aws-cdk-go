@@ -19,7 +19,8 @@ import (
 // can override this default with other supported worker type values
 // (G1, G2, G4 and G8). ETL jobs defaults to Glue version 4.0, which you can
 // override to 3.0. The following ETL features are enabled by default:
-// —enable-metrics, —enable-spark-ui, —enable-continuous-cloudwatch-log.
+// --enable-metrics, --enable-continuous-cloudwatch-log. The Spark UI
+// (--enable-spark-ui) is off by default; enable it by setting the `sparkUI` prop.
 // You can find more details about version, worker type and other features
 // in Glue's public documentation.
 //
@@ -31,21 +32,20 @@ import (
 //   var script Code
 //
 //
-//   // Disable both metrics for cost optimization
-//   // Disable both metrics for cost optimization
-//   glue.NewPySparkEtlJob(stack, jsii.String("CostOptimizedJob"), &PySparkEtlJobProps{
+//   // Create a job to run from the workflow
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
 //   	Role: Role,
 //   	Script: Script,
-//   	EnableMetrics: jsii.Boolean(false),
-//   	EnableObservabilityMetrics: jsii.Boolean(false),
 //   })
 //
-//   // Selective control - keep observability, disable profiling
-//   // Selective control - keep observability, disable profiling
-//   glue.NewPySparkEtlJob(stack, jsii.String("SelectiveJob"), &PySparkEtlJobProps{
-//   	Role: Role,
-//   	Script: Script,
-//   	EnableMetrics: jsii.Boolean(false),
+//   // Create a workflow and add a trigger that runs the job
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
+//   	Actions: []Action{
+//   		&Action{
+//   			Job: *Job,
+//   		},
+//   	},
 //   })
 //
 // Experimental.

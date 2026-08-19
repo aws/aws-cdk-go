@@ -1,33 +1,46 @@
 package awscdkgluealpha
 
 import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkgluealpha/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
-// CloudWatch Logs encryption configuration.
+// CloudWatch Logs encryption configuration for a `SecurityConfiguration`.
+//
+// CloudWatch Logs support only server-side encryption with a KMS key.
 //
 // Example:
 //   glue.NewSecurityConfiguration(this, jsii.String("MySecurityConfiguration"), &SecurityConfigurationProps{
-//   	CloudWatchEncryption: &CloudWatchEncryption{
-//   		Mode: glue.CloudWatchEncryptionMode_KMS,
-//   	},
-//   	JobBookmarksEncryption: &JobBookmarksEncryption{
-//   		Mode: glue.JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
-//   	},
-//   	S3Encryption: &S3Encryption{
-//   		Mode: glue.S3EncryptionMode_KMS,
-//   	},
+//   	CloudWatchEncryption: glue.CloudWatchEncryption_Kms(),
+//   	JobBookmarksEncryption: glue.JobBookmarksEncryption_ClientSideKms(),
+//   	S3Encryption: glue.S3Encryption_Kms(),
 //   })
 //
 // Experimental.
-type CloudWatchEncryption struct {
-	// Encryption mode.
-	// Experimental.
-	Mode CloudWatchEncryptionMode `field:"required" json:"mode" yaml:"mode"`
-	// The KMS key to be used to encrypt the data.
-	// Default: A key will be created if one is not provided.
-	//
-	// Experimental.
-	KmsKey interfacesawskms.IKeyRef `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+type CloudWatchEncryption interface {
+}
+
+// The jsii proxy struct for CloudWatchEncryption
+type jsiiProxy_CloudWatchEncryption struct {
+	_ byte // padding
+}
+
+// Server-side encryption (SSE) with an AWS KMS key managed by the account owner.
+// Experimental.
+func CloudWatchEncryption_Kms(kmsKey interfacesawskms.IKeyRef) CloudWatchEncryption {
+	_init_.Initialize()
+
+	var returns CloudWatchEncryption
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.CloudWatchEncryption",
+		"kms",
+		[]interface{}{kmsKey},
+		&returns,
+	)
+
+	return returns
 }
 

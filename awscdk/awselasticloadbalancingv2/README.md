@@ -941,6 +941,7 @@ targetGroup := elbv2.NewApplicationTargetGroup(this, jsii.String("LambdaTargetGr
 	},
 
 	// Enable multi-value headers
+	TargetType: elbv2.TargetType_LAMBDA,
 	MultiValueHeadersEnabled: jsii.Boolean(true),
 })
 ```

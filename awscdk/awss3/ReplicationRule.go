@@ -45,17 +45,33 @@ import (
 type ReplicationRule struct {
 	// The destination bucket for the replicated objects.
 	//
-	// The destination can be either in the same AWS account or a cross account.
+	// The destination can be in the same AWS account or a different account.
 	//
-	// If you want to configure cross-account replication,
-	// the destination bucket must have a policy that allows the source bucket to replicate objects to it.
+	// For cross-account replication, the destination bucket must have a policy that allows the source
+	// bucket to replicate objects to it. Use `addReplicationPolicy()` to add the required permissions
+	// when the destination bucket is managed by CDK. If the destination bucket is referenced, configure
+	// the policy separately in the destination account.
+	//
+	// When importing a cross-account destination into the source stack, use
+	// `Bucket.fromBucketAttributes()` and set the `account` attribute to the destination bucket owner's
+	// account ID. `Bucket.fromBucketArn()` and `Bucket.fromBucketName()` assume the bucket is owned by
+	// the same account as the scope in which it is imported.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-walkthrough-2.html
 	//
 	Destination IBucket `field:"required" json:"destination" yaml:"destination"`
-	// Whether to want to change replica ownership to the AWS account that owns the destination bucket.
+	// Whether to change replica ownership to the AWS account that owns the destination bucket.
 	//
 	// This can only be specified if the source bucket and the destination bucket are not in the same AWS account.
-	// Default: - The replicas are owned by same AWS account that owns the source object.
+	//
+	// When enabled, use `addReplicationPolicy()` on the destination bucket with the source bucket
+	// owner's account ID to grant the required permissions.
+	//
+	// This is not required when the destination bucket uses `ObjectOwnership.BUCKET_OWNER_ENFORCED`,
+	// because the destination bucket owner automatically owns all objects.
+	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-change-owner.html
+	//
+	// Default: - The replicas are owned by the source object owner, unless the destination bucket uses
+	// `ObjectOwnership.BUCKET_OWNER_ENFORCED`
 	//
 	AccessControlTransition *bool `field:"optional" json:"accessControlTransition" yaml:"accessControlTransition"`
 	// Specifies whether Amazon S3 replicates delete markers.

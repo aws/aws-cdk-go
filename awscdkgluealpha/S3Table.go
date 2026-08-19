@@ -35,12 +35,9 @@ import (
 //   	DataFormat: glue.DataFormat_JSON(),
 //   	PartitionProjection: map[string]PartitionProjectionConfiguration{
 //   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
-//   			"min": jsii.String("2020-01-01"),
-//   			"max": jsii.String("2023-12-31"),
+//   			"min": jsii.String("NOW-3YEARS"),
+//   			"max": jsii.String("NOW"),
 //   			"format": jsii.String("yyyy-MM-dd"),
-//   			"interval": jsii.Number(1),
-//   			 // optional, defaults to 1
-//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
 //   		}),
 //   	},
 //   })
@@ -82,6 +79,12 @@ type S3Table interface {
 	// different than the stack they were imported into.
 	// Experimental.
 	Env() *interfaces.ResourceEnvironment
+	// Whether the data stored in the table is encrypted.
+	//
+	// Emitted as the
+	// `has_encrypted_data` table parameter.
+	// Experimental.
+	HasEncryptedData() *bool
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -303,6 +306,16 @@ func (j *jsiiProxy_S3Table) Env() *interfaces.ResourceEnvironment {
 	_jsii_.Get(
 		j,
 		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_S3Table) HasEncryptedData() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"hasEncryptedData",
 		&returns,
 	)
 	return returns

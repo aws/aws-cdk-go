@@ -4,33 +4,28 @@ package awscdkgluealpha
 // Properties for configuring an on-demand Glue Trigger.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
-//   var cfnCrawler CfnCrawler
-//   var job Job
-//   var securityConfiguration SecurityConfiguration
 //
-//   onDemandTriggerOptions := &OnDemandTriggerOptions{
+//   // Create a job to run from the workflow
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   })
+//
+//   // Create a workflow and add a trigger that runs the job
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
 //   	Actions: []Action{
 //   		&Action{
-//   			Arguments: map[string]*string{
-//   				"argumentsKey": jsii.String("arguments"),
-//   			},
-//   			Crawler: cfnCrawler,
-//   			Job: job,
-//   			SecurityConfiguration: securityConfiguration,
-//   			Timeout: cdk.Duration_Minutes(jsii.Number(30)),
+//   			Job: *Job,
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
-//   	Name: jsii.String("name"),
-//   }
+//   })
 //
 // Experimental.
 type OnDemandTriggerOptions struct {

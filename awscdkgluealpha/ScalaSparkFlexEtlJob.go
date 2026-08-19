@@ -63,7 +63,6 @@ import (
 //   	Description: jsii.String("description"),
 //   	EnableMetrics: jsii.Boolean(false),
 //   	EnableObservabilityMetrics: jsii.Boolean(false),
-//   	EnableProfilingMetrics: jsii.Boolean(false),
 //   	ExtraFiles: []Code{
 //   		code,
 //   	},
@@ -76,7 +75,6 @@ import (
 //   	MaxConcurrentRuns: jsii.Number(123),
 //   	MaxRetries: jsii.Number(123),
 //   	NotifyDelayAfter: cdk.Duration_Minutes(jsii.Number(30)),
-//   	NumberOfWorkers: jsii.Number(123),
 //   	SecurityConfiguration: securityConfiguration,
 //   	SparkUI: &SparkUIProps{
 //   		Bucket: bucket,
@@ -86,7 +84,10 @@ import (
 //   		"tagsKey": jsii.String("tags"),
 //   	},
 //   	Timeout: cdk.Duration_*Minutes(jsii.Number(30)),
-//   	WorkerType: glue_alpha.WorkerType_STANDARD,
+//   	WorkerConfiguration: &WorkerConfiguration{
+//   		NumberOfWorkers: jsii.Number(123),
+//   		WorkerType: glue_alpha.WorkerType_STANDARD,
+//   	},
 //   })
 //
 // Experimental.

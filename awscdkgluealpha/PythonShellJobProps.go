@@ -63,13 +63,6 @@ type PythonShellJobProps struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Enables the collection of metrics for job profiling.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Default: - no profiling metrics emitted.
-	//
-	// Experimental.
-	EnableProfilingMetrics *bool `field:"optional" json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
 	// Glue Version The version of Glue to use to execute this job.
 	// Default: 3.0 for ETL
 	//
@@ -93,11 +86,6 @@ type PythonShellJobProps struct {
 	//
 	// Experimental.
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
-	// Number of Workers (optional) Number of workers for Glue to use during job execution.
-	// Default: 10.
-	//
-	// Experimental.
-	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// Security Configuration (optional) Defines the encryption options for the Glue job.
 	// Default: - no security configuration.
 	//
@@ -115,13 +103,6 @@ type PythonShellJobProps struct {
 	//
 	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
-	// Worker Type (optional) Type of Worker for Glue to use during job execution Enum options: Standard, G_1X, G_2X, G_025X.
-	//
-	// G_4X, G_8X, Z_2X.
-	// Default: WorkerType.G_1X
-	//
-	// Experimental.
-	WorkerType WorkerType `field:"optional" json:"workerType" yaml:"workerType"`
 	// Additional Python files that AWS Glue adds to the Python path before executing your script.
 	//
 	// Only individual files are supported, directories are not supported.

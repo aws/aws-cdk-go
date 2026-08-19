@@ -48,6 +48,21 @@ type ExternalTableProps struct {
 	//
 	// Experimental.
 	EnablePartitionFiltering *bool `field:"optional" json:"enablePartitionFiltering" yaml:"enablePartitionFiltering"`
+	// Whether the data stored in the table is encrypted.
+	//
+	// This sets the `has_encrypted_data` table parameter. Athena reads it when
+	// querying client-side (CSE-KMS) encrypted datasets; for server-side
+	// encrypted (SSE-S3 / SSE-KMS) or unencrypted data it has no effect, since
+	// Amazon S3 decrypts server-side encrypted objects transparently.
+	//
+	// Do not also set `has_encrypted_data` through `parameters` - use this
+	// property instead. A conflicting value in `parameters` is rejected.
+	// See: https://docs.aws.amazon.com/athena/latest/ug/creating-tables-based-on-encrypted-datasets-in-s3.html
+	//
+	// Default: true.
+	//
+	// Experimental.
+	HasEncryptedData *bool `field:"optional" json:"hasEncryptedData" yaml:"hasEncryptedData"`
 	// The key/value pairs define properties associated with the table.
 	//
 	// The key/value pairs that are allowed to be submitted are not limited, however their functionality is not guaranteed.

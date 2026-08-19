@@ -12,24 +12,22 @@ import (
 //   	Database: myDatabase,
 //   	Columns: []Column{
 //   		&Column{
-//   			Name: jsii.String("data"),
+//   			Name: jsii.String("col1"),
 //   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	PartitionKeys: []Column{
 //   		&Column{
-//   			Name: jsii.String("date"),
-//   			Type: glue.Schema_STRING(),
+//   			Name: jsii.String("year"),
+//   			Type: glue.Schema_SMALL_INT(),
+//   		},
+//   		&Column{
+//   			Name: jsii.String("month"),
+//   			Type: glue.Schema_SMALL_INT(),
 //   		},
 //   	},
 //   	DataFormat: glue.DataFormat_JSON(),
-//   	PartitionProjection: map[string]PartitionProjectionConfiguration{
-//   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
-//   			"min": jsii.String("NOW-3YEARS"),
-//   			"max": jsii.String("NOW"),
-//   			"format": jsii.String("yyyy-MM-dd"),
-//   		}),
-//   	},
+//   	EnablePartitionFiltering: jsii.Boolean(true),
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/ug/data-types.html

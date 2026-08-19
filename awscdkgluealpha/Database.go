@@ -51,8 +51,6 @@ type Database interface {
 	// Location URI of this database.
 	// Experimental.
 	LocationUri() *string
-	// Experimental.
-	SetLocationUri(val *string)
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -231,14 +229,6 @@ func NewDatabase_Override(d Database, scope constructs.Construct, id *string, pr
 		"@aws-cdk/aws-glue-alpha.Database",
 		[]interface{}{scope, id, props},
 		d,
-	)
-}
-
-func (j *jsiiProxy_Database)SetLocationUri(val *string) {
-	_jsii_.Set(
-		j,
-		"locationUri",
-		val,
 	)
 }
 

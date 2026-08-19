@@ -15,21 +15,20 @@ import (
 //   var script Code
 //
 //
-//   // Disable both metrics for cost optimization
-//   // Disable both metrics for cost optimization
-//   glue.NewPySparkEtlJob(stack, jsii.String("CostOptimizedJob"), &PySparkEtlJobProps{
+//   // Create a job to run from the workflow
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
 //   	Role: Role,
 //   	Script: Script,
-//   	EnableMetrics: jsii.Boolean(false),
-//   	EnableObservabilityMetrics: jsii.Boolean(false),
 //   })
 //
-//   // Selective control - keep observability, disable profiling
-//   // Selective control - keep observability, disable profiling
-//   glue.NewPySparkEtlJob(stack, jsii.String("SelectiveJob"), &PySparkEtlJobProps{
-//   	Role: Role,
-//   	Script: Script,
-//   	EnableMetrics: jsii.Boolean(false),
+//   // Create a workflow and add a trigger that runs the job
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
+//   	Actions: []Action{
+//   		&Action{
+//   			Job: *Job,
+//   		},
+//   	},
 //   })
 //
 // Experimental.
@@ -76,13 +75,6 @@ type PySparkEtlJobProps struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// Enables the collection of metrics for job profiling.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Default: - no profiling metrics emitted.
-	//
-	// Experimental.
-	EnableProfilingMetrics *bool `field:"optional" json:"enableProfilingMetrics" yaml:"enableProfilingMetrics"`
 	// Glue Version The version of Glue to use to execute this job.
 	// Default: 3.0 for ETL
 	//
@@ -106,11 +98,6 @@ type PySparkEtlJobProps struct {
 	//
 	// Experimental.
 	MaxRetries *float64 `field:"optional" json:"maxRetries" yaml:"maxRetries"`
-	// Number of Workers (optional) Number of workers for Glue to use during job execution.
-	// Default: 10.
-	//
-	// Experimental.
-	NumberOfWorkers *float64 `field:"optional" json:"numberOfWorkers" yaml:"numberOfWorkers"`
 	// Security Configuration (optional) Defines the encryption options for the Glue job.
 	// Default: - no security configuration.
 	//
@@ -128,13 +115,6 @@ type PySparkEtlJobProps struct {
 	//
 	// Experimental.
 	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
-	// Worker Type (optional) Type of Worker for Glue to use during job execution Enum options: Standard, G_1X, G_2X, G_025X.
-	//
-	// G_4X, G_8X, Z_2X.
-	// Default: WorkerType.G_1X
-	//
-	// Experimental.
-	WorkerType WorkerType `field:"optional" json:"workerType" yaml:"workerType"`
 	// Enable profiling metrics for the Glue job.
 	//
 	// When enabled, adds '--enable-metrics' to job arguments.
@@ -156,6 +136,11 @@ type PySparkEtlJobProps struct {
 	//
 	// Experimental.
 	SparkUI *SparkUIProps `field:"optional" json:"sparkUI" yaml:"sparkUI"`
+	// The worker type and the number of workers allocated when a job runs.
+	// Default: - the job runs with the G_1X worker type and 10 workers.
+	//
+	// Experimental.
+	WorkerConfiguration *WorkerConfiguration `field:"optional" json:"workerConfiguration" yaml:"workerConfiguration"`
 	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 	//
