@@ -64,19 +64,19 @@ type DatePartitionProjectionConfigurationProps struct {
 	Min *string `field:"required" json:"min" yaml:"min"`
 	// Interval between partition values.
 	//
-	// When the provided dates are at single-day or single-month precision,
-	// the interval is optional and defaults to 1 day or 1 month, respectively.
-	// Otherwise, interval is required.
-	// Default: - 1 for single-day or single-month precision, otherwise required.
+	// Required (together with `intervalUnit`) when `format` carries sub-day
+	// precision — i.e. a field finer than a day, such as hours or AM/PM. At day
+	// or coarser precision Athena defaults the step, so it is optional.
+	// Default: - Athena's default step for the format's precision; required when `format` is sub-day precision.
 	//
 	// Experimental.
 	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
 	// Unit for the interval.
 	//
-	// When the provided dates are at single-day or single-month precision,
-	// the intervalUnit is optional and defaults to 1 day or 1 month, respectively.
-	// Otherwise, the intervalUnit is required.
-	// Default: - DAYS for single-day precision, MONTHS for single-month precision, otherwise required.
+	// Required (together with `interval`) when `format` carries sub-day
+	// precision — i.e. a field finer than a day, such as hours or AM/PM. At day
+	// or coarser precision Athena defaults the step, so it is optional.
+	// Default: - Athena's default unit for the format's precision; required when `format` is sub-day precision.
 	//
 	// Experimental.
 	IntervalUnit DateIntervalUnit `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`

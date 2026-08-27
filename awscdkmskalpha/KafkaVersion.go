@@ -433,6 +433,17 @@ func KafkaVersion_V4_1_X_KRAFT() KafkaVersion {
 	return returns
 }
 
+func KafkaVersion_V4_2_X_KRAFT() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-msk-alpha.KafkaVersion",
+		"V4_2_X_KRAFT",
+		&returns,
+	)
+	return returns
+}
+
 func (k *jsiiProxy_KafkaVersion) IsTieredStorageCompatible() *bool {
 	var returns *bool
 

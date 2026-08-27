@@ -12,22 +12,24 @@ import (
 //   	Database: myDatabase,
 //   	Columns: []Column{
 //   		&Column{
-//   			Name: jsii.String("col1"),
+//   			Name: jsii.String("data"),
 //   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	PartitionKeys: []Column{
 //   		&Column{
-//   			Name: jsii.String("year"),
-//   			Type: glue.Schema_SMALL_INT(),
-//   		},
-//   		&Column{
-//   			Name: jsii.String("month"),
-//   			Type: glue.Schema_SMALL_INT(),
+//   			Name: jsii.String("date"),
+//   			Type: glue.Schema_STRING(),
 //   		},
 //   	},
 //   	DataFormat: glue.DataFormat_JSON(),
-//   	EnablePartitionFiltering: jsii.Boolean(true),
+//   	PartitionProjection: map[string]PartitionProjectionConfiguration{
+//   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
+//   			"min": jsii.String("NOW-3YEARS"),
+//   			"max": jsii.String("NOW"),
+//   			"format": jsii.String("yyyy-MM-dd"),
+//   		}),
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/athena/latest/ug/data-types.html
@@ -69,13 +71,13 @@ func NewSchema_Override(s Schema) {
 
 // Creates an array of some other type.
 // Experimental.
-func Schema_Array(itemType *Type) *Type {
+func Schema_Array(itemType Type) Type {
 	_init_.Initialize()
 
 	if err := validateSchema_ArrayParameters(itemType); err != nil {
 		panic(err)
 	}
-	var returns *Type
+	var returns Type
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -89,13 +91,13 @@ func Schema_Array(itemType *Type) *Type {
 
 // Fixed length character data, with a specified length between 1 and 255.
 // Experimental.
-func Schema_Char(length *float64) *Type {
+func Schema_Char(length *float64) Type {
 	_init_.Initialize()
 
 	if err := validateSchema_CharParameters(length); err != nil {
 		panic(err)
 	}
-	var returns *Type
+	var returns Type
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -107,17 +109,40 @@ func Schema_Char(length *float64) *Type {
 	return returns
 }
 
-// Creates a decimal type.
+// Creates a custom type from a raw Glue input string.
 //
-// TODO: Bounds.
+// Escape hatch for column types the other `Schema` factories don't model. The
+// `inputString` is emitted verbatim and is not validated.
 // Experimental.
-func Schema_Decimal(precision *float64, scale *float64) *Type {
+func Schema_Custom(inputString *string, isPrimitive *bool) Type {
+	_init_.Initialize()
+
+	if err := validateSchema_CustomParameters(inputString); err != nil {
+		panic(err)
+	}
+	var returns Type
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Schema",
+		"custom",
+		[]interface{}{inputString, isPrimitive},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a decimal type.
+// See: https://docs.aws.amazon.com/athena/latest/ug/data-types.html
+//
+// Experimental.
+func Schema_Decimal(precision *float64, scale *float64) Type {
 	_init_.Initialize()
 
 	if err := validateSchema_DecimalParameters(precision); err != nil {
 		panic(err)
 	}
-	var returns *Type
+	var returns Type
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -131,13 +156,13 @@ func Schema_Decimal(precision *float64, scale *float64) *Type {
 
 // Creates a map of some primitive key type to some value type.
 // Experimental.
-func Schema_Map(keyType *Type, valueType *Type) *Type {
+func Schema_Map(keyType Type, valueType Type) Type {
 	_init_.Initialize()
 
 	if err := validateSchema_MapParameters(keyType, valueType); err != nil {
 		panic(err)
 	}
-	var returns *Type
+	var returns Type
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -151,13 +176,13 @@ func Schema_Map(keyType *Type, valueType *Type) *Type {
 
 // Creates a nested structure containing individually named and typed columns.
 // Experimental.
-func Schema_Struct(columns *[]*Column) *Type {
+func Schema_Struct(columns *[]*Column) Type {
 	_init_.Initialize()
 
 	if err := validateSchema_StructParameters(columns); err != nil {
 		panic(err)
 	}
-	var returns *Type
+	var returns Type
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -171,13 +196,13 @@ func Schema_Struct(columns *[]*Column) *Type {
 
 // Variable length character data, with a specified length between 1 and 65535.
 // Experimental.
-func Schema_Varchar(length *float64) *Type {
+func Schema_Varchar(length *float64) Type {
 	_init_.Initialize()
 
 	if err := validateSchema_VarcharParameters(length); err != nil {
 		panic(err)
 	}
-	var returns *Type
+	var returns Type
 
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -189,9 +214,9 @@ func Schema_Varchar(length *float64) *Type {
 	return returns
 }
 
-func Schema_BIG_INT() *Type {
+func Schema_BIG_INT() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"BIG_INT",
@@ -200,9 +225,9 @@ func Schema_BIG_INT() *Type {
 	return returns
 }
 
-func Schema_BINARY() *Type {
+func Schema_BINARY() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"BINARY",
@@ -211,9 +236,9 @@ func Schema_BINARY() *Type {
 	return returns
 }
 
-func Schema_BOOLEAN() *Type {
+func Schema_BOOLEAN() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"BOOLEAN",
@@ -222,9 +247,9 @@ func Schema_BOOLEAN() *Type {
 	return returns
 }
 
-func Schema_DATE() *Type {
+func Schema_DATE() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"DATE",
@@ -233,9 +258,9 @@ func Schema_DATE() *Type {
 	return returns
 }
 
-func Schema_DOUBLE() *Type {
+func Schema_DOUBLE() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"DOUBLE",
@@ -244,9 +269,9 @@ func Schema_DOUBLE() *Type {
 	return returns
 }
 
-func Schema_FLOAT() *Type {
+func Schema_FLOAT() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"FLOAT",
@@ -255,9 +280,9 @@ func Schema_FLOAT() *Type {
 	return returns
 }
 
-func Schema_INTEGER() *Type {
+func Schema_INTEGER() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"INTEGER",
@@ -266,9 +291,9 @@ func Schema_INTEGER() *Type {
 	return returns
 }
 
-func Schema_SMALL_INT() *Type {
+func Schema_SMALL_INT() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"SMALL_INT",
@@ -277,9 +302,9 @@ func Schema_SMALL_INT() *Type {
 	return returns
 }
 
-func Schema_STRING() *Type {
+func Schema_STRING() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"STRING",
@@ -288,9 +313,9 @@ func Schema_STRING() *Type {
 	return returns
 }
 
-func Schema_TIMESTAMP() *Type {
+func Schema_TIMESTAMP() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"TIMESTAMP",
@@ -299,9 +324,9 @@ func Schema_TIMESTAMP() *Type {
 	return returns
 }
 
-func Schema_TINY_INT() *Type {
+func Schema_TINY_INT() Type {
 	_init_.Initialize()
-	var returns *Type
+	var returns Type
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-glue-alpha.Schema",
 		"TINY_INT",

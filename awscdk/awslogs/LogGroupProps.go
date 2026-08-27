@@ -8,25 +8,28 @@ import (
 // Properties for a LogGroup.
 //
 // Example:
-//   var myRole Role
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+//   	RepositoryName: jsii.String("test-agent-runtime"),
+//   })
 //
-//   cr.NewAwsCustomResource(this, jsii.String("Customized"), &AwsCustomResourceProps{
-//   	Role: myRole,
-//   	 // must be assumable by the `lambda.amazonaws.com` service principal
-//   	Timeout: awscdk.Duration_Minutes(jsii.Number(10)),
-//   	 // defaults to 2 minutes
-//   	MemorySize: jsii.Number(1025),
-//   	 // defaults to 512 if installLatestAwsSdk is true
-//   	LogGroup: logs.NewLogGroup(this, jsii.String("AwsCustomResourceLogs"), &LogGroupProps{
-//   		Retention: logs.RetentionDays_ONE_DAY,
-//   	}),
-//   	FunctionName: jsii.String("my-custom-name"),
-//   	 // defaults to a CloudFormation generated name
-//   	RemovalPolicy: awscdk.RemovalPolicy_RETAIN,
-//   	 // defaults to `RemovalPolicy.DESTROY`
-//   	Policy: cr.AwsCustomResourcePolicy_FromSdkCalls(&SdkCallsPolicyOptions{
-//   		Resources: cr.AwsCustomResourcePolicy_ANY_RESOURCE(),
-//   	}),
+//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+//
+//   // Use a /aws/vendedlogs/ log group for same-account delivery without explicit resource policy
+//   logGroup := logs.NewLogGroup(this, jsii.String("RuntimeLogGroup"), &LogGroupProps{
+//   	LogGroupName: jsii.String("/aws/vendedlogs/bedrock-agentcore/my-runtime"),
+//   })
+//
+//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+//   	RuntimeName: jsii.String("test_runtime"),
+//   	AgentRuntimeArtifact: agentRuntimeArtifact,
+//   	TracingEnabled: jsii.Boolean(true),
+//   	LoggingConfigs: []LoggingConfig{
+//   		&LoggingConfig{
+//   			LogType: agentcore.LogType_APPLICATION_LOGS(),
+//   			Destination: agentcore.LoggingDestination_CloudWatchLogs(logGroup),
+//   		},
+//   	},
+//   	ManageDeliveryResourcePolicy: jsii.Boolean(false),
 //   })
 //
 type LogGroupProps struct {

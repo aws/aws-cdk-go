@@ -118,7 +118,9 @@ type S3BucketProps struct {
 	//
 	FileExtension *string `field:"optional" json:"fileExtension" yaml:"fileExtension"`
 	// The time zone you prefer.
-	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html#timestamp-namespace
+	//
+	// AWS Kinesis Data Firehose supports standard IANA time zone identifiers (e.g., 'America/New_York', 'Europe/London', 'Asia/Tokyo').
+	// See: https://docs.aws.amazon.com/firehose/latest/dev/s3-object-name.html
 	//
 	// Default: - UTC.
 	//

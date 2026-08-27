@@ -88,10 +88,11 @@ type LoadBalancerV2OriginProps struct {
 	IpAddressType awscloudfront.OriginIpAddressType `field:"optional" json:"ipAddressType" yaml:"ipAddressType"`
 	// Specifies how long, in seconds, CloudFront persists its connection to the origin.
 	//
-	// The valid range is from 1 to 180 seconds, inclusive.
+	// The minimum is 1 second. The maximum is governed by the keep-alive timeout per origin quota,
+	// which is adjustable, so the effective maximum depends on the target account.
 	//
-	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
-	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
+	// The default quota allows up to 300 seconds; higher values require an approved limit increase
+	// in the target account, and otherwise produce an error at deploy time.
 	// Default: Duration.seconds(5)
 	//
 	KeepaliveTimeout awscdk.Duration `field:"optional" json:"keepaliveTimeout" yaml:"keepaliveTimeout"`
@@ -105,10 +106,11 @@ type LoadBalancerV2OriginProps struct {
 	ProtocolPolicy awscloudfront.OriginProtocolPolicy `field:"optional" json:"protocolPolicy" yaml:"protocolPolicy"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin, also known as the origin response timeout.
 	//
-	// The valid range is from 1 to 180 seconds, inclusive.
+	// The minimum is 1 second. The maximum is governed by the origin response timeout quota, which is
+	// adjustable, so the effective maximum depends on the target account.
 	//
-	// Note that values over 60 seconds are possible only after a limit increase request for the origin response timeout quota
-	// has been approved in the target account; otherwise, values over 60 seconds will produce an error at deploy time.
+	// The default quota allows up to 120 seconds; higher values require an approved limit increase
+	// in the target account, and otherwise produce an error at deploy time.
 	// Default: Duration.seconds(30)
 	//
 	ReadTimeout awscdk.Duration `field:"optional" json:"readTimeout" yaml:"readTimeout"`

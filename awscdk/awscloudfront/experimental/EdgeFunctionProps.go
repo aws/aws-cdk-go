@@ -341,7 +341,8 @@ type EdgeFunctionProps struct {
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
 	// Enable SnapStart for Lambda Function.
 	//
-	// SnapStart is currently supported for Java 11, Java 17, Python 3.12, Python 3.13, and .NET 8 runtime
+	// SnapStart is currently supported for Java 11, Java 17, Python 3.12, Python 3.13, and .NET 8 runtime,
+	// as well as container image (OCI) deployments.
 	// Default: - No snapstart.
 	//
 	SnapStart awslambda.SnapStartConf `field:"optional" json:"snapStart" yaml:"snapStart"`

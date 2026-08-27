@@ -12,16 +12,18 @@ import (
 //
 // Example:
 //   var securityGroup SecurityGroup
-//   var subnet Subnet
+//   var vpc Vpc
 //
 //   glue.NewConnection(this, jsii.String("MyConnection"), &ConnectionProps{
 //   	Type: glue.ConnectionType_NETWORK(),
-//   	// The security groups granting AWS Glue inbound access to the data source within the VPC
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
 //   	},
-//   	// The VPC subnet which contains the data source
-//   	Subnet: Subnet,
+//   	Vpc: Vpc,
+//   	// Optional - defaults to private subnets
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   	},
 //   })
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype

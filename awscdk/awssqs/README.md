@@ -112,3 +112,92 @@ queue2 := sqs.NewQueue(this, jsii.String("Queue"), &QueueProps{
 	},
 })
 ```
+
+## Monitoring
+
+SQS metrics are available as `metric*` methods on a queue; `metric()` returns any metric by name:
+
+```go
+queue := sqs.NewQueue(this, jsii.String("Queue"))
+
+queue.metricApproximateAgeOfOldestMessage().CreateAlarm(this, jsii.String("MessagesTooOld"), &CreateAlarmOptions{
+	Threshold: awscdk.Duration_Minutes(jsii.Number(15)).ToSeconds(),
+	EvaluationPeriods: jsii.Number(3),
+})
+```
+
+`metricApproximateNumberOfMessagesOutstanding()` returns
+`ApproximateNumberOfMessagesVisible + ApproximateNumberOfMessagesNotVisible` as a metric math
+expression: messages waiting to be picked up, plus messages received but not yet deleted.
+
+### Autoscaling consumers on queue depth
+
+Scaling a worker fleet on queue depth needs a different metric in each direction:
+
+* **Scale out on `ApproximateNumberOfMessagesVisible`** — work nobody has started yet. An in-flight
+  message is already owned by a consumer, so adding capacity for it produces an idle consumer.
+* **Scale in on `metricApproximateNumberOfMessagesOutstanding()`** — everything still owed.
+  Receiving a message moves it from `Visible` to `NotVisible`, so a policy watching `Visible` alone
+  cannot tell a consumer that just picked up work from one that finished it, and can terminate a
+  consumer mid-message. The message reappears only after its visibility timeout, so the longer
+  consumers hold messages, the longer that work stalls.
+
+That means two one-sided policies; the `change: 0` step keeps each from acting in the other
+direction:
+
+```go
+var service FargateService
+
+queue := sqs.NewQueue(this, jsii.String("Queue"))
+
+taskCount := service.AutoScaleTaskCount(&EnableScalingProps{
+	MinCapacity: jsii.Number(1),
+	MaxCapacity: jsii.Number(10),
+})
+
+taskCount.ScaleOnMetric(jsii.String("ScaleOutOnWaitingWork"), &BasicStepScalingPolicyProps{
+	Metric: queue.metricApproximateNumberOfMessagesVisible(&MetricOptions{
+		Period: awscdk.Duration_Minutes(jsii.Number(1)),
+	}),
+	ScalingSteps: []ScalingInterval{
+		&ScalingInterval{
+			Upper: jsii.Number(30),
+			Change: jsii.Number(0),
+		},
+		&ScalingInterval{
+			Lower: jsii.Number(30),
+			Change: +jsii.Number(1),
+		},
+	},
+	AdjustmentType: appscaling.AdjustmentType_CHANGE_IN_CAPACITY,
+})
+
+// Remove a task only when nothing is outstanding, so it cannot be holding a message.
+taskCount.ScaleOnMetric(jsii.String("ScaleInOnOutstandingWork"), &BasicStepScalingPolicyProps{
+	Metric: queue.MetricApproximateNumberOfMessagesOutstanding(&MetricOptions{
+		Period: awscdk.Duration_*Minutes(jsii.Number(1)),
+	}),
+	ScalingSteps: []ScalingInterval{
+		&ScalingInterval{
+			Upper: jsii.Number(0),
+			Change: -jsii.Number(1),
+		},
+		&ScalingInterval{
+			Lower: jsii.Number(0),
+			Change: jsii.Number(0),
+		},
+	},
+	AdjustmentType: appscaling.AdjustmentType_CHANGE_IN_CAPACITY,
+})
+```
+
+Caveats:
+
+* **Target tracking rejects this metric.** It accepts only direct metrics, so
+  `scaleToTrackCustomMetric()` throws `Only direct metrics are supported for Target Tracking`
+  ([aws-cdk#20659](https://github.com/aws/aws-cdk/issues/20659)).
+* `ApproximateNumberOfMessagesNotVisible` can briefly report non-zero on an empty queue if an SQS
+  storage server is unavailable. Evaluate several consecutive datapoints, especially when scaling in
+  to zero.
+* Neither term counts delayed messages. Add `metricApproximateNumberOfMessagesDelayed()` if you use
+  delay queues or `DelaySeconds`.

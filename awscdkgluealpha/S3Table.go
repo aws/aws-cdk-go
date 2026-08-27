@@ -35,9 +35,12 @@ import (
 //   	DataFormat: glue.DataFormat_JSON(),
 //   	PartitionProjection: map[string]PartitionProjectionConfiguration{
 //   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
-//   			"min": jsii.String("NOW-3YEARS"),
-//   			"max": jsii.String("NOW"),
+//   			"min": jsii.String("2020-01-01"),
+//   			"max": jsii.String("2023-12-31"),
 //   			"format": jsii.String("yyyy-MM-dd"),
+//   			"interval": jsii.Number(1),
+//   			 // optional, defaults to 1
+//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
 //   		}),
 //   	},
 //   })
@@ -48,6 +51,11 @@ type S3Table interface {
 	// S3 bucket in which the table's data resides.
 	// Experimental.
 	Bucket() awss3.IBucket
+	// The KMS key used for client-side encryption of the table's data, if `clientSideEncryption` was configured. Otherwise, `undefined`.
+	//
+	// For server-side (bucket) encryption, read `bucket.encryptionKey` instead.
+	// Experimental.
+	ClientSideEncryptionKey() awskms.IKey
 	// This table's columns.
 	// Experimental.
 	Columns() *[]*Column
@@ -60,14 +68,6 @@ type S3Table interface {
 	// Format of this table's data files.
 	// Experimental.
 	DataFormat() DataFormat
-	// The type of encryption enabled for the table.
-	// Experimental.
-	Encryption() TableEncryption
-	// The KMS key used to secure the data if `encryption` is set to `CSE-KMS` or `SSE-KMS`.
-	//
-	// Otherwise, `undefined`.
-	// Experimental.
-	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -241,6 +241,16 @@ func (j *jsiiProxy_S3Table) Bucket() awss3.IBucket {
 	return returns
 }
 
+func (j *jsiiProxy_S3Table) ClientSideEncryptionKey() awskms.IKey {
+	var returns awskms.IKey
+	_jsii_.Get(
+		j,
+		"clientSideEncryptionKey",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_S3Table) Columns() *[]*Column {
 	var returns *[]*Column
 	_jsii_.Get(
@@ -276,26 +286,6 @@ func (j *jsiiProxy_S3Table) DataFormat() DataFormat {
 	_jsii_.Get(
 		j,
 		"dataFormat",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_S3Table) Encryption() TableEncryption {
-	var returns TableEncryption
-	_jsii_.Get(
-		j,
-		"encryption",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_S3Table) EncryptionKey() awskms.IKey {
-	var returns awskms.IKey
-	_jsii_.Get(
-		j,
-		"encryptionKey",
 		&returns,
 	)
 	return returns

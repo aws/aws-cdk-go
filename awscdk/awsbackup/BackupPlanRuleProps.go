@@ -10,14 +10,13 @@ import (
 //
 // Example:
 //   var plan BackupPlan
-//   var secondaryVault BackupVault
 //
 //   plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
-//   	CopyActions: []BackupPlanCopyActionProps{
-//   		&BackupPlanCopyActionProps{
-//   			DestinationBackupVault: secondaryVault,
-//   			MoveToColdStorageAfter: awscdk.Duration_Days(jsii.Number(30)),
-//   			DeleteAfter: awscdk.Duration_*Days(jsii.Number(120)),
+//   	IndexActions: []BackupPlanIndexActionProps{
+//   		&BackupPlanIndexActionProps{
+//   			ResourceTypes: []IndexActionResourceType{
+//   				backup.IndexActionResourceType_S3(),
+//   			},
 //   		},
 //   	},
 //   }))
@@ -51,6 +50,12 @@ type BackupPlanRuleProps struct {
 	// Default: false.
 	//
 	EnableContinuousBackup *bool `field:"optional" json:"enableContinuousBackup" yaml:"enableContinuousBackup"`
+	// To help search your backups, you can enable Backup indexes by assigning index actions.
+	//
+	// Currently, you can only have up to a single index action per BackupRule.
+	// Default: - no index actions.
+	//
+	IndexActions *[]*BackupPlanIndexActionProps `field:"optional" json:"indexActions" yaml:"indexActions"`
 	// Specifies the duration after creation that a recovery point is moved to cold storage.
 	// Default: - recovery point is never moved to cold storage.
 	//

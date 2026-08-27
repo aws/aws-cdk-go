@@ -151,6 +151,24 @@ plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
 }))
 ```
 
+You can enable Backup indexes for specific resource types in the rule by using `indexActions`.
+Each rule can have at most one index action, and its `resourceTypes` must list at least one
+resource type to index.
+
+```go
+var plan BackupPlan
+
+plan.AddRule(backup.NewBackupPlanRule(&BackupPlanRuleProps{
+	IndexActions: []BackupPlanIndexActionProps{
+		&BackupPlanIndexActionProps{
+			ResourceTypes: []IndexActionResourceType{
+				backup.IndexActionResourceType_S3(),
+			},
+		},
+	},
+}))
+```
+
 Ready-made rules are also available:
 
 ```go

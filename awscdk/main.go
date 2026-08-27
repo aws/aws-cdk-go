@@ -3489,9 +3489,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "isUnresolved", GoMethod: "IsUnresolved"},
 			_jsii_.MemberMethod{JsiiMethod: "toBytes", GoMethod: "ToBytes"},
 			_jsii_.MemberMethod{JsiiMethod: "toGibibytes", GoMethod: "ToGibibytes"},
+			_jsii_.MemberMethod{JsiiMethod: "toHumanString", GoMethod: "ToHumanString"},
 			_jsii_.MemberMethod{JsiiMethod: "toKibibytes", GoMethod: "ToKibibytes"},
 			_jsii_.MemberMethod{JsiiMethod: "toMebibytes", GoMethod: "ToMebibytes"},
 			_jsii_.MemberMethod{JsiiMethod: "toPebibytes", GoMethod: "ToPebibytes"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "toTebibytes", GoMethod: "ToTebibytes"},
 		},
 		func() interface{} {

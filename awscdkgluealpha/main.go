@@ -1122,12 +1122,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
+			_jsii_.MemberProperty{JsiiProperty: "clientSideEncryptionKey", GoGetter: "ClientSideEncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "columns", GoGetter: "Columns"},
 			_jsii_.MemberProperty{JsiiProperty: "compressed", GoGetter: "Compressed"},
 			_jsii_.MemberProperty{JsiiProperty: "database", GoGetter: "Database"},
 			_jsii_.MemberProperty{JsiiProperty: "dataFormat", GoGetter: "DataFormat"},
-			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
-			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "generateS3PrefixForGrant", GoMethod: "GenerateS3PrefixForGrant"},
@@ -1160,9 +1159,25 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.S3TableEncryption",
+		reflect.TypeOf((*S3TableEncryption)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_S3TableEncryption{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.S3TableProps",
 		reflect.TypeOf((*S3TableProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.S3TableStorage",
+		reflect.TypeOf((*S3TableStorage)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_S3TableStorage{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.ScalaSparkEtlJob",
@@ -1463,52 +1478,6 @@ func init() {
 			"TRUNCATE": SurplusCharHandlingAction_TRUNCATE,
 		},
 	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/aws-glue-alpha.Table",
-		reflect.TypeOf((*Table)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addPartitionIndex", GoMethod: "AddPartitionIndex"},
-			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "bucket", GoGetter: "Bucket"},
-			_jsii_.MemberProperty{JsiiProperty: "columns", GoGetter: "Columns"},
-			_jsii_.MemberProperty{JsiiProperty: "compressed", GoGetter: "Compressed"},
-			_jsii_.MemberProperty{JsiiProperty: "database", GoGetter: "Database"},
-			_jsii_.MemberProperty{JsiiProperty: "dataFormat", GoGetter: "DataFormat"},
-			_jsii_.MemberProperty{JsiiProperty: "encryption", GoGetter: "Encryption"},
-			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "generateS3PrefixForGrant", GoMethod: "GenerateS3PrefixForGrant"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
-			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
-			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
-			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
-			_jsii_.MemberMethod{JsiiMethod: "grantReadWrite", GoMethod: "GrantReadWrite"},
-			_jsii_.MemberMethod{JsiiMethod: "grantToUnderlyingResources", GoMethod: "GrantToUnderlyingResources"},
-			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
-			_jsii_.MemberProperty{JsiiProperty: "hasEncryptedData", GoGetter: "HasEncryptedData"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberProperty{JsiiProperty: "partitionIndexes", GoGetter: "PartitionIndexes"},
-			_jsii_.MemberProperty{JsiiProperty: "partitionKeys", GoGetter: "PartitionKeys"},
-			_jsii_.MemberProperty{JsiiProperty: "partitionProjection", GoGetter: "PartitionProjection"},
-			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberProperty{JsiiProperty: "s3Prefix", GoGetter: "S3Prefix"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberProperty{JsiiProperty: "storageParameters", GoGetter: "StorageParameters"},
-			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
-			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
-			_jsii_.MemberProperty{JsiiProperty: "tableResource", GoGetter: "TableResource"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_Table{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_S3Table)
-			return &j
-		},
-	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.TableAttributes",
 		reflect.TypeOf((*TableAttributes)(nil)).Elem(),
@@ -1559,19 +1528,13 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.TableBaseProps",
 		reflect.TypeOf((*TableBaseProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/aws-glue-alpha.TableEncryption",
-		reflect.TypeOf((*TableEncryption)(nil)).Elem(),
-		map[string]interface{}{
-			"S3_MANAGED": TableEncryption_S3_MANAGED,
-			"KMS": TableEncryption_KMS,
-			"KMS_MANAGED": TableEncryption_KMS_MANAGED,
-			"CLIENT_SIDE_KMS": TableEncryption_CLIENT_SIDE_KMS,
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.TableClientSideEncryption",
+		reflect.TypeOf((*TableClientSideEncryption)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_TableClientSideEncryption{}
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.TableProps",
-		reflect.TypeOf((*TableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.TriggerOptions",
@@ -1587,9 +1550,16 @@ func init() {
 			return &jsiiProxy_TriggerSchedule{}
 		},
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Type",
 		reflect.TypeOf((*Type)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "inputString", GoGetter: "InputString"},
+			_jsii_.MemberProperty{JsiiProperty: "isPrimitive", GoGetter: "IsPrimitive"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Type{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.WeeklyScheduleTriggerOptions",

@@ -151,7 +151,7 @@ type BucketDeploymentProps struct {
 	//
 	// If you are deploying large files, you will need to increase this number
 	// accordingly.
-	// Default: 128.
+	// Default: 1024.
 	//
 	MemoryLimit *float64 `field:"optional" json:"memoryLimit" yaml:"memoryLimit"`
 	// User-defined object metadata to be set on all objects in the deployment.

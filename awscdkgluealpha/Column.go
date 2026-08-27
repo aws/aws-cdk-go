@@ -8,12 +8,11 @@ package awscdkgluealpha
 //   // The values are placeholders you should change.
 //   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
+//   var type Type
+//
 //   column := &Column{
 //   	Name: jsii.String("name"),
-//   	Type: &Type{
-//   		InputString: jsii.String("inputString"),
-//   		IsPrimitive: jsii.Boolean(false),
-//   	},
+//   	Type: type,
 //
 //   	// the properties below are optional
 //   	Comment: jsii.String("comment"),
@@ -26,7 +25,7 @@ type Column struct {
 	Name *string `field:"required" json:"name" yaml:"name"`
 	// Type of the column.
 	// Experimental.
-	Type *Type `field:"required" json:"type" yaml:"type"`
+	Type Type `field:"required" json:"type" yaml:"type"`
 	// Coment describing the column.
 	// Default: none.
 	//

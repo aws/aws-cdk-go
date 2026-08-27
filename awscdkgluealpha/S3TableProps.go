@@ -1,9 +1,5 @@
 package awscdkgluealpha
 
-import (
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-)
 
 // Example:
 //   var myDatabase Database
@@ -121,7 +117,7 @@ type S3TableProps struct {
 	//
 	// Example:
 	//      declare const glueDatabase: glue.IDatabase;
-	//      const table = new glue.Table(this, 'Table', {
+	//      const table = new glue.S3Table(this, 'Table', {
 	//        storageParameters: [
 	//            glue.StorageParameter.skipHeaderLineCount(1),
 	//            glue.StorageParameter.compressionType(glue.CompressionType.GZIP),
@@ -154,29 +150,14 @@ type S3TableProps struct {
 	//
 	// Experimental.
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
-	// S3 bucket in which to store data.
-	// Default: one is created for you.
+	// Client-side encryption (CSE-KMS) for the table's data.
+	//
+	// Independent of the bucket's server-side encryption, and valid whether the
+	// bucket is managed or provided.
+	// Default: - no client-side encryption.
 	//
 	// Experimental.
-	Bucket awss3.IBucket `field:"optional" json:"bucket" yaml:"bucket"`
-	// The kind of encryption to secure the data with.
-	//
-	// You can only provide this option if you are not explicitly passing in a bucket.
-	//
-	// If you choose `SSE-KMS`, you *can* provide an un-managed KMS key with `encryptionKey`.
-	// If you choose `CSE-KMS`, you *may* provide an un-managed KMS key with `encryptionKey`;
-	// one is created automatically if omitted.
-	// Default: BucketEncryption.S3_MANAGED
-	//
-	// Experimental.
-	Encryption TableEncryption `field:"optional" json:"encryption" yaml:"encryption"`
-	// External KMS key to use for bucket encryption.
-	//
-	// The `encryption` property must be `SSE-KMS` or `CSE-KMS`.
-	// Default: key is managed by KMS.
-	//
-	// Experimental.
-	EncryptionKey awskms.IKey `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
+	ClientSideEncryption TableClientSideEncryption `field:"optional" json:"clientSideEncryption" yaml:"clientSideEncryption"`
 	// S3 prefix under which table objects are stored.
 	//
 	// When the table shares a bucket with other tables or consumers, set this so
@@ -186,5 +167,10 @@ type S3TableProps struct {
 	//
 	// Experimental.
 	S3Prefix *string `field:"optional" json:"s3Prefix" yaml:"s3Prefix"`
+	// Where the table's data is stored: a bucket created and managed by the table, or an existing bucket you provide.
+	// Default: - a managed bucket with S3-managed (SSE-S3) encryption.
+	//
+	// Experimental.
+	Storage S3TableStorage `field:"optional" json:"storage" yaml:"storage"`
 }
 

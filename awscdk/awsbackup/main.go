@@ -42,6 +42,10 @@ func init() {
 		reflect.TypeOf((*BackupPlanCopyActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_backup.BackupPlanIndexActionProps",
+		reflect.TypeOf((*BackupPlanIndexActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_backup.BackupPlanProps",
 		reflect.TypeOf((*BackupPlanProps)(nil)).Elem(),
 	)
@@ -936,6 +940,17 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbackupIBackupVaultRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_backup.IndexActionResourceType",
+		reflect.TypeOf((*IndexActionResourceType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IndexActionResourceType{}
 		},
 	)
 	_jsii_.RegisterStruct(

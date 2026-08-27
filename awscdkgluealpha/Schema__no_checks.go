@@ -4,7 +4,7 @@ package awscdkgluealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func validateSchema_ArrayParameters(itemType *Type) error {
+func validateSchema_ArrayParameters(itemType Type) error {
 	return nil
 }
 
@@ -12,11 +12,15 @@ func validateSchema_CharParameters(length *float64) error {
 	return nil
 }
 
+func validateSchema_CustomParameters(inputString *string) error {
+	return nil
+}
+
 func validateSchema_DecimalParameters(precision *float64) error {
 	return nil
 }
 
-func validateSchema_MapParameters(keyType *Type, valueType *Type) error {
+func validateSchema_MapParameters(keyType Type, valueType Type) error {
 	return nil
 }
 

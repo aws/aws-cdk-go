@@ -46,6 +46,8 @@ type Size interface {
 	//
 	// Returns: the quantity of bytes expressed in gibibytes.
 	ToGibibytes(opts *SizeConversionOptions) *float64
+	// Convert this Size object to the most appropriate readable number.
+	ToHumanString() *string
 	// Return this storage as a total number of kibibytes.
 	//
 	// Returns: the quantity of bytes expressed in kibibytes.
@@ -58,6 +60,8 @@ type Size interface {
 	//
 	// Returns: the quantity of bytes expressed in pebibytes.
 	ToPebibytes(opts *SizeConversionOptions) *float64
+	// Convert this Size object to its constructor form.
+	ToString() *string
 	// Return this storage as a total number of tebibytes.
 	//
 	// Returns: the quantity of bytes expressed in tebibytes.
@@ -250,6 +254,19 @@ func (s *jsiiProxy_Size) ToGibibytes(opts *SizeConversionOptions) *float64 {
 	return returns
 }
 
+func (s *jsiiProxy_Size) ToHumanString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toHumanString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (s *jsiiProxy_Size) ToKibibytes(opts *SizeConversionOptions) *float64 {
 	if err := s.validateToKibibytesParameters(opts); err != nil {
 		panic(err)
@@ -292,6 +309,19 @@ func (s *jsiiProxy_Size) ToPebibytes(opts *SizeConversionOptions) *float64 {
 		s,
 		"toPebibytes",
 		[]interface{}{opts},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_Size) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
 		&returns,
 	)
 

@@ -106,7 +106,7 @@ type ExternalTableProps struct {
 	//
 	// Example:
 	//      declare const glueDatabase: glue.IDatabase;
-	//      const table = new glue.Table(this, 'Table', {
+	//      const table = new glue.S3Table(this, 'Table', {
 	//        storageParameters: [
 	//            glue.StorageParameter.skipHeaderLineCount(1),
 	//            glue.StorageParameter.compressionType(glue.CompressionType.GZIP),

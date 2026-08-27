@@ -60,6 +60,10 @@ func (q *jsiiProxy_QueueBase) validateMetricApproximateNumberOfMessagesNotVisibl
 	return nil
 }
 
+func (q *jsiiProxy_QueueBase) validateMetricApproximateNumberOfMessagesOutstandingParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (q *jsiiProxy_QueueBase) validateMetricApproximateNumberOfMessagesVisibleParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }

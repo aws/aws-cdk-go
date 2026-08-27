@@ -4,6 +4,8 @@ package awscdkgluealpha
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 func validateStorageParameter_ColumnCountMismatchHandlingParameters(value ColumnCountMismatchHandlingAction) error {
@@ -22,7 +24,7 @@ func validateStorageParameter_CompressionTypeParameters(value CompressionType) e
 	return nil
 }
 
-func validateStorageParameter_CustomParameters(key *string, value interface{}) error {
+func validateStorageParameter_CustomParameters(key *string, value *string) error {
 	if key == nil {
 		return fmt.Errorf("parameter key is required, but nil was provided")
 	}
@@ -114,9 +116,9 @@ func validateStorageParameter_SurplusCharHandlingParameters(value SurplusCharHan
 	return nil
 }
 
-func validateStorageParameter_WriteKmsKeyIdParameters(value *string) error {
-	if value == nil {
-		return fmt.Errorf("parameter value is required, but nil was provided")
+func validateStorageParameter_WriteKmsKeyIdParameters(key interfacesawskms.IKeyRef) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
 	}
 
 	return nil

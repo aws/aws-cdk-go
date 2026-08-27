@@ -23,11 +23,9 @@ import (
 //
 //   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
-//   // Create logging destinations
-//   logGroup := logs.NewLogGroup(this, jsii.String("RuntimeLogGroup"))
-//   logBucket := s3.NewBucket(this, jsii.String("RuntimeLogBucket"))
-//   firehoseStream := firehose.NewDeliveryStream(this, jsii.String("RuntimeLogStream"), &DeliveryStreamProps{
-//   	Destination: firehose.NewS3Bucket(logBucket),
+//   // Use a /aws/vendedlogs/ log group for same-account delivery without explicit resource policy
+//   logGroup := logs.NewLogGroup(this, jsii.String("RuntimeLogGroup"), &LogGroupProps{
+//   	LogGroupName: jsii.String("/aws/vendedlogs/bedrock-agentcore/my-runtime"),
 //   })
 //
 //   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
@@ -39,15 +37,8 @@ import (
 //   			LogType: agentcore.LogType_APPLICATION_LOGS(),
 //   			Destination: agentcore.LoggingDestination_CloudWatchLogs(logGroup),
 //   		},
-//   		&LoggingConfig{
-//   			LogType: agentcore.LogType_APPLICATION_LOGS(),
-//   			Destination: agentcore.LoggingDestination_S3(logBucket),
-//   		},
-//   		&LoggingConfig{
-//   			LogType: agentcore.LogType_APPLICATION_LOGS(),
-//   			Destination: agentcore.LoggingDestination_Firehose(firehoseStream),
-//   		},
 //   	},
+//   	ManageDeliveryResourcePolicy: jsii.Boolean(false),
 //   })
 //
 type LoggingDestination interface {

@@ -4,19 +4,26 @@ package awsecs
 // The properties to import from the service using the Fargate launch type.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var cluster Cluster
 //
-//   fargateServiceAttributes := &FargateServiceAttributes{
-//   	Cluster: cluster,
 //
-//   	// the properties below are optional
-//   	ServiceArn: jsii.String("serviceArn"),
-//   	ServiceName: jsii.String("serviceName"),
-//   }
+//   // Import service from EC2 service attributes
+//   ec2ServiceFromAttributes := ecs.Ec2Service_FromEc2ServiceAttributes(this, jsii.String("Ec2ServiceFromAttributes"), &Ec2ServiceAttributes{
+//   	ServiceArn: jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"),
+//   	Cluster: Cluster,
+//   })
+//
+//   // Import service from EC2 service ARN
+//   ec2ServiceFromArn := ecs.Ec2Service_FromEc2ServiceArn(this, jsii.String("Ec2ServiceFromArn"), jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"))
+//
+//   // Import service from Fargate service attributes
+//   fargateServiceFromAttributes := ecs.FargateService_FromFargateServiceAttributes(this, jsii.String("FargateServiceFromAttributes"), &FargateServiceAttributes{
+//   	ServiceArn: jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"),
+//   	Cluster: Cluster,
+//   })
+//
+//   // Import service from Fargate service ARN
+//   fargateServiceFromArn := ecs.FargateService_FromFargateServiceArn(this, jsii.String("FargateServiceFromArn"), jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"))
 //
 type FargateServiceAttributes struct {
 	// The cluster that hosts the service.

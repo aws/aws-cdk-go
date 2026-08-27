@@ -20,7 +20,8 @@ import (
 //
 // Example:
 //   lambda.NewDockerImageFunction(this, jsii.String("AssetFunction"), &DockerImageFunctionProps{
-//   	Code: lambda.DockerImageCode_FromImageAsset(path.join(__dirname, jsii.String("docker-handler"))),
+//   	Code: lambda.DockerImageCode_FromImageAsset(path.join(__dirname, jsii.String("docker-arm64-handler"))),
+//   	Architecture: lambda.Architecture_ARM_64(),
 //   })
 //
 type DockerImageFunction interface {

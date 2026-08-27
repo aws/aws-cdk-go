@@ -147,6 +147,12 @@ type EvaluateExpressionProps struct {
 	ResultSelector *map[string]interface{} `field:"optional" json:"resultSelector" yaml:"resultSelector"`
 	// The expression to evaluate. The expression may contain state paths.
 	//
+	// A referenced path is only resolved where it is used as code (for example `$.a + $.b`, or
+	// a function argument). To build a string that contains a value, use a template literal
+	// interpolation (`${$.count}`); a path placed as literal text inside a plain string, or as
+	// bare text inside a template literal (for example `'items: $.count'`), is not resolved and
+	// is rejected at synth time.
+	//
 	// Example value: `'$.a + $.b'`
 	Expression *string `field:"required" json:"expression" yaml:"expression"`
 	// The system architecture compatible with this lambda function.

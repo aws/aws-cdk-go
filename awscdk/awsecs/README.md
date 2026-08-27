@@ -1261,26 +1261,27 @@ Since AWS has changed the [ARN format for ECS](https://docs.aws.amazon.com/Amazo
 feature flag `@aws-cdk/aws-ecs:arnFormatIncludesClusterName` must be enabled to use the new ARN format.
 The feature flag changes behavior for the entire CDK project. Therefore it is not possible to mix the old and the new format in one CDK project.
 
-```tss
-declare const cluster: ecs.Cluster;
+```go
+var cluster Cluster
+
 
 // Import service from EC2 service attributes
-const service = ecs.Ec2Service.fromEc2ServiceAttributes(this, 'EcsService', {
-  serviceArn: 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service',
-  cluster,
-});
+ec2ServiceFromAttributes := ecs.Ec2Service_FromEc2ServiceAttributes(this, jsii.String("Ec2ServiceFromAttributes"), &Ec2ServiceAttributes{
+	ServiceArn: jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"),
+	Cluster: Cluster,
+})
 
 // Import service from EC2 service ARN
-const service = ecs.Ec2Service.fromEc2ServiceArn(this, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
+ec2ServiceFromArn := ecs.Ec2Service_FromEc2ServiceArn(this, jsii.String("Ec2ServiceFromArn"), jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"))
 
 // Import service from Fargate service attributes
-const service = ecs.FargateService.fromFargateServiceAttributes(this, 'EcsService', {
-  serviceArn: 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service',
-  cluster,
-});
+fargateServiceFromAttributes := ecs.FargateService_FromFargateServiceAttributes(this, jsii.String("FargateServiceFromAttributes"), &FargateServiceAttributes{
+	ServiceArn: jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"),
+	Cluster: Cluster,
+})
 
 // Import service from Fargate service ARN
-const service = ecs.FargateService.fromFargateServiceArn(this, 'EcsService', 'arn:aws:ecs:us-west-2:123456789012:service/my-http-service');
+fargateServiceFromArn := ecs.FargateService_FromFargateServiceArn(this, jsii.String("FargateServiceFromArn"), jsii.String("arn:aws:ecs:us-west-2:123456789012:service/my-http-service"))
 ```
 
 ### Availability Zone rebalancing
@@ -1376,6 +1377,8 @@ scaling.ScaleOnRequestCount(jsii.String("RequestScaling"), &RequestCountScalingP
 
 Task auto-scaling is powered by *Application Auto-Scaling*.
 See that section for details.
+
+To scale on SQS queue depth, see [Autoscaling consumers on queue depth](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_sqs-readme.html#autoscaling-consumers-on-queue-depth).
 
 ## Integration with CloudWatch Events
 

@@ -3,6 +3,8 @@ package awscdkgluealpha
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkgluealpha/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // A storage parameter. The list of storage parameters available is not exhaustive and other keys may be used.
@@ -142,7 +144,7 @@ func StorageParameter_CompressionType(value CompressionType) StorageParameter {
 
 // A custom storage parameter.
 // Experimental.
-func StorageParameter_Custom(key *string, value interface{}) StorageParameter {
+func StorageParameter_Custom(key *string, value *string) StorageParameter {
 	_init_.Initialize()
 
 	if err := validateStorageParameter_CustomParameters(key, value); err != nil {
@@ -370,12 +372,20 @@ func StorageParameter_SurplusCharHandling(value SurplusCharHandlingAction) Stora
 	return returns
 }
 
-// You can specify an AWS Key Management Service key to enable Server–Side Encryption (SSE) for Amazon S3 objects.
+// Enables server-side encryption (SSE-KMS) with the given AWS KMS key on the files Redshift Spectrum writes for this table (via `CREATE EXTERNAL TABLE AS` or `INSERT`).
+//
+// Redshift Spectrum accepts either the key's ARN or its bare key ID for the
+// `write.kms.key.id` property, and encrypts the written objects with that key;
+// this renders the ARN. To use the S3 bucket's default KMS key instead, set the
+// literal value `auto` via `StorageParameter.custom('write.kms.key.id', 'auto')` —
+// this typed factory cannot express `auto`.
+// See: https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_TABLE.html
+//
 // Experimental.
-func StorageParameter_WriteKmsKeyId(value *string) StorageParameter {
+func StorageParameter_WriteKmsKeyId(key interfacesawskms.IKeyRef) StorageParameter {
 	_init_.Initialize()
 
-	if err := validateStorageParameter_WriteKmsKeyIdParameters(value); err != nil {
+	if err := validateStorageParameter_WriteKmsKeyIdParameters(key); err != nil {
 		panic(err)
 	}
 	var returns StorageParameter
@@ -383,7 +393,7 @@ func StorageParameter_WriteKmsKeyId(value *string) StorageParameter {
 	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.StorageParameter",
 		"writeKmsKeyId",
-		[]interface{}{value},
+		[]interface{}{key},
 		&returns,
 	)
 

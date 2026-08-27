@@ -12,7 +12,7 @@ func validateStorageParameter_CompressionTypeParameters(value CompressionType) e
 	return nil
 }
 
-func validateStorageParameter_CustomParameters(key *string, value interface{}) error {
+func validateStorageParameter_CustomParameters(key *string, value *string) error {
 	return nil
 }
 
@@ -56,7 +56,7 @@ func validateStorageParameter_SurplusCharHandlingParameters(value SurplusCharHan
 	return nil
 }
 
-func validateStorageParameter_WriteKmsKeyIdParameters(value *string) error {
+func validateStorageParameter_WriteKmsKeyIdParameters(key interfacesawskms.IKeyRef) error {
 	return nil
 }
 

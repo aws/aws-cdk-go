@@ -65,6 +65,18 @@ type IQueue interface {
 	//
 	// Maximum over 5 minutes.
 	MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of messages waiting to be picked up plus the number in flight.
+	//
+	// `ApproximateNumberOfMessagesVisible + ApproximateNumberOfMessagesNotVisible`, as a metric math
+	// expression. Prefer this over `metricApproximateNumberOfMessagesVisible` when scaling consumers
+	// in: receiving a message lowers `Visible`, so a policy watching only `Visible` cannot tell a
+	// consumer that just picked up work from one that finished it.
+	//
+	// `statistic`, `unit` and dimensions apply to both underlying metrics, `label`, `color` and
+	// `period` to the expression.
+	//
+	// Maximum over 5 minutes.
+	MetricApproximateNumberOfMessagesOutstanding(props *awscloudwatch.MetricOptions) awscloudwatch.MathExpression
 	// The number of messages available for retrieval from the queue.
 	//
 	// Maximum over 5 minutes.
@@ -253,6 +265,22 @@ func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesNotVisible(props *aw
 	_jsii_.Invoke(
 		i,
 		"metricApproximateNumberOfMessagesNotVisible",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IQueue) MetricApproximateNumberOfMessagesOutstanding(props *awscloudwatch.MetricOptions) awscloudwatch.MathExpression {
+	if err := i.validateMetricApproximateNumberOfMessagesOutstandingParameters(props); err != nil {
+		panic(err)
+	}
+	var returns awscloudwatch.MathExpression
+
+	_jsii_.Invoke(
+		i,
+		"metricApproximateNumberOfMessagesOutstanding",
 		[]interface{}{props},
 		&returns,
 	)

@@ -7,29 +7,27 @@ import (
 // Properties of a metric that can be changed.
 //
 // Example:
-//   import cloudwatch "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var deliveryStream DeliveryStream
 //
 //
-//   guardrail := bedrock.NewGuardrail(this, jsii.String("bedrockGuardrails"), &GuardrailProps{
-//   	GuardrailName: jsii.String("my-BedrockGuardrails"),
+//   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
+//   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
+//   	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
+//   	UsingMetrics: map[string]IMetric{
+//   		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
+//   			"statistic": cloudwatch.Statistic_SUM,
+//   		}),
+//   		"bytePerSecLimit": deliveryStream.metric(jsii.String("BytesPerSecondLimit")),
+//   	},
 //   })
-//   // Get a specific metric for this guardrail
-//   invocationsMetric := guardrail.MetricInvocations(&MetricOptions{
-//   	Statistic: jsii.String("Sum"),
-//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
-//   })
 //
-//   // Create a CloudWatch alarm for high invocation latency
-//   // Create a CloudWatch alarm for high invocation latency
-//   cloudwatch.NewAlarm(this, jsii.String("HighLatencyAlarm"), &AlarmProps{
-//   	Metric: guardrail.MetricInvocationLatency(),
-//   	Threshold: jsii.Number(1000),
-//   	 // 1 second
+//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
+//   	Metric: incomingBytesPercentOfLimit,
+//   	Threshold: jsii.Number(0.9),
 //   	EvaluationPeriods: jsii.Number(3),
 //   })
-//
-//   // Get metrics for all guardrails
-//   allInvocationsMetric := bedrock.Guardrail_MetricAllInvocations()
 //
 type MetricOptions struct {
 	// Account which this metric comes from.

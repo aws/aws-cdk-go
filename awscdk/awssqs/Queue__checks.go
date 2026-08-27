@@ -136,6 +136,14 @@ func (q *jsiiProxy_Queue) validateMetricApproximateNumberOfMessagesNotVisiblePar
 	return nil
 }
 
+func (q *jsiiProxy_Queue) validateMetricApproximateNumberOfMessagesOutstandingParameters(props *awscloudwatch.MetricOptions) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (q *jsiiProxy_Queue) validateMetricApproximateNumberOfMessagesVisibleParameters(props *awscloudwatch.MetricOptions) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

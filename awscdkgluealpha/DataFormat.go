@@ -27,9 +27,12 @@ import (
 //   	DataFormat: glue.DataFormat_JSON(),
 //   	PartitionProjection: map[string]PartitionProjectionConfiguration{
 //   		"date": glue.PartitionProjectionConfiguration_date(&DatePartitionProjectionConfigurationProps{
-//   			"min": jsii.String("NOW-3YEARS"),
-//   			"max": jsii.String("NOW"),
+//   			"min": jsii.String("2020-01-01"),
+//   			"max": jsii.String("2023-12-31"),
 //   			"format": jsii.String("yyyy-MM-dd"),
+//   			"interval": jsii.Number(1),
+//   			 // optional, defaults to 1
+//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
 //   		}),
 //   	},
 //   })

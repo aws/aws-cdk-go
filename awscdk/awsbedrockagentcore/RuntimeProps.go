@@ -60,6 +60,27 @@ type RuntimeProps struct {
 	// Default: - No logging configured.
 	//
 	LoggingConfigs *[]*LoggingConfig `field:"optional" json:"loggingConfigs" yaml:"loggingConfigs"`
+	// Whether to create resource policies for log/trace delivery.
+	//
+	// When `false`, the `AWS::Logs::ResourcePolicy` and `AWS::XRay::ResourcePolicy`
+	// are not created. This is useful when deploying many runtimes per account/Region,
+	// as each resource policy consumes an account-level quota slot (CloudWatch Logs: 10,
+	// X-Ray: lower).
+	//
+	// Setting `false` means you are responsible for ensuring delivery permissions exist.
+	// There are two safe ways to use this:
+	// - Same-account delivery to a `/aws/vendedlogs/` log group, where the log-delivery
+	//   service-linked role grants write access implicitly.
+	// - Attaching the delivery resource policy yourself.
+	//
+	// Otherwise delivery silently fails: synthesis and deploy succeed, but nothing is delivered.
+	// Per the [vended-logs delivery docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-infrastructure-V2-CloudWatchLogs.html),
+	// a resource policy is required for CloudWatch Logs delivery outside the `/aws/vendedlogs/` same-account case.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html
+	//
+	// Default: true.
+	//
+	ManageDeliveryResourcePolicy *bool `field:"optional" json:"manageDeliveryResourcePolicy" yaml:"manageDeliveryResourcePolicy"`
 	// Network configuration for the agent runtime.
 	// Default: - RuntimeNetworkConfiguration.usingPublicNetwork()
 	//

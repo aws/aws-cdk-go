@@ -40,6 +40,10 @@ func (i *jsiiProxy_IQueue) validateMetricApproximateNumberOfMessagesNotVisiblePa
 	return nil
 }
 
+func (i *jsiiProxy_IQueue) validateMetricApproximateNumberOfMessagesOutstandingParameters(props *awscloudwatch.MetricOptions) error {
+	return nil
+}
+
 func (i *jsiiProxy_IQueue) validateMetricApproximateNumberOfMessagesVisibleParameters(props *awscloudwatch.MetricOptions) error {
 	return nil
 }
