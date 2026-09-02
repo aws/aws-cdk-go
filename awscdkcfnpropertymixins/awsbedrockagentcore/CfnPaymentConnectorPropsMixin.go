@@ -35,6 +35,7 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	PaymentManagerId: jsii.String("paymentManagerId"),
+//   	ProvisionMode: jsii.String("provisionMode"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

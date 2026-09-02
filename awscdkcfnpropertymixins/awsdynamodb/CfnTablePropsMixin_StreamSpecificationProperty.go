@@ -1,5 +1,8 @@
 package awsdynamodb
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
 //
@@ -15,6 +18,12 @@ package awsdynamodb
 //   		PolicyDocument: policyDocument,
 //   	},
 //   	StreamViewType: jsii.String("streamViewType"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html
@@ -41,5 +50,8 @@ type CfnTablePropsMixin_StreamSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-streamviewtype
 	//
 	StreamViewType *string `field:"optional" json:"streamViewType" yaml:"streamViewType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

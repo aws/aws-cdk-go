@@ -6,9 +6,9 @@ type CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose string
 
 const (
 	// Experimental.
-	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_JSON CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose = "JSON"
-	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_PLAIN CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_JSON CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose = "JSON"
 	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_RAW CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose = "RAW"
 )

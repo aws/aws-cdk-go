@@ -118,6 +118,7 @@ package awsbatch
 //   			NetworkConfiguration: &NetworkConfigurationProperty{
 //   				AssignPublicIp: jsii.String("assignPublicIp"),
 //   			},
+//   			NetworkMode: jsii.String("networkMode"),
 //   			PidMode: jsii.String("pidMode"),
 //   			PlatformVersion: jsii.String("platformVersion"),
 //   			RuntimePlatform: &RuntimePlatformProperty{

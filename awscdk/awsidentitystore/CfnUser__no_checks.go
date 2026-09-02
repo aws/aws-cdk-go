@@ -1,0 +1,138 @@
+//go:build no_runtime_type_checking
+
+package awsidentitystore
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_CfnUser) validateAddDeletionOverrideParameters(path *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddDependsOnParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddMetadataParameters(key *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddOverrideParameters(path *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddPropertyDeletionOverrideParameters(propertyPath *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddPropertyOverrideParameters(propertyPath *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateGetAttParameters(attributeName *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateGetMetadataParameters(key *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateInspectParameters(inspector awscdk.TreeInspector) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnUser) validateValidatePropertiesParameters(_properties interface{}) error {
+	return nil
+}
+
+func validateCfnUser_ArnForUserParameters(resource interfacesawsidentitystore.IUserRef) error {
+	return nil
+}
+
+func validateCfnUser_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnUser_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnUser_IsCfnUserParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnUser_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetAddressesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetEmailsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetIdentityStoreIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetNameParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetPhoneNumbersParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetPhotosParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnUser) validateSetRolesParameters(val interface{}) error {
+	return nil
+}
+
+func validateNewCfnUserParameters(scope constructs.Construct, id *string, props *CfnUserProps) error {
+	return nil
+}
+

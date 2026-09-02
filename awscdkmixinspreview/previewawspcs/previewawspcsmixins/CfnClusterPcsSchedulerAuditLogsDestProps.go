@@ -8,7 +8,7 @@ package previewawspcsmixins
 //
 //   cfnClusterPcsSchedulerAuditLogsDestProps := &CfnClusterPcsSchedulerAuditLogsDestProps{
 //   	RecordFields: []CfnClusterPcsSchedulerAuditLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_ID,
+//   		awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerAuditLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

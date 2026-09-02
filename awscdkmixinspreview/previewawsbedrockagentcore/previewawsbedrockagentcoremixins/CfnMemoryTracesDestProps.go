@@ -7,8 +7,8 @@ package previewawsbedrockagentcoremixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnMemoryTracesDestProps := &CfnMemoryTracesDestProps{
-//   	RecordFields: []tRACE{
-//   		awscdkmixinspreview.Mixins.CfnMemoryTracesRecordFields_*tRACE,
+//   	RecordFields: []CfnMemoryTracesRecordFields{
+//   		awscdkmixinspreview.Mixins.CfnMemoryTracesRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

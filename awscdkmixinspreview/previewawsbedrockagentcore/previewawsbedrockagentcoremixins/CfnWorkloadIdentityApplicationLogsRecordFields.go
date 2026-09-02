@@ -6,7 +6,15 @@ type CfnWorkloadIdentityApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnWorkloadIdentityApplicationLogsRecordFields_TIMESTAMP CfnWorkloadIdentityApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnWorkloadIdentityApplicationLogsRecordFields_WORKLOAD_IDENTITY_ID CfnWorkloadIdentityApplicationLogsRecordFields = "WORKLOAD_IDENTITY_ID"
+	// Experimental.
 	CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST_ID CfnWorkloadIdentityApplicationLogsRecordFields = "REQUEST_ID"
+	// Experimental.
+	CfnWorkloadIdentityApplicationLogsRecordFields_TRACE_ID CfnWorkloadIdentityApplicationLogsRecordFields = "TRACE_ID"
+	// Experimental.
+	CfnWorkloadIdentityApplicationLogsRecordFields_SPAN_ID CfnWorkloadIdentityApplicationLogsRecordFields = "SPAN_ID"
 	// Experimental.
 	CfnWorkloadIdentityApplicationLogsRecordFields_OPERATION_NAME CfnWorkloadIdentityApplicationLogsRecordFields = "OPERATION_NAME"
 	// Experimental.
@@ -23,10 +31,6 @@ const (
 	CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST CfnWorkloadIdentityApplicationLogsRecordFields = "REQUEST"
 	// Experimental.
 	CfnWorkloadIdentityApplicationLogsRecordFields_RESPONSE CfnWorkloadIdentityApplicationLogsRecordFields = "RESPONSE"
-	// Experimental.
-	CfnWorkloadIdentityApplicationLogsRecordFields_TRACE_ID CfnWorkloadIdentityApplicationLogsRecordFields = "TRACE_ID"
-	// Experimental.
-	CfnWorkloadIdentityApplicationLogsRecordFields_SPAN_ID CfnWorkloadIdentityApplicationLogsRecordFields = "SPAN_ID"
 	// Experimental.
 	CfnWorkloadIdentityApplicationLogsRecordFields_RESOURCE CfnWorkloadIdentityApplicationLogsRecordFields = "RESOURCE"
 	// Experimental.

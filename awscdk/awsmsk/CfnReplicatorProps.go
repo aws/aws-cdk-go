@@ -25,6 +25,31 @@ import (
 //   				Mtls: &KafkaClusterMtlsAuthenticationProperty{
 //   					SecretArn: jsii.String("secretArn"),
 //   				},
+//   				SaslOAuthBearer: &KafkaClusterSaslOAuthBearerAuthenticationProperty{
+//   					TokenEndpointAuthenticationMethod: jsii.String("tokenEndpointAuthenticationMethod"),
+//   					TokenEndpointUrl: jsii.String("tokenEndpointUrl"),
+//
+//   					// the properties below are optional
+//   					ClientCredentials: &KafkaClusterOAuthClientCredentialsProperty{
+//   						TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   					},
+//   					ClientCredentialsAssertion: &KafkaClusterOAuthClientCredentialsAssertionProperty{
+//   						Audience: jsii.String("audience"),
+//   						SigningAlgorithm: jsii.String("signingAlgorithm"),
+//
+//   						// the properties below are optional
+//   						TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   					},
+//   					IamJwtBearer: &KafkaClusterOAuthIamJwtBearerProperty{
+//   						Audience: jsii.String("audience"),
+//   						SigningAlgorithm: jsii.String("signingAlgorithm"),
+//
+//   						// the properties below are optional
+//   						TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   					},
+//   					Scope: jsii.String("scope"),
+//   					TokenEndpointTlsCertificateArn: jsii.String("tokenEndpointTlsCertificateArn"),
+//   				},
 //   				SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
 //   					Mechanism: jsii.String("mechanism"),
 //   					SecretArn: jsii.String("secretArn"),

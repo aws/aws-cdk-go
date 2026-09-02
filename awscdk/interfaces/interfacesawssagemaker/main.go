@@ -24,6 +24,10 @@ func init() {
 		reflect.TypeOf((*AppReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_sagemaker.ArtifactReference",
+		reflect.TypeOf((*ArtifactReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.ClusterReference",
 		reflect.TypeOf((*ClusterReference)(nil)).Elem(),
 	)
@@ -74,6 +78,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.HubReference",
 		reflect.TypeOf((*HubReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_sagemaker.HumanTaskUiReference",
+		reflect.TypeOf((*HumanTaskUiReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_sagemaker.IActionRef",
@@ -134,6 +142,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAppRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_sagemaker.IArtifactRef",
+		reflect.TypeOf((*IArtifactRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "artifactRef", GoGetter: "ArtifactRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IArtifactRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -348,6 +372,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_sagemaker.IHumanTaskUiRef",
+		reflect.TypeOf((*IHumanTaskUiRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "humanTaskUiRef", GoGetter: "HumanTaskUiRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHumanTaskUiRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_sagemaker.IImageRef",
 		reflect.TypeOf((*IImageRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -460,22 +500,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_sagemaker.IModelCardExportJobRef",
-		reflect.TypeOf((*IModelCardExportJobRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "modelCardExportJobRef", GoGetter: "ModelCardExportJobRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IModelCardExportJobRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_sagemaker.IModelCardRef",
 		reflect.TypeOf((*IModelCardRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -566,22 +590,6 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IModelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_sagemaker.IMonitoringScheduleAlertRef",
-		reflect.TypeOf((*IMonitoringScheduleAlertRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "monitoringScheduleAlertRef", GoGetter: "MonitoringScheduleAlertRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMonitoringScheduleAlertRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -732,22 +740,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_sagemaker.ITransformJobRef",
-		reflect.TypeOf((*ITransformJobRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "transformJobRef", GoGetter: "TransformJobRef"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITransformJobRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_sagemaker.ITrialComponentRef",
 		reflect.TypeOf((*ITrialComponentRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -774,6 +766,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IUserProfileRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_sagemaker.IWorkforceRef",
+		reflect.TypeOf((*IWorkforceRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workforceRef", GoGetter: "WorkforceRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkforceRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -824,10 +832,6 @@ func init() {
 		reflect.TypeOf((*ModelBiasJobDefinitionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_sagemaker.ModelCardExportJobReference",
-		reflect.TypeOf((*ModelCardExportJobReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.ModelCardReference",
 		reflect.TypeOf((*ModelCardReference)(nil)).Elem(),
 	)
@@ -850,10 +854,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.ModelReference",
 		reflect.TypeOf((*ModelReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_sagemaker.MonitoringScheduleAlertReference",
-		reflect.TypeOf((*MonitoringScheduleAlertReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.MonitoringScheduleReference",
@@ -892,16 +892,16 @@ func init() {
 		reflect.TypeOf((*StudioLifecycleConfigReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_sagemaker.TransformJobReference",
-		reflect.TypeOf((*TransformJobReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.TrialComponentReference",
 		reflect.TypeOf((*TrialComponentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.UserProfileReference",
 		reflect.TypeOf((*UserProfileReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_sagemaker.WorkforceReference",
+		reflect.TypeOf((*WorkforceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sagemaker.WorkteamReference",

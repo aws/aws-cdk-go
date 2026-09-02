@@ -104,16 +104,6 @@ func init() {
 		reflect.TypeOf((*AWSAPICallViaCloudTrail_UserIdentity)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_sagemaker.events.EndpointConfigEvents",
-		reflect.TypeOf((*EndpointConfigEvents)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "sageMakerEndpointConfigStateChangePattern", GoMethod: "SageMakerEndpointConfigStateChangePattern"},
-		},
-		func() interface{} {
-			return &jsiiProxy_EndpointConfigEvents{}
-		},
-	)
-	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_sagemaker.events.SageMakerAlgorithmStateChange",
 		reflect.TypeOf((*SageMakerAlgorithmStateChange)(nil)).Elem(),
 		nil, // no members

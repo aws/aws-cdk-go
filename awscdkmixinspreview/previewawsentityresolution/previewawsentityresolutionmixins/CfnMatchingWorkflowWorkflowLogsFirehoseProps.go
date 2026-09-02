@@ -7,15 +7,15 @@ package previewawsentityresolutionmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnMatchingWorkflowWorkflowLogsFirehoseProps := &CfnMatchingWorkflowWorkflowLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnMatchingWorkflowWorkflowLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnMatchingWorkflowWorkflowLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnMatchingWorkflowWorkflowLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

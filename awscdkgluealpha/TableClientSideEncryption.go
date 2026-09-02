@@ -4,7 +4,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkgluealpha/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Client-side encryption for an `S3Table`'s data.
@@ -57,7 +57,7 @@ type jsiiProxy_TableClientSideEncryption struct {
 
 // Client-side encryption (CSE-KMS) with an AWS KMS key managed by the account owner.
 // Experimental.
-func TableClientSideEncryption_Kms(key awskms.IKey) TableClientSideEncryption {
+func TableClientSideEncryption_Kms(key interfacesawskms.IKeyRef) TableClientSideEncryption {
 	_init_.Initialize()
 
 	var returns TableClientSideEncryption

@@ -443,60 +443,6 @@ func init() {
 		reflect.TypeOf((*CfnApiKeyCredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowser",
-		reflect.TypeOf((*CfnBrowser)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
-			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrBrowserArn", GoGetter: "AttrBrowserArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrBrowserId", GoGetter: "AttrBrowserId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
-			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
-			_jsii_.MemberProperty{JsiiProperty: "browserRef", GoGetter: "BrowserRef"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
-			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnBrowser{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIBrowserRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserCustom",
 		reflect.TypeOf((*CfnBrowserCustom)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -666,13 +612,9 @@ func init() {
 		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserProfileProps",
 		reflect.TypeOf((*CfnBrowserProfileProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnBrowserProps",
-		reflect.TypeOf((*CfnBrowserProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreter",
-		reflect.TypeOf((*CfnCodeInterpreter)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider",
+		reflect.TypeOf((*CfnCapacityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
@@ -684,24 +626,31 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrCodeInterpreterArn", GoGetter: "AttrCodeInterpreterArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrCodeInterpreterId", GoGetter: "AttrCodeInterpreterId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCapacityProviderId", GoGetter: "AttrCapacityProviderId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedAt", GoGetter: "AttrLastUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderRef", GoGetter: "CapacityProviderRef"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "codeInterpreterRef", GoGetter: "CodeInterpreterRef"},
+			_jsii_.MemberProperty{JsiiProperty: "computeConfiguration", GoGetter: "ComputeConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "permissionsConfiguration", GoGetter: "PermissionsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
@@ -709,6 +658,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -716,12 +666,81 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnCodeInterpreter{}
+			j := jsiiProxy_CfnCapacityProvider{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreICodeInterpreterRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreICapacityProviderRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.CapacityReservationSpecificationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_CapacityReservationSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.CapacityReservationTargetProperty",
+		reflect.TypeOf((*CfnCapacityProvider_CapacityReservationTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.ComputeConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_ComputeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.EbsVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_EbsVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.Ec2ConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_Ec2ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.EphemeralBlockDeviceMappingProperty",
+		reflect.TypeOf((*CfnCapacityProvider_EphemeralBlockDeviceMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.EphemeralEBSVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_EphemeralEBSVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.InstanceLifecycleConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_InstanceLifecycleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnCapacityProvider_InstanceRequirementsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.LaunchParametersProperty",
+		reflect.TypeOf((*CfnCapacityProvider_LaunchParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.LaunchTemplateSourceProperty",
+		reflect.TypeOf((*CfnCapacityProvider_LaunchTemplateSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.LicenseSpecificationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_LicenseSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.PermissionsConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_PermissionsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.RootVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_RootVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.VolumeConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_VolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProvider.VpcConfigurationProperty",
+		reflect.TypeOf((*CfnCapacityProvider_VpcConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnCapacityProviderProps",
+		reflect.TypeOf((*CfnCapacityProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustom",
@@ -806,10 +825,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterCustomProps",
 		reflect.TypeOf((*CfnCodeInterpreterCustomProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnCodeInterpreterProps",
-		reflect.TypeOf((*CfnCodeInterpreterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnConfigurationBundle",
@@ -1073,8 +1088,16 @@ func init() {
 		reflect.TypeOf((*CfnEvaluator_NumericalScaleDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.OpenResponsesEvaluatorModelConfigProperty",
+		reflect.TypeOf((*CfnEvaluator_OpenResponsesEvaluatorModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.RatingScaleProperty",
 		reflect.TypeOf((*CfnEvaluator_RatingScaleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.ReasoningConfigurationProperty",
+		reflect.TypeOf((*CfnEvaluator_ReasoningConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluatorProps",
@@ -1101,6 +1124,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatusReasons", GoGetter: "AttrStatusReasons"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrWebAclArn", GoGetter: "AttrWebAclArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkloadIdentityDetails", GoGetter: "AttrWorkloadIdentityDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerConfiguration", GoGetter: "AuthorizerConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerType", GoGetter: "AuthorizerType"},
@@ -1141,6 +1165,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "wafConfiguration", GoGetter: "WafConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
@@ -1193,6 +1218,14 @@ func init() {
 		reflect.TypeOf((*CfnGateway_InterceptorInputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.InterceptorPayloadExclusionSelectorProperty",
+		reflect.TypeOf((*CfnGateway_InterceptorPayloadExclusionSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.InterceptorPayloadFilterProperty",
+		reflect.TypeOf((*CfnGateway_InterceptorPayloadFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.LambdaInterceptorConfigurationProperty",
 		reflect.TypeOf((*CfnGateway_LambdaInterceptorConfigurationProperty)(nil)).Elem(),
 	)
@@ -1221,12 +1254,210 @@ func init() {
 		reflect.TypeOf((*CfnGateway_StreamingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.WafConfigurationProperty",
+		reflect.TypeOf((*CfnGateway_WafConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.WorkloadIdentityDetailsProperty",
 		reflect.TypeOf((*CfnGateway_WorkloadIdentityDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayProps",
 		reflect.TypeOf((*CfnGatewayProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRateLimit",
+		reflect.TypeOf((*CfnGatewayRateLimit)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "dimensionKeys", GoGetter: "DimensionKeys"},
+			_jsii_.MemberProperty{JsiiProperty: "entries", GoGetter: "Entries"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayIdentifier", GoGetter: "GatewayIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRateLimitRef", GoGetter: "GatewayRateLimitRef"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "rateLimitId", GoGetter: "RateLimitId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnGatewayRateLimit{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIGatewayRateLimitRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRateLimit.LimitEntryProperty",
+		reflect.TypeOf((*CfnGatewayRateLimit_LimitEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRateLimit.RateConfigProperty",
+		reflect.TypeOf((*CfnGatewayRateLimit_RateConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRateLimitProps",
+		reflect.TypeOf((*CfnGatewayRateLimitProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule",
+		reflect.TypeOf((*CfnGatewayRule)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actions", GoGetter: "Actions"},
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrGatewayArn", GoGetter: "AttrGatewayArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRuleId", GoGetter: "AttrRuleId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayIdentifier", GoGetter: "GatewayIdentifier"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRuleRef", GoGetter: "GatewayRuleRef"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "priority", GoGetter: "Priority"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnGatewayRule{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIGatewayRuleRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.ActionProperty",
+		reflect.TypeOf((*CfnGatewayRule_ActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.ConditionProperty",
+		reflect.TypeOf((*CfnGatewayRule_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.ConfigurationBundleActionProperty",
+		reflect.TypeOf((*CfnGatewayRule_ConfigurationBundleActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.ConfigurationBundleReferenceProperty",
+		reflect.TypeOf((*CfnGatewayRule_ConfigurationBundleReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.IamPrincipalProperty",
+		reflect.TypeOf((*CfnGatewayRule_IamPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.MatchPathsProperty",
+		reflect.TypeOf((*CfnGatewayRule_MatchPathsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.MatchPrincipalEntryProperty",
+		reflect.TypeOf((*CfnGatewayRule_MatchPrincipalEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.MatchPrincipalsProperty",
+		reflect.TypeOf((*CfnGatewayRule_MatchPrincipalsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.RouteToTargetActionProperty",
+		reflect.TypeOf((*CfnGatewayRule_RouteToTargetActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.StaticOverrideProperty",
+		reflect.TypeOf((*CfnGatewayRule_StaticOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.StaticRouteProperty",
+		reflect.TypeOf((*CfnGatewayRule_StaticRouteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.TargetTrafficSplitEntryProperty",
+		reflect.TypeOf((*CfnGatewayRule_TargetTrafficSplitEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.TrafficSplitEntryProperty",
+		reflect.TypeOf((*CfnGatewayRule_TrafficSplitEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.WeightedOverrideProperty",
+		reflect.TypeOf((*CfnGatewayRule_WeightedOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.WeightedRouteProperty",
+		reflect.TypeOf((*CfnGatewayRule_WeightedRouteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRuleProps",
+		reflect.TypeOf((*CfnGatewayRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget",
@@ -1742,6 +1973,73 @@ func init() {
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.VpcConfigProperty",
 		reflect.TypeOf((*CfnHarness_VpcConfigProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarnessEndpoint",
+		reflect.TypeOf((*CfnHarnessEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrHarnessName", GoGetter: "AttrHarnessName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLiveVersion", GoGetter: "AttrLiveVersion"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointName", GoGetter: "EndpointName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "harnessEndpointRef", GoGetter: "HarnessEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "harnessId", GoGetter: "HarnessId"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "targetVersion", GoGetter: "TargetVersion"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnHarnessEndpoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreIHarnessEndpointRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarnessEndpointProps",
+		reflect.TypeOf((*CfnHarnessEndpointProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarnessProps",
 		reflect.TypeOf((*CfnHarnessProps)(nil)).Elem(),
@@ -1995,6 +2293,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCredentialProviderArn", GoGetter: "AttrCredentialProviderArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastUpdatedTime", GoGetter: "AttrLastUpdatedTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOauth2ProviderConfigOutput", GoGetter: "AttrOauth2ProviderConfigOutput"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -2062,8 +2361,16 @@ func init() {
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_IncludedOauth2ProviderConfigInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.KmsKeySourceTypeProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_KmsKeySourceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.LinkedinOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_LinkedinOauth2ProviderConfigInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.ManagedVpcResourceProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_ManagedVpcResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.MicrosoftOauth2ProviderConfigInputProperty",
@@ -2090,12 +2397,32 @@ func init() {
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_OnBehalfOfTokenExchangeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.PrivateEndpointOverrideProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_PrivateEndpointOverrideProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.PrivateEndpointProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_PrivateEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.PrivateKeyJwtConfigProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_PrivateKeyJwtConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.PrivateKeySourceProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_PrivateKeySourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SalesforceOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_SalesforceOauth2ProviderConfigInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SecretReferenceProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_SecretReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SelfManagedLatticeResourceProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_SelfManagedLatticeResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SlackOauth2ProviderConfigInputProperty",
@@ -2243,6 +2570,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAuthorizationUrl", GoGetter: "AttrAuthorizationUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConnectorCreatedAt", GoGetter: "AttrConnectorCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConnectorLastUpdatedAt", GoGetter: "AttrConnectorLastUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConnectorStatus", GoGetter: "AttrConnectorStatus"},
@@ -2268,6 +2596,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "paymentConnectorRef", GoGetter: "PaymentConnectorRef"},
 			_jsii_.MemberProperty{JsiiProperty: "paymentManagerId", GoGetter: "PaymentManagerId"},
+			_jsii_.MemberProperty{JsiiProperty: "provisionMode", GoGetter: "ProvisionMode"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
@@ -2714,6 +3043,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWorkloadIdentityDetails", GoGetter: "AttrWorkloadIdentityDetails"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerConfiguration", GoGetter: "AuthorizerConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderConfiguration", GoGetter: "CapacityProviderConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -2776,6 +3106,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.AuthorizingClaimMatchValueTypeProperty",
 		reflect.TypeOf((*CfnRuntime_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.CapacityProviderConfigurationProperty",
+		reflect.TypeOf((*CfnRuntime_CapacityProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.CapacityProviderVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnRuntime_CapacityProviderVolumeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.ClaimMatchValueTypeProperty",
@@ -2934,68 +3272,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntimeProps",
 		reflect.TypeOf((*CfnRuntimeProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnTokenVault",
-		reflect.TypeOf((*CfnTokenVault)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
-			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrKmsConfiguration", GoGetter: "AttrKmsConfiguration"},
-			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedDate", GoGetter: "AttrLastModifiedDate"},
-			_jsii_.MemberProperty{JsiiProperty: "attrTokenVaultId", GoGetter: "AttrTokenVaultId"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
-			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberProperty{JsiiProperty: "tokenVaultRef", GoGetter: "TokenVaultRef"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnTokenVault{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbedrockagentcoreITokenVaultRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnTokenVault.KmsConfigurationProperty",
-		reflect.TypeOf((*CfnTokenVault_KmsConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnTokenVaultProps",
-		reflect.TypeOf((*CfnTokenVaultProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnWorkloadIdentity",

@@ -11,6 +11,11 @@ package awslambda
 //   fileSystemConfigProperty := &FileSystemConfigProperty{
 //   	Arn: jsii.String("arn"),
 //   	LocalMountPath: jsii.String("localMountPath"),
+//
+//   	// the properties below are optional
+//   	S3FilesConfig: &S3FilesConfigProperty{
+//   		DirectS3Read: jsii.String("directS3Read"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
@@ -24,5 +29,8 @@ type CfnFunction_FileSystemConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
 	//
 	LocalMountPath *string `field:"required" json:"localMountPath" yaml:"localMountPath"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-s3filesconfig
+	//
+	S3FilesConfig interface{} `field:"optional" json:"s3FilesConfig" yaml:"s3FilesConfig"`
 }
 

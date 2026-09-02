@@ -7,15 +7,15 @@ package previewawseksmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnCapabilityEksCapabilityAckLogsFirehoseProps := &CfnCapabilityEksCapabilityAckLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnCapabilityEksCapabilityAckLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnCapabilityEksCapabilityAckLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnCapabilityEksCapabilityAckLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnCapabilityEksCapabilityAckLogsRecordFields_STREAM,
+//   		awscdkmixinspreview.*Mixins.CfnCapabilityEksCapabilityAckLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnCapabilityEksCapabilityAckLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnCapabilityEksCapabilityAckLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

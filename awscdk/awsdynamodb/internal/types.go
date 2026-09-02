@@ -7,7 +7,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsdynamodbIExportRef = interfacesawsdynamodb.IExportRef
+type Type__interfacesawsdynamodbIBackupRef = interfacesawsdynamodb.IBackupRef
 type Type__interfacesawsdynamodbIGlobalTableRef = interfacesawsdynamodb.IGlobalTableRef
 type Type__interfacesawsdynamodbITableRef = interfacesawsdynamodb.ITableRef
 type Type__awscdkITaggable = awscdk.ITaggable

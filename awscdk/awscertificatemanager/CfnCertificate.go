@@ -60,7 +60,6 @@ type CfnCertificate interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
 	AttrCertificateArn() *string
-	AttrId() *string
 	// The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate.
 	CertificateAuthorityArn() *string
 	SetCertificateAuthorityArn(val *string)
@@ -313,16 +312,6 @@ func (j *jsiiProxy_CfnCertificate) AttrCertificateArn() *string {
 	_jsii_.Get(
 		j,
 		"attrCertificateArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCertificate) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

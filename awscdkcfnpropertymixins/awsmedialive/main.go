@@ -612,6 +612,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_NielsenNaesIiNwProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenNwOnlyProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_NielsenNwOnlyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenWatermarksSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_NielsenWatermarksSettingsProperty)(nil)).Elem(),
 	)
@@ -1186,30 +1190,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnNodePropsMixin.SdiSourceMappingProperty",
 		reflect.TypeOf((*CfnNodePropsMixin_SdiSourceMappingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnOfferingMixinProps",
-		reflect.TypeOf((*CfnOfferingMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnOfferingPropsMixin",
-		reflect.TypeOf((*CfnOfferingPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnOfferingPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnOfferingPropsMixin.ReservationResourceSpecificationProperty",
-		reflect.TypeOf((*CfnOfferingPropsMixin_ReservationResourceSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnSdiSourceMixinProps",

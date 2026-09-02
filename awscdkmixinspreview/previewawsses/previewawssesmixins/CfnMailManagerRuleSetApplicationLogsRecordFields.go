@@ -6,6 +6,10 @@ type CfnMailManagerRuleSetApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnMailManagerRuleSetApplicationLogsRecordFields_TIMESTAMP CfnMailManagerRuleSetApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_SET_ID CfnMailManagerRuleSetApplicationLogsRecordFields = "RULE_SET_ID"
+	// Experimental.
 	CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_NAME CfnMailManagerRuleSetApplicationLogsRecordFields = "RULE_NAME"
 	// Experimental.
 	CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_INDEX CfnMailManagerRuleSetApplicationLogsRecordFields = "RULE_INDEX"

@@ -24,4 +24,5 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsappsyncIGraphQLSchemaRef = interfacesawsappsync.IGraphQLSchemaRef
 type Type__interfacesawsappsyncIResolverRef = interfacesawsappsync.IResolverRef
 type Type__interfacesawsappsyncISourceApiAssociationRef = interfacesawsappsync.ISourceApiAssociationRef
+type Type__interfacesawsappsyncITypeRef = interfacesawsappsync.ITypeRef
 type Type__awscdkIResource = awscdk.IResource

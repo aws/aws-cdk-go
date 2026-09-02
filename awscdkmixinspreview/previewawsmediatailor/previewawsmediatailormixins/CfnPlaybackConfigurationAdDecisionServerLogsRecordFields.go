@@ -6,6 +6,8 @@ type CfnPlaybackConfigurationAdDecisionServerLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_TIMESTAMP CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ORIGINID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ORIGINID"
 	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_CUSTOMERID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "CUSTOMERID"
@@ -57,6 +59,30 @@ const (
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADBREAKCORRELATIONID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ADBREAKCORRELATIONID"
 	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_PREFETCHSCHEDULENAME CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "PREFETCHSCHEDULENAME"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EVENTID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_FUNCTIONID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "FUNCTIONID"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EXECUTIONTIMEMS CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EXECUTIONTIMEMS"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_FUNCTIONTYPE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "FUNCTIONTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_STATUS CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "STATUS"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ERRORTYPE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ERRORTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ERROR CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ERROR"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADDITIONALINFO CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "ADDITIONALINFO"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_CAUSE CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "CAUSE"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_INPUT CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "INPUT"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_OUTPUT CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "OUTPUT"
+	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_HTTP CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "HTTP"
 	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EVENTTIMESTAMP"
 	// Experimental.

@@ -7,26 +7,23 @@ import (
 // Properties of a metric that can be changed.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var channel Channel
+//   var stack Stack
 //
-//   var deliveryStream DeliveryStream
 //
-//
-//   // Alarm that triggers when the per-second average of incoming bytes exceeds 90% of the current service limit
-//   incomingBytesPercentOfLimit := cloudwatch.NewMathExpression(&MathExpressionProps{
-//   	Expression: jsii.String("incomingBytes / 300 / bytePerSecLimit"),
-//   	UsingMetrics: map[string]IMetric{
-//   		"incomingBytes": deliveryStream.metricIncomingBytes(&MetricOptions{
-//   			"statistic": cloudwatch.Statistic_SUM,
-//   		}),
-//   		"bytePerSecLimit": deliveryStream.metric(jsii.String("BytesPerSecondLimit")),
-//   	},
+//   channel.metricDroppedFrames(medialive.Pipeline_PIPELINE_0()).CreateAlarm(stack, jsii.String("DroppedFrames"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(1),
+//   	EvaluationPeriods: jsii.Number(2),
 //   })
 //
-//   cloudwatch.NewAlarm(this, jsii.String("Alarm"), &AlarmProps{
-//   	Metric: incomingBytesPercentOfLimit,
-//   	Threshold: jsii.Number(0.9),
-//   	EvaluationPeriods: jsii.Number(3),
+//   channel.metricSvqTime(medialive.Pipeline_PIPELINE_0()).CreateAlarm(stack, jsii.String("SvqTime"), &CreateAlarmOptions{
+//   	Threshold: jsii.Number(0),
+//   	EvaluationPeriods: jsii.Number(1),
+//   })
+//
+//   // Custom metric by name with sum statistic
+//   channel.metric(jsii.String("Output4xxErrors"), medialive.Pipeline_PIPELINE_0(), &MetricOptions{
+//   	Statistic: jsii.String("sum"),
 //   })
 //
 type MetricOptions struct {

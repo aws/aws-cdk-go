@@ -13,13 +13,14 @@ package awsglue
 //   var customAuthenticationCredentials interface{}
 //   var pythonProperties interface{}
 //   var sparkProperties interface{}
+//   var tags interface{}
 //   var tokenUrlParametersMap interface{}
 //
 //   cfnConnectionMixinProps := &CfnConnectionMixinProps{
 //   	CatalogId: jsii.String("catalogId"),
 //   	ConnectionInput: &ConnectionInputProperty{
 //   		AthenaProperties: athenaProperties,
-//   		AuthenticationConfiguration: &AuthenticationConfigurationInputProperty{
+//   		AuthenticationConfiguration: &AuthenticationConfigurationProperty{
 //   			AuthenticationType: jsii.String("authenticationType"),
 //   			BasicAuthenticationCredentials: &BasicAuthenticationCredentialsProperty{
 //   				Password: jsii.String("password"),
@@ -27,7 +28,7 @@ package awsglue
 //   			},
 //   			CustomAuthenticationCredentials: customAuthenticationCredentials,
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
-//   			OAuth2Properties: &OAuth2PropertiesInputProperty{
+//   			OAuth2Properties: &OAuth2PropertiesProperty{
 //   				AuthorizationCodeProperties: &AuthorizationCodePropertiesProperty{
 //   					AuthorizationCode: jsii.String("authorizationCode"),
 //   					RedirectUri: jsii.String("redirectUri"),
@@ -69,6 +70,7 @@ package awsglue
 //   			jsii.String("validateForComputeEnvironments"),
 //   		},
 //   	},
+//   	Tags: tags,
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html
@@ -86,5 +88,11 @@ type CfnConnectionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#cfn-glue-connection-connectioninput
 	//
 	ConnectionInput interface{} `field:"optional" json:"connectionInput" yaml:"connectionInput"`
+	// The collection of tags.
+	//
+	// Each tag element is associated with a given resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html#cfn-glue-connection-tags
+	//
+	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
 }
 

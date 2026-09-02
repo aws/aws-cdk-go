@@ -9,28 +9,22 @@ import (
 //
 // Example:
 //   var stack Stack
-//   var networkInterface RouterNetworkInterface
+//   var mediaLiveChannel IChannel
+//   var transitSecret Secret
+//   // must hold the same value as the channel's MediaConnectRouterSettings.shared() secret
 //
-//
-//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("FailoverInput"), &RouterInputProps{
-//   	RouterInputName: jsii.String("failover-input"),
-//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(10)),
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+//   	RouterInputName: jsii.String("channel-input"),
+//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
 //   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
 //   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
-//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_Failover(&FailoverConfigurationProps{
-//   		NetworkInterface: networkInterface,
-//   		Protocols: []RouterInputProtocol{
-//   			awsmediaconnectalpha.RouterInputProtocol_Rist(&RistProtocolProps{
-//   				Port: jsii.Number(5000),
-//   				RecoveryLatency: awscdk.Duration_Millis(jsii.Number(1000)),
-//   			}),
-//   			awsmediaconnectalpha.RouterInputProtocol_*Rist(&RistProtocolProps{
-//   				Port: jsii.Number(5002),
-//   				 // Must not be consecutive with primary port
-//   				RecoveryLatency: awscdk.Duration_*Millis(jsii.Number(1000)),
-//   			}),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+//   		Channel: mediaLiveChannel,
+//   		OutputName: jsii.String("router-ts"),
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   		SourceTransitDecryption: &TransitEncryption{
+//   			Secret: transitSecret,
 //   		},
-//   		SourcePriority: awsmediaconnectalpha.SourcePriorityConfig_PrimarySecondary(awsmediaconnectalpha.PrimarySource_FIRST_SOURCE),
 //   	}),
 //   })
 //

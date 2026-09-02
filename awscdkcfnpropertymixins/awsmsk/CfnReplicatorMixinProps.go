@@ -26,6 +26,25 @@ import (
 //   				Mtls: &KafkaClusterMtlsAuthenticationProperty{
 //   					SecretArn: jsii.String("secretArn"),
 //   				},
+//   				SaslOAuthBearer: &KafkaClusterSaslOAuthBearerAuthenticationProperty{
+//   					ClientCredentials: &KafkaClusterOAuthClientCredentialsProperty{
+//   						TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   					},
+//   					ClientCredentialsAssertion: &KafkaClusterOAuthClientCredentialsAssertionProperty{
+//   						Audience: jsii.String("audience"),
+//   						SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   						TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   					},
+//   					IamJwtBearer: &KafkaClusterOAuthIamJwtBearerProperty{
+//   						Audience: jsii.String("audience"),
+//   						SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   						TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   					},
+//   					Scope: jsii.String("scope"),
+//   					TokenEndpointAuthenticationMethod: jsii.String("tokenEndpointAuthenticationMethod"),
+//   					TokenEndpointTlsCertificateArn: jsii.String("tokenEndpointTlsCertificateArn"),
+//   					TokenEndpointUrl: jsii.String("tokenEndpointUrl"),
+//   				},
 //   				SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
 //   					Mechanism: jsii.String("mechanism"),
 //   					SecretArn: jsii.String("secretArn"),

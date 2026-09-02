@@ -9,7 +9,7 @@ package previewawsbedrockagentcoremixins
 //   cfnBrowserCustomUsageLogsLogGroupProps := &CfnBrowserCustomUsageLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnBrowserCustomUsageLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnBrowserCustomUsageLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnBrowserCustomUsageLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnBrowserCustomUsageLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

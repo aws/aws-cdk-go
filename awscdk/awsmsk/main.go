@@ -64,6 +64,149 @@ func init() {
 		reflect.TypeOf((*CfnBatchScramSecretProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_msk.CfnChannel",
+		reflect.TypeOf((*CfnChannel)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrChannelArn", GoGetter: "AttrChannelArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStateInfo", GoGetter: "AttrStateInfo"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "channelName", GoGetter: "ChannelName"},
+			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "icebergDestinationConfiguration", GoGetter: "IcebergDestinationConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "loggingInfo", GoGetter: "LoggingInfo"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "s3DestinationConfiguration", GoGetter: "S3DestinationConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "topicConfigurationList", GoGetter: "TopicConfigurationList"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnChannel{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsmskIChannelRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.CatalogProperty",
+		reflect.TypeOf((*CfnChannel_CatalogProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.ChannelLoggingInfoProperty",
+		reflect.TypeOf((*CfnChannel_ChannelLoggingInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.ChannelStateInfoProperty",
+		reflect.TypeOf((*CfnChannel_ChannelStateInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.CloudWatchLogsLogDestinationProperty",
+		reflect.TypeOf((*CfnChannel_CloudWatchLogsLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.DeadLetterQueueS3Property",
+		reflect.TypeOf((*CfnChannel_DeadLetterQueueS3Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.DestinationTableProperty",
+		reflect.TypeOf((*CfnChannel_DestinationTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.FirehoseLogDestinationProperty",
+		reflect.TypeOf((*CfnChannel_FirehoseLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.IcebergDestinationConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_IcebergDestinationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.PartitionSourceProperty",
+		reflect.TypeOf((*CfnChannel_PartitionSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.PartitionSpecProperty",
+		reflect.TypeOf((*CfnChannel_PartitionSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.RecordConverterProperty",
+		reflect.TypeOf((*CfnChannel_RecordConverterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.RecordSchemaProperty",
+		reflect.TypeOf((*CfnChannel_RecordSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.S3DestinationConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_S3DestinationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.S3LogDestinationProperty",
+		reflect.TypeOf((*CfnChannel_S3LogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.S3StorageProperty",
+		reflect.TypeOf((*CfnChannel_S3StorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.SchemaEvolutionProperty",
+		reflect.TypeOf((*CfnChannel_SchemaEvolutionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.TableCreationProperty",
+		reflect.TypeOf((*CfnChannel_TableCreationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannel.TopicConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_TopicConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnChannelProps",
+		reflect.TypeOf((*CfnChannelProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_msk.CfnCluster",
 		reflect.TypeOf((*CfnCluster)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -131,6 +274,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnCluster.AuthorizerLogsProperty",
+		reflect.TypeOf((*CfnCluster_AuthorizerLogsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnCluster.BrokerLogsProperty",
@@ -490,8 +637,24 @@ func init() {
 		reflect.TypeOf((*CfnReplicator_KafkaClusterMtlsAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterOAuthClientCredentialsAssertionProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterOAuthClientCredentialsAssertionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterOAuthClientCredentialsProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterOAuthClientCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterOAuthIamJwtBearerProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterOAuthIamJwtBearerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterProperty",
 		reflect.TypeOf((*CfnReplicator_KafkaClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterSaslOAuthBearerAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicator_KafkaClusterSaslOAuthBearerAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_msk.CfnReplicator.KafkaClusterSaslScramAuthenticationProperty",

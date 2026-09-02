@@ -87,6 +87,14 @@ package awswafv2
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	PreParseTextTransformations: []interface{}{
+//   		&PreParseTextTransformationProperty{
+//   			Priority: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
@@ -102,5 +110,8 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
 	//
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-preparsetexttransformations
+	//
+	PreParseTextTransformations interface{} `field:"optional" json:"preParseTextTransformations" yaml:"preParseTextTransformations"`
 }
 

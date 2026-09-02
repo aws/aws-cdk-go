@@ -20,8 +20,16 @@ func init() {
 		reflect.TypeOf((*AnalysisReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_quicksight.ApprovalPolicyReference",
+		reflect.TypeOf((*ApprovalPolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.CustomPermissionsReference",
 		reflect.TypeOf((*CustomPermissionsReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_quicksight.DLPSettingReference",
+		reflect.TypeOf((*DLPSettingReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.DashboardReference",
@@ -92,6 +100,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_quicksight.IApprovalPolicyRef",
+		reflect.TypeOf((*IApprovalPolicyRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "approvalPolicyRef", GoGetter: "ApprovalPolicyRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IApprovalPolicyRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_quicksight.ICustomPermissionsRef",
 		reflect.TypeOf((*ICustomPermissionsRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -102,6 +126,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICustomPermissionsRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_quicksight.IDLPSettingRef",
+		reflect.TypeOf((*IDLPSettingRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dlpSettingRef", GoGetter: "DlpSettingRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDLPSettingRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -204,6 +244,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_quicksight.ILimitsProfileRef",
+		reflect.TypeOf((*ILimitsProfileRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "limitsProfileRef", GoGetter: "LimitsProfileRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILimitsProfileRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_quicksight.IOAuthClientApplicationRef",
 		reflect.TypeOf((*IOAuthClientApplicationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -300,6 +356,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_quicksight.ITopicV2Ref",
+		reflect.TypeOf((*ITopicV2Ref)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "topicV2Ref", GoGetter: "TopicV2Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITopicV2Ref{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_quicksight.IVPCConnectionRef",
 		reflect.TypeOf((*IVPCConnectionRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -318,6 +390,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.KnowledgeBaseReference",
 		reflect.TypeOf((*KnowledgeBaseReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_quicksight.LimitsProfileReference",
+		reflect.TypeOf((*LimitsProfileReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.OAuthClientApplicationReference",
@@ -342,6 +418,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.TopicReference",
 		reflect.TypeOf((*TopicReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_quicksight.TopicV2Reference",
+		reflect.TypeOf((*TopicV2Reference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.VPCConnectionReference",

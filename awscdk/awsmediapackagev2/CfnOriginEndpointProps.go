@@ -210,6 +210,7 @@ import (
 //   			KeyRotationIntervalSeconds: jsii.Number(123),
 //   		},
 //   		IncludeIframeOnlyStreams: jsii.Boolean(false),
+//   		OutputTimestampMode: jsii.String("outputTimestampMode"),
 //   		Scte: &ScteProperty{
 //   			CustomAdTypes: []*string{
 //   				jsii.String("customAdTypes"),

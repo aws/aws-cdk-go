@@ -15,6 +15,9 @@ package awsbedrockagentcore
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	VpcIdentifier: jsii.String("vpcIdentifier"),
 //   }
 //
@@ -33,6 +36,12 @@ type CfnGatewayTargetPropsMixin_ManagedVpcResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html#cfn-bedrockagentcore-gatewaytarget-managedvpcresource-subnetids
 	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	// Tags applied to the AWS-managed VPC Lattice resource gateway when it is created on your behalf (tag-on-create).
+	//
+	// Useful for cost allocation. These tags are forwarded to VPC Lattice and are not stored on the gateway target itself.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html#cfn-bedrockagentcore-gatewaytarget-managedvpcresource-tags
+	//
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html#cfn-bedrockagentcore-gatewaytarget-managedvpcresource-vpcidentifier
 	//
 	VpcIdentifier *string `field:"optional" json:"vpcIdentifier" yaml:"vpcIdentifier"`

@@ -6,6 +6,8 @@ type CfnPlaybackConfigurationTranscodeLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_TIMESTAMP CfnPlaybackConfigurationTranscodeLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTYPE CfnPlaybackConfigurationTranscodeLogsRecordFields = "EVENTTYPE"
 	// Experimental.
 	CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTDESCRIPTION CfnPlaybackConfigurationTranscodeLogsRecordFields = "EVENTDESCRIPTION"
@@ -22,10 +24,10 @@ const (
 	// Experimental.
 	CfnPlaybackConfigurationTranscodeLogsRecordFields_CACHESTATUS CfnPlaybackConfigurationTranscodeLogsRecordFields = "CACHESTATUS"
 	// Experimental.
+	CfnPlaybackConfigurationTranscodeLogsRecordFields_ORIGINID CfnPlaybackConfigurationTranscodeLogsRecordFields = "ORIGINID"
+	// Experimental.
 	CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationTranscodeLogsRecordFields = "EVENTTIMESTAMP"
 	// Experimental.
 	CfnPlaybackConfigurationTranscodeLogsRecordFields_AWSACCOUNTID CfnPlaybackConfigurationTranscodeLogsRecordFields = "AWSACCOUNTID"
-	// Experimental.
-	CfnPlaybackConfigurationTranscodeLogsRecordFields_ORIGINID CfnPlaybackConfigurationTranscodeLogsRecordFields = "ORIGINID"
 )
 

@@ -13,6 +13,9 @@ package awsbatch
 //   computeResourcesProperty := &ComputeResourcesProperty{
 //   	AllocationStrategy: jsii.String("allocationStrategy"),
 //   	BidPercentage: jsii.Number(123),
+//   	CapacityTags: map[string]*string{
+//   		"capacityTagsKey": jsii.String("capacityTags"),
+//   	},
 //   	DesiredvCpus: jsii.Number(123),
 //   	Ec2Configuration: []interface{}{
 //   		&Ec2ConfigurationObjectProperty{
@@ -44,6 +47,43 @@ package awsbatch
 //   		},
 //   		UserdataType: jsii.String("userdataType"),
 //   		Version: jsii.String("version"),
+//   	},
+//   	ManagedInstancesProvider: &ManagedInstancesProviderProperty{
+//   		InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   			ScaleInAfter: jsii.Number(123),
+//   		},
+//   		InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
+//   		InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
+//   			CapacityOptionType: jsii.String("capacityOptionType"),
+//   			CapacityReservations: &CapacityReservationsProperty{
+//   				ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   				ReservationPreference: jsii.String("reservationPreference"),
+//   			},
+//   			Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   			FipsEnabled: jsii.Boolean(false),
+//   			InstanceMetadataTagsPropagation: jsii.Boolean(false),
+//   			InstanceRequirements: &InstanceRequirementsProperty{
+//   				AllowedInstanceTypes: []*string{
+//   					jsii.String("allowedInstanceTypes"),
+//   				},
+//   			},
+//   			LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   				UseLocalStorage: jsii.Boolean(false),
+//   			},
+//   			Monitoring: jsii.String("monitoring"),
+//   			NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
+//   				SecurityGroups: []*string{
+//   					jsii.String("securityGroups"),
+//   				},
+//   				Subnets: []*string{
+//   					jsii.String("subnets"),
+//   				},
+//   			},
+//   			StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
+//   				StorageSizeGiB: jsii.Number(123),
+//   			},
+//   		},
+//   		PropagateTags: jsii.String("propagateTags"),
 //   	},
 //   	MaxvCpus: jsii.Number(123),
 //   	MinvCpus: jsii.Number(123),
@@ -97,6 +137,10 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-bidpercentage
 	//
 	BidPercentage *float64 `field:"optional" json:"bidPercentage" yaml:"bidPercentage"`
+	// Capacity-level tags for compute environments.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-capacitytags
+	//
+	CapacityTags interface{} `field:"optional" json:"capacityTags" yaml:"capacityTags"`
 	// The desired number of vCPUS in the compute environment.
 	//
 	// AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
@@ -177,6 +221,9 @@ type CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate
 	//
 	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-managedinstancesprovider
+	//
+	ManagedInstancesProvider interface{} `field:"optional" json:"managedInstancesProvider" yaml:"managedInstancesProvider"`
 	// The maximum number of Amazon EC2 vCPUs that an environment can reach.
 	//
 	// > With `BEST_FIT_PROGRESSIVE` , `SPOT_CAPACITY_OPTIMIZED` and `SPOT_PRICE_CAPACITY_OPTIMIZED` (recommended) strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.

@@ -26,13 +26,14 @@ import (
 //   var mergeStrategy IMergeStrategy
 //   var pythonProperties interface{}
 //   var sparkProperties interface{}
+//   var tags interface{}
 //   var tokenUrlParametersMap interface{}
 //
 //   cfnConnectionPropsMixin := awscdkcfnpropertymixins.Aws_glue.NewCfnConnectionPropsMixin(&CfnConnectionMixinProps{
 //   	CatalogId: jsii.String("catalogId"),
 //   	ConnectionInput: &ConnectionInputProperty{
 //   		AthenaProperties: athenaProperties,
-//   		AuthenticationConfiguration: &AuthenticationConfigurationInputProperty{
+//   		AuthenticationConfiguration: &AuthenticationConfigurationProperty{
 //   			AuthenticationType: jsii.String("authenticationType"),
 //   			BasicAuthenticationCredentials: &BasicAuthenticationCredentialsProperty{
 //   				Password: jsii.String("password"),
@@ -40,7 +41,7 @@ import (
 //   			},
 //   			CustomAuthenticationCredentials: customAuthenticationCredentials,
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
-//   			OAuth2Properties: &OAuth2PropertiesInputProperty{
+//   			OAuth2Properties: &OAuth2PropertiesProperty{
 //   				AuthorizationCodeProperties: &AuthorizationCodePropertiesProperty{
 //   					AuthorizationCode: jsii.String("authorizationCode"),
 //   					RedirectUri: jsii.String("redirectUri"),
@@ -82,6 +83,7 @@ import (
 //   			jsii.String("validateForComputeEnvironments"),
 //   		},
 //   	},
+//   	Tags: tags,
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

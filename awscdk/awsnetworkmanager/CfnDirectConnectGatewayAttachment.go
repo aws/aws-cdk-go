@@ -78,6 +78,10 @@ type CfnDirectConnectGatewayAttachment interface {
 	AttrNetworkFunctionGroupName() *string
 	// Owner account of the attachment.
 	AttrOwnerAccountId() *string
+	// The attachment to move from one network function group to another.
+	AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable
+	// The attachment to move from one segment to another.
+	AttrProposedSegmentChange() awscdk.IResolvable
 	// The ARN of the Resource.
 	AttrResourceArn() *string
 	// The name of the segment attachment..
@@ -402,6 +406,26 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) AttrOwnerAccountId() *stri
 	_jsii_.Get(
 		j,
 		"attrOwnerAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedNetworkFunctionGroupChange",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) AttrProposedSegmentChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedSegmentChange",
 		&returns,
 	)
 	return returns

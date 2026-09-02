@@ -69,54 +69,81 @@ type CfnVPC interface {
 	//
 	// For example, [ 2001:db8:1234:1a00::/56 ].
 	AttrIpv6CidrBlocks() *[]*string
+	// Describes the exclusion configurations for various resource types in VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusions() awscdk.IResolvable
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsElasticFileSystem() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsElasticFileSystemState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsElasticFileSystemStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsInternetGateway() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsInternetGatewayState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsInternetGatewayStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsLambda() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsLambdaState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsLambdaStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsNatGateway() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsNatGatewayState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsNatGatewayStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGateway() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsVirtualPrivateGatewayStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsVpcLattice() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsVpcLatticeState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsVpcLatticeStateMessage() *string
+	// Describes an exclusion configuration for VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	AttrVpcEncryptionControlResourceExclusionsVpcPeering() awscdk.IResolvable
-	// The exclusion state of the resource type.
+	// The current state of the exclusion configuration.
 	AttrVpcEncryptionControlResourceExclusionsVpcPeeringState() *string
-	// A message describing the exclusion state of the resource type.
+	// A message providing additional information about the exclusion state.
 	AttrVpcEncryptionControlResourceExclusionsVpcPeeringStateMessage() *string
-	// The state of the VPC encryption control.
+	// The current state of the VPC Encryption Control configuration.
 	AttrVpcEncryptionControlState() *string
-	// A message describing the state of the VPC encryption control.
+	// A message providing additional information about the encryption control state.
 	AttrVpcEncryptionControlStateMessage() *string
-	// The ID of the VPC encryption control.
+	// The ID of the VPC Encryption Control configuration.
 	AttrVpcEncryptionControlVpcEncryptionControlId() *string
-	// The ID of the VPC.
+	// The ID of the VPC associated with the encryption control configuration.
 	AttrVpcEncryptionControlVpcId() *string
 	// The ID of the VPC.
 	AttrVpcId() *string
@@ -188,6 +215,7 @@ type CfnVPC interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Describes the configuration and state of VPC encryption controls.
 	VpcEncryptionControl() interface{}
 	SetVpcEncryptionControl(val interface{})
 	// A reference to a VPC resource.

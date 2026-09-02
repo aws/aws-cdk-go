@@ -20,14 +20,16 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var tags interface{}
-//
 //   cfnDataQualityRuleset := awscdk.Aws_glue.NewCfnDataQualityRuleset(this, jsii.String("MyCfnDataQualityRuleset"), &CfnDataQualityRulesetProps{
+//   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
 //   	ClientToken: jsii.String("clientToken"),
 //   	Description: jsii.String("description"),
-//   	Name: jsii.String("name"),
 //   	Ruleset: jsii.String("ruleset"),
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	TargetTable: &DataQualityTargetTableProperty{
 //   		DatabaseName: jsii.String("databaseName"),
 //   		TableName: jsii.String("tableName"),
@@ -41,7 +43,6 @@ type CfnDataQualityRuleset interface {
 	awscdk.IInspectable
 	interfacesawsglue.IDataQualityRulesetRef
 	awscdk.ITaggableV2
-	AttrId() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -91,8 +92,8 @@ type CfnDataQualityRuleset interface {
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
 	// A list of tags applied to the data quality ruleset.
-	Tags() interface{}
-	SetTags(val interface{})
+	Tags() *map[string]*string
+	SetTags(val *map[string]*string)
 	// An object representing an AWS Glue table.
 	TargetTable() interface{}
 	SetTargetTable(val interface{})
@@ -280,16 +281,6 @@ type jsiiProxy_CfnDataQualityRuleset struct {
 	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDataQualityRuleset) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -450,8 +441,8 @@ func (j *jsiiProxy_CfnDataQualityRuleset) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset) Tags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnDataQualityRuleset) Tags() *map[string]*string {
+	var returns *map[string]*string
 	_jsii_.Get(
 		j,
 		"tags",
@@ -537,6 +528,9 @@ func (j *jsiiProxy_CfnDataQualityRuleset)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnDataQualityRuleset)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -552,10 +546,7 @@ func (j *jsiiProxy_CfnDataQualityRuleset)SetRuleset(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset)SetTags(val interface{}) {
-	if err := j.validateSetTagsParameters(val); err != nil {
-		panic(err)
-	}
+func (j *jsiiProxy_CfnDataQualityRuleset)SetTags(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tags",

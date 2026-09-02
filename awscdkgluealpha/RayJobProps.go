@@ -117,7 +117,7 @@ type RayJobProps struct {
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Glue Version The version of Glue to use to execute this job.
-	// Default: 3.0 for ETL
+	// Default: - determined by the job type: 4.0 for ETL and Streaming, 5.0 for Flex, 3.0 for Python Shell
 	//
 	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
 	// Migrate to Amazon EKS with KubeRay Operator. See

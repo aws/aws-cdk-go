@@ -16,6 +16,9 @@ import (
 //   		AmpConfiguration: &AmpConfigurationProperty{
 //   			WorkspaceArn: jsii.String("workspaceArn"),
 //   		},
+//   		CloudWatchConfiguration: &CloudWatchConfigurationProperty{
+//   			DatasetArn: jsii.String("datasetArn"),
+//   		},
 //   	},
 //   	ScrapeConfiguration: &ScrapeConfigurationProperty{
 //   		ConfigurationBlob: jsii.String("configurationBlob"),

@@ -301,6 +301,30 @@ func (j *jsiiProxy_CfnCluster) validateSetBootstrapSelfManagedAddonsParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetCertificateAuthorityParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_CertificateAuthorityProperty:
+		val := val.(*CfnCluster_CertificateAuthorityProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_CertificateAuthorityProperty:
+		val_ := val.(CfnCluster_CertificateAuthorityProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_CertificateAuthorityProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetComputeConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -443,6 +467,54 @@ func (j *jsiiProxy_CfnCluster) validateSetForceParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetKubeApiServerConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_KubeApiServerConfigProperty:
+		val := val.(*CfnCluster_KubeApiServerConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_KubeApiServerConfigProperty:
+		val_ := val.(CfnCluster_KubeApiServerConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_KubeApiServerConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetKubeControllerManagerConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_KubeControllerManagerConfigProperty:
+		val := val.(*CfnCluster_KubeControllerManagerConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_KubeControllerManagerConfigProperty:
+		val_ := val.(CfnCluster_KubeControllerManagerConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_KubeControllerManagerConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetKubernetesNetworkConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -461,6 +533,30 @@ func (j *jsiiProxy_CfnCluster) validateSetKubernetesNetworkConfigParameters(val 
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_KubernetesNetworkConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetKubeSchedulerConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_KubeSchedulerConfigProperty:
+		val := val.(*CfnCluster_KubeSchedulerConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_KubeSchedulerConfigProperty:
+		val_ := val.(CfnCluster_KubeSchedulerConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_KubeSchedulerConfigProperty; received %#v (a %T)", val, val)
 		}
 	}
 

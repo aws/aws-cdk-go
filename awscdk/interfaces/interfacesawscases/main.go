@@ -8,6 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cases.CaseReference",
+		reflect.TypeOf((*CaseReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cases.CaseRuleReference",
 		reflect.TypeOf((*CaseRuleReference)(nil)).Elem(),
 	)
@@ -18,6 +22,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cases.FieldReference",
 		reflect.TypeOf((*FieldReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cases.ICaseRef",
+		reflect.TypeOf((*ICaseRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "caseRef", GoGetter: "CaseRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICaseRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_cases.ICaseRuleRef",

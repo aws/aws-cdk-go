@@ -6,6 +6,8 @@ type CfnPlaybackConfigurationManifestServiceLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_TIMESTAMP CfnPlaybackConfigurationManifestServiceLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_CUSTOMERID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "CUSTOMERID"
 	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTYPE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTTYPE"
@@ -59,6 +61,24 @@ const (
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTSTARTTIMEEPOCHMILLIS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTSTARTTIMEEPOCHMILLIS"
 	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTENDTIMEEPOCHMILLIS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "REQUESTENDTIMEEPOCHMILLIS"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTID"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_FUNCTIONID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "FUNCTIONID"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EXECUTIONTIMEMS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EXECUTIONTIMEMS"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_FUNCTIONTYPE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "FUNCTIONTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_STATUS CfnPlaybackConfigurationManifestServiceLogsRecordFields = "STATUS"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_ERRORTYPE CfnPlaybackConfigurationManifestServiceLogsRecordFields = "ERRORTYPE"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_INPUT CfnPlaybackConfigurationManifestServiceLogsRecordFields = "INPUT"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_OUTPUT CfnPlaybackConfigurationManifestServiceLogsRecordFields = "OUTPUT"
+	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_HTTP CfnPlaybackConfigurationManifestServiceLogsRecordFields = "HTTP"
 	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTTIMESTAMP"
 	// Experimental.

@@ -7,9 +7,9 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -55,7 +55,7 @@ type S3Table interface {
 	//
 	// For server-side (bucket) encryption, read `bucket.encryptionKey` instead.
 	// Experimental.
-	ClientSideEncryptionKey() awskms.IKey
+	ClientSideEncryptionKey() interfacesawskms.IKeyRef
 	// This table's columns.
 	// Experimental.
 	Columns() *[]*Column
@@ -241,8 +241,8 @@ func (j *jsiiProxy_S3Table) Bucket() awss3.IBucket {
 	return returns
 }
 
-func (j *jsiiProxy_S3Table) ClientSideEncryptionKey() awskms.IKey {
-	var returns awskms.IKey
+func (j *jsiiProxy_S3Table) ClientSideEncryptionKey() interfacesawskms.IKeyRef {
+	var returns interfacesawskms.IKeyRef
 	_jsii_.Get(
 		j,
 		"clientSideEncryptionKey",

@@ -46,19 +46,6 @@ import (
 //   		},
 //   	},
 //   	AgentRuntimeName: jsii.String("agentRuntimeName"),
-//   	NetworkConfiguration: &NetworkConfigurationProperty{
-//   		NetworkMode: jsii.String("networkMode"),
-//
-//   		// the properties below are optional
-//   		NetworkModeConfig: &VpcConfigProperty{
-//   			SecurityGroups: []*string{
-//   				jsii.String("securityGroups"),
-//   			},
-//   			Subnets: []*string{
-//   				jsii.String("subnets"),
-//   			},
-//   		},
-//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
@@ -150,12 +137,19 @@ import (
 //   			},
 //   		},
 //   	},
+//   	CapacityProviderConfiguration: &CapacityProviderConfigurationProperty{
+//   		CapacityProviderArn: jsii.String("capacityProviderArn"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
 //   	FilesystemConfigurations: []interface{}{
 //   		&FilesystemConfigurationProperty{
+//   			CapacityProviderVolume: &CapacityProviderVolumeConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   				VolumeName: jsii.String("volumeName"),
+//   			},
 //   			EfsAccessPoint: &EfsAccessPointConfigurationProperty{
 //   				AccessPointArn: jsii.String("accessPointArn"),
 //   				MountPath: jsii.String("mountPath"),
@@ -172,6 +166,19 @@ import (
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
+//   	},
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		NetworkMode: jsii.String("networkMode"),
+//
+//   		// the properties below are optional
+//   		NetworkModeConfig: &VpcConfigProperty{
+//   			SecurityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   			Subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//   		},
 //   	},
 //   	ProtocolConfiguration: jsii.String("protocolConfiguration"),
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
@@ -216,6 +223,9 @@ type CfnRuntime interface {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AuthorizerConfiguration() interface{}
 	SetAuthorizerConfiguration(val interface{})
+	// Configuration for a capacity provider.
+	CapacityProviderConfiguration() interface{}
+	SetCapacityProviderConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -573,6 +583,16 @@ func (j *jsiiProxy_CfnRuntime) AuthorizerConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuntime) CapacityProviderConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capacityProviderConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuntime) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -862,6 +882,17 @@ func (j *jsiiProxy_CfnRuntime)SetAuthorizerConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"authorizerConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuntime)SetCapacityProviderConfiguration(val interface{}) {
+	if err := j.validateSetCapacityProviderConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capacityProviderConfiguration",
 		val,
 	)
 }

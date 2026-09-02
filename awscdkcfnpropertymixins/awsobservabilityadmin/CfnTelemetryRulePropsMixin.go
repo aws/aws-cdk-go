@@ -63,6 +63,7 @@ import (
 //   				FieldDelimiter: jsii.String("fieldDelimiter"),
 //   				OutputFormat: jsii.String("outputFormat"),
 //   			},
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
 //   			LogDeliveryParameters: &LogDeliveryParametersProperty{
 //   				LogTypes: []*string{
 //   					jsii.String("logTypes"),

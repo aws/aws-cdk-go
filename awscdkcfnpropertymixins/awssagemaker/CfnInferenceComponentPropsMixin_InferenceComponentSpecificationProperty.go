@@ -18,6 +18,14 @@ package awssagemaker
 //   	},
 //   	Container: &InferenceComponentContainerSpecificationProperty{
 //   		ArtifactUrl: jsii.String("artifactUrl"),
+//   		ContainerMetricsConfig: &ContainerMetricsConfigProperty{
+//   			MetricsEndpoints: []interface{}{
+//   				&MetricsEndpointProperty{
+//   					MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   					MetricsEndpointPath: jsii.String("metricsEndpointPath"),
+//   				},
+//   			},
+//   		},
 //   		DeployedImage: &DeployedImageProperty{
 //   			ResolutionTime: jsii.String("resolutionTime"),
 //   			ResolvedImage: jsii.String("resolvedImage"),
@@ -28,7 +36,20 @@ package awssagemaker
 //   		},
 //   		Image: jsii.String("image"),
 //   	},
+//   	CurrentDataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   		EnableCaching: jsii.Boolean(false),
+//   	},
+//   	DataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   		EnableCaching: jsii.Boolean(false),
+//   	},
 //   	ModelName: jsii.String("modelName"),
+//   	SchedulingConfig: &InferenceComponentSchedulingConfigProperty{
+//   		AvailabilityZoneBalance: &InferenceComponentAvailabilityZoneBalanceProperty{
+//   			EnforcementMode: jsii.String("enforcementMode"),
+//   			MaxImbalance: jsii.Number(123),
+//   		},
+//   		PlacementStrategy: jsii.String("placementStrategy"),
+//   	},
 //   	StartupParameters: &InferenceComponentStartupParametersProperty{
 //   		ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   		ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
@@ -58,10 +79,22 @@ type CfnInferenceComponentPropsMixin_InferenceComponentSpecificationProperty str
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-container
 	//
 	Container interface{} `field:"optional" json:"container" yaml:"container"`
+	// Settings that affect how the inference component caches data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-currentdatacacheconfig
+	//
+	CurrentDataCacheConfig interface{} `field:"optional" json:"currentDataCacheConfig" yaml:"currentDataCacheConfig"`
+	// Settings that affect how the inference component caches data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-datacacheconfig
+	//
+	DataCacheConfig interface{} `field:"optional" json:"dataCacheConfig" yaml:"dataCacheConfig"`
 	// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-modelname
 	//
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
+	// The scheduling configuration that determines how inference component copies are placed across available instances.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-schedulingconfig
+	//
+	SchedulingConfig interface{} `field:"optional" json:"schedulingConfig" yaml:"schedulingConfig"`
 	// Settings that take effect while the model container starts up.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-startupparameters
 	//

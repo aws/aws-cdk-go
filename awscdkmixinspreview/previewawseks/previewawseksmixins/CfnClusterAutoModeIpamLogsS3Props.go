@@ -14,7 +14,7 @@ import (
 //
 //   cfnClusterAutoModeIpamLogsS3Props := &CfnClusterAutoModeIpamLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterAutoModeIpamLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterAutoModeIpamLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnClusterAutoModeIpamLogsRecordFields{
 //   		awscdkmixinspreview.*Mixins.CfnClusterAutoModeIpamLogsRecordFields_LEVEL,
 //   	},
@@ -25,7 +25,7 @@ type CfnClusterAutoModeIpamLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnClusterAutoModeIpamLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

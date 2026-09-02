@@ -6,6 +6,10 @@ type CfnCapabilityEksCapabilityAckLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityAckLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityAckLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_STREAM CfnCapabilityEksCapabilityAckLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_LEVEL CfnCapabilityEksCapabilityAckLogsRecordFields = "LEVEL"
@@ -28,8 +32,6 @@ const (
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_KIND CfnCapabilityEksCapabilityAckLogsRecordFields = "KIND"
 	// Experimental.
-	CfnCapabilityEksCapabilityAckLogsRecordFields_RECONCILER_KIND CfnCapabilityEksCapabilityAckLogsRecordFields = "RECONCILER_KIND"
-	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_NAME CfnCapabilityEksCapabilityAckLogsRecordFields = "NAME"
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_NAMESPACE CfnCapabilityEksCapabilityAckLogsRecordFields = "NAMESPACE"
@@ -39,6 +41,14 @@ const (
 	CfnCapabilityEksCapabilityAckLogsRecordFields_VERSION CfnCapabilityEksCapabilityAckLogsRecordFields = "VERSION"
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_TYPE CfnCapabilityEksCapabilityAckLogsRecordFields = "TYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_GENERATION CfnCapabilityEksCapabilityAckLogsRecordFields = "GENERATION"
+	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_IS_ADOPTED CfnCapabilityEksCapabilityAckLogsRecordFields = "IS_ADOPTED"
+	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_IAM_ROLE_SELECTOR CfnCapabilityEksCapabilityAckLogsRecordFields = "IAM_ROLE_SELECTOR"
+	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_ROLE CfnCapabilityEksCapabilityAckLogsRecordFields = "ROLE"
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityAckLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

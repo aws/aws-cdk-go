@@ -26,8 +26,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "autoBuildBotLocales", GoGetter: "AutoBuildBotLocales"},
 			_jsii_.MemberProperty{JsiiProperty: "botFileS3Location", GoGetter: "BotFileS3Location"},
 			_jsii_.MemberProperty{JsiiProperty: "botLocales", GoGetter: "BotLocales"},
+			_jsii_.MemberProperty{JsiiProperty: "botMembers", GoGetter: "BotMembers"},
 			_jsii_.MemberProperty{JsiiProperty: "botRef", GoGetter: "BotRef"},
 			_jsii_.MemberProperty{JsiiProperty: "botTags", GoGetter: "BotTags"},
+			_jsii_.MemberProperty{JsiiProperty: "botType", GoGetter: "BotType"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -141,6 +143,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.BotLocaleProperty",
 		reflect.TypeOf((*CfnBot_BotLocaleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lex.CfnBot.BotMemberProperty",
+		reflect.TypeOf((*CfnBot_BotMemberProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lex.CfnBot.BuildtimeSettingsProperty",

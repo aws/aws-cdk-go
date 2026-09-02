@@ -6,6 +6,10 @@ type CfnCapabilityEksCapabilityKroLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityKroLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityKroLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityKroLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityKroLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityKroLogsRecordFields_STREAM CfnCapabilityEksCapabilityKroLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityKroLogsRecordFields_LEVEL CfnCapabilityEksCapabilityKroLogsRecordFields = "LEVEL"
@@ -34,11 +38,15 @@ const (
 	// Experimental.
 	CfnCapabilityEksCapabilityKroLogsRecordFields_NAMESPACE CfnCapabilityEksCapabilityKroLogsRecordFields = "NAMESPACE"
 	// Experimental.
-	CfnCapabilityEksCapabilityKroLogsRecordFields_ITEM CfnCapabilityEksCapabilityKroLogsRecordFields = "ITEM"
-	// Experimental.
-	CfnCapabilityEksCapabilityKroLogsRecordFields_RESOURCEGRAPHDEFINITION CfnCapabilityEksCapabilityKroLogsRecordFields = "RESOURCEGRAPHDEFINITION"
-	// Experimental.
 	CfnCapabilityEksCapabilityKroLogsRecordFields_TYPE CfnCapabilityEksCapabilityKroLogsRecordFields = "TYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityKroLogsRecordFields_BREAKINGCHANGES CfnCapabilityEksCapabilityKroLogsRecordFields = "BREAKINGCHANGES"
+	// Experimental.
+	CfnCapabilityEksCapabilityKroLogsRecordFields_SUMMARY CfnCapabilityEksCapabilityKroLogsRecordFields = "SUMMARY"
+	// Experimental.
+	CfnCapabilityEksCapabilityKroLogsRecordFields_EXISTINGRGDID CfnCapabilityEksCapabilityKroLogsRecordFields = "EXISTINGRGDID"
+	// Experimental.
+	CfnCapabilityEksCapabilityKroLogsRecordFields_NEWRGDID CfnCapabilityEksCapabilityKroLogsRecordFields = "NEWRGDID"
 	// Experimental.
 	CfnCapabilityEksCapabilityKroLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityKroLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

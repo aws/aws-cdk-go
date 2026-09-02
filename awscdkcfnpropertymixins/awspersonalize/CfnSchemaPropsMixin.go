@@ -34,6 +34,12 @@ import (
 //   	Domain: jsii.String("domain"),
 //   	Name: jsii.String("name"),
 //   	Schema: jsii.String("schema"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

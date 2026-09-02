@@ -37,6 +37,63 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	PrivateEndpoint: &PrivateEndpointProperty{
+//   		ManagedVpcResource: &ManagedVpcResourceProperty{
+//   			EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   			RoutingDomain: jsii.String("routingDomain"),
+//   			SecurityGroupIds: []*string{
+//   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
+//   			},
+//   			Tags: map[string]*string{
+//   				"tagsKey": jsii.String("tags"),
+//   			},
+//   			VpcIdentifier: jsii.String("vpcIdentifier"),
+//   		},
+//   		SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   			ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   		},
+//   	},
+//   	PrivateEndpointOverrides: []interface{}{
+//   		&PrivateEndpointOverrideProperty{
+//   			Domain: jsii.String("domain"),
+//   			PrivateEndpoint: &PrivateEndpointProperty{
+//   				ManagedVpcResource: &ManagedVpcResourceProperty{
+//   					EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   					RoutingDomain: jsii.String("routingDomain"),
+//   					SecurityGroupIds: []*string{
+//   						jsii.String("securityGroupIds"),
+//   					},
+//   					SubnetIds: []*string{
+//   						jsii.String("subnetIds"),
+//   					},
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
+//   					VpcIdentifier: jsii.String("vpcIdentifier"),
+//   				},
+//   				SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   					ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   				},
+//   			},
+//   		},
+//   	},
+//   	PrivateKeyJwtConfig: &PrivateKeyJwtConfigProperty{
+//   		AdditionalHeaderClaims: map[string]*string{
+//   			"additionalHeaderClaimsKey": jsii.String("additionalHeaderClaims"),
+//   		},
+//   		AdditionalPayloadClaims: map[string]*string{
+//   			"additionalPayloadClaimsKey": jsii.String("additionalPayloadClaims"),
+//   		},
+//   		PrivateKeySource: &PrivateKeySourceProperty{
+//   			KmsKeySource: &KmsKeySourceTypeProperty{
+//   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   		},
+//   		SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html
@@ -70,5 +127,19 @@ type CfnOAuth2CredentialProviderPropsMixin_CustomOauth2ProviderConfigInputProper
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-onbehalfoftokenexchangeconfig
 	//
 	OnBehalfOfTokenExchangeConfig interface{} `field:"optional" json:"onBehalfOfTokenExchangeConfig" yaml:"onBehalfOfTokenExchangeConfig"`
+	// The private endpoint configuration for connecting to private resources in your VPC.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-privateendpoint
+	//
+	PrivateEndpoint interface{} `field:"optional" json:"privateEndpoint" yaml:"privateEndpoint"`
+	// A list of private endpoint overrides.
+	//
+	// Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-privateendpointoverrides
+	//
+	PrivateEndpointOverrides interface{} `field:"optional" json:"privateEndpointOverrides" yaml:"privateEndpointOverrides"`
+	// Configuration for private_key_jwt client authentication (RFC 7523).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-privatekeyjwtconfig
+	//
+	PrivateKeyJwtConfig interface{} `field:"optional" json:"privateKeyJwtConfig" yaml:"privateKeyJwtConfig"`
 }
 

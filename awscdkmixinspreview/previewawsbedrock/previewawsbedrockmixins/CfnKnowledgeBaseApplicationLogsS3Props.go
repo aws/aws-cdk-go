@@ -14,9 +14,9 @@ import (
 //
 //   cfnKnowledgeBaseApplicationLogsS3Props := &CfnKnowledgeBaseApplicationLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnKnowledgeBaseApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_EVENT_TIMESTAMP,
+//   		awscdkmixinspreview.*Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnKnowledgeBaseApplicationLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c.
+	// Format for log output, options are plain,json,w3c.
 	// Experimental.
 	OutputFormat CfnKnowledgeBaseApplicationLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

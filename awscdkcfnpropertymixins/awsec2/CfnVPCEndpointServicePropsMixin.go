@@ -37,6 +37,13 @@ import (
 //   		jsii.String("networkLoadBalancerArns"),
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),
+//   	PrivateDnsName: jsii.String("privateDnsName"),
+//   	PrivateDnsNameConfiguration: &PrivateDnsNameConfigurationProperty{
+//   		Name: jsii.String("name"),
+//   		State: jsii.String("state"),
+//   		Type: jsii.String("type"),
+//   		Value: jsii.String("value"),
+//   	},
 //   	SupportedIpAddressTypes: []*string{
 //   		jsii.String("supportedIpAddressTypes"),
 //   	},

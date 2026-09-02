@@ -34,6 +34,7 @@ import (
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{
 //   		PublishMqcs: jsii.Boolean(false),
 //   	},
+//   	OutputLockingMode: jsii.String("outputLockingMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

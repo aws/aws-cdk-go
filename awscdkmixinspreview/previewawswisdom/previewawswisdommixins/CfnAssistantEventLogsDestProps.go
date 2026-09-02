@@ -8,7 +8,7 @@ package previewawswisdommixins
 //
 //   cfnAssistantEventLogsDestProps := &CfnAssistantEventLogsDestProps{
 //   	RecordFields: []CfnAssistantEventLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnAssistantEventLogsRecordFields_ASSISTANT_ID,
+//   		awscdkmixinspreview.Mixins.CfnAssistantEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

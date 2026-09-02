@@ -60,6 +60,11 @@ import (
 //   		&FileSystemConfigProperty{
 //   			Arn: jsii.String("arn"),
 //   			LocalMountPath: jsii.String("localMountPath"),
+//
+//   			// the properties below are optional
+//   			S3FilesConfig: &S3FilesConfigProperty{
+//   				DirectS3Read: jsii.String("directS3Read"),
+//   			},
 //   		},
 //   	},
 //   	FunctionName: jsii.String("functionName"),

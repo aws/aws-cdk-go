@@ -8,7 +8,7 @@ package previewawss3mixins
 //
 //   cfnBucketS3ServerAccessLogsDestProps := &CfnBucketS3ServerAccessLogsDestProps{
 //   	RecordFields: []CfnBucketS3ServerAccessLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnBucketS3ServerAccessLogsRecordFields_BUCKET_NAME,
+//   		awscdkmixinspreview.Mixins.CfnBucketS3ServerAccessLogsRecordFields_SCHEMA_VERSION_ID,
 //   	},
 //   }
 //

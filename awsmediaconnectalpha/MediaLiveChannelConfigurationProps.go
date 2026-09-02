@@ -1,5 +1,8 @@
 package awsmediaconnectalpha
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
+)
 
 // Properties for MediaLive Channel Router Input configuration.
 //
@@ -7,45 +10,38 @@ package awsmediaconnectalpha
 // from one of its outputs immediately.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import mediaconnect_alpha "github.com/aws/aws-cdk-go/awsmediaconnectalpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var stack Stack
+//   var mediaLiveChannel IChannel
 //
-//   var role Role
-//   var secret Secret
 //
-//   mediaLiveChannelConfigurationProps := &MediaLiveChannelConfigurationProps{
-//   	MediaLiveChannelArn: jsii.String("mediaLiveChannelArn"),
-//   	MediaLiveChannelOutputName: jsii.String("mediaLiveChannelOutputName"),
-//   	MediaLivePipelineId: mediaconnect_alpha.MediaLivePipeline_PIPELINE_0,
-//
-//   	// the properties below are optional
-//   	SourceTransitDecryption: &TransitEncryption{
-//   		Secret: secret,
-//
-//   		// the properties below are optional
-//   		Role: role,
-//   	},
-//   }
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+//   	RouterInputName: jsii.String("channel-input"),
+//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+//   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+//   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+//   		Channel: mediaLiveChannel,
+//   		OutputName: jsii.String("router-ts"),
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   	}),
+//   })
 //
 // Experimental.
 type MediaLiveChannelConfigurationProps struct {
-	// ARN of the MediaLive channel to use as input.
-	//
-	// Note: This will change to accept a typed MediaLive channel reference
-	// when the.
+	// The MediaLive channel to use as input.
 	// Experimental.
-	MediaLiveChannelArn *string `field:"required" json:"mediaLiveChannelArn" yaml:"mediaLiveChannelArn"`
-	// The name of the MediaLive channel output to connect to this router input.
+	Channel interfacesawsmedialive.IChannelRef `field:"required" json:"channel" yaml:"channel"`
+	// The name of the individual output (within the channel's MediaConnect Router output group) to connect to this router input — not the name of the output group itself.
 	// Experimental.
-	MediaLiveChannelOutputName *string `field:"required" json:"mediaLiveChannelOutputName" yaml:"mediaLiveChannelOutputName"`
+	OutputName *string `field:"required" json:"outputName" yaml:"outputName"`
 	// The MediaLive pipeline to connect to this router input.
 	// Experimental.
-	MediaLivePipelineId MediaLivePipeline `field:"required" json:"mediaLivePipelineId" yaml:"mediaLivePipelineId"`
+	Pipeline MediaLivePipeline `field:"required" json:"pipeline" yaml:"pipeline"`
 	// Optional transit encryption configuration.
-	// Default: - Automatic encryption will be used.
+	//
+	// Must match the encryption type configured on the
+	// MediaLive channel's MediaConnect Router output group.
+	// Default: - automatic encryption.
 	//
 	// Experimental.
 	SourceTransitDecryption *TransitEncryption `field:"optional" json:"sourceTransitDecryption" yaml:"sourceTransitDecryption"`

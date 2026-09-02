@@ -50,6 +50,7 @@ type CfnDBParameterGroup interface {
 	awscdk.IInspectable
 	interfacesawsrds.IDBParameterGroupRef
 	awscdk.ITaggable
+	AttrDbParameterGroupArn() *string
 	// The name of the DB parameter group.
 	AttrDbParameterGroupName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -285,6 +286,16 @@ type jsiiProxy_CfnDBParameterGroup struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsrdsIDBParameterGroupRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDBParameterGroup) AttrDbParameterGroupArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDbParameterGroupArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDBParameterGroup) AttrDbParameterGroupName() *string {
@@ -567,6 +578,62 @@ func (j *jsiiProxy_CfnDBParameterGroup)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
+}
+
+func CfnDBParameterGroup_ArnForDBParameterGroup(resource interfacesawsrds.IDBParameterGroupRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnDBParameterGroup_ArnForDBParameterGroupParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"arnForDBParameterGroup",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDBParameterGroupRef from an ARN.
+func CfnDBParameterGroup_FromDBParameterGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawsrds.IDBParameterGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnDBParameterGroup_FromDBParameterGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsrds.IDBParameterGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"fromDBParameterGroupArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IDBParameterGroupRef from a dbParameterGroupName.
+func CfnDBParameterGroup_FromDBParameterGroupName(scope constructs.Construct, id *string, dbParameterGroupName *string) interfacesawsrds.IDBParameterGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnDBParameterGroup_FromDBParameterGroupNameParameters(scope, id, dbParameterGroupName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsrds.IDBParameterGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"fromDBParameterGroupName",
+		[]interface{}{scope, id, dbParameterGroupName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks whether the given object is a CfnDBParameterGroup.

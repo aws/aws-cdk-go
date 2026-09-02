@@ -24,7 +24,7 @@ type CfnFirewallAlertLogs interface {
 	// Supported destinations are S3, CWL, FH
 	// You are responsible for setting up the correct permissions for your delivery destination, toDestination() does not set up any permissions for you.
 	// Delivery destinations that are imported from another stack using CfnDeliveryDestination.fromDeliveryDestinationArn() or CfnDeliveryDestination.fromDeliveryDestinationName() are supported by toDestination().
-	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnFirewallLogsMixin
+	ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnFirewallAlertLogsDestProps) CfnFirewallLogsMixin
 	// Send logs to a Firehose Delivery Stream.
 	ToFirehose(deliveryStream interfacesawskinesisfirehose.IDeliveryStreamRef, props *CfnFirewallAlertLogsFirehoseProps) CfnFirewallLogsMixin
 	// Send logs to a CloudWatch Log Group.
@@ -64,8 +64,8 @@ func NewCfnFirewallAlertLogs_Override(c CfnFirewallAlertLogs) {
 	)
 }
 
-func (c *jsiiProxy_CfnFirewallAlertLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef) CfnFirewallLogsMixin {
-	if err := c.validateToDestinationParameters(destination); err != nil {
+func (c *jsiiProxy_CfnFirewallAlertLogs) ToDestination(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnFirewallAlertLogsDestProps) CfnFirewallLogsMixin {
+	if err := c.validateToDestinationParameters(destination, props); err != nil {
 		panic(err)
 	}
 	var returns CfnFirewallLogsMixin
@@ -73,7 +73,7 @@ func (c *jsiiProxy_CfnFirewallAlertLogs) ToDestination(destination interfacesaws
 	_jsii_.Invoke(
 		c,
 		"toDestination",
-		[]interface{}{destination},
+		[]interface{}{destination, props},
 		&returns,
 	)
 

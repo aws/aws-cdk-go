@@ -9,14 +9,11 @@ package interfacesawssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   endpointConfigReference := &EndpointConfigReference{
-//   	EndpointConfigId: jsii.String("endpointConfigId"),
-//   	EndpointConfigName: jsii.String("endpointConfigName"),
+//   	EndpointConfigArn: jsii.String("endpointConfigArn"),
 //   }
 //
 type EndpointConfigReference struct {
-	// The Id of the EndpointConfig resource.
-	EndpointConfigId *string `field:"required" json:"endpointConfigId" yaml:"endpointConfigId"`
-	// The EndpointConfigName of the EndpointConfig resource.
-	EndpointConfigName *string `field:"required" json:"endpointConfigName" yaml:"endpointConfigName"`
+	// The EndpointConfigArn of the EndpointConfig resource.
+	EndpointConfigArn *string `field:"required" json:"endpointConfigArn" yaml:"endpointConfigArn"`
 }
 

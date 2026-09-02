@@ -33,6 +33,7 @@ import (
 //   		},
 //   	},
 //   	ConnectionId: jsii.String("connectionId"),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	RouteFilterPrefixes: []*string{
 //   		jsii.String("routeFilterPrefixes"),
 //   	},

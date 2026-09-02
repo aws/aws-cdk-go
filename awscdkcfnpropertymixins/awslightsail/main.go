@@ -72,6 +72,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnContactMethodMixinProps",
+		reflect.TypeOf((*CfnContactMethodMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnContactMethodPropsMixin",
+		reflect.TypeOf((*CfnContactMethodPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContactMethodPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnContainerMixinProps",
 		reflect.TypeOf((*CfnContainerMixinProps)(nil)).Elem(),
 	)

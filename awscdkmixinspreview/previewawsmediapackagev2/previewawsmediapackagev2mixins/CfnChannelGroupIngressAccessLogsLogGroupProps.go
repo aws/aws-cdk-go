@@ -9,7 +9,7 @@ package previewawsmediapackagev2mixins
 //   cfnChannelGroupIngressAccessLogsLogGroupProps := &CfnChannelGroupIngressAccessLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnChannelGroupIngressAccessLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnChannelGroupIngressAccessLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnChannelGroupIngressAccessLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnChannelGroupIngressAccessLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

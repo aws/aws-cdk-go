@@ -29,6 +29,15 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	Code: &CodeProperty{
+//   		S3Location: &CodeS3LocationProperty{
+//   			Bucket: jsii.String("bucket"),
+//   			ObjectKey: jsii.String("objectKey"),
+//
+//   			// the properties below are optional
+//   			VersionId: jsii.String("versionId"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		Type: jsii.String("type"),
@@ -61,6 +70,7 @@ type CfnWorkflow interface {
 	awscdk.IInspectable
 	interfacesawsmwaaserverless.IWorkflowRef
 	awscdk.ITaggableV2
+	AttrCodeSnapshottedAt() *string
 	AttrCreatedAt() *string
 	AttrModifiedAt() *string
 	AttrScheduleConfiguration() awscdk.IResolvable
@@ -75,6 +85,9 @@ type CfnWorkflow interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// The location of code artifacts in Amazon S3 for the workflow.
+	Code() interface{}
+	SetCode(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -306,6 +319,16 @@ type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnWorkflow) AttrCodeSnapshottedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCodeSnapshottedAt",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) AttrCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -411,6 +434,16 @@ func (j *jsiiProxy_CfnWorkflow) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWorkflow) Code() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"code",
 		&returns,
 	)
 	return returns
@@ -623,6 +656,17 @@ func NewCfnWorkflow_Override(c CfnWorkflow, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_mwaaserverless.CfnWorkflow",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetCode(val interface{}) {
+	if err := j.validateSetCodeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"code",
+		val,
 	)
 }
 

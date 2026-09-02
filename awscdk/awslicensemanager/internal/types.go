@@ -8,3 +8,4 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawslicensemanagerIGrantRef = interfacesawslicensemanager.IGrantRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawslicensemanagerILicenseRef = interfacesawslicensemanager.ILicenseRef
+type Type__interfacesawslicensemanagerILicenseAssetRuleSetRef = interfacesawslicensemanager.ILicenseAssetRuleSetRef

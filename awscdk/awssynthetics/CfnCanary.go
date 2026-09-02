@@ -75,7 +75,42 @@ import (
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	DryRunAndUpdate: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ProvisionedResourceCleanup: jsii.String("provisionedResourceCleanup"),
+//   	Replicas: []interface{}{
+//   		&ReplicaProperty{
+//   			Location: jsii.String("location"),
+//
+//   			// the properties below are optional
+//   			CanaryState: jsii.String("canaryState"),
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			LastModified: jsii.Number(123),
+//   			ReplicationStatus: &ReplicaReplicationStatusProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   			ResourcesToReplicateTags: []*string{
+//   				jsii.String("resourcesToReplicateTags"),
+//   			},
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			VpcConfig: &VPCConfigProperty{
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				SubnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//
+//   				// the properties below are optional
+//   				Ipv6AllowedForDualStack: jsii.Boolean(false),
+//   				VpcId: jsii.String("vpcId"),
+//   			},
+//   		},
+//   	},
 //   	ResourcesToReplicateTags: []*string{
 //   		jsii.String("resourcesToReplicateTags"),
 //   	},
@@ -198,6 +233,9 @@ type CfnCanary interface {
 	// The number of days to retain data about failed runs of this canary.
 	FailureRetentionPeriod() *float64
 	SetFailureRetentionPeriod(val *float64)
+	// KMS key ARN for encrypting the canary's Lambda function environment variables at rest.
+	KmsKeyArn() *string
+	SetKmsKeyArn(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -221,6 +259,9 @@ type CfnCanary interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// List of replica locations for multi-location canary execution.
+	Replicas() interface{}
+	SetReplicas(val interface{})
 	// To have the tags that you apply to this canary also be applied to the Lambda function that the canary uses, specify this property with the value `lambda-function` .
 	ResourcesToReplicateTags() *[]*string
 	SetResourcesToReplicateTags(val *[]*string)
@@ -622,6 +663,16 @@ func (j *jsiiProxy_CfnCanary) FailureRetentionPeriod() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCanary) KmsKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCanary) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -667,6 +718,16 @@ func (j *jsiiProxy_CfnCanary) Ref() *string {
 	_jsii_.Get(
 		j,
 		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCanary) Replicas() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"replicas",
 		&returns,
 	)
 	return returns
@@ -927,6 +988,14 @@ func (j *jsiiProxy_CfnCanary)SetFailureRetentionPeriod(val *float64) {
 	)
 }
 
+func (j *jsiiProxy_CfnCanary)SetKmsKeyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCanary)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -942,6 +1011,17 @@ func (j *jsiiProxy_CfnCanary)SetProvisionedResourceCleanup(val *string) {
 	_jsii_.Set(
 		j,
 		"provisionedResourceCleanup",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary)SetReplicas(val interface{}) {
+	if err := j.validateSetReplicasParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"replicas",
 		val,
 	)
 }

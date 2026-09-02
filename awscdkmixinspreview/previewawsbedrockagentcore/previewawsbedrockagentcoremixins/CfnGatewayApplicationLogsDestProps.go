@@ -8,7 +8,7 @@ package previewawsbedrockagentcoremixins
 //
 //   cfnGatewayApplicationLogsDestProps := &CfnGatewayApplicationLogsDestProps{
 //   	RecordFields: []CfnGatewayApplicationLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnGatewayApplicationLogsRecordFields_BODY,
+//   		awscdkmixinspreview.Mixins.CfnGatewayApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -9,20 +9,18 @@ import (
 //
 // Example:
 //   var stack Stack
-//   var networkInterface RouterNetworkInterface
+//   var mediaLiveChannel IChannel
 //
 //
-//   output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("SrtOutput"), &RouterOutputProps{
-//   	RouterOutputName: jsii.String("srt-output"),
-//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(10)),
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+//   	RouterInputName: jsii.String("channel-input"),
+//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
 //   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
-//   	// tier defaults to RouterOutputTier.OUTPUT_20 (lowest cost)
-//   	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_Standard(&StandardOutputConfigurationProps{
-//   		Protocol: awsmediaconnectalpha.RouterOutputProtocol_SrtListener(&SrtListenerOutputProtocolProps{
-//   			Port: jsii.Number(9001),
-//   			MinimumLatency: awscdk.Duration_Millis(jsii.Number(200)),
-//   		}),
-//   		NetworkInterface: networkInterface,
+//   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+//   		Channel: mediaLiveChannel,
+//   		OutputName: jsii.String("router-ts"),
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
 //   	}),
 //   })
 //

@@ -40,6 +40,30 @@ func init() {
 		reflect.TypeOf((*CfnAgentSpacePropsMixin_OperatorAppProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssetMixinProps",
+		reflect.TypeOf((*CfnAssetMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssetPropsMixin",
+		reflect.TypeOf((*CfnAssetPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAssetPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssetPropsMixin.AssetFileProperty",
+		reflect.TypeOf((*CfnAssetPropsMixin_AssetFileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationMixinProps",
 		reflect.TypeOf((*CfnAssociationMixinProps)(nil)).Elem(),
 	)
@@ -330,5 +354,33 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.ServiceNowServiceDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_ServiceNowServiceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnTriggerMixinProps",
+		reflect.TypeOf((*CfnTriggerMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnTriggerPropsMixin",
+		reflect.TypeOf((*CfnTriggerPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTriggerPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnTriggerPropsMixin.ConditionProperty",
+		reflect.TypeOf((*CfnTriggerPropsMixin_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnTriggerPropsMixin.ScheduleProperty",
+		reflect.TypeOf((*CfnTriggerPropsMixin_ScheduleProperty)(nil)).Elem(),
 	)
 }

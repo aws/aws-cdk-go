@@ -7,15 +7,15 @@ package previewawssesmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnMailManagerIngressPointApplicationLogsFirehoseProps := &CfnMailManagerIngressPointApplicationLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerIngressPointApplicationLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerIngressPointApplicationLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnMailManagerIngressPointApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE,
+//   		awscdkmixinspreview.*Mixins.CfnMailManagerIngressPointApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnMailManagerIngressPointApplicationLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

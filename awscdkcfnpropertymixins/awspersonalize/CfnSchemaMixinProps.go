@@ -1,5 +1,8 @@
 package awspersonalize
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnSchemaPropsMixin.
 //
@@ -12,6 +15,12 @@ package awspersonalize
 //   	Domain: jsii.String("domain"),
 //   	Name: jsii.String("name"),
 //   	Schema: jsii.String("schema"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html
@@ -29,5 +38,9 @@ type CfnSchemaMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-schema
 	//
 	Schema *string `field:"optional" json:"schema" yaml:"schema"`
+	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html#cfn-personalize-schema-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

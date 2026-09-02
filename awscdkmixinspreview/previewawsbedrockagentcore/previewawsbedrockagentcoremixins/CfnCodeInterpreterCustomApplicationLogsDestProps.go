@@ -8,7 +8,7 @@ package previewawsbedrockagentcoremixins
 //
 //   cfnCodeInterpreterCustomApplicationLogsDestProps := &CfnCodeInterpreterCustomApplicationLogsDestProps{
 //   	RecordFields: []CfnCodeInterpreterCustomApplicationLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnCodeInterpreterCustomApplicationLogsRecordFields_ACCOUNT_ID,
+//   		awscdkmixinspreview.Mixins.CfnCodeInterpreterCustomApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

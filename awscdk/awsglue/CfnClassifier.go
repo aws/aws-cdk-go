@@ -65,7 +65,8 @@ type CfnClassifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsglue.IClassifierRef
-	AttrId() *string
+	// One of XMLClassifier/Name, GrokClassifier/Name, JsonClassifier/Name or CsvClassifier/Name.
+	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -295,11 +296,11 @@ type jsiiProxy_CfnClassifier struct {
 	internal.Type__interfacesawsglueIClassifierRef
 }
 
-func (j *jsiiProxy_CfnClassifier) AttrId() *string {
+func (j *jsiiProxy_CfnClassifier) AttrName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrName",
 		&returns,
 	)
 	return returns

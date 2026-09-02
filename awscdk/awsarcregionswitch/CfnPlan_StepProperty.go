@@ -237,6 +237,19 @@ package awsarcregionswitch
 //   			ExternalId: jsii.String("externalId"),
 //   			TimeoutMinutes: jsii.Number(123),
 //   		},
+//   		RdsSwitchoverReadReplicaConfig: &RdsSwitchoverReadReplicaConfigurationProperty{
+//   			DbInstanceArnMap: map[string]*string{
+//   				"dbInstanceArnMapKey": jsii.String("dbInstanceArnMap"),
+//   			},
+//
+//   			// the properties below are optional
+//   			CrossAccountRole: jsii.String("crossAccountRole"),
+//   			ExternalId: jsii.String("externalId"),
+//   			TimeoutMinutes: jsii.Number(123),
+//   			Ungraceful: &RdsUngracefulProperty{
+//   				Ungraceful: jsii.String("ungraceful"),
+//   			},
+//   		},
 //   		RegionSwitchPlanConfig: &RegionSwitchPlanConfigurationProperty{
 //   			Arn: jsii.String("arn"),
 //

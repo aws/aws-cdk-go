@@ -14,7 +14,6 @@ type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawscodebuildIProjectRef = interfacesawscodebuild.IProjectRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawscodebuildIReportGroupRef = interfacesawscodebuild.IReportGroupRef
-type Type__interfacesawscodebuildISandboxRef = interfacesawscodebuild.ISandboxRef
 type Type__interfacesawscodebuildISourceCredentialRef = interfacesawscodebuild.ISourceCredentialRef
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awsiamIGrantable = awsiam.IGrantable

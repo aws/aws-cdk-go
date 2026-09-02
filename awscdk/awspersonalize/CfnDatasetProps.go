@@ -1,5 +1,8 @@
 package awspersonalize
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnDataset`.
 //
@@ -23,6 +26,12 @@ package awspersonalize
 //   		DataSource: dataSource,
 //   		JobName: jsii.String("jobName"),
 //   		RoleArn: jsii.String("roleArn"),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -57,5 +66,9 @@ type CfnDatasetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-datasetimportjob
 	//
 	DatasetImportJob interface{} `field:"optional" json:"datasetImportJob" yaml:"datasetImportJob"`
+	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html#cfn-personalize-dataset-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

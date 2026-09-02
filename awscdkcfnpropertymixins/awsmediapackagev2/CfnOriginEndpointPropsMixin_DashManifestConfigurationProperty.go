@@ -85,6 +85,9 @@ type CfnOriginEndpointPropsMixin_DashManifestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-audiotimelinepattern
 	//
 	AudioTimelinePattern *string `field:"optional" json:"audioTimelinePattern" yaml:"audioTimelinePattern"`
+	// <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD).
+	//
+	// Use this configuration to set a custom availability start time for your DASH manifest.</p>
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-availabilitystarttimeconfiguration
 	//
 	AvailabilityStartTimeConfiguration interface{} `field:"optional" json:"availabilityStartTimeConfiguration" yaml:"availabilityStartTimeConfiguration"`

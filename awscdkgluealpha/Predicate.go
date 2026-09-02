@@ -31,7 +31,7 @@ type Predicate struct {
 	// Experimental.
 	Conditions *[]*Condition `field:"optional" json:"conditions" yaml:"conditions"`
 	// The logical operator to be applied to the conditions.
-	// Default: - ConditionLogical.AND if multiple conditions are provided, no logical operator if only one condition
+	// Default: - PredicateLogical.AND if multiple conditions are provided, no logical operator if only one condition
 	//
 	// Experimental.
 	Logical PredicateLogical `field:"optional" json:"logical" yaml:"logical"`

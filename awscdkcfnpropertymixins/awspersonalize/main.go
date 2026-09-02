@@ -8,30 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnDataDeletionJobMixinProps",
-		reflect.TypeOf((*CfnDataDeletionJobMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnDataDeletionJobPropsMixin",
-		reflect.TypeOf((*CfnDataDeletionJobPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnDataDeletionJobPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnDataDeletionJobPropsMixin.DataSourceProperty",
-		reflect.TypeOf((*CfnDataDeletionJobPropsMixin_DataSourceProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnDatasetGroupMixinProps",
 		reflect.TypeOf((*CfnDatasetGroupMixinProps)(nil)).Elem(),
 	)
@@ -76,12 +52,12 @@ func init() {
 		reflect.TypeOf((*CfnDatasetPropsMixin_DatasetImportJobProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnRecipeMixinProps",
-		reflect.TypeOf((*CfnRecipeMixinProps)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnEventTrackerMixinProps",
+		reflect.TypeOf((*CfnEventTrackerMixinProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnRecipePropsMixin",
-		reflect.TypeOf((*CfnRecipePropsMixin)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnEventTrackerPropsMixin",
+		reflect.TypeOf((*CfnEventTrackerPropsMixin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
@@ -89,11 +65,43 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnRecipePropsMixin{}
+			j := jsiiProxy_CfnEventTrackerPropsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnMetricAttributionMixinProps",
+		reflect.TypeOf((*CfnMetricAttributionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnMetricAttributionPropsMixin",
+		reflect.TypeOf((*CfnMetricAttributionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMetricAttributionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnMetricAttributionPropsMixin.MetricAttributeProperty",
+		reflect.TypeOf((*CfnMetricAttributionPropsMixin_MetricAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnMetricAttributionPropsMixin.MetricsOutputConfigProperty",
+		reflect.TypeOf((*CfnMetricAttributionPropsMixin_MetricsOutputConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnMetricAttributionPropsMixin.S3DataDestinationProperty",
+		reflect.TypeOf((*CfnMetricAttributionPropsMixin_S3DataDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnSchemaMixinProps",

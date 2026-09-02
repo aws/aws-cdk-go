@@ -4,11 +4,25 @@ package awscdkgluealpha
 
 import (
 	"fmt"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 )
 
-func validateNewDataQualityTargetTableParameters(databaseName *string, tableName *string) error {
-	if databaseName == nil {
-		return fmt.Errorf("parameter databaseName is required, but nil was provided")
+func validateDataQualityTargetTable_FromTableParameters(database interfacesawsglue.IDatabaseRef, table ITable) error {
+	if database == nil {
+		return fmt.Errorf("parameter database is required, but nil was provided")
+	}
+
+	if table == nil {
+		return fmt.Errorf("parameter table is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateDataQualityTargetTable_FromTableNameParameters(database interfacesawsglue.IDatabaseRef, tableName *string) error {
+	if database == nil {
+		return fmt.Errorf("parameter database is required, but nil was provided")
 	}
 
 	if tableName == nil {

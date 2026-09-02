@@ -44,7 +44,6 @@ type CfnPreset interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
-	AttrId() *string
 	// The name of the output preset, such as `HEVC high res` .
 	AttrName() *string
 	// The new category for the preset, if you are changing it.
@@ -287,16 +286,6 @@ func (j *jsiiProxy_CfnPreset) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnPreset) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

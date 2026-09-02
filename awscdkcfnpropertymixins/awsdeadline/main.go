@@ -8,6 +8,42 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnBudgetMixinProps",
+		reflect.TypeOf((*CfnBudgetMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnBudgetPropsMixin",
+		reflect.TypeOf((*CfnBudgetPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnBudgetPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnBudgetPropsMixin.BudgetActionToAddProperty",
+		reflect.TypeOf((*CfnBudgetPropsMixin_BudgetActionToAddProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnBudgetPropsMixin.BudgetScheduleProperty",
+		reflect.TypeOf((*CfnBudgetPropsMixin_BudgetScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnBudgetPropsMixin.FixedBudgetScheduleProperty",
+		reflect.TypeOf((*CfnBudgetPropsMixin_FixedBudgetScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnBudgetPropsMixin.UsageTrackingResourceProperty",
+		reflect.TypeOf((*CfnBudgetPropsMixin_UsageTrackingResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFarmMixinProps",
 		reflect.TypeOf((*CfnFarmMixinProps)(nil)).Elem(),
 	)
@@ -350,5 +386,37 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnStorageProfilePropsMixin.FileSystemLocationProperty",
 		reflect.TypeOf((*CfnStorageProfilePropsMixin_FileSystemLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnWorkerMixinProps",
+		reflect.TypeOf((*CfnWorkerMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnWorkerPropsMixin",
+		reflect.TypeOf((*CfnWorkerPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWorkerPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnWorkerPropsMixin.HostPropertiesRequestProperty",
+		reflect.TypeOf((*CfnWorkerPropsMixin_HostPropertiesRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnWorkerPropsMixin.IpAddressesProperty",
+		reflect.TypeOf((*CfnWorkerPropsMixin_IpAddressesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnWorkerPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnWorkerPropsMixin_TagsItemsProperty)(nil)).Elem(),
 	)
 }

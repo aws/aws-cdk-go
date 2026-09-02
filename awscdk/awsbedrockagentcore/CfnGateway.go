@@ -78,6 +78,7 @@ type CfnGateway interface {
 	// The status reasons for the gateway.
 	AttrStatusReasons() *[]*string
 	AttrUpdatedAt() *string
+	AttrWebAclArn() *string
 	AttrWorkloadIdentityDetails() awscdk.IResolvable
 	AuthorizerConfiguration() interface{}
 	SetAuthorizerConfiguration(val interface{})
@@ -125,7 +126,6 @@ type CfnGateway interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
-	// The configuration for a policy engine associated with a gateway.
 	PolicyEngineConfiguration() interface{}
 	SetPolicyEngineConfiguration(val interface{})
 	// The protocol configuration for the gateway target.
@@ -161,6 +161,8 @@ type CfnGateway interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	WafConfiguration() interface{}
+	SetWafConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -397,6 +399,16 @@ func (j *jsiiProxy_CfnGateway) AttrUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGateway) AttrWebAclArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrWebAclArn",
 		&returns,
 	)
 	return returns
@@ -672,6 +684,16 @@ func (j *jsiiProxy_CfnGateway) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGateway) WafConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"wafConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::BedrockAgentCore::Gateway`.
 func NewCfnGateway(scope constructs.Construct, id *string, props *CfnGatewayProps) CfnGateway {
@@ -815,6 +837,17 @@ func (j *jsiiProxy_CfnGateway)SetTags(val *map[string]*string) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGateway)SetWafConfiguration(val interface{}) {
+	if err := j.validateSetWafConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"wafConfiguration",
 		val,
 	)
 }

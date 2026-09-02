@@ -10,6 +10,7 @@ package awsopensearchservice
 //
 //   softwareUpdateOptionsProperty := &SoftwareUpdateOptionsProperty{
 //   	AutoSoftwareUpdateEnabled: jsii.Boolean(false),
+//   	UseLatestServiceSoftwareForBlueGreen: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html
@@ -19,5 +20,8 @@ type CfnDomainPropsMixin_SoftwareUpdateOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html#cfn-opensearchservice-domain-softwareupdateoptions-autosoftwareupdateenabled
 	//
 	AutoSoftwareUpdateEnabled interface{} `field:"optional" json:"autoSoftwareUpdateEnabled" yaml:"autoSoftwareUpdateEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html#cfn-opensearchservice-domain-softwareupdateoptions-uselatestservicesoftwareforbluegreen
+	//
+	UseLatestServiceSoftwareForBlueGreen interface{} `field:"optional" json:"useLatestServiceSoftwareForBlueGreen" yaml:"useLatestServiceSoftwareForBlueGreen"`
 }
 

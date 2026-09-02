@@ -9,7 +9,7 @@ package previewawssesmixins
 //   cfnMailManagerRuleSetApplicationLogsLogGroupProps := &CfnMailManagerRuleSetApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerRuleSetApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnMailManagerRuleSetApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_NAME,
+//   		awscdkmixinspreview.*Mixins.CfnMailManagerRuleSetApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

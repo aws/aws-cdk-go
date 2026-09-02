@@ -9,7 +9,7 @@ package previewawsmediatailormixins
 //   cfnPlaybackConfigurationAdDecisionServerLogsLogGroupProps := &CfnPlaybackConfigurationAdDecisionServerLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnPlaybackConfigurationAdDecisionServerLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ORIGINID,
+//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

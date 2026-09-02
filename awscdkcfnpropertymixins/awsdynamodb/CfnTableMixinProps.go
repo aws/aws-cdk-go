@@ -128,6 +128,12 @@ import (
 //   			PolicyDocument: policyDocument,
 //   		},
 //   		StreamViewType: jsii.String("streamViewType"),
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   	},
 //   	TableClass: jsii.String("tableClass"),
 //   	TableName: jsii.String("tableName"),

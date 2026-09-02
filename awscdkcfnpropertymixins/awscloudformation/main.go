@@ -8,6 +8,30 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnChangeSetMixinProps",
+		reflect.TypeOf((*CfnChangeSetMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnChangeSetPropsMixin",
+		reflect.TypeOf((*CfnChangeSetPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnChangeSetPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnChangeSetPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnChangeSetPropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnCustomResourceMixinProps",
 		reflect.TypeOf((*CfnCustomResourceMixinProps)(nil)).Elem(),
 	)
@@ -330,30 +354,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceScanMixinProps",
-		reflect.TypeOf((*CfnResourceScanMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceScanPropsMixin",
-		reflect.TypeOf((*CfnResourceScanPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnResourceScanPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceScanPropsMixin.ScanFilterProperty",
-		reflect.TypeOf((*CfnResourceScanPropsMixin_ScanFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudformation.CfnResourceVersionMixinProps",

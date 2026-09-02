@@ -129,6 +129,17 @@ func CfnWorkloadIdentityLogsMixin_APPLICATION_LOGS() CfnWorkloadIdentityApplicat
 	return returns
 }
 
+func CfnWorkloadIdentityLogsMixin_TRACES() CfnWorkloadIdentityTraces {
+	_init_.Initialize()
+	var returns CfnWorkloadIdentityTraces
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityLogsMixin",
+		"TRACES",
+		&returns,
+	)
+	return returns
+}
+
 func (c *jsiiProxy_CfnWorkloadIdentityLogsMixin) ApplyTo(construct constructs.IConstruct) {
 	if err := c.validateApplyToParameters(construct); err != nil {
 		panic(err)

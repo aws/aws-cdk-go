@@ -9,7 +9,7 @@ package previewawsbedrockmixins
 //   cfnAgentAliasEventLogsLogGroupProps := &CfnAgentAliasEventLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnAgentAliasEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAgentAliasEventLogsRecordFields_TIMESTAMP,
+//   		awscdkmixinspreview.*Mixins.CfnAgentAliasEventLogsRecordFields_RESOURCE_ID,
 //   	},
 //   }
 //

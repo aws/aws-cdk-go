@@ -9,11 +9,11 @@ package interfacesawsdocdb
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dBSubnetGroupReference := &DBSubnetGroupReference{
-//   	DbSubnetGroupId: jsii.String("dbSubnetGroupId"),
+//   	DbSubnetGroupName: jsii.String("dbSubnetGroupName"),
 //   }
 //
 type DBSubnetGroupReference struct {
-	// The Id of the DBSubnetGroup resource.
-	DbSubnetGroupId *string `field:"required" json:"dbSubnetGroupId" yaml:"dbSubnetGroupId"`
+	// The DBSubnetGroupName of the DBSubnetGroup resource.
+	DbSubnetGroupName *string `field:"required" json:"dbSubnetGroupName" yaml:"dbSubnetGroupName"`
 }
 

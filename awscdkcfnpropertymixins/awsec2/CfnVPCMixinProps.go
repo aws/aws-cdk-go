@@ -127,6 +127,9 @@ type CfnVPCMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Describes the configuration and state of VPC encryption controls.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-ec2-vpc-vpcencryptioncontrol
 	//
 	VpcEncryptionControl interface{} `field:"optional" json:"vpcEncryptionControl" yaml:"vpcEncryptionControl"`

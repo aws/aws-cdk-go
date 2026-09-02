@@ -236,6 +236,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_PaymentNetworkProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.PreParseTextTransformationProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_PreParseTextTransformationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.PriceProperty",
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_PriceProperty)(nil)).Elem(),
 	)
@@ -590,6 +594,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.PaymentNetworkProperty",
 		reflect.TypeOf((*CfnWebACLPropsMixin_PaymentNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.PreParseTextTransformationProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_PreParseTextTransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.PriceProperty",

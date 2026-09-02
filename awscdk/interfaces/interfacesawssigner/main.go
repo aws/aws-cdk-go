@@ -24,22 +24,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_signer.ISigningJobRef",
-		reflect.TypeOf((*ISigningJobRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "signingJobRef", GoGetter: "SigningJobRef"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ISigningJobRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_signer.ISigningProfileRef",
 		reflect.TypeOf((*ISigningProfileRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -58,10 +42,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_signer.ProfilePermissionReference",
 		reflect.TypeOf((*ProfilePermissionReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_signer.SigningJobReference",
-		reflect.TypeOf((*SigningJobReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_signer.SigningProfileReference",

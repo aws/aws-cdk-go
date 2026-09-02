@@ -40,6 +40,42 @@ func init() {
 		reflect.TypeOf((*CfnAssociationPropsMixin_TargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorMixinProps",
+		reflect.TypeOf((*CfnCloudConnectorMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCloudConnectorPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.AzureConfigurationProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_AzureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.AzureSubscriptionProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_AzureSubscriptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.CloudConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_CloudConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.ConfigurationTargetsProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_ConfigurationTargetsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnDocumentMixinProps",
 		reflect.TypeOf((*CfnDocumentMixinProps)(nil)).Elem(),
 	)
@@ -300,12 +336,12 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnSessionMixinProps",
-		reflect.TypeOf((*CfnSessionMixinProps)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnServiceSettingMixinProps",
+		reflect.TypeOf((*CfnServiceSettingMixinProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnSessionPropsMixin",
-		reflect.TypeOf((*CfnSessionPropsMixin)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnServiceSettingPropsMixin",
+		reflect.TypeOf((*CfnServiceSettingPropsMixin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
@@ -313,7 +349,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnSessionPropsMixin{}
+			j := jsiiProxy_CfnServiceSettingPropsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j

@@ -21,8 +21,13 @@ package awsobservabilityadmin
 //   			},
 //   			LogsEncryptionConfiguration: &LogsEncryptionConfigurationProperty{
 //   				EncryptionConflictResolutionStrategy: jsii.String("encryptionConflictResolutionStrategy"),
+//   				EncryptionScope: jsii.String("encryptionScope"),
 //   				EncryptionStrategy: jsii.String("encryptionStrategy"),
 //   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   			TagPropagationConfiguration: &TagPropagationConfigurationProperty{
+//   				DestinationRoleArn: jsii.String("destinationRoleArn"),
+//   				TagConflictResolutionStrategy: jsii.String("tagConflictResolutionStrategy"),
 //   			},
 //   		},
 //   		DestinationMetricsConfiguration: &DestinationMetricsConfigurationProperty{

@@ -97,6 +97,8 @@ type CfnReceiptRule interface {
 	After() *string
 	SetAfter(val *string)
 	AttrId() *string
+	// The name of the rule.
+	AttrRuleName() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -335,6 +337,16 @@ func (j *jsiiProxy_CfnReceiptRule) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReceiptRule) AttrRuleName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRuleName",
 		&returns,
 	)
 	return returns

@@ -84,6 +84,10 @@ func (c *jsiiProxy_CfnSourceCredential) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnSourceCredential_ArnForSourceCredentialParameters(resource interfacesawscodebuild.ISourceCredentialRef) error {
+	return nil
+}
+
 func validateCfnSourceCredential_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

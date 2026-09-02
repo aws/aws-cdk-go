@@ -64,7 +64,7 @@ package awssam
 //   	},
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
-//   			"properties": &AlexaSkillEventProperty{
+//   			"properties": &DynamoDBEventProperty{
 //   				"skillId": jsii.String("skillId"),
 //   			},
 //   			"type": jsii.String("type"),

@@ -8,66 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllImageBuildVersionsMixinProps",
-		reflect.TypeOf((*CfnAllImageBuildVersionsMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllImageBuildVersionsPropsMixin",
-		reflect.TypeOf((*CfnAllImageBuildVersionsPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnAllImageBuildVersionsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllImageBuildVersionsPropsMixin.ImageTestsConfigurationProperty",
-		reflect.TypeOf((*CfnAllImageBuildVersionsPropsMixin_ImageTestsConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllImageBuildVersionsPropsMixin.StateProperty",
-		reflect.TypeOf((*CfnAllImageBuildVersionsPropsMixin_StateProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllImageBuildVersionsPropsMixin.TagsItemsProperty",
-		reflect.TypeOf((*CfnAllImageBuildVersionsPropsMixin_TagsItemsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllWorkflowBuildVersionsMixinProps",
-		reflect.TypeOf((*CfnAllWorkflowBuildVersionsMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllWorkflowBuildVersionsPropsMixin",
-		reflect.TypeOf((*CfnAllWorkflowBuildVersionsPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnAllWorkflowBuildVersionsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllWorkflowBuildVersionsPropsMixin.ParametersItemsProperty",
-		reflect.TypeOf((*CfnAllWorkflowBuildVersionsPropsMixin_ParametersItemsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnAllWorkflowBuildVersionsPropsMixin.TagsItemsProperty",
-		reflect.TypeOf((*CfnAllWorkflowBuildVersionsPropsMixin_TagsItemsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnComponentMixinProps",
 		reflect.TypeOf((*CfnComponentMixinProps)(nil)).Elem(),
 	)
@@ -432,26 +372,6 @@ func init() {
 		reflect.TypeOf((*CfnLifecyclePolicyPropsMixin_ResourceSelectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnWorkflowExecutionMixinProps",
-		reflect.TypeOf((*CfnWorkflowExecutionMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnWorkflowExecutionPropsMixin",
-		reflect.TypeOf((*CfnWorkflowExecutionPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnWorkflowExecutionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnWorkflowMixinProps",
 		reflect.TypeOf((*CfnWorkflowMixinProps)(nil)).Elem(),
 	)
@@ -474,25 +394,5 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnWorkflowPropsMixin.LatestVersionProperty",
 		reflect.TypeOf((*CfnWorkflowPropsMixin_LatestVersionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnWorkflowStepExecutionMixinProps",
-		reflect.TypeOf((*CfnWorkflowStepExecutionMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnWorkflowStepExecutionPropsMixin",
-		reflect.TypeOf((*CfnWorkflowStepExecutionPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnWorkflowStepExecutionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
 	)
 }

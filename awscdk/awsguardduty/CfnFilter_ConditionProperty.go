@@ -23,11 +23,17 @@ package awsguardduty
 //   	LessThanOrEqual: jsii.Number(123),
 //   	Lt: jsii.Number(123),
 //   	Lte: jsii.Number(123),
+//   	Matches: []*string{
+//   		jsii.String("matches"),
+//   	},
 //   	Neq: []*string{
 //   		jsii.String("neq"),
 //   	},
 //   	NotEquals: []*string{
 //   		jsii.String("notEquals"),
+//   	},
+//   	NotMatches: []*string{
+//   		jsii.String("notMatches"),
 //   	},
 //   }
 //
@@ -74,6 +80,9 @@ type CfnFilter_ConditionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-lte
 	//
 	Lte *float64 `field:"optional" json:"lte" yaml:"lte"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-matches
+	//
+	Matches *[]*string `field:"optional" json:"matches" yaml:"matches"`
 	// Represents the not equal condition to apply to a single field when querying for findings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-neq
 	//
@@ -82,5 +91,8 @@ type CfnFilter_ConditionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-notequals
 	//
 	NotEquals *[]*string `field:"optional" json:"notEquals" yaml:"notEquals"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-condition.html#cfn-guardduty-filter-condition-notmatches
+	//
+	NotMatches *[]*string `field:"optional" json:"notMatches" yaml:"notMatches"`
 }
 

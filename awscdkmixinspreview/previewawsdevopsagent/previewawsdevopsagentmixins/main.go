@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_devopsagent.mixins.CfnAgentSpaceApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnAgentSpaceApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnAgentSpaceApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnAgentSpaceApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnAgentSpaceApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnAgentSpaceApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_devopsagent.mixins.CfnAgentSpaceApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnAgentSpaceApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnAgentSpaceApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnAgentSpaceApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnAgentSpaceApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnAgentSpaceApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnAgentSpaceApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_devopsagent.mixins.CfnAgentSpaceApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnAgentSpaceApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnAgentSpaceApplicationLogsRecordFields_TIMESTAMP,
+			"RESOURCE_ID": CfnAgentSpaceApplicationLogsRecordFields_RESOURCE_ID,
 			"OPTIONAL_ACCOUNT_ID": CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ACCOUNT_ID,
 			"OPTIONAL_AGENT_SPACE_ID": CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_AGENT_SPACE_ID,
 			"OPTIONAL_LEVEL": CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_LEVEL,

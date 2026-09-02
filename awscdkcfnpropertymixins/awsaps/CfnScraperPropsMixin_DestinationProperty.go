@@ -12,6 +12,9 @@ package awsaps
 //   	AmpConfiguration: &AmpConfigurationProperty{
 //   		WorkspaceArn: jsii.String("workspaceArn"),
 //   	},
+//   	CloudWatchConfiguration: &CloudWatchConfigurationProperty{
+//   		DatasetArn: jsii.String("datasetArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html
@@ -21,5 +24,9 @@ type CfnScraperPropsMixin_DestinationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html#cfn-aps-scraper-destination-ampconfiguration
 	//
 	AmpConfiguration interface{} `field:"optional" json:"ampConfiguration" yaml:"ampConfiguration"`
+	// Configuration for CloudWatch metrics destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html#cfn-aps-scraper-destination-cloudwatchconfiguration
+	//
+	CloudWatchConfiguration interface{} `field:"optional" json:"cloudWatchConfiguration" yaml:"cloudWatchConfiguration"`
 }
 

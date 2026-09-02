@@ -90,6 +90,12 @@ package awswafv2
 //   	},
 //
 //   	// the properties below are optional
+//   	PreParseTextTransformations: []interface{}{
+//   		&PreParseTextTransformationProperty{
+//   			Priority: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	SearchString: jsii.String("searchString"),
 //   	SearchStringBase64: jsii.String("searchStringBase64"),
 //   }
@@ -136,6 +142,9 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
 	//
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-preparsetexttransformations
+	//
+	PreParseTextTransformations interface{} `field:"optional" json:"preParseTextTransformations" yaml:"preParseTextTransformations"`
 	// A string value that you want AWS WAF to search for.
 	//
 	// AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.

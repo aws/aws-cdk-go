@@ -35,6 +35,13 @@ import (
 //   		jsii.String("networkLoadBalancerArns"),
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),
+//   	PrivateDnsName: jsii.String("privateDnsName"),
+//   	PrivateDnsNameConfiguration: &PrivateDnsNameConfigurationProperty{
+//   		Name: jsii.String("name"),
+//   		State: jsii.String("state"),
+//   		Type: jsii.String("type"),
+//   		Value: jsii.String("value"),
+//   	},
 //   	SupportedIpAddressTypes: []*string{
 //   		jsii.String("supportedIpAddressTypes"),
 //   	},
@@ -59,6 +66,10 @@ type CfnVPCEndpointService interface {
 	// Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
 	AcceptanceRequired() interface{}
 	SetAcceptanceRequired(val interface{})
+	AttrPrivateDnsNameConfigurationName() *string
+	AttrPrivateDnsNameConfigurationState() *string
+	AttrPrivateDnsNameConfigurationType() *string
+	AttrPrivateDnsNameConfigurationValue() *string
 	// The ID of the endpoint service.
 	AttrServiceId() *string
 	// Tag Manager which manages the tags for this resource.
@@ -98,6 +109,10 @@ type CfnVPCEndpointService interface {
 	// The entity that is responsible for the endpoint costs.
 	PayerResponsibility() *string
 	SetPayerResponsibility(val *string)
+	PrivateDnsName() *string
+	SetPrivateDnsName(val *string)
+	PrivateDnsNameConfiguration() interface{}
+	SetPrivateDnsNameConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -312,6 +327,46 @@ func (j *jsiiProxy_CfnVPCEndpointService) AcceptanceRequired() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) AttrPrivateDnsNameConfigurationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrivateDnsNameConfigurationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) AttrPrivateDnsNameConfigurationState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrivateDnsNameConfigurationState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) AttrPrivateDnsNameConfigurationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrivateDnsNameConfigurationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) AttrPrivateDnsNameConfigurationValue() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrPrivateDnsNameConfigurationValue",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpointService) AttrServiceId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -447,6 +502,26 @@ func (j *jsiiProxy_CfnVPCEndpointService) PayerResponsibility() *string {
 	_jsii_.Get(
 		j,
 		"payerResponsibility",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) PrivateDnsName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"privateDnsName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) PrivateDnsNameConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"privateDnsNameConfiguration",
 		&returns,
 	)
 	return returns
@@ -604,6 +679,25 @@ func (j *jsiiProxy_CfnVPCEndpointService)SetPayerResponsibility(val *string) {
 	_jsii_.Set(
 		j,
 		"payerResponsibility",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService)SetPrivateDnsName(val *string) {
+	_jsii_.Set(
+		j,
+		"privateDnsName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService)SetPrivateDnsNameConfiguration(val interface{}) {
+	if err := j.validateSetPrivateDnsNameConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"privateDnsNameConfiguration",
 		val,
 	)
 }

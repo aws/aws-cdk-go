@@ -20,6 +20,10 @@ func (c *jsiiProxy_ConfigurationSetEventDestination) validateGetResourceNameAttr
 	return nil
 }
 
+func validateConfigurationSetEventDestination_FromConfigurationSetEventDestinationAttributesParameters(scope constructs.Construct, id *string, attrs *ConfigurationSetEventDestinationAttributes) error {
+	return nil
+}
+
 func validateConfigurationSetEventDestination_FromConfigurationSetEventDestinationIdParameters(scope constructs.Construct, id *string, configurationSetEventDestinationId *string) error {
 	return nil
 }

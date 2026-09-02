@@ -319,6 +319,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "warmUpConfiguration", GoGetter: "WarmUpConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
@@ -361,6 +362,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.WallClockWindowProperty",
 		reflect.TypeOf((*CfnAlarm_WallClockWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnAlarm.WarmUpConfigurationProperty",
+		reflect.TypeOf((*CfnAlarm_WarmUpConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarmMuteRule",
@@ -791,6 +796,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "warmUpConfiguration", GoGetter: "WarmUpConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
@@ -809,6 +815,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnLogAlarm.ScheduledQueryConfigurationProperty",
 		reflect.TypeOf((*CfnLogAlarm_ScheduledQueryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudwatch.CfnLogAlarm.WarmUpConfigurationProperty",
+		reflect.TypeOf((*CfnLogAlarm_WarmUpConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.CfnLogAlarmProps",

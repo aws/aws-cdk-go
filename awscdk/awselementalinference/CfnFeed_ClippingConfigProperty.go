@@ -8,6 +8,9 @@ package awselementalinference
 //
 //   clippingConfigProperty := &ClippingConfigProperty{
 //   	CallbackMetadata: jsii.String("callbackMetadata"),
+//   	DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   		FixtureId: jsii.String("fixtureId"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-clippingconfig.html
@@ -16,5 +19,8 @@ type CfnFeed_ClippingConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-clippingconfig.html#cfn-elementalinference-feed-clippingconfig-callbackmetadata
 	//
 	CallbackMetadata *string `field:"optional" json:"callbackMetadata" yaml:"callbackMetadata"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-clippingconfig.html#cfn-elementalinference-feed-clippingconfig-datasourceconfiguration
+	//
+	DataSourceConfiguration interface{} `field:"optional" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`
 }
 

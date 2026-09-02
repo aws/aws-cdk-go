@@ -6,6 +6,10 @@ type CfnRouteServerPeerEventLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnRouteServerPeerEventLogsRecordFields_TIMESTAMP CfnRouteServerPeerEventLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnRouteServerPeerEventLogsRecordFields_RESOURCE_ID CfnRouteServerPeerEventLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnRouteServerPeerEventLogsRecordFields_STATUS CfnRouteServerPeerEventLogsRecordFields = "STATUS"
 	// Experimental.
 	CfnRouteServerPeerEventLogsRecordFields_MESSAGE CfnRouteServerPeerEventLogsRecordFields = "MESSAGE"

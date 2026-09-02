@@ -317,6 +317,30 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) validateSetMetricsConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnEndpointConfig_MetricsConfigProperty:
+		val := val.(*CfnEndpointConfig_MetricsConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnEndpointConfig_MetricsConfigProperty:
+		val_ := val.(CfnEndpointConfig_MetricsConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnEndpointConfig_MetricsConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

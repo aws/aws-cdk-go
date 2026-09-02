@@ -18,8 +18,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cropping interface{}
-//
 //   cfnFeed := awscdk.Aws_elementalinference.NewCfnFeed(this, jsii.String("MyCfnFeed"), &CfnFeedProps{
 //   	Name: jsii.String("name"),
 //   	Outputs: []interface{}{
@@ -28,8 +26,20 @@ import (
 //   			OutputConfig: &OutputConfigProperty{
 //   				Clipping: &ClippingConfigProperty{
 //   					CallbackMetadata: jsii.String("callbackMetadata"),
+//   					DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   						FixtureId: jsii.String("fixtureId"),
+//   					},
 //   				},
-//   				Cropping: cropping,
+//   				Cropping: &CroppingConfigProperty{
+//   					TemplateGroups: []interface{}{
+//   						&TemplateGroupProperty{
+//   							Name: jsii.String("name"),
+//   							TemplateUris: []*string{
+//   								jsii.String("templateUris"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Subtitling: &SubtitlingConfigProperty{
 //   					Language: jsii.String("language"),
 //
@@ -50,6 +60,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	AccessRoleArn: jsii.String("accessRoleArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -62,6 +73,8 @@ type CfnFeed interface {
 	awscdk.IInspectable
 	interfacesawselementalinference.IFeedRef
 	awscdk.ITaggableV2
+	AccessRoleArn() *string
+	SetAccessRoleArn(val *string)
 	AttrArn() *string
 	AttrDataEndpoints() *[]*string
 	AttrId() *string
@@ -291,6 +304,16 @@ type jsiiProxy_CfnFeed struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnFeed) AccessRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"accessRoleArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFeed) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -518,6 +541,14 @@ func NewCfnFeed_Override(c CfnFeed, scope constructs.Construct, id *string, prop
 		"aws-cdk-lib.aws_elementalinference.CfnFeed",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFeed)SetAccessRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"accessRoleArn",
+		val,
 	)
 }
 

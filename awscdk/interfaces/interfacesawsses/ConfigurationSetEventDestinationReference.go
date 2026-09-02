@@ -10,10 +10,13 @@ package interfacesawsses
 //
 //   configurationSetEventDestinationReference := &ConfigurationSetEventDestinationReference{
 //   	ConfigurationSetEventDestinationId: jsii.String("configurationSetEventDestinationId"),
+//   	ConfigurationSetName: jsii.String("configurationSetName"),
 //   }
 //
 type ConfigurationSetEventDestinationReference struct {
 	// The Id of the ConfigurationSetEventDestination resource.
 	ConfigurationSetEventDestinationId *string `field:"required" json:"configurationSetEventDestinationId" yaml:"configurationSetEventDestinationId"`
+	// The ConfigurationSetName of the ConfigurationSetEventDestination resource.
+	ConfigurationSetName *string `field:"required" json:"configurationSetName" yaml:"configurationSetName"`
 }
 

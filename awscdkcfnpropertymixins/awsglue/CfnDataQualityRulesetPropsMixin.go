@@ -21,14 +21,15 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mergeStrategy IMergeStrategy
-//   var tags interface{}
 //
 //   cfnDataQualityRulesetPropsMixin := awscdkcfnpropertymixins.Aws_glue.NewCfnDataQualityRulesetPropsMixin(&CfnDataQualityRulesetMixinProps{
 //   	ClientToken: jsii.String("clientToken"),
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Ruleset: jsii.String("ruleset"),
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	TargetTable: &DataQualityTargetTableProperty{
 //   		DatabaseName: jsii.String("databaseName"),
 //   		TableName: jsii.String("tableName"),

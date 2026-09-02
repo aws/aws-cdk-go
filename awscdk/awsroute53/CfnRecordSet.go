@@ -45,15 +45,6 @@ import (
 //   		CountryCode: jsii.String("countryCode"),
 //   		SubdivisionCode: jsii.String("subdivisionCode"),
 //   	},
-//   	GeoProximityLocation: &GeoProximityLocationProperty{
-//   		AwsRegion: jsii.String("awsRegion"),
-//   		Bias: jsii.Number(123),
-//   		Coordinates: &CoordinatesProperty{
-//   			Latitude: jsii.String("latitude"),
-//   			Longitude: jsii.String("longitude"),
-//   		},
-//   		LocalZoneGroup: jsii.String("localZoneGroup"),
-//   	},
 //   	HealthCheckId: jsii.String("healthCheckId"),
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   	HostedZoneName: jsii.String("hostedZoneName"),
@@ -76,8 +67,6 @@ type CfnRecordSet interface {
 	// *Alias resource record sets only:* Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
 	AliasTarget() interface{}
 	SetAliasTarget(val interface{})
-	// This element contains an ID that you use when performing a `GetChange` action to get detailed information about the change.
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -101,9 +90,6 @@ type CfnRecordSet interface {
 	// *Geolocation resource record sets only:* A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
 	GeoLocation() interface{}
 	SetGeoLocation(val interface{})
-	// *GeoproximityLocation resource record sets only:* A complex type that lets you control how Route 53 responds to DNS queries based on the geographic origin of the query and your resources.
-	GeoProximityLocation() interface{}
-	SetGeoProximityLocation(val interface{})
 	// If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check.
 	HealthCheckId() *string
 	SetHealthCheckId(val *string)
@@ -355,16 +341,6 @@ func (j *jsiiProxy_CfnRecordSet) AliasTarget() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRecordSet) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnRecordSet) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -460,16 +436,6 @@ func (j *jsiiProxy_CfnRecordSet) GeoLocation() interface{} {
 	_jsii_.Get(
 		j,
 		"geoLocation",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRecordSet) GeoProximityLocation() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"geoProximityLocation",
 		&returns,
 	)
 	return returns
@@ -730,17 +696,6 @@ func (j *jsiiProxy_CfnRecordSet)SetGeoLocation(val interface{}) {
 	_jsii_.Set(
 		j,
 		"geoLocation",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnRecordSet)SetGeoProximityLocation(val interface{}) {
-	if err := j.validateSetGeoProximityLocationParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"geoProximityLocation",
 		val,
 	)
 }

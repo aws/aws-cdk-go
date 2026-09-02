@@ -8,7 +8,7 @@ package previewawspcsmixins
 //
 //   cfnClusterPcsJobcompLogsDestProps := &CfnClusterPcsJobcompLogsDestProps{
 //   	RecordFields: []CfnClusterPcsJobcompLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnClusterPcsJobcompLogsRecordFields_RESOURCE_ID,
+//   		awscdkmixinspreview.Mixins.CfnClusterPcsJobcompLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

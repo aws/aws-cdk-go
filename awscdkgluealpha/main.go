@@ -320,6 +320,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "catalog", GoGetter: "Catalog"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseArn", GoGetter: "DatabaseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseRef", GoGetter: "DatabaseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -508,6 +509,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "catalog", GoGetter: "Catalog"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseArn", GoGetter: "DatabaseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseRef", GoGetter: "DatabaseRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -515,6 +517,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDatabase{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglueIDatabaseRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

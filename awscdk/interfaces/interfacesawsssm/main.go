@@ -12,6 +12,10 @@ func init() {
 		reflect.TypeOf((*AssociationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ssm.CloudConnectorReference",
+		reflect.TypeOf((*CloudConnectorReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ssm.DocumentReference",
 		reflect.TypeOf((*DocumentReference)(nil)).Elem(),
 	)
@@ -26,6 +30,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ssm.ICloudConnectorRef",
+		reflect.TypeOf((*ICloudConnectorRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cloudConnectorRef", GoGetter: "CloudConnectorRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICloudConnectorRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -176,16 +196,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_ssm.ISessionRef",
-		reflect.TypeOf((*ISessionRef)(nil)).Elem(),
+		"aws-cdk-lib.interfaces.aws_ssm.IServiceSettingRef",
+		reflect.TypeOf((*IServiceSettingRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "sessionRef", GoGetter: "SessionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceSettingRef", GoGetter: "ServiceSettingRef"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
-			j := jsiiProxy_ISessionRef{}
+			j := jsiiProxy_IServiceSettingRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -224,7 +244,7 @@ func init() {
 		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_ssm.SessionReference",
-		reflect.TypeOf((*SessionReference)(nil)).Elem(),
+		"aws-cdk-lib.interfaces.aws_ssm.ServiceSettingReference",
+		reflect.TypeOf((*ServiceSettingReference)(nil)).Elem(),
 	)
 }

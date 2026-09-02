@@ -393,78 +393,6 @@ func init() {
 		reflect.TypeOf((*CfnReplicationGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticache.CfnReservedCacheNode",
-		reflect.TypeOf((*CfnReservedCacheNode)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
-			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
-			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
-			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrCacheNodeCount", GoGetter: "AttrCacheNodeCount"},
-			_jsii_.MemberProperty{JsiiProperty: "attrCacheNodeType", GoGetter: "AttrCacheNodeType"},
-			_jsii_.MemberProperty{JsiiProperty: "attrDuration", GoGetter: "AttrDuration"},
-			_jsii_.MemberProperty{JsiiProperty: "attrFixedPrice", GoGetter: "AttrFixedPrice"},
-			_jsii_.MemberProperty{JsiiProperty: "attrOfferingType", GoGetter: "AttrOfferingType"},
-			_jsii_.MemberProperty{JsiiProperty: "attrProductDescription", GoGetter: "AttrProductDescription"},
-			_jsii_.MemberProperty{JsiiProperty: "attrRecurringCharges", GoGetter: "AttrRecurringCharges"},
-			_jsii_.MemberProperty{JsiiProperty: "attrReservationArn", GoGetter: "AttrReservationArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrReservedCacheNodeId", GoGetter: "AttrReservedCacheNodeId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrReservedCacheNodesOfferingId", GoGetter: "AttrReservedCacheNodesOfferingId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrStartTime", GoGetter: "AttrStartTime"},
-			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
-			_jsii_.MemberProperty{JsiiProperty: "attrTags", GoGetter: "AttrTags"},
-			_jsii_.MemberProperty{JsiiProperty: "attrUsagePrice", GoGetter: "AttrUsagePrice"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
-			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
-			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
-			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
-			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
-			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
-			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberProperty{JsiiProperty: "reservedCacheNodeRef", GoGetter: "ReservedCacheNodeRef"},
-			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnReservedCacheNode{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticacheIReservedCacheNodeRef)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticache.CfnReservedCacheNode.RecurringChargeProperty",
-		reflect.TypeOf((*CfnReservedCacheNode_RecurringChargeProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticache.CfnReservedCacheNodeProps",
-		reflect.TypeOf((*CfnReservedCacheNodeProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_elasticache.CfnSecurityGroup",
 		reflect.TypeOf((*CfnSecurityGroup)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -677,6 +605,76 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticache.CfnServerlessCacheProps",
 		reflect.TypeOf((*CfnServerlessCacheProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCacheSnapshot",
+		reflect.TypeOf((*CfnServerlessCacheSnapshot)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBytesUsedForCache", GoGetter: "AttrBytesUsedForCache"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreateTime", GoGetter: "AttrCreateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrServerlessCacheConfiguration", GoGetter: "AttrServerlessCacheConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSnapshotType", GoGetter: "AttrSnapshotType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheName", GoGetter: "ServerlessCacheName"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheSnapshotName", GoGetter: "ServerlessCacheSnapshotName"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheSnapshotRef", GoGetter: "ServerlessCacheSnapshotRef"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnServerlessCacheSnapshot{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawselasticacheIServerlessCacheSnapshotRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCacheSnapshot.ServerlessCacheConfigurationProperty",
+		reflect.TypeOf((*CfnServerlessCacheSnapshot_ServerlessCacheConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticache.CfnServerlessCacheSnapshotProps",
+		reflect.TypeOf((*CfnServerlessCacheSnapshotProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_elasticache.CfnSubnetGroup",

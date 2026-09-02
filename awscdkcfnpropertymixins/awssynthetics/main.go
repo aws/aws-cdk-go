@@ -48,6 +48,14 @@ func init() {
 		reflect.TypeOf((*CfnCanaryPropsMixin_DependencyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_synthetics.CfnCanaryPropsMixin.ReplicaProperty",
+		reflect.TypeOf((*CfnCanaryPropsMixin_ReplicaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_synthetics.CfnCanaryPropsMixin.ReplicaReplicationStatusProperty",
+		reflect.TypeOf((*CfnCanaryPropsMixin_ReplicaReplicationStatusProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_synthetics.CfnCanaryPropsMixin.RetryConfigProperty",
 		reflect.TypeOf((*CfnCanaryPropsMixin_RetryConfigProperty)(nil)).Elem(),
 	)

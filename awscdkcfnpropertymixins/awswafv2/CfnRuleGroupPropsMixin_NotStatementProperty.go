@@ -102,6 +102,12 @@ package awswafv2
 //   				UriPath: uriPath,
 //   			},
 //   			PositionalConstraint: jsii.String("positionalConstraint"),
+//   			PreParseTextTransformations: []interface{}{
+//   				&PreParseTextTransformationProperty{
+//   					Priority: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
 //   			SearchString: jsii.String("searchString"),
 //   			SearchStringBase64: jsii.String("searchStringBase64"),
 //   			TextTransformations: []interface{}{
@@ -269,6 +275,12 @@ package awswafv2
 //   				},
 //   				UriPath: uriPath,
 //   			},
+//   			PreParseTextTransformations: []interface{}{
+//   				&PreParseTextTransformationProperty{
+//   					Priority: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
 //   			RegexString: jsii.String("regexString"),
 //   			TextTransformations: []interface{}{
 //   				&TextTransformationProperty{
@@ -339,6 +351,12 @@ package awswafv2
 //   				},
 //   				UriPath: uriPath,
 //   			},
+//   			PreParseTextTransformations: []interface{}{
+//   				&PreParseTextTransformationProperty{
+//   					Priority: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
 //   			TextTransformations: []interface{}{
 //   				&TextTransformationProperty{
 //   					Priority: jsii.Number(123),
@@ -407,6 +425,12 @@ package awswafv2
 //   					FallbackBehavior: jsii.String("fallbackBehavior"),
 //   				},
 //   				UriPath: uriPath,
+//   			},
+//   			PreParseTextTransformations: []interface{}{
+//   				&PreParseTextTransformationProperty{
+//   					Priority: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
 //   			},
 //   			Size: jsii.Number(123),
 //   			TextTransformations: []interface{}{
@@ -477,6 +501,12 @@ package awswafv2
 //   				},
 //   				UriPath: uriPath,
 //   			},
+//   			PreParseTextTransformations: []interface{}{
+//   				&PreParseTextTransformationProperty{
+//   					Priority: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
+//   			},
 //   			SensitivityLevel: jsii.String("sensitivityLevel"),
 //   			TextTransformations: []interface{}{
 //   				&TextTransformationProperty{
@@ -545,6 +575,12 @@ package awswafv2
 //   					FallbackBehavior: jsii.String("fallbackBehavior"),
 //   				},
 //   				UriPath: uriPath,
+//   			},
+//   			PreParseTextTransformations: []interface{}{
+//   				&PreParseTextTransformationProperty{
+//   					Priority: jsii.Number(123),
+//   					Type: jsii.String("type"),
+//   				},
 //   			},
 //   			TextTransformations: []interface{}{
 //   				&TextTransformationProperty{

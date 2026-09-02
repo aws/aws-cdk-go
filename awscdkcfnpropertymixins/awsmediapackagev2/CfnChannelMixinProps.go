@@ -23,6 +23,7 @@ import (
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{
 //   		PublishMqcs: jsii.Boolean(false),
 //   	},
+//   	OutputLockingMode: jsii.String("outputLockingMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -65,6 +66,9 @@ type CfnChannelMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-outputheaderconfiguration
 	//
 	OutputHeaderConfiguration interface{} `field:"optional" json:"outputHeaderConfiguration" yaml:"outputHeaderConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-outputlockingmode
+	//
+	OutputLockingMode *string `field:"optional" json:"outputLockingMode" yaml:"outputLockingMode"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

@@ -51,6 +51,12 @@ import (
 //   		CopyCount: jsii.Number(123),
 //   		CurrentCopyCount: jsii.Number(123),
 //   		DesiredCopyCount: jsii.Number(123),
+//   		PlacementStatus: []interface{}{
+//   			&InferenceComponentPlacementStatusProperty{
+//   				CurrentCopyCount: jsii.Number(123),
+//   				InstanceType: jsii.String("instanceType"),
+//   			},
+//   		},
 //   	},
 //   	Specification: &InferenceComponentSpecificationProperty{
 //   		BaseInferenceComponentName: jsii.String("baseInferenceComponentName"),
@@ -62,6 +68,14 @@ import (
 //   		},
 //   		Container: &InferenceComponentContainerSpecificationProperty{
 //   			ArtifactUrl: jsii.String("artifactUrl"),
+//   			ContainerMetricsConfig: &ContainerMetricsConfigProperty{
+//   				MetricsEndpoints: []interface{}{
+//   					&MetricsEndpointProperty{
+//   						MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   						MetricsEndpointPath: jsii.String("metricsEndpointPath"),
+//   					},
+//   				},
+//   			},
 //   			DeployedImage: &DeployedImageProperty{
 //   				ResolutionTime: jsii.String("resolutionTime"),
 //   				ResolvedImage: jsii.String("resolvedImage"),
@@ -72,10 +86,67 @@ import (
 //   			},
 //   			Image: jsii.String("image"),
 //   		},
+//   		CurrentDataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   			EnableCaching: jsii.Boolean(false),
+//   		},
+//   		DataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   			EnableCaching: jsii.Boolean(false),
+//   		},
 //   		ModelName: jsii.String("modelName"),
+//   		SchedulingConfig: &InferenceComponentSchedulingConfigProperty{
+//   			AvailabilityZoneBalance: &InferenceComponentAvailabilityZoneBalanceProperty{
+//   				EnforcementMode: jsii.String("enforcementMode"),
+//   				MaxImbalance: jsii.Number(123),
+//   			},
+//   			PlacementStrategy: jsii.String("placementStrategy"),
+//   		},
 //   		StartupParameters: &InferenceComponentStartupParametersProperty{
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   		},
+//   	},
+//   	Specifications: []interface{}{
+//   		&InferenceComponentSpecificationForInstanceTypeProperty{
+//   			ComputeResourceRequirements: &InferenceComponentComputeResourceRequirementsProperty{
+//   				MaxMemoryRequiredInMb: jsii.Number(123),
+//   				MinMemoryRequiredInMb: jsii.Number(123),
+//   				NumberOfAcceleratorDevicesRequired: jsii.Number(123),
+//   				NumberOfCpuCoresRequired: jsii.Number(123),
+//   			},
+//   			Container: &InferenceComponentContainerSpecificationForInstanceTypeProperty{
+//   				ArtifactUrl: jsii.String("artifactUrl"),
+//   				ContainerMetricsConfig: &ContainerMetricsConfigProperty{
+//   					MetricsEndpoints: []interface{}{
+//   						&MetricsEndpointProperty{
+//   							MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   							MetricsEndpointPath: jsii.String("metricsEndpointPath"),
+//   						},
+//   					},
+//   				},
+//   				Environment: map[string]*string{
+//   					"environmentKey": jsii.String("environment"),
+//   				},
+//   				Image: jsii.String("image"),
+//   			},
+//   			CurrentDataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   				EnableCaching: jsii.Boolean(false),
+//   			},
+//   			DataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   				EnableCaching: jsii.Boolean(false),
+//   			},
+//   			InstanceType: jsii.String("instanceType"),
+//   			ModelName: jsii.String("modelName"),
+//   			SchedulingConfig: &InferenceComponentSchedulingConfigProperty{
+//   				AvailabilityZoneBalance: &InferenceComponentAvailabilityZoneBalanceProperty{
+//   					EnforcementMode: jsii.String("enforcementMode"),
+//   					MaxImbalance: jsii.Number(123),
+//   				},
+//   				PlacementStrategy: jsii.String("placementStrategy"),
+//   			},
+//   			StartupParameters: &InferenceComponentStartupParametersProperty{
+//   				ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   				ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			},
 //   		},
 //   	},
 //   	Tags: []CfnTag{

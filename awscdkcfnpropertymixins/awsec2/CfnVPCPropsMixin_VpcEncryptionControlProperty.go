@@ -1,6 +1,10 @@
 package awsec2
 
 
+// Describes the configuration and state of VPC encryption controls.
+//
+// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -59,58 +63,53 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html
 //
 type CfnVPCPropsMixin_VpcEncryptionControlProperty struct {
-	// The desired exclusion mode for Egress-Only Internet Gateways.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-egressonlyinternetgatewayexclusion
 	//
 	EgressOnlyInternetGatewayExclusion *string `field:"optional" json:"egressOnlyInternetGatewayExclusion" yaml:"egressOnlyInternetGatewayExclusion"`
-	// The desired exclusion mode for Elastic File System.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-elasticfilesystemexclusion
 	//
 	ElasticFileSystemExclusion *string `field:"optional" json:"elasticFileSystemExclusion" yaml:"elasticFileSystemExclusion"`
-	// The desired exclusion mode for Internet Gateways.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-internetgatewayexclusion
 	//
 	InternetGatewayExclusion *string `field:"optional" json:"internetGatewayExclusion" yaml:"internetGatewayExclusion"`
-	// The desired exclusion mode for Lambda.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-lambdaexclusion
 	//
 	LambdaExclusion *string `field:"optional" json:"lambdaExclusion" yaml:"lambdaExclusion"`
-	// The mode of the VPC encryption control.
+	// The encryption mode for the VPC Encryption Control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-mode
 	//
 	Mode *string `field:"optional" json:"mode" yaml:"mode"`
-	// The desired exclusion mode for NAT Gateways.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-natgatewayexclusion
 	//
 	NatGatewayExclusion *string `field:"optional" json:"natGatewayExclusion" yaml:"natGatewayExclusion"`
+	// Describes the exclusion configurations for various resource types in VPC Encryption Control.
+	//
+	// For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-resourceexclusions
 	//
 	ResourceExclusions interface{} `field:"optional" json:"resourceExclusions" yaml:"resourceExclusions"`
-	// The state of the VPC encryption control.
+	// The current state of the VPC Encryption Control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-state
 	//
 	State *string `field:"optional" json:"state" yaml:"state"`
-	// A message describing the state of the VPC encryption control.
+	// A message providing additional information about the encryption control state.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-statemessage
 	//
 	StateMessage *string `field:"optional" json:"stateMessage" yaml:"stateMessage"`
-	// The desired exclusion mode for Virtual Private Gateways.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-virtualprivategatewayexclusion
 	//
 	VirtualPrivateGatewayExclusion *string `field:"optional" json:"virtualPrivateGatewayExclusion" yaml:"virtualPrivateGatewayExclusion"`
-	// The ID of the VPC encryption control.
+	// The ID of the VPC Encryption Control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-vpcencryptioncontrolid
 	//
 	VpcEncryptionControlId *string `field:"optional" json:"vpcEncryptionControlId" yaml:"vpcEncryptionControlId"`
-	// The ID of the VPC.
+	// The ID of the VPC associated with the encryption control configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-vpcid
 	//
 	VpcId *string `field:"optional" json:"vpcId" yaml:"vpcId"`
-	// The desired exclusion mode for VPC Lattice.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-vpclatticeexclusion
 	//
 	VpcLatticeExclusion *string `field:"optional" json:"vpcLatticeExclusion" yaml:"vpcLatticeExclusion"`
-	// The desired exclusion mode for VPC Peering.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpc-vpcencryptioncontrol.html#cfn-ec2-vpc-vpcencryptioncontrol-vpcpeeringexclusion
 	//
 	VpcPeeringExclusion *string `field:"optional" json:"vpcPeeringExclusion" yaml:"vpcPeeringExclusion"`

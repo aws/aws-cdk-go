@@ -14,9 +14,9 @@ import (
 //
 //   cfnBrowserCustomUsageLogsS3Props := &CfnBrowserCustomUsageLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnBrowserCustomUsageLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnBrowserCustomUsageLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnBrowserCustomUsageLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnBrowserCustomUsageLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnBrowserCustomUsageLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnBrowserCustomUsageLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnBrowserCustomUsageLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

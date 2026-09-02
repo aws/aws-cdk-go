@@ -9,7 +9,7 @@ package previewawseventsmixins
 //   cfnEventBusInfoLogsLogGroupProps := &CfnEventBusInfoLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnEventBusInfoLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnEventBusInfoLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnEventBusInfoLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnEventBusInfoLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

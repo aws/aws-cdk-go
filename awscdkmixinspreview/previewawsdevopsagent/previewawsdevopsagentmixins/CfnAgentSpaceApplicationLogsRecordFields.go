@@ -6,6 +6,10 @@ type CfnAgentSpaceApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_TIMESTAMP CfnAgentSpaceApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnAgentSpaceApplicationLogsRecordFields_RESOURCE_ID CfnAgentSpaceApplicationLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ACCOUNT_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_ACCOUNT_ID"
 	// Experimental.
 	CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_AGENT_SPACE_ID CfnAgentSpaceApplicationLogsRecordFields = "OPTIONAL_AGENT_SPACE_ID"

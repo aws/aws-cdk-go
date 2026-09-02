@@ -9,7 +9,7 @@ package previewawsbedrockmixins
 //   cfnKnowledgeBaseApplicationLogsLogGroupProps := &CfnKnowledgeBaseApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnKnowledgeBaseApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_EVENT_TIMESTAMP,
+//   		awscdkmixinspreview.*Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

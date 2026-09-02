@@ -176,6 +176,38 @@ func init() {
 		reflect.TypeOf((*CfnAppPropsMixin_ResourceSpecProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnArtifactMixinProps",
+		reflect.TypeOf((*CfnArtifactMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnArtifactPropsMixin",
+		reflect.TypeOf((*CfnArtifactPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnArtifactPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnArtifactPropsMixin.ArtifactSourceProperty",
+		reflect.TypeOf((*CfnArtifactPropsMixin_ArtifactSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnArtifactPropsMixin.ArtifactSourceTypeProperty",
+		reflect.TypeOf((*CfnArtifactPropsMixin_ArtifactSourceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnArtifactPropsMixin.MetadataPropertiesProperty",
+		reflect.TypeOf((*CfnArtifactPropsMixin_MetadataPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterMixinProps",
 		reflect.TypeOf((*CfnClusterMixinProps)(nil)).Elem(),
 	)
@@ -704,6 +736,10 @@ func init() {
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_ClarifyTextConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.CoreDumpConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfigPropsMixin_CoreDumpConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.DataCaptureConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_DataCaptureConfigProperty)(nil)).Elem(),
 	)
@@ -712,12 +748,20 @@ func init() {
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_ExplainerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.InstancePoolsProperty",
-		reflect.TypeOf((*CfnEndpointConfigPropsMixin_InstancePoolsProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.InstancePoolProperty",
+		reflect.TypeOf((*CfnEndpointConfigPropsMixin_InstancePoolProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.ManagedInstanceScalingProperty",
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_ManagedInstanceScalingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.MetricsConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfigPropsMixin_MetricsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.PrefixAwareRoutingConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfigPropsMixin_PrefixAwareRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.ProductionVariantProperty",
@@ -726,6 +770,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.RoutingConfigProperty",
 		reflect.TypeOf((*CfnEndpointConfigPropsMixin_RoutingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.ScaleInPolicyProperty",
+		reflect.TypeOf((*CfnEndpointConfigPropsMixin_ScaleInPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnEndpointConfigPropsMixin.ServerlessConfigProperty",
@@ -920,6 +968,30 @@ func init() {
 		reflect.TypeOf((*CfnHubPropsMixin_S3StorageConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnHumanTaskUiMixinProps",
+		reflect.TypeOf((*CfnHumanTaskUiMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnHumanTaskUiPropsMixin",
+		reflect.TypeOf((*CfnHumanTaskUiPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnHumanTaskUiPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnHumanTaskUiPropsMixin.UiTemplateProperty",
+		reflect.TypeOf((*CfnHumanTaskUiPropsMixin_UiTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnImageMixinProps",
 		reflect.TypeOf((*CfnImageMixinProps)(nil)).Elem(),
 	)
@@ -988,8 +1060,16 @@ func init() {
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_AutoRollbackConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.ContainerMetricsConfigProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_ContainerMetricsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.DeployedImageProperty",
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_DeployedImageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentAvailabilityZoneBalanceProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentAvailabilityZoneBalanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentCapacitySizeProperty",
@@ -1000,12 +1080,24 @@ func init() {
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentComputeResourceRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentContainerSpecificationForInstanceTypeProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentContainerSpecificationForInstanceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentContainerSpecificationProperty",
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentContainerSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentDataCacheConfigProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentDataCacheConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentDeploymentConfigProperty",
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentDeploymentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentPlacementStatusProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentPlacementStatusProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentRollingUpdatePolicyProperty",
@@ -1016,12 +1108,24 @@ func init() {
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentRuntimeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentSchedulingConfigProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentSchedulingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentSpecificationForInstanceTypeProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentSpecificationForInstanceTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentSpecificationProperty",
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.InferenceComponentStartupParametersProperty",
 		reflect.TypeOf((*CfnInferenceComponentPropsMixin_InferenceComponentStartupParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceComponentPropsMixin.MetricsEndpointProperty",
+		reflect.TypeOf((*CfnInferenceComponentPropsMixin_MetricsEndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnInferenceExperimentMixinProps",
@@ -1210,34 +1314,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelBiasJobDefinitionPropsMixin.VpcConfigProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinitionPropsMixin_VpcConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelCardExportJobMixinProps",
-		reflect.TypeOf((*CfnModelCardExportJobMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelCardExportJobPropsMixin",
-		reflect.TypeOf((*CfnModelCardExportJobPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnModelCardExportJobPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelCardExportJobPropsMixin.ModelCardExportArtifactsProperty",
-		reflect.TypeOf((*CfnModelCardExportJobPropsMixin_ModelCardExportArtifactsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelCardExportJobPropsMixin.ModelCardExportOutputConfigProperty",
-		reflect.TypeOf((*CfnModelCardExportJobPropsMixin_ModelCardExportOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnModelCardMixinProps",
@@ -1764,34 +1840,6 @@ func init() {
 		reflect.TypeOf((*CfnModelQualityJobDefinitionPropsMixin_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnMonitoringScheduleAlertMixinProps",
-		reflect.TypeOf((*CfnMonitoringScheduleAlertMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnMonitoringScheduleAlertPropsMixin",
-		reflect.TypeOf((*CfnMonitoringScheduleAlertPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnMonitoringScheduleAlertPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnMonitoringScheduleAlertPropsMixin.ModelDashboardIndicatorActionProperty",
-		reflect.TypeOf((*CfnMonitoringScheduleAlertPropsMixin_ModelDashboardIndicatorActionProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnMonitoringScheduleAlertPropsMixin.MonitoringAlertActionsProperty",
-		reflect.TypeOf((*CfnMonitoringScheduleAlertPropsMixin_MonitoringAlertActionsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnMonitoringScheduleMixinProps",
 		reflect.TypeOf((*CfnMonitoringScheduleMixinProps)(nil)).Elem(),
 	)
@@ -2248,66 +2296,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobMixinProps",
-		reflect.TypeOf((*CfnTransformJobMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin",
-		reflect.TypeOf((*CfnTransformJobPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnTransformJobPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.DataCaptureConfigProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_DataCaptureConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.DataProcessingProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_DataProcessingProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.DataSourceProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_DataSourceProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.ExperimentConfigProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_ExperimentConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.ModelClientConfigProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_ModelClientConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.S3DataSourceProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_S3DataSourceProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.TagsItemsProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_TagsItemsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.TransformInputProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_TransformInputProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.TransformOutputProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_TransformOutputProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTransformJobPropsMixin.TransformResourcesProperty",
-		reflect.TypeOf((*CfnTransformJobPropsMixin_TransformResourcesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnTrialComponentMixinProps",
 		reflect.TypeOf((*CfnTrialComponentMixinProps)(nil)).Elem(),
 	)
@@ -2454,6 +2442,42 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnUserProfilePropsMixin.UserSettingsProperty",
 		reflect.TypeOf((*CfnUserProfilePropsMixin_UserSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkforceMixinProps",
+		reflect.TypeOf((*CfnWorkforceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkforcePropsMixin",
+		reflect.TypeOf((*CfnWorkforcePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWorkforcePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkforcePropsMixin.CognitoConfigProperty",
+		reflect.TypeOf((*CfnWorkforcePropsMixin_CognitoConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkforcePropsMixin.OidcConfigProperty",
+		reflect.TypeOf((*CfnWorkforcePropsMixin_OidcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkforcePropsMixin.SourceIpConfigProperty",
+		reflect.TypeOf((*CfnWorkforcePropsMixin_SourceIpConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkforcePropsMixin.WorkforceVpcConfigRequestProperty",
+		reflect.TypeOf((*CfnWorkforcePropsMixin_WorkforceVpcConfigRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnWorkteamMixinProps",

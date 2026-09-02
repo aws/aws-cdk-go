@@ -112,15 +112,6 @@ func RouterOutputConfiguration_MediaConnectFlowWithoutConnection(props *MediaCon
 // Create a MediaLive Router Output configuration with a specific input connection.
 //
 // Use this when the MediaLive input already exists and you want to connect immediately.
-//
-// Returns: RouterOutputConfiguration instance for MediaLive setup with input connection.
-//
-// Example:
-//   awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInput(&MediaLiveInputConnectionProps{
-//   	MediaLiveInputArn: jsii.String("arn:aws:medialive:us-east-1:123456789012:input:1234567"),
-//   	MediaLivePipelineId: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
-//   })
-//
 // Experimental.
 func RouterOutputConfiguration_MediaLiveInput(props *MediaLiveInputConnectionProps) RouterOutputConfiguration {
 	_init_.Initialize()
@@ -143,14 +134,6 @@ func RouterOutputConfiguration_MediaLiveInput(props *MediaLiveInputConnectionPro
 // Create a MediaLive Router Output configuration without a specific input connection.
 //
 // Use this when you want to set up the router output before the MediaLive input exists.
-//
-// Returns: RouterOutputConfiguration instance for MediaLive setup without input connection.
-//
-// Example:
-//   awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInputWithoutConnection(&MediaLiveNoInputConnectionProps{
-//   	AvailabilityZone: jsii.String("us-east-1a"),
-//   })
-//
 // Experimental.
 func RouterOutputConfiguration_MediaLiveInputWithoutConnection(props *MediaLiveNoInputConnectionProps) RouterOutputConfiguration {
 	_init_.Initialize()

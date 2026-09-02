@@ -48,12 +48,22 @@ type CfnBotProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botlocales
 	//
 	BotLocales interface{} `field:"optional" json:"botLocales" yaml:"botLocales"`
+	// The list of bot members in a network to be created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-botmembers
+	//
+	BotMembers interface{} `field:"optional" json:"botMembers" yaml:"botMembers"`
 	// A list of tags to add to the bot.
 	//
 	// You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottags
 	//
 	BotTags *[]*awscdk.CfnTag `field:"optional" json:"botTags" yaml:"botTags"`
+	// The type of a bot to create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-bottype
+	//
+	// Default: - "Bot".
+	//
+	BotType *string `field:"optional" json:"botType" yaml:"botType"`
 	// The description of the version.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-description
 	//

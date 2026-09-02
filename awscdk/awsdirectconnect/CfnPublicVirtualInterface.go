@@ -37,6 +37,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AllocatePublicVirtualInterfaceRoleArn: jsii.String("allocatePublicVirtualInterfaceRoleArn"),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	RouteFilterPrefixes: []*string{
 //   		jsii.String("routeFilterPrefixes"),
 //   	},
@@ -94,6 +95,9 @@ type CfnPublicVirtualInterface interface {
 	Node() constructs.Node
 	// A reference to a PublicVirtualInterface resource.
 	PublicVirtualInterfaceRef() *interfacesawsdirectconnect.PublicVirtualInterfaceReference
+	// The rate limit (bandwidth allocation) for the virtual interface.
+	RateLimit() *string
+	SetRateLimit(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -449,6 +453,16 @@ func (j *jsiiProxy_CfnPublicVirtualInterface) PublicVirtualInterfaceRef() *inter
 	return returns
 }
 
+func (j *jsiiProxy_CfnPublicVirtualInterface) RateLimit() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"rateLimit",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPublicVirtualInterface) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -585,6 +599,14 @@ func (j *jsiiProxy_CfnPublicVirtualInterface)SetConnectionId(val *string) {
 	_jsii_.Set(
 		j,
 		"connectionId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPublicVirtualInterface)SetRateLimit(val *string) {
+	_jsii_.Set(
+		j,
+		"rateLimit",
 		val,
 	)
 }

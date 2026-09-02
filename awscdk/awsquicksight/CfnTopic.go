@@ -327,6 +327,7 @@ type CfnTopic interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// <p>Instructions that provide additional guidance and context for response generation.</p>.
 	CustomInstructions() interface{}
 	SetCustomInstructions(val interface{})
 	// The data sets that the topic is associated with.

@@ -1,6 +1,8 @@
 package awsquicksight
 
 
+// <p>Instructions that provide additional guidance and context for response generation.</p>.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -13,6 +15,7 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-custominstructions.html
 //
 type CfnTopicPropsMixin_CustomInstructionsProperty struct {
+	// <p>A text field for providing additional guidance or context for response generation.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-custominstructions.html#cfn-quicksight-topic-custominstructions-custominstructionsstring
 	//
 	CustomInstructionsString *string `field:"optional" json:"customInstructionsString" yaml:"customInstructionsString"`

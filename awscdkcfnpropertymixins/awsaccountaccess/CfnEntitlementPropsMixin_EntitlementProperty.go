@@ -1,0 +1,29 @@
+package awsaccountaccess
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   entitlementProperty := &EntitlementProperty{
+//   	PrincipalRole: &PrincipalRoleEntitlementProperty{
+//   		Account: jsii.String("account"),
+//   		Principal: &PrincipalProperty{
+//   			IdentityCenter: &IdentityCenterPrincipalProperty{
+//   				GroupId: jsii.String("groupId"),
+//   				UserId: jsii.String("userId"),
+//   			},
+//   		},
+//   		RoleArn: jsii.String("roleArn"),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accountaccess-entitlement-entitlement.html
+//
+type CfnEntitlementPropsMixin_EntitlementProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accountaccess-entitlement-entitlement.html#cfn-accountaccess-entitlement-entitlement-principalrole
+	//
+	PrincipalRole interface{} `field:"optional" json:"principalRole" yaml:"principalRole"`
+}
+

@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for AWS SageMaker Experiment Trial Component.
+// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -50,13 +50,10 @@ type CfnExperimentTrialComponent interface {
 	awscdk.IInspectable
 	interfacesawssagemaker.IExperimentTrialComponentRef
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the trial component.
 	AttrArn() *string
-	// When the component was created.
 	AttrCreationTime() *string
-	// When the component was last modified.
+	AttrId() *string
 	AttrLastModifiedTime() *string
-	// The Amazon Resource Name (ARN) of the lineage group.
 	AttrLineageGroupArn() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -70,10 +67,8 @@ type CfnExperimentTrialComponent interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The name of the component as displayed.
 	DisplayName() *string
 	SetDisplayName(val *string)
-	// When the component ended.
 	EndTime() *string
 	SetEndTime(val *string)
 	Env() *interfaces.ResourceEnvironment
@@ -89,7 +84,6 @@ type CfnExperimentTrialComponent interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// Metadata properties of the tracking entity, trial, or trial component.
 	MetadataProperties() interface{}
 	SetMetadataProperties(val interface{})
 	// The tree node.
@@ -103,16 +97,12 @@ type CfnExperimentTrialComponent interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// When the component started.
 	StartTime() *string
 	SetStartTime(val *string)
-	// The status of the trial component.
 	Status() interface{}
 	SetStatus(val interface{})
-	// A list of tags to associate with the component.
 	Tags() *[]*CfnExperimentTrialComponent_TagsItemsProperty
 	SetTags(val *[]*CfnExperimentTrialComponent_TagsItemsProperty)
-	// The name of the trial component.
 	TrialComponentName() *string
 	SetTrialComponentName(val *string)
 	// Deprecated.
@@ -314,6 +304,16 @@ func (j *jsiiProxy_CfnExperimentTrialComponent) AttrCreationTime() *string {
 	_jsii_.Get(
 		j,
 		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnExperimentTrialComponent) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns

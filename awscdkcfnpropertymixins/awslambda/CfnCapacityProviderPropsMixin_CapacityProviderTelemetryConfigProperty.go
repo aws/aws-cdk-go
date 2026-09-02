@@ -18,6 +18,7 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityprovidertelemetryconfig.html
 //
 type CfnCapacityProviderPropsMixin_CapacityProviderTelemetryConfigProperty struct {
+	// The capacity provider's Amazon CloudWatch Logs configuration settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityprovidertelemetryconfig.html#cfn-lambda-capacityprovider-capacityprovidertelemetryconfig-loggingconfig
 	//
 	LoggingConfig interface{} `field:"optional" json:"loggingConfig" yaml:"loggingConfig"`

@@ -12,6 +12,7 @@ package awsobservabilityadmin
 //
 //   logsEncryptionConfigurationProperty := &LogsEncryptionConfigurationProperty{
 //   	EncryptionConflictResolutionStrategy: jsii.String("encryptionConflictResolutionStrategy"),
+//   	EncryptionScope: jsii.String("encryptionScope"),
 //   	EncryptionStrategy: jsii.String("encryptionStrategy"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   }
@@ -25,6 +26,9 @@ type CfnOrganizationCentralizationRulePropsMixin_LogsEncryptionConfigurationProp
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration-encryptionconflictresolutionstrategy
 	//
 	EncryptionConflictResolutionStrategy *string `field:"optional" json:"encryptionConflictResolutionStrategy" yaml:"encryptionConflictResolutionStrategy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration-encryptionscope
+	//
+	EncryptionScope *string `field:"optional" json:"encryptionScope" yaml:"encryptionScope"`
 	// Configuration that determines the encryption strategy of the destination log groups.
 	//
 	// CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.

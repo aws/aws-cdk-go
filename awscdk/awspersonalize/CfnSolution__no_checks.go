@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnSolution) validateSetSolutionConfigParameters(val interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnSolution) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnSolutionParameters(scope constructs.Construct, id *string, props *CfnSolutionProps) error {
 	return nil
 }

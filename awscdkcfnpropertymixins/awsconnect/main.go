@@ -596,6 +596,58 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricMixinProps",
+		reflect.TypeOf((*CfnMetricMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin",
+		reflect.TypeOf((*CfnMetricPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMetricPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.AvailableFilterProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_AvailableFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.CalculationComponentProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_CalculationComponentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.CreatedByInfoProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_CreatedByInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.MetricCalculationProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_MetricCalculationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.MetricFilterBooleanConditionProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_MetricFilterBooleanConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.MetricFilterNumberConditionProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_MetricFilterNumberConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.MetricFilterProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_MetricFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnMetricPropsMixin.MetricFilterStringConditionProperty",
+		reflect.TypeOf((*CfnMetricPropsMixin_MetricFilterStringConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnNotificationMixinProps",
 		reflect.TypeOf((*CfnNotificationMixinProps)(nil)).Elem(),
 	)

@@ -275,6 +275,10 @@ func init() {
 		reflect.TypeOf((*CfnScraper_AmpConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.CloudWatchConfigurationProperty",
+		reflect.TypeOf((*CfnScraper_CloudWatchConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraper.CloudWatchLogDestinationProperty",
 		reflect.TypeOf((*CfnScraper_CloudWatchLogDestinationProperty)(nil)).Elem(),
 	)

@@ -32,6 +32,8 @@ type CfnDistributionConnectionLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnDistributionConnectionLogsRecordFields_TIMESTAMP CfnDistributionConnectionLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnDistributionConnectionLogsRecordFields_CONNECTIONSTATUS CfnDistributionConnectionLogsRecordFields = "CONNECTIONSTATUS"
 	// Experimental.
 	CfnDistributionConnectionLogsRecordFields_CLIENTIP CfnDistributionConnectionLogsRecordFields = "CLIENTIP"
@@ -62,8 +64,8 @@ const (
 	// Experimental.
 	CfnDistributionConnectionLogsRecordFields_EVENTTIMESTAMP CfnDistributionConnectionLogsRecordFields = "EVENTTIMESTAMP"
 	// Experimental.
-	CfnDistributionConnectionLogsRecordFields_CONNECTIONID CfnDistributionConnectionLogsRecordFields = "CONNECTIONID"
-	// Experimental.
 	CfnDistributionConnectionLogsRecordFields_DISTRIBUTIONID CfnDistributionConnectionLogsRecordFields = "DISTRIBUTIONID"
+	// Experimental.
+	CfnDistributionConnectionLogsRecordFields_CONNECTIONID CfnDistributionConnectionLogsRecordFields = "CONNECTIONID"
 )
 

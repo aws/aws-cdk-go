@@ -50,6 +50,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "computeResources", GoGetter: "ComputeResources"},
 			_jsii_.MemberProperty{JsiiProperty: "context", GoGetter: "Context"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "ecsSettings", GoGetter: "EcsSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "eksConfiguration", GoGetter: "EksConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -90,6 +91,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.CapacityReservationsProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_CapacityReservationsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.ComputeResourcesProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_ComputeResourcesProperty)(nil)).Elem(),
 	)
@@ -102,8 +107,24 @@ func init() {
 		reflect.TypeOf((*CfnComputeEnvironment_Ec2ConfigurationObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.EcsSettingsProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_EcsSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.EksConfigurationProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_EksConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.InfrastructureOptimizationProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_InfrastructureOptimizationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.InstanceLaunchTemplateProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_InstanceLaunchTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_InstanceRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.LaunchTemplateSpecificationOverrideProperty",
@@ -112,6 +133,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.LaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_LaunchTemplateSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.ManagedInstancesLocalStorageConfigurationProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_ManagedInstancesLocalStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.ManagedInstancesNetworkConfigurationProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_ManagedInstancesNetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.ManagedInstancesProviderProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_ManagedInstancesProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.ManagedInstancesStorageConfigurationProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_ManagedInstancesStorageConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.UpdatePolicyProperty",

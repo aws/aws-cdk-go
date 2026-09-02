@@ -6,6 +6,10 @@ type CfnRuntimeApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnRuntimeApplicationLogsRecordFields_TIMESTAMP CfnRuntimeApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnRuntimeApplicationLogsRecordFields_RUNTIME_ID CfnRuntimeApplicationLogsRecordFields = "RUNTIME_ID"
+	// Experimental.
 	CfnRuntimeApplicationLogsRecordFields_ACCOUNT_ID CfnRuntimeApplicationLogsRecordFields = "ACCOUNT_ID"
 	// Experimental.
 	CfnRuntimeApplicationLogsRecordFields_REQUEST_ID CfnRuntimeApplicationLogsRecordFields = "REQUEST_ID"

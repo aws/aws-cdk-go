@@ -10,10 +10,13 @@ package interfacesawssagemaker
 //
 //   experimentTrialComponentReference := &ExperimentTrialComponentReference{
 //   	ExperimentTrialComponentArn: jsii.String("experimentTrialComponentArn"),
+//   	ExperimentTrialComponentId: jsii.String("experimentTrialComponentId"),
 //   }
 //
 type ExperimentTrialComponentReference struct {
-	// The Arn of the ExperimentTrialComponent resource.
+	// The ARN of the ExperimentTrialComponent resource.
 	ExperimentTrialComponentArn *string `field:"required" json:"experimentTrialComponentArn" yaml:"experimentTrialComponentArn"`
+	// The Id of the ExperimentTrialComponent resource.
+	ExperimentTrialComponentId *string `field:"required" json:"experimentTrialComponentId" yaml:"experimentTrialComponentId"`
 }
 

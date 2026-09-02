@@ -1,0 +1,23 @@
+package awsbedrockagentcore
+
+
+// Contains the KMS key configuration for a JWT client assertion.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   kmsKeySourceTypeProperty := &KmsKeySourceTypeProperty{
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-kmskeysourcetype.html
+//
+type CfnOAuth2CredentialProvider_KmsKeySourceTypeProperty struct {
+	// The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-kmskeysourcetype.html#cfn-bedrockagentcore-oauth2credentialprovider-kmskeysourcetype-kmskeyarn
+	//
+	KmsKeyArn *string `field:"required" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+}
+

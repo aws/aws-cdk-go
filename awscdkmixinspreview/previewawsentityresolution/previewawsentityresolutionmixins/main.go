@@ -60,8 +60,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnIdMappingWorkflowWorkflowLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -77,8 +77,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_JSON,
 			"W3C": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnIdMappingWorkflowWorkflowLogsOutputFormat_S3_PARQUET,
 		},
@@ -87,7 +87,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnIdMappingWorkflowWorkflowLogsRecordFields",
 		reflect.TypeOf((*CfnIdMappingWorkflowWorkflowLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnIdMappingWorkflowWorkflowLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnIdMappingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+			"RESOURCE_ID": CfnIdMappingWorkflowWorkflowLogsRecordFields_RESOURCE_ID,
 			"EVENT_TYPE": CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TYPE,
 			"EVENT_TIMESTAMP": CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TIMESTAMP,
 			"JOB_ID": CfnIdMappingWorkflowWorkflowLogsRecordFields_JOB_ID,
@@ -95,12 +97,18 @@ func init() {
 			"WORKFLOW_START_TIME": CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_START_TIME,
 			"WORKFLOW_COMPLETE_TIME": CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_COMPLETE_TIME,
 			"DATA_PROCESSING_PROGRESSION": CfnIdMappingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION,
+			"ERROR_COUNT_MAP": CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_COUNT_MAP,
 			"ERROR_MESSAGE": CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE,
+			"ERROR_COUNT": CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_COUNT,
+			"MATCHED_RECORD_COUNT_MAP": CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCHED_RECORD_COUNT_MAP,
 			"MATCH_RULE": CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_RULE,
 			"MATCH_COUNT": CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_COUNT,
 			"TOTAL_RECORDS_PROCESSED": CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_PROCESSED,
 			"TOTAL_RECORDS_UNPROCESSED": CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED,
 			"INCREMENTAL_RECORDS_PROCESSED": CfnIdMappingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED,
+			"WORKFLOW_DURATION": CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_DURATION,
+			"RAW_WORKFLOW_DURATION": CfnIdMappingWorkflowWorkflowLogsRecordFields_RAW_WORKFLOW_DURATION,
+			"INPUT_FILE_SIZE": CfnIdMappingWorkflowWorkflowLogsRecordFields_INPUT_FILE_SIZE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -160,8 +168,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnMatchingWorkflowWorkflowLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -177,8 +185,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_JSON,
 			"W3C": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnMatchingWorkflowWorkflowLogsOutputFormat_S3_PARQUET,
 		},
@@ -187,7 +195,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_entityresolution.mixins.CfnMatchingWorkflowWorkflowLogsRecordFields",
 		reflect.TypeOf((*CfnMatchingWorkflowWorkflowLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnMatchingWorkflowWorkflowLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+			"RESOURCE_ID": CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ID,
 			"EVENT_TYPE": CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TYPE,
 			"EVENT_TIMESTAMP": CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TIMESTAMP,
 			"JOB_ID": CfnMatchingWorkflowWorkflowLogsRecordFields_JOB_ID,
@@ -195,12 +205,18 @@ func init() {
 			"WORKFLOW_START_TIME": CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_START_TIME,
 			"WORKFLOW_COMPLETE_TIME": CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_COMPLETE_TIME,
 			"DATA_PROCESSING_PROGRESSION": CfnMatchingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION,
+			"ERROR_COUNT_MAP": CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_COUNT_MAP,
 			"ERROR_MESSAGE": CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE,
+			"ERROR_COUNT": CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_COUNT,
+			"MATCHED_RECORD_COUNT_MAP": CfnMatchingWorkflowWorkflowLogsRecordFields_MATCHED_RECORD_COUNT_MAP,
 			"MATCH_RULE": CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_RULE,
 			"MATCH_COUNT": CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_COUNT,
 			"TOTAL_RECORDS_PROCESSED": CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_PROCESSED,
 			"TOTAL_RECORDS_UNPROCESSED": CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED,
 			"INCREMENTAL_RECORDS_PROCESSED": CfnMatchingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED,
+			"WORKFLOW_DURATION": CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_DURATION,
+			"RAW_WORKFLOW_DURATION": CfnMatchingWorkflowWorkflowLogsRecordFields_RAW_WORKFLOW_DURATION,
+			"INPUT_FILE_SIZE": CfnMatchingWorkflowWorkflowLogsRecordFields_INPUT_FILE_SIZE,
 		},
 	)
 	_jsii_.RegisterStruct(

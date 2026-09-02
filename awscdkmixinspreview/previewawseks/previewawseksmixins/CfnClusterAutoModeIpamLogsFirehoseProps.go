@@ -7,7 +7,7 @@ package previewawseksmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnClusterAutoModeIpamLogsFirehoseProps := &CfnClusterAutoModeIpamLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterAutoModeIpamLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterAutoModeIpamLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnClusterAutoModeIpamLogsRecordFields{
 //   		awscdkmixinspreview.*Mixins.CfnClusterAutoModeIpamLogsRecordFields_LEVEL,
 //   	},
@@ -15,7 +15,7 @@ package previewawseksmixins
 //
 // Experimental.
 type CfnClusterAutoModeIpamLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnClusterAutoModeIpamLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

@@ -7,8 +7,8 @@ package previewawsbedrockagentcoremixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnGatewayTracesXRayProps := &CfnGatewayTracesXRayProps{
-//   	RecordFields: []tRACE{
-//   		awscdkmixinspreview.Mixins.CfnGatewayTracesRecordFields_*tRACE,
+//   	RecordFields: []CfnGatewayTracesRecordFields{
+//   		awscdkmixinspreview.Mixins.CfnGatewayTracesRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

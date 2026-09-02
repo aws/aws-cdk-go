@@ -1,5 +1,8 @@
 package awspersonalize
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnSolutionPropsMixin.
 //
@@ -28,6 +31,12 @@ package awspersonalize
 //   			"featureTransformationParametersKey": jsii.String("featureTransformationParameters"),
 //   		},
 //   		HpoConfig: hpoConfig,
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -72,5 +81,9 @@ type CfnSolutionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-solutionconfig
 	//
 	SolutionConfig interface{} `field:"optional" json:"solutionConfig" yaml:"solutionConfig"`
+	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-solution.html#cfn-personalize-solution-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

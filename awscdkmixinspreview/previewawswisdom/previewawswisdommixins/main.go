@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAssistantEventLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnAssistantEventLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnAssistantEventLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnAssistantEventLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnAssistantEventLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnAssistantEventLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAssistantEventLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnAssistantEventLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnAssistantEventLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnAssistantEventLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnAssistantEventLogsOutputFormat_S3_JSON,
 			"W3C": CfnAssistantEventLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnAssistantEventLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_wisdom.mixins.CfnAssistantEventLogsRecordFields",
 		reflect.TypeOf((*CfnAssistantEventLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnAssistantEventLogsRecordFields_TIMESTAMP,
 			"ASSISTANT_ID": CfnAssistantEventLogsRecordFields_ASSISTANT_ID,
 			"EVENT_TIMESTAMP": CfnAssistantEventLogsRecordFields_EVENT_TIMESTAMP,
 			"EVENT_TYPE": CfnAssistantEventLogsRecordFields_EVENT_TYPE,
@@ -121,6 +122,7 @@ func init() {
 			"AI_AGENT_ORCHESTRATION_USE_CASE": CfnAssistantEventLogsRecordFields_AI_AGENT_ORCHESTRATION_USE_CASE,
 			"ORCHESTRATION_ITERATION": CfnAssistantEventLogsRecordFields_ORCHESTRATION_ITERATION,
 			"ORCHESTRATION_ERROR": CfnAssistantEventLogsRecordFields_ORCHESTRATION_ERROR,
+			"SPAN": CfnAssistantEventLogsRecordFields_SPAN,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -336,6 +336,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_connect.IMetricRef",
+		reflect.TypeOf((*IMetricRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "metricRef", GoGetter: "MetricRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IMetricRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_connect.INotificationRef",
 		reflect.TypeOf((*INotificationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -650,6 +666,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.IntegrationAssociationReference",
 		reflect.TypeOf((*IntegrationAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_connect.MetricReference",
+		reflect.TypeOf((*MetricReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.NotificationReference",

@@ -28,6 +28,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_licensemanager.ILicenseAssetRuleSetRef",
+		reflect.TypeOf((*ILicenseAssetRuleSetRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "licenseAssetRuleSetRef", GoGetter: "LicenseAssetRuleSetRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ILicenseAssetRuleSetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_licensemanager.ILicenseRef",
 		reflect.TypeOf((*ILicenseRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -42,6 +58,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_licensemanager.LicenseAssetRuleSetReference",
+		reflect.TypeOf((*LicenseAssetRuleSetReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_licensemanager.LicenseReference",

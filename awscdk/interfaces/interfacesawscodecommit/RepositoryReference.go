@@ -16,7 +16,7 @@ package interfacesawscodecommit
 type RepositoryReference struct {
 	// The ARN of the Repository resource.
 	RepositoryArn *string `field:"required" json:"repositoryArn" yaml:"repositoryArn"`
-	// The Id of the Repository resource.
+	// The RepositoryId of the Repository resource.
 	RepositoryId *string `field:"required" json:"repositoryId" yaml:"repositoryId"`
 }
 

@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   classifierReference := &ClassifierReference{
-//   	ClassifierId: jsii.String("classifierId"),
+//   	ClassifierName: jsii.String("classifierName"),
 //   }
 //
 type ClassifierReference struct {
-	// The Id of the Classifier resource.
-	ClassifierId *string `field:"required" json:"classifierId" yaml:"classifierId"`
+	// The Name of the Classifier resource.
+	ClassifierName *string `field:"required" json:"classifierName" yaml:"classifierName"`
 }
 

@@ -210,6 +210,14 @@ func init() {
 		reflect.TypeOf((*CfnPlan_RdsPromoteReadReplicaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.RdsSwitchoverReadReplicaConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_RdsSwitchoverReadReplicaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.RdsUngracefulProperty",
+		reflect.TypeOf((*CfnPlan_RdsUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.RegionSwitchPlanConfigurationProperty",
 		reflect.TypeOf((*CfnPlan_RegionSwitchPlanConfigurationProperty)(nil)).Elem(),
 	)

@@ -413,6 +413,66 @@ func (j *jsiiProxy_CfnCanary) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCanary) validateSetReplicasParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnCanary_ReplicaProperty:
+				v := v.(*CfnCanary_ReplicaProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnCanary_ReplicaProperty:
+				v_ := v.(CfnCanary_ReplicaProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCanary_ReplicaProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnCanary_ReplicaProperty:
+				v := v.(*CfnCanary_ReplicaProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnCanary_ReplicaProperty:
+				v_ := v.(CfnCanary_ReplicaProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnCanary_ReplicaProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCanary) validateSetRunConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

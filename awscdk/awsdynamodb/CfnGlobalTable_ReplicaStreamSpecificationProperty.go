@@ -1,5 +1,8 @@
 package awsdynamodb
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Represents the DynamoDB Streams configuration for a global table replica.
 //
@@ -13,6 +16,12 @@ package awsdynamodb
 //   replicaStreamSpecificationProperty := &ReplicaStreamSpecificationProperty{
 //   	ResourcePolicy: &ResourcePolicyProperty{
 //   		PolicyDocument: policyDocument,
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -29,5 +38,8 @@ type CfnGlobalTable_ReplicaStreamSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html#cfn-dynamodb-globaltable-replicastreamspecification-resourcepolicy
 	//
 	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html#cfn-dynamodb-globaltable-replicastreamspecification-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

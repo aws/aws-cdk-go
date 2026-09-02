@@ -284,6 +284,54 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdDecisionServerUrlParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdsPersonalizationConcurrencyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPlaybackConfiguration_AdsPersonalizationConcurrencyProperty:
+		val := val.(*CfnPlaybackConfiguration_AdsPersonalizationConcurrencyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPlaybackConfiguration_AdsPersonalizationConcurrencyProperty:
+		val_ := val.(CfnPlaybackConfiguration_AdsPersonalizationConcurrencyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_AdsPersonalizationConcurrencyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdsPersonalizationTimeoutsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPlaybackConfiguration_AdsPersonalizationTimeoutsProperty:
+		val := val.(*CfnPlaybackConfiguration_AdsPersonalizationTimeoutsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPlaybackConfiguration_AdsPersonalizationTimeoutsProperty:
+		val_ := val.(CfnPlaybackConfiguration_AdsPersonalizationTimeoutsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_AdsPersonalizationTimeoutsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

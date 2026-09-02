@@ -32,6 +32,10 @@ import (
 //   		ExportPath: jsii.String("exportPath"),
 //   		ImportedFileChunkSize: jsii.Number(123),
 //   		ImportPath: jsii.String("importPath"),
+//   		LogConfiguration: &LogConfigurationProperty{
+//   			Destination: jsii.String("destination"),
+//   			Level: jsii.String("level"),
+//   		},
 //   		MetadataConfiguration: &MetadataConfigurationProperty{
 //   			Iops: jsii.Number(123),
 //   			Mode: jsii.String("mode"),

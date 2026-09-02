@@ -216,15 +216,7 @@ func init() {
 		reflect.TypeOf((*CfnRecordSetPropsMixin_CidrRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_route53.CfnRecordSetPropsMixin.CoordinatesProperty",
-		reflect.TypeOf((*CfnRecordSetPropsMixin_CoordinatesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53.CfnRecordSetPropsMixin.GeoLocationProperty",
 		reflect.TypeOf((*CfnRecordSetPropsMixin_GeoLocationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_route53.CfnRecordSetPropsMixin.GeoProximityLocationProperty",
-		reflect.TypeOf((*CfnRecordSetPropsMixin_GeoProximityLocationProperty)(nil)).Elem(),
 	)
 }

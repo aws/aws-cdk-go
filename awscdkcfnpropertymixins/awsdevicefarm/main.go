@@ -124,6 +124,26 @@ func init() {
 		reflect.TypeOf((*CfnTestGridProjectPropsMixin_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devicefarm.CfnUploadMixinProps",
+		reflect.TypeOf((*CfnUploadMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_devicefarm.CfnUploadPropsMixin",
+		reflect.TypeOf((*CfnUploadPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnUploadPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devicefarm.CfnVPCEConfigurationMixinProps",
 		reflect.TypeOf((*CfnVPCEConfigurationMixinProps)(nil)).Elem(),
 	)

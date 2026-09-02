@@ -12,14 +12,14 @@ package awsbatch
 //
 //   computeResourcesProperty := &ComputeResourcesProperty{
 //   	MaxvCpus: jsii.Number(123),
-//   	Subnets: []*string{
-//   		jsii.String("subnets"),
-//   	},
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
 //   	AllocationStrategy: jsii.String("allocationStrategy"),
 //   	BidPercentage: jsii.Number(123),
+//   	CapacityTags: map[string]*string{
+//   		"capacityTagsKey": jsii.String("capacityTags"),
+//   	},
 //   	DesiredvCpus: jsii.Number(123),
 //   	Ec2Configuration: []interface{}{
 //   		&Ec2ConfigurationObjectProperty{
@@ -54,6 +54,47 @@ package awsbatch
 //   		UserdataType: jsii.String("userdataType"),
 //   		Version: jsii.String("version"),
 //   	},
+//   	ManagedInstancesProvider: &ManagedInstancesProviderProperty{
+//   		InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
+//   		InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
+//   			Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   			NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
+//   				SecurityGroups: []*string{
+//   					jsii.String("securityGroups"),
+//   				},
+//   				Subnets: []*string{
+//   					jsii.String("subnets"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			CapacityOptionType: jsii.String("capacityOptionType"),
+//   			CapacityReservations: &CapacityReservationsProperty{
+//   				ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   				ReservationPreference: jsii.String("reservationPreference"),
+//   			},
+//   			FipsEnabled: jsii.Boolean(false),
+//   			InstanceMetadataTagsPropagation: jsii.Boolean(false),
+//   			InstanceRequirements: &InstanceRequirementsProperty{
+//   				AllowedInstanceTypes: []*string{
+//   					jsii.String("allowedInstanceTypes"),
+//   				},
+//   			},
+//   			LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   				UseLocalStorage: jsii.Boolean(false),
+//   			},
+//   			Monitoring: jsii.String("monitoring"),
+//   			StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
+//   				StorageSizeGiB: jsii.Number(123),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   			ScaleInAfter: jsii.Number(123),
+//   		},
+//   		PropagateTags: jsii.String("propagateTags"),
+//   	},
 //   	MinvCpus: jsii.Number(123),
 //   	PlacementGroup: jsii.String("placementGroup"),
 //   	ScalingPolicy: &ComputeScalingPolicyProperty{
@@ -63,6 +104,9 @@ package awsbatch
 //   		jsii.String("securityGroupIds"),
 //   	},
 //   	SpotIamFleetRole: jsii.String("spotIamFleetRole"),
+//   	Subnets: []*string{
+//   		jsii.String("subnets"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -78,18 +122,6 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus
 	//
 	MaxvCpus *float64 `field:"required" json:"maxvCpus" yaml:"maxvCpus"`
-	// The VPC subnets where the compute resources are launched.
-	//
-	// Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
-	//
-	// When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
-	//
-	// > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
-	// >
-	// > AWS Batch on Fargate doesn't currently support Local Zones.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-subnets
-	//
-	Subnets *[]*string `field:"required" json:"subnets" yaml:"subnets"`
 	// The type of compute environment: `EC2` , `SPOT` , `FARGATE` , or `FARGATE_SPOT` .
 	//
 	// For more information, see [Compute environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
@@ -131,6 +163,10 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-bidpercentage
 	//
 	BidPercentage *float64 `field:"optional" json:"bidPercentage" yaml:"bidPercentage"`
+	// Capacity-level tags for compute environments.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-capacitytags
+	//
+	CapacityTags interface{} `field:"optional" json:"capacityTags" yaml:"capacityTags"`
 	// The desired number of vCPUS in the compute environment.
 	//
 	// AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
@@ -211,6 +247,9 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate
 	//
 	LaunchTemplate interface{} `field:"optional" json:"launchTemplate" yaml:"launchTemplate"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-managedinstancesprovider
+	//
+	ManagedInstancesProvider interface{} `field:"optional" json:"managedInstancesProvider" yaml:"managedInstancesProvider"`
 	// The minimum number of vCPUs that an environment should maintain (even if the compute environment is `DISABLED` ).
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
@@ -246,6 +285,18 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-spotiamfleetrole
 	//
 	SpotIamFleetRole *string `field:"optional" json:"spotIamFleetRole" yaml:"spotIamFleetRole"`
+	// The VPC subnets where the compute resources are launched.
+	//
+	// Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+	//
+	// When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
+	// >
+	// > AWS Batch on Fargate doesn't currently support Local Zones.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-subnets
+	//
+	Subnets *[]*string `field:"optional" json:"subnets" yaml:"subnets"`
 	// Key-value pair tags to be applied to Amazon EC2 resources that are launched in the compute environment.
 	//
 	// For AWS Batch , these take the form of `"String1": "String2"` , where `String1` is the tag key and `String2` is the tag value (for example, `{ "Name": "Batch Instance - C4OnDemand" }` ). This is helpful for recognizing your Batch instances in the Amazon EC2 console. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation.

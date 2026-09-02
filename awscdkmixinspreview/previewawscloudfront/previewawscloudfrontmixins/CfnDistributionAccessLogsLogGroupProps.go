@@ -9,7 +9,7 @@ package previewawscloudfrontmixins
 //   cfnDistributionAccessLogsLogGroupProps := &CfnDistributionAccessLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnDistributionAccessLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnDistributionAccessLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnDistributionAccessLogsRecordFields_DATE,
+//   		awscdkmixinspreview.*Mixins.CfnDistributionAccessLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -8,7 +8,7 @@ package previewawsmediapackagev2mixins
 //
 //   cfnChannelGroupIngressAccessLogsDestProps := &CfnChannelGroupIngressAccessLogsDestProps{
 //   	RecordFields: []CfnChannelGroupIngressAccessLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnChannelGroupIngressAccessLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.Mixins.CfnChannelGroupIngressAccessLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerIngressPointApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnMailManagerIngressPointApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerIngressPointApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnMailManagerIngressPointApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMailManagerIngressPointApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnMailManagerIngressPointApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnMailManagerIngressPointApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnMailManagerIngressPointApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnMailManagerIngressPointApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,8 +71,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerIngressPointApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnMailManagerIngressPointApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
-			"INGRESS_POINT_TYPE": CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE,
+			"TIMESTAMP": CfnMailManagerIngressPointApplicationLogsRecordFields_TIMESTAMP,
 			"INGRESS_POINT_ID": CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_ID,
+			"INGRESS_POINT_TYPE": CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE,
 			"SENDER_IP_ADDRESS": CfnMailManagerIngressPointApplicationLogsRecordFields_SENDER_IP_ADDRESS,
 			"SMTP_MAIL_FROM": CfnMailManagerIngressPointApplicationLogsRecordFields_SMTP_MAIL_FROM,
 			"SMTP_HELO": CfnMailManagerIngressPointApplicationLogsRecordFields_SMTP_HELO,
@@ -82,6 +83,7 @@ func init() {
 			"TLS_CIPHER_SUITE": CfnMailManagerIngressPointApplicationLogsRecordFields_TLS_CIPHER_SUITE,
 			"MESSAGE_SIZE_BYTES": CfnMailManagerIngressPointApplicationLogsRecordFields_MESSAGE_SIZE_BYTES,
 			"RULE_SET_ID": CfnMailManagerIngressPointApplicationLogsRecordFields_RULE_SET_ID,
+			"VPC_ENDPOINT_ID": CfnMailManagerIngressPointApplicationLogsRecordFields_VPC_ENDPOINT_ID,
 			"RESOURCE_ARN": CfnMailManagerIngressPointApplicationLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnMailManagerIngressPointApplicationLogsRecordFields_EVENT_TIMESTAMP,
 			"MESSAGE_ID": CfnMailManagerIngressPointApplicationLogsRecordFields_MESSAGE_ID,
@@ -144,8 +146,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -161,8 +163,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_JSON,
 			"W3C": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat_S3_PARQUET,
 		},
@@ -171,8 +173,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields",
 		reflect.TypeOf((*CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
-			"INGRESS_POINT_TYPE": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_INGRESS_POINT_TYPE,
+			"TIMESTAMP": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_TIMESTAMP,
 			"INGRESS_POINT_ID": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_INGRESS_POINT_ID,
+			"INGRESS_POINT_TYPE": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_INGRESS_POINT_TYPE,
 			"INGRESS_POINT_SESSION_ID": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_INGRESS_POINT_SESSION_ID,
 			"TRAFFIC_POLICY_ID": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_TRAFFIC_POLICY_ID,
 			"TRAFFIC_POLICY_EVALUATION": CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_TRAFFIC_POLICY_EVALUATION,
@@ -228,8 +231,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerRuleSetApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnMailManagerRuleSetApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMailManagerRuleSetApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnMailManagerRuleSetApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnMailManagerRuleSetApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnMailManagerRuleSetApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -245,8 +248,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerRuleSetApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnMailManagerRuleSetApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMailManagerRuleSetApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnMailManagerRuleSetApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnMailManagerRuleSetApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnMailManagerRuleSetApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnMailManagerRuleSetApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -255,6 +258,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_ses.mixins.CfnMailManagerRuleSetApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnMailManagerRuleSetApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnMailManagerRuleSetApplicationLogsRecordFields_TIMESTAMP,
+			"RULE_SET_ID": CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_SET_ID,
 			"RULE_NAME": CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_NAME,
 			"RULE_INDEX": CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_INDEX,
 			"RECIPIENTS_MATCHED": CfnMailManagerRuleSetApplicationLogsRecordFields_RECIPIENTS_MATCHED,

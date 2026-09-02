@@ -8,6 +8,9 @@ package previewawsnetworkfirewallmixins
 //
 //   cfnFirewallAlertLogsLogGroupProps := &CfnFirewallAlertLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnFirewallAlertLogsOutputFormat.LogGroup_PLAIN,
+//   	RecordFields: []CfnFirewallAlertLogsRecordFields{
+//   		awscdkmixinspreview.*Mixins.CfnFirewallAlertLogsRecordFields_TIMESTAMP,
+//   	},
 //   }
 //
 // Experimental.
@@ -15,5 +18,8 @@ type CfnFirewallAlertLogsLogGroupProps struct {
 	// Format for log output, options are plain,json.
 	// Experimental.
 	OutputFormat CfnFirewallAlertLogsOutputFormat_LogGroup `field:"optional" json:"outputFormat" yaml:"outputFormat"`
+	// Record fields that can be provided to a log delivery.
+	// Experimental.
+	RecordFields *[]CfnFirewallAlertLogsRecordFields `field:"optional" json:"recordFields" yaml:"recordFields"`
 }
 

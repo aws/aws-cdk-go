@@ -6,6 +6,8 @@ type CfnClusterPcsJobcompLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnClusterPcsJobcompLogsRecordFields_TIMESTAMP CfnClusterPcsJobcompLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnClusterPcsJobcompLogsRecordFields_RESOURCE_ID CfnClusterPcsJobcompLogsRecordFields = "RESOURCE_ID"
 	// Experimental.
 	CfnClusterPcsJobcompLogsRecordFields_RESOURCE_TYPE CfnClusterPcsJobcompLogsRecordFields = "RESOURCE_TYPE"

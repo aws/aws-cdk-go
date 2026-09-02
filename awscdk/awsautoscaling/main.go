@@ -287,6 +287,10 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroup_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.DistributionSegmentProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_DistributionSegmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.InstanceLifecyclePolicyProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_InstanceLifecyclePolicyProperty)(nil)).Elem(),
 	)

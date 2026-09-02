@@ -176,6 +176,10 @@ func init() {
 		reflect.TypeOf((*CfnFileSystem_FsrmConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_fsx.CfnFileSystem.LogConfigurationProperty",
+		reflect.TypeOf((*CfnFileSystem_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_fsx.CfnFileSystem.LustreConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystem_LustreConfigurationProperty)(nil)).Elem(),
 	)

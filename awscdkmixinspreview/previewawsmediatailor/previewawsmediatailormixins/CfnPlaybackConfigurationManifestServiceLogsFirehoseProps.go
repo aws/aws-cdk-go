@@ -7,15 +7,15 @@ package previewawsmediatailormixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnPlaybackConfigurationManifestServiceLogsFirehoseProps := &CfnPlaybackConfigurationManifestServiceLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnPlaybackConfigurationManifestServiceLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnPlaybackConfigurationManifestServiceLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnPlaybackConfigurationManifestServiceLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationManifestServiceLogsRecordFields_CUSTOMERID,
+//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationManifestServiceLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnPlaybackConfigurationManifestServiceLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

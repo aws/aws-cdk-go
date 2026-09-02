@@ -108,6 +108,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRule_SourceMetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRule.TagPropagationConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRule_TagPropagationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationCentralizationRuleProps",
 		reflect.TypeOf((*CfnOrganizationCentralizationRuleProps)(nil)).Elem(),
 	)

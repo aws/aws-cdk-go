@@ -39,6 +39,9 @@ type CfnFunctionPropsMixin_CodeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
 	//
 	S3Key *string `field:"optional" json:"s3Key" yaml:"s3Key"`
+	// Specifies the storage mode for the deployment package.
+	//
+	// Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectstoragemode
 	//
 	S3ObjectStorageMode *string `field:"optional" json:"s3ObjectStorageMode" yaml:"s3ObjectStorageMode"`

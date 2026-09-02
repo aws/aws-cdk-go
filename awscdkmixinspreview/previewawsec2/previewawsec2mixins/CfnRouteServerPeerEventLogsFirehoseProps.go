@@ -7,15 +7,15 @@ package previewawsec2mixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnRouteServerPeerEventLogsFirehoseProps := &CfnRouteServerPeerEventLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnRouteServerPeerEventLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnRouteServerPeerEventLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnRouteServerPeerEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnRouteServerPeerEventLogsRecordFields_STATUS,
+//   		awscdkmixinspreview.*Mixins.CfnRouteServerPeerEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnRouteServerPeerEventLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnRouteServerPeerEventLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

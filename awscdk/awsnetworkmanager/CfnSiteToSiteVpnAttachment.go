@@ -78,6 +78,10 @@ type CfnSiteToSiteVpnAttachment interface {
 	AttrLastModificationErrors() *[]*string
 	// The ID of the site-to-site VPN attachment owner.
 	AttrOwnerAccountId() *string
+	// The attachment to move from one network function group to another.
+	AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable
+	// The attachment to move from one segment to another.
+	AttrProposedSegmentChange() awscdk.IResolvable
 	// The resource ARN for the site-to-site VPN attachment.
 	AttrResourceArn() *string
 	// The name of the site-to-site VPN attachment's segment.
@@ -404,6 +408,26 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) AttrOwnerAccountId() *string {
 	_jsii_.Get(
 		j,
 		"attrOwnerAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedNetworkFunctionGroupChange",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) AttrProposedSegmentChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedSegmentChange",
 		&returns,
 	)
 	return returns

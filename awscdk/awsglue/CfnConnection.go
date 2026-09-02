@@ -25,6 +25,7 @@ import (
 //   var customAuthenticationCredentials interface{}
 //   var pythonProperties interface{}
 //   var sparkProperties interface{}
+//   var tags interface{}
 //   var tokenUrlParametersMap interface{}
 //
 //   cfnConnection := awscdk.Aws_glue.NewCfnConnection(this, jsii.String("MyCfnConnection"), &CfnConnectionProps{
@@ -34,7 +35,7 @@ import (
 //
 //   		// the properties below are optional
 //   		AthenaProperties: athenaProperties,
-//   		AuthenticationConfiguration: &AuthenticationConfigurationInputProperty{
+//   		AuthenticationConfiguration: &AuthenticationConfigurationProperty{
 //   			AuthenticationType: jsii.String("authenticationType"),
 //
 //   			// the properties below are optional
@@ -44,7 +45,7 @@ import (
 //   			},
 //   			CustomAuthenticationCredentials: customAuthenticationCredentials,
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
-//   			OAuth2Properties: &OAuth2PropertiesInputProperty{
+//   			OAuth2Properties: &OAuth2PropertiesProperty{
 //   				AuthorizationCodeProperties: &AuthorizationCodePropertiesProperty{
 //   					AuthorizationCode: jsii.String("authorizationCode"),
 //   					RedirectUri: jsii.String("redirectUri"),
@@ -85,6 +86,9 @@ import (
 //   			jsii.String("validateForComputeEnvironments"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	Tags: tags,
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html
@@ -93,10 +97,14 @@ type CfnConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsglue.IConnectionRef
-	AttrId() *string
+	awscdk.ITaggableV2
+	// The name of the connection.
+	AttrName() *string
 	// The ID of the data catalog to create the catalog object in.
 	CatalogId() *string
 	SetCatalogId(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -134,6 +142,9 @@ type CfnConnection interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The collection of tags.
+	Tags() interface{}
+	SetTags(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -315,13 +326,14 @@ type jsiiProxy_CfnConnection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsglueIConnectionRef
+	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnConnection) AttrId() *string {
+func (j *jsiiProxy_CfnConnection) AttrName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrName",
 		&returns,
 	)
 	return returns
@@ -332,6 +344,16 @@ func (j *jsiiProxy_CfnConnection) CatalogId() *string {
 	_jsii_.Get(
 		j,
 		"catalogId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnection) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -457,6 +479,16 @@ func (j *jsiiProxy_CfnConnection) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnection) Tags() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnection) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -527,6 +559,35 @@ func (j *jsiiProxy_CfnConnection)SetConnectionInput(val interface{}) {
 		"connectionInput",
 		val,
 	)
+}
+
+func (j *jsiiProxy_CfnConnection)SetTags(val interface{}) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
+	)
+}
+
+func CfnConnection_ArnForConnection(resource interfacesawsglue.IConnectionRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnConnection_ArnForConnectionParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnConnection",
+		"arnForConnection",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Checks whether the given object is a CfnConnection.

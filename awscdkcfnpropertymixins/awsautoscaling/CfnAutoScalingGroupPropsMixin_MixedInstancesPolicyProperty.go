@@ -23,6 +23,13 @@ package awsautoscaling
 //
 //   mixedInstancesPolicyProperty := &MixedInstancesPolicyProperty{
 //   	InstancesDistribution: &InstancesDistributionProperty{
+//   		DistributionSegments: []interface{}{
+//   			&DistributionSegmentProperty{
+//   				TargetCapacityTypes: []*string{
+//   					jsii.String("targetCapacityTypes"),
+//   				},
+//   			},
+//   		},
 //   		OnDemandAllocationStrategy: jsii.String("onDemandAllocationStrategy"),
 //   		OnDemandBaseCapacity: jsii.Number(123),
 //   		OnDemandPercentageAboveBaseCapacity: jsii.Number(123),

@@ -66,6 +66,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Version: jsii.String("version"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

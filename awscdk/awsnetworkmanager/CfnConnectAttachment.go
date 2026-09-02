@@ -82,6 +82,10 @@ type CfnConnectAttachment interface {
 	AttrLastModificationErrors() *[]*string
 	// The ID of the Connect attachment owner.
 	AttrOwnerAccountId() *string
+	// The attachment to move from one network function group to another.
+	AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable
+	// The attachment to move from one segment to another.
+	AttrProposedSegmentChange() awscdk.IResolvable
 	// The resource ARN for the Connect attachment.
 	AttrResourceArn() *string
 	// The name of the Connect attachment's segment.
@@ -404,6 +408,26 @@ func (j *jsiiProxy_CfnConnectAttachment) AttrOwnerAccountId() *string {
 	_jsii_.Get(
 		j,
 		"attrOwnerAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedNetworkFunctionGroupChange",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) AttrProposedSegmentChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedSegmentChange",
 		&returns,
 	)
 	return returns

@@ -9,7 +9,7 @@ package previewawsdevopsagentmixins
 //   cfnAgentSpaceApplicationLogsLogGroupProps := &CfnAgentSpaceApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentSpaceApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnAgentSpaceApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ACCOUNT_ID,
+//   		awscdkmixinspreview.*Mixins.CfnAgentSpaceApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

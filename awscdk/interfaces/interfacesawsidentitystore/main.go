@@ -8,32 +8,12 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_identitystore.AllGroupMembershipsReference",
-		reflect.TypeOf((*AllGroupMembershipsReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_identitystore.GroupMembershipReference",
 		reflect.TypeOf((*GroupMembershipReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_identitystore.GroupReference",
 		reflect.TypeOf((*GroupReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_identitystore.IAllGroupMembershipsRef",
-		reflect.TypeOf((*IAllGroupMembershipsRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "allGroupMembershipsRef", GoGetter: "AllGroupMembershipsRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IAllGroupMembershipsRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_identitystore.IGroupMembershipRef",
@@ -66,5 +46,25 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
 		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_identitystore.IUserRef",
+		reflect.TypeOf((*IUserRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userRef", GoGetter: "UserRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUserRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_identitystore.UserReference",
+		reflect.TypeOf((*UserReference)(nil)).Elem(),
 	)
 }

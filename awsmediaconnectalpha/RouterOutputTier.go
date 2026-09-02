@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   var stack Stack
-//   var mediaLiveInput CfnInput
+//   var mediaLiveInput IInput
 //
 //
 //   output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("MediaLiveOutput"), &RouterOutputProps{
@@ -18,8 +18,8 @@ import (
 //   	RoutingScope: awsmediaconnectalpha.RoutingScope_GLOBAL(),
 //   	Tier: awsmediaconnectalpha.RouterOutputTier_OUTPUT_50(),
 //   	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInput(&MediaLiveInputConnectionProps{
-//   		MediaLiveInputArn: mediaLiveInput.attrArn,
-//   		MediaLivePipelineId: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   		Input: mediaLiveInput,
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
 //   	}),
 //   })
 //

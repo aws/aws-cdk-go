@@ -6,6 +6,7 @@ import (
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/aws-cdk-go/awscdkgluealpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -37,6 +38,9 @@ type Database interface {
 	// The name of the database.
 	// Experimental.
 	DatabaseName() *string
+	// A reference to a Database resource.
+	// Experimental.
+	DatabaseRef() *interfacesawsglue.DatabaseReference
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -147,6 +151,16 @@ func (j *jsiiProxy_Database) DatabaseName() *string {
 	_jsii_.Get(
 		j,
 		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Database) DatabaseRef() *interfacesawsglue.DatabaseReference {
+	var returns *interfacesawsglue.DatabaseReference
+	_jsii_.Get(
+		j,
+		"databaseRef",
 		&returns,
 	)
 	return returns

@@ -9,6 +9,10 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   filesystemConfigurationProperty := &FilesystemConfigurationProperty{
+//   	CapacityProviderVolume: &CapacityProviderVolumeConfigurationProperty{
+//   		MountPath: jsii.String("mountPath"),
+//   		VolumeName: jsii.String("volumeName"),
+//   	},
 //   	EfsAccessPoint: &EfsAccessPointConfigurationProperty{
 //   		AccessPointArn: jsii.String("accessPointArn"),
 //   		MountPath: jsii.String("mountPath"),
@@ -25,6 +29,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-filesystemconfiguration.html
 //
 type CfnRuntimePropsMixin_FilesystemConfigurationProperty struct {
+	// Configuration for a CapacityProvider-managed volume to mount into the agent runtime.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-filesystemconfiguration.html#cfn-bedrockagentcore-runtime-filesystemconfiguration-capacityprovidervolume
+	//
+	CapacityProviderVolume interface{} `field:"optional" json:"capacityProviderVolume" yaml:"capacityProviderVolume"`
 	// Configuration for EFS access point filesystem.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-filesystemconfiguration.html#cfn-bedrockagentcore-runtime-filesystemconfiguration-efsaccesspoint
 	//

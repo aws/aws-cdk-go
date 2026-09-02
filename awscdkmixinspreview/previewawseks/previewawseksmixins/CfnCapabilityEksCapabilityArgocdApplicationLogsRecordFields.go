@@ -6,6 +6,10 @@ type CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "LEVEL"
@@ -41,6 +45,38 @@ const (
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_PROCESS_REFRESH_APP_CONDITIONS_ERRORS_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "PROCESS_REFRESH_APP_CONDITIONS_ERRORS_MS"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_COMPARISON_WITH_NOTHING_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "COMPARISON_WITH_NOTHING_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_NAME CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "NAME"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_NAMESPACE CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "NAMESPACE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_APP_STATUS_UPDATE_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "APP_STATUS_UPDATE_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_AUTO_SYNC_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "AUTO_SYNC_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_DIFF_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "DIFF_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_GIT_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "GIT_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_HEALTH_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "HEALTH_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_LIVE_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "LIVE_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_MANIFESTS_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "MANIFESTS_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_REPO_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "REPO_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_SYNC_MS CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "SYNC_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_CLUSTER CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "CLUSTER"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_SYNCID CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "SYNCID"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_DURATION CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "DURATION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_EVENTTYPE CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "EVENTTYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_KIND CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "KIND"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdApplicationLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

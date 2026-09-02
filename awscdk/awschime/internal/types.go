@@ -9,3 +9,4 @@ type Type__interfacesawschimeIAppInstanceRef = interfacesawschime.IAppInstanceRe
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawschimeIAppInstanceBotRef = interfacesawschime.IAppInstanceBotRef
 type Type__interfacesawschimeIAppInstanceUserRef = interfacesawschime.IAppInstanceUserRef
+type Type__interfacesawschimeIChannelFlowRef = interfacesawschime.IChannelFlowRef

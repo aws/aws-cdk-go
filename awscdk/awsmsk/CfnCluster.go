@@ -122,6 +122,29 @@ import (
 //   				Prefix: jsii.String("prefix"),
 //   			},
 //   		},
+//
+//   		// the properties below are optional
+//   		AuthorizerLogs: &AuthorizerLogsProperty{
+//   			CloudWatchLogs: &CloudWatchLogsProperty{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				LogGroup: jsii.String("logGroup"),
+//   			},
+//   			Firehose: &FirehoseProperty{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				DeliveryStream: jsii.String("deliveryStream"),
+//   			},
+//   			S3: &S3Property{
+//   				Enabled: jsii.Boolean(false),
+//
+//   				// the properties below are optional
+//   				Bucket: jsii.String("bucket"),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
 //   	},
 //   	OpenMonitoring: &OpenMonitoringProperty{
 //   		Prometheus: &PrometheusProperty{

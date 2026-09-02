@@ -62,8 +62,39 @@ import (
 //   	DryRunAndUpdate: jsii.Boolean(false),
 //   	ExecutionRoleArn: jsii.String("executionRoleArn"),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	ProvisionedResourceCleanup: jsii.String("provisionedResourceCleanup"),
+//   	Replicas: []interface{}{
+//   		&ReplicaProperty{
+//   			CanaryState: jsii.String("canaryState"),
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			LastModified: jsii.Number(123),
+//   			Location: jsii.String("location"),
+//   			ReplicationStatus: &ReplicaReplicationStatusProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   			ResourcesToReplicateTags: []*string{
+//   				jsii.String("resourcesToReplicateTags"),
+//   			},
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			VpcConfig: &VPCConfigProperty{
+//   				Ipv6AllowedForDualStack: jsii.Boolean(false),
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				SubnetIds: []interface{}{
+//   					jsii.String("subnetIds"),
+//   				},
+//   				VpcId: jsii.String("vpcId"),
+//   			},
+//   		},
+//   	},
 //   	ResourcesToReplicateTags: []*string{
 //   		jsii.String("resourcesToReplicateTags"),
 //   	},

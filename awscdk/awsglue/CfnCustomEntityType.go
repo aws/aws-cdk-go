@@ -37,10 +37,6 @@ type CfnCustomEntityType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsglue.ICustomEntityTypeRef
-	awscdk.ITaggableV2
-	AttrId() *string
-	// Tag Manager which manages the tags for this resource.
-	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -268,27 +264,6 @@ type jsiiProxy_CfnCustomEntityType struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsglueICustomEntityTypeRef
-	internal.Type__awscdkITaggableV2
-}
-
-func (j *jsiiProxy_CfnCustomEntityType) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCustomEntityType) CdkTagManager() awscdk.TagManager {
-	var returns awscdk.TagManager
-	_jsii_.Get(
-		j,
-		"cdkTagManager",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnCustomEntityType) CfnOptions() awscdk.ICfnResourceOptions {
@@ -524,43 +499,6 @@ func (j *jsiiProxy_CfnCustomEntityType)SetTags(val interface{}) {
 		"tags",
 		val,
 	)
-}
-
-func CfnCustomEntityType_ArnForCustomEntityType(resource interfacesawsglue.ICustomEntityTypeRef) *string {
-	_init_.Initialize()
-
-	if err := validateCfnCustomEntityType_ArnForCustomEntityTypeParameters(resource); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_glue.CfnCustomEntityType",
-		"arnForCustomEntityType",
-		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new ICustomEntityTypeRef from a customEntityTypeId.
-func CfnCustomEntityType_FromCustomEntityTypeId(scope constructs.Construct, id *string, customEntityTypeId *string) interfacesawsglue.ICustomEntityTypeRef {
-	_init_.Initialize()
-
-	if err := validateCfnCustomEntityType_FromCustomEntityTypeIdParameters(scope, id, customEntityTypeId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsglue.ICustomEntityTypeRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_glue.CfnCustomEntityType",
-		"fromCustomEntityTypeId",
-		[]interface{}{scope, id, customEntityTypeId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Checks whether the given object is a CfnCustomEntityType.

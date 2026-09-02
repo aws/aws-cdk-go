@@ -17,3 +17,4 @@ type Type__interfacesawsredshiftIEventSubscriptionRef = interfacesawsredshift.IE
 type Type__interfacesawsredshiftIIntegrationRef = interfacesawsredshift.IIntegrationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsredshiftIScheduledActionRef = interfacesawsredshift.IScheduledActionRef
+type Type__interfacesawsredshiftISnapshotScheduleRef = interfacesawsredshift.ISnapshotScheduleRef

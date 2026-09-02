@@ -14,9 +14,9 @@ import (
 //
 //   cfnApplicationSyncJobLogsS3Props := &CfnApplicationSyncJobLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnApplicationSyncJobLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnApplicationSyncJobLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnApplicationSyncJobLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnApplicationSyncJobLogsRecordFields_AWSACCOUNTID,
+//   		awscdkmixinspreview.*Mixins.CfnApplicationSyncJobLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnApplicationSyncJobLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnApplicationSyncJobLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

@@ -8,7 +8,7 @@ package previewawseventsmixins
 //
 //   cfnEventBusErrorLogsDestProps := &CfnEventBusErrorLogsDestProps{
 //   	RecordFields: []CfnEventBusErrorLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnEventBusErrorLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.Mixins.CfnEventBusErrorLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

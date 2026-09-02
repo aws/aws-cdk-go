@@ -60,8 +60,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnClusterPcsJobcompLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnClusterPcsJobcompLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnClusterPcsJobcompLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnClusterPcsJobcompLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnClusterPcsJobcompLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -77,8 +77,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnClusterPcsJobcompLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnClusterPcsJobcompLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnClusterPcsJobcompLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnClusterPcsJobcompLogsOutputFormat_S3_JSON,
 			"W3C": CfnClusterPcsJobcompLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnClusterPcsJobcompLogsOutputFormat_S3_PARQUET,
 		},
@@ -87,6 +87,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsJobcompLogsRecordFields",
 		reflect.TypeOf((*CfnClusterPcsJobcompLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnClusterPcsJobcompLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ID": CfnClusterPcsJobcompLogsRecordFields_RESOURCE_ID,
 			"RESOURCE_TYPE": CfnClusterPcsJobcompLogsRecordFields_RESOURCE_TYPE,
 			"EVENT_TIMESTAMP": CfnClusterPcsJobcompLogsRecordFields_EVENT_TIMESTAMP,
@@ -136,8 +137,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -153,8 +154,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_JSON,
 			"W3C": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnClusterPcsSchedulerAuditLogsOutputFormat_S3_PARQUET,
 		},
@@ -163,6 +164,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogsRecordFields",
 		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnClusterPcsSchedulerAuditLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ID": CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_ID,
 			"RESOURCE_TYPE": CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_TYPE,
 			"EVENT_TIMESTAMP": CfnClusterPcsSchedulerAuditLogsRecordFields_EVENT_TIMESTAMP,
@@ -217,8 +219,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnClusterPcsSchedulerLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnClusterPcsSchedulerLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -234,8 +236,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnClusterPcsSchedulerLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnClusterPcsSchedulerLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnClusterPcsSchedulerLogsOutputFormat_S3_JSON,
 			"W3C": CfnClusterPcsSchedulerLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnClusterPcsSchedulerLogsOutputFormat_S3_PARQUET,
 		},
@@ -244,6 +246,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerLogsRecordFields",
 		reflect.TypeOf((*CfnClusterPcsSchedulerLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnClusterPcsSchedulerLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ID": CfnClusterPcsSchedulerLogsRecordFields_RESOURCE_ID,
 			"RESOURCE_TYPE": CfnClusterPcsSchedulerLogsRecordFields_RESOURCE_TYPE,
 			"EVENT_TIMESTAMP": CfnClusterPcsSchedulerLogsRecordFields_EVENT_TIMESTAMP,

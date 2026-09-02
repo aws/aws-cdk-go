@@ -9,7 +9,7 @@ package previewawswisdommixins
 //   cfnAssistantEventLogsLogGroupProps := &CfnAssistantEventLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnAssistantEventLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnAssistantEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAssistantEventLogsRecordFields_ASSISTANT_ID,
+//   		awscdkmixinspreview.*Mixins.CfnAssistantEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

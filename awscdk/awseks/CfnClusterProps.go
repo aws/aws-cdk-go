@@ -35,7 +35,15 @@ import (
 //   		AuthenticationMode: jsii.String("authenticationMode"),
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
+//   	ActiveCertificateAuthorityId: jsii.String("activeCertificateAuthorityId"),
 //   	BootstrapSelfManagedAddons: jsii.Boolean(false),
+//   	CertificateAuthority: &CertificateAuthorityProperty{
+//   		Active: &ActiveCertificateAuthorityProperty{
+//   			ActivatedBy: jsii.String("activatedBy"),
+//   			Id: jsii.String("id"),
+//   		},
+//   		Data: jsii.String("data"),
+//   	},
 //   	ComputeConfig: &ComputeConfigProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		NodePools: []*string{
@@ -58,6 +66,21 @@ import (
 //   		},
 //   	},
 //   	Force: jsii.Boolean(false),
+//   	KubeApiServerConfig: &KubeApiServerConfigProperty{
+//   		EventTtl: jsii.String("eventTtl"),
+//   		ServiceNodePortRange: &ServiceNodePortRangeProperty{
+//   			MaxPort: jsii.Number(123),
+//   			MinPort: jsii.Number(123),
+//   		},
+//   	},
+//   	KubeControllerManagerConfig: &KubeControllerManagerConfigProperty{
+//   		HorizontalPodAutoscalerControllerConfig: &HorizontalPodAutoscalerControllerConfigProperty{
+//   			HorizontalPodAutoscalerSyncPeriod: jsii.String("horizontalPodAutoscalerSyncPeriod"),
+//   		},
+//   		PodGcControllerConfig: &PodGcControllerConfigProperty{
+//   			TerminatedPodGcThreshold: jsii.Number(123),
+//   		},
+//   	},
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
 //   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -65,6 +88,19 @@ import (
 //   		IpFamily: jsii.String("ipFamily"),
 //   		ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   		ServiceIpv6Cidr: jsii.String("serviceIpv6Cidr"),
+//   	},
+//   	KubeSchedulerConfig: &KubeSchedulerConfigProperty{
+//   		NodeResourcesFit: &NodeResourcesFitConfigProperty{
+//   			ScoringStrategy: &ScoringStrategyProperty{
+//   				Resources: []interface{}{
+//   					&ResourceWeightProperty{
+//   						Name: jsii.String("name"),
+//   						Weight: jsii.Number(123),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
 //   	},
 //   	Logging: &LoggingProperty{
 //   		ClusterLogging: &ClusterLoggingProperty{
@@ -150,6 +186,12 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-accessconfig
 	//
 	AccessConfig interface{} `field:"optional" json:"accessConfig" yaml:"accessConfig"`
+	// The ID of the certificate authority to activate as the cluster's signing CA.
+	//
+	// Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-activecertificateauthorityid
+	//
+	ActiveCertificateAuthorityId *string `field:"optional" json:"activeCertificateAuthorityId" yaml:"activeCertificateAuthorityId"`
 	// If you set this value to `False` when creating a cluster, the default networking add-ons will not be installed.
 	//
 	// The default networking add-ons include `vpc-cni` , `coredns` , and `kube-proxy` .
@@ -158,6 +200,10 @@ type CfnClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons
 	//
 	BootstrapSelfManagedAddons interface{} `field:"optional" json:"bootstrapSelfManagedAddons" yaml:"bootstrapSelfManagedAddons"`
+	// The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-certificateauthority
+	//
+	CertificateAuthority interface{} `field:"optional" json:"certificateAuthority" yaml:"certificateAuthority"`
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster.
 	//
 	// For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
@@ -186,10 +232,22 @@ type CfnClusterProps struct {
 	// Default: - false.
 	//
 	Force interface{} `field:"optional" json:"force" yaml:"force"`
+	// The configuration for the Kubernetes API server on an Amazon EKS cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubeapiserverconfig
+	//
+	KubeApiServerConfig interface{} `field:"optional" json:"kubeApiServerConfig" yaml:"kubeApiServerConfig"`
+	// The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubecontrollermanagerconfig
+	//
+	KubeControllerManagerConfig interface{} `field:"optional" json:"kubeControllerManagerConfig" yaml:"kubeControllerManagerConfig"`
 	// The Kubernetes network configuration for the cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
 	//
 	KubernetesNetworkConfig interface{} `field:"optional" json:"kubernetesNetworkConfig" yaml:"kubernetesNetworkConfig"`
+	// The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubeschedulerconfig
+	//
+	KubeSchedulerConfig interface{} `field:"optional" json:"kubeSchedulerConfig" yaml:"kubeSchedulerConfig"`
 	// The logging configuration for your cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-logging
 	//

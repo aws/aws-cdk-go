@@ -213,8 +213,22 @@ import (
 //   	},
 //   	ReplaceUnhealthyInstances: jsii.Boolean(false),
 //   	ReservedCapacityOptions: &ReservedCapacityOptionsRequestProperty{
+//   		AllocationStrategy: jsii.String("allocationStrategy"),
+//   		CapacityReservationTarget: &CapacityReservationTargetRequestProperty{
+//   			CapacityReservationIds: []*string{
+//   				jsii.String("capacityReservationIds"),
+//   			},
+//   			CapacityReservationResourceGroupArns: []*string{
+//   				jsii.String("capacityReservationResourceGroupArns"),
+//   			},
+//   		},
 //   		ReservationTypes: []*string{
 //   			jsii.String("reservationTypes"),
+//   		},
+//   		ReservedCapacityFallbackOptions: &ReservedCapacityFallbackOptionsRequestProperty{
+//   			MarketTypes: []*string{
+//   				jsii.String("marketTypes"),
+//   			},
 //   		},
 //   	},
 //   	SpotOptions: &SpotOptionsRequestProperty{

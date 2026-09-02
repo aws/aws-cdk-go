@@ -24,6 +24,10 @@ func (r *jsiiProxy_ReceiptRule) validateGetResourceNameAttributeParameters(nameA
 	return nil
 }
 
+func validateReceiptRule_FromReceiptRuleAttributesParameters(scope constructs.Construct, id *string, attrs *ReceiptRuleAttributes) error {
+	return nil
+}
+
 func validateReceiptRule_FromReceiptRuleNameParameters(scope constructs.Construct, id *string, receiptRuleName *string) error {
 	return nil
 }

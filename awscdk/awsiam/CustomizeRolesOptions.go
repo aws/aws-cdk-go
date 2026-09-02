@@ -32,7 +32,7 @@ type CustomizeRolesOptions struct {
 	//
 	//   stack := awscdk.Newstack(app, jsii.String("MyStack"))
 	//   iam.NewRole(stack, jsii.String("MyRole"), &RoleProps{
-	//   	AssumedBy: iam.NewAccountPrincipal(jsii.String("1111111111")),
+	//   	AssumedBy: iam.NewAccountPrincipal(jsii.String("111111111111")),
 	//   })
 	//
 	//   iam.Role_CustomizeRoles(stack, &CustomizeRolesOptions{

@@ -112,6 +112,10 @@ func init() {
 		reflect.TypeOf((*CfnScraperPropsMixin_AmpConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aps.CfnScraperPropsMixin.CloudWatchConfigurationProperty",
+		reflect.TypeOf((*CfnScraperPropsMixin_CloudWatchConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_aps.CfnScraperPropsMixin.CloudWatchLogDestinationProperty",
 		reflect.TypeOf((*CfnScraperPropsMixin_CloudWatchLogDestinationProperty)(nil)).Elem(),
 	)

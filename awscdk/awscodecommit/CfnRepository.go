@@ -77,6 +77,8 @@ type CfnRepository interface {
 	AttrId() *string
 	// When you pass the logical ID of this resource, the function returns the repository's name.
 	AttrName() *string
+	// The ID of the repository.
+	AttrRepositoryId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -360,6 +362,16 @@ func (j *jsiiProxy_CfnRepository) AttrName() *string {
 	_jsii_.Get(
 		j,
 		"attrName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRepository) AttrRepositoryId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRepositoryId",
 		&returns,
 	)
 	return returns

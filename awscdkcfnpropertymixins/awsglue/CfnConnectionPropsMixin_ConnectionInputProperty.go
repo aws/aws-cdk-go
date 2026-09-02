@@ -17,7 +17,7 @@ package awsglue
 //
 //   connectionInputProperty := &ConnectionInputProperty{
 //   	AthenaProperties: athenaProperties,
-//   	AuthenticationConfiguration: &AuthenticationConfigurationInputProperty{
+//   	AuthenticationConfiguration: &AuthenticationConfigurationProperty{
 //   		AuthenticationType: jsii.String("authenticationType"),
 //   		BasicAuthenticationCredentials: &BasicAuthenticationCredentialsProperty{
 //   			Password: jsii.String("password"),
@@ -25,7 +25,7 @@ package awsglue
 //   		},
 //   		CustomAuthenticationCredentials: customAuthenticationCredentials,
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
-//   		OAuth2Properties: &OAuth2PropertiesInputProperty{
+//   		OAuth2Properties: &OAuth2PropertiesProperty{
 //   			AuthorizationCodeProperties: &AuthorizationCodePropertiesProperty{
 //   				AuthorizationCode: jsii.String("authorizationCode"),
 //   				RedirectUri: jsii.String("redirectUri"),

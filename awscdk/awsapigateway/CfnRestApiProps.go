@@ -54,6 +54,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Version: jsii.String("version"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
@@ -161,5 +162,8 @@ type CfnRestApiProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-version
+	//
+	Version *string `field:"optional" json:"version" yaml:"version"`
 }
 

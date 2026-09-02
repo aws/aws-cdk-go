@@ -67,6 +67,10 @@ import (
 //   	},
 //   	Threshold: jsii.Number(123),
 //   	TreatMissingData: jsii.String("treatMissingData"),
+//   	WarmUpConfiguration: &WarmUpConfigurationProperty{
+//   		OnlyStartEvaluatingAfterWarmUpPeriodEnds: jsii.Boolean(false),
+//   		WarmUpPeriodDurationInMinutes: jsii.Number(123),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

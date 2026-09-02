@@ -40,6 +40,7 @@ package awsmedialive
 //   			StreamName: jsii.String("streamName"),
 //   			Url: jsii.String("url"),
 //   			Username: jsii.String("username"),
+//   			VirtualSourceAddress: jsii.String("virtualSourceAddress"),
 //   		},
 //   	},
 //   	SrtSettings: []interface{}{

@@ -101,6 +101,11 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	MetricsConfig: &MetricsConfigProperty{
+//   		EnableDetailedObservability: jsii.Boolean(false),
+//   		EnableEnhancedMetrics: jsii.Boolean(false),
+//   		MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   	},
 //   	ProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
 //   			AcceleratorType: jsii.String("acceleratorType"),
@@ -109,12 +114,16 @@ import (
 //   				MlReservationArn: jsii.String("mlReservationArn"),
 //   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			CoreDumpConfig: &CoreDumpConfigProperty{
+//   				DestinationS3Uri: jsii.String("destinationS3Uri"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   			},
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
 //   			InstancePools: []interface{}{
-//   				&InstancePoolsProperty{
+//   				&InstancePoolProperty{
 //   					InstanceType: jsii.String("instanceType"),
 //   					ModelNameOverride: jsii.String("modelNameOverride"),
 //   					Priority: jsii.Number(123),
@@ -124,11 +133,20 @@ import (
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
 //   				MinInstanceCount: jsii.Number(123),
+//   				ScaleInPolicy: &ScaleInPolicyProperty{
+//   					CooldownInMinutes: jsii.Number(123),
+//   					MaximumStepSize: jsii.Number(123),
+//   					Strategy: jsii.String("strategy"),
+//   				},
 //   				Status: jsii.String("status"),
 //   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			ModelName: jsii.String("modelName"),
 //   			RoutingConfig: &RoutingConfigProperty{
+//   				PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   					ConcurrencyThreshold: jsii.Number(123),
+//   					PrefixLength: jsii.Number(123),
+//   				},
 //   				RoutingStrategy: jsii.String("routingStrategy"),
 //   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
@@ -149,12 +167,16 @@ import (
 //   				MlReservationArn: jsii.String("mlReservationArn"),
 //   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			CoreDumpConfig: &CoreDumpConfigProperty{
+//   				DestinationS3Uri: jsii.String("destinationS3Uri"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   			},
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
 //   			InstancePools: []interface{}{
-//   				&InstancePoolsProperty{
+//   				&InstancePoolProperty{
 //   					InstanceType: jsii.String("instanceType"),
 //   					ModelNameOverride: jsii.String("modelNameOverride"),
 //   					Priority: jsii.Number(123),
@@ -164,11 +186,20 @@ import (
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
 //   				MinInstanceCount: jsii.Number(123),
+//   				ScaleInPolicy: &ScaleInPolicyProperty{
+//   					CooldownInMinutes: jsii.Number(123),
+//   					MaximumStepSize: jsii.Number(123),
+//   					Strategy: jsii.String("strategy"),
+//   				},
 //   				Status: jsii.String("status"),
 //   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			ModelName: jsii.String("modelName"),
 //   			RoutingConfig: &RoutingConfigProperty{
+//   				PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   					ConcurrencyThreshold: jsii.Number(123),
+//   					PrefixLength: jsii.Number(123),
+//   				},
 //   				RoutingStrategy: jsii.String("routingStrategy"),
 //   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{

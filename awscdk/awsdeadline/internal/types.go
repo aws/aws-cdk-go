@@ -5,8 +5,9 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsdeadlineIFarmRef = interfacesawsdeadline.IFarmRef
+type Type__interfacesawsdeadlineIBudgetRef = interfacesawsdeadline.IBudgetRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsdeadlineIFarmRef = interfacesawsdeadline.IFarmRef
 type Type__interfacesawsdeadlineIFleetRef = interfacesawsdeadline.IFleetRef
 type Type__interfacesawsdeadlineILicenseEndpointRef = interfacesawsdeadline.ILicenseEndpointRef
 type Type__interfacesawsdeadlineILimitRef = interfacesawsdeadline.ILimitRef
@@ -17,3 +18,4 @@ type Type__interfacesawsdeadlineIQueueEnvironmentRef = interfacesawsdeadline.IQu
 type Type__interfacesawsdeadlineIQueueFleetAssociationRef = interfacesawsdeadline.IQueueFleetAssociationRef
 type Type__interfacesawsdeadlineIQueueLimitAssociationRef = interfacesawsdeadline.IQueueLimitAssociationRef
 type Type__interfacesawsdeadlineIStorageProfileRef = interfacesawsdeadline.IStorageProfileRef
+type Type__interfacesawsdeadlineIWorkerRef = interfacesawsdeadline.IWorkerRef

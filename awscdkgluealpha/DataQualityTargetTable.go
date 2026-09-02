@@ -3,15 +3,19 @@ package awscdkgluealpha
 import (
 	_init_ "github.com/aws/aws-cdk-go/awscdkgluealpha/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 )
 
-// Properties of a DataQualityTargetTable.
+// The Glue table a `DataQualityRuleset` evaluates.
 //
 // Example:
+//   var database IDatabase
+//
 //   glue.NewDataQualityRuleset(this, jsii.String("MyRuleset"), &DataQualityRulesetProps{
 //   	RulesetName: jsii.String("my_ruleset"),
 //   	Dqdl: glue.Dqdl_FromString(jsii.String("Rules = [ RowCount > 100, IsComplete \"order_id\" ]")),
-//   	TargetTable: glue.NewDataQualityTargetTable(jsii.String("my_database"), jsii.String("my_table")),
+//   	TargetTable: glue.DataQualityTargetTable_FromTableName(database, jsii.String("my_table")),
 //   })
 //
 // Experimental.
@@ -50,32 +54,46 @@ func (j *jsiiProxy_DataQualityTargetTable) TableName() *string {
 }
 
 
+// Target an L2 table in a database.
 // Experimental.
-func NewDataQualityTargetTable(databaseName *string, tableName *string) DataQualityTargetTable {
+func DataQualityTargetTable_FromTable(database interfacesawsglue.IDatabaseRef, table ITable) DataQualityTargetTable {
 	_init_.Initialize()
 
-	if err := validateNewDataQualityTargetTableParameters(databaseName, tableName); err != nil {
+	if err := validateDataQualityTargetTable_FromTableParameters(database, table); err != nil {
 		panic(err)
 	}
-	j := jsiiProxy_DataQualityTargetTable{}
+	var returns DataQualityTargetTable
 
-	_jsii_.Create(
+	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.DataQualityTargetTable",
-		[]interface{}{databaseName, tableName},
-		&j,
+		"fromTable",
+		[]interface{}{database, table},
+		&returns,
 	)
 
-	return &j
+	return returns
 }
 
+// Target a table by name in a database.
+//
+// Use this when the table is not
+// modeled as an L2 construct (e.g. it is imported or created elsewhere).
 // Experimental.
-func NewDataQualityTargetTable_Override(d DataQualityTargetTable, databaseName *string, tableName *string) {
+func DataQualityTargetTable_FromTableName(database interfacesawsglue.IDatabaseRef, tableName *string) DataQualityTargetTable {
 	_init_.Initialize()
 
-	_jsii_.Create(
+	if err := validateDataQualityTargetTable_FromTableNameParameters(database, tableName); err != nil {
+		panic(err)
+	}
+	var returns DataQualityTargetTable
+
+	_jsii_.StaticInvoke(
 		"@aws-cdk/aws-glue-alpha.DataQualityTargetTable",
-		[]interface{}{databaseName, tableName},
-		d,
+		"fromTableName",
+		[]interface{}{database, tableName},
+		&returns,
 	)
+
+	return returns
 }
 

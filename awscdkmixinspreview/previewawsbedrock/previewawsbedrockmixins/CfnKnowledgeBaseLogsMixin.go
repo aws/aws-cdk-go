@@ -138,17 +138,6 @@ func CfnKnowledgeBaseLogsMixin_APPLICATION_LOGS() CfnKnowledgeBaseApplicationLog
 	return returns
 }
 
-func CfnKnowledgeBaseLogsMixin_RUNTIME_LOGS() CfnKnowledgeBaseRuntimeLogs {
-	_init_.Initialize()
-	var returns CfnKnowledgeBaseRuntimeLogs
-	_jsii_.StaticGet(
-		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseLogsMixin",
-		"RUNTIME_LOGS",
-		&returns,
-	)
-	return returns
-}
-
 func CfnKnowledgeBaseLogsMixin_TRACES() CfnKnowledgeBaseTraces {
 	_init_.Initialize()
 	var returns CfnKnowledgeBaseTraces

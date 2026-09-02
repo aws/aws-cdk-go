@@ -90,6 +90,10 @@ import (
 //   	ThresholdMetricId: jsii.String("thresholdMetricId"),
 //   	TreatMissingData: jsii.String("treatMissingData"),
 //   	Unit: jsii.String("unit"),
+//   	WarmUpConfiguration: &WarmUpConfigurationProperty{
+//   		OnlyStartEvaluatingAfterWarmUpPeriodEnds: jsii.Boolean(false),
+//   		WarmUpPeriodDurationInMinutes: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html
@@ -165,6 +169,10 @@ type CfnAlarmMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationperiods
 	//
 	EvaluationPeriods *float64 `field:"optional" json:"evaluationPeriods" yaml:"evaluationPeriods"`
+	// The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs.
+	//
+	// This is a union type. Set exactly one of its members, ``SlidingWindow`` or ``WallClockWindow``. If you don't set ``EvaluationWindow``, the alarm uses a ``SlidingWindow`` by default.
+	//  For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-evaluationwindow
 	//
 	EvaluationWindow interface{} `field:"optional" json:"evaluationWindow" yaml:"evaluationWindow"`
@@ -260,5 +268,8 @@ type CfnAlarmMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-unit
 	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-warmupconfiguration
+	//
+	WarmUpConfiguration interface{} `field:"optional" json:"warmUpConfiguration" yaml:"warmUpConfiguration"`
 }
 

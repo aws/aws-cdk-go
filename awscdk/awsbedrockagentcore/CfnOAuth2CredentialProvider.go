@@ -72,6 +72,67 @@ import (
 //   					},
 //   				},
 //   			},
+//   			PrivateEndpoint: &PrivateEndpointProperty{
+//   				ManagedVpcResource: &ManagedVpcResourceProperty{
+//   					EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   					SubnetIds: []*string{
+//   						jsii.String("subnetIds"),
+//   					},
+//   					VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   					// the properties below are optional
+//   					RoutingDomain: jsii.String("routingDomain"),
+//   					SecurityGroupIds: []*string{
+//   						jsii.String("securityGroupIds"),
+//   					},
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
+//   				},
+//   				SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   					ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   				},
+//   			},
+//   			PrivateEndpointOverrides: []interface{}{
+//   				&PrivateEndpointOverrideProperty{
+//   					Domain: jsii.String("domain"),
+//   					PrivateEndpoint: &PrivateEndpointProperty{
+//   						ManagedVpcResource: &ManagedVpcResourceProperty{
+//   							EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   							SubnetIds: []*string{
+//   								jsii.String("subnetIds"),
+//   							},
+//   							VpcIdentifier: jsii.String("vpcIdentifier"),
+//
+//   							// the properties below are optional
+//   							RoutingDomain: jsii.String("routingDomain"),
+//   							SecurityGroupIds: []*string{
+//   								jsii.String("securityGroupIds"),
+//   							},
+//   							Tags: map[string]*string{
+//   								"tagsKey": jsii.String("tags"),
+//   							},
+//   						},
+//   						SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   							ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			PrivateKeyJwtConfig: &PrivateKeyJwtConfigProperty{
+//   				AdditionalHeaderClaims: map[string]*string{
+//   					"additionalHeaderClaimsKey": jsii.String("additionalHeaderClaims"),
+//   				},
+//   				AdditionalPayloadClaims: map[string]*string{
+//   					"additionalPayloadClaimsKey": jsii.String("additionalPayloadClaims"),
+//   				},
+//   				PrivateKeySource: &PrivateKeySourceProperty{
+//   					KmsKeySource: &KmsKeySourceTypeProperty{
+//   						KmsKeyArn: jsii.String("kmsKeyArn"),
+//   					},
+//   				},
+//   				SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   			},
 //   		},
 //   		GithubOauth2ProviderConfig: &GithubOauth2ProviderConfigInputProperty{
 //   			ClientId: jsii.String("clientId"),
@@ -186,6 +247,8 @@ type CfnOAuth2CredentialProvider interface {
 	AttrLastUpdatedTime() *string
 	// Output configuration for an OAuth2 provider.
 	AttrOauth2ProviderConfigOutput() awscdk.IResolvable
+	// The current status of the OAuth2 credential provider.
+	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -493,6 +556,16 @@ func (j *jsiiProxy_CfnOAuth2CredentialProvider) AttrOauth2ProviderConfigOutput()
 	_jsii_.Get(
 		j,
 		"attrOauth2ProviderConfigOutput",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOAuth2CredentialProvider) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
 		&returns,
 	)
 	return returns

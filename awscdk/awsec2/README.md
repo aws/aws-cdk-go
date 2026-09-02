@@ -2941,6 +2941,23 @@ launchTemplate := ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &La
 })
 ```
 
+### CPU Options
+
+Specify `cpuOptions` to configure the CPU options for the instances launched with the template.
+This is useful, for example, to enable [nested virtualization](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html)
+or to customize the number of CPU cores and threads per core:
+
+```go
+ec2.NewLaunchTemplate(this, jsii.String("LaunchTemplate"), &LaunchTemplateProps{
+	MachineImage: ec2.MachineImage_LatestAmazonLinux2023(),
+	CpuOptions: &LaunchTemplateCpuOptions{
+		CoreCount: jsii.Number(4),
+		ThreadsPerCore: jsii.Number(1),
+		NestedVirtualization: jsii.Boolean(true),
+	},
+})
+```
+
 ### Placement Group
 
 Specify `placementGroup` to enable the placement group support:

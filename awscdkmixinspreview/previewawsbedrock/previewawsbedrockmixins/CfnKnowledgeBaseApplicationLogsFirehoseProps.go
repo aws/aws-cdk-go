@@ -7,15 +7,15 @@ package previewawsbedrockmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnKnowledgeBaseApplicationLogsFirehoseProps := &CfnKnowledgeBaseApplicationLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnKnowledgeBaseApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_EVENT_TIMESTAMP,
+//   		awscdkmixinspreview.*Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnKnowledgeBaseApplicationLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnKnowledgeBaseApplicationLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

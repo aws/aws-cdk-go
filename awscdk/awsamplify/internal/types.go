@@ -9,3 +9,5 @@ type Type__interfacesawsamplifyIAppRef = interfacesawsamplify.IAppRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsamplifyIBranchRef = interfacesawsamplify.IBranchRef
 type Type__interfacesawsamplifyIDomainRef = interfacesawsamplify.IDomainRef
+type Type__interfacesawsamplifyIWebhookRef = interfacesawsamplify.IWebhookRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2

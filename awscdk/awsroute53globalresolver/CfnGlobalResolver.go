@@ -94,7 +94,7 @@ type CfnGlobalResolver interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// A list of regions the Global Resolver will exist in.
+	// The list of regions the Global Resolver exists in.
 	Regions() *[]*string
 	SetRegions(val *[]*string)
 	// The stack in which this element is defined.

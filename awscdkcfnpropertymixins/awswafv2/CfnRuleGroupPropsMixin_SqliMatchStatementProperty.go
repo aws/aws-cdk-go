@@ -79,6 +79,12 @@ package awswafv2
 //   		},
 //   		UriPath: uriPath,
 //   	},
+//   	PreParseTextTransformations: []interface{}{
+//   		&PreParseTextTransformationProperty{
+//   			Priority: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	SensitivityLevel: jsii.String("sensitivityLevel"),
 //   	TextTransformations: []interface{}{
 //   		&TextTransformationProperty{
@@ -95,6 +101,9 @@ type CfnRuleGroupPropsMixin_SqliMatchStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
 	//
 	FieldToMatch interface{} `field:"optional" json:"fieldToMatch" yaml:"fieldToMatch"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-preparsetexttransformations
+	//
+	PreParseTextTransformations interface{} `field:"optional" json:"preParseTextTransformations" yaml:"preParseTextTransformations"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
 	// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .

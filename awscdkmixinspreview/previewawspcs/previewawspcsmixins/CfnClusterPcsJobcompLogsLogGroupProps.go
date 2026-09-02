@@ -9,7 +9,7 @@ package previewawspcsmixins
 //   cfnClusterPcsJobcompLogsLogGroupProps := &CfnClusterPcsJobcompLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterPcsJobcompLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnClusterPcsJobcompLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnClusterPcsJobcompLogsRecordFields_RESOURCE_ID,
+//   		awscdkmixinspreview.*Mixins.CfnClusterPcsJobcompLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

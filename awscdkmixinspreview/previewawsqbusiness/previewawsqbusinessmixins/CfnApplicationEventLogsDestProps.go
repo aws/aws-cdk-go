@@ -8,7 +8,7 @@ package previewawsqbusinessmixins
 //
 //   cfnApplicationEventLogsDestProps := &CfnApplicationEventLogsDestProps{
 //   	RecordFields: []CfnApplicationEventLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnApplicationEventLogsRecordFields_APPLICATION_ID,
+//   		awscdkmixinspreview.Mixins.CfnApplicationEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

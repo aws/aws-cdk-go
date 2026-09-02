@@ -54,6 +54,9 @@ import (
 //   	ComputeResources: &ComputeResourcesProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   		BidPercentage: jsii.Number(123),
+//   		CapacityTags: map[string]*string{
+//   			"capacityTagsKey": jsii.String("capacityTags"),
+//   		},
 //   		DesiredvCpus: jsii.Number(123),
 //   		Ec2Configuration: []interface{}{
 //   			&Ec2ConfigurationObjectProperty{
@@ -86,6 +89,43 @@ import (
 //   			UserdataType: jsii.String("userdataType"),
 //   			Version: jsii.String("version"),
 //   		},
+//   		ManagedInstancesProvider: &ManagedInstancesProviderProperty{
+//   			InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   				ScaleInAfter: jsii.Number(123),
+//   			},
+//   			InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
+//   			InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
+//   				CapacityOptionType: jsii.String("capacityOptionType"),
+//   				CapacityReservations: &CapacityReservationsProperty{
+//   					ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   					ReservationPreference: jsii.String("reservationPreference"),
+//   				},
+//   				Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   				FipsEnabled: jsii.Boolean(false),
+//   				InstanceMetadataTagsPropagation: jsii.Boolean(false),
+//   				InstanceRequirements: &InstanceRequirementsProperty{
+//   					AllowedInstanceTypes: []*string{
+//   						jsii.String("allowedInstanceTypes"),
+//   					},
+//   				},
+//   				LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   					UseLocalStorage: jsii.Boolean(false),
+//   				},
+//   				Monitoring: jsii.String("monitoring"),
+//   				NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
+//   					SecurityGroups: []*string{
+//   						jsii.String("securityGroups"),
+//   					},
+//   					Subnets: []*string{
+//   						jsii.String("subnets"),
+//   					},
+//   				},
+//   				StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
+//   					StorageSizeGiB: jsii.Number(123),
+//   				},
+//   			},
+//   			PropagateTags: jsii.String("propagateTags"),
+//   		},
 //   		MaxvCpus: jsii.Number(123),
 //   		MinvCpus: jsii.Number(123),
 //   		PlacementGroup: jsii.String("placementGroup"),
@@ -106,6 +146,9 @@ import (
 //   		UpdateToLatestImageVersion: jsii.Boolean(false),
 //   	},
 //   	Context: jsii.String("context"),
+//   	EcsSettings: &EcsSettingsProperty{
+//   		ContainerInsights: jsii.String("containerInsights"),
+//   	},
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),

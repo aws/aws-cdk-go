@@ -72,6 +72,42 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_TimeShiftConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionMixinProps",
+		reflect.TypeOf((*CfnFunctionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin",
+		reflect.TypeOf((*CfnFunctionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFunctionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.CustomOutputConfigurationProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_CustomOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.FunctionRefProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_FunctionRefProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.HttpRequestConfigurationProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_HttpRequestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.SequentialExecutorConfigurationProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_SequentialExecutorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnLiveSourceMixinProps",
 		reflect.TypeOf((*CfnLiveSourceMixinProps)(nil)).Elem(),
 	)
@@ -132,6 +168,14 @@ func init() {
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AdsInteractionLogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.AdsPersonalizationConcurrencyProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AdsPersonalizationConcurrencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.AdsPersonalizationTimeoutsProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AdsPersonalizationTimeoutsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.AvailSuppressionProperty",
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AvailSuppressionProperty)(nil)).Elem(),
 	)
@@ -170,6 +214,70 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.ManifestServiceInteractionLogProperty",
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_ManifestServiceInteractionLogProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.PreRollAdDecisionServerConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_PreRollAdDecisionServerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.PreRollVastResponseProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_PreRollVastResponseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.VastResponseProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_VastResponseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchScheduleMixinProps",
+		reflect.TypeOf((*CfnPrefetchScheduleMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPrefetchSchedulePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.AvailMatchingCriteriaProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_AvailMatchingCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.PrefetchConsumptionProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_PrefetchConsumptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.PrefetchRetrievalProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_PrefetchRetrievalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.RecurringConsumptionProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_RecurringConsumptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.RecurringPrefetchConfigurationProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_RecurringPrefetchConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.RecurringRetrievalProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_RecurringRetrievalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.TrafficShapingRetrievalWindowProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_TrafficShapingRetrievalWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPrefetchSchedulePropsMixin.TrafficShapingTpsConfigurationProperty",
+		reflect.TypeOf((*CfnPrefetchSchedulePropsMixin_TrafficShapingTpsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnSourceLocationMixinProps",

@@ -28,6 +28,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mwaaserverless.CfnWorkflowPropsMixin.CodeProperty",
+		reflect.TypeOf((*CfnWorkflowPropsMixin_CodeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mwaaserverless.CfnWorkflowPropsMixin.CodeS3LocationProperty",
+		reflect.TypeOf((*CfnWorkflowPropsMixin_CodeS3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mwaaserverless.CfnWorkflowPropsMixin.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnWorkflowPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
 	)

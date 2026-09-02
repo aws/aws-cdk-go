@@ -8,9 +8,8 @@ package awselementalinference
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var cropping interface{}
-//
 //   cfnFeedMixinProps := &CfnFeedMixinProps{
+//   	AccessRoleArn: jsii.String("accessRoleArn"),
 //   	Name: jsii.String("name"),
 //   	Outputs: []interface{}{
 //   		&GetOutputProperty{
@@ -19,8 +18,20 @@ package awselementalinference
 //   			OutputConfig: &OutputConfigProperty{
 //   				Clipping: &ClippingConfigProperty{
 //   					CallbackMetadata: jsii.String("callbackMetadata"),
+//   					DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   						FixtureId: jsii.String("fixtureId"),
+//   					},
 //   				},
-//   				Cropping: cropping,
+//   				Cropping: &CroppingConfigProperty{
+//   					TemplateGroups: []interface{}{
+//   						&TemplateGroupProperty{
+//   							Name: jsii.String("name"),
+//   							TemplateUris: []*string{
+//   								jsii.String("templateUris"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Subtitling: &SubtitlingConfigProperty{
 //   					AspectRatio: &AspectRatioProperty{
 //   						Height: jsii.Number(123),
@@ -42,6 +53,9 @@ package awselementalinference
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elementalinference-feed.html
 //
 type CfnFeedMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elementalinference-feed.html#cfn-elementalinference-feed-accessrolearn
+	//
+	AccessRoleArn *string `field:"optional" json:"accessRoleArn" yaml:"accessRoleArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elementalinference-feed.html#cfn-elementalinference-feed-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

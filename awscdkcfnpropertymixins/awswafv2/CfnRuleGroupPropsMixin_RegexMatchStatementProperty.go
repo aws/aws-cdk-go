@@ -77,6 +77,12 @@ package awswafv2
 //   		},
 //   		UriPath: uriPath,
 //   	},
+//   	PreParseTextTransformations: []interface{}{
+//   		&PreParseTextTransformationProperty{
+//   			Priority: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   	RegexString: jsii.String("regexString"),
 //   	TextTransformations: []interface{}{
 //   		&TextTransformationProperty{
@@ -93,6 +99,9 @@ type CfnRuleGroupPropsMixin_RegexMatchStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-fieldtomatch
 	//
 	FieldToMatch interface{} `field:"optional" json:"fieldToMatch" yaml:"fieldToMatch"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-preparsetexttransformations
+	//
+	PreParseTextTransformations interface{} `field:"optional" json:"preParseTextTransformations" yaml:"preParseTextTransformations"`
 	// The string representing the regular expression.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-regexstring
 	//

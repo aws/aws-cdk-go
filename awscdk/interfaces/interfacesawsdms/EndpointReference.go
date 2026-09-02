@@ -9,11 +9,11 @@ package interfacesawsdms
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   endpointReference := &EndpointReference{
-//   	EndpointId: jsii.String("endpointId"),
+//   	EndpointArn: jsii.String("endpointArn"),
 //   }
 //
 type EndpointReference struct {
-	// The Id of the Endpoint resource.
-	EndpointId *string `field:"required" json:"endpointId" yaml:"endpointId"`
+	// The EndpointArn of the Endpoint resource.
+	EndpointArn *string `field:"required" json:"endpointArn" yaml:"endpointArn"`
 }
 

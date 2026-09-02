@@ -45,7 +45,6 @@ type CfnReplicationSubnetGroup interface {
 	awscdk.IInspectable
 	interfacesawsdms.IReplicationSubnetGroupRef
 	awscdk.ITaggable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -276,16 +275,6 @@ type jsiiProxy_CfnReplicationSubnetGroup struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsdmsIReplicationSubnetGroupRef
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnReplicationSubnetGroup) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnReplicationSubnetGroup) CfnOptions() awscdk.ICfnResourceOptions {

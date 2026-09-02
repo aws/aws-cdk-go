@@ -71,6 +71,10 @@ import (
 //   		},
 //   	},
 //   	TreatMissingData: jsii.String("treatMissingData"),
+//   	WarmUpConfiguration: &WarmUpConfigurationProperty{
+//   		OnlyStartEvaluatingAfterWarmUpPeriodEnds: jsii.Boolean(false),
+//   		WarmUpPeriodDurationInMinutes: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html
@@ -176,6 +180,9 @@ type CfnLogAlarm interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The warm-up configuration for an alarm.
+	WarmUpConfiguration() interface{}
+	SetWarmUpConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -647,6 +654,16 @@ func (j *jsiiProxy_CfnLogAlarm) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLogAlarm) WarmUpConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"warmUpConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::CloudWatch::LogAlarm`.
 func NewCfnLogAlarm(scope constructs.Construct, id *string, props *CfnLogAlarmProps) CfnLogAlarm {
@@ -814,6 +831,17 @@ func (j *jsiiProxy_CfnLogAlarm)SetTreatMissingData(val *string) {
 	_jsii_.Set(
 		j,
 		"treatMissingData",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLogAlarm)SetWarmUpConfiguration(val interface{}) {
+	if err := j.validateSetWarmUpConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"warmUpConfiguration",
 		val,
 	)
 }

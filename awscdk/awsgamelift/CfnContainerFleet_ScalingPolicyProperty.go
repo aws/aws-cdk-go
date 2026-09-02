@@ -11,12 +11,12 @@ package awsgamelift
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   scalingPolicyProperty := &ScalingPolicyProperty{
-//   	MetricName: jsii.String("metricName"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	ComparisonOperator: jsii.String("comparisonOperator"),
 //   	EvaluationPeriods: jsii.Number(123),
+//   	MetricName: jsii.String("metricName"),
 //   	PolicyType: jsii.String("policyType"),
 //   	ScalingAdjustment: jsii.Number(123),
 //   	ScalingAdjustmentType: jsii.String("scalingAdjustmentType"),
@@ -29,6 +29,20 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html
 //
 type CfnContainerFleet_ScalingPolicyProperty struct {
+	// A descriptive label that is associated with a fleet's scaling policy.
+	//
+	// Policy names do not need to be unique.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-name
+	//
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// Comparison operator to use when measuring a metric against the threshold value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-comparisonoperator
+	//
+	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
+	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-evaluationperiods
+	//
+	EvaluationPeriods *float64 `field:"optional" json:"evaluationPeriods" yaml:"evaluationPeriods"`
 	// Name of the Amazon GameLift Servers-defined metric that is used to trigger a scaling adjustment.
 	//
 	// For detailed descriptions of fleet metrics, see [Monitor Amazon GameLift Servers with Amazon CloudWatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html) .
@@ -46,21 +60,7 @@ type CfnContainerFleet_ScalingPolicyProperty struct {
 	// - *WaitTime* -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-metricname
 	//
-	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
-	// A descriptive label that is associated with a fleet's scaling policy.
-	//
-	// Policy names do not need to be unique.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-name
-	//
-	Name *string `field:"required" json:"name" yaml:"name"`
-	// Comparison operator to use when measuring a metric against the threshold value.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-comparisonoperator
-	//
-	ComparisonOperator *string `field:"optional" json:"comparisonOperator" yaml:"comparisonOperator"`
-	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-scalingpolicy.html#cfn-gamelift-containerfleet-scalingpolicy-evaluationperiods
-	//
-	EvaluationPeriods *float64 `field:"optional" json:"evaluationPeriods" yaml:"evaluationPeriods"`
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The type of scaling policy to create.
 	//
 	// For a target-based policy, set the parameter *MetricName* to 'PercentAvailableGameSessions' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .

@@ -46,9 +46,9 @@ type CfnGlobalResolverMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53globalresolver-globalresolver.html#cfn-route53globalresolver-globalresolver-observabilityregion
 	//
 	ObservabilityRegion *string `field:"optional" json:"observabilityRegion" yaml:"observabilityRegion"`
-	// A list of regions the Global Resolver will exist in.
+	// The list of regions the Global Resolver exists in.
 	//
-	// This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	// Regions can be added or removed on update; the order of this list is not significant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53globalresolver-globalresolver.html#cfn-route53globalresolver-globalresolver-regions
 	//
 	Regions *[]*string `field:"optional" json:"regions" yaml:"regions"`

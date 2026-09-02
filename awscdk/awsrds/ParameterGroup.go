@@ -260,6 +260,9 @@ func ParameterGroup_ForInstance(scope constructs.Construct, id *string, props *P
 }
 
 // Imports a parameter group.
+//
+// `dbParameterGroupRef.dbParameterGroupArn` is an instance DB parameter group ARN, and is not valid
+// for a cluster parameter group.
 func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IParameterGroup {
 	_init_.Initialize()
 

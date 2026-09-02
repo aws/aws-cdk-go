@@ -38,7 +38,6 @@ type CfnWorkflow interface {
 	awscdk.IInspectable
 	interfacesawsglue.IWorkflowRef
 	awscdk.ITaggable
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -272,16 +271,6 @@ type jsiiProxy_CfnWorkflow struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsglueIWorkflowRef
 	internal.Type__awscdkITaggable
-}
-
-func (j *jsiiProxy_CfnWorkflow) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnWorkflow) CfnOptions() awscdk.ICfnResourceOptions {

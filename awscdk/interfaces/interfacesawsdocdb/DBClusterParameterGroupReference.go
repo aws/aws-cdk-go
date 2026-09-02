@@ -9,11 +9,11 @@ package interfacesawsdocdb
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   dBClusterParameterGroupReference := &DBClusterParameterGroupReference{
-//   	DbClusterParameterGroupId: jsii.String("dbClusterParameterGroupId"),
+//   	DbClusterParameterGroupName: jsii.String("dbClusterParameterGroupName"),
 //   }
 //
 type DBClusterParameterGroupReference struct {
-	// The Id of the DBClusterParameterGroup resource.
-	DbClusterParameterGroupId *string `field:"required" json:"dbClusterParameterGroupId" yaml:"dbClusterParameterGroupId"`
+	// The Name of the DBClusterParameterGroup resource.
+	DbClusterParameterGroupName *string `field:"required" json:"dbClusterParameterGroupName" yaml:"dbClusterParameterGroupName"`
 }
 

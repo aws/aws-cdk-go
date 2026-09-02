@@ -16,7 +16,7 @@ import (
 //   	EncryptionKey: keyRef,
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnBucketS3ServerAccessLogsOutputFormat.S3_JSON,
 //   	RecordFields: []CfnBucketS3ServerAccessLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnBucketS3ServerAccessLogsRecordFields_BUCKET_NAME,
+//   		awscdkmixinspreview.*Mixins.CfnBucketS3ServerAccessLogsRecordFields_SCHEMA_VERSION_ID,
 //   	},
 //   }
 //

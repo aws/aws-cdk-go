@@ -29,7 +29,14 @@ package awsobservabilityadmin
 //
 //   				// the properties below are optional
 //   				EncryptionConflictResolutionStrategy: jsii.String("encryptionConflictResolutionStrategy"),
+//   				EncryptionScope: jsii.String("encryptionScope"),
 //   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   			TagPropagationConfiguration: &TagPropagationConfigurationProperty{
+//   				DestinationRoleArn: jsii.String("destinationRoleArn"),
+//
+//   				// the properties below are optional
+//   				TagConflictResolutionStrategy: jsii.String("tagConflictResolutionStrategy"),
 //   			},
 //   		},
 //   		DestinationMetricsConfiguration: &DestinationMetricsConfigurationProperty{

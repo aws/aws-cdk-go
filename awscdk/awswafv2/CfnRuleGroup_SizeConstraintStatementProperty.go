@@ -93,6 +93,14 @@ package awswafv2
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	PreParseTextTransformations: []interface{}{
+//   		&PreParseTextTransformationProperty{
+//   			Priority: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
@@ -116,5 +124,8 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
 	//
 	TextTransformations interface{} `field:"required" json:"textTransformations" yaml:"textTransformations"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-preparsetexttransformations
+	//
+	PreParseTextTransformations interface{} `field:"optional" json:"preParseTextTransformations" yaml:"preParseTextTransformations"`
 }
 

@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   securityConfigurationReference := &SecurityConfigurationReference{
-//   	SecurityConfigurationId: jsii.String("securityConfigurationId"),
+//   	SecurityConfigurationName: jsii.String("securityConfigurationName"),
 //   }
 //
 type SecurityConfigurationReference struct {
-	// The Id of the SecurityConfiguration resource.
-	SecurityConfigurationId *string `field:"required" json:"securityConfigurationId" yaml:"securityConfigurationId"`
+	// The Name of the SecurityConfiguration resource.
+	SecurityConfigurationName *string `field:"required" json:"securityConfigurationName" yaml:"securityConfigurationName"`
 }
 

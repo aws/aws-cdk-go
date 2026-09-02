@@ -200,6 +200,17 @@ func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_NODE_22() IBuildImage {
 	return returns
 }
 
+func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_NODE_24() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmLambdaBuildImage",
+		"AMAZON_LINUX_2023_NODE_24",
+		&returns,
+	)
+	return returns
+}
+
 func LinuxArmLambdaBuildImage_AMAZON_LINUX_2023_PYTHON_3_12() IBuildImage {
 	_init_.Initialize()
 	var returns IBuildImage

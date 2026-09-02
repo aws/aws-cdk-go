@@ -84,6 +84,14 @@ func (c *jsiiProxy_CfnMLTransform) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnMLTransform_ArnForMLTransformParameters(resource interfacesawsglue.IMLTransformRef) error {
+	return nil
+}
+
+func validateCfnMLTransform_FromTransformIdParameters(scope constructs.Construct, id *string, transformId *string) error {
+	return nil
+}
+
 func validateCfnMLTransform_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

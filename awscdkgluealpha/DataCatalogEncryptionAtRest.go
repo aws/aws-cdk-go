@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
@@ -94,7 +93,7 @@ func DataCatalogEncryptionAtRest_Disabled() DataCatalogEncryptionAtRest {
 
 // Encrypt the Data Catalog at rest with an AWS KMS key.
 // Experimental.
-func DataCatalogEncryptionAtRest_Kms(key awskms.IKey) DataCatalogEncryptionAtRest {
+func DataCatalogEncryptionAtRest_Kms(key interfacesawskms.IKeyRef) DataCatalogEncryptionAtRest {
 	_init_.Initialize()
 
 	var returns DataCatalogEncryptionAtRest
@@ -114,7 +113,7 @@ func DataCatalogEncryptionAtRest_Kms(key awskms.IKey) DataCatalogEncryptionAtRes
 // When a customer-managed `key` is provided, the `role` is automatically
 // granted `kms:Encrypt`/`kms:Decrypt`/`kms:GenerateDataKey*` on it.
 // Experimental.
-func DataCatalogEncryptionAtRest_KmsWithServiceRole(role awsiam.IRole, key awskms.IKey) DataCatalogEncryptionAtRest {
+func DataCatalogEncryptionAtRest_KmsWithServiceRole(role awsiam.IRole, key interfacesawskms.IKeyRef) DataCatalogEncryptionAtRest {
 	_init_.Initialize()
 
 	if err := validateDataCatalogEncryptionAtRest_KmsWithServiceRoleParameters(role); err != nil {

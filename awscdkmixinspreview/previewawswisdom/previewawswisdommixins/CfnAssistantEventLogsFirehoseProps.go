@@ -7,15 +7,15 @@ package previewawswisdommixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnAssistantEventLogsFirehoseProps := &CfnAssistantEventLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAssistantEventLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAssistantEventLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnAssistantEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAssistantEventLogsRecordFields_ASSISTANT_ID,
+//   		awscdkmixinspreview.*Mixins.CfnAssistantEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnAssistantEventLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnAssistantEventLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

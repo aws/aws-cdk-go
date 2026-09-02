@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource schema for AWS::OpenSearchServerless::CollectionIndex.
+// Resource Type definition for AWS::OpenSearchServerless::CollectionIndex.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

@@ -28,6 +28,102 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelMixinProps",
+		reflect.TypeOf((*CfnChannelMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin",
+		reflect.TypeOf((*CfnChannelPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnChannelPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.CatalogProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_CatalogProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.ChannelLoggingInfoProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_ChannelLoggingInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.ChannelStateInfoProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_ChannelStateInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.CloudWatchLogsLogDestinationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_CloudWatchLogsLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.DeadLetterQueueS3Property",
+		reflect.TypeOf((*CfnChannelPropsMixin_DeadLetterQueueS3Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.DestinationTableProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_DestinationTableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.FirehoseLogDestinationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_FirehoseLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.IcebergDestinationConfigurationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_IcebergDestinationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.PartitionSourceProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_PartitionSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.PartitionSpecProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_PartitionSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.RecordConverterProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_RecordConverterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.RecordSchemaProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_RecordSchemaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.S3DestinationConfigurationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_S3DestinationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.S3LogDestinationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_S3LogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.S3StorageProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_S3StorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.SchemaEvolutionProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_SchemaEvolutionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.TableCreationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_TableCreationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnChannelPropsMixin.TopicConfigurationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_TopicConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnClusterMixinProps",
 		reflect.TypeOf((*CfnClusterMixinProps)(nil)).Elem(),
 	)
@@ -66,6 +162,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnClusterPropsMixin.AuthorizerLogsProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_AuthorizerLogsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnClusterPropsMixin.BrokerLogsProperty",
@@ -280,8 +380,24 @@ func init() {
 		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterMtlsAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterOAuthClientCredentialsAssertionProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterOAuthClientCredentialsAssertionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterOAuthClientCredentialsProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterOAuthClientCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterOAuthIamJwtBearerProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterOAuthIamJwtBearerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterProperty",
 		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterSaslOAuthBearerAuthenticationProperty",
+		reflect.TypeOf((*CfnReplicatorPropsMixin_KafkaClusterSaslOAuthBearerAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_msk.CfnReplicatorPropsMixin.KafkaClusterSaslScramAuthenticationProperty",

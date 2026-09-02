@@ -7,6 +7,9 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   customJWTAuthorizerConfigurationProperty := &CustomJWTAuthorizerConfigurationProperty{
+//   	AdvertisedScopeMapping: map[string]*string{
+//   		"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   	},
 //   	AllowedAudience: []*string{
 //   		jsii.String("allowedAudience"),
 //   	},
@@ -53,6 +56,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html
 //
 type CfnGatewayPropsMixin_CustomJWTAuthorizerConfigurationProperty struct {
+	// Maps an originalScope (from allowedScopes) to an advertisedScope exposed in WWW-Authenticate / Protected Resource Metadata.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-advertisedscopemapping
+	//
+	AdvertisedScopeMapping interface{} `field:"optional" json:"advertisedScopeMapping" yaml:"advertisedScopeMapping"`
 	// The allowed audience authorized for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-allowedaudience
 	//

@@ -18,8 +18,13 @@ package awsobservabilityadmin
 //   	},
 //   	LogsEncryptionConfiguration: &LogsEncryptionConfigurationProperty{
 //   		EncryptionConflictResolutionStrategy: jsii.String("encryptionConflictResolutionStrategy"),
+//   		EncryptionScope: jsii.String("encryptionScope"),
 //   		EncryptionStrategy: jsii.String("encryptionStrategy"),
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
+//   	TagPropagationConfiguration: &TagPropagationConfigurationProperty{
+//   		DestinationRoleArn: jsii.String("destinationRoleArn"),
+//   		TagConflictResolutionStrategy: jsii.String("tagConflictResolutionStrategy"),
 //   	},
 //   }
 //
@@ -37,5 +42,8 @@ type CfnOrganizationCentralizationRulePropsMixin_DestinationLogsConfigurationPro
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration-logsencryptionconfiguration
 	//
 	LogsEncryptionConfiguration interface{} `field:"optional" json:"logsEncryptionConfiguration" yaml:"logsEncryptionConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-destinationlogsconfiguration-tagpropagationconfiguration
+	//
+	TagPropagationConfiguration interface{} `field:"optional" json:"tagPropagationConfiguration" yaml:"tagPropagationConfiguration"`
 }
 

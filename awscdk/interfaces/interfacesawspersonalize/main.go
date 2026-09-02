@@ -8,10 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_personalize.DataDeletionJobReference",
-		reflect.TypeOf((*DataDeletionJobReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_personalize.DatasetGroupReference",
 		reflect.TypeOf((*DatasetGroupReference)(nil)).Elem(),
 	)
@@ -19,21 +15,9 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_personalize.DatasetReference",
 		reflect.TypeOf((*DatasetReference)(nil)).Elem(),
 	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_personalize.IDataDeletionJobRef",
-		reflect.TypeOf((*IDataDeletionJobRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dataDeletionJobRef", GoGetter: "DataDeletionJobRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDataDeletionJobRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_personalize.EventTrackerReference",
+		reflect.TypeOf((*EventTrackerReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_personalize.IDatasetGroupRef",
@@ -68,16 +52,32 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_personalize.IRecipeRef",
-		reflect.TypeOf((*IRecipeRef)(nil)).Elem(),
+		"aws-cdk-lib.interfaces.aws_personalize.IEventTrackerRef",
+		reflect.TypeOf((*IEventTrackerRef)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "eventTrackerRef", GoGetter: "EventTrackerRef"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "recipeRef", GoGetter: "RecipeRef"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
-			j := jsiiProxy_IRecipeRef{}
+			j := jsiiProxy_IEventTrackerRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_personalize.IMetricAttributionRef",
+		reflect.TypeOf((*IMetricAttributionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "metricAttributionRef", GoGetter: "MetricAttributionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IMetricAttributionRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -116,8 +116,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_personalize.RecipeReference",
-		reflect.TypeOf((*RecipeReference)(nil)).Elem(),
+		"aws-cdk-lib.interfaces.aws_personalize.MetricAttributionReference",
+		reflect.TypeOf((*MetricAttributionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_personalize.SchemaReference",

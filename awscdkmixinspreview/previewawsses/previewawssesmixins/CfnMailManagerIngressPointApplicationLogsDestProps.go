@@ -8,7 +8,7 @@ package previewawssesmixins
 //
 //   cfnMailManagerIngressPointApplicationLogsDestProps := &CfnMailManagerIngressPointApplicationLogsDestProps{
 //   	RecordFields: []CfnMailManagerIngressPointApplicationLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE,
+//   		awscdkmixinspreview.Mixins.CfnMailManagerIngressPointApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

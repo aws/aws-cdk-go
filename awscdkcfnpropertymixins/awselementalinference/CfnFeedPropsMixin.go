@@ -18,10 +18,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cropping interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFeedPropsMixin := awscdkcfnpropertymixins.Aws_elementalinference.NewCfnFeedPropsMixin(&CfnFeedMixinProps{
+//   	AccessRoleArn: jsii.String("accessRoleArn"),
 //   	Name: jsii.String("name"),
 //   	Outputs: []interface{}{
 //   		&GetOutputProperty{
@@ -30,8 +30,20 @@ import (
 //   			OutputConfig: &OutputConfigProperty{
 //   				Clipping: &ClippingConfigProperty{
 //   					CallbackMetadata: jsii.String("callbackMetadata"),
+//   					DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   						FixtureId: jsii.String("fixtureId"),
+//   					},
 //   				},
-//   				Cropping: cropping,
+//   				Cropping: &CroppingConfigProperty{
+//   					TemplateGroups: []interface{}{
+//   						&TemplateGroupProperty{
+//   							Name: jsii.String("name"),
+//   							TemplateUris: []*string{
+//   								jsii.String("templateUris"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Subtitling: &SubtitlingConfigProperty{
 //   					AspectRatio: &AspectRatioProperty{
 //   						Height: jsii.Number(123),

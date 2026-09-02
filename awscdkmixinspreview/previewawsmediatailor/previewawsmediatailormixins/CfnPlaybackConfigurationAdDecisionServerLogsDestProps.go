@@ -8,7 +8,7 @@ package previewawsmediatailormixins
 //
 //   cfnPlaybackConfigurationAdDecisionServerLogsDestProps := &CfnPlaybackConfigurationAdDecisionServerLogsDestProps{
 //   	RecordFields: []CfnPlaybackConfigurationAdDecisionServerLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ORIGINID,
+//   		awscdkmixinspreview.Mixins.CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

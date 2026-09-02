@@ -33,6 +33,7 @@ package awsmediapackagev2
 //   		},
 //   	},
 //   	IncludeIframeOnlyStreams: jsii.Boolean(false),
+//   	OutputTimestampMode: jsii.String("outputTimestampMode"),
 //   	Scte: &ScteProperty{
 //   		CustomAdTypes: []*string{
 //   			jsii.String("customAdTypes"),
@@ -59,6 +60,9 @@ type CfnOriginEndpointPropsMixin_SegmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-includeiframeonlystreams
 	//
 	IncludeIframeOnlyStreams interface{} `field:"optional" json:"includeIframeOnlyStreams" yaml:"includeIframeOnlyStreams"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-outputtimestampmode
+	//
+	OutputTimestampMode *string `field:"optional" json:"outputTimestampMode" yaml:"outputTimestampMode"`
 	// The SCTE-35 configuration associated with the segment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-segment.html#cfn-mediapackagev2-originendpoint-segment-scte
 	//

@@ -6,6 +6,8 @@ type CfnAssistantEventLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnAssistantEventLogsRecordFields_TIMESTAMP CfnAssistantEventLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnAssistantEventLogsRecordFields_ASSISTANT_ID CfnAssistantEventLogsRecordFields = "ASSISTANT_ID"
 	// Experimental.
 	CfnAssistantEventLogsRecordFields_EVENT_TIMESTAMP CfnAssistantEventLogsRecordFields = "EVENT_TIMESTAMP"
@@ -105,5 +107,7 @@ const (
 	CfnAssistantEventLogsRecordFields_ORCHESTRATION_ITERATION CfnAssistantEventLogsRecordFields = "ORCHESTRATION_ITERATION"
 	// Experimental.
 	CfnAssistantEventLogsRecordFields_ORCHESTRATION_ERROR CfnAssistantEventLogsRecordFields = "ORCHESTRATION_ERROR"
+	// Experimental.
+	CfnAssistantEventLogsRecordFields_SPAN CfnAssistantEventLogsRecordFields = "SPAN"
 )
 

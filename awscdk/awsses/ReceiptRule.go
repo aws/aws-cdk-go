@@ -190,6 +190,29 @@ func NewReceiptRule_Override(r ReceiptRule, scope constructs.Construct, id *stri
 	)
 }
 
+// Import an existing receipt rule from its attributes.
+func ReceiptRule_FromReceiptRuleAttributes(scope constructs.Construct, id *string, attrs *ReceiptRuleAttributes) IReceiptRule {
+	_init_.Initialize()
+
+	if err := validateReceiptRule_FromReceiptRuleAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns IReceiptRule
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ReceiptRule",
+		"fromReceiptRuleAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import an existing receipt rule by its name.
+//
+// A name alone does not identify the rule set the rule belongs to, so `ruleSetName` is not available
+// on the returned reference. Use `fromReceiptRuleAttributes()` if you need it.
 func ReceiptRule_FromReceiptRuleName(scope constructs.Construct, id *string, receiptRuleName *string) IReceiptRule {
 	_init_.Initialize()
 

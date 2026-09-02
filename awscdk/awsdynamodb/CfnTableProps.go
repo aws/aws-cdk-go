@@ -146,6 +146,12 @@ import (
 //   		ResourcePolicy: &ResourcePolicyProperty{
 //   			PolicyDocument: policyDocument,
 //   		},
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   	},
 //   	TableClass: jsii.String("tableClass"),
 //   	TableName: jsii.String("tableName"),

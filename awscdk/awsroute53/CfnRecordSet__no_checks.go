@@ -112,10 +112,6 @@ func (j *jsiiProxy_CfnRecordSet) validateSetGeoLocationParameters(val interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnRecordSet) validateSetGeoProximityLocationParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRecordSet) validateSetMultiValueAnswerParameters(val interface{}) error {
 	return nil
 }

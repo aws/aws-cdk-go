@@ -6,6 +6,8 @@ type CfnEventBusErrorLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnEventBusErrorLogsRecordFields_TIMESTAMP CfnEventBusErrorLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnEventBusErrorLogsRecordFields_RESOURCE_ARN CfnEventBusErrorLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.
 	CfnEventBusErrorLogsRecordFields_MESSAGE_TIMESTAMP_MS CfnEventBusErrorLogsRecordFields = "MESSAGE_TIMESTAMP_MS"

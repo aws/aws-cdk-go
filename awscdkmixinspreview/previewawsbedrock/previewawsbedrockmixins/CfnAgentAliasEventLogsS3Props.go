@@ -14,9 +14,9 @@ import (
 //
 //   cfnAgentAliasEventLogsS3Props := &CfnAgentAliasEventLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnAgentAliasEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAgentAliasEventLogsRecordFields_TIMESTAMP,
+//   		awscdkmixinspreview.*Mixins.CfnAgentAliasEventLogsRecordFields_RESOURCE_ID,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnAgentAliasEventLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnAgentAliasEventLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

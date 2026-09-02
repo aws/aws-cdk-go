@@ -6,7 +6,11 @@ type CfnMatchingWorkflowWorkflowLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_TIMESTAMP CfnMatchingWorkflowWorkflowLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN CfnMatchingWorkflowWorkflowLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ID CfnMatchingWorkflowWorkflowLogsRecordFields = "RESOURCE_ID"
 	// Experimental.
 	CfnMatchingWorkflowWorkflowLogsRecordFields_EVENT_TYPE CfnMatchingWorkflowWorkflowLogsRecordFields = "EVENT_TYPE"
 	// Experimental.
@@ -22,7 +26,13 @@ const (
 	// Experimental.
 	CfnMatchingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION CfnMatchingWorkflowWorkflowLogsRecordFields = "DATA_PROCESSING_PROGRESSION"
 	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_COUNT_MAP CfnMatchingWorkflowWorkflowLogsRecordFields = "ERROR_COUNT_MAP"
+	// Experimental.
 	CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE CfnMatchingWorkflowWorkflowLogsRecordFields = "ERROR_MESSAGE"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_ERROR_COUNT CfnMatchingWorkflowWorkflowLogsRecordFields = "ERROR_COUNT"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_MATCHED_RECORD_COUNT_MAP CfnMatchingWorkflowWorkflowLogsRecordFields = "MATCHED_RECORD_COUNT_MAP"
 	// Experimental.
 	CfnMatchingWorkflowWorkflowLogsRecordFields_MATCH_RULE CfnMatchingWorkflowWorkflowLogsRecordFields = "MATCH_RULE"
 	// Experimental.
@@ -33,5 +43,11 @@ const (
 	CfnMatchingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED CfnMatchingWorkflowWorkflowLogsRecordFields = "TOTAL_RECORDS_UNPROCESSED"
 	// Experimental.
 	CfnMatchingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED CfnMatchingWorkflowWorkflowLogsRecordFields = "INCREMENTAL_RECORDS_PROCESSED"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_WORKFLOW_DURATION CfnMatchingWorkflowWorkflowLogsRecordFields = "WORKFLOW_DURATION"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_RAW_WORKFLOW_DURATION CfnMatchingWorkflowWorkflowLogsRecordFields = "RAW_WORKFLOW_DURATION"
+	// Experimental.
+	CfnMatchingWorkflowWorkflowLogsRecordFields_INPUT_FILE_SIZE CfnMatchingWorkflowWorkflowLogsRecordFields = "INPUT_FILE_SIZE"
 )
 

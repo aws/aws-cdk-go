@@ -39,7 +39,15 @@ import (
 //   		AuthenticationMode: jsii.String("authenticationMode"),
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
+//   	ActiveCertificateAuthorityId: jsii.String("activeCertificateAuthorityId"),
 //   	BootstrapSelfManagedAddons: jsii.Boolean(false),
+//   	CertificateAuthority: &CertificateAuthorityProperty{
+//   		Active: &ActiveCertificateAuthorityProperty{
+//   			ActivatedBy: jsii.String("activatedBy"),
+//   			Id: jsii.String("id"),
+//   		},
+//   		Data: jsii.String("data"),
+//   	},
 //   	ComputeConfig: &ComputeConfigProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		NodePools: []*string{
@@ -62,6 +70,21 @@ import (
 //   		},
 //   	},
 //   	Force: jsii.Boolean(false),
+//   	KubeApiServerConfig: &KubeApiServerConfigProperty{
+//   		EventTtl: jsii.String("eventTtl"),
+//   		ServiceNodePortRange: &ServiceNodePortRangeProperty{
+//   			MaxPort: jsii.Number(123),
+//   			MinPort: jsii.Number(123),
+//   		},
+//   	},
+//   	KubeControllerManagerConfig: &KubeControllerManagerConfigProperty{
+//   		HorizontalPodAutoscalerControllerConfig: &HorizontalPodAutoscalerControllerConfigProperty{
+//   			HorizontalPodAutoscalerSyncPeriod: jsii.String("horizontalPodAutoscalerSyncPeriod"),
+//   		},
+//   		PodGcControllerConfig: &PodGcControllerConfigProperty{
+//   			TerminatedPodGcThreshold: jsii.Number(123),
+//   		},
+//   	},
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
 //   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -69,6 +92,19 @@ import (
 //   		IpFamily: jsii.String("ipFamily"),
 //   		ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   		ServiceIpv6Cidr: jsii.String("serviceIpv6Cidr"),
+//   	},
+//   	KubeSchedulerConfig: &KubeSchedulerConfigProperty{
+//   		NodeResourcesFit: &NodeResourcesFitConfigProperty{
+//   			ScoringStrategy: &ScoringStrategyProperty{
+//   				Resources: []interface{}{
+//   					&ResourceWeightProperty{
+//   						Name: jsii.String("name"),
+//   						Weight: jsii.Number(123),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
 //   	},
 //   	Logging: &LoggingProperty{
 //   		ClusterLogging: &ClusterLoggingProperty{

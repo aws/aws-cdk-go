@@ -7,15 +7,15 @@ package previewawsbedrockmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnAgentAliasEventLogsFirehoseProps := &CfnAgentAliasEventLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnAgentAliasEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAgentAliasEventLogsRecordFields_TIMESTAMP,
+//   		awscdkmixinspreview.*Mixins.CfnAgentAliasEventLogsRecordFields_RESOURCE_ID,
 //   	},
 //   }
 //
 // Experimental.
 type CfnAgentAliasEventLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnAgentAliasEventLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

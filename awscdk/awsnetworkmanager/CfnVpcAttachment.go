@@ -88,6 +88,10 @@ type CfnVpcAttachment interface {
 	AttrNetworkFunctionGroupName() *string
 	// The ID of the VPC attachment owner.
 	AttrOwnerAccountId() *string
+	// The attachment to move from one network function group to another.
+	AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable
+	// The attachment to move from one segment to another.
+	AttrProposedSegmentChange() awscdk.IResolvable
 	// The resource ARN for the VPC attachment.
 	AttrResourceArn() *string
 	// The name of the attachment's segment.
@@ -427,6 +431,26 @@ func (j *jsiiProxy_CfnVpcAttachment) AttrOwnerAccountId() *string {
 	_jsii_.Get(
 		j,
 		"attrOwnerAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) AttrProposedNetworkFunctionGroupChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedNetworkFunctionGroupChange",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) AttrProposedSegmentChange() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrProposedSegmentChange",
 		&returns,
 	)
 	return returns

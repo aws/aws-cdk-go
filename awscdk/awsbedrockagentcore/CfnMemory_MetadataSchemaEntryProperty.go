@@ -35,6 +35,7 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	ExtractionType: jsii.String("extractionType"),
 //   	Type: jsii.String("type"),
 //   }
 //
@@ -48,6 +49,10 @@ type CfnMemory_MetadataSchemaEntryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-metadataschemaentry.html#cfn-bedrockagentcore-memory-metadataschemaentry-extractionconfig
 	//
 	ExtractionConfig interface{} `field:"optional" json:"extractionConfig" yaml:"extractionConfig"`
+	// Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-metadataschemaentry.html#cfn-bedrockagentcore-memory-metadataschemaentry-extractiontype
+	//
+	ExtractionType *string `field:"optional" json:"extractionType" yaml:"extractionType"`
 	// Supported data types for metadata values.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-metadataschemaentry.html#cfn-bedrockagentcore-memory-metadataschemaentry-type
 	//

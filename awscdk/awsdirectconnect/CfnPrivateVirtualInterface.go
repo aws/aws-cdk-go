@@ -40,6 +40,7 @@ import (
 //   	DirectConnectGatewayId: jsii.String("directConnectGatewayId"),
 //   	EnableSiteLink: jsii.Boolean(false),
 //   	Mtu: jsii.Number(123),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -103,6 +104,9 @@ type CfnPrivateVirtualInterface interface {
 	Node() constructs.Node
 	// A reference to a PrivateVirtualInterface resource.
 	PrivateVirtualInterfaceRef() *interfacesawsdirectconnect.PrivateVirtualInterfaceReference
+	// The rate limit (bandwidth allocation) for the virtual interface.
+	RateLimit() *string
+	SetRateLimit(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -488,6 +492,16 @@ func (j *jsiiProxy_CfnPrivateVirtualInterface) PrivateVirtualInterfaceRef() *int
 	return returns
 }
 
+func (j *jsiiProxy_CfnPrivateVirtualInterface) RateLimit() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"rateLimit",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPrivateVirtualInterface) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -651,6 +665,14 @@ func (j *jsiiProxy_CfnPrivateVirtualInterface)SetMtu(val *float64) {
 	_jsii_.Set(
 		j,
 		"mtu",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrivateVirtualInterface)SetRateLimit(val *string) {
+	_jsii_.Set(
+		j,
+		"rateLimit",
 		val,
 	)
 }

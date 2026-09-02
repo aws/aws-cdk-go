@@ -17,6 +17,9 @@ package awsmediatailor
 //   		},
 //   		HttpMethod: jsii.String("httpMethod"),
 //   	},
+//   	VastResponse: &VastResponseProperty{
+//   		AdSequencingMode: jsii.String("adSequencingMode"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-addecisionserverconfiguration.html
@@ -26,5 +29,9 @@ type CfnPlaybackConfigurationPropsMixin_AdDecisionServerConfigurationProperty st
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-addecisionserverconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverconfiguration-httprequest
 	//
 	HttpRequest interface{} `field:"optional" json:"httpRequest" yaml:"httpRequest"`
+	// The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-addecisionserverconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverconfiguration-vastresponse
+	//
+	VastResponse interface{} `field:"optional" json:"vastResponse" yaml:"vastResponse"`
 }
 

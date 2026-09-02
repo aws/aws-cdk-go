@@ -24,6 +24,7 @@ import (
 //   		},
 //   	},
 //   	ConnectionId: jsii.String("connectionId"),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	RouteFilterPrefixes: []*string{
 //   		jsii.String("routeFilterPrefixes"),
 //   	},
@@ -53,6 +54,12 @@ type CfnPublicVirtualInterfaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-publicvirtualinterface.html#cfn-directconnect-publicvirtualinterface-connectionid
 	//
 	ConnectionId interface{} `field:"optional" json:"connectionId" yaml:"connectionId"`
+	// The rate limit (bandwidth allocation) for the virtual interface.
+	//
+	// The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-publicvirtualinterface.html#cfn-directconnect-publicvirtualinterface-ratelimit
+	//
+	RateLimit *string `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 	// The routes to be advertised to the AWS network in this region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-publicvirtualinterface.html#cfn-directconnect-publicvirtualinterface-routefilterprefixes
 	//

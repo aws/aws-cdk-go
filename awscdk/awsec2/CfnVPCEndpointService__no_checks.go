@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnVPCEndpointService) validateSetContributorInsightsEnabledP
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) validateSetPrivateDnsNameConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCEndpointService) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

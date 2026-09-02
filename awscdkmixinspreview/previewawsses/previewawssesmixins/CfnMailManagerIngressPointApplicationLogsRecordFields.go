@@ -6,9 +6,11 @@ type CfnMailManagerIngressPointApplicationLogsRecordFields string
 
 const (
 	// Experimental.
-	CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE CfnMailManagerIngressPointApplicationLogsRecordFields = "INGRESS_POINT_TYPE"
+	CfnMailManagerIngressPointApplicationLogsRecordFields_TIMESTAMP CfnMailManagerIngressPointApplicationLogsRecordFields = "TIMESTAMP"
 	// Experimental.
 	CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_ID CfnMailManagerIngressPointApplicationLogsRecordFields = "INGRESS_POINT_ID"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE CfnMailManagerIngressPointApplicationLogsRecordFields = "INGRESS_POINT_TYPE"
 	// Experimental.
 	CfnMailManagerIngressPointApplicationLogsRecordFields_SENDER_IP_ADDRESS CfnMailManagerIngressPointApplicationLogsRecordFields = "SENDER_IP_ADDRESS"
 	// Experimental.
@@ -27,6 +29,8 @@ const (
 	CfnMailManagerIngressPointApplicationLogsRecordFields_MESSAGE_SIZE_BYTES CfnMailManagerIngressPointApplicationLogsRecordFields = "MESSAGE_SIZE_BYTES"
 	// Experimental.
 	CfnMailManagerIngressPointApplicationLogsRecordFields_RULE_SET_ID CfnMailManagerIngressPointApplicationLogsRecordFields = "RULE_SET_ID"
+	// Experimental.
+	CfnMailManagerIngressPointApplicationLogsRecordFields_VPC_ENDPOINT_ID CfnMailManagerIngressPointApplicationLogsRecordFields = "VPC_ENDPOINT_ID"
 	// Experimental.
 	CfnMailManagerIngressPointApplicationLogsRecordFields_RESOURCE_ARN CfnMailManagerIngressPointApplicationLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

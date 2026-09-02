@@ -9,3 +9,4 @@ type Type__interfacesawswellarchitectedILensRef = interfacesawswellarchitected.I
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawswellarchitectedIProfileRef = interfacesawswellarchitected.IProfileRef
 type Type__interfacesawswellarchitectedIReviewTemplateRef = interfacesawswellarchitected.IReviewTemplateRef
+type Type__interfacesawswellarchitectedIWorkloadRef = interfacesawswellarchitected.IWorkloadRef

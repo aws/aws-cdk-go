@@ -21,6 +21,13 @@ import (
 //   		jsii.String("networkLoadBalancerArns"),
 //   	},
 //   	PayerResponsibility: jsii.String("payerResponsibility"),
+//   	PrivateDnsName: jsii.String("privateDnsName"),
+//   	PrivateDnsNameConfiguration: &PrivateDnsNameConfigurationProperty{
+//   		Name: jsii.String("name"),
+//   		State: jsii.String("state"),
+//   		Type: jsii.String("type"),
+//   		Value: jsii.String("value"),
+//   	},
 //   	SupportedIpAddressTypes: []*string{
 //   		jsii.String("supportedIpAddressTypes"),
 //   	},
@@ -60,6 +67,12 @@ type CfnVPCEndpointServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-payerresponsibility
 	//
 	PayerResponsibility *string `field:"optional" json:"payerResponsibility" yaml:"payerResponsibility"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-privatednsname
+	//
+	PrivateDnsName *string `field:"optional" json:"privateDnsName" yaml:"privateDnsName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-privatednsnameconfiguration
+	//
+	PrivateDnsNameConfiguration interface{} `field:"optional" json:"privateDnsNameConfiguration" yaml:"privateDnsNameConfiguration"`
 	// The supported IP address types.
 	//
 	// The possible values are `ipv4` and `ipv6` .

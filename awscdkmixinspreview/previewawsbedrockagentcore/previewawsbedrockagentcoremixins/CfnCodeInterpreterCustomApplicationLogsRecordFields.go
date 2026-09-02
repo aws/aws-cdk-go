@@ -6,6 +6,12 @@ type CfnCodeInterpreterCustomApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_TIMESTAMP CfnCodeInterpreterCustomApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_TOOL_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "TOOL_ID"
+	// Experimental.
+	CfnCodeInterpreterCustomApplicationLogsRecordFields_INTERNAL_ACCOUNTID_BASED_ARN CfnCodeInterpreterCustomApplicationLogsRecordFields = "INTERNAL_ACCOUNTID_BASED_ARN"
+	// Experimental.
 	CfnCodeInterpreterCustomApplicationLogsRecordFields_ACCOUNT_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "ACCOUNT_ID"
 	// Experimental.
 	CfnCodeInterpreterCustomApplicationLogsRecordFields_REQUEST_ID CfnCodeInterpreterCustomApplicationLogsRecordFields = "REQUEST_ID"

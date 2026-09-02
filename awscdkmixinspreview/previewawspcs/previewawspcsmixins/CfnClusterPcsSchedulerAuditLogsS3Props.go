@@ -14,9 +14,9 @@ import (
 //
 //   cfnClusterPcsSchedulerAuditLogsS3Props := &CfnClusterPcsSchedulerAuditLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnClusterPcsSchedulerAuditLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_ID,
+//   		awscdkmixinspreview.*Mixins.CfnClusterPcsSchedulerAuditLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnClusterPcsSchedulerAuditLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnClusterPcsSchedulerAuditLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

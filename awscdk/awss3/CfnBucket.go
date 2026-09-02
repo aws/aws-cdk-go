@@ -67,7 +67,7 @@ type CfnBucket interface {
 	//
 	// For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html) .
 	AttrDualStackDomainName() *string
-	// The ARN of the annotation table.
+	// The Amazon Resource Name (ARN) for the annotation table.
 	AttrMetadataConfigurationAnnotationTableConfigurationTableArn() *string
 	// The name of the annotation table.
 	AttrMetadataConfigurationAnnotationTableConfigurationTableName() *string

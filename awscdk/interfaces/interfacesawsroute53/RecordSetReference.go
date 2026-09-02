@@ -10,10 +10,13 @@ package interfacesawsroute53
 //
 //   recordSetReference := &RecordSetReference{
 //   	RecordSetName: jsii.String("recordSetName"),
+//   	Type: jsii.String("type"),
 //   }
 //
 type RecordSetReference struct {
 	// The Name of the RecordSet resource.
 	RecordSetName *string `field:"required" json:"recordSetName" yaml:"recordSetName"`
+	// The Type of the RecordSet resource.
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

@@ -20,12 +20,14 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var ack interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnCapabilityPropsMixin := awscdkcfnpropertymixins.Aws_eks.NewCfnCapabilityPropsMixin(&CfnCapabilityMixinProps{
 //   	CapabilityName: jsii.String("capabilityName"),
 //   	ClusterName: jsii.String("clusterName"),
 //   	Configuration: &CapabilityConfigurationProperty{
+//   		Ack: ack,
 //   		ArgoCd: &ArgoCdProperty{
 //   			AwsIdc: &AwsIdcProperty{
 //   				IdcInstanceArn: jsii.String("idcInstanceArn"),

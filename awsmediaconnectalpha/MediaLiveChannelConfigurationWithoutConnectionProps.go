@@ -6,26 +6,18 @@ package awsmediaconnectalpha
 // Use this when you want to set up the router input before the target MediaLive channel exists.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import mediaconnect_alpha "github.com/aws/aws-cdk-go/awsmediaconnectalpha"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var stack Stack
 //
-//   var role Role
-//   var secret Secret
 //
-//   mediaLiveChannelConfigurationWithoutConnectionProps := &MediaLiveChannelConfigurationWithoutConnectionProps{
-//   	AvailabilityZone: jsii.String("availabilityZone"),
-//
-//   	// the properties below are optional
-//   	SourceTransitDecryption: &TransitEncryption{
-//   		Secret: secret,
-//
-//   		// the properties below are optional
-//   		Role: role,
-//   	},
-//   }
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInputNoConnection"), &RouterInputProps{
+//   	RouterInputName: jsii.String("channel-input-no-connection"),
+//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+//   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+//   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannelWithoutConnection(&MediaLiveChannelConfigurationWithoutConnectionProps{
+//   		AvailabilityZone: jsii.String("us-east-1a"),
+//   	}),
+//   })
 //
 // Experimental.
 type MediaLiveChannelConfigurationWithoutConnectionProps struct {

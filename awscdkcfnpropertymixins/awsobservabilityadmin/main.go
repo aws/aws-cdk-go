@@ -72,6 +72,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_SourceMetricsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationCentralizationRulePropsMixin.TagPropagationConfigurationProperty",
+		reflect.TypeOf((*CfnOrganizationCentralizationRulePropsMixin_TagPropagationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationTelemetryRuleMixinProps",
 		reflect.TypeOf((*CfnOrganizationTelemetryRuleMixinProps)(nil)).Elem(),
 	)

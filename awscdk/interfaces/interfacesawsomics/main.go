@@ -48,22 +48,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_omics.IReferenceRef",
-		reflect.TypeOf((*IReferenceRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "referenceRef", GoGetter: "ReferenceRef"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReferenceRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_omics.IReferenceStoreRef",
 		reflect.TypeOf((*IReferenceStoreRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -74,6 +58,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IReferenceStoreRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_omics.IRunCacheRef",
+		reflect.TypeOf((*IRunCacheRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "runCacheRef", GoGetter: "RunCacheRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRunCacheRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -160,12 +160,12 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_omics.ReferenceReference",
-		reflect.TypeOf((*ReferenceReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_omics.ReferenceStoreReference",
 		reflect.TypeOf((*ReferenceStoreReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_omics.RunCacheReference",
+		reflect.TypeOf((*RunCacheReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_omics.RunGroupReference",

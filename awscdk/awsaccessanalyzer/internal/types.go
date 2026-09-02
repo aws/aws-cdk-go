@@ -7,3 +7,4 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsaccessanalyzerIAnalyzerRef = interfacesawsaccessanalyzer.IAnalyzerRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsaccessanalyzerIArchiveRuleRef = interfacesawsaccessanalyzer.IArchiveRuleRef

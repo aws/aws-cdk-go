@@ -6,6 +6,8 @@ type CfnDistributionAccessLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnDistributionAccessLogsRecordFields_TIMESTAMP CfnDistributionAccessLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnDistributionAccessLogsRecordFields_DATE CfnDistributionAccessLogsRecordFields = "DATE"
 	// Experimental.
 	CfnDistributionAccessLogsRecordFields_TIME CfnDistributionAccessLogsRecordFields = "TIME"
@@ -71,5 +73,73 @@ const (
 	CfnDistributionAccessLogsRecordFields_SC_RANGE_START CfnDistributionAccessLogsRecordFields = "SC_RANGE_START"
 	// Experimental.
 	CfnDistributionAccessLogsRecordFields_SC_RANGE_END CfnDistributionAccessLogsRecordFields = "SC_RANGE_END"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_TIMESTAMP_MS_ CfnDistributionAccessLogsRecordFields = "TIMESTAMP_MS_"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_ORIGIN_FBL CfnDistributionAccessLogsRecordFields = "ORIGIN_FBL"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_ORIGIN_LBL CfnDistributionAccessLogsRecordFields = "ORIGIN_LBL"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_ASN CfnDistributionAccessLogsRecordFields = "ASN"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_C_COUNTRY CfnDistributionAccessLogsRecordFields = "C_COUNTRY"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CACHE_BEHAVIOR_PATH_PATTERN CfnDistributionAccessLogsRecordFields = "CACHE_BEHAVIOR_PATH_PATTERN"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_DISTRIBUTION_TENANT_ID CfnDistributionAccessLogsRecordFields = "DISTRIBUTION_TENANT_ID"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CONNECTION_ID CfnDistributionAccessLogsRecordFields = "CONNECTION_ID"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_VIEWER_REQUEST_LOG_DATA CfnDistributionAccessLogsRecordFields = "VIEWER_REQUEST_LOG_DATA"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_VIEWER_RESPONSE_LOG_DATA CfnDistributionAccessLogsRecordFields = "VIEWER_RESPONSE_LOG_DATA"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_ENCODED_BITRATE CfnDistributionAccessLogsRecordFields = "CMCD_ENCODED_BITRATE"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_BUFFER_LENGTH CfnDistributionAccessLogsRecordFields = "CMCD_BUFFER_LENGTH"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_BUFFER_STARVATION CfnDistributionAccessLogsRecordFields = "CMCD_BUFFER_STARVATION"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_CONTENT_ID CfnDistributionAccessLogsRecordFields = "CMCD_CONTENT_ID"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_OBJECT_DURATION CfnDistributionAccessLogsRecordFields = "CMCD_OBJECT_DURATION"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_DEADLINE CfnDistributionAccessLogsRecordFields = "CMCD_DEADLINE"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_MEASURED_THROUGHPUT CfnDistributionAccessLogsRecordFields = "CMCD_MEASURED_THROUGHPUT"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_NEXT_OBJECT_REQUEST CfnDistributionAccessLogsRecordFields = "CMCD_NEXT_OBJECT_REQUEST"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_NEXT_RANGE_REQUEST CfnDistributionAccessLogsRecordFields = "CMCD_NEXT_RANGE_REQUEST"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_OBJECT_TYPE CfnDistributionAccessLogsRecordFields = "CMCD_OBJECT_TYPE"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_PLAYBACK_RATE CfnDistributionAccessLogsRecordFields = "CMCD_PLAYBACK_RATE"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_REQUESTED_MAXIMUM_THROUGHPUT CfnDistributionAccessLogsRecordFields = "CMCD_REQUESTED_MAXIMUM_THROUGHPUT"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_STREAMING_FORMAT CfnDistributionAccessLogsRecordFields = "CMCD_STREAMING_FORMAT"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_SESSION_ID CfnDistributionAccessLogsRecordFields = "CMCD_SESSION_ID"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_STREAM_TYPE CfnDistributionAccessLogsRecordFields = "CMCD_STREAM_TYPE"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_STARTUP CfnDistributionAccessLogsRecordFields = "CMCD_STARTUP"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_TOP_BITRATE CfnDistributionAccessLogsRecordFields = "CMCD_TOP_BITRATE"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_CMCD_VERSION CfnDistributionAccessLogsRecordFields = "CMCD_VERSION"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_S_IP CfnDistributionAccessLogsRecordFields = "S_IP"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_PRIMARY_DISTRIBUTION_ID CfnDistributionAccessLogsRecordFields = "PRIMARY_DISTRIBUTION_ID"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_PRIMARY_DISTRIBUTION_DNS_NAME CfnDistributionAccessLogsRecordFields = "PRIMARY_DISTRIBUTION_DNS_NAME"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_R_HOST CfnDistributionAccessLogsRecordFields = "R_HOST"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_SR_REASON CfnDistributionAccessLogsRecordFields = "SR_REASON"
+	// Experimental.
+	CfnDistributionAccessLogsRecordFields_X_EDGE_MQCS CfnDistributionAccessLogsRecordFields = "X_EDGE_MQCS"
 )
 

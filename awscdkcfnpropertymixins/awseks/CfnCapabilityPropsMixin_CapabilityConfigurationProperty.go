@@ -10,7 +10,10 @@ package awseks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var ack interface{}
+//
 //   capabilityConfigurationProperty := &CapabilityConfigurationProperty{
+//   	Ack: ack,
 //   	ArgoCd: &ArgoCdProperty{
 //   		AwsIdc: &AwsIdcProperty{
 //   			IdcInstanceArn: jsii.String("idcInstanceArn"),
@@ -41,6 +44,9 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-capabilityconfiguration.html
 //
 type CfnCapabilityPropsMixin_CapabilityConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-capabilityconfiguration.html#cfn-eks-capability-capabilityconfiguration-ack
+	//
+	Ack interface{} `field:"optional" json:"ack" yaml:"ack"`
 	// Configuration settings for an Argo CD capability.
 	//
 	// This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.

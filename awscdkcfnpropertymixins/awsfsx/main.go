@@ -80,6 +80,10 @@ func init() {
 		reflect.TypeOf((*CfnFileSystemPropsMixin_FsrmConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileSystemPropsMixin.LogConfigurationProperty",
+		reflect.TypeOf((*CfnFileSystemPropsMixin_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileSystemPropsMixin.LustreConfigurationProperty",
 		reflect.TypeOf((*CfnFileSystemPropsMixin_LustreConfigurationProperty)(nil)).Elem(),
 	)

@@ -62,6 +62,63 @@ import (
 //   					},
 //   				},
 //   			},
+//   			PrivateEndpoint: &PrivateEndpointProperty{
+//   				ManagedVpcResource: &ManagedVpcResourceProperty{
+//   					EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   					RoutingDomain: jsii.String("routingDomain"),
+//   					SecurityGroupIds: []*string{
+//   						jsii.String("securityGroupIds"),
+//   					},
+//   					SubnetIds: []*string{
+//   						jsii.String("subnetIds"),
+//   					},
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
+//   					VpcIdentifier: jsii.String("vpcIdentifier"),
+//   				},
+//   				SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   					ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   				},
+//   			},
+//   			PrivateEndpointOverrides: []interface{}{
+//   				&PrivateEndpointOverrideProperty{
+//   					Domain: jsii.String("domain"),
+//   					PrivateEndpoint: &PrivateEndpointProperty{
+//   						ManagedVpcResource: &ManagedVpcResourceProperty{
+//   							EndpointIpAddressType: jsii.String("endpointIpAddressType"),
+//   							RoutingDomain: jsii.String("routingDomain"),
+//   							SecurityGroupIds: []*string{
+//   								jsii.String("securityGroupIds"),
+//   							},
+//   							SubnetIds: []*string{
+//   								jsii.String("subnetIds"),
+//   							},
+//   							Tags: map[string]*string{
+//   								"tagsKey": jsii.String("tags"),
+//   							},
+//   							VpcIdentifier: jsii.String("vpcIdentifier"),
+//   						},
+//   						SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
+//   							ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   			PrivateKeyJwtConfig: &PrivateKeyJwtConfigProperty{
+//   				AdditionalHeaderClaims: map[string]*string{
+//   					"additionalHeaderClaimsKey": jsii.String("additionalHeaderClaims"),
+//   				},
+//   				AdditionalPayloadClaims: map[string]*string{
+//   					"additionalPayloadClaimsKey": jsii.String("additionalPayloadClaims"),
+//   				},
+//   				PrivateKeySource: &PrivateKeySourceProperty{
+//   					KmsKeySource: &KmsKeySourceTypeProperty{
+//   						KmsKeyArn: jsii.String("kmsKeyArn"),
+//   					},
+//   				},
+//   				SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   			},
 //   		},
 //   		GithubOauth2ProviderConfig: &GithubOauth2ProviderConfigInputProperty{
 //   			ClientId: jsii.String("clientId"),

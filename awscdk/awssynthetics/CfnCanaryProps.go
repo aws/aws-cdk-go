@@ -60,7 +60,42 @@ import (
 //   	DeleteLambdaResourcesOnCanaryDeletion: jsii.Boolean(false),
 //   	DryRunAndUpdate: jsii.Boolean(false),
 //   	FailureRetentionPeriod: jsii.Number(123),
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ProvisionedResourceCleanup: jsii.String("provisionedResourceCleanup"),
+//   	Replicas: []interface{}{
+//   		&ReplicaProperty{
+//   			Location: jsii.String("location"),
+//
+//   			// the properties below are optional
+//   			CanaryState: jsii.String("canaryState"),
+//   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			LastModified: jsii.Number(123),
+//   			ReplicationStatus: &ReplicaReplicationStatusProperty{
+//   				State: jsii.String("state"),
+//   			},
+//   			ResourcesToReplicateTags: []*string{
+//   				jsii.String("resourcesToReplicateTags"),
+//   			},
+//   			Tags: []CfnTag{
+//   				&CfnTag{
+//   					Key: jsii.String("key"),
+//   					Value: jsii.String("value"),
+//   				},
+//   			},
+//   			VpcConfig: &VPCConfigProperty{
+//   				SecurityGroupIds: []*string{
+//   					jsii.String("securityGroupIds"),
+//   				},
+//   				SubnetIds: []*string{
+//   					jsii.String("subnetIds"),
+//   				},
+//
+//   				// the properties below are optional
+//   				Ipv6AllowedForDualStack: jsii.Boolean(false),
+//   				VpcId: jsii.String("vpcId"),
+//   			},
+//   		},
+//   	},
 //   	ResourcesToReplicateTags: []*string{
 //   		jsii.String("resourcesToReplicateTags"),
 //   	},
@@ -213,6 +248,12 @@ type CfnCanaryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
 	//
 	FailureRetentionPeriod *float64 `field:"optional" json:"failureRetentionPeriod" yaml:"failureRetentionPeriod"`
+	// KMS key ARN for encrypting the canary's Lambda function environment variables at rest.
+	//
+	// If omitted, Lambda uses an AWS-managed key.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Specifies whether to also delete the Lambda functions and layers used by this canary when the canary is deleted.
 	//
 	// If it is `AUTOMATIC` , the Lambda functions and layers will be deleted when the canary is deleted.
@@ -221,6 +262,10 @@ type CfnCanaryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-provisionedresourcecleanup
 	//
 	ProvisionedResourceCleanup *string `field:"optional" json:"provisionedResourceCleanup" yaml:"provisionedResourceCleanup"`
+	// List of replica locations for multi-location canary execution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-replicas
+	//
+	Replicas interface{} `field:"optional" json:"replicas" yaml:"replicas"`
 	// To have the tags that you apply to this canary also be applied to the Lambda function that the canary uses, specify this property with the value `lambda-function` .
 	//
 	// If you do this, CloudWatch Synthetics will keep the tags of the canary and the Lambda function synchronized. Any future changes you make to the canary's tags will also be applied to the function.

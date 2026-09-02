@@ -64,6 +64,10 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_autoscaling.CfnAutoScalingGroupPropsMixin.DistributionSegmentProperty",
+		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_DistributionSegmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_autoscaling.CfnAutoScalingGroupPropsMixin.InstanceLifecyclePolicyProperty",
 		reflect.TypeOf((*CfnAutoScalingGroupPropsMixin_InstanceLifecyclePolicyProperty)(nil)).Elem(),
 	)

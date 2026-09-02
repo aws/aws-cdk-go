@@ -37,7 +37,8 @@ type CfnSourceCredential interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawscodebuild.ISourceCredentialRef
-	AttrId() *string
+	// The ARN of the SourceCredential resource.
+	AttrArn() *string
 	// The type of authentication used by the credentials.
 	AuthType() *string
 	SetAuthType(val *string)
@@ -267,11 +268,11 @@ type jsiiProxy_CfnSourceCredential struct {
 	internal.Type__interfacesawscodebuildISourceCredentialRef
 }
 
-func (j *jsiiProxy_CfnSourceCredential) AttrId() *string {
+func (j *jsiiProxy_CfnSourceCredential) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrArn",
 		&returns,
 	)
 	return returns
@@ -516,6 +517,24 @@ func (j *jsiiProxy_CfnSourceCredential)SetUsername(val *string) {
 		"username",
 		val,
 	)
+}
+
+func CfnSourceCredential_ArnForSourceCredential(resource interfacesawscodebuild.ISourceCredentialRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnSourceCredential_ArnForSourceCredentialParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_codebuild.CfnSourceCredential",
+		"arnForSourceCredential",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -116,6 +116,17 @@ func CfnBrowserCustomLogsMixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
+func CfnBrowserCustomLogsMixin_TRACES() CfnBrowserCustomTraces {
+	_init_.Initialize()
+	var returns CfnBrowserCustomTraces
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomLogsMixin",
+		"TRACES",
+		&returns,
+	)
+	return returns
+}
+
 func CfnBrowserCustomLogsMixin_USAGE_LOGS() CfnBrowserCustomUsageLogs {
 	_init_.Initialize()
 	var returns CfnBrowserCustomUsageLogs

@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnChannelGroupEgressAccessLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnChannelGroupEgressAccessLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnChannelGroupEgressAccessLogsOutputFormat_S3_JSON,
 			"W3C": CfnChannelGroupEgressAccessLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnChannelGroupEgressAccessLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupEgressAccessLogsRecordFields",
 		reflect.TypeOf((*CfnChannelGroupEgressAccessLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnChannelGroupEgressAccessLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnChannelGroupEgressAccessLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnChannelGroupEgressAccessLogsRecordFields_EVENT_TIMESTAMP,
 			"CLIENT_IP": CfnChannelGroupEgressAccessLogsRecordFields_CLIENT_IP,
@@ -93,6 +94,7 @@ func init() {
 			"CHANNEL_GROUP_ID": CfnChannelGroupEgressAccessLogsRecordFields_CHANNEL_GROUP_ID,
 			"MANIFEST_NAME": CfnChannelGroupEgressAccessLogsRecordFields_MANIFEST_NAME,
 			"MANIFEST_TYPE": CfnChannelGroupEgressAccessLogsRecordFields_MANIFEST_TYPE,
+			"LOG_TYPE": CfnChannelGroupEgressAccessLogsRecordFields_LOG_TYPE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -136,8 +138,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnChannelGroupIngressAccessLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -153,8 +155,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnChannelGroupIngressAccessLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnChannelGroupIngressAccessLogsOutputFormat_S3_JSON,
 			"W3C": CfnChannelGroupIngressAccessLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnChannelGroupIngressAccessLogsOutputFormat_S3_PARQUET,
 		},
@@ -163,6 +165,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediapackagev2.mixins.CfnChannelGroupIngressAccessLogsRecordFields",
 		reflect.TypeOf((*CfnChannelGroupIngressAccessLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnChannelGroupIngressAccessLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnChannelGroupIngressAccessLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnChannelGroupIngressAccessLogsRecordFields_EVENT_TIMESTAMP,
 			"CLIENT_IP": CfnChannelGroupIngressAccessLogsRecordFields_CLIENT_IP,

@@ -5,16 +5,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
-// Flex Jobs class.
-//
-// Flex jobs supports Python and Scala language.
-// The flexible execution class is appropriate for non-urgent jobs such as
-// pre-production jobs, testing, and one-time data loads.
-// Flexible job runs are supported for jobs using AWS Glue version 3.0 or later and G.1X or
-// G.2X worker types but will default to the latest version of Glue (currently Glue 3.0.)
-//
-// Similar to ETL, we’ll enable these features: —enable-metrics, —enable-spark-ui,
-// —enable-continuous-cloudwatch-log.
+// Properties for a `ScalaSparkFlexEtlJob`.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -128,7 +119,7 @@ type ScalaSparkFlexEtlJobProps struct {
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Glue Version The version of Glue to use to execute this job.
-	// Default: 3.0 for ETL
+	// Default: - determined by the job type: 4.0 for ETL and Streaming, 5.0 for Flex, 3.0 for Python Shell
 	//
 	// Experimental.
 	GlueVersion GlueVersion `field:"optional" json:"glueVersion" yaml:"glueVersion"`

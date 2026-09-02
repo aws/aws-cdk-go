@@ -56,6 +56,10 @@ import (
 //   	},
 //   	Threshold: jsii.Number(123),
 //   	TreatMissingData: jsii.String("treatMissingData"),
+//   	WarmUpConfiguration: &WarmUpConfigurationProperty{
+//   		OnlyStartEvaluatingAfterWarmUpPeriodEnds: jsii.Boolean(false),
+//   		WarmUpPeriodDurationInMinutes: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html
@@ -133,5 +137,11 @@ type CfnLogAlarmMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html#cfn-cloudwatch-logalarm-treatmissingdata
 	//
 	TreatMissingData *string `field:"optional" json:"treatMissingData" yaml:"treatMissingData"`
+	// The warm-up configuration for an alarm.
+	//
+	// A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html#cfn-cloudwatch-logalarm-warmupconfiguration
+	//
+	WarmUpConfiguration interface{} `field:"optional" json:"warmUpConfiguration" yaml:"warmUpConfiguration"`
 }
 

@@ -6,6 +6,8 @@ type CfnApplicationSyncJobLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnApplicationSyncJobLogsRecordFields_TIMESTAMP CfnApplicationSyncJobLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnApplicationSyncJobLogsRecordFields_AWSACCOUNTID CfnApplicationSyncJobLogsRecordFields = "AWSACCOUNTID"
 	// Experimental.
 	CfnApplicationSyncJobLogsRecordFields_DATASOURCEID CfnApplicationSyncJobLogsRecordFields = "DATASOURCEID"

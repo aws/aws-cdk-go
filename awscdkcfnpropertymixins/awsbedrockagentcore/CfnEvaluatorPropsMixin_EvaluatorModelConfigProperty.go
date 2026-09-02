@@ -20,6 +20,15 @@ package awsbedrockagentcore
 //   		},
 //   		ModelId: jsii.String("modelId"),
 //   	},
+//   	ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   		MaxOutputTokens: jsii.Number(123),
+//   		ModelId: jsii.String("modelId"),
+//   		Reasoning: &ReasoningConfigurationProperty{
+//   			Effort: jsii.String("effort"),
+//   		},
+//   		Temperature: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatormodelconfig.html
@@ -29,5 +38,9 @@ type CfnEvaluatorPropsMixin_EvaluatorModelConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatormodelconfig.html#cfn-bedrockagentcore-evaluator-evaluatormodelconfig-bedrockevaluatormodelconfig
 	//
 	BedrockEvaluatorModelConfig interface{} `field:"optional" json:"bedrockEvaluatorModelConfig" yaml:"bedrockEvaluatorModelConfig"`
+	// The configuration for using OpenResponses-compatible models in evaluator assessments.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatormodelconfig.html#cfn-bedrockagentcore-evaluator-evaluatormodelconfig-responsesevaluatormodelconfig
+	//
+	ResponsesEvaluatorModelConfig interface{} `field:"optional" json:"responsesEvaluatorModelConfig" yaml:"responsesEvaluatorModelConfig"`
 }
 

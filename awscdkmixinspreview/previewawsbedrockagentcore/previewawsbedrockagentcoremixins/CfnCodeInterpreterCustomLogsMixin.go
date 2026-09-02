@@ -129,6 +129,17 @@ func CfnCodeInterpreterCustomLogsMixin_APPLICATION_LOGS() CfnCodeInterpreterCust
 	return returns
 }
 
+func CfnCodeInterpreterCustomLogsMixin_TRACES() CfnCodeInterpreterCustomTraces {
+	_init_.Initialize()
+	var returns CfnCodeInterpreterCustomTraces
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomLogsMixin",
+		"TRACES",
+		&returns,
+	)
+	return returns
+}
+
 func CfnCodeInterpreterCustomLogsMixin_USAGE_LOGS() CfnCodeInterpreterCustomUsageLogs {
 	_init_.Initialize()
 	var returns CfnCodeInterpreterCustomUsageLogs

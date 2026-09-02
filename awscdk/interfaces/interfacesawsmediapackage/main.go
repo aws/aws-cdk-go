@@ -15,10 +15,6 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_mediapackage.ChannelReference",
 		reflect.TypeOf((*ChannelReference)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_mediapackage.HarvestJobReference",
-		reflect.TypeOf((*HarvestJobReference)(nil)).Elem(),
-	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_mediapackage.IAssetRef",
 		reflect.TypeOf((*IAssetRef)(nil)).Elem(),
@@ -46,22 +42,6 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IChannelRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_mediapackage.IHarvestJobRef",
-		reflect.TypeOf((*IHarvestJobRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "harvestJobRef", GoGetter: "HarvestJobRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IHarvestJobRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

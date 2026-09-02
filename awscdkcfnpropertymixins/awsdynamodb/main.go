@@ -8,12 +8,12 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnExportMixinProps",
-		reflect.TypeOf((*CfnExportMixinProps)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnBackupMixinProps",
+		reflect.TypeOf((*CfnBackupMixinProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnExportPropsMixin",
-		reflect.TypeOf((*CfnExportPropsMixin)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnBackupPropsMixin",
+		reflect.TypeOf((*CfnBackupPropsMixin)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
 			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
@@ -21,7 +21,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnExportPropsMixin{}
+			j := jsiiProxy_CfnBackupPropsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j

@@ -9,7 +9,7 @@ import (
 //
 // Example:
 //   var stack Stack
-//   var mediaLiveInput CfnInput
+//   var mediaLiveInput IInput
 //
 //
 //   // 1. A public network interface for the SRT input
@@ -44,8 +44,8 @@ import (
 //   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
 //   	Tier: awsmediaconnectalpha.RouterOutputTier_OUTPUT_20(),
 //   	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInput(&MediaLiveInputConnectionProps{
-//   		MediaLiveInputArn: mediaLiveInput.attrArn,
-//   		MediaLivePipelineId: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   		Input: mediaLiveInput,
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
 //   	}),
 //   })
 //

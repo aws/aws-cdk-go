@@ -17,7 +17,9 @@ import (
 //   	ServiceType: jsii.String("serviceType"),
 //
 //   	// the properties below are optional
+//   	ExchangeUrlPrivateConnectionName: jsii.String("exchangeUrlPrivateConnectionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PrivateConnectionName: jsii.String("privateConnectionName"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
 //   			ClientId: jsii.String("clientId"),
@@ -190,6 +192,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetUrlPrivateConnectionName: jsii.String("targetUrlPrivateConnectionName"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html
@@ -199,10 +202,20 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-servicetype
 	//
 	ServiceType *string `field:"required" json:"serviceType" yaml:"serviceType"`
+	// The name of the private connection to use for OAuth token exchange requests only.
+	//
+	// Cannot be specified when PrivateConnectionName is provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-exchangeurlprivateconnectionname
+	//
+	ExchangeUrlPrivateConnectionName *string `field:"optional" json:"exchangeUrlPrivateConnectionName" yaml:"exchangeUrlPrivateConnectionName"`
 	// The ARN of the KMS key to use for encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The name of the private connection to use for VPC connectivity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-privateconnectionname
+	//
+	PrivateConnectionName *string `field:"optional" json:"privateConnectionName" yaml:"privateConnectionName"`
 	// Service-specific configuration details - MCPServerSigV4 supports in-place updates;
 	//
 	// GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified.
@@ -213,5 +226,11 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The name of the private connection to use for API calls (target URL) only.
+	//
+	// Cannot be specified when PrivateConnectionName is provided.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-targeturlprivateconnectionname
+	//
+	TargetUrlPrivateConnectionName *string `field:"optional" json:"targetUrlPrivateConnectionName" yaml:"targetUrlPrivateConnectionName"`
 }
 

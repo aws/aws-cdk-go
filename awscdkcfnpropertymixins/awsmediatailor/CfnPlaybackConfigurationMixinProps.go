@@ -26,8 +26,22 @@ import (
 //   			},
 //   			HttpMethod: jsii.String("httpMethod"),
 //   		},
+//   		VastResponse: &VastResponseProperty{
+//   			AdSequencingMode: jsii.String("adSequencingMode"),
+//   		},
 //   	},
 //   	AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
+//   	AdsPersonalizationConcurrency: &AdsPersonalizationConcurrencyProperty{
+//   		EnableVodVastParallelization: jsii.Boolean(false),
+//   		MaxConcurrentAdsRequests: jsii.Number(123),
+//   	},
+//   	AdsPersonalizationTimeouts: &AdsPersonalizationTimeoutsProperty{
+//   		AdsRequestTimeoutMilliseconds: jsii.Number(123),
+//   		LiveMaximumAdsPersonalizationTimeMilliseconds: jsii.Number(123),
+//   		PrefetchAdsRequestTimeoutMilliseconds: jsii.Number(123),
+//   		PrefetchMaximumAdsPersonalizationTimeMilliseconds: jsii.Number(123),
+//   		VodMaximumAdsPersonalizationTimeMilliseconds: jsii.Number(123),
+//   	},
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
@@ -57,6 +71,11 @@ import (
 //   	},
 //   	InsertionMode: jsii.String("insertionMode"),
 //   	LivePreRollConfiguration: &LivePreRollConfigurationProperty{
+//   		AdDecisionServerConfiguration: &PreRollAdDecisionServerConfigurationProperty{
+//   			VastResponse: &PreRollVastResponseProperty{
+//   				AdSequencingMode: jsii.String("adSequencingMode"),
+//   			},
+//   		},
 //   		AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   		MaxDurationSeconds: jsii.Number(123),
 //   	},
@@ -114,6 +133,14 @@ type CfnPlaybackConfigurationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-addecisionserverurl
 	//
 	AdDecisionServerUrl *string `field:"optional" json:"adDecisionServerUrl" yaml:"adDecisionServerUrl"`
+	// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-adspersonalizationconcurrency
+	//
+	AdsPersonalizationConcurrency interface{} `field:"optional" json:"adsPersonalizationConcurrency" yaml:"adsPersonalizationConcurrency"`
+	// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-adspersonalizationtimeouts
+	//
+	AdsPersonalizationTimeouts interface{} `field:"optional" json:"adsPersonalizationTimeouts" yaml:"adsPersonalizationTimeouts"`
 	// The configuration for avail suppression, also known as ad suppression.
 	//
 	// For more information about ad suppression, see [Ad Suppression](https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html) .

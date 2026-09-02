@@ -34,8 +34,22 @@ import (
 //   			},
 //   			HttpMethod: jsii.String("httpMethod"),
 //   		},
+//   		VastResponse: &VastResponseProperty{
+//   			AdSequencingMode: jsii.String("adSequencingMode"),
+//   		},
 //   	},
 //   	AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
+//   	AdsPersonalizationConcurrency: &AdsPersonalizationConcurrencyProperty{
+//   		EnableVodVastParallelization: jsii.Boolean(false),
+//   		MaxConcurrentAdsRequests: jsii.Number(123),
+//   	},
+//   	AdsPersonalizationTimeouts: &AdsPersonalizationTimeoutsProperty{
+//   		AdsRequestTimeoutMilliseconds: jsii.Number(123),
+//   		LiveMaximumAdsPersonalizationTimeMilliseconds: jsii.Number(123),
+//   		PrefetchAdsRequestTimeoutMilliseconds: jsii.Number(123),
+//   		PrefetchMaximumAdsPersonalizationTimeMilliseconds: jsii.Number(123),
+//   		VodMaximumAdsPersonalizationTimeMilliseconds: jsii.Number(123),
+//   	},
 //   	AvailSuppression: &AvailSuppressionProperty{
 //   		FillPolicy: jsii.String("fillPolicy"),
 //   		Mode: jsii.String("mode"),
@@ -65,6 +79,11 @@ import (
 //   	},
 //   	InsertionMode: jsii.String("insertionMode"),
 //   	LivePreRollConfiguration: &LivePreRollConfigurationProperty{
+//   		AdDecisionServerConfiguration: &PreRollAdDecisionServerConfigurationProperty{
+//   			VastResponse: &PreRollVastResponseProperty{
+//   				AdSequencingMode: jsii.String("adSequencingMode"),
+//   			},
+//   		},
 //   		AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   		MaxDurationSeconds: jsii.Number(123),
 //   	},

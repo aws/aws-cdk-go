@@ -8,6 +8,10 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_rds.ClusterSnapshotReference",
+		reflect.TypeOf((*ClusterSnapshotReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_rds.CustomDBEngineVersionReference",
 		reflect.TypeOf((*CustomDBEngineVersionReference)(nil)).Elem(),
 	)
@@ -52,6 +56,10 @@ func init() {
 		reflect.TypeOf((*DBShardGroupReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_rds.DBSnapshotReference",
+		reflect.TypeOf((*DBSnapshotReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_rds.DBSubnetGroupReference",
 		reflect.TypeOf((*DBSubnetGroupReference)(nil)).Elem(),
 	)
@@ -62,6 +70,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_rds.GlobalClusterReference",
 		reflect.TypeOf((*GlobalClusterReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_rds.IClusterSnapshotRef",
+		reflect.TypeOf((*IClusterSnapshotRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterSnapshotRef", GoGetter: "ClusterSnapshotRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IClusterSnapshotRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_rds.ICustomDBEngineVersionRef",
@@ -234,6 +258,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDBShardGroupRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_rds.IDBSnapshotRef",
+		reflect.TypeOf((*IDBSnapshotRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "dbSnapshotRef", GoGetter: "DbSnapshotRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDBSnapshotRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

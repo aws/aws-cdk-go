@@ -247,4 +247,24 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnScheduledActionPropsMixin.ScheduledActionTypeProperty",
 		reflect.TypeOf((*CfnScheduledActionPropsMixin_ScheduledActionTypeProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnSnapshotScheduleMixinProps",
+		reflect.TypeOf((*CfnSnapshotScheduleMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnSnapshotSchedulePropsMixin",
+		reflect.TypeOf((*CfnSnapshotSchedulePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSnapshotSchedulePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
 }

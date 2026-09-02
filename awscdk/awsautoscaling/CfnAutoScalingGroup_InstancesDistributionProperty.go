@@ -13,6 +13,13 @@ package awsautoscaling
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   instancesDistributionProperty := &InstancesDistributionProperty{
+//   	DistributionSegments: []interface{}{
+//   		&DistributionSegmentProperty{
+//   			TargetCapacityTypes: []*string{
+//   				jsii.String("targetCapacityTypes"),
+//   			},
+//   		},
+//   	},
 //   	OnDemandAllocationStrategy: jsii.String("onDemandAllocationStrategy"),
 //   	OnDemandBaseCapacity: jsii.Number(123),
 //   	OnDemandPercentageAboveBaseCapacity: jsii.Number(123),
@@ -24,6 +31,9 @@ package awsautoscaling
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html
 //
 type CfnAutoScalingGroup_InstancesDistributionProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-distributionsegments
+	//
+	DistributionSegments interface{} `field:"optional" json:"distributionSegments" yaml:"distributionSegments"`
 	// The allocation strategy to apply to your On-Demand Instances when they are launched.
 	//
 	// Possible instance types are determined by the launch template overrides that you specify.

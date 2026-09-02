@@ -37,6 +37,11 @@ package awsmedialive
 //   				Sid: jsii.Number(123),
 //   				Timezone: jsii.String("timezone"),
 //   			},
+//   			NielsenNwOnlySettings: &NielsenNwOnlyProperty{
+//   				CheckDigitString: jsii.String("checkDigitString"),
+//   				Sid: jsii.Number(123),
+//   				Timezone: jsii.String("timezone"),
+//   			},
 //   		},
 //   	},
 //   	CodecSettings: &AudioCodecSettingsProperty{

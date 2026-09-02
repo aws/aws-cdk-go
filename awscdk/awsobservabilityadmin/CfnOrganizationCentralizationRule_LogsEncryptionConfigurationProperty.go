@@ -15,6 +15,7 @@ package awsobservabilityadmin
 //
 //   	// the properties below are optional
 //   	EncryptionConflictResolutionStrategy: jsii.String("encryptionConflictResolutionStrategy"),
+//   	EncryptionScope: jsii.String("encryptionScope"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   }
 //
@@ -33,6 +34,9 @@ type CfnOrganizationCentralizationRule_LogsEncryptionConfigurationProperty struc
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration-encryptionconflictresolutionstrategy
 	//
 	EncryptionConflictResolutionStrategy *string `field:"optional" json:"encryptionConflictResolutionStrategy" yaml:"encryptionConflictResolutionStrategy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration-encryptionscope
+	//
+	EncryptionScope *string `field:"optional" json:"encryptionScope" yaml:"encryptionScope"`
 	// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration.html#cfn-observabilityadmin-organizationcentralizationrule-logsencryptionconfiguration-kmskeyarn
 	//

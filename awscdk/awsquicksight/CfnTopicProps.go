@@ -304,6 +304,7 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-configoptions
 	//
 	ConfigOptions interface{} `field:"optional" json:"configOptions" yaml:"configOptions"`
+	// <p>Instructions that provide additional guidance and context for response generation.</p>.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-custominstructions
 	//
 	CustomInstructions interface{} `field:"optional" json:"customInstructions" yaml:"customInstructions"`

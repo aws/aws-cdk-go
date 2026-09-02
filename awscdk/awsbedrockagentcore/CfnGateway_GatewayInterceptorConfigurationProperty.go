@@ -19,6 +19,15 @@ package awsbedrockagentcore
 //   	// the properties below are optional
 //   	InputConfiguration: &InterceptorInputConfigurationProperty{
 //   		PassRequestHeaders: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		PayloadFilter: &InterceptorPayloadFilterProperty{
+//   			Exclude: []interface{}{
+//   				&InterceptorPayloadExclusionSelectorProperty{
+//   					Field: jsii.String("field"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   }
 //

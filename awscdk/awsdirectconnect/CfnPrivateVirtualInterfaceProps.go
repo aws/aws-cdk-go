@@ -33,6 +33,7 @@ import (
 //   	DirectConnectGatewayId: jsii.String("directConnectGatewayId"),
 //   	EnableSiteLink: jsii.Boolean(false),
 //   	Mtu: jsii.Number(123),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -81,6 +82,12 @@ type CfnPrivateVirtualInterfaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-privatevirtualinterface.html#cfn-directconnect-privatevirtualinterface-mtu
 	//
 	Mtu *float64 `field:"optional" json:"mtu" yaml:"mtu"`
+	// The rate limit (bandwidth allocation) for the virtual interface.
+	//
+	// The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-privatevirtualinterface.html#cfn-directconnect-privatevirtualinterface-ratelimit
+	//
+	RateLimit *string `field:"optional" json:"rateLimit" yaml:"rateLimit"`
 	// The tags associated with the private virtual interface.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directconnect-privatevirtualinterface.html#cfn-directconnect-privatevirtualinterface-tags
 	//

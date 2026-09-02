@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   mLTransformReference := &MLTransformReference{
-//   	MlTransformId: jsii.String("mlTransformId"),
+//   	TransformId: jsii.String("transformId"),
 //   }
 //
 type MLTransformReference struct {
-	// The Id of the MLTransform resource.
-	MlTransformId *string `field:"required" json:"mlTransformId" yaml:"mlTransformId"`
+	// The TransformId of the MLTransform resource.
+	TransformId *string `field:"required" json:"transformId" yaml:"transformId"`
 }
 

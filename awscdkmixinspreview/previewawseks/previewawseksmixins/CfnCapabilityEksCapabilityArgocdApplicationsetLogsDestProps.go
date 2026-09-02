@@ -8,7 +8,7 @@ package previewawseksmixins
 //
 //   cfnCapabilityEksCapabilityArgocdApplicationsetLogsDestProps := &CfnCapabilityEksCapabilityArgocdApplicationsetLogsDestProps{
 //   	RecordFields: []CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_STREAM,
+//   		awscdkmixinspreview.Mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

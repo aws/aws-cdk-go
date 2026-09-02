@@ -28,6 +28,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.CapacityReservationsProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_CapacityReservationsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.ComputeResourcesProperty",
 		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_ComputeResourcesProperty)(nil)).Elem(),
 	)
@@ -40,8 +44,24 @@ func init() {
 		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_Ec2ConfigurationObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.EcsSettingsProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_EcsSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.EksConfigurationProperty",
 		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_EksConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.InfrastructureOptimizationProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_InfrastructureOptimizationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.InstanceLaunchTemplateProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_InstanceLaunchTemplateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_InstanceRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.LaunchTemplateSpecificationOverrideProperty",
@@ -50,6 +70,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.LaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_LaunchTemplateSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.ManagedInstancesLocalStorageConfigurationProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_ManagedInstancesLocalStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.ManagedInstancesNetworkConfigurationProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_ManagedInstancesNetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.ManagedInstancesProviderProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_ManagedInstancesProviderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.ManagedInstancesStorageConfigurationProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_ManagedInstancesStorageConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.UpdatePolicyProperty",

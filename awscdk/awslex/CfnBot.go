@@ -40,11 +40,17 @@ type CfnBot interface {
 	// A list of locales for the bot.
 	BotLocales() interface{}
 	SetBotLocales(val interface{})
+	// The list of bot members in a network to be created.
+	BotMembers() interface{}
+	SetBotMembers(val interface{})
 	// A reference to a Bot resource.
 	BotRef() *interfacesawslex.BotReference
 	// A list of tags to add to the bot.
 	BotTags() *[]*awscdk.CfnTag
 	SetBotTags(val *[]*awscdk.CfnTag)
+	// The type of a bot to create.
+	BotType() *string
+	SetBotType(val *string)
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -338,6 +344,16 @@ func (j *jsiiProxy_CfnBot) BotLocales() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBot) BotMembers() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"botMembers",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBot) BotRef() *interfacesawslex.BotReference {
 	var returns *interfacesawslex.BotReference
 	_jsii_.Get(
@@ -353,6 +369,16 @@ func (j *jsiiProxy_CfnBot) BotTags() *[]*awscdk.CfnTag {
 	_jsii_.Get(
 		j,
 		"botTags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBot) BotType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"botType",
 		&returns,
 	)
 	return returns
@@ -641,6 +667,17 @@ func (j *jsiiProxy_CfnBot)SetBotLocales(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnBot)SetBotMembers(val interface{}) {
+	if err := j.validateSetBotMembersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"botMembers",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnBot)SetBotTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetBotTagsParameters(val); err != nil {
 		panic(err)
@@ -648,6 +685,14 @@ func (j *jsiiProxy_CfnBot)SetBotTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"botTags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBot)SetBotType(val *string) {
+	_jsii_.Set(
+		j,
+		"botType",
 		val,
 	)
 }

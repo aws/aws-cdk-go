@@ -6,7 +6,6 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawssignerIProfilePermissionRef = interfacesawssigner.IProfilePermissionRef
-type Type__interfacesawssignerISigningJobRef = interfacesawssigner.ISigningJobRef
 type Type__interfacesawssignerISigningProfileRef = interfacesawssigner.ISigningProfileRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__awscdkIResource = awscdk.IResource

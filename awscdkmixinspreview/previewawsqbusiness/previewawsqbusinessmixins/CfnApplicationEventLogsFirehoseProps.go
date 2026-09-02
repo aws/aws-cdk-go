@@ -7,15 +7,15 @@ package previewawsqbusinessmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnApplicationEventLogsFirehoseProps := &CfnApplicationEventLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnApplicationEventLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnApplicationEventLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnApplicationEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnApplicationEventLogsRecordFields_APPLICATION_ID,
+//   		awscdkmixinspreview.*Mixins.CfnApplicationEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnApplicationEventLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnApplicationEventLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

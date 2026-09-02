@@ -37,6 +37,17 @@ import (
 //   						TopP: jsii.Number(123),
 //   					},
 //   				},
+//   				ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   					ModelId: jsii.String("modelId"),
+//
+//   					// the properties below are optional
+//   					MaxOutputTokens: jsii.Number(123),
+//   					Reasoning: &ReasoningConfigurationProperty{
+//   						Effort: jsii.String("effort"),
+//   					},
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
 //   			},
 //   			RatingScale: &RatingScaleProperty{
 //   				Categorical: []interface{}{

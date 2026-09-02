@@ -8,30 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnAllGroupMembershipsMixinProps",
-		reflect.TypeOf((*CfnAllGroupMembershipsMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnAllGroupMembershipsPropsMixin",
-		reflect.TypeOf((*CfnAllGroupMembershipsPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnAllGroupMembershipsPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnAllGroupMembershipsPropsMixin.MemberIdProperty",
-		reflect.TypeOf((*CfnAllGroupMembershipsPropsMixin_MemberIdProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnGroupMembershipMixinProps",
 		reflect.TypeOf((*CfnGroupMembershipMixinProps)(nil)).Elem(),
 	)
@@ -74,5 +50,49 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserMixinProps",
+		reflect.TypeOf((*CfnUserMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin",
+		reflect.TypeOf((*CfnUserPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnUserPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin.AddressesItemsProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_AddressesItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin.EmailsItemsProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_EmailsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin.NameProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_NameProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin.PhoneNumbersItemsProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_PhoneNumbersItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin.PhotosItemsProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_PhotosItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_identitystore.CfnUserPropsMixin.RolesItemsProperty",
+		reflect.TypeOf((*CfnUserPropsMixin_RolesItemsProperty)(nil)).Elem(),
 	)
 }

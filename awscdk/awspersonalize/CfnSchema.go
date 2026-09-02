@@ -34,6 +34,12 @@ import (
 //
 //   	// the properties below are optional
 //   	Domain: jsii.String("domain"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html
@@ -42,8 +48,11 @@ type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawspersonalize.ISchemaRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the schema.
 	AttrSchemaArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -87,6 +96,9 @@ type CfnSchema interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The tags used to organize, track, or control access for this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -268,6 +280,7 @@ type jsiiProxy_CfnSchema struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawspersonalizeISchemaRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnSchema) AttrSchemaArn() *string {
@@ -275,6 +288,16 @@ func (j *jsiiProxy_CfnSchema) AttrSchemaArn() *string {
 	_jsii_.Get(
 		j,
 		"attrSchemaArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSchema) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -420,6 +443,16 @@ func (j *jsiiProxy_CfnSchema) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSchema) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSchema) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -496,6 +529,17 @@ func (j *jsiiProxy_CfnSchema)SetSchema(val *string) {
 	_jsii_.Set(
 		j,
 		"schema",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSchema)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

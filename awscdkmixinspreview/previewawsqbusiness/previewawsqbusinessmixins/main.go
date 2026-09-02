@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_qbusiness.mixins.CfnApplicationEventLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnApplicationEventLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnApplicationEventLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnApplicationEventLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnApplicationEventLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnApplicationEventLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_qbusiness.mixins.CfnApplicationEventLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnApplicationEventLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnApplicationEventLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnApplicationEventLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnApplicationEventLogsOutputFormat_S3_JSON,
 			"W3C": CfnApplicationEventLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnApplicationEventLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_qbusiness.mixins.CfnApplicationEventLogsRecordFields",
 		reflect.TypeOf((*CfnApplicationEventLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnApplicationEventLogsRecordFields_TIMESTAMP,
 			"APPLICATION_ID": CfnApplicationEventLogsRecordFields_APPLICATION_ID,
 			"EVENT_TIMESTAMP": CfnApplicationEventLogsRecordFields_EVENT_TIMESTAMP,
 			"LOG_TYPE": CfnApplicationEventLogsRecordFields_LOG_TYPE,
@@ -85,6 +86,17 @@ func init() {
 			"COMMENT": CfnApplicationEventLogsRecordFields_COMMENT,
 			"USEFULNESS_REASON": CfnApplicationEventLogsRecordFields_USEFULNESS_REASON,
 			"USEFULNESS": CfnApplicationEventLogsRecordFields_USEFULNESS,
+			"USER_EMAIL": CfnApplicationEventLogsRecordFields_USER_EMAIL,
+			"HALLUCINATED_MESSAGE": CfnApplicationEventLogsRecordFields_HALLUCINATED_MESSAGE,
+			"CHAT_MODE": CfnApplicationEventLogsRecordFields_CHAT_MODE,
+			"CHAT_LATENCY": CfnApplicationEventLogsRecordFields_CHAT_LATENCY,
+			"TIME_TO_FIRST_TOKEN": CfnApplicationEventLogsRecordFields_TIME_TO_FIRST_TOKEN,
+			"TITLE": CfnApplicationEventLogsRecordFields_TITLE,
+			"URL": CfnApplicationEventLogsRecordFields_URL,
+			"CHAT_TYPE": CfnApplicationEventLogsRecordFields_CHAT_TYPE,
+			"PLUGIN_ID": CfnApplicationEventLogsRecordFields_PLUGIN_ID,
+			"PLUGIN_TYPE": CfnApplicationEventLogsRecordFields_PLUGIN_TYPE,
+			"UNIQUE_USER_ID": CfnApplicationEventLogsRecordFields_UNIQUE_USER_ID,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -144,8 +156,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_qbusiness.mixins.CfnApplicationSyncJobLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnApplicationSyncJobLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnApplicationSyncJobLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnApplicationSyncJobLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnApplicationSyncJobLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnApplicationSyncJobLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -161,8 +173,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_qbusiness.mixins.CfnApplicationSyncJobLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnApplicationSyncJobLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnApplicationSyncJobLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnApplicationSyncJobLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnApplicationSyncJobLogsOutputFormat_S3_JSON,
 			"W3C": CfnApplicationSyncJobLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnApplicationSyncJobLogsOutputFormat_S3_PARQUET,
 		},
@@ -171,6 +183,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_qbusiness.mixins.CfnApplicationSyncJobLogsRecordFields",
 		reflect.TypeOf((*CfnApplicationSyncJobLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnApplicationSyncJobLogsRecordFields_TIMESTAMP,
 			"AWSACCOUNTID": CfnApplicationSyncJobLogsRecordFields_AWSACCOUNTID,
 			"DATASOURCEID": CfnApplicationSyncJobLogsRecordFields_DATASOURCEID,
 			"SYNCJOBID": CfnApplicationSyncJobLogsRecordFields_SYNCJOBID,

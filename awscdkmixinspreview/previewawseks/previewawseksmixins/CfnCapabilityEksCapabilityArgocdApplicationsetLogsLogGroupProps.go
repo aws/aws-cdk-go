@@ -9,7 +9,7 @@ package previewawseksmixins
 //   cfnCapabilityEksCapabilityArgocdApplicationsetLogsLogGroupProps := &CfnCapabilityEksCapabilityArgocdApplicationsetLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_STREAM,
+//   		awscdkmixinspreview.*Mixins.CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

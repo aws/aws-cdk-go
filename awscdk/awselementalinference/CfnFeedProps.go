@@ -8,8 +8,6 @@ package awselementalinference
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var cropping interface{}
-//
 //   cfnFeedProps := &CfnFeedProps{
 //   	Name: jsii.String("name"),
 //   	Outputs: []interface{}{
@@ -18,8 +16,20 @@ package awselementalinference
 //   			OutputConfig: &OutputConfigProperty{
 //   				Clipping: &ClippingConfigProperty{
 //   					CallbackMetadata: jsii.String("callbackMetadata"),
+//   					DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   						FixtureId: jsii.String("fixtureId"),
+//   					},
 //   				},
-//   				Cropping: cropping,
+//   				Cropping: &CroppingConfigProperty{
+//   					TemplateGroups: []interface{}{
+//   						&TemplateGroupProperty{
+//   							Name: jsii.String("name"),
+//   							TemplateUris: []*string{
+//   								jsii.String("templateUris"),
+//   							},
+//   						},
+//   					},
+//   				},
 //   				Subtitling: &SubtitlingConfigProperty{
 //   					Language: jsii.String("language"),
 //
@@ -40,6 +50,7 @@ package awselementalinference
 //   	},
 //
 //   	// the properties below are optional
+//   	AccessRoleArn: jsii.String("accessRoleArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -54,6 +65,9 @@ type CfnFeedProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elementalinference-feed.html#cfn-elementalinference-feed-outputs
 	//
 	Outputs interface{} `field:"required" json:"outputs" yaml:"outputs"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elementalinference-feed.html#cfn-elementalinference-feed-accessrolearn
+	//
+	AccessRoleArn *string `field:"optional" json:"accessRoleArn" yaml:"accessRoleArn"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elementalinference-feed.html#cfn-elementalinference-feed-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

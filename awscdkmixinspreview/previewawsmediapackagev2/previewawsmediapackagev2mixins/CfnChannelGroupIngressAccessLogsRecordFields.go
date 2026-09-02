@@ -6,6 +6,8 @@ type CfnChannelGroupIngressAccessLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnChannelGroupIngressAccessLogsRecordFields_TIMESTAMP CfnChannelGroupIngressAccessLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnChannelGroupIngressAccessLogsRecordFields_RESOURCE_ARN CfnChannelGroupIngressAccessLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.
 	CfnChannelGroupIngressAccessLogsRecordFields_EVENT_TIMESTAMP CfnChannelGroupIngressAccessLogsRecordFields = "EVENT_TIMESTAMP"

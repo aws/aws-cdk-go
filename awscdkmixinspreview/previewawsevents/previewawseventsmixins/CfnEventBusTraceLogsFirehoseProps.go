@@ -7,15 +7,15 @@ package previewawseventsmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnEventBusTraceLogsFirehoseProps := &CfnEventBusTraceLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnEventBusTraceLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnEventBusTraceLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnEventBusTraceLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnEventBusTraceLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnEventBusTraceLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnEventBusTraceLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnEventBusTraceLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

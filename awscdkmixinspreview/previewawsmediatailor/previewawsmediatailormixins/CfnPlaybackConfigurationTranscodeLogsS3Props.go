@@ -14,9 +14,9 @@ import (
 //
 //   cfnPlaybackConfigurationTranscodeLogsS3Props := &CfnPlaybackConfigurationTranscodeLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnPlaybackConfigurationTranscodeLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnPlaybackConfigurationTranscodeLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnPlaybackConfigurationTranscodeLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTYPE,
+//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationTranscodeLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnPlaybackConfigurationTranscodeLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

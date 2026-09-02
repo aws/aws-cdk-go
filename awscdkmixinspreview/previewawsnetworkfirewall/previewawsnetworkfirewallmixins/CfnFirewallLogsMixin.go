@@ -125,23 +125,23 @@ func CfnFirewallLogsMixin_ALERT_LOGS() CfnFirewallAlertLogs {
 	return returns
 }
 
-func CfnFirewallLogsMixin_FLOW_LOGS() CfnFirewallFlowLogs {
+func CfnFirewallLogsMixin_ALLOW_LOGS() CfnFirewallAllowLogs {
 	_init_.Initialize()
-	var returns CfnFirewallFlowLogs
+	var returns CfnFirewallAllowLogs
 	_jsii_.StaticGet(
 		"@aws-cdk/mixins-preview.aws_networkfirewall.mixins.CfnFirewallLogsMixin",
-		"FLOW_LOGS",
+		"ALLOW_LOGS",
 		&returns,
 	)
 	return returns
 }
 
-func CfnFirewallLogsMixin_TLS_LOGS() CfnFirewallTlsLogs {
+func CfnFirewallLogsMixin_DENY_LOGS() CfnFirewallDenyLogs {
 	_init_.Initialize()
-	var returns CfnFirewallTlsLogs
+	var returns CfnFirewallDenyLogs
 	_jsii_.StaticGet(
 		"@aws-cdk/mixins-preview.aws_networkfirewall.mixins.CfnFirewallLogsMixin",
-		"TLS_LOGS",
+		"DENY_LOGS",
 		&returns,
 	)
 	return returns

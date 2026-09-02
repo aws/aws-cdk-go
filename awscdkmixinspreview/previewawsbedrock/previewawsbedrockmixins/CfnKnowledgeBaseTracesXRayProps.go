@@ -7,8 +7,8 @@ package previewawsbedrockmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnKnowledgeBaseTracesXRayProps := &CfnKnowledgeBaseTracesXRayProps{
-//   	RecordFields: []tRACE{
-//   		awscdkmixinspreview.Mixins.CfnKnowledgeBaseTracesRecordFields_*tRACE,
+//   	RecordFields: []CfnKnowledgeBaseTracesRecordFields{
+//   		awscdkmixinspreview.Mixins.CfnKnowledgeBaseTracesRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -8,12 +8,32 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_guardduty.CustomDetectionRuleAssociationReference",
+		reflect.TypeOf((*CustomDetectionRuleAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_guardduty.DetectorReference",
 		reflect.TypeOf((*DetectorReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_guardduty.FilterReference",
 		reflect.TypeOf((*FilterReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_guardduty.ICustomDetectionRuleAssociationRef",
+		reflect.TypeOf((*ICustomDetectionRuleAssociationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customDetectionRuleAssociationRef", GoGetter: "CustomDetectionRuleAssociationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICustomDetectionRuleAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_guardduty.IDetectorRef",

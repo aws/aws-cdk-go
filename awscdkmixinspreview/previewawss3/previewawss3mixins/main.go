@@ -82,9 +82,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_s3.mixins.CfnBucketS3ServerAccessLogsRecordFields",
 		reflect.TypeOf((*CfnBucketS3ServerAccessLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
-			"BUCKET_NAME": CfnBucketS3ServerAccessLogsRecordFields_BUCKET_NAME,
 			"SCHEMA_VERSION_ID": CfnBucketS3ServerAccessLogsRecordFields_SCHEMA_VERSION_ID,
 			"BUCKET_ARN": CfnBucketS3ServerAccessLogsRecordFields_BUCKET_ARN,
+			"BUCKET_NAME": CfnBucketS3ServerAccessLogsRecordFields_BUCKET_NAME,
 			"REQUEST_TIME": CfnBucketS3ServerAccessLogsRecordFields_REQUEST_TIME,
 			"BUCKET_OWNER_ID": CfnBucketS3ServerAccessLogsRecordFields_BUCKET_OWNER_ID,
 			"REMOTE_IP": CfnBucketS3ServerAccessLogsRecordFields_REMOTE_IP,

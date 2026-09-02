@@ -10,6 +10,9 @@ package awsbedrockagentcore
 //   	DiscoveryUrl: jsii.String("discoveryUrl"),
 //
 //   	// the properties below are optional
+//   	AdvertisedScopeMapping: map[string]*string{
+//   		"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   	},
 //   	AllowedAudience: []*string{
 //   		jsii.String("allowedAudience"),
 //   	},
@@ -61,6 +64,10 @@ type CfnGateway_CustomJWTAuthorizerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-discoveryurl
 	//
 	DiscoveryUrl *string `field:"required" json:"discoveryUrl" yaml:"discoveryUrl"`
+	// Maps an originalScope (from allowedScopes) to an advertisedScope exposed in WWW-Authenticate / Protected Resource Metadata.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-advertisedscopemapping
+	//
+	AdvertisedScopeMapping interface{} `field:"optional" json:"advertisedScopeMapping" yaml:"advertisedScopeMapping"`
 	// The allowed audience authorized for the gateway target.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html#cfn-bedrockagentcore-gateway-customjwtauthorizerconfiguration-allowedaudience
 	//

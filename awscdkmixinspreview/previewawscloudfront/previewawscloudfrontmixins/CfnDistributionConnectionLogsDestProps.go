@@ -8,7 +8,7 @@ package previewawscloudfrontmixins
 //
 //   cfnDistributionConnectionLogsDestProps := &CfnDistributionConnectionLogsDestProps{
 //   	RecordFields: []CfnDistributionConnectionLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnDistributionConnectionLogsRecordFields_CONNECTIONSTATUS,
+//   		awscdkmixinspreview.Mixins.CfnDistributionConnectionLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

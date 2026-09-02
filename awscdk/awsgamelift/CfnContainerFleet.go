@@ -85,12 +85,12 @@ import (
 //   	PlayerGatewayMode: jsii.String("playerGatewayMode"),
 //   	ScalingPolicies: []interface{}{
 //   		&ScalingPolicyProperty{
-//   			MetricName: jsii.String("metricName"),
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
 //   			ComparisonOperator: jsii.String("comparisonOperator"),
 //   			EvaluationPeriods: jsii.Number(123),
+//   			MetricName: jsii.String("metricName"),
 //   			PolicyType: jsii.String("policyType"),
 //   			ScalingAdjustment: jsii.Number(123),
 //   			ScalingAdjustmentType: jsii.String("scalingAdjustmentType"),

@@ -7,15 +7,15 @@ package previewawsbedrockagentcoremixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnWorkloadIdentityApplicationLogsFirehoseProps := &CfnWorkloadIdentityApplicationLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnWorkloadIdentityApplicationLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnWorkloadIdentityApplicationLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnWorkloadIdentityApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST_ID,
+//   		awscdkmixinspreview.*Mixins.CfnWorkloadIdentityApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnWorkloadIdentityApplicationLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnWorkloadIdentityApplicationLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

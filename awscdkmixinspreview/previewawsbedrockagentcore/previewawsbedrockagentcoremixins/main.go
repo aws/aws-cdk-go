@@ -24,6 +24,42 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomTraces",
+		reflect.TypeOf((*CfnBrowserCustomTraces)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toXRay", GoMethod: "ToXRay"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnBrowserCustomTraces{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomTracesDestProps",
+		reflect.TypeOf((*CfnBrowserCustomTracesDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomTracesOutputFormat",
+		reflect.TypeOf((*CfnBrowserCustomTracesOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnBrowserCustomTracesOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomTracesRecordFields",
+		reflect.TypeOf((*CfnBrowserCustomTracesRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnBrowserCustomTracesRecordFields_TIMESTAMP,
+			"RESOURCEARN": CfnBrowserCustomTracesRecordFields_RESOURCEARN,
+			"TRACE": CfnBrowserCustomTracesRecordFields_TRACE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomTracesXRayProps",
+		reflect.TypeOf((*CfnBrowserCustomTracesXRayProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomUsageLogs",
 		reflect.TypeOf((*CfnBrowserCustomUsageLogs)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -60,8 +96,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomUsageLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnBrowserCustomUsageLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnBrowserCustomUsageLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnBrowserCustomUsageLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnBrowserCustomUsageLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnBrowserCustomUsageLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -77,8 +113,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomUsageLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnBrowserCustomUsageLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnBrowserCustomUsageLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnBrowserCustomUsageLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnBrowserCustomUsageLogsOutputFormat_S3_JSON,
 			"W3C": CfnBrowserCustomUsageLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnBrowserCustomUsageLogsOutputFormat_S3_PARQUET,
 		},
@@ -87,6 +123,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomUsageLogsRecordFields",
 		reflect.TypeOf((*CfnBrowserCustomUsageLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnBrowserCustomUsageLogsRecordFields_TIMESTAMP,
+			"BROWSER_ID": CfnBrowserCustomUsageLogsRecordFields_BROWSER_ID,
+			"INTERNAL_ACCOUNTID_BASED_ARN": CfnBrowserCustomUsageLogsRecordFields_INTERNAL_ACCOUNTID_BASED_ARN,
 			"RESOURCE_ARN": CfnBrowserCustomUsageLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnBrowserCustomUsageLogsRecordFields_EVENT_TIMESTAMP,
 			"RESOURCE": CfnBrowserCustomUsageLogsRecordFields_RESOURCE,
@@ -97,186 +136,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserCustomUsageLogsS3Props",
 		reflect.TypeOf((*CfnBrowserCustomUsageLogsS3Props)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserLogsMixin",
-		reflect.TypeOf((*CfnBrowserLogsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
-			_jsii_.MemberProperty{JsiiProperty: "logType", GoGetter: "LogType"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnBrowserLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogs",
-		reflect.TypeOf((*CfnBrowserUsageLogs)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
-			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
-			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnBrowserUsageLogs{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsDestProps",
-		reflect.TypeOf((*CfnBrowserUsageLogsDestProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsFirehoseProps",
-		reflect.TypeOf((*CfnBrowserUsageLogsFirehoseProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsLogGroupProps",
-		reflect.TypeOf((*CfnBrowserUsageLogsLogGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsOutputFormat",
-		reflect.TypeOf((*CfnBrowserUsageLogsOutputFormat)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_CfnBrowserUsageLogsOutputFormat{}
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsOutputFormat.Firehose",
-		reflect.TypeOf((*CfnBrowserUsageLogsOutputFormat_Firehose)(nil)).Elem(),
-		map[string]interface{}{
-			"JSON": CfnBrowserUsageLogsOutputFormat_Firehose_JSON,
-			"PLAIN": CfnBrowserUsageLogsOutputFormat_Firehose_PLAIN,
-			"RAW": CfnBrowserUsageLogsOutputFormat_Firehose_RAW,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsOutputFormat.LogGroup",
-		reflect.TypeOf((*CfnBrowserUsageLogsOutputFormat_LogGroup)(nil)).Elem(),
-		map[string]interface{}{
-			"PLAIN": CfnBrowserUsageLogsOutputFormat_LogGroup_PLAIN,
-			"JSON": CfnBrowserUsageLogsOutputFormat_LogGroup_JSON,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsOutputFormat.S3",
-		reflect.TypeOf((*CfnBrowserUsageLogsOutputFormat_S3)(nil)).Elem(),
-		map[string]interface{}{
-			"JSON": CfnBrowserUsageLogsOutputFormat_S3_JSON,
-			"PLAIN": CfnBrowserUsageLogsOutputFormat_S3_PLAIN,
-			"W3C": CfnBrowserUsageLogsOutputFormat_S3_W3C,
-			"PARQUET": CfnBrowserUsageLogsOutputFormat_S3_PARQUET,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsRecordFields",
-		reflect.TypeOf((*CfnBrowserUsageLogsRecordFields)(nil)).Elem(),
-		map[string]interface{}{
-			"RESOURCE_ARN": CfnBrowserUsageLogsRecordFields_RESOURCE_ARN,
-			"EVENT_TIMESTAMP": CfnBrowserUsageLogsRecordFields_EVENT_TIMESTAMP,
-			"RESOURCE": CfnBrowserUsageLogsRecordFields_RESOURCE,
-			"ATTRIBUTES": CfnBrowserUsageLogsRecordFields_ATTRIBUTES,
-			"METRICS": CfnBrowserUsageLogsRecordFields_METRICS,
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnBrowserUsageLogsS3Props",
-		reflect.TypeOf((*CfnBrowserUsageLogsS3Props)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogs",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogs)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
-			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
-			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnCodeInterpreterApplicationLogs{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsDestProps",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsDestProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsFirehoseProps",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsFirehoseProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsLogGroupProps",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsLogGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsOutputFormat",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsOutputFormat)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_CfnCodeInterpreterApplicationLogsOutputFormat{}
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsOutputFormat.Firehose",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
-		map[string]interface{}{
-			"JSON": CfnCodeInterpreterApplicationLogsOutputFormat_Firehose_JSON,
-			"PLAIN": CfnCodeInterpreterApplicationLogsOutputFormat_Firehose_PLAIN,
-			"RAW": CfnCodeInterpreterApplicationLogsOutputFormat_Firehose_RAW,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsOutputFormat.LogGroup",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsOutputFormat_LogGroup)(nil)).Elem(),
-		map[string]interface{}{
-			"PLAIN": CfnCodeInterpreterApplicationLogsOutputFormat_LogGroup_PLAIN,
-			"JSON": CfnCodeInterpreterApplicationLogsOutputFormat_LogGroup_JSON,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsOutputFormat.S3",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsOutputFormat_S3)(nil)).Elem(),
-		map[string]interface{}{
-			"JSON": CfnCodeInterpreterApplicationLogsOutputFormat_S3_JSON,
-			"PLAIN": CfnCodeInterpreterApplicationLogsOutputFormat_S3_PLAIN,
-			"W3C": CfnCodeInterpreterApplicationLogsOutputFormat_S3_W3C,
-			"PARQUET": CfnCodeInterpreterApplicationLogsOutputFormat_S3_PARQUET,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsRecordFields",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsRecordFields)(nil)).Elem(),
-		map[string]interface{}{
-			"ACCOUNT_ID": CfnCodeInterpreterApplicationLogsRecordFields_ACCOUNT_ID,
-			"REQUEST_ID": CfnCodeInterpreterApplicationLogsRecordFields_REQUEST_ID,
-			"TOOL_SESSION_ID": CfnCodeInterpreterApplicationLogsRecordFields_TOOL_SESSION_ID,
-			"SPAN_ID": CfnCodeInterpreterApplicationLogsRecordFields_SPAN_ID,
-			"TRACE_ID": CfnCodeInterpreterApplicationLogsRecordFields_TRACE_ID,
-			"SERVICE_NAME": CfnCodeInterpreterApplicationLogsRecordFields_SERVICE_NAME,
-			"OPERATION": CfnCodeInterpreterApplicationLogsRecordFields_OPERATION,
-			"REQUEST_PAYLOAD": CfnCodeInterpreterApplicationLogsRecordFields_REQUEST_PAYLOAD,
-			"RESPONSE_PAYLOAD": CfnCodeInterpreterApplicationLogsRecordFields_RESPONSE_PAYLOAD,
-			"RESOURCE": CfnCodeInterpreterApplicationLogsRecordFields_RESOURCE,
-			"ATTRIBUTES": CfnCodeInterpreterApplicationLogsRecordFields_ATTRIBUTES,
-			"TIMEUNIXNANO": CfnCodeInterpreterApplicationLogsRecordFields_TIMEUNIXNANO,
-			"SEVERITYNUMBER": CfnCodeInterpreterApplicationLogsRecordFields_SEVERITYNUMBER,
-			"SEVERITYTEXT": CfnCodeInterpreterApplicationLogsRecordFields_SEVERITYTEXT,
-			"BODY": CfnCodeInterpreterApplicationLogsRecordFields_BODY,
-			"TRACEID": CfnCodeInterpreterApplicationLogsRecordFields_TRACEID,
-			"SPANID": CfnCodeInterpreterApplicationLogsRecordFields_SPANID,
-			"RESOURCE_ARN": CfnCodeInterpreterApplicationLogsRecordFields_RESOURCE_ARN,
-			"EVENT_TIMESTAMP": CfnCodeInterpreterApplicationLogsRecordFields_EVENT_TIMESTAMP,
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterApplicationLogsS3Props",
-		reflect.TypeOf((*CfnCodeInterpreterApplicationLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomApplicationLogs",
@@ -315,8 +174,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnCodeInterpreterCustomApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -332,8 +191,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnCodeInterpreterCustomApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnCodeInterpreterCustomApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnCodeInterpreterCustomApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnCodeInterpreterCustomApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnCodeInterpreterCustomApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnCodeInterpreterCustomApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -342,6 +201,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnCodeInterpreterCustomApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnCodeInterpreterCustomApplicationLogsRecordFields_TIMESTAMP,
+			"TOOL_ID": CfnCodeInterpreterCustomApplicationLogsRecordFields_TOOL_ID,
+			"INTERNAL_ACCOUNTID_BASED_ARN": CfnCodeInterpreterCustomApplicationLogsRecordFields_INTERNAL_ACCOUNTID_BASED_ARN,
 			"ACCOUNT_ID": CfnCodeInterpreterCustomApplicationLogsRecordFields_ACCOUNT_ID,
 			"REQUEST_ID": CfnCodeInterpreterCustomApplicationLogsRecordFields_REQUEST_ID,
 			"TOOL_SESSION_ID": CfnCodeInterpreterCustomApplicationLogsRecordFields_TOOL_SESSION_ID,
@@ -384,6 +246,42 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomTraces",
+		reflect.TypeOf((*CfnCodeInterpreterCustomTraces)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toXRay", GoMethod: "ToXRay"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnCodeInterpreterCustomTraces{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomTracesDestProps",
+		reflect.TypeOf((*CfnCodeInterpreterCustomTracesDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomTracesOutputFormat",
+		reflect.TypeOf((*CfnCodeInterpreterCustomTracesOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnCodeInterpreterCustomTracesOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomTracesRecordFields",
+		reflect.TypeOf((*CfnCodeInterpreterCustomTracesRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnCodeInterpreterCustomTracesRecordFields_TIMESTAMP,
+			"RESOURCEARN": CfnCodeInterpreterCustomTracesRecordFields_RESOURCEARN,
+			"TRACE": CfnCodeInterpreterCustomTracesRecordFields_TRACE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomTracesXRayProps",
+		reflect.TypeOf((*CfnCodeInterpreterCustomTracesXRayProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomUsageLogs",
 		reflect.TypeOf((*CfnCodeInterpreterCustomUsageLogs)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -420,8 +318,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomUsageLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnCodeInterpreterCustomUsageLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnCodeInterpreterCustomUsageLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnCodeInterpreterCustomUsageLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnCodeInterpreterCustomUsageLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnCodeInterpreterCustomUsageLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -437,8 +335,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomUsageLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnCodeInterpreterCustomUsageLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnCodeInterpreterCustomUsageLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnCodeInterpreterCustomUsageLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnCodeInterpreterCustomUsageLogsOutputFormat_S3_JSON,
 			"W3C": CfnCodeInterpreterCustomUsageLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnCodeInterpreterCustomUsageLogsOutputFormat_S3_PARQUET,
 		},
@@ -447,6 +345,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomUsageLogsRecordFields",
 		reflect.TypeOf((*CfnCodeInterpreterCustomUsageLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnCodeInterpreterCustomUsageLogsRecordFields_TIMESTAMP,
+			"CODEINTERPRETER_ID": CfnCodeInterpreterCustomUsageLogsRecordFields_CODEINTERPRETER_ID,
+			"INTERNAL_ACCOUNTID_BASED_ARN": CfnCodeInterpreterCustomUsageLogsRecordFields_INTERNAL_ACCOUNTID_BASED_ARN,
 			"RESOURCE_ARN": CfnCodeInterpreterCustomUsageLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnCodeInterpreterCustomUsageLogsRecordFields_EVENT_TIMESTAMP,
 			"RESOURCE": CfnCodeInterpreterCustomUsageLogsRecordFields_RESOURCE,
@@ -457,97 +358,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterCustomUsageLogsS3Props",
 		reflect.TypeOf((*CfnCodeInterpreterCustomUsageLogsS3Props)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterLogsMixin",
-		reflect.TypeOf((*CfnCodeInterpreterLogsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "logDelivery", GoGetter: "LogDelivery"},
-			_jsii_.MemberProperty{JsiiProperty: "logType", GoGetter: "LogType"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnCodeInterpreterLogsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogs",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogs)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
-			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
-			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
-		},
-		func() interface{} {
-			return &jsiiProxy_CfnCodeInterpreterUsageLogs{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsDestProps",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsDestProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsFirehoseProps",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsFirehoseProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsLogGroupProps",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsLogGroupProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsOutputFormat",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsOutputFormat)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_CfnCodeInterpreterUsageLogsOutputFormat{}
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsOutputFormat.Firehose",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsOutputFormat_Firehose)(nil)).Elem(),
-		map[string]interface{}{
-			"JSON": CfnCodeInterpreterUsageLogsOutputFormat_Firehose_JSON,
-			"PLAIN": CfnCodeInterpreterUsageLogsOutputFormat_Firehose_PLAIN,
-			"RAW": CfnCodeInterpreterUsageLogsOutputFormat_Firehose_RAW,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsOutputFormat.LogGroup",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsOutputFormat_LogGroup)(nil)).Elem(),
-		map[string]interface{}{
-			"PLAIN": CfnCodeInterpreterUsageLogsOutputFormat_LogGroup_PLAIN,
-			"JSON": CfnCodeInterpreterUsageLogsOutputFormat_LogGroup_JSON,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsOutputFormat.S3",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsOutputFormat_S3)(nil)).Elem(),
-		map[string]interface{}{
-			"JSON": CfnCodeInterpreterUsageLogsOutputFormat_S3_JSON,
-			"PLAIN": CfnCodeInterpreterUsageLogsOutputFormat_S3_PLAIN,
-			"W3C": CfnCodeInterpreterUsageLogsOutputFormat_S3_W3C,
-			"PARQUET": CfnCodeInterpreterUsageLogsOutputFormat_S3_PARQUET,
-		},
-	)
-	_jsii_.RegisterEnum(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsRecordFields",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsRecordFields)(nil)).Elem(),
-		map[string]interface{}{
-			"RESOURCE_ARN": CfnCodeInterpreterUsageLogsRecordFields_RESOURCE_ARN,
-			"EVENT_TIMESTAMP": CfnCodeInterpreterUsageLogsRecordFields_EVENT_TIMESTAMP,
-			"RESOURCE": CfnCodeInterpreterUsageLogsRecordFields_RESOURCE,
-			"ATTRIBUTES": CfnCodeInterpreterUsageLogsRecordFields_ATTRIBUTES,
-			"METRICS": CfnCodeInterpreterUsageLogsRecordFields_METRICS,
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnCodeInterpreterUsageLogsS3Props",
-		reflect.TypeOf((*CfnCodeInterpreterUsageLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayApplicationLogs",
@@ -586,8 +396,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnGatewayApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnGatewayApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnGatewayApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnGatewayApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnGatewayApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -603,8 +413,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnGatewayApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnGatewayApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnGatewayApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnGatewayApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnGatewayApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnGatewayApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -613,6 +423,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnGatewayApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnGatewayApplicationLogsRecordFields_TIMESTAMP,
+			"GATEWAY_ID": CfnGatewayApplicationLogsRecordFields_GATEWAY_ID,
 			"BODY": CfnGatewayApplicationLogsRecordFields_BODY,
 			"ACCOUNT_ID": CfnGatewayApplicationLogsRecordFields_ACCOUNT_ID,
 			"REQUEST_ID": CfnGatewayApplicationLogsRecordFields_REQUEST_ID,
@@ -676,6 +488,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnGatewayTracesRecordFields",
 		reflect.TypeOf((*CfnGatewayTracesRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnGatewayTracesRecordFields_TIMESTAMP,
+			"RESOURCEARN": CfnGatewayTracesRecordFields_RESOURCEARN,
 			"TRACE": CfnGatewayTracesRecordFields_TRACE,
 		},
 	)
@@ -720,8 +534,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnMemoryApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMemoryApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnMemoryApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnMemoryApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnMemoryApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -737,8 +551,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnMemoryApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnMemoryApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnMemoryApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnMemoryApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnMemoryApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnMemoryApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -747,7 +561,9 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnMemoryApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnMemoryApplicationLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnMemoryApplicationLogsRecordFields_RESOURCE_ARN,
+			"RESOURCE_ID": CfnMemoryApplicationLogsRecordFields_RESOURCE_ID,
 			"EVENT_TIMESTAMP": CfnMemoryApplicationLogsRecordFields_EVENT_TIMESTAMP,
 			"MEMORY_STRATEGY_ID": CfnMemoryApplicationLogsRecordFields_MEMORY_STRATEGY_ID,
 			"NAMESPACE": CfnMemoryApplicationLogsRecordFields_NAMESPACE,
@@ -811,6 +627,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnMemoryTracesRecordFields",
 		reflect.TypeOf((*CfnMemoryTracesRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnMemoryTracesRecordFields_TIMESTAMP,
+			"RESOURCEARN": CfnMemoryTracesRecordFields_RESOURCEARN,
 			"TRACE": CfnMemoryTracesRecordFields_TRACE,
 		},
 	)
@@ -855,8 +673,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnRuntimeApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnRuntimeApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnRuntimeApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnRuntimeApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnRuntimeApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -872,8 +690,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnRuntimeApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnRuntimeApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnRuntimeApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnRuntimeApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnRuntimeApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnRuntimeApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -882,6 +700,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnRuntimeApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnRuntimeApplicationLogsRecordFields_TIMESTAMP,
+			"RUNTIME_ID": CfnRuntimeApplicationLogsRecordFields_RUNTIME_ID,
 			"ACCOUNT_ID": CfnRuntimeApplicationLogsRecordFields_ACCOUNT_ID,
 			"REQUEST_ID": CfnRuntimeApplicationLogsRecordFields_REQUEST_ID,
 			"SESSION_ID": CfnRuntimeApplicationLogsRecordFields_SESSION_ID,
@@ -950,6 +770,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeTracesRecordFields",
 		reflect.TypeOf((*CfnRuntimeTracesRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnRuntimeTracesRecordFields_TIMESTAMP,
+			"RESOURCEARN": CfnRuntimeTracesRecordFields_RESOURCEARN,
 			"TRACE": CfnRuntimeTracesRecordFields_TRACE,
 		},
 	)
@@ -994,8 +816,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeUsageLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnRuntimeUsageLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnRuntimeUsageLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnRuntimeUsageLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnRuntimeUsageLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnRuntimeUsageLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -1011,8 +833,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeUsageLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnRuntimeUsageLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnRuntimeUsageLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnRuntimeUsageLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnRuntimeUsageLogsOutputFormat_S3_JSON,
 			"W3C": CfnRuntimeUsageLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnRuntimeUsageLogsOutputFormat_S3_PARQUET,
 		},
@@ -1021,6 +843,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnRuntimeUsageLogsRecordFields",
 		reflect.TypeOf((*CfnRuntimeUsageLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnRuntimeUsageLogsRecordFields_TIMESTAMP,
+			"RUNTIME_ID": CfnRuntimeUsageLogsRecordFields_RUNTIME_ID,
 			"RESOURCE_ARN": CfnRuntimeUsageLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnRuntimeUsageLogsRecordFields_EVENT_TIMESTAMP,
 			"RESOURCE": CfnRuntimeUsageLogsRecordFields_RESOURCE,
@@ -1069,8 +893,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityApplicationLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnWorkloadIdentityApplicationLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnWorkloadIdentityApplicationLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnWorkloadIdentityApplicationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnWorkloadIdentityApplicationLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnWorkloadIdentityApplicationLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -1086,8 +910,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityApplicationLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnWorkloadIdentityApplicationLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnWorkloadIdentityApplicationLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnWorkloadIdentityApplicationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnWorkloadIdentityApplicationLogsOutputFormat_S3_JSON,
 			"W3C": CfnWorkloadIdentityApplicationLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnWorkloadIdentityApplicationLogsOutputFormat_S3_PARQUET,
 		},
@@ -1096,7 +920,11 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityApplicationLogsRecordFields",
 		reflect.TypeOf((*CfnWorkloadIdentityApplicationLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnWorkloadIdentityApplicationLogsRecordFields_TIMESTAMP,
+			"WORKLOAD_IDENTITY_ID": CfnWorkloadIdentityApplicationLogsRecordFields_WORKLOAD_IDENTITY_ID,
 			"REQUEST_ID": CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST_ID,
+			"TRACE_ID": CfnWorkloadIdentityApplicationLogsRecordFields_TRACE_ID,
+			"SPAN_ID": CfnWorkloadIdentityApplicationLogsRecordFields_SPAN_ID,
 			"OPERATION_NAME": CfnWorkloadIdentityApplicationLogsRecordFields_OPERATION_NAME,
 			"OPERATION_TYPE": CfnWorkloadIdentityApplicationLogsRecordFields_OPERATION_TYPE,
 			"START_TIME": CfnWorkloadIdentityApplicationLogsRecordFields_START_TIME,
@@ -1105,8 +933,6 @@ func init() {
 			"ACCOUNT_ID": CfnWorkloadIdentityApplicationLogsRecordFields_ACCOUNT_ID,
 			"REQUEST": CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST,
 			"RESPONSE": CfnWorkloadIdentityApplicationLogsRecordFields_RESPONSE,
-			"TRACE_ID": CfnWorkloadIdentityApplicationLogsRecordFields_TRACE_ID,
-			"SPAN_ID": CfnWorkloadIdentityApplicationLogsRecordFields_SPAN_ID,
 			"RESOURCE": CfnWorkloadIdentityApplicationLogsRecordFields_RESOURCE,
 			"ATTRIBUTES": CfnWorkloadIdentityApplicationLogsRecordFields_ATTRIBUTES,
 			"TIMEUNIXNANO": CfnWorkloadIdentityApplicationLogsRecordFields_TIMEUNIXNANO,
@@ -1138,5 +964,41 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityTraces",
+		reflect.TypeOf((*CfnWorkloadIdentityTraces)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toXRay", GoMethod: "ToXRay"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnWorkloadIdentityTraces{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityTracesDestProps",
+		reflect.TypeOf((*CfnWorkloadIdentityTracesDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityTracesOutputFormat",
+		reflect.TypeOf((*CfnWorkloadIdentityTracesOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnWorkloadIdentityTracesOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityTracesRecordFields",
+		reflect.TypeOf((*CfnWorkloadIdentityTracesRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnWorkloadIdentityTracesRecordFields_TIMESTAMP,
+			"RESOURCEARN": CfnWorkloadIdentityTracesRecordFields_RESOURCEARN,
+			"TRACE": CfnWorkloadIdentityTracesRecordFields_TRACE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrockagentcore.mixins.CfnWorkloadIdentityTracesXRayProps",
+		reflect.TypeOf((*CfnWorkloadIdentityTracesXRayProps)(nil)).Elem(),
 	)
 }

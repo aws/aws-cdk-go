@@ -22,6 +22,11 @@ package awsmedialive
 //   		Sid: jsii.Number(123),
 //   		Timezone: jsii.String("timezone"),
 //   	},
+//   	NielsenNwOnlySettings: &NielsenNwOnlyProperty{
+//   		CheckDigitString: jsii.String("checkDigitString"),
+//   		Sid: jsii.Number(123),
+//   		Timezone: jsii.String("timezone"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html
@@ -39,5 +44,8 @@ type CfnChannel_NielsenWatermarksSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsennaesiinwsettings
 	//
 	NielsenNaesIiNwSettings interface{} `field:"optional" json:"nielsenNaesIiNwSettings" yaml:"nielsenNaesIiNwSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-nielsenwatermarkssettings.html#cfn-medialive-channel-nielsenwatermarkssettings-nielsennwonlysettings
+	//
+	NielsenNwOnlySettings interface{} `field:"optional" json:"nielsenNwOnlySettings" yaml:"nielsenNwOnlySettings"`
 }
 

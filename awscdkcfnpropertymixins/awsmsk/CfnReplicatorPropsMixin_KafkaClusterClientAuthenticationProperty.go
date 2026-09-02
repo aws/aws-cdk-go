@@ -12,6 +12,25 @@ package awsmsk
 //   	Mtls: &KafkaClusterMtlsAuthenticationProperty{
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	SaslOAuthBearer: &KafkaClusterSaslOAuthBearerAuthenticationProperty{
+//   		ClientCredentials: &KafkaClusterOAuthClientCredentialsProperty{
+//   			TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   		},
+//   		ClientCredentialsAssertion: &KafkaClusterOAuthClientCredentialsAssertionProperty{
+//   			Audience: jsii.String("audience"),
+//   			SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   			TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   		},
+//   		IamJwtBearer: &KafkaClusterOAuthIamJwtBearerProperty{
+//   			Audience: jsii.String("audience"),
+//   			SigningAlgorithm: jsii.String("signingAlgorithm"),
+//   			TokenRequestSecretArn: jsii.String("tokenRequestSecretArn"),
+//   		},
+//   		Scope: jsii.String("scope"),
+//   		TokenEndpointAuthenticationMethod: jsii.String("tokenEndpointAuthenticationMethod"),
+//   		TokenEndpointTlsCertificateArn: jsii.String("tokenEndpointTlsCertificateArn"),
+//   		TokenEndpointUrl: jsii.String("tokenEndpointUrl"),
+//   	},
 //   	SaslScram: &KafkaClusterSaslScramAuthenticationProperty{
 //   		Mechanism: jsii.String("mechanism"),
 //   		SecretArn: jsii.String("secretArn"),
@@ -25,6 +44,10 @@ type CfnReplicatorPropsMixin_KafkaClusterClientAuthenticationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html#cfn-msk-replicator-kafkaclusterclientauthentication-mtls
 	//
 	Mtls interface{} `field:"optional" json:"mtls" yaml:"mtls"`
+	// Details for client authentication using SASL/OAUTHBEARER.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html#cfn-msk-replicator-kafkaclusterclientauthentication-sasloauthbearer
+	//
+	SaslOAuthBearer interface{} `field:"optional" json:"saslOAuthBearer" yaml:"saslOAuthBearer"`
 	// Details for SASL/SCRAM client authentication.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterclientauthentication.html#cfn-msk-replicator-kafkaclusterclientauthentication-saslscram
 	//

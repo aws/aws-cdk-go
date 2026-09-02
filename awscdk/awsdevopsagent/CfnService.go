@@ -24,7 +24,9 @@ import (
 //   	ServiceType: jsii.String("serviceType"),
 //
 //   	// the properties below are optional
+//   	ExchangeUrlPrivateConnectionName: jsii.String("exchangeUrlPrivateConnectionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PrivateConnectionName: jsii.String("privateConnectionName"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
 //   			ClientId: jsii.String("clientId"),
@@ -197,6 +199,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetUrlPrivateConnectionName: jsii.String("targetUrlPrivateConnectionName"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html
@@ -227,6 +230,9 @@ type CfnService interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// The name of the private connection to use for OAuth token exchange requests only.
+	ExchangeUrlPrivateConnectionName() *string
+	SetExchangeUrlPrivateConnectionName(val *string)
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn() *string
 	SetKmsKeyArn(val *string)
@@ -242,6 +248,9 @@ type CfnService interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// The name of the private connection to use for VPC connectivity.
+	PrivateConnectionName() *string
+	SetPrivateConnectionName(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -262,6 +271,9 @@ type CfnService interface {
 	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// The name of the private connection to use for API calls (target URL) only.
+	TargetUrlPrivateConnectionName() *string
+	SetTargetUrlPrivateConnectionName(val *string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -556,6 +568,16 @@ func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) ExchangeUrlPrivateConnectionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"exchangeUrlPrivateConnectionName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) KmsKeyArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -581,6 +603,16 @@ func (j *jsiiProxy_CfnService) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnService) PrivateConnectionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"privateConnectionName",
 		&returns,
 	)
 	return returns
@@ -646,6 +678,16 @@ func (j *jsiiProxy_CfnService) Tags() *[]*awscdk.CfnTag {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) TargetUrlPrivateConnectionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetUrlPrivateConnectionName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -696,10 +738,26 @@ func NewCfnService_Override(c CfnService, scope constructs.Construct, id *string
 	)
 }
 
+func (j *jsiiProxy_CfnService)SetExchangeUrlPrivateConnectionName(val *string) {
+	_jsii_.Set(
+		j,
+		"exchangeUrlPrivateConnectionName",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnService)SetKmsKeyArn(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetPrivateConnectionName(val *string) {
+	_jsii_.Set(
+		j,
+		"privateConnectionName",
 		val,
 	)
 }
@@ -733,6 +791,14 @@ func (j *jsiiProxy_CfnService)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetTargetUrlPrivateConnectionName(val *string) {
+	_jsii_.Set(
+		j,
+		"targetUrlPrivateConnectionName",
 		val,
 	)
 }

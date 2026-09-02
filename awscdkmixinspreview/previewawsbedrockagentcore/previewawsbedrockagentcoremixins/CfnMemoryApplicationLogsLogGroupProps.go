@@ -9,7 +9,7 @@ package previewawsbedrockagentcoremixins
 //   cfnMemoryApplicationLogsLogGroupProps := &CfnMemoryApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnMemoryApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnMemoryApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMemoryApplicationLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnMemoryApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

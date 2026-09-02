@@ -6,7 +6,11 @@ type CfnMemoryApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnMemoryApplicationLogsRecordFields_TIMESTAMP CfnMemoryApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnMemoryApplicationLogsRecordFields_RESOURCE_ARN CfnMemoryApplicationLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnMemoryApplicationLogsRecordFields_RESOURCE_ID CfnMemoryApplicationLogsRecordFields = "RESOURCE_ID"
 	// Experimental.
 	CfnMemoryApplicationLogsRecordFields_EVENT_TIMESTAMP CfnMemoryApplicationLogsRecordFields = "EVENT_TIMESTAMP"
 	// Experimental.

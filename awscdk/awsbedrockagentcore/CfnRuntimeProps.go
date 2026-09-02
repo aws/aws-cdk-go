@@ -30,19 +30,6 @@ package awsbedrockagentcore
 //   		},
 //   	},
 //   	AgentRuntimeName: jsii.String("agentRuntimeName"),
-//   	NetworkConfiguration: &NetworkConfigurationProperty{
-//   		NetworkMode: jsii.String("networkMode"),
-//
-//   		// the properties below are optional
-//   		NetworkModeConfig: &VpcConfigProperty{
-//   			SecurityGroups: []*string{
-//   				jsii.String("securityGroups"),
-//   			},
-//   			Subnets: []*string{
-//   				jsii.String("subnets"),
-//   			},
-//   		},
-//   	},
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
@@ -134,12 +121,19 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	CapacityProviderConfiguration: &CapacityProviderConfigurationProperty{
+//   		CapacityProviderArn: jsii.String("capacityProviderArn"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
 //   	FilesystemConfigurations: []interface{}{
 //   		&FilesystemConfigurationProperty{
+//   			CapacityProviderVolume: &CapacityProviderVolumeConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   				VolumeName: jsii.String("volumeName"),
+//   			},
 //   			EfsAccessPoint: &EfsAccessPointConfigurationProperty{
 //   				AccessPointArn: jsii.String("accessPointArn"),
 //   				MountPath: jsii.String("mountPath"),
@@ -156,6 +150,19 @@ package awsbedrockagentcore
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
+//   	},
+//   	NetworkConfiguration: &NetworkConfigurationProperty{
+//   		NetworkMode: jsii.String("networkMode"),
+//
+//   		// the properties below are optional
+//   		NetworkModeConfig: &VpcConfigProperty{
+//   			SecurityGroups: []*string{
+//   				jsii.String("securityGroups"),
+//   			},
+//   			Subnets: []*string{
+//   				jsii.String("subnets"),
+//   			},
+//   		},
 //   	},
 //   	ProtocolConfiguration: jsii.String("protocolConfiguration"),
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
@@ -179,10 +186,6 @@ type CfnRuntimeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-agentruntimename
 	//
 	AgentRuntimeName *string `field:"required" json:"agentRuntimeName" yaml:"agentRuntimeName"`
-	// The network configuration.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-networkconfiguration
-	//
-	NetworkConfiguration interface{} `field:"required" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The Amazon Resource Name (ARN) for for the role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-rolearn
 	//
@@ -191,6 +194,10 @@ type CfnRuntimeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-authorizerconfiguration
 	//
 	AuthorizerConfiguration interface{} `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`
+	// Configuration for a capacity provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-capacityproviderconfiguration
+	//
+	CapacityProviderConfiguration interface{} `field:"optional" json:"capacityProviderConfiguration" yaml:"capacityProviderConfiguration"`
 	// The agent runtime description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-description
 	//
@@ -207,6 +214,10 @@ type CfnRuntimeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-lifecycleconfiguration
 	//
 	LifecycleConfiguration interface{} `field:"optional" json:"lifecycleConfiguration" yaml:"lifecycleConfiguration"`
+	// The network configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-networkconfiguration
+	//
+	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
 	// The protocol configuration for an agent runtime.
 	//
 	// This structure defines how the agent runtime communicates with clients.

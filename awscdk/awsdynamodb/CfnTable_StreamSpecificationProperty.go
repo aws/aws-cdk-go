@@ -1,5 +1,8 @@
 package awsdynamodb
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
 //
@@ -16,6 +19,12 @@ package awsdynamodb
 //   	// the properties below are optional
 //   	ResourcePolicy: &ResourcePolicyProperty{
 //   		PolicyDocument: policyDocument,
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -43,5 +52,8 @@ type CfnTable_StreamSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-resourcepolicy
 	//
 	ResourcePolicy interface{} `field:"optional" json:"resourcePolicy" yaml:"resourcePolicy"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html#cfn-dynamodb-table-streamspecification-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

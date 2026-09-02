@@ -22,7 +22,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnServicePropsMixin := awscdkcfnpropertymixins.Aws_devopsagent.NewCfnServicePropsMixin(&CfnServiceMixinProps{
+//   	ExchangeUrlPrivateConnectionName: jsii.String("exchangeUrlPrivateConnectionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	PrivateConnectionName: jsii.String("privateConnectionName"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
 //   			ClientId: jsii.String("clientId"),
@@ -164,6 +166,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TargetUrlPrivateConnectionName: jsii.String("targetUrlPrivateConnectionName"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

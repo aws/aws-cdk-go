@@ -6,9 +6,9 @@ type CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose string
 
 const (
 	// Experimental.
-	CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose_JSON CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose = "JSON"
-	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose_PLAIN CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose = "PLAIN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose_JSON CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose = "JSON"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose_RAW CfnCapabilityEksCapabilityArgocdApplicationLogsOutputFormat_Firehose = "RAW"
 )

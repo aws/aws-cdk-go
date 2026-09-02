@@ -8,7 +8,7 @@ package previewawsshieldmixins
 //
 //   cfnProtectionFlowLogsDestProps := &CfnProtectionFlowLogsDestProps{
 //   	RecordFields: []CfnProtectionFlowLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnProtectionFlowLogsRecordFields_SRCADDR,
+//   		awscdkmixinspreview.Mixins.CfnProtectionFlowLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

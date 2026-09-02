@@ -57,6 +57,12 @@ import (
 //   	DatasetType: jsii.String("datasetType"),
 //   	Name: jsii.String("name"),
 //   	SchemaArn: jsii.String("schemaArn"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

@@ -8,14 +8,14 @@ package awsglue
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var tags interface{}
-//
 //   cfnDataQualityRulesetMixinProps := &CfnDataQualityRulesetMixinProps{
 //   	ClientToken: jsii.String("clientToken"),
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),
 //   	Ruleset: jsii.String("ruleset"),
-//   	Tags: tags,
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	TargetTable: &DataQualityTargetTableProperty{
 //   		DatabaseName: jsii.String("databaseName"),
 //   		TableName: jsii.String("tableName"),
@@ -46,7 +46,7 @@ type CfnDataQualityRulesetMixinProps struct {
 	// A list of tags applied to the data quality ruleset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-dataqualityruleset.html#cfn-glue-dataqualityruleset-tags
 	//
-	Tags interface{} `field:"optional" json:"tags" yaml:"tags"`
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// An object representing an AWS Glue table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-dataqualityruleset.html#cfn-glue-dataqualityruleset-targettable
 	//

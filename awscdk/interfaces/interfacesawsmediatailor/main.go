@@ -15,6 +15,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_mediatailor.ChannelReference",
 		reflect.TypeOf((*ChannelReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediatailor.FunctionReference",
+		reflect.TypeOf((*FunctionReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_mediatailor.IChannelPolicyRef",
 		reflect.TypeOf((*IChannelPolicyRef)(nil)).Elem(),
@@ -48,6 +52,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediatailor.IFunctionRef",
+		reflect.TypeOf((*IFunctionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "functionRef", GoGetter: "FunctionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFunctionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_mediatailor.ILiveSourceRef",
 		reflect.TypeOf((*ILiveSourceRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -74,6 +94,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IPlaybackConfigurationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediatailor.IPrefetchScheduleRef",
+		reflect.TypeOf((*IPrefetchScheduleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "prefetchScheduleRef", GoGetter: "PrefetchScheduleRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPrefetchScheduleRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -118,6 +154,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediatailor.PlaybackConfigurationReference",
 		reflect.TypeOf((*PlaybackConfigurationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediatailor.PrefetchScheduleReference",
+		reflect.TypeOf((*PrefetchScheduleReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediatailor.SourceLocationReference",

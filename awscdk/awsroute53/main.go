@@ -499,7 +499,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "aliasTarget", GoGetter: "AliasTarget"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -511,7 +510,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "failover", GoGetter: "Failover"},
 			_jsii_.MemberProperty{JsiiProperty: "geoLocation", GoGetter: "GeoLocation"},
-			_jsii_.MemberProperty{JsiiProperty: "geoProximityLocation", GoGetter: "GeoProximityLocation"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckId", GoGetter: "HealthCheckId"},
@@ -561,16 +559,8 @@ func init() {
 		reflect.TypeOf((*CfnRecordSet_CidrRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53.CfnRecordSet.CoordinatesProperty",
-		reflect.TypeOf((*CfnRecordSet_CoordinatesProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.CfnRecordSet.GeoLocationProperty",
 		reflect.TypeOf((*CfnRecordSet_GeoLocationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_route53.CfnRecordSet.GeoProximityLocationProperty",
-		reflect.TypeOf((*CfnRecordSet_GeoProximityLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_route53.CfnRecordSetGroup",

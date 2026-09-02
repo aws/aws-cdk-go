@@ -1358,6 +1358,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRuleName", GoGetter: "AttrRuleName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -1454,7 +1455,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -1751,6 +1751,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConfigurationSetEventDestination)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestinationAttributes",
+		reflect.TypeOf((*ConfigurationSetEventDestinationAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestinationOptions",
@@ -2160,6 +2164,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.ReceiptRuleActionConfig",
 		reflect.TypeOf((*ReceiptRuleActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.ReceiptRuleAttributes",
+		reflect.TypeOf((*ReceiptRuleAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.ReceiptRuleOptions",

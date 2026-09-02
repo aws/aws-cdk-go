@@ -6,6 +6,8 @@ type CfnAgentAliasEventLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnAgentAliasEventLogsRecordFields_RESOURCE_ID CfnAgentAliasEventLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnAgentAliasEventLogsRecordFields_TIMESTAMP CfnAgentAliasEventLogsRecordFields = "TIMESTAMP"
 	// Experimental.
 	CfnAgentAliasEventLogsRecordFields_RESOURCEID CfnAgentAliasEventLogsRecordFields = "RESOURCEID"

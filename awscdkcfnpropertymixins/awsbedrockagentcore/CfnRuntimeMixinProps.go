@@ -110,12 +110,19 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	CapacityProviderConfiguration: &CapacityProviderConfigurationProperty{
+//   		CapacityProviderArn: jsii.String("capacityProviderArn"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
 //   	FilesystemConfigurations: []interface{}{
 //   		&FilesystemConfigurationProperty{
+//   			CapacityProviderVolume: &CapacityProviderVolumeConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   				VolumeName: jsii.String("volumeName"),
+//   			},
 //   			EfsAccessPoint: &EfsAccessPointConfigurationProperty{
 //   				AccessPointArn: jsii.String("accessPointArn"),
 //   				MountPath: jsii.String("mountPath"),
@@ -171,6 +178,10 @@ type CfnRuntimeMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-authorizerconfiguration
 	//
 	AuthorizerConfiguration interface{} `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`
+	// Configuration for a capacity provider.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-capacityproviderconfiguration
+	//
+	CapacityProviderConfiguration interface{} `field:"optional" json:"capacityProviderConfiguration" yaml:"capacityProviderConfiguration"`
 	// The agent runtime description.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-description
 	//

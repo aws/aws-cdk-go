@@ -11,13 +11,13 @@ package awsgamelift
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   scalingPolicyProperty := &ScalingPolicyProperty{
-//   	MetricName: jsii.String("metricName"),
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
 //   	ComparisonOperator: jsii.String("comparisonOperator"),
 //   	EvaluationPeriods: jsii.Number(123),
 //   	Location: jsii.String("location"),
+//   	MetricName: jsii.String("metricName"),
 //   	PolicyType: jsii.String("policyType"),
 //   	ScalingAdjustment: jsii.Number(123),
 //   	ScalingAdjustmentType: jsii.String("scalingAdjustmentType"),
@@ -32,24 +32,6 @@ package awsgamelift
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html
 //
 type CfnFleet_ScalingPolicyProperty struct {
-	// Name of the Amazon GameLift Servers-defined metric that is used to trigger a scaling adjustment.
-	//
-	// For detailed descriptions of fleet metrics, see [Monitor Amazon GameLift Servers with Amazon CloudWatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html) .
-	//
-	// - *ActivatingGameSessions* -- Game sessions in the process of being created.
-	// - *ActiveGameSessions* -- Game sessions that are currently running.
-	// - *ActiveInstances* -- Fleet instances that are currently running at least one game session.
-	// - *AvailableGameSessions* -- Additional game sessions that fleet could host simultaneously, given current capacity.
-	// - *AvailablePlayerSessions* -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.
-	// - *CurrentPlayerSessions* -- Player slots in active game sessions that are being used by a player or are reserved for a player.
-	// - *IdleInstances* -- Active instances that are currently hosting zero game sessions.
-	// - *PercentAvailableGameSessions* -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.
-	// - *PercentIdleInstances* -- Percentage of the total number of active instances that are hosting zero game sessions.
-	// - *QueueDepth* -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
-	// - *WaitTime* -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html#cfn-gamelift-fleet-scalingpolicy-metricname
-	//
-	MetricName *string `field:"required" json:"metricName" yaml:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy.
 	//
 	// Policy names do not need to be unique.
@@ -68,6 +50,24 @@ type CfnFleet_ScalingPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html#cfn-gamelift-fleet-scalingpolicy-location
 	//
 	Location *string `field:"optional" json:"location" yaml:"location"`
+	// Name of the Amazon GameLift Servers-defined metric that is used to trigger a scaling adjustment.
+	//
+	// For detailed descriptions of fleet metrics, see [Monitor Amazon GameLift Servers with Amazon CloudWatch](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html) .
+	//
+	// - *ActivatingGameSessions* -- Game sessions in the process of being created.
+	// - *ActiveGameSessions* -- Game sessions that are currently running.
+	// - *ActiveInstances* -- Fleet instances that are currently running at least one game session.
+	// - *AvailableGameSessions* -- Additional game sessions that fleet could host simultaneously, given current capacity.
+	// - *AvailablePlayerSessions* -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.
+	// - *CurrentPlayerSessions* -- Player slots in active game sessions that are being used by a player or are reserved for a player.
+	// - *IdleInstances* -- Active instances that are currently hosting zero game sessions.
+	// - *PercentAvailableGameSessions* -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.
+	// - *PercentIdleInstances* -- Percentage of the total number of active instances that are hosting zero game sessions.
+	// - *QueueDepth* -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
+	// - *WaitTime* -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html#cfn-gamelift-fleet-scalingpolicy-metricname
+	//
+	MetricName *string `field:"optional" json:"metricName" yaml:"metricName"`
 	// The type of scaling policy to create.
 	//
 	// For a target-based policy, set the parameter *MetricName* to 'PercentAvailableGameSessions' and specify a *TargetConfiguration* . For a rule-based policy set the following parameters: *MetricName* , *ComparisonOperator* , *Threshold* , *EvaluationPeriods* , *ScalingAdjustmentType* , and *ScalingAdjustment* .

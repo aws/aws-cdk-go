@@ -8,7 +8,7 @@ package previewawsbedrockmixins
 //
 //   cfnKnowledgeBaseApplicationLogsDestProps := &CfnKnowledgeBaseApplicationLogsDestProps{
 //   	RecordFields: []CfnKnowledgeBaseApplicationLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_EVENT_TIMESTAMP,
+//   		awscdkmixinspreview.Mixins.CfnKnowledgeBaseApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

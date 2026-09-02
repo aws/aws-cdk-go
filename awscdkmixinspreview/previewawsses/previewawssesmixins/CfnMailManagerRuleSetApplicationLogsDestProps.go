@@ -8,7 +8,7 @@ package previewawssesmixins
 //
 //   cfnMailManagerRuleSetApplicationLogsDestProps := &CfnMailManagerRuleSetApplicationLogsDestProps{
 //   	RecordFields: []CfnMailManagerRuleSetApplicationLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_NAME,
+//   		awscdkmixinspreview.Mixins.CfnMailManagerRuleSetApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -12,6 +12,12 @@ package awssagemaker
 //   	CopyCount: jsii.Number(123),
 //   	CurrentCopyCount: jsii.Number(123),
 //   	DesiredCopyCount: jsii.Number(123),
+//   	PlacementStatus: []interface{}{
+//   		&InferenceComponentPlacementStatusProperty{
+//   			CurrentCopyCount: jsii.Number(123),
+//   			InstanceType: jsii.String("instanceType"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html
@@ -31,5 +37,9 @@ type CfnInferenceComponentPropsMixin_InferenceComponentRuntimeConfigProperty str
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html#cfn-sagemaker-inferencecomponent-inferencecomponentruntimeconfig-desiredcopycount
 	//
 	DesiredCopyCount *float64 `field:"optional" json:"desiredCopyCount" yaml:"desiredCopyCount"`
+	// The placement status of the inference component across instance types.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html#cfn-sagemaker-inferencecomponent-inferencecomponentruntimeconfig-placementstatus
+	//
+	PlacementStatus interface{} `field:"optional" json:"placementStatus" yaml:"placementStatus"`
 }
 

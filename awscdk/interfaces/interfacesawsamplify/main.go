@@ -67,4 +67,24 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_amplify.IWebhookRef",
+		reflect.TypeOf((*IWebhookRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "webhookRef", GoGetter: "WebhookRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWebhookRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_amplify.WebhookReference",
+		reflect.TypeOf((*WebhookReference)(nil)).Elem(),
+	)
 }

@@ -56,7 +56,7 @@ type RouterOutputProps struct {
 	//
 	// Experimental.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// Select a tier based on your maximum bitrate requirements.
+	// Routing tier that determines the maximum bitrate (in Mbps) for this output.
 	// Default: RouterOutputTier.OUTPUT_20
 	//
 	// Experimental.

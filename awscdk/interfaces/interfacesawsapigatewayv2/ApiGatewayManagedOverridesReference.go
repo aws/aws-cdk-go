@@ -9,11 +9,11 @@ package interfacesawsapigatewayv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   apiGatewayManagedOverridesReference := &ApiGatewayManagedOverridesReference{
-//   	ApiGatewayManagedOverridesId: jsii.String("apiGatewayManagedOverridesId"),
+//   	ApiId: jsii.String("apiId"),
 //   }
 //
 type ApiGatewayManagedOverridesReference struct {
-	// The Id of the ApiGatewayManagedOverrides resource.
-	ApiGatewayManagedOverridesId *string `field:"required" json:"apiGatewayManagedOverridesId" yaml:"apiGatewayManagedOverridesId"`
+	// The ApiId of the ApiGatewayManagedOverrides resource.
+	ApiId *string `field:"required" json:"apiId" yaml:"apiId"`
 }
 

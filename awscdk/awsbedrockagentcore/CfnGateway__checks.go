@@ -384,6 +384,30 @@ func (j *jsiiProxy_CfnGateway) validateSetRoleArnParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGateway) validateSetWafConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGateway_WafConfigurationProperty:
+		val := val.(*CfnGateway_WafConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGateway_WafConfigurationProperty:
+		val_ := val.(CfnGateway_WafConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGateway_WafConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnGatewayParameters(scope constructs.Construct, id *string, props *CfnGatewayProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

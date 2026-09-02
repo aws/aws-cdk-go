@@ -7,8 +7,9 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsrdsICustomDBEngineVersionRef = interfacesawsrds.ICustomDBEngineVersionRef
+type Type__interfacesawsrdsIClusterSnapshotRef = interfacesawsrds.IClusterSnapshotRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsrdsICustomDBEngineVersionRef = interfacesawsrds.ICustomDBEngineVersionRef
 type Type__interfacesawsrdsIDBClusterRef = interfacesawsrds.IDBClusterRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsrdsIDBClusterParameterGroupRef = interfacesawsrds.IDBClusterParameterGroupRef
@@ -20,6 +21,7 @@ type Type__interfacesawsrdsIDBProxyTargetGroupRef = interfacesawsrds.IDBProxyTar
 type Type__interfacesawsrdsIDBSecurityGroupRef = interfacesawsrds.IDBSecurityGroupRef
 type Type__interfacesawsrdsIDBSecurityGroupIngressRef = interfacesawsrds.IDBSecurityGroupIngressRef
 type Type__interfacesawsrdsIDBShardGroupRef = interfacesawsrds.IDBShardGroupRef
+type Type__interfacesawsrdsIDBSnapshotRef = interfacesawsrds.IDBSnapshotRef
 type Type__interfacesawsrdsIDBSubnetGroupRef = interfacesawsrds.IDBSubnetGroupRef
 type Type__interfacesawsrdsIEventSubscriptionRef = interfacesawsrds.IEventSubscriptionRef
 type Type__interfacesawsrdsIGlobalClusterRef = interfacesawsrds.IGlobalClusterRef

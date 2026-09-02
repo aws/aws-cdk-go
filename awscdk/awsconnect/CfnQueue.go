@@ -61,6 +61,10 @@ type CfnQueue interface {
 	// The email addresses that agents can use when replying to or initiating email contacts.
 	AdditionalEmailAddresses() interface{}
 	SetAdditionalEmailAddresses(val interface{})
+	// The AWS Region where this resource was last modified.
+	AttrLastModifiedRegion() *string
+	// The timestamp when this resource was last modified.
+	AttrLastModifiedTime() awscdk.IResolvable
 	// The Amazon Resource Name (ARN) of the queue.
 	AttrQueueArn() *string
 	// The type of queue.
@@ -320,6 +324,26 @@ func (j *jsiiProxy_CfnQueue) AdditionalEmailAddresses() interface{} {
 	_jsii_.Get(
 		j,
 		"additionalEmailAddresses",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) AttrLastModifiedRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastModifiedRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) AttrLastModifiedTime() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLastModifiedTime",
 		&returns,
 	)
 	return returns

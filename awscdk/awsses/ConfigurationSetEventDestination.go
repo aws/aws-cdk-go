@@ -200,7 +200,30 @@ func NewConfigurationSetEventDestination_Override(c ConfigurationSetEventDestina
 	)
 }
 
-// Use an existing configuration set.
+// Import an existing event destination from its attributes.
+func ConfigurationSetEventDestination_FromConfigurationSetEventDestinationAttributes(scope constructs.Construct, id *string, attrs *ConfigurationSetEventDestinationAttributes) IConfigurationSetEventDestination {
+	_init_.Initialize()
+
+	if err := validateConfigurationSetEventDestination_FromConfigurationSetEventDestinationAttributesParameters(scope, id, attrs); err != nil {
+		panic(err)
+	}
+	var returns IConfigurationSetEventDestination
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ses.ConfigurationSetEventDestination",
+		"fromConfigurationSetEventDestinationAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import an existing event destination by its ID.
+//
+// An ID alone does not identify the configuration set the destination belongs to, so
+// `configurationSetName` is not available on the returned reference. Use
+// `fromConfigurationSetEventDestinationAttributes()` if you need it.
 func ConfigurationSetEventDestination_FromConfigurationSetEventDestinationId(scope constructs.Construct, id *string, configurationSetEventDestinationId *string) IConfigurationSetEventDestination {
 	_init_.Initialize()
 

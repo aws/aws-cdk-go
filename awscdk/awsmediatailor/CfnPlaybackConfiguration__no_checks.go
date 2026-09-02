@@ -116,6 +116,14 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdDecisionServerUrlParam
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdsPersonalizationConcurrencyParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAdsPersonalizationTimeoutsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParameters(val interface{}) error {
 	return nil
 }

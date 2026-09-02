@@ -9,7 +9,7 @@ package previewawsbedrockagentcoremixins
 //   cfnWorkloadIdentityApplicationLogsLogGroupProps := &CfnWorkloadIdentityApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnWorkloadIdentityApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnWorkloadIdentityApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST_ID,
+//   		awscdkmixinspreview.*Mixins.CfnWorkloadIdentityApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

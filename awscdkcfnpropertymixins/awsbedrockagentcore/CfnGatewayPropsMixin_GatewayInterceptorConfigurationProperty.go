@@ -9,6 +9,13 @@ package awsbedrockagentcore
 //   gatewayInterceptorConfigurationProperty := &GatewayInterceptorConfigurationProperty{
 //   	InputConfiguration: &InterceptorInputConfigurationProperty{
 //   		PassRequestHeaders: jsii.Boolean(false),
+//   		PayloadFilter: &InterceptorPayloadFilterProperty{
+//   			Exclude: []interface{}{
+//   				&InterceptorPayloadExclusionSelectorProperty{
+//   					Field: jsii.String("field"),
+//   				},
+//   			},
+//   		},
 //   	},
 //   	InterceptionPoints: []*string{
 //   		jsii.String("interceptionPoints"),

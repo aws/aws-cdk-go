@@ -60,14 +60,10 @@ type CfnAppInstanceBot interface {
 	AppInstanceBotRef() *interfacesawschime.AppInstanceBotReference
 	// The ARN of the AppInstanceBot.
 	AttrAppInstanceBotArn() *string
-	// The time at which the AppInstanceBot was created.
-	//
-	// In epoch milliseconds.
-	AttrCreatedTimestamp() awscdk.IResolvable
-	// The time at which the AppInstanceBot was last updated.
-	//
-	// In epoch milliseconds.
-	AttrLastUpdatedTimestamp() awscdk.IResolvable
+	// The time at which the AppInstanceBot was created, as an ISO 8601 timestamp.
+	AttrCreatedTimestamp() *string
+	// The time at which the AppInstanceBot was last updated, as an ISO 8601 timestamp.
+	AttrLastUpdatedTimestamp() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -328,8 +324,8 @@ func (j *jsiiProxy_CfnAppInstanceBot) AttrAppInstanceBotArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppInstanceBot) AttrCreatedTimestamp() awscdk.IResolvable {
-	var returns awscdk.IResolvable
+func (j *jsiiProxy_CfnAppInstanceBot) AttrCreatedTimestamp() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"attrCreatedTimestamp",
@@ -338,8 +334,8 @@ func (j *jsiiProxy_CfnAppInstanceBot) AttrCreatedTimestamp() awscdk.IResolvable 
 	return returns
 }
 
-func (j *jsiiProxy_CfnAppInstanceBot) AttrLastUpdatedTimestamp() awscdk.IResolvable {
-	var returns awscdk.IResolvable
+func (j *jsiiProxy_CfnAppInstanceBot) AttrLastUpdatedTimestamp() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"attrLastUpdatedTimestamp",

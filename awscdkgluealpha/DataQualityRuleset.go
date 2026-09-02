@@ -13,10 +13,12 @@ import (
 // A Glue Data Quality ruleset.
 //
 // Example:
+//   var database IDatabase
+//
 //   glue.NewDataQualityRuleset(this, jsii.String("MyRuleset"), &DataQualityRulesetProps{
 //   	RulesetName: jsii.String("my_ruleset"),
 //   	Dqdl: glue.Dqdl_FromString(jsii.String("Rules = [ RowCount > 100, IsComplete \"order_id\" ]")),
-//   	TargetTable: glue.NewDataQualityTargetTable(jsii.String("my_database"), jsii.String("my_table")),
+//   	TargetTable: glue.DataQualityTargetTable_FromTableName(database, jsii.String("my_table")),
 //   })
 //
 // Experimental.

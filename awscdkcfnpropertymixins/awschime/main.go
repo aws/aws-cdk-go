@@ -83,4 +83,36 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_chime.CfnAppInstanceUserPropsMixin.ExpirationSettingsProperty",
 		reflect.TypeOf((*CfnAppInstanceUserPropsMixin_ExpirationSettingsProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnChannelFlowMixinProps",
+		reflect.TypeOf((*CfnChannelFlowMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnChannelFlowPropsMixin",
+		reflect.TypeOf((*CfnChannelFlowPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnChannelFlowPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnChannelFlowPropsMixin.LambdaConfigurationProperty",
+		reflect.TypeOf((*CfnChannelFlowPropsMixin_LambdaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnChannelFlowPropsMixin.ProcessorConfigurationProperty",
+		reflect.TypeOf((*CfnChannelFlowPropsMixin_ProcessorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnChannelFlowPropsMixin.ProcessorProperty",
+		reflect.TypeOf((*CfnChannelFlowPropsMixin_ProcessorProperty)(nil)).Elem(),
+	)
 }

@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnGateway) validateSetRoleArnParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGateway) validateSetWafConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnGatewayParameters(scope constructs.Construct, id *string, props *CfnGatewayProps) error {
 	return nil
 }

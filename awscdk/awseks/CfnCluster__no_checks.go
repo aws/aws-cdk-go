@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnCluster) validateSetBootstrapSelfManagedAddonsParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetCertificateAuthorityParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetComputeConfigParameters(val interface{}) error {
 	return nil
 }
@@ -140,7 +144,19 @@ func (j *jsiiProxy_CfnCluster) validateSetForceParameters(val interface{}) error
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetKubeApiServerConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetKubeControllerManagerConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetKubernetesNetworkConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetKubeSchedulerConfigParameters(val interface{}) error {
 	return nil
 }
 

@@ -11,5 +11,4 @@ type Type__interfacesawsathenaIDataCatalogRef = interfacesawsathena.IDataCatalog
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsathenaINamedQueryRef = interfacesawsathena.INamedQueryRef
 type Type__interfacesawsathenaIPreparedStatementRef = interfacesawsathena.IPreparedStatementRef
-type Type__interfacesawsathenaISessionRef = interfacesawsathena.ISessionRef
 type Type__interfacesawsathenaIWorkGroupRef = interfacesawsathena.IWorkGroupRef

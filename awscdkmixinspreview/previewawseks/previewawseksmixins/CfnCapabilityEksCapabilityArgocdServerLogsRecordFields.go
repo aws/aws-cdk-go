@@ -6,6 +6,10 @@ type CfnCapabilityEksCapabilityArgocdServerLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "LEVEL"
@@ -19,6 +23,32 @@ const (
 	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_NAMESPACE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "NAMESPACE"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_REASON CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "REASON"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_APPLICATION CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "APPLICATION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_USER CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "USER"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_GRPC_CODE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "GRPC_CODE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_GRPC_METHOD CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "GRPC_METHOD"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_GRPC_SERVICE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "GRPC_SERVICE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_GRPC_TIME_MS CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "GRPC_TIME_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_GRPC_METHOD_TYPE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "GRPC_METHOD_TYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_GRPC_ERROR CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "GRPC_ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_TYPE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "TYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_DURATION CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "DURATION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_DEST_NAMESPACE CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "DEST_NAMESPACE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_DEST_SERVER CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "DEST_SERVER"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_PROJECT CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "PROJECT"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdServerLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdServerLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

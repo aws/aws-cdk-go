@@ -6,7 +6,11 @@ type CfnIdMappingWorkflowWorkflowLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_TIMESTAMP CfnIdMappingWorkflowWorkflowLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN CfnIdMappingWorkflowWorkflowLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_RESOURCE_ID CfnIdMappingWorkflowWorkflowLogsRecordFields = "RESOURCE_ID"
 	// Experimental.
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_EVENT_TYPE CfnIdMappingWorkflowWorkflowLogsRecordFields = "EVENT_TYPE"
 	// Experimental.
@@ -22,7 +26,13 @@ const (
 	// Experimental.
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_DATA_PROCESSING_PROGRESSION CfnIdMappingWorkflowWorkflowLogsRecordFields = "DATA_PROCESSING_PROGRESSION"
 	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_COUNT_MAP CfnIdMappingWorkflowWorkflowLogsRecordFields = "ERROR_COUNT_MAP"
+	// Experimental.
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_MESSAGE CfnIdMappingWorkflowWorkflowLogsRecordFields = "ERROR_MESSAGE"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_ERROR_COUNT CfnIdMappingWorkflowWorkflowLogsRecordFields = "ERROR_COUNT"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCHED_RECORD_COUNT_MAP CfnIdMappingWorkflowWorkflowLogsRecordFields = "MATCHED_RECORD_COUNT_MAP"
 	// Experimental.
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_MATCH_RULE CfnIdMappingWorkflowWorkflowLogsRecordFields = "MATCH_RULE"
 	// Experimental.
@@ -33,5 +43,11 @@ const (
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_TOTAL_RECORDS_UNPROCESSED CfnIdMappingWorkflowWorkflowLogsRecordFields = "TOTAL_RECORDS_UNPROCESSED"
 	// Experimental.
 	CfnIdMappingWorkflowWorkflowLogsRecordFields_INCREMENTAL_RECORDS_PROCESSED CfnIdMappingWorkflowWorkflowLogsRecordFields = "INCREMENTAL_RECORDS_PROCESSED"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_WORKFLOW_DURATION CfnIdMappingWorkflowWorkflowLogsRecordFields = "WORKFLOW_DURATION"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_RAW_WORKFLOW_DURATION CfnIdMappingWorkflowWorkflowLogsRecordFields = "RAW_WORKFLOW_DURATION"
+	// Experimental.
+	CfnIdMappingWorkflowWorkflowLogsRecordFields_INPUT_FILE_SIZE CfnIdMappingWorkflowWorkflowLogsRecordFields = "INPUT_FILE_SIZE"
 )
 

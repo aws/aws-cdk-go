@@ -9,11 +9,14 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   connectionReference := &ConnectionReference{
-//   	ConnectionId: jsii.String("connectionId"),
+//   	CatalogId: jsii.String("catalogId"),
+//   	ConnectionName: jsii.String("connectionName"),
 //   }
 //
 type ConnectionReference struct {
-	// The Id of the Connection resource.
-	ConnectionId *string `field:"required" json:"connectionId" yaml:"connectionId"`
+	// The CatalogId of the Connection resource.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// The Name of the Connection resource.
+	ConnectionName *string `field:"required" json:"connectionName" yaml:"connectionName"`
 }
 

@@ -1,0 +1,138 @@
+//go:build no_runtime_type_checking
+
+package awsdeadline
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (c *jsiiProxy_CfnBudget) validateAddDeletionOverrideParameters(path *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddDependsOnParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddMetadataParameters(key *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddOverrideParameters(path *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddPropertyDeletionOverrideParameters(propertyPath *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddPropertyOverrideParameters(propertyPath *string, value interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateAddResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateApplyRemovalPolicyParameters(options *awscdk.RemovalPolicyOptions) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateCfnPropertyNameParameters(cdkPropertyName *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateGetAttParameters(attributeName *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateGetMetadataParameters(key *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateInspectParameters(inspector awscdk.TreeInspector) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateOverrideLogicalIdParameters(newLogicalId *string) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateRemoveDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateRemoveResourceDependencyParameters(target awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateRenderPropertiesParameters(props *map[string]interface{}) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateReplaceDependencyParameters(target awscdk.CfnResource, newTarget awscdk.CfnResource) error {
+	return nil
+}
+
+func (c *jsiiProxy_CfnBudget) validateValidatePropertiesParameters(_properties interface{}) error {
+	return nil
+}
+
+func validateCfnBudget_ArnForBudgetParameters(resource interfacesawsdeadline.IBudgetRef) error {
+	return nil
+}
+
+func validateCfnBudget_IsCfnBudgetParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnBudget_IsCfnElementParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnBudget_IsCfnResourceParameters(x interface{}) error {
+	return nil
+}
+
+func validateCfnBudget_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetActionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetApproximateDollarLimitParameters(val *float64) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetDisplayNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetFarmIdParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetScheduleParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnBudget) validateSetUsageTrackingResourceParameters(val interface{}) error {
+	return nil
+}
+
+func validateNewCfnBudgetParameters(scope constructs.Construct, id *string, props *CfnBudgetProps) error {
+	return nil
+}
+

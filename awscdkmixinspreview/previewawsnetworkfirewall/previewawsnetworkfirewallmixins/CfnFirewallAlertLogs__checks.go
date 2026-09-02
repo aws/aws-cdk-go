@@ -12,9 +12,13 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawss3"
 )
 
-func (c *jsiiProxy_CfnFirewallAlertLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnFirewallAlertLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnFirewallAlertLogsDestProps) error {
 	if destination == nil {
 		return fmt.Errorf("parameter destination is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
 	}
 
 	return nil

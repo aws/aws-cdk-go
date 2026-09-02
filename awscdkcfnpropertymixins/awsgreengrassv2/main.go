@@ -8,30 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnComponentMixinProps",
-		reflect.TypeOf((*CfnComponentMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnComponentPropsMixin",
-		reflect.TypeOf((*CfnComponentPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnComponentPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnComponentPropsMixin.TagsItemsProperty",
-		reflect.TypeOf((*CfnComponentPropsMixin_TagsItemsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnComponentVersionMixinProps",
 		reflect.TypeOf((*CfnComponentVersionMixinProps)(nil)).Elem(),
 	)
@@ -86,30 +62,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnComponentVersionPropsMixin.LambdaVolumeMountProperty",
 		reflect.TypeOf((*CfnComponentVersionPropsMixin_LambdaVolumeMountProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnCoreDeviceMixinProps",
-		reflect.TypeOf((*CfnCoreDeviceMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnCoreDevicePropsMixin",
-		reflect.TypeOf((*CfnCoreDevicePropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnCoreDevicePropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnCoreDevicePropsMixin.TagsItemsProperty",
-		reflect.TypeOf((*CfnCoreDevicePropsMixin_TagsItemsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_greengrassv2.CfnDeploymentMixinProps",

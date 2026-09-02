@@ -8,7 +8,7 @@ package previewawsbedrockmixins
 //
 //   cfnAgentAliasEventLogsDestProps := &CfnAgentAliasEventLogsDestProps{
 //   	RecordFields: []CfnAgentAliasEventLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsRecordFields_TIMESTAMP,
+//   		awscdkmixinspreview.Mixins.CfnAgentAliasEventLogsRecordFields_RESOURCE_ID,
 //   	},
 //   }
 //

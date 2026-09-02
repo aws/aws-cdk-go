@@ -7,15 +7,15 @@ package previewawsdevopsagentmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnAgentSpaceApplicationLogsFirehoseProps := &CfnAgentSpaceApplicationLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentSpaceApplicationLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnAgentSpaceApplicationLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnAgentSpaceApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnAgentSpaceApplicationLogsRecordFields_OPTIONAL_ACCOUNT_ID,
+//   		awscdkmixinspreview.*Mixins.CfnAgentSpaceApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnAgentSpaceApplicationLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnAgentSpaceApplicationLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

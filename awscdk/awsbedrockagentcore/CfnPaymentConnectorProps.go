@@ -11,6 +11,9 @@ package awsbedrockagentcore
 //   cfnPaymentConnectorProps := &CfnPaymentConnectorProps{
 //   	ConnectorName: jsii.String("connectorName"),
 //   	ConnectorType: jsii.String("connectorType"),
+//   	PaymentManagerId: jsii.String("paymentManagerId"),
+//
+//   	// the properties below are optional
 //   	CredentialProviderConfigurations: []interface{}{
 //   		&CredentialsProviderConfigurationProperty{
 //   			CoinbaseCdp: &PaymentCredentialProviderConfigurationProperty{
@@ -21,10 +24,8 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
-//   	PaymentManagerId: jsii.String("paymentManagerId"),
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ProvisionMode: jsii.String("provisionMode"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html
@@ -37,17 +38,22 @@ type CfnPaymentConnectorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html#cfn-bedrockagentcore-paymentconnector-connectortype
 	//
 	ConnectorType *string `field:"required" json:"connectorType" yaml:"connectorType"`
-	// The credential provider configurations for the connector.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html#cfn-bedrockagentcore-paymentconnector-credentialproviderconfigurations
-	//
-	CredentialProviderConfigurations interface{} `field:"required" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`
 	// The identifier of the parent payment manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html#cfn-bedrockagentcore-paymentconnector-paymentmanagerid
 	//
 	PaymentManagerId *string `field:"required" json:"paymentManagerId" yaml:"paymentManagerId"`
+	// The credential provider configurations for the connector.
+	//
+	// Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html#cfn-bedrockagentcore-paymentconnector-credentialproviderconfigurations
+	//
+	CredentialProviderConfigurations interface{} `field:"optional" json:"credentialProviderConfigurations" yaml:"credentialProviderConfigurations"`
 	// A description of the payment connector.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html#cfn-bedrockagentcore-paymentconnector-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html#cfn-bedrockagentcore-paymentconnector-provisionmode
+	//
+	ProvisionMode *string `field:"optional" json:"provisionMode" yaml:"provisionMode"`
 }
 

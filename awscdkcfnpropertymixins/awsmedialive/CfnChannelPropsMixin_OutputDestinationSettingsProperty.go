@@ -15,6 +15,7 @@ package awsmedialive
 //   	StreamName: jsii.String("streamName"),
 //   	Url: jsii.String("url"),
 //   	Username: jsii.String("username"),
+//   	VirtualSourceAddress: jsii.String("virtualSourceAddress"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestinationsettings.html
@@ -42,5 +43,8 @@ type CfnChannelPropsMixin_OutputDestinationSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestinationsettings.html#cfn-medialive-channel-outputdestinationsettings-username
 	//
 	Username *string `field:"optional" json:"username" yaml:"username"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestinationsettings.html#cfn-medialive-channel-outputdestinationsettings-virtualsourceaddress
+	//
+	VirtualSourceAddress *string `field:"optional" json:"virtualSourceAddress" yaml:"virtualSourceAddress"`
 }
 

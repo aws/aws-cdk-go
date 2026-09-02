@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_shield.mixins.CfnProtectionFlowLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnProtectionFlowLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnProtectionFlowLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnProtectionFlowLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnProtectionFlowLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnProtectionFlowLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_shield.mixins.CfnProtectionFlowLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnProtectionFlowLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnProtectionFlowLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnProtectionFlowLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnProtectionFlowLogsOutputFormat_S3_JSON,
 			"W3C": CfnProtectionFlowLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnProtectionFlowLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_shield.mixins.CfnProtectionFlowLogsRecordFields",
 		reflect.TypeOf((*CfnProtectionFlowLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnProtectionFlowLogsRecordFields_TIMESTAMP,
 			"SRCADDR": CfnProtectionFlowLogsRecordFields_SRCADDR,
 			"DSTADDR": CfnProtectionFlowLogsRecordFields_DSTADDR,
 			"SRCPORT": CfnProtectionFlowLogsRecordFields_SRCPORT,

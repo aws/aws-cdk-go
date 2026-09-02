@@ -11,6 +11,9 @@ package awsbedrockagentcore
 //   		DiscoveryUrl: jsii.String("discoveryUrl"),
 //
 //   		// the properties below are optional
+//   		AdvertisedScopeMapping: map[string]*string{
+//   			"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   		},
 //   		AllowedAudience: []*string{
 //   			jsii.String("allowedAudience"),
 //   		},

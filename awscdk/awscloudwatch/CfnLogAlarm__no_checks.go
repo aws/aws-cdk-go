@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnLogAlarm) validateSetThresholdParameters(val *float64) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnLogAlarm) validateSetWarmUpConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnLogAlarmParameters(scope constructs.Construct, id *string, props *CfnLogAlarmProps) error {
 	return nil
 }

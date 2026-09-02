@@ -118,6 +118,17 @@ func CfnAgentAliasLogsMixin_IsMixin(x interface{}) *bool {
 	return returns
 }
 
+func CfnAgentAliasLogsMixin_APPLICATION_LOGS() CfnAgentAliasApplicationLogs {
+	_init_.Initialize()
+	var returns CfnAgentAliasApplicationLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnAgentAliasLogsMixin",
+		"APPLICATION_LOGS",
+		&returns,
+	)
+	return returns
+}
+
 func CfnAgentAliasLogsMixin_EVENT_LOGS() CfnAgentAliasEventLogs {
 	_init_.Initialize()
 	var returns CfnAgentAliasEventLogs

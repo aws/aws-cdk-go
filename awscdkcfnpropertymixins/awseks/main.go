@@ -108,6 +108,34 @@ func init() {
 		reflect.TypeOf((*CfnCapabilityPropsMixin_SsoIdentityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnCertificateAuthorityMixinProps",
+		reflect.TypeOf((*CfnCertificateAuthorityMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnCertificateAuthorityPropsMixin",
+		reflect.TypeOf((*CfnCertificateAuthorityPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCertificateAuthorityPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnCertificateAuthorityPropsMixin.ScheduledEventsProperty",
+		reflect.TypeOf((*CfnCertificateAuthorityPropsMixin_ScheduledEventsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnCertificateAuthorityPropsMixin.ValidityProperty",
+		reflect.TypeOf((*CfnCertificateAuthorityPropsMixin_ValidityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterMixinProps",
 		reflect.TypeOf((*CfnClusterMixinProps)(nil)).Elem(),
 	)
@@ -132,8 +160,16 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_AccessConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ActiveCertificateAuthorityProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ActiveCertificateAuthorityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.BlockStorageProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_BlockStorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.CertificateAuthorityProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_CertificateAuthorityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ClusterLoggingProperty",
@@ -164,6 +200,22 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_EtcdPlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.HorizontalPodAutoscalerControllerConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_HorizontalPodAutoscalerControllerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.KubeApiServerConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_KubeApiServerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.KubeControllerManagerConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_KubeControllerManagerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.KubeSchedulerConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_KubeSchedulerConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.KubernetesNetworkConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_KubernetesNetworkConfigProperty)(nil)).Elem(),
 	)
@@ -176,8 +228,16 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_LoggingTypeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.NodeResourcesFitConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_NodeResourcesFitConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.OutpostConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_OutpostConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.PodGcControllerConfigProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_PodGcControllerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ProviderProperty",
@@ -196,12 +256,24 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_RemotePodNetworkProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ResourceWeightProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ResourceWeightProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ResourcesVpcConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ResourcesVpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.RollbackConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_RollbackConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ScoringStrategyProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ScoringStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.ServiceNodePortRangeProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ServiceNodePortRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.StorageConfigProperty",

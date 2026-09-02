@@ -116,10 +116,6 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetTagsRawParameters(val *[]*
 	return nil
 }
 
-func (j *jsiiProxy_CfnPrivateDnsNamespace) validateSetVpcParameters(val *string) error {
-	return nil
-}
-
 func validateNewCfnPrivateDnsNamespaceParameters(scope constructs.Construct, id *string, props *CfnPrivateDnsNamespaceProps) error {
 	return nil
 }

@@ -41,15 +41,6 @@ import (
 //   		CountryCode: jsii.String("countryCode"),
 //   		SubdivisionCode: jsii.String("subdivisionCode"),
 //   	},
-//   	GeoProximityLocation: &GeoProximityLocationProperty{
-//   		AwsRegion: jsii.String("awsRegion"),
-//   		Bias: jsii.Number(123),
-//   		Coordinates: &CoordinatesProperty{
-//   			Latitude: jsii.String("latitude"),
-//   			Longitude: jsii.String("longitude"),
-//   		},
-//   		LocalZoneGroup: jsii.String("localZoneGroup"),
-//   	},
 //   	HealthCheckId: jsii.String("healthCheckId"),
 //   	HostedZoneId: jsii.String("hostedZoneId"),
 //   	HostedZoneName: jsii.String("hostedZoneName"),

@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for AWS SageMaker Experiment Trial Component.
+// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

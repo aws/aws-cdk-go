@@ -214,7 +214,7 @@ func NewCloudAssembly_Override(c CloudAssembly, directory *string, loadOptions *
 // ```js
 // module.exports = {
 //   // ...
-//   setupFilesAfterEnv: ['aws-cdk-lib/testhelpers/jest-cleanup'],
+//   setupFilesAfterEnv: ['aws-cdk-lib/testhelpers/jest-autoclean'],
 // };
 // ```.
 func CloudAssembly_CleanupTemporaryDirectories() {

@@ -12,6 +12,10 @@ func init() {
 		reflect.TypeOf((*BatchScramSecretReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_msk.ChannelReference",
+		reflect.TypeOf((*ChannelReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_msk.ClusterPolicyReference",
 		reflect.TypeOf((*ClusterPolicyReference)(nil)).Elem(),
 	)
@@ -34,6 +38,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IBatchScramSecretRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_msk.IChannelRef",
+		reflect.TypeOf((*IChannelRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "channelRef", GoGetter: "ChannelRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IChannelRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

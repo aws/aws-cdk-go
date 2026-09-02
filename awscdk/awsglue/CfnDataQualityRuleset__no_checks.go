@@ -100,7 +100,7 @@ func validateCfnDataQualityRuleset_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset) validateSetTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnDataQualityRuleset) validateSetNameParameters(val *string) error {
 	return nil
 }
 

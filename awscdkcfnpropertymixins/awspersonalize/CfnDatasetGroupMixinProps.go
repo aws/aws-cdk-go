@@ -1,5 +1,8 @@
 package awspersonalize
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnDatasetGroupPropsMixin.
 //
@@ -13,6 +16,12 @@ package awspersonalize
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html
@@ -36,5 +45,9 @@ type CfnDatasetGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html#cfn-personalize-datasetgroup-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

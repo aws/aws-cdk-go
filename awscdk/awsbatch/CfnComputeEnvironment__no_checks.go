@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnComputeEnvironment) validateSetComputeResourcesParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) validateSetEcsSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnComputeEnvironment) validateSetEksConfigurationParameters(val interface{}) error {
 	return nil
 }

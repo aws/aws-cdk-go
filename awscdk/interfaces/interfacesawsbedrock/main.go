@@ -44,10 +44,6 @@ func init() {
 		reflect.TypeOf((*DataSourceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_bedrock.DefaultPromptRouterReference",
-		reflect.TypeOf((*DefaultPromptRouterReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.EnforcedGuardrailConfigurationReference",
 		reflect.TypeOf((*EnforcedGuardrailConfigurationReference)(nil)).Elem(),
 	)
@@ -216,22 +212,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_bedrock.IDefaultPromptRouterRef",
-		reflect.TypeOf((*IDefaultPromptRouterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "defaultPromptRouterRef", GoGetter: "DefaultPromptRouterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IDefaultPromptRouterRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrock.IEnforcedGuardrailConfigurationRef",
 		reflect.TypeOf((*IEnforcedGuardrailConfigurationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -376,22 +356,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_bedrock.IModelInvocationJobRef",
-		reflect.TypeOf((*IModelInvocationJobRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "modelInvocationJobRef", GoGetter: "ModelInvocationJobRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IModelInvocationJobRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrock.IPromptRef",
 		reflect.TypeOf((*IPromptRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -439,6 +403,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrock.ISessionRef",
+		reflect.TypeOf((*ISessionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sessionRef", GoGetter: "SessionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISessionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.IntelligentPromptRouterReference",
 		reflect.TypeOf((*IntelligentPromptRouterReference)(nil)).Elem(),
@@ -452,10 +432,6 @@ func init() {
 		reflect.TypeOf((*KnowledgeBaseReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_bedrock.ModelInvocationJobReference",
-		reflect.TypeOf((*ModelInvocationJobReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.PromptReference",
 		reflect.TypeOf((*PromptReference)(nil)).Elem(),
 	)
@@ -466,5 +442,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrock.ResourcePolicyReference",
 		reflect.TypeOf((*ResourcePolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrock.SessionReference",
+		reflect.TypeOf((*SessionReference)(nil)).Elem(),
 	)
 }

@@ -9,6 +9,11 @@ package awsmediatailor
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   livePreRollConfigurationProperty := &LivePreRollConfigurationProperty{
+//   	AdDecisionServerConfiguration: &PreRollAdDecisionServerConfigurationProperty{
+//   		VastResponse: &PreRollVastResponseProperty{
+//   			AdSequencingMode: jsii.String("adSequencingMode"),
+//   		},
+//   	},
 //   	AdDecisionServerUrl: jsii.String("adDecisionServerUrl"),
 //   	MaxDurationSeconds: jsii.Number(123),
 //   }
@@ -16,6 +21,10 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html
 //
 type CfnPlaybackConfigurationPropsMixin_LivePreRollConfigurationProperty struct {
+	// The configuration for the request to the pre-roll Ad Decision Server.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html#cfn-mediatailor-playbackconfiguration-liveprerollconfiguration-addecisionserverconfiguration
+	//
+	AdDecisionServerConfiguration interface{} `field:"optional" json:"adDecisionServerConfiguration" yaml:"adDecisionServerConfiguration"`
 	// The URL for the ad decision server (ADS) for pre-roll ads.
 	//
 	// This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.

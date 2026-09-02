@@ -7,5 +7,4 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsfisIExperimentTemplateRef = interfacesawsfis.IExperimentTemplateRef
 type Type__awscdkITaggable = awscdk.ITaggable
-type Type__interfacesawsfisISafetyLeverRef = interfacesawsfis.ISafetyLeverRef
 type Type__interfacesawsfisITargetAccountConfigurationRef = interfacesawsfis.ITargetAccountConfigurationRef

@@ -54,14 +54,14 @@ import (
 //   	ComputeEnvironmentName: jsii.String("computeEnvironmentName"),
 //   	ComputeResources: &ComputeResourcesProperty{
 //   		MaxvCpus: jsii.Number(123),
-//   		Subnets: []*string{
-//   			jsii.String("subnets"),
-//   		},
 //   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   		BidPercentage: jsii.Number(123),
+//   		CapacityTags: map[string]*string{
+//   			"capacityTagsKey": jsii.String("capacityTags"),
+//   		},
 //   		DesiredvCpus: jsii.Number(123),
 //   		Ec2Configuration: []interface{}{
 //   			&Ec2ConfigurationObjectProperty{
@@ -96,6 +96,47 @@ import (
 //   			UserdataType: jsii.String("userdataType"),
 //   			Version: jsii.String("version"),
 //   		},
+//   		ManagedInstancesProvider: &ManagedInstancesProviderProperty{
+//   			InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
+//   			InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
+//   				Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   				NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
+//   					SecurityGroups: []*string{
+//   						jsii.String("securityGroups"),
+//   					},
+//   					Subnets: []*string{
+//   						jsii.String("subnets"),
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				CapacityOptionType: jsii.String("capacityOptionType"),
+//   				CapacityReservations: &CapacityReservationsProperty{
+//   					ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   					ReservationPreference: jsii.String("reservationPreference"),
+//   				},
+//   				FipsEnabled: jsii.Boolean(false),
+//   				InstanceMetadataTagsPropagation: jsii.Boolean(false),
+//   				InstanceRequirements: &InstanceRequirementsProperty{
+//   					AllowedInstanceTypes: []*string{
+//   						jsii.String("allowedInstanceTypes"),
+//   					},
+//   				},
+//   				LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   					UseLocalStorage: jsii.Boolean(false),
+//   				},
+//   				Monitoring: jsii.String("monitoring"),
+//   				StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
+//   					StorageSizeGiB: jsii.Number(123),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   				ScaleInAfter: jsii.Number(123),
+//   			},
+//   			PropagateTags: jsii.String("propagateTags"),
+//   		},
 //   		MinvCpus: jsii.Number(123),
 //   		PlacementGroup: jsii.String("placementGroup"),
 //   		ScalingPolicy: &ComputeScalingPolicyProperty{
@@ -105,12 +146,18 @@ import (
 //   			jsii.String("securityGroupIds"),
 //   		},
 //   		SpotIamFleetRole: jsii.String("spotIamFleetRole"),
+//   		Subnets: []*string{
+//   			jsii.String("subnets"),
+//   		},
 //   		Tags: map[string]*string{
 //   			"tagsKey": jsii.String("tags"),
 //   		},
 //   		UpdateToLatestImageVersion: jsii.Boolean(false),
 //   	},
 //   	Context: jsii.String("context"),
+//   	EcsSettings: &EcsSettingsProperty{
+//   		ContainerInsights: jsii.String("containerInsights"),
+//   	},
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
@@ -158,6 +205,8 @@ type CfnComputeEnvironment interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	EcsSettings() interface{}
+	SetEcsSettings(val interface{})
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	EksConfiguration() interface{}
 	SetEksConfiguration(val interface{})
@@ -490,6 +539,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) EcsSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ecsSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeEnvironment) EksConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -703,6 +762,17 @@ func (j *jsiiProxy_CfnComputeEnvironment)SetContext(val *string) {
 	_jsii_.Set(
 		j,
 		"context",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment)SetEcsSettings(val interface{}) {
+	if err := j.validateSetEcsSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ecsSettings",
 		val,
 	)
 }

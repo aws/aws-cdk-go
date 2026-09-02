@@ -128,12 +128,19 @@ import (
 //   			},
 //   		},
 //   	},
+//   	CapacityProviderConfiguration: &CapacityProviderConfigurationProperty{
+//   		CapacityProviderArn: jsii.String("capacityProviderArn"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
 //   	FilesystemConfigurations: []interface{}{
 //   		&FilesystemConfigurationProperty{
+//   			CapacityProviderVolume: &CapacityProviderVolumeConfigurationProperty{
+//   				MountPath: jsii.String("mountPath"),
+//   				VolumeName: jsii.String("volumeName"),
+//   			},
 //   			EfsAccessPoint: &EfsAccessPointConfigurationProperty{
 //   				AccessPointArn: jsii.String("accessPointArn"),
 //   				MountPath: jsii.String("mountPath"),

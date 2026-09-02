@@ -8,6 +8,13 @@ package awsbedrockagentcore
 //
 //   interceptorInputConfigurationProperty := &InterceptorInputConfigurationProperty{
 //   	PassRequestHeaders: jsii.Boolean(false),
+//   	PayloadFilter: &InterceptorPayloadFilterProperty{
+//   		Exclude: []interface{}{
+//   			&InterceptorPayloadExclusionSelectorProperty{
+//   				Field: jsii.String("field"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorinputconfiguration.html
@@ -16,5 +23,8 @@ type CfnGatewayPropsMixin_InterceptorInputConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorinputconfiguration.html#cfn-bedrockagentcore-gateway-interceptorinputconfiguration-passrequestheaders
 	//
 	PassRequestHeaders interface{} `field:"optional" json:"passRequestHeaders" yaml:"passRequestHeaders"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorinputconfiguration.html#cfn-bedrockagentcore-gateway-interceptorinputconfiguration-payloadfilter
+	//
+	PayloadFilter interface{} `field:"optional" json:"payloadFilter" yaml:"payloadFilter"`
 }
 

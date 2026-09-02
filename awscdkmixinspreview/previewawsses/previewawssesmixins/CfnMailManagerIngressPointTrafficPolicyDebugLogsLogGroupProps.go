@@ -9,7 +9,7 @@ package previewawssesmixins
 //   cfnMailManagerIngressPointTrafficPolicyDebugLogsLogGroupProps := &CfnMailManagerIngressPointTrafficPolicyDebugLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerIngressPointTrafficPolicyDebugLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_INGRESS_POINT_TYPE,
+//   		awscdkmixinspreview.*Mixins.CfnMailManagerIngressPointTrafficPolicyDebugLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

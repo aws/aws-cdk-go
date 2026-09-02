@@ -7,7 +7,7 @@ package previewawselasticloadbalancingv2mixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnLoadBalancerAlbHealthCheckLogsFirehoseProps := &CfnLoadBalancerAlbHealthCheckLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnLoadBalancerAlbHealthCheckLogsRecordFields{
 //   		awscdkmixinspreview.*Mixins.CfnLoadBalancerAlbHealthCheckLogsRecordFields_TYPE,
 //   	},
@@ -15,7 +15,7 @@ package previewawselasticloadbalancingv2mixins
 //
 // Experimental.
 type CfnLoadBalancerAlbHealthCheckLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

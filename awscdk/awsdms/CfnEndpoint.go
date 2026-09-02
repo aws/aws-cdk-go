@@ -320,9 +320,10 @@ type CfnEndpoint interface {
 	awscdk.IInspectable
 	interfacesawsdms.IEndpointRef
 	awscdk.ITaggable
+	// The endpoint ARN.
+	AttrEndpointArn() *string
 	// A value that can be used for cross-account validation.
 	AttrExternalId() *string
-	AttrId() *string
 	// The Amazon Resource Name (ARN) for the certificate.
 	CertificateArn() *string
 	SetCertificateArn(val *string)
@@ -638,21 +639,21 @@ type jsiiProxy_CfnEndpoint struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnEndpoint) AttrExternalId() *string {
+func (j *jsiiProxy_CfnEndpoint) AttrEndpointArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrExternalId",
+		"attrEndpointArn",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnEndpoint) AttrId() *string {
+func (j *jsiiProxy_CfnEndpoint) AttrExternalId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrExternalId",
 		&returns,
 	)
 	return returns
@@ -1458,25 +1459,6 @@ func CfnEndpoint_ArnForEndpoint(resource interfacesawsdms.IEndpointRef) *string 
 		"aws-cdk-lib.aws_dms.CfnEndpoint",
 		"arnForEndpoint",
 		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IEndpointRef from a endpointId.
-func CfnEndpoint_FromEndpointId(scope constructs.Construct, id *string, endpointId *string) interfacesawsdms.IEndpointRef {
-	_init_.Initialize()
-
-	if err := validateCfnEndpoint_FromEndpointIdParameters(scope, id, endpointId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsdms.IEndpointRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dms.CfnEndpoint",
-		"fromEndpointId",
-		[]interface{}{scope, id, endpointId},
 		&returns,
 	)
 

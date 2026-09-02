@@ -6,6 +6,8 @@ type CfnProtectionFlowLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnProtectionFlowLogsRecordFields_TIMESTAMP CfnProtectionFlowLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnProtectionFlowLogsRecordFields_SRCADDR CfnProtectionFlowLogsRecordFields = "SRCADDR"
 	// Experimental.
 	CfnProtectionFlowLogsRecordFields_DSTADDR CfnProtectionFlowLogsRecordFields = "DSTADDR"

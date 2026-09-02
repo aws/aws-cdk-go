@@ -22,6 +22,15 @@ package awsbedrockagentcore
 //   			},
 //   			ModelId: jsii.String("modelId"),
 //   		},
+//   		ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   			MaxOutputTokens: jsii.Number(123),
+//   			ModelId: jsii.String("modelId"),
+//   			Reasoning: &ReasoningConfigurationProperty{
+//   				Effort: jsii.String("effort"),
+//   			},
+//   			Temperature: jsii.Number(123),
+//   			TopP: jsii.Number(123),
+//   		},
 //   	},
 //   	RatingScale: &RatingScaleProperty{
 //   		Categorical: []interface{}{

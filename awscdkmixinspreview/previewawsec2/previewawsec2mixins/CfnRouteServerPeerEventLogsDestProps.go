@@ -8,7 +8,7 @@ package previewawsec2mixins
 //
 //   cfnRouteServerPeerEventLogsDestProps := &CfnRouteServerPeerEventLogsDestProps{
 //   	RecordFields: []CfnRouteServerPeerEventLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnRouteServerPeerEventLogsRecordFields_STATUS,
+//   		awscdkmixinspreview.Mixins.CfnRouteServerPeerEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

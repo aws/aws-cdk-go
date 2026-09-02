@@ -76,7 +76,8 @@ type CfnMLTransform interface {
 	awscdk.IInspectable
 	interfacesawsglue.IMLTransformRef
 	awscdk.ITaggable
-	AttrId() *string
+	// The unique identifier for the transform.
+	AttrTransformId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -338,11 +339,11 @@ type jsiiProxy_CfnMLTransform struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnMLTransform) AttrId() *string {
+func (j *jsiiProxy_CfnMLTransform) AttrTransformId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrTransformId",
 		&returns,
 	)
 	return returns
@@ -765,6 +766,43 @@ func (j *jsiiProxy_CfnMLTransform)SetWorkerType(val *string) {
 		"workerType",
 		val,
 	)
+}
+
+func CfnMLTransform_ArnForMLTransform(resource interfacesawsglue.IMLTransformRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMLTransform_ArnForMLTransformParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnMLTransform",
+		"arnForMLTransform",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IMLTransformRef from a transformId.
+func CfnMLTransform_FromTransformId(scope constructs.Construct, id *string, transformId *string) interfacesawsglue.IMLTransformRef {
+	_init_.Initialize()
+
+	if err := validateCfnMLTransform_FromTransformIdParameters(scope, id, transformId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsglue.IMLTransformRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_glue.CfnMLTransform",
+		"fromTransformId",
+		[]interface{}{scope, id, transformId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

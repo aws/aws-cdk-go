@@ -19,10 +19,10 @@ type CfnDataQualityRuleset_DataQualityTargetTableProperty struct {
 	// The name of the database where the AWS Glue table exists.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-dataqualityruleset-dataqualitytargettable.html#cfn-glue-dataqualityruleset-dataqualitytargettable-databasename
 	//
-	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
 	// The name of the AWS Glue table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-dataqualityruleset-dataqualitytargettable.html#cfn-glue-dataqualityruleset-dataqualitytargettable-tablename
 	//
-	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

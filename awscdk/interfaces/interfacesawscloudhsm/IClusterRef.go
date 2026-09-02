@@ -1,0 +1,74 @@
+package interfacesawscloudhsm
+
+import (
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawscloudhsm/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// Indicates that this resource can be referenced as a Cluster.
+// Experimental.
+type IClusterRef interface {
+	constructs.IConstruct
+	interfaces.IEnvironmentAware
+	// A reference to a Cluster resource.
+	// Experimental.
+	ClusterRef() *ClusterReference
+}
+
+// The jsii proxy for IClusterRef
+type jsiiProxy_IClusterRef struct {
+	internal.Type__constructsIConstruct
+	internal.Type__interfacesIEnvironmentAware
+}
+
+func (i *jsiiProxy_IClusterRef) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_IClusterRef) ClusterRef() *ClusterReference {
+	var returns *ClusterReference
+	_jsii_.Get(
+		j,
+		"clusterRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IClusterRef) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IClusterRef) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+

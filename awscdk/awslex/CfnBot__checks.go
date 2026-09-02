@@ -329,6 +329,66 @@ func (j *jsiiProxy_CfnBot) validateSetBotLocalesParameters(val interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnBot) validateSetBotMembersParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *[]interface{}:
+		val := val.(*[]interface{})
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnBot_BotMemberProperty:
+				v := v.(*CfnBot_BotMemberProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnBot_BotMemberProperty:
+				v_ := v.(CfnBot_BotMemberProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnBot_BotMemberProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	case []interface{}:
+		val_ := val.([]interface{})
+		val := &val_
+		for idx_97dfc6, v := range *val {
+			switch v.(type) {
+			case awscdk.IResolvable:
+				// ok
+			case *CfnBot_BotMemberProperty:
+				v := v.(*CfnBot_BotMemberProperty)
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			case CfnBot_BotMemberProperty:
+				v_ := v.(CfnBot_BotMemberProperty)
+				v := &v_
+				if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+					return err
+				}
+			default:
+				if !_jsii_.IsAnonymousProxy(v) {
+					return fmt.Errorf("parameter val[%#v] must be one of the allowed types: awscdk.IResolvable, *CfnBot_BotMemberProperty; received %#v (a %T)", idx_97dfc6, v, v)
+				}
+			}
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnBot) validateSetBotTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

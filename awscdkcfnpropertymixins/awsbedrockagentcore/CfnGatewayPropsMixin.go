@@ -27,6 +27,9 @@ import (
 //   cfnGatewayPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnGatewayPropsMixin(&CfnGatewayMixinProps{
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
 //   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   			AdvertisedScopeMapping: map[string]*string{
+//   				"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   			},
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},
@@ -77,6 +80,13 @@ import (
 //   		&GatewayInterceptorConfigurationProperty{
 //   			InputConfiguration: &InterceptorInputConfigurationProperty{
 //   				PassRequestHeaders: jsii.Boolean(false),
+//   				PayloadFilter: &InterceptorPayloadFilterProperty{
+//   					Exclude: []interface{}{
+//   						&InterceptorPayloadExclusionSelectorProperty{
+//   							Field: jsii.String("field"),
+//   						},
+//   					},
+//   				},
 //   			},
 //   			InterceptionPoints: []*string{
 //   				jsii.String("interceptionPoints"),
@@ -113,6 +123,9 @@ import (
 //   	RoleArn: jsii.String("roleArn"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
+//   	},
+//   	WafConfiguration: &WafConfigurationProperty{
+//   		FailureMode: jsii.String("failureMode"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

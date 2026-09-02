@@ -118,6 +118,7 @@ package awsbatch
 //   	NetworkConfiguration: &NetworkConfigurationProperty{
 //   		AssignPublicIp: jsii.String("assignPublicIp"),
 //   	},
+//   	NetworkMode: jsii.String("networkMode"),
 //   	PidMode: jsii.String("pidMode"),
 //   	PlatformVersion: jsii.String("platformVersion"),
 //   	RuntimePlatform: &RuntimePlatformProperty{
@@ -196,6 +197,9 @@ type CfnJobDefinitionPropsMixin_EcsTaskPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-networkmode
+	//
+	NetworkMode *string `field:"optional" json:"networkMode" yaml:"networkMode"`
 	// The process namespace to use for the containers in the task.
 	//
 	// The valid values are `host` or `task` . For example, monitoring sidecars might need `pidMode` to access information about other containers running in the same task.

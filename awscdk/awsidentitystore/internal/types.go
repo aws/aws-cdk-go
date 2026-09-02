@@ -5,6 +5,6 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsidentitystoreIAllGroupMembershipsRef = interfacesawsidentitystore.IAllGroupMembershipsRef
 type Type__interfacesawsidentitystoreIGroupRef = interfacesawsidentitystore.IGroupRef
 type Type__interfacesawsidentitystoreIGroupMembershipRef = interfacesawsidentitystore.IGroupMembershipRef
+type Type__interfacesawsidentitystoreIUserRef = interfacesawsidentitystore.IUserRef

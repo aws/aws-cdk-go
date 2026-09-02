@@ -9,7 +9,7 @@ package previewawsentityresolutionmixins
 //   cfnMatchingWorkflowWorkflowLogsLogGroupProps := &CfnMatchingWorkflowWorkflowLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnMatchingWorkflowWorkflowLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnMatchingWorkflowWorkflowLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.*Mixins.CfnMatchingWorkflowWorkflowLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

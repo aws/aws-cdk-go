@@ -13,7 +13,6 @@ import (
 //
 //   cfnPrivateDnsNamespaceProps := &CfnPrivateDnsNamespaceProps{
 //   	Name: jsii.String("name"),
-//   	Vpc: jsii.String("vpc"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -30,6 +29,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Vpc: jsii.String("vpc"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
@@ -41,10 +41,6 @@ type CfnPrivateDnsNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The ID of the Amazon VPC that you want to associate the namespace with.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc
-	//
-	Vpc *string `field:"required" json:"vpc" yaml:"vpc"`
 	// A description for the namespace.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-description
 	//
@@ -59,5 +55,9 @@ type CfnPrivateDnsNamespaceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The ID of the Amazon VPC that you want to associate the namespace with.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc
+	//
+	Vpc *string `field:"optional" json:"vpc" yaml:"vpc"`
 }
 

@@ -6,6 +6,10 @@ type CfnGatewayApplicationLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnGatewayApplicationLogsRecordFields_TIMESTAMP CfnGatewayApplicationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnGatewayApplicationLogsRecordFields_GATEWAY_ID CfnGatewayApplicationLogsRecordFields = "GATEWAY_ID"
+	// Experimental.
 	CfnGatewayApplicationLogsRecordFields_BODY CfnGatewayApplicationLogsRecordFields = "BODY"
 	// Experimental.
 	CfnGatewayApplicationLogsRecordFields_ACCOUNT_ID CfnGatewayApplicationLogsRecordFields = "ACCOUNT_ID"

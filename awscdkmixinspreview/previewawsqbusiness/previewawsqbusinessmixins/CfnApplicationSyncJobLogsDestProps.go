@@ -8,7 +8,7 @@ package previewawsqbusinessmixins
 //
 //   cfnApplicationSyncJobLogsDestProps := &CfnApplicationSyncJobLogsDestProps{
 //   	RecordFields: []CfnApplicationSyncJobLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnApplicationSyncJobLogsRecordFields_AWSACCOUNTID,
+//   		awscdkmixinspreview.Mixins.CfnApplicationSyncJobLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

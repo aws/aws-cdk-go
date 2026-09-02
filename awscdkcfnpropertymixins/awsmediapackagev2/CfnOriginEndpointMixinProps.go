@@ -188,6 +188,7 @@ import (
 //   			},
 //   		},
 //   		IncludeIframeOnlyStreams: jsii.Boolean(false),
+//   		OutputTimestampMode: jsii.String("outputTimestampMode"),
 //   		Scte: &ScteProperty{
 //   			CustomAdTypes: []*string{
 //   				jsii.String("customAdTypes"),

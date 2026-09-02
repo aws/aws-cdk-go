@@ -2360,6 +2360,30 @@ func init() {
 		reflect.TypeOf((*CfnAnalysisPropsMixin_YAxisOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnApprovalPolicyMixinProps",
+		reflect.TypeOf((*CfnApprovalPolicyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnApprovalPolicyPropsMixin",
+		reflect.TypeOf((*CfnApprovalPolicyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnApprovalPolicyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnApprovalPolicyPropsMixin.ApplicableToProperty",
+		reflect.TypeOf((*CfnApprovalPolicyPropsMixin_ApplicableToProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnCustomPermissionsMixinProps",
 		reflect.TypeOf((*CfnCustomPermissionsMixinProps)(nil)).Elem(),
 	)
@@ -2382,6 +2406,42 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnCustomPermissionsPropsMixin.CapabilitiesProperty",
 		reflect.TypeOf((*CfnCustomPermissionsPropsMixin_CapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDLPSettingMixinProps",
+		reflect.TypeOf((*CfnDLPSettingMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDLPSettingPropsMixin",
+		reflect.TypeOf((*CfnDLPSettingPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDLPSettingPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDLPSettingPropsMixin.LabelActionMappingProperty",
+		reflect.TypeOf((*CfnDLPSettingPropsMixin_LabelActionMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDLPSettingPropsMixin.MicrosoftPurviewCredentialsProperty",
+		reflect.TypeOf((*CfnDLPSettingPropsMixin_MicrosoftPurviewCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDLPSettingPropsMixin.MicrosoftPurviewProviderConfigProperty",
+		reflect.TypeOf((*CfnDLPSettingPropsMixin_MicrosoftPurviewProviderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDLPSettingPropsMixin.ProviderConfigProperty",
+		reflect.TypeOf((*CfnDLPSettingPropsMixin_ProviderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDashboardMixinProps",
@@ -5412,6 +5472,30 @@ func init() {
 		reflect.TypeOf((*CfnKnowledgeBasePropsMixin_VideoExtractionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnLimitsProfileMixinProps",
+		reflect.TypeOf((*CfnLimitsProfileMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnLimitsProfilePropsMixin",
+		reflect.TypeOf((*CfnLimitsProfilePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnLimitsProfilePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnLimitsProfilePropsMixin.ProfileLimitValueProperty",
+		reflect.TypeOf((*CfnLimitsProfilePropsMixin_ProfileLimitValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnOAuthClientApplicationMixinProps",
 		reflect.TypeOf((*CfnOAuthClientApplicationMixinProps)(nil)).Elem(),
 	)
@@ -7794,6 +7878,46 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicPropsMixin.TopicSingularFilterConstantProperty",
 		reflect.TypeOf((*CfnTopicPropsMixin_TopicSingularFilterConstantProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2MixinProps",
+		reflect.TypeOf((*CfnTopicV2MixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2PropsMixin",
+		reflect.TypeOf((*CfnTopicV2PropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTopicV2PropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2PropsMixin.CustomInstructionsProperty",
+		reflect.TypeOf((*CfnTopicV2PropsMixin_CustomInstructionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2PropsMixin.DataSetReferenceProperty",
+		reflect.TypeOf((*CfnTopicV2PropsMixin_DataSetReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2PropsMixin.DataSetRelationEndpointProperty",
+		reflect.TypeOf((*CfnTopicV2PropsMixin_DataSetRelationEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2PropsMixin.DataSetRelationProperty",
+		reflect.TypeOf((*CfnTopicV2PropsMixin_DataSetRelationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnTopicV2PropsMixin.ResourcePermissionProperty",
+		reflect.TypeOf((*CfnTopicV2PropsMixin_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnVPCConnectionMixinProps",

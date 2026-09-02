@@ -8,7 +8,7 @@ package previewawsentityresolutionmixins
 //
 //   cfnMatchingWorkflowWorkflowLogsDestProps := &CfnMatchingWorkflowWorkflowLogsDestProps{
 //   	RecordFields: []CfnMatchingWorkflowWorkflowLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnMatchingWorkflowWorkflowLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.Mixins.CfnMatchingWorkflowWorkflowLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

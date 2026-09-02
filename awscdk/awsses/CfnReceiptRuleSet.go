@@ -32,7 +32,6 @@ type CfnReceiptRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsses.IReceiptRuleSetRef
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -251,16 +250,6 @@ type jsiiProxy_CfnReceiptRuleSet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawssesIReceiptRuleSetRef
-}
-
-func (j *jsiiProxy_CfnReceiptRuleSet) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnReceiptRuleSet) CfnOptions() awscdk.ICfnResourceOptions {

@@ -7,7 +7,7 @@ package previewawseksmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnClusterAutoModeLoadBalancingLogsFirehoseProps := &CfnClusterAutoModeLoadBalancingLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterAutoModeLoadBalancingLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterAutoModeLoadBalancingLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnClusterAutoModeLoadBalancingLogsRecordFields{
 //   		awscdkmixinspreview.*Mixins.CfnClusterAutoModeLoadBalancingLogsRecordFields_LEVEL,
 //   	},
@@ -15,7 +15,7 @@ package previewawseksmixins
 //
 // Experimental.
 type CfnClusterAutoModeLoadBalancingLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnClusterAutoModeLoadBalancingLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

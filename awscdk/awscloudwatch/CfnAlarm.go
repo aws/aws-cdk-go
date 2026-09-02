@@ -105,6 +105,10 @@ import (
 //   	ThresholdMetricId: jsii.String("thresholdMetricId"),
 //   	TreatMissingData: jsii.String("treatMissingData"),
 //   	Unit: jsii.String("unit"),
+//   	WarmUpConfiguration: &WarmUpConfigurationProperty{
+//   		OnlyStartEvaluatingAfterWarmUpPeriodEnds: jsii.Boolean(false),
+//   		WarmUpPeriodDurationInMinutes: jsii.Number(123),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html
@@ -164,6 +168,7 @@ type CfnAlarm interface {
 	// The number of periods over which data is compared to the specified threshold.
 	EvaluationPeriods() *float64
 	SetEvaluationPeriods(val *float64)
+	// The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs.
 	EvaluationWindow() interface{}
 	SetEvaluationWindow(val interface{})
 	// The percentile statistic for the metric associated with the alarm.
@@ -243,6 +248,8 @@ type CfnAlarm interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	WarmUpConfiguration() interface{}
+	SetWarmUpConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -814,6 +821,16 @@ func (j *jsiiProxy_CfnAlarm) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAlarm) WarmUpConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"warmUpConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::CloudWatch::Alarm`.
 func NewCfnAlarm(scope constructs.Construct, id *string, props *CfnAlarmProps) CfnAlarm {
@@ -1058,6 +1075,17 @@ func (j *jsiiProxy_CfnAlarm)SetUnit(val *string) {
 	_jsii_.Set(
 		j,
 		"unit",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarm)SetWarmUpConfiguration(val interface{}) {
+	if err := j.validateSetWarmUpConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"warmUpConfiguration",
 		val,
 	)
 }

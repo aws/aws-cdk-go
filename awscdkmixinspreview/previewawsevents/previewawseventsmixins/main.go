@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusErrorLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnEventBusErrorLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnEventBusErrorLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnEventBusErrorLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnEventBusErrorLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnEventBusErrorLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusErrorLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnEventBusErrorLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnEventBusErrorLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnEventBusErrorLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnEventBusErrorLogsOutputFormat_S3_JSON,
 			"W3C": CfnEventBusErrorLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnEventBusErrorLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusErrorLogsRecordFields",
 		reflect.TypeOf((*CfnEventBusErrorLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnEventBusErrorLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnEventBusErrorLogsRecordFields_RESOURCE_ARN,
 			"MESSAGE_TIMESTAMP_MS": CfnEventBusErrorLogsRecordFields_MESSAGE_TIMESTAMP_MS,
 			"EVENT_BUS_NAME": CfnEventBusErrorLogsRecordFields_EVENT_BUS_NAME,
@@ -124,8 +125,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusInfoLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnEventBusInfoLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnEventBusInfoLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnEventBusInfoLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnEventBusInfoLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnEventBusInfoLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -141,8 +142,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusInfoLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnEventBusInfoLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnEventBusInfoLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnEventBusInfoLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnEventBusInfoLogsOutputFormat_S3_JSON,
 			"W3C": CfnEventBusInfoLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnEventBusInfoLogsOutputFormat_S3_PARQUET,
 		},
@@ -151,6 +152,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusInfoLogsRecordFields",
 		reflect.TypeOf((*CfnEventBusInfoLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnEventBusInfoLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnEventBusInfoLogsRecordFields_RESOURCE_ARN,
 			"MESSAGE_TIMESTAMP_MS": CfnEventBusInfoLogsRecordFields_MESSAGE_TIMESTAMP_MS,
 			"EVENT_BUS_NAME": CfnEventBusInfoLogsRecordFields_EVENT_BUS_NAME,
@@ -220,8 +222,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusTraceLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnEventBusTraceLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnEventBusTraceLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnEventBusTraceLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnEventBusTraceLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnEventBusTraceLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -237,8 +239,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusTraceLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnEventBusTraceLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnEventBusTraceLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnEventBusTraceLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnEventBusTraceLogsOutputFormat_S3_JSON,
 			"W3C": CfnEventBusTraceLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnEventBusTraceLogsOutputFormat_S3_PARQUET,
 		},
@@ -247,6 +249,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_events.mixins.CfnEventBusTraceLogsRecordFields",
 		reflect.TypeOf((*CfnEventBusTraceLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnEventBusTraceLogsRecordFields_TIMESTAMP,
 			"RESOURCE_ARN": CfnEventBusTraceLogsRecordFields_RESOURCE_ARN,
 			"MESSAGE_TIMESTAMP_MS": CfnEventBusTraceLogsRecordFields_MESSAGE_TIMESTAMP_MS,
 			"EVENT_BUS_NAME": CfnEventBusTraceLogsRecordFields_EVENT_BUS_NAME,

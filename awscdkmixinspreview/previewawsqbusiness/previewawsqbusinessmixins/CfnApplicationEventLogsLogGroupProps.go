@@ -9,7 +9,7 @@ package previewawsqbusinessmixins
 //   cfnApplicationEventLogsLogGroupProps := &CfnApplicationEventLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnApplicationEventLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnApplicationEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnApplicationEventLogsRecordFields_APPLICATION_ID,
+//   		awscdkmixinspreview.*Mixins.CfnApplicationEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

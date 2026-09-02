@@ -128,8 +128,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionPropsMixin.AuthenticationConfigurationInputProperty",
-		reflect.TypeOf((*CfnConnectionPropsMixin_AuthenticationConfigurationInputProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionPropsMixin.AuthenticationConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_AuthenticationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionPropsMixin.AuthorizationCodePropertiesProperty",
@@ -152,8 +152,8 @@ func init() {
 		reflect.TypeOf((*CfnConnectionPropsMixin_OAuth2CredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionPropsMixin.OAuth2PropertiesInputProperty",
-		reflect.TypeOf((*CfnConnectionPropsMixin_OAuth2PropertiesInputProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionPropsMixin.OAuth2PropertiesProperty",
+		reflect.TypeOf((*CfnConnectionPropsMixin_OAuth2PropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionPropsMixin.PhysicalConnectionRequirementsProperty",
@@ -698,6 +698,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnSecurityConfigurationPropsMixin.S3EncryptionProperty",
 		reflect.TypeOf((*CfnSecurityConfigurationPropsMixin_S3EncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnSessionMixinProps",
+		reflect.TypeOf((*CfnSessionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnSessionPropsMixin",
+		reflect.TypeOf((*CfnSessionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSessionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnSessionPropsMixin.ConnectionsListProperty",
+		reflect.TypeOf((*CfnSessionPropsMixin_ConnectionsListProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnSessionPropsMixin.SessionCommandProperty",
+		reflect.TypeOf((*CfnSessionPropsMixin_SessionCommandProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnTableMixinProps",

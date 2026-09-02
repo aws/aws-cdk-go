@@ -6,11 +6,23 @@ type CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "LEVEL"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_MESSAGE CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "MESSAGE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_ERROR CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_VERSION CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "VERSION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_COMPONENT CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "COMPONENT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_DURATION CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "DURATION"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdCommitserverLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnLoadBalancerAlbAccessLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbAccessLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnLoadBalancerAlbAccessLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_JSON,
 			"W3C": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnLoadBalancerAlbAccessLogsOutputFormat_S3_PARQUET,
 		},
@@ -148,8 +148,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnLoadBalancerAlbConnectionLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -165,8 +165,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbConnectionLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnLoadBalancerAlbConnectionLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_JSON,
 			"W3C": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnLoadBalancerAlbConnectionLogsOutputFormat_S3_PARQUET,
 		},
@@ -233,8 +233,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -250,8 +250,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerAlbHealthCheckLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_JSON,
 			"W3C": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnLoadBalancerAlbHealthCheckLogsOutputFormat_S3_PARQUET,
 		},
@@ -329,8 +329,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnLoadBalancerNlbAccessLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -346,8 +346,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_JSON,
 			"W3C": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnLoadBalancerNlbAccessLogsOutputFormat_S3_PARQUET,
 		},

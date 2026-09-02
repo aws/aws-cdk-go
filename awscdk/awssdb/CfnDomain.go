@@ -32,6 +32,7 @@ type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawssdb.IDomainRef
+	// The name of the domain to create.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

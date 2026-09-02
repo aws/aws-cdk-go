@@ -21,6 +21,9 @@ import (
 //   cfnPaymentConnector := awscdk.Aws_bedrockagentcore.NewCfnPaymentConnector(this, jsii.String("MyCfnPaymentConnector"), &CfnPaymentConnectorProps{
 //   	ConnectorName: jsii.String("connectorName"),
 //   	ConnectorType: jsii.String("connectorType"),
+//   	PaymentManagerId: jsii.String("paymentManagerId"),
+//
+//   	// the properties below are optional
 //   	CredentialProviderConfigurations: []interface{}{
 //   		&CredentialsProviderConfigurationProperty{
 //   			CoinbaseCdp: &PaymentCredentialProviderConfigurationProperty{
@@ -31,10 +34,8 @@ import (
 //   			},
 //   		},
 //   	},
-//   	PaymentManagerId: jsii.String("paymentManagerId"),
-//
-//   	// the properties below are optional
 //   	Description: jsii.String("description"),
+//   	ProvisionMode: jsii.String("provisionMode"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentconnector.html
@@ -43,6 +44,10 @@ type CfnPaymentConnector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsbedrockagentcore.IPaymentConnectorRef
+	// The URL the user must open to complete OAuth consent.
+	//
+	// Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+	AttrAuthorizationUrl() *string
 	// The timestamp when the connector was created.
 	AttrConnectorCreatedAt() *string
 	// The timestamp when the connector was last updated.
@@ -91,6 +96,8 @@ type CfnPaymentConnector interface {
 	// The identifier of the parent payment manager.
 	PaymentManagerId() *string
 	SetPaymentManagerId(val *string)
+	ProvisionMode() *string
+	SetProvisionMode(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -283,6 +290,16 @@ type jsiiProxy_CfnPaymentConnector struct {
 	internal.Type__interfacesawsbedrockagentcoreIPaymentConnectorRef
 }
 
+func (j *jsiiProxy_CfnPaymentConnector) AttrAuthorizationUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAuthorizationUrl",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPaymentConnector) AttrConnectorCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -473,6 +490,16 @@ func (j *jsiiProxy_CfnPaymentConnector) PaymentManagerId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPaymentConnector) ProvisionMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"provisionMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPaymentConnector) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -591,6 +618,14 @@ func (j *jsiiProxy_CfnPaymentConnector)SetPaymentManagerId(val *string) {
 	_jsii_.Set(
 		j,
 		"paymentManagerId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPaymentConnector)SetProvisionMode(val *string) {
+	_jsii_.Set(
+		j,
+		"provisionMode",
 		val,
 	)
 }

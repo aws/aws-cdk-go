@@ -7,4 +7,3 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsbcmdataexportsIExportRef = interfacesawsbcmdataexports.IExportRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
-type Type__interfacesawsbcmdataexportsITableRef = interfacesawsbcmdataexports.ITableRef

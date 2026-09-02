@@ -8,7 +8,7 @@ package previewawscloudfrontmixins
 //
 //   cfnDistributionAccessLogsDestProps := &CfnDistributionAccessLogsDestProps{
 //   	RecordFields: []CfnDistributionAccessLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnDistributionAccessLogsRecordFields_DATE,
+//   		awscdkmixinspreview.Mixins.CfnDistributionAccessLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -452,6 +452,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_PaymentNetworkProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.PreParseTextTransformationProperty",
+		reflect.TypeOf((*CfnRuleGroup_PreParseTextTransformationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.PriceProperty",
 		reflect.TypeOf((*CfnRuleGroup_PriceProperty)(nil)).Elem(),
 	)
@@ -850,6 +854,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.PaymentNetworkProperty",
 		reflect.TypeOf((*CfnWebACL_PaymentNetworkProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.PreParseTextTransformationProperty",
+		reflect.TypeOf((*CfnWebACL_PreParseTextTransformationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.PriceProperty",

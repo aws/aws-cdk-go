@@ -6,13 +6,23 @@ package awselementalinference
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var cropping interface{}
-//
 //   outputConfigProperty := &OutputConfigProperty{
 //   	Clipping: &ClippingConfigProperty{
 //   		CallbackMetadata: jsii.String("callbackMetadata"),
+//   		DataSourceConfiguration: &DataSourceConfigurationProperty{
+//   			FixtureId: jsii.String("fixtureId"),
+//   		},
 //   	},
-//   	Cropping: cropping,
+//   	Cropping: &CroppingConfigProperty{
+//   		TemplateGroups: []interface{}{
+//   			&TemplateGroupProperty{
+//   				Name: jsii.String("name"),
+//   				TemplateUris: []*string{
+//   					jsii.String("templateUris"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Subtitling: &SubtitlingConfigProperty{
 //   		AspectRatio: &AspectRatioProperty{
 //   			Height: jsii.Number(123),

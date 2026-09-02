@@ -4,7 +4,7 @@ package previewawsnetworkfirewallmixins
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (c *jsiiProxy_CfnFirewallAlertLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef) error {
+func (c *jsiiProxy_CfnFirewallAlertLogs) validateToDestinationParameters(destination interfacesawslogs.IDeliveryDestinationRef, props *CfnFirewallAlertLogsDestProps) error {
 	return nil
 }
 

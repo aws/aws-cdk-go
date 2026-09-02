@@ -13,6 +13,9 @@ package awsbatch
 //   	ComputeResources: &ComputeResourcesProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   		BidPercentage: jsii.Number(123),
+//   		CapacityTags: map[string]*string{
+//   			"capacityTagsKey": jsii.String("capacityTags"),
+//   		},
 //   		DesiredvCpus: jsii.Number(123),
 //   		Ec2Configuration: []interface{}{
 //   			&Ec2ConfigurationObjectProperty{
@@ -45,6 +48,43 @@ package awsbatch
 //   			UserdataType: jsii.String("userdataType"),
 //   			Version: jsii.String("version"),
 //   		},
+//   		ManagedInstancesProvider: &ManagedInstancesProviderProperty{
+//   			InfrastructureOptimization: &InfrastructureOptimizationProperty{
+//   				ScaleInAfter: jsii.Number(123),
+//   			},
+//   			InfrastructureRoleArn: jsii.String("infrastructureRoleArn"),
+//   			InstanceLaunchTemplate: &InstanceLaunchTemplateProperty{
+//   				CapacityOptionType: jsii.String("capacityOptionType"),
+//   				CapacityReservations: &CapacityReservationsProperty{
+//   					ReservationGroupArn: jsii.String("reservationGroupArn"),
+//   					ReservationPreference: jsii.String("reservationPreference"),
+//   				},
+//   				Ec2InstanceProfileArn: jsii.String("ec2InstanceProfileArn"),
+//   				FipsEnabled: jsii.Boolean(false),
+//   				InstanceMetadataTagsPropagation: jsii.Boolean(false),
+//   				InstanceRequirements: &InstanceRequirementsProperty{
+//   					AllowedInstanceTypes: []*string{
+//   						jsii.String("allowedInstanceTypes"),
+//   					},
+//   				},
+//   				LocalStorageConfiguration: &ManagedInstancesLocalStorageConfigurationProperty{
+//   					UseLocalStorage: jsii.Boolean(false),
+//   				},
+//   				Monitoring: jsii.String("monitoring"),
+//   				NetworkConfiguration: &ManagedInstancesNetworkConfigurationProperty{
+//   					SecurityGroups: []*string{
+//   						jsii.String("securityGroups"),
+//   					},
+//   					Subnets: []*string{
+//   						jsii.String("subnets"),
+//   					},
+//   				},
+//   				StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
+//   					StorageSizeGiB: jsii.Number(123),
+//   				},
+//   			},
+//   			PropagateTags: jsii.String("propagateTags"),
+//   		},
 //   		MaxvCpus: jsii.Number(123),
 //   		MinvCpus: jsii.Number(123),
 //   		PlacementGroup: jsii.String("placementGroup"),
@@ -65,6 +105,9 @@ package awsbatch
 //   		UpdateToLatestImageVersion: jsii.Boolean(false),
 //   	},
 //   	Context: jsii.String("context"),
+//   	EcsSettings: &EcsSettingsProperty{
+//   		ContainerInsights: jsii.String("containerInsights"),
+//   	},
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
@@ -102,6 +145,9 @@ type CfnComputeEnvironmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-context
 	//
 	Context *string `field:"optional" json:"context" yaml:"context"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-ecssettings
+	//
+	EcsSettings interface{} `field:"optional" json:"ecsSettings" yaml:"ecsSettings"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	//
 	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .

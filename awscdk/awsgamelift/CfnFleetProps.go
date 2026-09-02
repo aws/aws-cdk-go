@@ -93,13 +93,13 @@ import (
 //   	},
 //   	ScalingPolicies: []interface{}{
 //   		&ScalingPolicyProperty{
-//   			MetricName: jsii.String("metricName"),
 //   			Name: jsii.String("name"),
 //
 //   			// the properties below are optional
 //   			ComparisonOperator: jsii.String("comparisonOperator"),
 //   			EvaluationPeriods: jsii.Number(123),
 //   			Location: jsii.String("location"),
+//   			MetricName: jsii.String("metricName"),
 //   			PolicyType: jsii.String("policyType"),
 //   			ScalingAdjustment: jsii.Number(123),
 //   			ScalingAdjustmentType: jsii.String("scalingAdjustmentType"),

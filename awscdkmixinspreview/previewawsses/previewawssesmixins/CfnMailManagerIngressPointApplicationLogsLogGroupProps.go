@@ -9,7 +9,7 @@ package previewawssesmixins
 //   cfnMailManagerIngressPointApplicationLogsLogGroupProps := &CfnMailManagerIngressPointApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerIngressPointApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnMailManagerIngressPointApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMailManagerIngressPointApplicationLogsRecordFields_INGRESS_POINT_TYPE,
+//   		awscdkmixinspreview.*Mixins.CfnMailManagerIngressPointApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

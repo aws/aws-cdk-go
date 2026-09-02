@@ -28,22 +28,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_stepfunctions.IMapRunRef",
-		reflect.TypeOf((*IMapRunRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "mapRunRef", GoGetter: "MapRunRef"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IMapRunRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_stepfunctions.IStateMachineAliasRef",
 		reflect.TypeOf((*IStateMachineAliasRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -90,10 +74,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_stepfunctions.MapRunReference",
-		reflect.TypeOf((*MapRunReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_stepfunctions.StateMachineAliasReference",

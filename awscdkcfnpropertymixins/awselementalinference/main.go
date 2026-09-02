@@ -56,6 +56,14 @@ func init() {
 		reflect.TypeOf((*CfnFeedPropsMixin_ClippingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.CroppingConfigProperty",
+		reflect.TypeOf((*CfnFeedPropsMixin_CroppingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.DataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnFeedPropsMixin_DataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.GetOutputProperty",
 		reflect.TypeOf((*CfnFeedPropsMixin_GetOutputProperty)(nil)).Elem(),
 	)
@@ -66,5 +74,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.SubtitlingConfigProperty",
 		reflect.TypeOf((*CfnFeedPropsMixin_SubtitlingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elementalinference.CfnFeedPropsMixin.TemplateGroupProperty",
+		reflect.TypeOf((*CfnFeedPropsMixin_TemplateGroupProperty)(nil)).Elem(),
 	)
 }

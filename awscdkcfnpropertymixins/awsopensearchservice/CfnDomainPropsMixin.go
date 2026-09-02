@@ -165,6 +165,7 @@ import (
 //   	},
 //   	SoftwareUpdateOptions: &SoftwareUpdateOptionsProperty{
 //   		AutoSoftwareUpdateEnabled: jsii.Boolean(false),
+//   		UseLatestServiceSoftwareForBlueGreen: jsii.Boolean(false),
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

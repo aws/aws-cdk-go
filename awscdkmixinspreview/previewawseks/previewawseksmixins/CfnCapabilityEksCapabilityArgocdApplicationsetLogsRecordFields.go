@@ -6,6 +6,10 @@ type CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "LEVEL"
@@ -43,6 +47,14 @@ const (
 	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_REQUEUEAFTER CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "REQUEUEAFTER"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_TYPE CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "TYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_VERSION CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "VERSION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_ERR CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "ERR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_REPOURL CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "REPOURL"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_REVISION CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "REVISION"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdApplicationsetLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

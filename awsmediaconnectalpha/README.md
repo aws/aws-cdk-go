@@ -75,7 +75,7 @@ Here's a complete example showing how to connect an SRT source through a router 
 
 ```go
 var stack Stack
-var mediaLiveInput CfnInput
+var mediaLiveInput IInput
 
 
 // 1. A public network interface for the SRT input
@@ -110,8 +110,8 @@ output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("Output"), &Ro
 	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
 	Tier: awsmediaconnectalpha.RouterOutputTier_OUTPUT_20(),
 	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInput(&MediaLiveInputConnectionProps{
-		MediaLiveInputArn: mediaLiveInput.attrArn,
-		MediaLivePipelineId: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+		Input: mediaLiveInput,
+		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
 	}),
 })
 ```
@@ -212,6 +212,70 @@ input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("FailoverInput")
 })
 ```
 
+#### MediaLive Channel Input
+
+Connect a router input to a MediaLive channel. The `outputName` must match the name of an output configured in the channel's MediaConnect Router output group.
+
+```go
+var stack Stack
+var mediaLiveChannel IChannel
+
+
+input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+	RouterInputName: jsii.String("channel-input"),
+	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+		Channel: mediaLiveChannel,
+		OutputName: jsii.String("router-ts"),
+		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+	}),
+})
+```
+
+> **Tip:** For full examples of wiring a MediaLive channel to a MediaConnect Router (including
+> transit encryption), see the [MediaLive L2 README — MediaConnect Router section](./../aws-medialive-alpha/README.md#aws-elemental-mediaconnect-router).
+
+```go
+var stack Stack
+var mediaLiveChannel IChannel
+var transitSecret Secret
+// must hold the same value as the channel's MediaConnectRouterSettings.shared() secret
+
+input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+	RouterInputName: jsii.String("channel-input"),
+	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+		Channel: mediaLiveChannel,
+		OutputName: jsii.String("router-ts"),
+		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+		SourceTransitDecryption: &TransitEncryption{
+			Secret: transitSecret,
+		},
+	}),
+})
+```
+
+Or prepare a router input for a MediaLive connection without specifying the channel (requires explicit availability zone):
+
+```go
+var stack Stack
+
+
+input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInputNoConnection"), &RouterInputProps{
+	RouterInputName: jsii.String("channel-input-no-connection"),
+	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannelWithoutConnection(&MediaLiveChannelConfigurationWithoutConnectionProps{
+		AvailabilityZone: jsii.String("us-east-1a"),
+	}),
+})
+```
+
 #### MediaConnect Flow Input
 
 Connect a router input to an existing MediaConnect flow:
@@ -281,13 +345,11 @@ output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("SrtOutput"), 
 
 #### MediaLive Output
 
-Note (breaking change in the future): MediaLive configuration is currently passed in as `mediaLiveInputArn` but when L2 construct available, this will be updated to use the construct instead.
-
-Connect a router output to an existing MediaLive input:
+Connect a router output to a MediaLive input (the input must be a MediaConnect Router type):
 
 ```go
 var stack Stack
-var mediaLiveInput CfnInput
+var mediaLiveInput IInput
 
 
 output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("MediaLiveOutput"), &RouterOutputProps{
@@ -296,8 +358,8 @@ output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("MediaLiveOutp
 	RoutingScope: awsmediaconnectalpha.RoutingScope_GLOBAL(),
 	Tier: awsmediaconnectalpha.RouterOutputTier_OUTPUT_50(),
 	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInput(&MediaLiveInputConnectionProps{
-		MediaLiveInputArn: mediaLiveInput.attrArn,
-		MediaLivePipelineId: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+		Input: mediaLiveInput,
+		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
 	}),
 })
 ```
@@ -410,8 +472,6 @@ flow := awsmediaconnectalpha.NewFlow(stack, jsii.String("MyFlow"), &FlowProps{
 ### Flow Sources
 
 MediaConnect supports multiple source types for ingesting content into a flow. The examples below use `NetworkConfiguration.publicNetwork()` for simplicity, but all protocol-based sources can also use `NetworkConfiguration.vpc()` with a VPC interface for private connectivity.
-
-> The source's `flowSourceName` and `description` are set on the `SourceConfiguration`, not on `FlowSourceProps`. This is because the same `SourceConfiguration` is used both for a flow's inline primary source (`FlowProps.source`, which has no separate props object) and for additional sources added via `FlowSource`. Keeping the name on the configuration lets both be described identically.
 
 #### SRT Listener Source
 

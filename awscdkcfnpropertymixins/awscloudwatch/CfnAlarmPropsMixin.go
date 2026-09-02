@@ -102,6 +102,10 @@ import (
 //   	ThresholdMetricId: jsii.String("thresholdMetricId"),
 //   	TreatMissingData: jsii.String("treatMissingData"),
 //   	Unit: jsii.String("unit"),
+//   	WarmUpConfiguration: &WarmUpConfigurationProperty{
+//   		OnlyStartEvaluatingAfterWarmUpPeriodEnds: jsii.Boolean(false),
+//   		WarmUpPeriodDurationInMinutes: jsii.Number(123),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

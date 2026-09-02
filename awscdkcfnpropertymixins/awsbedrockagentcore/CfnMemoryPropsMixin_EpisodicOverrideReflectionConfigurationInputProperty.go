@@ -34,6 +34,7 @@ package awsbedrockagentcore
 //   						},
 //   					},
 //   				},
+//   				ExtractionType: jsii.String("extractionType"),
 //   				Key: jsii.String("key"),
 //   				Type: jsii.String("type"),
 //   			},

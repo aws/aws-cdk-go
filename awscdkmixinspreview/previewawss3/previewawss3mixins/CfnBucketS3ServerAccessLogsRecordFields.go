@@ -6,11 +6,11 @@ type CfnBucketS3ServerAccessLogsRecordFields string
 
 const (
 	// Experimental.
-	CfnBucketS3ServerAccessLogsRecordFields_BUCKET_NAME CfnBucketS3ServerAccessLogsRecordFields = "BUCKET_NAME"
-	// Experimental.
 	CfnBucketS3ServerAccessLogsRecordFields_SCHEMA_VERSION_ID CfnBucketS3ServerAccessLogsRecordFields = "SCHEMA_VERSION_ID"
 	// Experimental.
 	CfnBucketS3ServerAccessLogsRecordFields_BUCKET_ARN CfnBucketS3ServerAccessLogsRecordFields = "BUCKET_ARN"
+	// Experimental.
+	CfnBucketS3ServerAccessLogsRecordFields_BUCKET_NAME CfnBucketS3ServerAccessLogsRecordFields = "BUCKET_NAME"
 	// Experimental.
 	CfnBucketS3ServerAccessLogsRecordFields_REQUEST_TIME CfnBucketS3ServerAccessLogsRecordFields = "REQUEST_TIME"
 	// Experimental.

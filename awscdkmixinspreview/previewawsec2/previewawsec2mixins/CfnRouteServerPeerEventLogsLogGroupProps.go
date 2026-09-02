@@ -9,7 +9,7 @@ package previewawsec2mixins
 //   cfnRouteServerPeerEventLogsLogGroupProps := &CfnRouteServerPeerEventLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnRouteServerPeerEventLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnRouteServerPeerEventLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnRouteServerPeerEventLogsRecordFields_STATUS,
+//   		awscdkmixinspreview.*Mixins.CfnRouteServerPeerEventLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

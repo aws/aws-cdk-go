@@ -140,6 +140,10 @@ func (j *jsiiProxy_CfnCanary) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCanary) validateSetReplicasParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCanary) validateSetRunConfigParameters(val interface{}) error {
 	return nil
 }

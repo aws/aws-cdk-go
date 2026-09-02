@@ -7,15 +7,15 @@ package previewawspcsmixins
 //   import "github.com/aws/aws-cdk-go/awscdkmixinspreview"
 //
 //   cfnClusterPcsSchedulerAuditLogsFirehoseProps := &CfnClusterPcsSchedulerAuditLogsFirehoseProps{
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.Firehose_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerAuditLogsOutputFormat.Firehose_PLAIN,
 //   	RecordFields: []CfnClusterPcsSchedulerAuditLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_ID,
+//   		awscdkmixinspreview.*Mixins.CfnClusterPcsSchedulerAuditLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
 // Experimental.
 type CfnClusterPcsSchedulerAuditLogsFirehoseProps struct {
-	// Format for log output, options are json,plain,raw.
+	// Format for log output, options are plain,json,raw.
 	// Experimental.
 	OutputFormat CfnClusterPcsSchedulerAuditLogsOutputFormat_Firehose `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

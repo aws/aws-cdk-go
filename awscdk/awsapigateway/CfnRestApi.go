@@ -65,6 +65,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Version: jsii.String("version"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
@@ -178,6 +179,8 @@ type CfnRestApi interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	Version() *string
+	SetVersion(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -679,6 +682,16 @@ func (j *jsiiProxy_CfnRestApi) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRestApi) Version() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"version",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::ApiGateway::RestApi`.
 func NewCfnRestApi(scope constructs.Construct, id *string, props *CfnRestApiProps) CfnRestApi {
@@ -865,6 +878,14 @@ func (j *jsiiProxy_CfnRestApi)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRestApi)SetVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"version",
 		val,
 	)
 }

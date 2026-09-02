@@ -17,17 +17,25 @@ import (
 //   var networkInterface RouterNetworkInterface
 //
 //
-//   output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("SrtOutput"), &RouterOutputProps{
-//   	RouterOutputName: jsii.String("srt-output"),
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("FailoverInput"), &RouterInputProps{
+//   	RouterInputName: jsii.String("failover-input"),
 //   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(10)),
 //   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
-//   	// tier defaults to RouterOutputTier.OUTPUT_20 (lowest cost)
-//   	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_Standard(&StandardOutputConfigurationProps{
-//   		Protocol: awsmediaconnectalpha.RouterOutputProtocol_SrtListener(&SrtListenerOutputProtocolProps{
-//   			Port: jsii.Number(9001),
-//   			MinimumLatency: awscdk.Duration_Millis(jsii.Number(200)),
-//   		}),
+//   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_Failover(&FailoverConfigurationProps{
 //   		NetworkInterface: networkInterface,
+//   		Protocols: []RouterInputProtocol{
+//   			awsmediaconnectalpha.RouterInputProtocol_Rist(&RistProtocolProps{
+//   				Port: jsii.Number(5000),
+//   				RecoveryLatency: awscdk.Duration_Millis(jsii.Number(1000)),
+//   			}),
+//   			awsmediaconnectalpha.RouterInputProtocol_*Rist(&RistProtocolProps{
+//   				Port: jsii.Number(5002),
+//   				 // Must not be consecutive with primary port
+//   				RecoveryLatency: awscdk.Duration_*Millis(jsii.Number(1000)),
+//   			}),
+//   		},
+//   		SourcePriority: awsmediaconnectalpha.SourcePriorityConfig_PrimarySecondary(awsmediaconnectalpha.PrimarySource_FIRST_SOURCE),
 //   	}),
 //   })
 //

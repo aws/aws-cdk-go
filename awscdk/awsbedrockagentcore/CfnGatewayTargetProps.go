@@ -275,6 +275,9 @@ package awsbedrockagentcore
 //   			SecurityGroupIds: []*string{
 //   				jsii.String("securityGroupIds"),
 //   			},
+//   			Tags: map[string]*string{
+//   				"tagsKey": jsii.String("tags"),
+//   			},
 //   		},
 //   		SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{
 //   			ResourceConfigurationIdentifier: jsii.String("resourceConfigurationIdentifier"),

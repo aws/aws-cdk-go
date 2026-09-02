@@ -8,7 +8,7 @@ package previewawsbedrockagentcoremixins
 //
 //   cfnWorkloadIdentityApplicationLogsDestProps := &CfnWorkloadIdentityApplicationLogsDestProps{
 //   	RecordFields: []CfnWorkloadIdentityApplicationLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnWorkloadIdentityApplicationLogsRecordFields_REQUEST_ID,
+//   		awscdkmixinspreview.Mixins.CfnWorkloadIdentityApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

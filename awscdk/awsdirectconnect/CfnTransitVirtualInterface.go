@@ -40,6 +40,7 @@ import (
 //   	AllocateTransitVirtualInterfaceRoleArn: jsii.String("allocateTransitVirtualInterfaceRoleArn"),
 //   	EnableSiteLink: jsii.Boolean(false),
 //   	Mtu: jsii.Number(123),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -100,6 +101,9 @@ type CfnTransitVirtualInterface interface {
 	SetMtu(val *float64)
 	// The tree node.
 	Node() constructs.Node
+	// The rate limit (bandwidth allocation) for the virtual interface.
+	RateLimit() *string
+	SetRateLimit(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -474,6 +478,16 @@ func (j *jsiiProxy_CfnTransitVirtualInterface) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitVirtualInterface) RateLimit() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"rateLimit",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitVirtualInterface) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -640,6 +654,14 @@ func (j *jsiiProxy_CfnTransitVirtualInterface)SetMtu(val *float64) {
 	_jsii_.Set(
 		j,
 		"mtu",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitVirtualInterface)SetRateLimit(val *string) {
+	_jsii_.Set(
+		j,
+		"rateLimit",
 		val,
 	)
 }

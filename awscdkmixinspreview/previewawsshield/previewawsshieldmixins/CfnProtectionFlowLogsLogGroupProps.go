@@ -9,7 +9,7 @@ package previewawsshieldmixins
 //   cfnProtectionFlowLogsLogGroupProps := &CfnProtectionFlowLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnProtectionFlowLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnProtectionFlowLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnProtectionFlowLogsRecordFields_SRCADDR,
+//   		awscdkmixinspreview.*Mixins.CfnProtectionFlowLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

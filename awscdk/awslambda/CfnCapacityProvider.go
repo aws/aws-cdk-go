@@ -144,6 +144,7 @@ type CfnCapacityProvider interface {
 	// A key-value pair that provides metadata for the capacity provider.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
+	// Configuration that specifies the telemetry collection for the capacity provider.
 	TelemetryConfig() interface{}
 	SetTelemetryConfig(val interface{})
 	// Deprecated.

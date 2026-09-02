@@ -80,22 +80,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_elasticache.IReservedCacheNodeRef",
-		reflect.TypeOf((*IReservedCacheNodeRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "reservedCacheNodeRef", GoGetter: "ReservedCacheNodeRef"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IReservedCacheNodeRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_elasticache.ISecurityGroupIngressRef",
 		reflect.TypeOf((*ISecurityGroupIngressRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -138,6 +122,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IServerlessCacheRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_elasticache.IServerlessCacheSnapshotRef",
+		reflect.TypeOf((*IServerlessCacheSnapshotRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serverlessCacheSnapshotRef", GoGetter: "ServerlessCacheSnapshotRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IServerlessCacheSnapshotRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -200,10 +200,6 @@ func init() {
 		reflect.TypeOf((*ReplicationGroupReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_elasticache.ReservedCacheNodeReference",
-		reflect.TypeOf((*ReservedCacheNodeReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_elasticache.SecurityGroupIngressReference",
 		reflect.TypeOf((*SecurityGroupIngressReference)(nil)).Elem(),
 	)
@@ -214,6 +210,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_elasticache.ServerlessCacheReference",
 		reflect.TypeOf((*ServerlessCacheReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_elasticache.ServerlessCacheSnapshotReference",
+		reflect.TypeOf((*ServerlessCacheSnapshotReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_elasticache.SubnetGroupReference",

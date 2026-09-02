@@ -94,6 +94,12 @@ import (
 //   		ResourcePolicy: &ResourcePolicyProperty{
 //   			PolicyDocument: policyDocument,
 //   		},
+//   		Tags: []CfnTag{
+//   			&CfnTag{
+//   				Key: jsii.String("key"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
 //   	},
 //   	ResourcePolicy: &ResourcePolicyProperty{
 //   		PolicyDocument: policyDocument,

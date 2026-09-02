@@ -17,12 +17,16 @@ package awssagemaker
 //   		MlReservationArn: jsii.String("mlReservationArn"),
 //   	},
 //   	ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   	CoreDumpConfig: &CoreDumpConfigProperty{
+//   		DestinationS3Uri: jsii.String("destinationS3Uri"),
+//   		KmsKeyId: jsii.String("kmsKeyId"),
+//   	},
 //   	EnableSsmAccess: jsii.Boolean(false),
 //   	InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   	InitialInstanceCount: jsii.Number(123),
 //   	InitialVariantWeight: jsii.Number(123),
 //   	InstancePools: []interface{}{
-//   		&InstancePoolsProperty{
+//   		&InstancePoolProperty{
 //   			InstanceType: jsii.String("instanceType"),
 //   			ModelNameOverride: jsii.String("modelNameOverride"),
 //   			Priority: jsii.Number(123),
@@ -32,11 +36,20 @@ package awssagemaker
 //   	ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   		MaxInstanceCount: jsii.Number(123),
 //   		MinInstanceCount: jsii.Number(123),
+//   		ScaleInPolicy: &ScaleInPolicyProperty{
+//   			CooldownInMinutes: jsii.Number(123),
+//   			MaximumStepSize: jsii.Number(123),
+//   			Strategy: jsii.String("strategy"),
+//   		},
 //   		Status: jsii.String("status"),
 //   	},
 //   	ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   	ModelName: jsii.String("modelName"),
 //   	RoutingConfig: &RoutingConfigProperty{
+//   		PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   			ConcurrencyThreshold: jsii.Number(123),
+//   			PrefixLength: jsii.Number(123),
+//   		},
 //   		RoutingStrategy: jsii.String("routingStrategy"),
 //   	},
 //   	ServerlessConfig: &ServerlessConfigProperty{
@@ -58,6 +71,7 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
 	//
 	AcceleratorType *string `field:"optional" json:"acceleratorType" yaml:"acceleratorType"`
+	// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-capacityreservationconfig
 	//
 	CapacityReservationConfig interface{} `field:"optional" json:"capacityReservationConfig" yaml:"capacityReservationConfig"`
@@ -67,12 +81,19 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-containerstartuphealthchecktimeoutinseconds
 	//
 	ContainerStartupHealthCheckTimeoutInSeconds *float64 `field:"optional" json:"containerStartupHealthCheckTimeoutInSeconds" yaml:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-coredumpconfig
+	//
+	CoreDumpConfig interface{} `field:"optional" json:"coreDumpConfig" yaml:"coreDumpConfig"`
 	// You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint.
 	//
 	// By default, SSM access is disabled for all production variants behind an endpoint. You can turn on or turn off SSM access for a production variant behind an existing endpoint by creating a new endpoint configuration and calling `UpdateEndpoint` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-enablessmaccess
 	//
 	EnableSsmAccess interface{} `field:"optional" json:"enableSsmAccess" yaml:"enableSsmAccess"`
+	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images.
+	//
+	// Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-inferenceamiversion
 	//
 	InferenceAmiVersion *string `field:"optional" json:"inferenceAmiVersion" yaml:"inferenceAmiVersion"`
@@ -86,6 +107,9 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
 	//
 	InitialVariantWeight *float64 `field:"optional" json:"initialVariantWeight" yaml:"initialVariantWeight"`
+	// A list of instance pools for the production variant.
+	//
+	// Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancepools
 	//
 	InstancePools interface{} `field:"optional" json:"instancePools" yaml:"instancePools"`
@@ -93,6 +117,7 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
 	//
 	InstanceType *string `field:"optional" json:"instanceType" yaml:"instanceType"`
+	// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-managedinstancescaling
 	//
 	ManagedInstanceScaling interface{} `field:"optional" json:"managedInstanceScaling" yaml:"managedInstanceScaling"`
@@ -106,6 +131,7 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
 	//
 	ModelName *string `field:"optional" json:"modelName" yaml:"modelName"`
+	// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-routingconfig
 	//
 	RoutingConfig interface{} `field:"optional" json:"routingConfig" yaml:"routingConfig"`
@@ -115,6 +141,9 @@ type CfnEndpointConfigPropsMixin_ProductionVariantProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-serverlessconfig
 	//
 	ServerlessConfig interface{} `field:"optional" json:"serverlessConfig" yaml:"serverlessConfig"`
+	// The timeout value, in seconds, for provisioning instances for the production variant.
+	//
+	// When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantinstanceprovisiontimeoutinseconds
 	//
 	VariantInstanceProvisionTimeoutInSeconds *float64 `field:"optional" json:"variantInstanceProvisionTimeoutInSeconds" yaml:"variantInstanceProvisionTimeoutInSeconds"`

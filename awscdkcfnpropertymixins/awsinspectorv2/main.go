@@ -128,6 +128,46 @@ func init() {
 		reflect.TypeOf((*CfnCodeSecurityScanConfigurationPropsMixin_ScopeSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorMixinProps",
+		reflect.TypeOf((*CfnConnectorMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorPropsMixin",
+		reflect.TypeOf((*CfnConnectorPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnConnectorPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorPropsMixin.AzureProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_AzureProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorPropsMixin.AzureScopeConfigurationMapProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_AzureScopeConfigurationMapProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorPropsMixin.ConnectorHealthProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_ConnectorHealthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorPropsMixin.ProviderConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_ProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnConnectorPropsMixin.ScopeConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_ScopeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_inspectorv2.CfnFilterMixinProps",
 		reflect.TypeOf((*CfnFilterMixinProps)(nil)).Elem(),
 	)

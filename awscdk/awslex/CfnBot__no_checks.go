@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnBot) validateSetBotLocalesParameters(val interface{}) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnBot) validateSetBotMembersParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnBot) validateSetBotTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

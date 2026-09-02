@@ -11,6 +11,9 @@ package awsbedrockagentcore
 //   cfnGatewayMixinProps := &CfnGatewayMixinProps{
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
 //   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   			AdvertisedScopeMapping: map[string]*string{
+//   				"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   			},
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},
@@ -61,6 +64,13 @@ package awsbedrockagentcore
 //   		&GatewayInterceptorConfigurationProperty{
 //   			InputConfiguration: &InterceptorInputConfigurationProperty{
 //   				PassRequestHeaders: jsii.Boolean(false),
+//   				PayloadFilter: &InterceptorPayloadFilterProperty{
+//   					Exclude: []interface{}{
+//   						&InterceptorPayloadExclusionSelectorProperty{
+//   							Field: jsii.String("field"),
+//   						},
+//   					},
+//   				},
 //   			},
 //   			InterceptionPoints: []*string{
 //   				jsii.String("interceptionPoints"),
@@ -98,6 +108,9 @@ package awsbedrockagentcore
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	WafConfiguration: &WafConfigurationProperty{
+//   		FailureMode: jsii.String("failureMode"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html
@@ -129,9 +142,6 @@ type CfnGatewayMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
-	// The configuration for a policy engine associated with a gateway.
-	//
-	// A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-policyengineconfiguration
 	//
 	PolicyEngineConfiguration interface{} `field:"optional" json:"policyEngineConfiguration" yaml:"policyEngineConfiguration"`
@@ -150,5 +160,8 @@ type CfnGatewayMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-wafconfiguration
+	//
+	WafConfiguration interface{} `field:"optional" json:"wafConfiguration" yaml:"wafConfiguration"`
 }
 

@@ -24,6 +24,12 @@ package awsfsx
 //   	ExportPath: jsii.String("exportPath"),
 //   	ImportedFileChunkSize: jsii.Number(123),
 //   	ImportPath: jsii.String("importPath"),
+//   	LogConfiguration: &LogConfigurationProperty{
+//   		Level: jsii.String("level"),
+//
+//   		// the properties below are optional
+//   		Destination: jsii.String("destination"),
+//   	},
 //   	MetadataConfiguration: &MetadataConfigurationProperty{
 //   		Iops: jsii.Number(123),
 //   		Mode: jsii.String("mode"),
@@ -146,6 +152,9 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importpath
 	//
 	ImportPath *string `field:"optional" json:"importPath" yaml:"importPath"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-logconfiguration
+	//
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// The Lustre metadata performance configuration for the creation of an FSx for Lustre file system using a `PERSISTENT_2` deployment type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-metadataconfiguration
 	//

@@ -9,6 +9,13 @@ package awsmwaaserverless
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnWorkflowMixinProps := &CfnWorkflowMixinProps{
+//   	Code: &CodeProperty{
+//   		S3Location: &CodeS3LocationProperty{
+//   			Bucket: jsii.String("bucket"),
+//   			ObjectKey: jsii.String("objectKey"),
+//   			VersionId: jsii.String("versionId"),
+//   		},
+//   	},
 //   	DefinitionS3Location: &S3LocationProperty{
 //   		Bucket: jsii.String("bucket"),
 //   		ObjectKey: jsii.String("objectKey"),
@@ -41,6 +48,12 @@ package awsmwaaserverless
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html
 //
 type CfnWorkflowMixinProps struct {
+	// The location of code artifacts in Amazon S3 for the workflow.
+	//
+	// Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-code
+	//
+	Code interface{} `field:"optional" json:"code" yaml:"code"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-definitions3location
 	//
 	DefinitionS3Location interface{} `field:"optional" json:"definitionS3Location" yaml:"definitionS3Location"`

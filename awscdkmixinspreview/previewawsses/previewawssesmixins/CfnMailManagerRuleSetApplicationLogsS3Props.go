@@ -14,9 +14,9 @@ import (
 //
 //   cfnMailManagerRuleSetApplicationLogsS3Props := &CfnMailManagerRuleSetApplicationLogsS3Props{
 //   	EncryptionKey: keyRef,
-//   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerRuleSetApplicationLogsOutputFormat.S3_JSON,
+//   	OutputFormat: awscdkmixinspreview.Mixins.CfnMailManagerRuleSetApplicationLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnMailManagerRuleSetApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnMailManagerRuleSetApplicationLogsRecordFields_RULE_NAME,
+//   		awscdkmixinspreview.*Mixins.CfnMailManagerRuleSetApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //
@@ -25,7 +25,7 @@ type CfnMailManagerRuleSetApplicationLogsS3Props struct {
 	// Encrpytion key for your delivery bucket.
 	// Experimental.
 	EncryptionKey interfacesawskms.IKeyRef `field:"optional" json:"encryptionKey" yaml:"encryptionKey"`
-	// Format for log output, options are json,plain,w3c,parquet.
+	// Format for log output, options are plain,json,w3c,parquet.
 	// Experimental.
 	OutputFormat CfnMailManagerRuleSetApplicationLogsOutputFormat_S3 `field:"optional" json:"outputFormat" yaml:"outputFormat"`
 	// Record fields that can be provided to a log delivery.

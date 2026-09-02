@@ -28,6 +28,10 @@ func init() {
 		reflect.TypeOf((*EnvironmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_appconfig.ExperimentDefinitionReference",
+		reflect.TypeOf((*ExperimentDefinitionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_appconfig.ExtensionAssociationReference",
 		reflect.TypeOf((*ExtensionAssociationReference)(nil)).Elem(),
 	)
@@ -114,6 +118,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IEnvironmentRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_appconfig.IExperimentDefinitionRef",
+		reflect.TypeOf((*IExperimentDefinitionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "experimentDefinitionRef", GoGetter: "ExperimentDefinitionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IExperimentDefinitionRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

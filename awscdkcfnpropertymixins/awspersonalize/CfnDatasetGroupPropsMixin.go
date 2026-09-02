@@ -29,6 +29,12 @@ import (
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	Name: jsii.String("name"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

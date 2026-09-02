@@ -144,6 +144,34 @@ func init() {
 		reflect.TypeOf((*CfnEnvironmentPropsMixin_TagsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appconfig.CfnExperimentDefinitionMixinProps",
+		reflect.TypeOf((*CfnExperimentDefinitionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_appconfig.CfnExperimentDefinitionPropsMixin",
+		reflect.TypeOf((*CfnExperimentDefinitionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnExperimentDefinitionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appconfig.CfnExperimentDefinitionPropsMixin.AttributeValueProperty",
+		reflect.TypeOf((*CfnExperimentDefinitionPropsMixin_AttributeValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appconfig.CfnExperimentDefinitionPropsMixin.TreatmentProperty",
+		reflect.TypeOf((*CfnExperimentDefinitionPropsMixin_TreatmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appconfig.CfnExtensionAssociationMixinProps",
 		reflect.TypeOf((*CfnExtensionAssociationMixinProps)(nil)).Elem(),
 	)

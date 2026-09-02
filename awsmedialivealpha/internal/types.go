@@ -1,0 +1,14 @@
+package internal
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsmedialive"
+)
+type Type__awscdkResource = awscdk.Resource
+type Type__interfacesawsmedialiveIChannelRef = interfacesawsmedialive.IChannelRef
+type Type__awscdkIResource = awscdk.IResource
+type Type__interfacesawsmedialiveIChannelPlacementGroupRef = interfacesawsmedialive.IChannelPlacementGroupRef
+type Type__interfacesawsmedialiveIClusterRef = interfacesawsmedialive.IClusterRef
+type Type__interfacesawsmedialiveIInputRef = interfacesawsmedialive.IInputRef
+type Type__interfacesawsmedialiveIInputSecurityGroupRef = interfacesawsmedialive.IInputSecurityGroupRef
+type Type__interfacesawsmedialiveINetworkRef = interfacesawsmedialive.INetworkRef
+type Type__interfacesawsmedialiveISdiSourceRef = interfacesawsmedialive.ISdiSourceRef

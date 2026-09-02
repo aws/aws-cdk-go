@@ -22,32 +22,6 @@ import (
 //
 //   cfnInferenceComponent := awscdk.Aws_sagemaker.NewCfnInferenceComponent(this, jsii.String("MyCfnInferenceComponent"), &CfnInferenceComponentProps{
 //   	EndpointName: jsii.String("endpointName"),
-//   	Specification: &InferenceComponentSpecificationProperty{
-//   		BaseInferenceComponentName: jsii.String("baseInferenceComponentName"),
-//   		ComputeResourceRequirements: &InferenceComponentComputeResourceRequirementsProperty{
-//   			MaxMemoryRequiredInMb: jsii.Number(123),
-//   			MinMemoryRequiredInMb: jsii.Number(123),
-//   			NumberOfAcceleratorDevicesRequired: jsii.Number(123),
-//   			NumberOfCpuCoresRequired: jsii.Number(123),
-//   		},
-//   		Container: &InferenceComponentContainerSpecificationProperty{
-//   			ArtifactUrl: jsii.String("artifactUrl"),
-//   			DeployedImage: &DeployedImageProperty{
-//   				ResolutionTime: jsii.String("resolutionTime"),
-//   				ResolvedImage: jsii.String("resolvedImage"),
-//   				SpecifiedImage: jsii.String("specifiedImage"),
-//   			},
-//   			Environment: map[string]*string{
-//   				"environmentKey": jsii.String("environment"),
-//   			},
-//   			Image: jsii.String("image"),
-//   		},
-//   		ModelName: jsii.String("modelName"),
-//   		StartupParameters: &InferenceComponentStartupParametersProperty{
-//   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
-//   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
-//   		},
-//   	},
 //
 //   	// the properties below are optional
 //   	DeploymentConfig: &InferenceComponentDeploymentConfigProperty{
@@ -77,6 +51,113 @@ import (
 //   		CopyCount: jsii.Number(123),
 //   		CurrentCopyCount: jsii.Number(123),
 //   		DesiredCopyCount: jsii.Number(123),
+//   		PlacementStatus: []interface{}{
+//   			&InferenceComponentPlacementStatusProperty{
+//   				CurrentCopyCount: jsii.Number(123),
+//   				InstanceType: jsii.String("instanceType"),
+//   			},
+//   		},
+//   	},
+//   	Specification: &InferenceComponentSpecificationProperty{
+//   		BaseInferenceComponentName: jsii.String("baseInferenceComponentName"),
+//   		ComputeResourceRequirements: &InferenceComponentComputeResourceRequirementsProperty{
+//   			MaxMemoryRequiredInMb: jsii.Number(123),
+//   			MinMemoryRequiredInMb: jsii.Number(123),
+//   			NumberOfAcceleratorDevicesRequired: jsii.Number(123),
+//   			NumberOfCpuCoresRequired: jsii.Number(123),
+//   		},
+//   		Container: &InferenceComponentContainerSpecificationProperty{
+//   			ArtifactUrl: jsii.String("artifactUrl"),
+//   			ContainerMetricsConfig: &ContainerMetricsConfigProperty{
+//   				MetricsEndpoints: []interface{}{
+//   					&MetricsEndpointProperty{
+//   						MetricsEndpointPath: jsii.String("metricsEndpointPath"),
+//
+//   						// the properties below are optional
+//   						MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   			DeployedImage: &DeployedImageProperty{
+//   				ResolutionTime: jsii.String("resolutionTime"),
+//   				ResolvedImage: jsii.String("resolvedImage"),
+//   				SpecifiedImage: jsii.String("specifiedImage"),
+//   			},
+//   			Environment: map[string]*string{
+//   				"environmentKey": jsii.String("environment"),
+//   			},
+//   			Image: jsii.String("image"),
+//   		},
+//   		CurrentDataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   			EnableCaching: jsii.Boolean(false),
+//   		},
+//   		DataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   			EnableCaching: jsii.Boolean(false),
+//   		},
+//   		ModelName: jsii.String("modelName"),
+//   		SchedulingConfig: &InferenceComponentSchedulingConfigProperty{
+//   			AvailabilityZoneBalance: &InferenceComponentAvailabilityZoneBalanceProperty{
+//   				EnforcementMode: jsii.String("enforcementMode"),
+//
+//   				// the properties below are optional
+//   				MaxImbalance: jsii.Number(123),
+//   			},
+//   			PlacementStrategy: jsii.String("placementStrategy"),
+//   		},
+//   		StartupParameters: &InferenceComponentStartupParametersProperty{
+//   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   		},
+//   	},
+//   	Specifications: []interface{}{
+//   		&InferenceComponentSpecificationForInstanceTypeProperty{
+//   			InstanceType: jsii.String("instanceType"),
+//
+//   			// the properties below are optional
+//   			ComputeResourceRequirements: &InferenceComponentComputeResourceRequirementsProperty{
+//   				MaxMemoryRequiredInMb: jsii.Number(123),
+//   				MinMemoryRequiredInMb: jsii.Number(123),
+//   				NumberOfAcceleratorDevicesRequired: jsii.Number(123),
+//   				NumberOfCpuCoresRequired: jsii.Number(123),
+//   			},
+//   			Container: &InferenceComponentContainerSpecificationForInstanceTypeProperty{
+//   				ArtifactUrl: jsii.String("artifactUrl"),
+//   				ContainerMetricsConfig: &ContainerMetricsConfigProperty{
+//   					MetricsEndpoints: []interface{}{
+//   						&MetricsEndpointProperty{
+//   							MetricsEndpointPath: jsii.String("metricsEndpointPath"),
+//
+//   							// the properties below are optional
+//   							MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   						},
+//   					},
+//   				},
+//   				Environment: map[string]*string{
+//   					"environmentKey": jsii.String("environment"),
+//   				},
+//   				Image: jsii.String("image"),
+//   			},
+//   			CurrentDataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   				EnableCaching: jsii.Boolean(false),
+//   			},
+//   			DataCacheConfig: &InferenceComponentDataCacheConfigProperty{
+//   				EnableCaching: jsii.Boolean(false),
+//   			},
+//   			ModelName: jsii.String("modelName"),
+//   			SchedulingConfig: &InferenceComponentSchedulingConfigProperty{
+//   				AvailabilityZoneBalance: &InferenceComponentAvailabilityZoneBalanceProperty{
+//   					EnforcementMode: jsii.String("enforcementMode"),
+//
+//   					// the properties below are optional
+//   					MaxImbalance: jsii.Number(123),
+//   				},
+//   				PlacementStrategy: jsii.String("placementStrategy"),
+//   			},
+//   			StartupParameters: &InferenceComponentStartupParametersProperty{
+//   				ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   				ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
+//   			},
+//   		},
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -108,7 +189,11 @@ type CfnInferenceComponent interface {
 	AttrRuntimeConfigCurrentCopyCount() *float64
 	// The number of runtime copies of the model container that you requested to deploy with the inference component.
 	AttrRuntimeConfigDesiredCopyCount() *float64
+	// The placement status of the inference component across instance types.
+	AttrRuntimeConfigPlacementStatus() awscdk.IResolvable
 	AttrSpecificationContainerDeployedImage() awscdk.IResolvable
+	// Settings that affect how the inference component caches data.
+	AttrSpecificationCurrentDataCacheConfig() awscdk.IResolvable
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -156,9 +241,12 @@ type CfnInferenceComponent interface {
 	// The runtime config for the inference component.
 	RuntimeConfig() interface{}
 	SetRuntimeConfig(val interface{})
-	// The specification for the inference component.
+	// The specification for the inference component, for an endpoint with a single instance type.
 	Specification() interface{}
 	SetSpecification(val interface{})
+	// A list of specification objects for the inference component, one per instance type.
+	Specifications() interface{}
+	SetSpecifications(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -423,11 +511,31 @@ func (j *jsiiProxy_CfnInferenceComponent) AttrRuntimeConfigDesiredCopyCount() *f
 	return returns
 }
 
+func (j *jsiiProxy_CfnInferenceComponent) AttrRuntimeConfigPlacementStatus() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrRuntimeConfigPlacementStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInferenceComponent) AttrSpecificationContainerDeployedImage() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
 		j,
 		"attrSpecificationContainerDeployedImage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInferenceComponent) AttrSpecificationCurrentDataCacheConfig() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrSpecificationCurrentDataCacheConfig",
 		&returns,
 	)
 	return returns
@@ -603,6 +711,16 @@ func (j *jsiiProxy_CfnInferenceComponent) Specification() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInferenceComponent) Specifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"specifications",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInferenceComponent) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -739,6 +857,17 @@ func (j *jsiiProxy_CfnInferenceComponent)SetSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"specification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInferenceComponent)SetSpecifications(val interface{}) {
+	if err := j.validateSetSpecificationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"specifications",
 		val,
 	)
 }

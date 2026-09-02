@@ -68,6 +68,26 @@ func init() {
 		reflect.TypeOf((*CfnApplicationPropsMixin_IdCConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnArtifactMixinProps",
+		reflect.TypeOf((*CfnArtifactMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnArtifactPropsMixin",
+		reflect.TypeOf((*CfnArtifactPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnArtifactPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestMixinProps",
 		reflect.TypeOf((*CfnPentestMixinProps)(nil)).Elem(),
 	)
@@ -100,6 +120,10 @@ func init() {
 		reflect.TypeOf((*CfnPentestPropsMixin_AuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.CaCertificateSourceProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_CaCertificateSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.CloudWatchLogProperty",
 		reflect.TypeOf((*CfnPentestPropsMixin_CloudWatchLogProperty)(nil)).Elem(),
 	)
@@ -130,6 +154,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.SourceCodeRepositoryProperty",
 		reflect.TypeOf((*CfnPentestPropsMixin_SourceCodeRepositoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.TrustedCaCertificateProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_TrustedCaCertificateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.VpcConfigProperty",

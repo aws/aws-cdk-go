@@ -63,4 +63,28 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_accessanalyzer.CfnAnalyzerPropsMixin.UnusedAccessConfigurationProperty",
 		reflect.TypeOf((*CfnAnalyzerPropsMixin_UnusedAccessConfigurationProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_accessanalyzer.CfnArchiveRuleMixinProps",
+		reflect.TypeOf((*CfnArchiveRuleMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_accessanalyzer.CfnArchiveRulePropsMixin",
+		reflect.TypeOf((*CfnArchiveRulePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnArchiveRulePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_accessanalyzer.CfnArchiveRulePropsMixin.FilterItemsProperty",
+		reflect.TypeOf((*CfnArchiveRulePropsMixin_FilterItemsProperty)(nil)).Elem(),
+	)
 }

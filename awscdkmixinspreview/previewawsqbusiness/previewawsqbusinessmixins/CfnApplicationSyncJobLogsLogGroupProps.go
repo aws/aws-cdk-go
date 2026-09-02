@@ -9,7 +9,7 @@ package previewawsqbusinessmixins
 //   cfnApplicationSyncJobLogsLogGroupProps := &CfnApplicationSyncJobLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnApplicationSyncJobLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnApplicationSyncJobLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnApplicationSyncJobLogsRecordFields_AWSACCOUNTID,
+//   		awscdkmixinspreview.*Mixins.CfnApplicationSyncJobLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

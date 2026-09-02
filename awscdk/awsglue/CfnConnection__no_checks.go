@@ -84,6 +84,10 @@ func (c *jsiiProxy_CfnConnection) validateValidatePropertiesParameters(_properti
 	return nil
 }
 
+func validateCfnConnection_ArnForConnectionParameters(resource interfacesawsglue.IConnectionRef) error {
+	return nil
+}
+
 func validateCfnConnection_IsCfnConnectionParameters(x interface{}) error {
 	return nil
 }
@@ -105,6 +109,10 @@ func (j *jsiiProxy_CfnConnection) validateSetCatalogIdParameters(val *string) er
 }
 
 func (j *jsiiProxy_CfnConnection) validateSetConnectionInputParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnConnection) validateSetTagsParameters(val interface{}) error {
 	return nil
 }
 

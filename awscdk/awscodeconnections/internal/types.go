@@ -7,3 +7,4 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawscodeconnectionsIConnectionRef = interfacesawscodeconnections.IConnectionRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawscodeconnectionsIHostRef = interfacesawscodeconnections.IHostRef

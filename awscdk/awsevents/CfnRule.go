@@ -83,6 +83,8 @@ type CfnRule interface {
 	awscdk.ITaggableV2
 	// The ARN of the rule, such as `arn:aws:events:us-east-2:123456789012:rule/example` .
 	AttrArn() *string
+	// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+	AttrRuleName() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -335,6 +337,16 @@ func (j *jsiiProxy_CfnRule) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRule) AttrRuleName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRuleName",
 		&returns,
 	)
 	return returns

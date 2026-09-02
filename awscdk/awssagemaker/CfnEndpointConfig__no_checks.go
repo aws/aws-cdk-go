@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnEndpointConfig) validateSetExplainerConfigParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) validateSetMetricsConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) validateSetProductionVariantsParameters(val interface{}) error {
 	return nil
 }

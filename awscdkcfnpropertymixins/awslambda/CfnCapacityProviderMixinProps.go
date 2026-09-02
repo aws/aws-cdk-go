@@ -99,6 +99,7 @@ type CfnCapacityProviderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Configuration that specifies the telemetry collection for the capacity provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html#cfn-lambda-capacityprovider-telemetryconfig
 	//
 	TelemetryConfig interface{} `field:"optional" json:"telemetryConfig" yaml:"telemetryConfig"`

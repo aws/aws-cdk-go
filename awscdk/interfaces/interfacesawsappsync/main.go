@@ -239,6 +239,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_appsync.ITypeRef",
+		reflect.TypeOf((*ITypeRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "typeRef", GoGetter: "TypeRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITypeRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_appsync.ResolverReference",
 		reflect.TypeOf((*ResolverReference)(nil)).Elem(),
@@ -246,5 +262,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_appsync.SourceApiAssociationReference",
 		reflect.TypeOf((*SourceApiAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_appsync.TypeReference",
+		reflect.TypeOf((*TypeReference)(nil)).Elem(),
 	)
 }

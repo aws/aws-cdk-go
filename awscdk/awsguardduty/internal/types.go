@@ -5,12 +5,13 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsguarddutyICustomDetectionRuleAssociationRef = interfacesawsguardduty.ICustomDetectionRuleAssociationRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsguarddutyIDetectorRef = interfacesawsguardduty.IDetectorRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsguarddutyIFilterRef = interfacesawsguardduty.IFilterRef
 type Type__interfacesawsguarddutyIIPSetRef = interfacesawsguardduty.IIPSetRef
 type Type__interfacesawsguarddutyIMalwareProtectionPlanRef = interfacesawsguardduty.IMalwareProtectionPlanRef
-type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsguarddutyIMasterRef = interfacesawsguardduty.IMasterRef
 type Type__interfacesawsguarddutyIMemberRef = interfacesawsguardduty.IMemberRef
 type Type__interfacesawsguarddutyIPublishingDestinationRef = interfacesawsguardduty.IPublishingDestinationRef

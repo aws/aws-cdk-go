@@ -304,38 +304,6 @@ func init() {
 		reflect.TypeOf((*CfnInstanceGroupConfigPropsMixin_VolumeSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnNotebookExecutionMixinProps",
-		reflect.TypeOf((*CfnNotebookExecutionMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnNotebookExecutionPropsMixin",
-		reflect.TypeOf((*CfnNotebookExecutionPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnNotebookExecutionPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnNotebookExecutionPropsMixin.ExecutionEngineConfigProperty",
-		reflect.TypeOf((*CfnNotebookExecutionPropsMixin_ExecutionEngineConfigProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnNotebookExecutionPropsMixin.NotebookS3LocationProperty",
-		reflect.TypeOf((*CfnNotebookExecutionPropsMixin_NotebookS3LocationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_emr.CfnNotebookExecutionPropsMixin.OutputNotebookS3LocationProperty",
-		reflect.TypeOf((*CfnNotebookExecutionPropsMixin_OutputNotebookS3LocationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnSecurityConfigurationMixinProps",
 		reflect.TypeOf((*CfnSecurityConfigurationMixinProps)(nil)).Elem(),
 	)

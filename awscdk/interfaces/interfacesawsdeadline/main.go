@@ -8,12 +8,32 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_deadline.BudgetReference",
+		reflect.TypeOf((*BudgetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_deadline.FarmReference",
 		reflect.TypeOf((*FarmReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_deadline.FleetReference",
 		reflect.TypeOf((*FleetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_deadline.IBudgetRef",
+		reflect.TypeOf((*IBudgetRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "budgetRef", GoGetter: "BudgetRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IBudgetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
 	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_deadline.IFarmRef",
@@ -191,6 +211,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_deadline.IWorkerRef",
+		reflect.TypeOf((*IWorkerRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workerRef", GoGetter: "WorkerRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkerRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_deadline.LicenseEndpointReference",
 		reflect.TypeOf((*LicenseEndpointReference)(nil)).Elem(),
@@ -226,5 +262,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_deadline.StorageProfileReference",
 		reflect.TypeOf((*StorageProfileReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_deadline.WorkerReference",
+		reflect.TypeOf((*WorkerReference)(nil)).Elem(),
 	)
 }

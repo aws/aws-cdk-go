@@ -8,7 +8,7 @@ package previewawsbedrockagentcoremixins
 //
 //   cfnRuntimeUsageLogsDestProps := &CfnRuntimeUsageLogsDestProps{
 //   	RecordFields: []CfnRuntimeUsageLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnRuntimeUsageLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.Mixins.CfnRuntimeUsageLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

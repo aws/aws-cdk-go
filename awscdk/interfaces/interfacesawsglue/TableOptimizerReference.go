@@ -9,11 +9,20 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   tableOptimizerReference := &TableOptimizerReference{
-//   	TableOptimizerId: jsii.String("tableOptimizerId"),
+//   	CatalogId: jsii.String("catalogId"),
+//   	DatabaseName: jsii.String("databaseName"),
+//   	TableName: jsii.String("tableName"),
+//   	Type: jsii.String("type"),
 //   }
 //
 type TableOptimizerReference struct {
-	// The Id of the TableOptimizer resource.
-	TableOptimizerId *string `field:"required" json:"tableOptimizerId" yaml:"tableOptimizerId"`
+	// The CatalogId of the TableOptimizer resource.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// The DatabaseName of the TableOptimizer resource.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// The TableName of the TableOptimizer resource.
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
+	// The Type of the TableOptimizer resource.
+	Type *string `field:"required" json:"type" yaml:"type"`
 }
 

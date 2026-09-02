@@ -114,6 +114,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -125,6 +126,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "replicas", GoGetter: "Replicas"},
 			_jsii_.MemberProperty{JsiiProperty: "resourcesToReplicateTags", GoGetter: "ResourcesToReplicateTags"},
 			_jsii_.MemberProperty{JsiiProperty: "runConfig", GoGetter: "RunConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "runtimeVersion", GoGetter: "RuntimeVersion"},
@@ -172,6 +174,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_synthetics.CfnCanary.DependencyProperty",
 		reflect.TypeOf((*CfnCanary_DependencyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_synthetics.CfnCanary.ReplicaProperty",
+		reflect.TypeOf((*CfnCanary_ReplicaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_synthetics.CfnCanary.ReplicaReplicationStatusProperty",
+		reflect.TypeOf((*CfnCanary_ReplicaReplicationStatusProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_synthetics.CfnCanary.RetryConfigProperty",

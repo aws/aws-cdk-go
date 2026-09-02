@@ -340,6 +340,70 @@ func init() {
 		reflect.TypeOf((*CfnFleetMetricPropsMixin_AggregationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobMixinProps",
+		reflect.TypeOf((*CfnJobMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin",
+		reflect.TypeOf((*CfnJobPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnJobPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.AbortConfigProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_AbortConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.AbortCriteriaProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_AbortCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.ExponentialRolloutRateProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_ExponentialRolloutRateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.JobExecutionsRetryConfigProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_JobExecutionsRetryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.JobExecutionsRolloutConfigProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_JobExecutionsRolloutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.MaintenanceWindowProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_MaintenanceWindowProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.PresignedUrlConfigProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_PresignedUrlConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.RateIncreaseCriteriaProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_RateIncreaseCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.RetryCriteriaProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_RetryCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.SchedulingConfigProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_SchedulingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobPropsMixin.TimeoutConfigProperty",
+		reflect.TypeOf((*CfnJobPropsMixin_TimeoutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnJobTemplateMixinProps",
 		reflect.TypeOf((*CfnJobTemplateMixinProps)(nil)).Elem(),
 	)
@@ -702,6 +766,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnSoftwarePackageVersionPropsMixin.SbomProperty",
 		reflect.TypeOf((*CfnSoftwarePackageVersionPropsMixin_SbomProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnStreamMixinProps",
+		reflect.TypeOf((*CfnStreamMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnStreamPropsMixin",
+		reflect.TypeOf((*CfnStreamPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnStreamPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnStreamPropsMixin.S3LocationProperty",
+		reflect.TypeOf((*CfnStreamPropsMixin_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnStreamPropsMixin.StreamFileProperty",
+		reflect.TypeOf((*CfnStreamPropsMixin_StreamFileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnThingGroupMixinProps",

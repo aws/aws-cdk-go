@@ -72,6 +72,10 @@ func init() {
 		reflect.TypeOf((*FlowLogReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.FpgaImageReference",
+		reflect.TypeOf((*FpgaImageReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.GatewayRouteTableAssociationReference",
 		reflect.TypeOf((*GatewayRouteTableAssociationReference)(nil)).Elem(),
 	)
@@ -336,6 +340,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IFpgaImageRef",
+		reflect.TypeOf((*IFpgaImageRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "fpgaImageRef", GoGetter: "FpgaImageRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFpgaImageRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.IGatewayRouteTableAssociationRef",
 		reflect.TypeOf((*IGatewayRouteTableAssociationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -570,6 +590,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IIpPoolRouteTableAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IIpamExternalResourceVerificationTokenRef",
+		reflect.TypeOf((*IIpamExternalResourceVerificationTokenRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamExternalResourceVerificationTokenRef", GoGetter: "IpamExternalResourceVerificationTokenRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIpamExternalResourceVerificationTokenRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -1476,6 +1512,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayPolicyTableEntryRef",
+		reflect.TypeOf((*ITransitGatewayPolicyTableEntryRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayPolicyTableEntryRef", GoGetter: "TransitGatewayPolicyTableEntryRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayPolicyTableEntryRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayPolicyTableRef",
 		reflect.TypeOf((*ITransitGatewayPolicyTableRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1972,6 +2024,10 @@ func init() {
 		reflect.TypeOf((*IpPoolRouteTableAssociationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.IpamExternalResourceVerificationTokenReference",
+		reflect.TypeOf((*IpamExternalResourceVerificationTokenReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.KeyPairReference",
 		reflect.TypeOf((*KeyPairReference)(nil)).Elem(),
 	)
@@ -2186,6 +2242,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPolicyTableAssociationReference",
 		reflect.TypeOf((*TransitGatewayPolicyTableAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPolicyTableEntryReference",
+		reflect.TypeOf((*TransitGatewayPolicyTableEntryReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPolicyTableReference",

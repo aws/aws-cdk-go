@@ -84,6 +84,18 @@ func (c *jsiiProxy_CfnDBParameterGroup) validateValidatePropertiesParameters(_pr
 	return nil
 }
 
+func validateCfnDBParameterGroup_ArnForDBParameterGroupParameters(resource interfacesawsrds.IDBParameterGroupRef) error {
+	return nil
+}
+
+func validateCfnDBParameterGroup_FromDBParameterGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnDBParameterGroup_FromDBParameterGroupNameParameters(scope constructs.Construct, id *string, dbParameterGroupName *string) error {
+	return nil
+}
+
 func validateCfnDBParameterGroup_IsCfnDBParameterGroupParameters(x interface{}) error {
 	return nil
 }

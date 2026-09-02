@@ -6,9 +6,9 @@ type CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3 string
 
 const (
 	// Experimental.
-	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_JSON CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3 = "JSON"
-	// Experimental.
 	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_PLAIN CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3 = "PLAIN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_JSON CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3 = "JSON"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3_W3C CfnCapabilityEksCapabilityArgocdCommitserverLogsOutputFormat_S3 = "W3C"
 	// Experimental.

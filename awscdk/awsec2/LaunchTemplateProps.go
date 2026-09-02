@@ -43,6 +43,12 @@ type LaunchTemplateProps struct {
 	// Default: - No credit type is specified in the Launch Template.
 	//
 	CpuCredits CpuCredits `field:"optional" json:"cpuCredits" yaml:"cpuCredits"`
+	// The CPU options for the instance.
+	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html
+	//
+	// Default: - The CPU options are not specified in the launch template.
+	//
+	CpuOptions *LaunchTemplateCpuOptions `field:"optional" json:"cpuOptions" yaml:"cpuOptions"`
 	// If set to true, then detailed monitoring will be enabled on instances created with this launch template.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html
 	//

@@ -6,9 +6,9 @@ type CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3 string
 
 const (
 	// Experimental.
-	CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_JSON CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3 = "JSON"
-	// Experimental.
 	CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_PLAIN CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3 = "PLAIN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_JSON CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3 = "JSON"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3_W3C CfnCapabilityEksCapabilityArgocdReposerverLogsOutputFormat_S3 = "W3C"
 	// Experimental.

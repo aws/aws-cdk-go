@@ -21,6 +21,13 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnWorkflowPropsMixin := awscdkcfnpropertymixins.Aws_mwaaserverless.NewCfnWorkflowPropsMixin(&CfnWorkflowMixinProps{
+//   	Code: &CodeProperty{
+//   		S3Location: &CodeS3LocationProperty{
+//   			Bucket: jsii.String("bucket"),
+//   			ObjectKey: jsii.String("objectKey"),
+//   			VersionId: jsii.String("versionId"),
+//   		},
+//   	},
 //   	DefinitionS3Location: &S3LocationProperty{
 //   		Bucket: jsii.String("bucket"),
 //   		ObjectKey: jsii.String("objectKey"),

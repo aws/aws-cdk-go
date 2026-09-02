@@ -20,16 +20,12 @@ func init() {
 		reflect.TypeOf((*BrowserProfileReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_bedrockagentcore.BrowserReference",
-		reflect.TypeOf((*BrowserReference)(nil)).Elem(),
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.CapacityProviderReference",
+		reflect.TypeOf((*CapacityProviderReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.CodeInterpreterCustomReference",
 		reflect.TypeOf((*CodeInterpreterCustomReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_bedrockagentcore.CodeInterpreterReference",
-		reflect.TypeOf((*CodeInterpreterReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ConfigurationBundleReference",
@@ -44,12 +40,24 @@ func init() {
 		reflect.TypeOf((*EvaluatorReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.GatewayRateLimitReference",
+		reflect.TypeOf((*GatewayRateLimitReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.GatewayReference",
 		reflect.TypeOf((*GatewayReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.GatewayRuleReference",
+		reflect.TypeOf((*GatewayRuleReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.GatewayTargetReference",
 		reflect.TypeOf((*GatewayTargetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.HarnessEndpointReference",
+		reflect.TypeOf((*HarnessEndpointReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.HarnessReference",
@@ -104,16 +112,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IBrowserRef",
-		reflect.TypeOf((*IBrowserRef)(nil)).Elem(),
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ICapacityProviderRef",
+		reflect.TypeOf((*ICapacityProviderRef)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "browserRef", GoGetter: "BrowserRef"},
+			_jsii_.MemberProperty{JsiiProperty: "capacityProviderRef", GoGetter: "CapacityProviderRef"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
-			j := jsiiProxy_IBrowserRef{}
+			j := jsiiProxy_ICapacityProviderRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -130,22 +138,6 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICodeInterpreterCustomRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ICodeInterpreterRef",
-		reflect.TypeOf((*ICodeInterpreterRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "codeInterpreterRef", GoGetter: "CodeInterpreterRef"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICodeInterpreterRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -200,6 +192,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IGatewayRateLimitRef",
+		reflect.TypeOf((*IGatewayRateLimitRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRateLimitRef", GoGetter: "GatewayRateLimitRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IGatewayRateLimitRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IGatewayRef",
 		reflect.TypeOf((*IGatewayRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -216,6 +224,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IGatewayRuleRef",
+		reflect.TypeOf((*IGatewayRuleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "gatewayRuleRef", GoGetter: "GatewayRuleRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IGatewayRuleRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IGatewayTargetRef",
 		reflect.TypeOf((*IGatewayTargetRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -226,6 +250,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IGatewayTargetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IHarnessEndpointRef",
+		reflect.TypeOf((*IHarnessEndpointRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "harnessEndpointRef", GoGetter: "HarnessEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHarnessEndpointRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -424,22 +464,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ITokenVaultRef",
-		reflect.TypeOf((*ITokenVaultRef)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "tokenVaultRef", GoGetter: "TokenVaultRef"},
-			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ITokenVaultRef{}
-			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IWorkloadIdentityRef",
 		reflect.TypeOf((*IWorkloadIdentityRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -498,10 +522,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.RuntimeReference",
 		reflect.TypeOf((*RuntimeReference)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.interfaces.aws_bedrockagentcore.TokenVaultReference",
-		reflect.TypeOf((*TokenVaultReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.WorkloadIdentityReference",

@@ -253,6 +253,30 @@ func (j *jsiiProxy_CfnVPCEndpointService) validateSetContributorInsightsEnabledP
 	return nil
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) validateSetPrivateDnsNameConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnVPCEndpointService_PrivateDnsNameConfigurationProperty:
+		val := val.(*CfnVPCEndpointService_PrivateDnsNameConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnVPCEndpointService_PrivateDnsNameConfigurationProperty:
+		val_ := val.(CfnVPCEndpointService_PrivateDnsNameConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnVPCEndpointService_PrivateDnsNameConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnVPCEndpointService) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

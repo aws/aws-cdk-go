@@ -32,6 +32,29 @@ package awsmsk
 //   			Prefix: jsii.String("prefix"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	AuthorizerLogs: &AuthorizerLogsProperty{
+//   		CloudWatchLogs: &CloudWatchLogsProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			LogGroup: jsii.String("logGroup"),
+//   		},
+//   		Firehose: &FirehoseProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			DeliveryStream: jsii.String("deliveryStream"),
+//   		},
+//   		S3: &S3Property{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			Bucket: jsii.String("bucket"),
+//   			Prefix: jsii.String("prefix"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html
@@ -43,5 +66,8 @@ type CfnCluster_LoggingInfoProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs
 	//
 	BrokerLogs interface{} `field:"required" json:"brokerLogs" yaml:"brokerLogs"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-authorizerlogs
+	//
+	AuthorizerLogs interface{} `field:"optional" json:"authorizerLogs" yaml:"authorizerLogs"`
 }
 

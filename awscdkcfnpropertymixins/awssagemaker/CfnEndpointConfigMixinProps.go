@@ -90,6 +90,11 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	MetricsConfig: &MetricsConfigProperty{
+//   		EnableDetailedObservability: jsii.Boolean(false),
+//   		EnableEnhancedMetrics: jsii.Boolean(false),
+//   		MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   	},
 //   	ProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
 //   			AcceleratorType: jsii.String("acceleratorType"),
@@ -98,12 +103,16 @@ import (
 //   				MlReservationArn: jsii.String("mlReservationArn"),
 //   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			CoreDumpConfig: &CoreDumpConfigProperty{
+//   				DestinationS3Uri: jsii.String("destinationS3Uri"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   			},
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
 //   			InstancePools: []interface{}{
-//   				&InstancePoolsProperty{
+//   				&InstancePoolProperty{
 //   					InstanceType: jsii.String("instanceType"),
 //   					ModelNameOverride: jsii.String("modelNameOverride"),
 //   					Priority: jsii.Number(123),
@@ -113,11 +122,20 @@ import (
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
 //   				MinInstanceCount: jsii.Number(123),
+//   				ScaleInPolicy: &ScaleInPolicyProperty{
+//   					CooldownInMinutes: jsii.Number(123),
+//   					MaximumStepSize: jsii.Number(123),
+//   					Strategy: jsii.String("strategy"),
+//   				},
 //   				Status: jsii.String("status"),
 //   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			ModelName: jsii.String("modelName"),
 //   			RoutingConfig: &RoutingConfigProperty{
+//   				PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   					ConcurrencyThreshold: jsii.Number(123),
+//   					PrefixLength: jsii.Number(123),
+//   				},
 //   				RoutingStrategy: jsii.String("routingStrategy"),
 //   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
@@ -138,12 +156,16 @@ import (
 //   				MlReservationArn: jsii.String("mlReservationArn"),
 //   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			CoreDumpConfig: &CoreDumpConfigProperty{
+//   				DestinationS3Uri: jsii.String("destinationS3Uri"),
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   			},
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
 //   			InstancePools: []interface{}{
-//   				&InstancePoolsProperty{
+//   				&InstancePoolProperty{
 //   					InstanceType: jsii.String("instanceType"),
 //   					ModelNameOverride: jsii.String("modelNameOverride"),
 //   					Priority: jsii.Number(123),
@@ -153,11 +175,20 @@ import (
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
 //   				MinInstanceCount: jsii.Number(123),
+//   				ScaleInPolicy: &ScaleInPolicyProperty{
+//   					CooldownInMinutes: jsii.Number(123),
+//   					MaximumStepSize: jsii.Number(123),
+//   					Strategy: jsii.String("strategy"),
+//   				},
 //   				Status: jsii.String("status"),
 //   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			ModelName: jsii.String("modelName"),
 //   			RoutingConfig: &RoutingConfigProperty{
+//   				PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   					ConcurrencyThreshold: jsii.Number(123),
+//   					PrefixLength: jsii.Number(123),
+//   				},
 //   				RoutingStrategy: jsii.String("routingStrategy"),
 //   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
@@ -199,6 +230,9 @@ type CfnEndpointConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
 	//
 	DataCaptureConfig interface{} `field:"optional" json:"dataCaptureConfig" yaml:"dataCaptureConfig"`
+	// Sets whether all model containers deployed to the endpoint are isolated.
+	//
+	// If they are, no inbound or outbound network calls can be made to or from the model containers.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-enablenetworkisolation
 	//
 	EnableNetworkIsolation interface{} `field:"optional" json:"enableNetworkIsolation" yaml:"enableNetworkIsolation"`
@@ -206,6 +240,7 @@ type CfnEndpointConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
 	//
 	EndpointConfigName *string `field:"optional" json:"endpointConfigName" yaml:"endpointConfigName"`
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform actions on your behalf.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-executionrolearn
 	//
 	ExecutionRoleArn *string `field:"optional" json:"executionRoleArn" yaml:"executionRoleArn"`
@@ -230,6 +265,10 @@ type CfnEndpointConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-metricsconfig
+	//
+	MetricsConfig interface{} `field:"optional" json:"metricsConfig" yaml:"metricsConfig"`
 	// A list of `ProductionVariant` objects, one for each model that you want to host at this endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-productionvariants
 	//
@@ -246,6 +285,9 @@ type CfnEndpointConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to.
+	//
+	// You can control access to and from your resources by configuring a VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-vpcconfig
 	//
 	VpcConfig interface{} `field:"optional" json:"vpcConfig" yaml:"vpcConfig"`

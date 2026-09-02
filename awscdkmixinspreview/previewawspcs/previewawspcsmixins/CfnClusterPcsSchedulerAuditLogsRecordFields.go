@@ -6,6 +6,8 @@ type CfnClusterPcsSchedulerAuditLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnClusterPcsSchedulerAuditLogsRecordFields_TIMESTAMP CfnClusterPcsSchedulerAuditLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_ID CfnClusterPcsSchedulerAuditLogsRecordFields = "RESOURCE_ID"
 	// Experimental.
 	CfnClusterPcsSchedulerAuditLogsRecordFields_RESOURCE_TYPE CfnClusterPcsSchedulerAuditLogsRecordFields = "RESOURCE_TYPE"

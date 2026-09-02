@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnRuntime) validateSetAuthorizerConfigurationParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuntime) validateSetCapacityProviderConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuntime) validateSetEnvironmentVariablesParameters(val interface{}) error {
 	return nil
 }

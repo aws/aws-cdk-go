@@ -9,11 +9,11 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   customEntityTypeReference := &CustomEntityTypeReference{
-//   	CustomEntityTypeId: jsii.String("customEntityTypeId"),
+//   	CustomEntityTypeName: jsii.String("customEntityTypeName"),
 //   }
 //
 type CustomEntityTypeReference struct {
-	// The Id of the CustomEntityType resource.
-	CustomEntityTypeId *string `field:"required" json:"customEntityTypeId" yaml:"customEntityTypeId"`
+	// The Name of the CustomEntityType resource.
+	CustomEntityTypeName *string `field:"required" json:"customEntityTypeName" yaml:"customEntityTypeName"`
 }
 

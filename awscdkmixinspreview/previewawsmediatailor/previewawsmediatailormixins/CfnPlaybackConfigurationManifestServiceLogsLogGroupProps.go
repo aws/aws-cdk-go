@@ -9,7 +9,7 @@ package previewawsmediatailormixins
 //   cfnPlaybackConfigurationManifestServiceLogsLogGroupProps := &CfnPlaybackConfigurationManifestServiceLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnPlaybackConfigurationManifestServiceLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnPlaybackConfigurationManifestServiceLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationManifestServiceLogsRecordFields_CUSTOMERID,
+//   		awscdkmixinspreview.*Mixins.CfnPlaybackConfigurationManifestServiceLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

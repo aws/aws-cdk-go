@@ -19,6 +19,15 @@ package awsmwaaserverless
 //   	RoleArn: jsii.String("roleArn"),
 //
 //   	// the properties below are optional
+//   	Code: &CodeProperty{
+//   		S3Location: &CodeS3LocationProperty{
+//   			Bucket: jsii.String("bucket"),
+//   			ObjectKey: jsii.String("objectKey"),
+//
+//   			// the properties below are optional
+//   			VersionId: jsii.String("versionId"),
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	EncryptionConfiguration: &EncryptionConfigurationProperty{
 //   		Type: jsii.String("type"),
@@ -53,6 +62,12 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-rolearn
 	//
 	RoleArn *string `field:"required" json:"roleArn" yaml:"roleArn"`
+	// The location of code artifacts in Amazon S3 for the workflow.
+	//
+	// Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-code
+	//
+	Code interface{} `field:"optional" json:"code" yaml:"code"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`

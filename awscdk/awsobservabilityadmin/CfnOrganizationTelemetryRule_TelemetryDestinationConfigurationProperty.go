@@ -47,6 +47,7 @@ package awsobservabilityadmin
 //   		FieldDelimiter: jsii.String("fieldDelimiter"),
 //   		OutputFormat: jsii.String("outputFormat"),
 //   	},
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	LogDeliveryParameters: &LogDeliveryParametersProperty{
 //   		LogTypes: []*string{
 //   			jsii.String("logTypes"),
@@ -111,6 +112,10 @@ type CfnOrganizationTelemetryRule_TelemetryDestinationConfigurationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-elbloadbalancerloggingparameters
 	//
 	ElbLoadBalancerLoggingParameters interface{} `field:"optional" json:"elbLoadBalancerLoggingParameters" yaml:"elbLoadBalancerLoggingParameters"`
+	// The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the destination log groups specified in the Telemetry Rule.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
 	// Parameters for log delivery configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-logdeliveryparameters
 	//

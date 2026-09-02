@@ -44,8 +44,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -61,8 +61,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_JSON,
 			"W3C": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnPlaybackConfigurationAdDecisionServerLogsOutputFormat_S3_PARQUET,
 		},
@@ -71,6 +71,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationAdDecisionServerLogsRecordFields",
 		reflect.TypeOf((*CfnPlaybackConfigurationAdDecisionServerLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_TIMESTAMP,
 			"ORIGINID": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ORIGINID,
 			"CUSTOMERID": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_CUSTOMERID,
 			"EVENTTYPE": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTTYPE,
@@ -97,6 +98,18 @@ func init() {
 			"BEACONINFO": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_BEACONINFO,
 			"ADBREAKCORRELATIONID": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADBREAKCORRELATIONID,
 			"PREFETCHSCHEDULENAME": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_PREFETCHSCHEDULENAME,
+			"EVENTID": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTID,
+			"FUNCTIONID": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_FUNCTIONID,
+			"EXECUTIONTIMEMS": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EXECUTIONTIMEMS,
+			"FUNCTIONTYPE": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_FUNCTIONTYPE,
+			"STATUS": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_STATUS,
+			"ERRORTYPE": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ERRORTYPE,
+			"ERROR": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ERROR,
+			"ADDITIONALINFO": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_ADDITIONALINFO,
+			"CAUSE": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_CAUSE,
+			"INPUT": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_INPUT,
+			"OUTPUT": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_OUTPUT,
+			"HTTP": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_HTTP,
 			"EVENTTIMESTAMP": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTTIMESTAMP,
 			"AWSACCOUNTID": CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_AWSACCOUNTID,
 		},
@@ -158,8 +171,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationManifestServiceLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -175,8 +188,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationManifestServiceLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnPlaybackConfigurationManifestServiceLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_S3_JSON,
 			"W3C": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnPlaybackConfigurationManifestServiceLogsOutputFormat_S3_PARQUET,
 		},
@@ -185,6 +198,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationManifestServiceLogsRecordFields",
 		reflect.TypeOf((*CfnPlaybackConfigurationManifestServiceLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnPlaybackConfigurationManifestServiceLogsRecordFields_TIMESTAMP,
 			"CUSTOMERID": CfnPlaybackConfigurationManifestServiceLogsRecordFields_CUSTOMERID,
 			"EVENTTYPE": CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTYPE,
 			"SESSIONTYPE": CfnPlaybackConfigurationManifestServiceLogsRecordFields_SESSIONTYPE,
@@ -212,6 +226,15 @@ func init() {
 			"REQUESTENDTIME": CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTENDTIME,
 			"REQUESTSTARTTIMEEPOCHMILLIS": CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTSTARTTIMEEPOCHMILLIS,
 			"REQUESTENDTIMEEPOCHMILLIS": CfnPlaybackConfigurationManifestServiceLogsRecordFields_REQUESTENDTIMEEPOCHMILLIS,
+			"EVENTID": CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTID,
+			"FUNCTIONID": CfnPlaybackConfigurationManifestServiceLogsRecordFields_FUNCTIONID,
+			"EXECUTIONTIMEMS": CfnPlaybackConfigurationManifestServiceLogsRecordFields_EXECUTIONTIMEMS,
+			"FUNCTIONTYPE": CfnPlaybackConfigurationManifestServiceLogsRecordFields_FUNCTIONTYPE,
+			"STATUS": CfnPlaybackConfigurationManifestServiceLogsRecordFields_STATUS,
+			"ERRORTYPE": CfnPlaybackConfigurationManifestServiceLogsRecordFields_ERRORTYPE,
+			"INPUT": CfnPlaybackConfigurationManifestServiceLogsRecordFields_INPUT,
+			"OUTPUT": CfnPlaybackConfigurationManifestServiceLogsRecordFields_OUTPUT,
+			"HTTP": CfnPlaybackConfigurationManifestServiceLogsRecordFields_HTTP,
 			"EVENTTIMESTAMP": CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTIMESTAMP,
 			"AWSACCOUNTID": CfnPlaybackConfigurationManifestServiceLogsRecordFields_AWSACCOUNTID,
 			"ORIGINID": CfnPlaybackConfigurationManifestServiceLogsRecordFields_ORIGINID,
@@ -258,8 +281,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationTranscodeLogsOutputFormat.Firehose",
 		reflect.TypeOf((*CfnPlaybackConfigurationTranscodeLogsOutputFormat_Firehose)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnPlaybackConfigurationTranscodeLogsOutputFormat_Firehose_JSON,
 			"PLAIN": CfnPlaybackConfigurationTranscodeLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnPlaybackConfigurationTranscodeLogsOutputFormat_Firehose_JSON,
 			"RAW": CfnPlaybackConfigurationTranscodeLogsOutputFormat_Firehose_RAW,
 		},
 	)
@@ -275,8 +298,8 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationTranscodeLogsOutputFormat.S3",
 		reflect.TypeOf((*CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3)(nil)).Elem(),
 		map[string]interface{}{
-			"JSON": CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3_JSON,
 			"PLAIN": CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3_JSON,
 			"W3C": CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3_W3C,
 			"PARQUET": CfnPlaybackConfigurationTranscodeLogsOutputFormat_S3_PARQUET,
 		},
@@ -285,6 +308,7 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_mediatailor.mixins.CfnPlaybackConfigurationTranscodeLogsRecordFields",
 		reflect.TypeOf((*CfnPlaybackConfigurationTranscodeLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TIMESTAMP": CfnPlaybackConfigurationTranscodeLogsRecordFields_TIMESTAMP,
 			"EVENTTYPE": CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTYPE,
 			"EVENTDESCRIPTION": CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTDESCRIPTION,
 			"SESSIONID": CfnPlaybackConfigurationTranscodeLogsRecordFields_SESSIONID,
@@ -293,9 +317,9 @@ func init() {
 			"ADURI": CfnPlaybackConfigurationTranscodeLogsRecordFields_ADURI,
 			"TRANSCODEREQUESTID": CfnPlaybackConfigurationTranscodeLogsRecordFields_TRANSCODEREQUESTID,
 			"CACHESTATUS": CfnPlaybackConfigurationTranscodeLogsRecordFields_CACHESTATUS,
+			"ORIGINID": CfnPlaybackConfigurationTranscodeLogsRecordFields_ORIGINID,
 			"EVENTTIMESTAMP": CfnPlaybackConfigurationTranscodeLogsRecordFields_EVENTTIMESTAMP,
 			"AWSACCOUNTID": CfnPlaybackConfigurationTranscodeLogsRecordFields_AWSACCOUNTID,
-			"ORIGINID": CfnPlaybackConfigurationTranscodeLogsRecordFields_ORIGINID,
 		},
 	)
 	_jsii_.RegisterStruct(

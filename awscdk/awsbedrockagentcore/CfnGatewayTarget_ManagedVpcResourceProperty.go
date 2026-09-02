@@ -18,6 +18,9 @@ package awsbedrockagentcore
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html
@@ -38,5 +41,11 @@ type CfnGatewayTarget_ManagedVpcResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html#cfn-bedrockagentcore-gatewaytarget-managedvpcresource-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	// Tags applied to the AWS-managed VPC Lattice resource gateway when it is created on your behalf (tag-on-create).
+	//
+	// Useful for cost allocation. These tags are forwarded to VPC Lattice and are not stored on the gateway target itself.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html#cfn-bedrockagentcore-gatewaytarget-managedvpcresource-tags
+	//
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -164,6 +164,10 @@ func init() {
 		reflect.TypeOf((*CfnBotPropsMixin_BotLocaleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lex.CfnBotPropsMixin.BotMemberProperty",
+		reflect.TypeOf((*CfnBotPropsMixin_BotMemberProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lex.CfnBotPropsMixin.BuildtimeSettingsProperty",
 		reflect.TypeOf((*CfnBotPropsMixin_BuildtimeSettingsProperty)(nil)).Elem(),
 	)

@@ -349,7 +349,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCertificateArn", GoGetter: "AttrCertificateArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateAuthorityArn", GoGetter: "CertificateAuthorityArn"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateExport", GoGetter: "CertificateExport"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateRef", GoGetter: "CertificateRef"},

@@ -21,30 +21,21 @@ import (
 //
 // Example:
 //   var stack Stack
-//   var flow Flow
-//   var role IRole
-//   var secret ISecret
-//   var existingRouterOutput RouterOutput
+//   var mediaLiveChannel IChannel
+//   var transitSecret Secret
+//   // must hold the same value as the channel's MediaConnectRouterSettings.shared() secret
 //
-//
-//   // Flow output to router with transit encryption
-//   routerOutput := awsmediaconnectalpha.NewFlowOutput(stack, jsii.String("RouterOutput"), &FlowOutputProps{
-//   	Flow: flow,
-//   	Output: awsmediaconnectalpha.OutputConfiguration_Router(&RouterTransitConfig{
-//   		Encryption: &TransitEncryption{
-//   			Role: *Role,
-//   			Secret: *Secret,
-//   		},
-//   	}),
-//   })
-//
-//   // Flow source from router with transit encryption
-//   flowFromRouter := awsmediaconnectalpha.NewFlow(stack, jsii.String("FlowFromRouter"), &FlowProps{
-//   	Source: awsmediaconnectalpha.SourceConfiguration_Router(&RouterSource{
-//   		RouterOutput: existingRouterOutput,
-//   		Decryption: &TransitEncryption{
-//   			Role: *Role,
-//   			Secret: *Secret,
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+//   	RouterInputName: jsii.String("channel-input"),
+//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+//   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+//   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+//   		Channel: mediaLiveChannel,
+//   		OutputName: jsii.String("router-ts"),
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   		SourceTransitDecryption: &TransitEncryption{
+//   			Secret: transitSecret,
 //   		},
 //   	}),
 //   })

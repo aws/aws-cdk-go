@@ -36,6 +36,7 @@ import (
 //   	DirectConnectGatewayId: jsii.String("directConnectGatewayId"),
 //   	EnableSiteLink: jsii.Boolean(false),
 //   	Mtu: jsii.Number(123),
+//   	RateLimit: jsii.String("rateLimit"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

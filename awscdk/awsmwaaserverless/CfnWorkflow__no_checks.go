@@ -104,6 +104,10 @@ func validateCfnWorkflow_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkflow) validateSetCodeParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkflow) validateSetDefinitionS3LocationParameters(val interface{}) error {
 	return nil
 }

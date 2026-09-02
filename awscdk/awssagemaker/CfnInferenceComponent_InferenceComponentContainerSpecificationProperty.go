@@ -10,6 +10,16 @@ package awssagemaker
 //
 //   inferenceComponentContainerSpecificationProperty := &InferenceComponentContainerSpecificationProperty{
 //   	ArtifactUrl: jsii.String("artifactUrl"),
+//   	ContainerMetricsConfig: &ContainerMetricsConfigProperty{
+//   		MetricsEndpoints: []interface{}{
+//   			&MetricsEndpointProperty{
+//   				MetricsEndpointPath: jsii.String("metricsEndpointPath"),
+//
+//   				// the properties below are optional
+//   				MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	DeployedImage: &DeployedImageProperty{
 //   		ResolutionTime: jsii.String("resolutionTime"),
 //   		ResolvedImage: jsii.String("resolvedImage"),
@@ -30,6 +40,10 @@ type CfnInferenceComponent_InferenceComponentContainerSpecificationProperty stru
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-artifacturl
 	//
 	ArtifactUrl *string `field:"optional" json:"artifactUrl" yaml:"artifactUrl"`
+	// The configuration for container metrics scraping.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-containermetricsconfig
+	//
+	ContainerMetricsConfig interface{} `field:"optional" json:"containerMetricsConfig" yaml:"containerMetricsConfig"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentcontainerspecification-deployedimage
 	//
 	DeployedImage interface{} `field:"optional" json:"deployedImage" yaml:"deployedImage"`

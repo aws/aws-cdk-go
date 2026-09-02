@@ -15,12 +15,17 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergcompactionconfiguration.html
 //
 type CfnTableOptimizerPropsMixin_IcebergCompactionConfigurationProperty struct {
+	// The minimum number of deletes in a data file to make it eligible for compaction.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergcompactionconfiguration.html#cfn-glue-tableoptimizer-icebergcompactionconfiguration-deletefilethreshold
 	//
 	DeleteFileThreshold *float64 `field:"optional" json:"deleteFileThreshold" yaml:"deleteFileThreshold"`
+	// The minimum number of input files before compaction is triggered.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergcompactionconfiguration.html#cfn-glue-tableoptimizer-icebergcompactionconfiguration-mininputfiles
 	//
 	MinInputFiles *float64 `field:"optional" json:"minInputFiles" yaml:"minInputFiles"`
+	// The compaction strategy to use.
+	//
+	// Valid values are binpack, sort, and z-order.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergcompactionconfiguration.html#cfn-glue-tableoptimizer-icebergcompactionconfiguration-strategy
 	//
 	Strategy *string `field:"optional" json:"strategy" yaml:"strategy"`

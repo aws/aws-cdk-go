@@ -9,7 +9,7 @@ package previewawspcsmixins
 //   cfnClusterPcsSchedulerLogsLogGroupProps := &CfnClusterPcsSchedulerLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnClusterPcsSchedulerLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnClusterPcsSchedulerLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnClusterPcsSchedulerLogsRecordFields_RESOURCE_ID,
+//   		awscdkmixinspreview.*Mixins.CfnClusterPcsSchedulerLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

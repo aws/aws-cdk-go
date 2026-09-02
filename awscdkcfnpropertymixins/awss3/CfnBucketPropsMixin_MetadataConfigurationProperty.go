@@ -52,6 +52,10 @@ package awss3
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html
 //
 type CfnBucketPropsMixin_MetadataConfigurationProperty struct {
+	// The annotation table configuration for an S3 Metadata configuration.
+	//
+	// The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+	//   If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html#cfn-s3-bucket-metadataconfiguration-annotationtableconfiguration
 	//
 	AnnotationTableConfiguration interface{} `field:"optional" json:"annotationTableConfiguration" yaml:"annotationTableConfiguration"`

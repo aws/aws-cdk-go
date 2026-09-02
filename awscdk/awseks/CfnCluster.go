@@ -56,7 +56,15 @@ import (
 //   		AuthenticationMode: jsii.String("authenticationMode"),
 //   		BootstrapClusterCreatorAdminPermissions: jsii.Boolean(false),
 //   	},
+//   	ActiveCertificateAuthorityId: jsii.String("activeCertificateAuthorityId"),
 //   	BootstrapSelfManagedAddons: jsii.Boolean(false),
+//   	CertificateAuthority: &CertificateAuthorityProperty{
+//   		Active: &ActiveCertificateAuthorityProperty{
+//   			ActivatedBy: jsii.String("activatedBy"),
+//   			Id: jsii.String("id"),
+//   		},
+//   		Data: jsii.String("data"),
+//   	},
 //   	ComputeConfig: &ComputeConfigProperty{
 //   		Enabled: jsii.Boolean(false),
 //   		NodePools: []*string{
@@ -79,6 +87,21 @@ import (
 //   		},
 //   	},
 //   	Force: jsii.Boolean(false),
+//   	KubeApiServerConfig: &KubeApiServerConfigProperty{
+//   		EventTtl: jsii.String("eventTtl"),
+//   		ServiceNodePortRange: &ServiceNodePortRangeProperty{
+//   			MaxPort: jsii.Number(123),
+//   			MinPort: jsii.Number(123),
+//   		},
+//   	},
+//   	KubeControllerManagerConfig: &KubeControllerManagerConfigProperty{
+//   		HorizontalPodAutoscalerControllerConfig: &HorizontalPodAutoscalerControllerConfigProperty{
+//   			HorizontalPodAutoscalerSyncPeriod: jsii.String("horizontalPodAutoscalerSyncPeriod"),
+//   		},
+//   		PodGcControllerConfig: &PodGcControllerConfigProperty{
+//   			TerminatedPodGcThreshold: jsii.Number(123),
+//   		},
+//   	},
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
 //   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
 //   			Enabled: jsii.Boolean(false),
@@ -86,6 +109,19 @@ import (
 //   		IpFamily: jsii.String("ipFamily"),
 //   		ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),
 //   		ServiceIpv6Cidr: jsii.String("serviceIpv6Cidr"),
+//   	},
+//   	KubeSchedulerConfig: &KubeSchedulerConfigProperty{
+//   		NodeResourcesFit: &NodeResourcesFitConfigProperty{
+//   			ScoringStrategy: &ScoringStrategyProperty{
+//   				Resources: []interface{}{
+//   					&ResourceWeightProperty{
+//   						Name: jsii.String("name"),
+//   						Weight: jsii.Number(123),
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
 //   	},
 //   	Logging: &LoggingProperty{
 //   		ClusterLogging: &ClusterLoggingProperty{
@@ -162,8 +198,17 @@ type CfnCluster interface {
 	// The access configuration for the cluster.
 	AccessConfig() interface{}
 	SetAccessConfig(val interface{})
+	// The ID of the certificate authority to activate as the cluster's signing CA.
+	ActiveCertificateAuthorityId() *string
+	SetActiveCertificateAuthorityId(val *string)
 	// The ARN of the cluster, such as `arn:aws:eks:us-west-2:666666666666:cluster/prod` .
 	AttrArn() *string
+	// Indicates whether the active certificate authority was activated by EKS or by the customer.
+	AttrCertificateAuthorityActiveActivatedBy() *string
+	// The ID of the active (signing) certificate authority.
+	AttrCertificateAuthorityActiveId() *string
+	// The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+	AttrCertificateAuthorityCertificateData() *string
 	// The `certificate-authority-data` for your cluster.
 	AttrCertificateAuthorityData() *string
 	// The cluster security group that was created by Amazon EKS for the cluster.
@@ -189,6 +234,9 @@ type CfnCluster interface {
 	// If you set this value to `False` when creating a cluster, the default networking add-ons will not be installed.
 	BootstrapSelfManagedAddons() interface{}
 	SetBootstrapSelfManagedAddons(val interface{})
+	// The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+	CertificateAuthority() interface{}
+	SetCertificateAuthority(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -217,9 +265,18 @@ type CfnCluster interface {
 	// Set this value to `true` to override upgrade-blocking readiness checks when updating a cluster.
 	Force() interface{}
 	SetForce(val interface{})
+	// The configuration for the Kubernetes API server on an Amazon EKS cluster.
+	KubeApiServerConfig() interface{}
+	SetKubeApiServerConfig(val interface{})
+	// The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+	KubeControllerManagerConfig() interface{}
+	SetKubeControllerManagerConfig(val interface{})
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig() interface{}
 	SetKubernetesNetworkConfig(val interface{})
+	// The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+	KubeSchedulerConfig() interface{}
+	SetKubeSchedulerConfig(val interface{})
 	// The logging configuration for your cluster.
 	Logging() interface{}
 	SetLogging(val interface{})
@@ -473,11 +530,51 @@ func (j *jsiiProxy_CfnCluster) AccessConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ActiveCertificateAuthorityId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"activeCertificateAuthorityId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) AttrArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrCertificateAuthorityActiveActivatedBy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCertificateAuthorityActiveActivatedBy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrCertificateAuthorityActiveId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCertificateAuthorityActiveId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrCertificateAuthorityCertificateData() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCertificateAuthorityCertificateData",
 		&returns,
 	)
 	return returns
@@ -558,6 +655,16 @@ func (j *jsiiProxy_CfnCluster) BootstrapSelfManagedAddons() interface{} {
 	_jsii_.Get(
 		j,
 		"bootstrapSelfManagedAddons",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) CertificateAuthority() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificateAuthority",
 		&returns,
 	)
 	return returns
@@ -683,11 +790,41 @@ func (j *jsiiProxy_CfnCluster) Force() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) KubeApiServerConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"kubeApiServerConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) KubeControllerManagerConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"kubeControllerManagerConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) KubernetesNetworkConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
 		j,
 		"kubernetesNetworkConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) KubeSchedulerConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"kubeSchedulerConfig",
 		&returns,
 	)
 	return returns
@@ -924,6 +1061,14 @@ func (j *jsiiProxy_CfnCluster)SetAccessConfig(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetActiveCertificateAuthorityId(val *string) {
+	_jsii_.Set(
+		j,
+		"activeCertificateAuthorityId",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetBootstrapSelfManagedAddons(val interface{}) {
 	if err := j.validateSetBootstrapSelfManagedAddonsParameters(val); err != nil {
 		panic(err)
@@ -931,6 +1076,17 @@ func (j *jsiiProxy_CfnCluster)SetBootstrapSelfManagedAddons(val interface{}) {
 	_jsii_.Set(
 		j,
 		"bootstrapSelfManagedAddons",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetCertificateAuthority(val interface{}) {
+	if err := j.validateSetCertificateAuthorityParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificateAuthority",
 		val,
 	)
 }
@@ -990,6 +1146,28 @@ func (j *jsiiProxy_CfnCluster)SetForce(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetKubeApiServerConfig(val interface{}) {
+	if err := j.validateSetKubeApiServerConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"kubeApiServerConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetKubeControllerManagerConfig(val interface{}) {
+	if err := j.validateSetKubeControllerManagerConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"kubeControllerManagerConfig",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetKubernetesNetworkConfig(val interface{}) {
 	if err := j.validateSetKubernetesNetworkConfigParameters(val); err != nil {
 		panic(err)
@@ -997,6 +1175,17 @@ func (j *jsiiProxy_CfnCluster)SetKubernetesNetworkConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"kubernetesNetworkConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetKubeSchedulerConfig(val interface{}) {
+	if err := j.validateSetKubeSchedulerConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"kubeSchedulerConfig",
 		val,
 	)
 }

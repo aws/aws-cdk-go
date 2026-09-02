@@ -6,6 +6,8 @@ type CfnChannelGroupEgressAccessLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnChannelGroupEgressAccessLogsRecordFields_TIMESTAMP CfnChannelGroupEgressAccessLogsRecordFields = "TIMESTAMP"
+	// Experimental.
 	CfnChannelGroupEgressAccessLogsRecordFields_RESOURCE_ARN CfnChannelGroupEgressAccessLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.
 	CfnChannelGroupEgressAccessLogsRecordFields_EVENT_TIMESTAMP CfnChannelGroupEgressAccessLogsRecordFields = "EVENT_TIMESTAMP"
@@ -49,5 +51,7 @@ const (
 	CfnChannelGroupEgressAccessLogsRecordFields_MANIFEST_NAME CfnChannelGroupEgressAccessLogsRecordFields = "MANIFEST_NAME"
 	// Experimental.
 	CfnChannelGroupEgressAccessLogsRecordFields_MANIFEST_TYPE CfnChannelGroupEgressAccessLogsRecordFields = "MANIFEST_TYPE"
+	// Experimental.
+	CfnChannelGroupEgressAccessLogsRecordFields_LOG_TYPE CfnChannelGroupEgressAccessLogsRecordFields = "LOG_TYPE"
 )
 

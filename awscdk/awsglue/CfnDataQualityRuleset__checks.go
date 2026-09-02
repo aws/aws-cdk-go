@@ -219,7 +219,7 @@ func validateCfnDataQualityRuleset_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnDataQualityRuleset) validateSetTagsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnDataQualityRuleset) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
@@ -260,6 +260,9 @@ func validateNewCfnDataQualityRulesetParameters(scope constructs.Construct, id *
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
+	if props == nil {
+		return fmt.Errorf("parameter props is required, but nil was provided")
+	}
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err
 	}

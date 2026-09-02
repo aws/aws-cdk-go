@@ -42,11 +42,17 @@ import (
 //   			LessThanOrEqual: jsii.Number(123),
 //   			Lt: jsii.Number(123),
 //   			Lte: jsii.Number(123),
+//   			Matches: []*string{
+//   				jsii.String("matches"),
+//   			},
 //   			Neq: []*string{
 //   				jsii.String("neq"),
 //   			},
 //   			NotEquals: []*string{
 //   				jsii.String("notEquals"),
+//   			},
+//   			NotMatches: []*string{
+//   				jsii.String("notMatches"),
 //   			},
 //   		},
 //   	},

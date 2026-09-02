@@ -9,11 +9,11 @@ package interfacesawscodebuild
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   sourceCredentialReference := &SourceCredentialReference{
-//   	SourceCredentialId: jsii.String("sourceCredentialId"),
+//   	SourceCredentialArn: jsii.String("sourceCredentialArn"),
 //   }
 //
 type SourceCredentialReference struct {
-	// The Id of the SourceCredential resource.
-	SourceCredentialId *string `field:"required" json:"sourceCredentialId" yaml:"sourceCredentialId"`
+	// The Arn of the SourceCredential resource.
+	SourceCredentialArn *string `field:"required" json:"sourceCredentialArn" yaml:"sourceCredentialArn"`
 }
 

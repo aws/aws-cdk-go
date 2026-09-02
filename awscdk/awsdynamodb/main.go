@@ -69,8 +69,8 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_dynamodb.CfnExport",
-		reflect.TypeOf((*CfnExport)(nil)).Elem(),
+		"aws-cdk-lib.aws_dynamodb.CfnBackup",
+		reflect.TypeOf((*CfnBackup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
@@ -82,17 +82,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrBilledSizeBytes", GoGetter: "AttrBilledSizeBytes"},
-			_jsii_.MemberProperty{JsiiProperty: "attrEndTime", GoGetter: "AttrEndTime"},
-			_jsii_.MemberProperty{JsiiProperty: "attrExportArn", GoGetter: "AttrExportArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrExportId", GoGetter: "AttrExportId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrExportManifest", GoGetter: "AttrExportManifest"},
-			_jsii_.MemberProperty{JsiiProperty: "attrExportStatus", GoGetter: "AttrExportStatus"},
-			_jsii_.MemberProperty{JsiiProperty: "attrExportTime", GoGetter: "AttrExportTime"},
-			_jsii_.MemberProperty{JsiiProperty: "attrItemCount", GoGetter: "AttrItemCount"},
-			_jsii_.MemberProperty{JsiiProperty: "attrStartTime", GoGetter: "AttrStartTime"},
-			_jsii_.MemberProperty{JsiiProperty: "attrTableId", GoGetter: "AttrTableId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrTableName", GoGetter: "AttrTableName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBackupArn", GoGetter: "AttrBackupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBackupCreationDateTime", GoGetter: "AttrBackupCreationDateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBackupId", GoGetter: "AttrBackupId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBackupSizeBytes", GoGetter: "AttrBackupSizeBytes"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBackupStatus", GoGetter: "AttrBackupStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrBackupType", GoGetter: "AttrBackupType"},
+			_jsii_.MemberProperty{JsiiProperty: "backupName", GoGetter: "BackupName"},
+			_jsii_.MemberProperty{JsiiProperty: "backupRef", GoGetter: "BackupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -100,9 +97,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "exportFormat", GoGetter: "ExportFormat"},
-			_jsii_.MemberProperty{JsiiProperty: "exportRef", GoGetter: "ExportRef"},
-			_jsii_.MemberProperty{JsiiProperty: "exportType", GoGetter: "ExportType"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -115,13 +109,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
-			_jsii_.MemberProperty{JsiiProperty: "s3Bucket", GoGetter: "S3Bucket"},
-			_jsii_.MemberProperty{JsiiProperty: "s3BucketOwner", GoGetter: "S3BucketOwner"},
-			_jsii_.MemberProperty{JsiiProperty: "s3Prefix", GoGetter: "S3Prefix"},
-			_jsii_.MemberProperty{JsiiProperty: "s3SseAlgorithm", GoGetter: "S3SseAlgorithm"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
@@ -129,16 +119,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
-			j := jsiiProxy_CfnExport{}
+			j := jsiiProxy_CfnBackup{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
-			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdynamodbIExportRef)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsdynamodbIBackupRef)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_dynamodb.CfnExportProps",
-		reflect.TypeOf((*CfnExportProps)(nil)).Elem(),
+		"aws-cdk-lib.aws_dynamodb.CfnBackupProps",
+		reflect.TypeOf((*CfnBackupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",

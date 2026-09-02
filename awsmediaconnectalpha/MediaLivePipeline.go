@@ -5,17 +5,22 @@ package awsmediaconnectalpha
 //
 // Example:
 //   var stack Stack
-//   var mediaLiveInput CfnInput
+//   var mediaLiveChannel IChannel
+//   var transitSecret Secret
+//   // must hold the same value as the channel's MediaConnectRouterSettings.shared() secret
 //
-//
-//   output := awsmediaconnectalpha.NewRouterOutput(stack, jsii.String("MediaLiveOutput"), &RouterOutputProps{
-//   	RouterOutputName: jsii.String("medialive-output"),
-//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(15)),
-//   	RoutingScope: awsmediaconnectalpha.RoutingScope_GLOBAL(),
-//   	Tier: awsmediaconnectalpha.RouterOutputTier_OUTPUT_50(),
-//   	Configuration: awsmediaconnectalpha.RouterOutputConfiguration_MediaLiveInput(&MediaLiveInputConnectionProps{
-//   		MediaLiveInputArn: mediaLiveInput.attrArn,
-//   		MediaLivePipelineId: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   input := awsmediaconnectalpha.NewRouterInput(stack, jsii.String("ChannelInput"), &RouterInputProps{
+//   	RouterInputName: jsii.String("channel-input"),
+//   	MaximumBitrate: awscdk.Bitrate_Mbps(jsii.Number(20)),
+//   	RoutingScope: awsmediaconnectalpha.RoutingScope_REGIONAL(),
+//   	Tier: awsmediaconnectalpha.RouterInputTier_INPUT_50(),
+//   	Configuration: awsmediaconnectalpha.RouterInputConfiguration_MediaLiveChannel(&MediaLiveChannelConfigurationProps{
+//   		Channel: mediaLiveChannel,
+//   		OutputName: jsii.String("router-ts"),
+//   		Pipeline: awsmediaconnectalpha.MediaLivePipeline_PIPELINE_0,
+//   		SourceTransitDecryption: &TransitEncryption{
+//   			Secret: transitSecret,
+//   		},
 //   	}),
 //   })
 //

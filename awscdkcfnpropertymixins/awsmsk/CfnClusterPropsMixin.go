@@ -98,6 +98,21 @@ import (
 //   	EnhancedMonitoring: jsii.String("enhancedMonitoring"),
 //   	KafkaVersion: jsii.String("kafkaVersion"),
 //   	LoggingInfo: &LoggingInfoProperty{
+//   		AuthorizerLogs: &AuthorizerLogsProperty{
+//   			CloudWatchLogs: &CloudWatchLogsProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				LogGroup: jsii.String("logGroup"),
+//   			},
+//   			Firehose: &FirehoseProperty{
+//   				DeliveryStream: jsii.String("deliveryStream"),
+//   				Enabled: jsii.Boolean(false),
+//   			},
+//   			S3: &S3Property{
+//   				Bucket: jsii.String("bucket"),
+//   				Enabled: jsii.Boolean(false),
+//   				Prefix: jsii.String("prefix"),
+//   			},
+//   		},
 //   		BrokerLogs: &BrokerLogsProperty{
 //   			CloudWatchLogs: &CloudWatchLogsProperty{
 //   				Enabled: jsii.Boolean(false),

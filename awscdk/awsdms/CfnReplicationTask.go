@@ -49,6 +49,10 @@ type CfnReplicationTask interface {
 	interfacesawsdms.IReplicationTaskRef
 	awscdk.ITaggable
 	AttrId() *string
+	// The ARN of the ReplicationTask.
+	//
+	// Also serves the purpise of Primary Identifier.
+	AttrReplicationTaskArn() *string
 	// Indicates when you want a change data capture (CDC) operation to start.
 	CdcStartPosition() *string
 	SetCdcStartPosition(val *string)
@@ -313,6 +317,16 @@ func (j *jsiiProxy_CfnReplicationTask) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationTask) AttrReplicationTaskArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrReplicationTaskArn",
 		&returns,
 	)
 	return returns
@@ -738,6 +752,24 @@ func (j *jsiiProxy_CfnReplicationTask)SetTaskData(val *string) {
 		"taskData",
 		val,
 	)
+}
+
+func CfnReplicationTask_ArnForReplicationTask(resource interfacesawsdms.IReplicationTaskRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationTask_ArnForReplicationTaskParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnReplicationTask",
+		"arnForReplicationTask",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

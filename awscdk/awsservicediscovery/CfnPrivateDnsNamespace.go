@@ -22,7 +22,6 @@ import (
 //
 //   cfnPrivateDnsNamespace := awscdk.Aws_servicediscovery.NewCfnPrivateDnsNamespace(this, jsii.String("MyCfnPrivateDnsNamespace"), &CfnPrivateDnsNamespaceProps{
 //   	Name: jsii.String("name"),
-//   	Vpc: jsii.String("vpc"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
@@ -39,6 +38,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Vpc: jsii.String("vpc"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
@@ -581,9 +581,6 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace)SetTagsRaw(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnPrivateDnsNamespace)SetVpc(val *string) {
-	if err := j.validateSetVpcParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"vpc",

@@ -32,12 +32,18 @@ import (
 //   				MlReservationArn: jsii.String("mlReservationArn"),
 //   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			CoreDumpConfig: &CoreDumpConfigProperty{
+//   				DestinationS3Uri: jsii.String("destinationS3Uri"),
+//
+//   				// the properties below are optional
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   			},
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
 //   			InstancePools: []interface{}{
-//   				&InstancePoolsProperty{
+//   				&InstancePoolProperty{
 //   					InstanceType: jsii.String("instanceType"),
 //   					Priority: jsii.Number(123),
 //
@@ -49,11 +55,22 @@ import (
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
 //   				MinInstanceCount: jsii.Number(123),
+//   				ScaleInPolicy: &ScaleInPolicyProperty{
+//   					Strategy: jsii.String("strategy"),
+//
+//   					// the properties below are optional
+//   					CooldownInMinutes: jsii.Number(123),
+//   					MaximumStepSize: jsii.Number(123),
+//   				},
 //   				Status: jsii.String("status"),
 //   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			ModelName: jsii.String("modelName"),
 //   			RoutingConfig: &RoutingConfigProperty{
+//   				PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   					ConcurrencyThreshold: jsii.Number(123),
+//   					PrefixLength: jsii.Number(123),
+//   				},
 //   				RoutingStrategy: jsii.String("routingStrategy"),
 //   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
@@ -155,6 +172,11 @@ import (
 //   		},
 //   	},
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	MetricsConfig: &MetricsConfigProperty{
+//   		EnableDetailedObservability: jsii.Boolean(false),
+//   		EnableEnhancedMetrics: jsii.Boolean(false),
+//   		MetricPublishFrequencyInSeconds: jsii.Number(123),
+//   	},
 //   	ShadowProductionVariants: []interface{}{
 //   		&ProductionVariantProperty{
 //   			VariantName: jsii.String("variantName"),
@@ -166,12 +188,18 @@ import (
 //   				MlReservationArn: jsii.String("mlReservationArn"),
 //   			},
 //   			ContainerStartupHealthCheckTimeoutInSeconds: jsii.Number(123),
+//   			CoreDumpConfig: &CoreDumpConfigProperty{
+//   				DestinationS3Uri: jsii.String("destinationS3Uri"),
+//
+//   				// the properties below are optional
+//   				KmsKeyId: jsii.String("kmsKeyId"),
+//   			},
 //   			EnableSsmAccess: jsii.Boolean(false),
 //   			InferenceAmiVersion: jsii.String("inferenceAmiVersion"),
 //   			InitialInstanceCount: jsii.Number(123),
 //   			InitialVariantWeight: jsii.Number(123),
 //   			InstancePools: []interface{}{
-//   				&InstancePoolsProperty{
+//   				&InstancePoolProperty{
 //   					InstanceType: jsii.String("instanceType"),
 //   					Priority: jsii.Number(123),
 //
@@ -183,11 +211,22 @@ import (
 //   			ManagedInstanceScaling: &ManagedInstanceScalingProperty{
 //   				MaxInstanceCount: jsii.Number(123),
 //   				MinInstanceCount: jsii.Number(123),
+//   				ScaleInPolicy: &ScaleInPolicyProperty{
+//   					Strategy: jsii.String("strategy"),
+//
+//   					// the properties below are optional
+//   					CooldownInMinutes: jsii.Number(123),
+//   					MaximumStepSize: jsii.Number(123),
+//   				},
 //   				Status: jsii.String("status"),
 //   			},
 //   			ModelDataDownloadTimeoutInSeconds: jsii.Number(123),
 //   			ModelName: jsii.String("modelName"),
 //   			RoutingConfig: &RoutingConfigProperty{
+//   				PrefixAwareRoutingConfig: &PrefixAwareRoutingConfigProperty{
+//   					ConcurrencyThreshold: jsii.Number(123),
+//   					PrefixLength: jsii.Number(123),
+//   				},
 //   				RoutingStrategy: jsii.String("routingStrategy"),
 //   			},
 //   			ServerlessConfig: &ServerlessConfigProperty{
@@ -227,6 +266,8 @@ type CfnEndpointConfig interface {
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	AsyncInferenceConfig() interface{}
 	SetAsyncInferenceConfig(val interface{})
+	// The Amazon Resource Name (ARN) of the endpoint configuration.
+	AttrEndpointConfigArn() *string
 	// The name of the endpoint configuration, such as `MyEndpointConfiguration` .
 	AttrEndpointConfigName() *string
 	AttrId() *string
@@ -243,6 +284,7 @@ type CfnEndpointConfig interface {
 	// Specifies how to capture endpoint data for model monitor.
 	DataCaptureConfig() interface{}
 	SetDataCaptureConfig(val interface{})
+	// Sets whether all model containers deployed to the endpoint are isolated.
 	EnableNetworkIsolation() interface{}
 	SetEnableNetworkIsolation(val interface{})
 	// The name of the endpoint configuration.
@@ -251,6 +293,7 @@ type CfnEndpointConfig interface {
 	// A reference to a EndpointConfig resource.
 	EndpointConfigRef() *interfacesawssagemaker.EndpointConfigReference
 	Env() *interfaces.ResourceEnvironment
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform actions on your behalf.
 	ExecutionRoleArn() *string
 	SetExecutionRoleArn(val *string)
 	// A parameter to activate explainers.
@@ -269,6 +312,9 @@ type CfnEndpointConfig interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+	MetricsConfig() interface{}
+	SetMetricsConfig(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// A list of `ProductionVariant` objects, one for each model that you want to host at this endpoint.
@@ -304,6 +350,7 @@ type CfnEndpointConfig interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to.
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
@@ -487,6 +534,16 @@ func (j *jsiiProxy_CfnEndpointConfig) AsyncInferenceConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpointConfig) AttrEndpointConfigArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpointConfigArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpointConfig) AttrEndpointConfigName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -642,6 +699,16 @@ func (j *jsiiProxy_CfnEndpointConfig) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) MetricsConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricsConfig",
 		&returns,
 	)
 	return returns
@@ -841,6 +908,17 @@ func (j *jsiiProxy_CfnEndpointConfig)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointConfig)SetMetricsConfig(val interface{}) {
+	if err := j.validateSetMetricsConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricsConfig",
 		val,
 	)
 }

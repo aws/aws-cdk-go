@@ -20,6 +20,10 @@ func init() {
 		reflect.TypeOf((*CapabilityReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_eks.CertificateAuthorityReference",
+		reflect.TypeOf((*CertificateAuthorityReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_eks.ClusterReference",
 		reflect.TypeOf((*ClusterReference)(nil)).Elem(),
 	)
@@ -70,6 +74,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICapabilityRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_eks.ICertificateAuthorityRef",
+		reflect.TypeOf((*ICertificateAuthorityRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "certificateAuthorityRef", GoGetter: "CertificateAuthorityRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICertificateAuthorityRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

@@ -8,7 +8,7 @@ package previewawsbedrockagentcoremixins
 //
 //   cfnBrowserCustomUsageLogsDestProps := &CfnBrowserCustomUsageLogsDestProps{
 //   	RecordFields: []CfnBrowserCustomUsageLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnBrowserCustomUsageLogsRecordFields_RESOURCE_ARN,
+//   		awscdkmixinspreview.Mixins.CfnBrowserCustomUsageLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

@@ -9,7 +9,7 @@ package previewawsbedrockagentcoremixins
 //   cfnRuntimeApplicationLogsLogGroupProps := &CfnRuntimeApplicationLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnRuntimeApplicationLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnRuntimeApplicationLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnRuntimeApplicationLogsRecordFields_ACCOUNT_ID,
+//   		awscdkmixinspreview.*Mixins.CfnRuntimeApplicationLogsRecordFields_TIMESTAMP,
 //   	},
 //   }
 //

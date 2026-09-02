@@ -34,6 +34,7 @@ import (
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{
 //   		PublishMqcs: jsii.Boolean(false),
 //   	},
+//   	OutputLockingMode: jsii.String("outputLockingMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -104,6 +105,8 @@ type CfnChannel interface {
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration() interface{}
 	SetOutputHeaderConfiguration(val interface{})
+	OutputLockingMode() *string
+	SetOutputLockingMode(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -509,6 +512,16 @@ func (j *jsiiProxy_CfnChannel) OutputHeaderConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) OutputLockingMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputLockingMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -645,6 +658,14 @@ func (j *jsiiProxy_CfnChannel)SetOutputHeaderConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"outputHeaderConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetOutputLockingMode(val *string) {
+	_jsii_.Set(
+		j,
+		"outputLockingMode",
 		val,
 	)
 }

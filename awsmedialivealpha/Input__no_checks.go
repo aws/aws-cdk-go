@@ -1,0 +1,42 @@
+//go:build no_runtime_type_checking
+
+package awsmedialivealpha
+
+// Building without runtime type checking enabled, so all the below just return nil
+
+func (i *jsiiProxy_Input) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
+func (i *jsiiProxy_Input) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
+	return nil
+}
+
+func (i *jsiiProxy_Input) validateGetResourceArnAttributeParameters(arnAttr *string, arnComponents *awscdk.ArnComponents) error {
+	return nil
+}
+
+func (i *jsiiProxy_Input) validateGetResourceNameAttributeParameters(nameAttr *string) error {
+	return nil
+}
+
+func validateInput_FromInputArnParameters(scope constructs.Construct, id *string, inputArn *string) error {
+	return nil
+}
+
+func validateInput_IsConstructParameters(x interface{}) error {
+	return nil
+}
+
+func validateInput_IsOwnedResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateInput_IsResourceParameters(construct constructs.IConstruct) error {
+	return nil
+}
+
+func validateNewInputParameters(scope constructs.Construct, id *string, props *InputProps) error {
+	return nil
+}
+

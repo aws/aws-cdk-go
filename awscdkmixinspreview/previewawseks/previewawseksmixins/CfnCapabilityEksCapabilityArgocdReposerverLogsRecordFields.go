@@ -6,6 +6,10 @@ type CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
 	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_STREAM CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "STREAM"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "LEVEL"
@@ -13,6 +17,28 @@ const (
 	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_MESSAGE CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "MESSAGE"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_ERROR CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_CODE CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_CODE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_METHOD CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_METHOD"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_SERVICE CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_SERVICE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_TIME_MS CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_TIME_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_METHOD_TYPE CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_METHOD_TYPE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_COMPONENT CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_COMPONENT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_GRPC_ERROR CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "GRPC_ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_VERSION CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "VERSION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_COMPONENT CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "COMPONENT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_DURATION CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "DURATION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_EXECID CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "EXECID"
 	// Experimental.
 	CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdReposerverLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.

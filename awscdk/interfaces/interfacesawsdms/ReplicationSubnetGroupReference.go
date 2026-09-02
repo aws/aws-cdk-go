@@ -9,11 +9,11 @@ package interfacesawsdms
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   replicationSubnetGroupReference := &ReplicationSubnetGroupReference{
-//   	ReplicationSubnetGroupId: jsii.String("replicationSubnetGroupId"),
+//   	ReplicationSubnetGroupIdentifier: jsii.String("replicationSubnetGroupIdentifier"),
 //   }
 //
 type ReplicationSubnetGroupReference struct {
-	// The Id of the ReplicationSubnetGroup resource.
-	ReplicationSubnetGroupId *string `field:"required" json:"replicationSubnetGroupId" yaml:"replicationSubnetGroupId"`
+	// The ReplicationSubnetGroupIdentifier of the ReplicationSubnetGroup resource.
+	ReplicationSubnetGroupIdentifier *string `field:"required" json:"replicationSubnetGroupIdentifier" yaml:"replicationSubnetGroupIdentifier"`
 }
 

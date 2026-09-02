@@ -73,6 +73,7 @@ func init() {
 		"aws-cdk-lib.aws_elementalinference.CfnFeed",
 		reflect.TypeOf((*CfnFeed)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessRoleArn", GoGetter: "AccessRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
@@ -136,6 +137,14 @@ func init() {
 		reflect.TypeOf((*CfnFeed_ClippingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elementalinference.CfnFeed.CroppingConfigProperty",
+		reflect.TypeOf((*CfnFeed_CroppingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elementalinference.CfnFeed.DataSourceConfigurationProperty",
+		reflect.TypeOf((*CfnFeed_DataSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elementalinference.CfnFeed.GetOutputProperty",
 		reflect.TypeOf((*CfnFeed_GetOutputProperty)(nil)).Elem(),
 	)
@@ -146,6 +155,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elementalinference.CfnFeed.SubtitlingConfigProperty",
 		reflect.TypeOf((*CfnFeed_SubtitlingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elementalinference.CfnFeed.TemplateGroupProperty",
+		reflect.TypeOf((*CfnFeed_TemplateGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elementalinference.CfnFeedProps",

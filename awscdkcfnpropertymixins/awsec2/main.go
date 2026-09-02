@@ -316,6 +316,10 @@ func init() {
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_CapacityReservationOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.CapacityReservationTargetRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_CapacityReservationTargetRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.CpuPerformanceFactorRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_CpuPerformanceFactorRequestProperty)(nil)).Elem(),
 	)
@@ -390,6 +394,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.PrivateIpAddressSpecificationRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_PrivateIpAddressSpecificationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.ReservedCapacityFallbackOptionsRequestProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_ReservedCapacityFallbackOptionsRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.ReservedCapacityOptionsRequestProperty",
@@ -522,6 +530,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFlowLogPropsMixin.TagFieldSpecificationProperty",
 		reflect.TypeOf((*CfnFlowLogPropsMixin_TagFieldSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFpgaImageMixinProps",
+		reflect.TypeOf((*CfnFpgaImageMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFpgaImagePropsMixin",
+		reflect.TypeOf((*CfnFpgaImagePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFpgaImagePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFpgaImagePropsMixin.StorageLocationProperty",
+		reflect.TypeOf((*CfnFpgaImagePropsMixin_StorageLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnGatewayRouteTableAssociationMixinProps",
@@ -950,6 +982,26 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnIpPoolRouteTableAssociationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIpamExternalResourceVerificationTokenMixinProps",
+		reflect.TypeOf((*CfnIpamExternalResourceVerificationTokenMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIpamExternalResourceVerificationTokenPropsMixin",
+		reflect.TypeOf((*CfnIpamExternalResourceVerificationTokenPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIpamExternalResourceVerificationTokenPropsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
@@ -2532,6 +2584,30 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPolicyTableEntryMixinProps",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTableEntryMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPolicyTableEntryPropsMixin",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTableEntryPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTransitGatewayPolicyTableEntryPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPolicyTableEntryPropsMixin.TransitGatewayPolicyRuleProperty",
+		reflect.TypeOf((*CfnTransitGatewayPolicyTableEntryPropsMixin_TransitGatewayPolicyRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPolicyTableMixinProps",
 		reflect.TypeOf((*CfnTransitGatewayPolicyTableMixinProps)(nil)).Elem(),
 	)
@@ -2862,6 +2938,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnVPCEndpointServicePropsMixin.PrivateDnsNameConfigurationProperty",
+		reflect.TypeOf((*CfnVPCEndpointServicePropsMixin_PrivateDnsNameConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnVPCGatewayAttachmentMixinProps",

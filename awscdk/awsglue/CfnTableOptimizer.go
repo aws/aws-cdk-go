@@ -60,7 +60,6 @@ type CfnTableOptimizer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsglue.ITableOptimizerRef
-	AttrId() *string
 	// The catalog ID of the table.
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -293,16 +292,6 @@ type jsiiProxy_CfnTableOptimizer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsglueITableOptimizerRef
-}
-
-func (j *jsiiProxy_CfnTableOptimizer) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnTableOptimizer) CatalogId() *string {
