@@ -106,6 +106,23 @@ import (
 //   					},
 //   					Url: jsii.String("url"),
 //   				},
+//   				InfluxDb: &InfluxDBActionProperty{
+//   					BatchConfig: &InfluxDBBatchConfigProperty{
+//   						BatchAcrossTopics: jsii.Boolean(false),
+//   						MaxBatchOpenMs: jsii.Number(123),
+//   						MaxBatchSize: jsii.Number(123),
+//   						MaxBatchSizeBytes: jsii.Number(123),
+//   					},
+//   					DatabaseName: jsii.String("databaseName"),
+//   					DestinationArn: jsii.String("destinationArn"),
+//   					Organization: jsii.String("organization"),
+//   					RoleArn: jsii.String("roleArn"),
+//   					TableName: jsii.String("tableName"),
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
+//   					TimestampUnit: jsii.String("timestampUnit"),
+//   				},
 //   				IotAnalytics: &IotAnalyticsActionProperty{
 //   					BatchMode: jsii.Boolean(false),
 //   					ChannelName: jsii.String("channelName"),
@@ -315,6 +332,23 @@ import (
 //   					},
 //   				},
 //   				Url: jsii.String("url"),
+//   			},
+//   			InfluxDb: &InfluxDBActionProperty{
+//   				BatchConfig: &InfluxDBBatchConfigProperty{
+//   					BatchAcrossTopics: jsii.Boolean(false),
+//   					MaxBatchOpenMs: jsii.Number(123),
+//   					MaxBatchSize: jsii.Number(123),
+//   					MaxBatchSizeBytes: jsii.Number(123),
+//   				},
+//   				DatabaseName: jsii.String("databaseName"),
+//   				DestinationArn: jsii.String("destinationArn"),
+//   				Organization: jsii.String("organization"),
+//   				RoleArn: jsii.String("roleArn"),
+//   				TableName: jsii.String("tableName"),
+//   				Tags: map[string]*string{
+//   					"tagsKey": jsii.String("tags"),
+//   				},
+//   				TimestampUnit: jsii.String("timestampUnit"),
 //   			},
 //   			IotAnalytics: &IotAnalyticsActionProperty{
 //   				BatchMode: jsii.Boolean(false),

@@ -92,7 +92,8 @@ type FargateTaskDefinitionProps struct {
 	//
 	// The maximum supported value is 200 GiB.
 	//
-	// NOTE: This parameter is only supported for tasks hosted on AWS Fargate using platform version 1.4.0 or later.
+	// NOTE: This parameter is only supported for tasks hosted on AWS Fargate using platform version 1.4.0 or later
+	// for Linux tasks, and platform version 1.0.0 or later for Windows tasks.
 	// Default: 20.
 	//
 	EphemeralStorageGiB *float64 `field:"optional" json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`

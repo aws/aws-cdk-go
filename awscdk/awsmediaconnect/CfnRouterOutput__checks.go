@@ -255,6 +255,30 @@ func (j *jsiiProxy_CfnRouterOutput) validateSetConfigurationParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnRouterOutput) validateSetFabricConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnRouterOutput_FabricConfigurationProperty:
+		val := val.(*CfnRouterOutput_FabricConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnRouterOutput_FabricConfigurationProperty:
+		val_ := val.(CfnRouterOutput_FabricConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnRouterOutput_FabricConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnRouterOutput) validateSetMaintenanceConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

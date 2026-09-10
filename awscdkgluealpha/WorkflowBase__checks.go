@@ -26,37 +26,7 @@ func (w *jsiiProxy_WorkflowBase) validateAddConditionalTriggerParameters(id *str
 	return nil
 }
 
-func (w *jsiiProxy_WorkflowBase) validateAddCustomScheduledTriggerParameters(id *string, options *CustomScheduledTriggerOptions) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if options == nil {
-		return fmt.Errorf("parameter options is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (w *jsiiProxy_WorkflowBase) validateAddDailyScheduledTriggerParameters(id *string, options *DailyScheduleTriggerOptions) error {
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if options == nil {
-		return fmt.Errorf("parameter options is required, but nil was provided")
-	}
-	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (w *jsiiProxy_WorkflowBase) validateAddNotifyEventTriggerParameters(id *string, options *NotifyEventTriggerOptions) error {
+func (w *jsiiProxy_WorkflowBase) validateAddEventTriggerParameters(id *string, options *EventTriggerOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
@@ -86,7 +56,7 @@ func (w *jsiiProxy_WorkflowBase) validateAddOnDemandTriggerParameters(id *string
 	return nil
 }
 
-func (w *jsiiProxy_WorkflowBase) validateAddWeeklyScheduledTriggerParameters(id *string, options *WeeklyScheduleTriggerOptions) error {
+func (w *jsiiProxy_WorkflowBase) validateAddScheduledTriggerParameters(id *string, options *ScheduledTriggerOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}

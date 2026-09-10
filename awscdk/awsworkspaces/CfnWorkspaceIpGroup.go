@@ -11,7 +11,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for an IP access control group for Amazon WorkSpaces.
+// Resource Type definition for an IP access control group for Amazon WorkSpaces.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

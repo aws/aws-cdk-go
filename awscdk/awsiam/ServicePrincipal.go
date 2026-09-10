@@ -8,19 +8,26 @@ import (
 // An IAM principal that represents an AWS service (i.e. `sqs.amazonaws.com`).
 //
 // Example:
-//   var vpc Vpc
-//
-//
-//   logGroup := logs.NewLogGroup(this, jsii.String("MyCustomLogGroup"))
-//
-//   role := iam.NewRole(this, jsii.String("MyCustomRole"), &RoleProps{
-//   	AssumedBy: iam.NewServicePrincipal(jsii.String("vpc-flow-logs.amazonaws.com")),
+//   // Create a browser
+//   browser := agentcore.NewBrowserCustom(this, jsii.String("MyBrowser"), &BrowserCustomProps{
+//   	BrowserCustomName: jsii.String("my_browser"),
+//   	Description: jsii.String("Browser for web automation"),
+//   	NetworkConfiguration: agentcore.BrowserNetworkConfiguration_UsingPublicNetwork(),
 //   })
 //
-//   ec2.NewFlowLog(this, jsii.String("FlowLog"), &FlowLogProps{
-//   	ResourceType: ec2.FlowLogResourceType_FromVpc(vpc),
-//   	Destination: ec2.FlowLogDestination_ToCloudWatchLogs(logGroup, role),
+//   // Create a role that needs access to the browser
+//   userRole := iam.NewRole(this, jsii.String("UserRole"), &RoleProps{
+//   	AssumedBy: iam.NewServicePrincipal(jsii.String("lambda.amazonaws.com")),
 //   })
+//
+//   // Grant read permissions (Get and List actions)
+//   browser.GrantRead(userRole)
+//
+//   // Grant use permissions (Start, Update, Stop actions)
+//   browser.GrantUse(userRole)
+//
+//   // Grant specific custom permissions
+//   browser.Grant(userRole, jsii.String("bedrock-agentcore:GetBrowserSession"))
 //
 type ServicePrincipal interface {
 	PrincipalBase

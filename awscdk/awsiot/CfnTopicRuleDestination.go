@@ -22,6 +22,15 @@ import (
 //   	HttpUrlProperties: &HttpUrlDestinationSummaryProperty{
 //   		ConfirmationUrl: jsii.String("confirmationUrl"),
 //   	},
+//   	InfluxDbProperties: &InfluxDBDestinationPropertiesProperty{
+//   		Endpoint: jsii.String("endpoint"),
+//   		InfluxDbVersion: jsii.String("influxDbVersion"),
+//   		SecretId: jsii.String("secretId"),
+//
+//   		// the properties below are optional
+//   		SecretKey: jsii.String("secretKey"),
+//   		SecretType: jsii.String("secretType"),
+//   	},
 //   	Status: jsii.String("status"),
 //   	VpcProperties: &VpcDestinationPropertiesProperty{
 //   		RoleArn: jsii.String("roleArn"),
@@ -59,6 +68,8 @@ type CfnTopicRuleDestination interface {
 	// Properties of the HTTP URL.
 	HttpUrlProperties() interface{}
 	SetHttpUrlProperties(val interface{})
+	InfluxDbProperties() interface{}
+	SetInfluxDbProperties(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -361,6 +372,16 @@ func (j *jsiiProxy_CfnTopicRuleDestination) HttpUrlProperties() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopicRuleDestination) InfluxDbProperties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"influxDbProperties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopicRuleDestination) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -488,6 +509,17 @@ func (j *jsiiProxy_CfnTopicRuleDestination)SetHttpUrlProperties(val interface{})
 	_jsii_.Set(
 		j,
 		"httpUrlProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopicRuleDestination)SetInfluxDbProperties(val interface{}) {
+	if err := j.validateSetInfluxDbPropertiesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"influxDbProperties",
 		val,
 	)
 }

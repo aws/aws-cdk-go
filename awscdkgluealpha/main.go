@@ -8,9 +8,13 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Action",
 		reflect.TypeOf((*Action)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Action{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.AssetCode",
@@ -154,9 +158,13 @@ func init() {
 			"SNAPPY": CompressionType_SNAPPY,
 		},
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Condition",
 		reflect.TypeOf((*Condition)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_Condition{}
+		},
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.ConditionLogicalOperator",
@@ -164,6 +172,10 @@ func init() {
 		map[string]interface{}{
 			"EQUALS": ConditionLogicalOperator_EQUALS,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.ConditionOptions",
+		reflect.TypeOf((*ConditionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.ConditionalTriggerOptions",
@@ -195,6 +207,14 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-glue-alpha.ConnectionNetwork",
+		reflect.TypeOf((*ConnectionNetwork)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ConnectionNetwork{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.ConnectionOptions",
 		reflect.TypeOf((*ConnectionOptions)(nil)).Elem(),
@@ -222,6 +242,10 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.ContinuousLoggingProps",
 		reflect.TypeOf((*ContinuousLoggingProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.CrawlerActionOptions",
+		reflect.TypeOf((*CrawlerActionOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.CrawlerState",
 		reflect.TypeOf((*CrawlerState)(nil)).Elem(),
@@ -233,14 +257,6 @@ func init() {
 			"FAILED": CrawlerState_FAILED,
 			"ERROR": CrawlerState_ERROR,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.CustomScheduledTriggerOptions",
-		reflect.TypeOf((*CustomScheduledTriggerOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.DailyScheduleTriggerOptions",
-		reflect.TypeOf((*DailyScheduleTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.DataCatalogEncryptionAtRest",
@@ -360,6 +376,10 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.DatePartitionProjectionConfigurationProps",
 		reflect.TypeOf((*DatePartitionProjectionConfigurationProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.DateProjectionStep",
+		reflect.TypeOf((*DateProjectionStep)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Dqdl",
 		reflect.TypeOf((*Dqdl)(nil)).Elem(),
@@ -375,6 +395,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.EventBatchingCondition",
 		reflect.TypeOf((*EventBatchingCondition)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.EventTriggerOptions",
+		reflect.TypeOf((*EventTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.ExecutionClass",
@@ -531,6 +555,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -546,6 +571,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IJob{}
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglueIJobRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -589,10 +615,10 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.IWorkflow",
 		reflect.TypeOf((*IWorkflow)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addCustomScheduledTrigger", GoMethod: "AddCustomScheduledTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addDailyScheduledTrigger", GoMethod: "AddDailyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addConditionalTrigger", GoMethod: "AddConditionalTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addEventTrigger", GoMethod: "AddEventTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addScheduledTrigger", GoMethod: "AddScheduledTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -639,7 +665,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -648,6 +673,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -660,6 +687,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -670,6 +698,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_JobBase)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.JobActionOptions",
+		reflect.TypeOf((*JobActionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.JobAttributes",
@@ -689,6 +721,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -755,6 +788,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-glue-alpha.LibrarySet",
+		reflect.TypeOf((*LibrarySet)(nil)).Elem(),
+		map[string]interface{}{
+			"ANALYTICS": LibrarySet_ANALYTICS,
+			"NONE": LibrarySet_NONE,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.MaxCapacity",
 		reflect.TypeOf((*MaxCapacity)(nil)).Elem(),
 		map[string]interface{}{
@@ -769,10 +810,6 @@ func init() {
 			"GAUGE": MetricType_GAUGE,
 			"COUNT": MetricType_COUNT,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.NotifyEventTriggerOptions",
-		reflect.TypeOf((*NotifyEventTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"@aws-cdk/aws-glue-alpha.NumericOverflowHandlingAction",
@@ -814,14 +851,7 @@ func init() {
 		"@aws-cdk/aws-glue-alpha.PartitionProjectionConfiguration",
 		reflect.TypeOf((*PartitionProjectionConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "dateRange", GoGetter: "DateRange"},
-			_jsii_.MemberProperty{JsiiProperty: "digits", GoGetter: "Digits"},
-			_jsii_.MemberProperty{JsiiProperty: "format", GoGetter: "Format"},
-			_jsii_.MemberProperty{JsiiProperty: "integerRange", GoGetter: "IntegerRange"},
-			_jsii_.MemberProperty{JsiiProperty: "interval", GoGetter: "Interval"},
-			_jsii_.MemberProperty{JsiiProperty: "intervalUnit", GoGetter: "IntervalUnit"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
-			_jsii_.MemberProperty{JsiiProperty: "values", GoGetter: "Values"},
 		},
 		func() interface{} {
 			return &jsiiProxy_PartitionProjectionConfiguration{}
@@ -856,7 +886,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -865,6 +894,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -878,6 +909,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -902,7 +934,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -911,6 +942,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -924,6 +957,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -948,7 +982,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -957,6 +990,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -970,6 +1005,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -994,7 +1030,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1003,6 +1038,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -1015,6 +1052,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1046,7 +1084,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1055,6 +1092,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -1067,6 +1106,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -1189,7 +1229,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1198,6 +1237,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -1211,6 +1252,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -1235,7 +1277,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1244,6 +1285,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -1257,6 +1300,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -1281,7 +1325,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1290,6 +1333,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -1303,6 +1348,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -1319,6 +1365,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.ScalaSparkStreamingJobProps",
 		reflect.TypeOf((*ScalaSparkStreamingJobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.ScheduledTriggerOptions",
+		reflect.TypeOf((*ScheduledTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.Schema",
@@ -1380,7 +1430,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildJobArn", GoMethod: "BuildJobArn"},
-			_jsii_.MemberMethod{JsiiMethod: "checkNoReservedArgs", GoMethod: "CheckNoReservedArgs"},
 			_jsii_.MemberMethod{JsiiMethod: "codeS3ObjectUrl", GoMethod: "CodeS3ObjectUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -1389,6 +1438,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberProperty{JsiiProperty: "jobRef", GoGetter: "JobRef"},
+			_jsii_.MemberMethod{JsiiMethod: "mergeDefaultArguments", GoMethod: "MergeDefaultArguments"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
@@ -1402,6 +1453,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberMethod{JsiiMethod: "setManagedArgument", GoMethod: "SetManagedArgument"},
 			_jsii_.MemberMethod{JsiiMethod: "setupContinuousLogging", GoMethod: "SetupContinuousLogging"},
 			_jsii_.MemberMethod{JsiiMethod: "setupExtraCodeArguments", GoMethod: "SetupExtraCodeArguments"},
 			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
@@ -1426,6 +1478,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.SparkUIProps",
 		reflect.TypeOf((*SparkUIProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-glue-alpha.StartableTriggerOptions",
+		reflect.TypeOf((*StartableTriggerOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-glue-alpha.StorageParameter",
@@ -1565,10 +1621,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-glue-alpha.WeeklyScheduleTriggerOptions",
-		reflect.TypeOf((*WeeklyScheduleTriggerOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-glue-alpha.WorkerConfiguration",
 		reflect.TypeOf((*WorkerConfiguration)(nil)).Elem(),
 	)
@@ -1596,11 +1648,9 @@ func init() {
 		reflect.TypeOf((*Workflow)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addConditionalTrigger", GoMethod: "AddConditionalTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addCustomScheduledTrigger", GoMethod: "AddCustomScheduledTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addDailyScheduledTrigger", GoMethod: "AddDailyScheduledTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addNotifyEventTrigger", GoMethod: "AddNotifyEventTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addEventTrigger", GoMethod: "AddEventTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addScheduledTrigger", GoMethod: "AddScheduledTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildWorkflowArn", GoMethod: "BuildWorkflowArn"},
@@ -1631,11 +1681,9 @@ func init() {
 		reflect.TypeOf((*WorkflowBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addConditionalTrigger", GoMethod: "AddConditionalTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addCustomScheduledTrigger", GoMethod: "AddCustomScheduledTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addDailyScheduledTrigger", GoMethod: "AddDailyScheduledTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addNotifyEventTrigger", GoMethod: "AddNotifyEventTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addEventTrigger", GoMethod: "AddEventTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "addOnDemandTrigger", GoMethod: "AddOnDemandTrigger"},
-			_jsii_.MemberMethod{JsiiMethod: "addWeeklyScheduledTrigger", GoMethod: "AddWeeklyScheduledTrigger"},
+			_jsii_.MemberMethod{JsiiMethod: "addScheduledTrigger", GoMethod: "AddScheduledTrigger"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "buildWorkflowArn", GoMethod: "BuildWorkflowArn"},

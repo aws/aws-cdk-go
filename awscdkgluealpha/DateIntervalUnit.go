@@ -26,9 +26,12 @@ package awscdkgluealpha
 //   			"min": jsii.String("2020-01-01"),
 //   			"max": jsii.String("2023-12-31"),
 //   			"format": jsii.String("yyyy-MM-dd"),
-//   			"interval": jsii.Number(1),
-//   			 // optional, defaults to 1
-//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   			// `step` bundles interval + unit (supply both or neither). Optional at day
+//   			// precision or coarser; required when the format is sub-day (e.g. hours).
+//   			"step": &DateProjectionStep{
+//   				"interval": jsii.Number(1),
+//   				"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   			},
 //   		}),
 //   	},
 //   })

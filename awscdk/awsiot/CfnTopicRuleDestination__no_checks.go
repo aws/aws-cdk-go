@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnTopicRuleDestination) validateSetHttpUrlPropertiesParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnTopicRuleDestination) validateSetInfluxDbPropertiesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTopicRuleDestination) validateSetVpcPropertiesParameters(val interface{}) error {
 	return nil
 }

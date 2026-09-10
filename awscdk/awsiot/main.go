@@ -2311,6 +2311,14 @@ func init() {
 		reflect.TypeOf((*CfnTopicRule_HttpAuthorizationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnTopicRule.InfluxDBActionProperty",
+		reflect.TypeOf((*CfnTopicRule_InfluxDBActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnTopicRule.InfluxDBBatchConfigProperty",
+		reflect.TypeOf((*CfnTopicRule_InfluxDBBatchConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnTopicRule.IotAnalyticsActionProperty",
 		reflect.TypeOf((*CfnTopicRule_IotAnalyticsActionProperty)(nil)).Elem(),
 	)
@@ -2432,6 +2440,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "httpUrlProperties", GoGetter: "HttpUrlProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "influxDbProperties", GoGetter: "InfluxDbProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -2464,6 +2473,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnTopicRuleDestination.HttpUrlDestinationSummaryProperty",
 		reflect.TypeOf((*CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnTopicRuleDestination.InfluxDBDestinationPropertiesProperty",
+		reflect.TypeOf((*CfnTopicRuleDestination_InfluxDBDestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iot.CfnTopicRuleDestination.VpcDestinationPropertiesProperty",

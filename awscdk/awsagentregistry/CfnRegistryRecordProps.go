@@ -110,12 +110,12 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RecordType: jsii.String("recordType"),
-//   	RegistryId: jsii.String("registryId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	RecordVersion: jsii.String("recordVersion"),
+//   	RegistryId: jsii.String("registryId"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -141,10 +141,6 @@ type CfnRegistryRecordProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-recordtype
 	//
 	RecordType *string `field:"required" json:"recordType" yaml:"recordType"`
-	// The identifier of the registry containing the record.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-registryid
-	//
-	RegistryId *string `field:"required" json:"registryId" yaml:"registryId"`
 	// The description of the registry record.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-description
 	//
@@ -157,6 +153,12 @@ type CfnRegistryRecordProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-recordversion
 	//
 	RecordVersion *string `field:"optional" json:"recordVersion" yaml:"recordVersion"`
+	// The identifier of the registry in which to create the record.
+	//
+	// You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-registryid
+	//
+	RegistryId *string `field:"optional" json:"registryId" yaml:"registryId"`
 	// Tags to assign to the registry record.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-tags
 	//

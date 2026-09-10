@@ -111,7 +111,8 @@ type TaskDefinitionProps struct {
 	Cpu *string `field:"optional" json:"cpu" yaml:"cpu"`
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
-	// Only supported in Fargate platform version 1.4.0 or later.
+	// Only supported in Fargate platform version 1.4.0 or later for Linux tasks,
+	// and platform version 1.0.0 or later for Windows tasks.
 	// Default: - Undefined, in which case, the task will receive 20GiB ephemeral storage.
 	//
 	EphemeralStorageGiB *float64 `field:"optional" json:"ephemeralStorageGiB" yaml:"ephemeralStorageGiB"`

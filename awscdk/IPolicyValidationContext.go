@@ -9,6 +9,9 @@ import (
 // Context available to the validation plugin.
 type IPolicyValidationContext interface {
 	// The account ID for these templates, if known.
+	//
+	// Only set if all stacks have the exact same account ID.
+	// Deprecated: Use `stackTemplates` instead, which contains the account ID for each stack.
 	AccountId() *string
 	// The root construct of the app being validated.
 	//
@@ -18,6 +21,9 @@ type IPolicyValidationContext interface {
 	// output.
 	AppConstruct() constructs.IConstruct
 	// The region for these templates, if known.
+	//
+	// Only set if all stacks have the exact same region.
+	// Deprecated: Use `stackTemplates` instead, which contains the region for each stack.
 	Region() *string
 	// The absolute path of all templates to be processed, along with the stack construct path for each template.
 	StackTemplates() *[]*PolicyValidationStack

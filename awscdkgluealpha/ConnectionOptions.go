@@ -14,11 +14,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var connectionNetwork ConnectionNetwork
 //   var secretRef ISecretRef
 //   var securityGroup SecurityGroup
-//   var subnet Subnet
-//   var subnetFilter SubnetFilter
-//   var vpc Vpc
 //
 //   connectionOptions := &ConnectionOptions{
 //   	ConnectionName: jsii.String("connectionName"),
@@ -26,28 +24,13 @@ import (
 //   	MatchCriteria: []*string{
 //   		jsii.String("matchCriteria"),
 //   	},
+//   	Network: connectionNetwork,
 //   	Properties: map[string]*string{
 //   		"propertiesKey": jsii.String("properties"),
 //   	},
 //   	Secret: secretRef,
 //   	SecurityGroups: []ISecurityGroup{
 //   		securityGroup,
-//   	},
-//   	Subnet: subnet,
-//   	Vpc: vpc,
-//   	VpcSubnets: &SubnetSelection{
-//   		AvailabilityZones: []*string{
-//   			jsii.String("availabilityZones"),
-//   		},
-//   		OnePerAz: jsii.Boolean(false),
-//   		SubnetFilters: []SubnetFilter{
-//   			subnetFilter,
-//   		},
-//   		SubnetGroupName: jsii.String("subnetGroupName"),
-//   		Subnets: []ISubnet{
-//   			subnet,
-//   		},
-//   		SubnetType: awscdk.Aws_ec2.SubnetType_PRIVATE_ISOLATED,
 //   	},
 //   }
 //
@@ -70,6 +53,14 @@ type ConnectionOptions struct {
 	//
 	// Experimental.
 	MatchCriteria *[]*string `field:"optional" json:"matchCriteria" yaml:"matchCriteria"`
+	// The VPC network placement for this connection, so it can reach resources inside a VPC. See more at https://docs.aws.amazon.com/glue/latest/dg/start-connecting.html.
+	//
+	// Build it with `ConnectionNetwork.subnet(subnet)` to pin a specific subnet,
+	// or `ConnectionNetwork.vpc(vpc, vpcSubnets?)` to let the CDK select one.
+	// Default: - no VPC network placement.
+	//
+	// Experimental.
+	Network ConnectionNetwork `field:"optional" json:"network" yaml:"network"`
 	// Key-Value pairs that define parameters for the connection.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-connect.html
 	//
@@ -92,34 +83,5 @@ type ConnectionOptions struct {
 	//
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `field:"optional" json:"securityGroups" yaml:"securityGroups"`
-	// The VPC subnet to connect to resources within a VPC. See more at https://docs.aws.amazon.com/glue/latest/dg/start-connecting.html.
-	//
-	// Mutually exclusive with `vpc`: provide `subnet` to pin the connection to a
-	// specific subnet, or provide `vpc` (optionally with `vpcSubnets`) to let the
-	// CDK select one for you.
-	// Default: - no subnet, unless `vpc` is provided.
-	//
-	// Experimental.
-	Subnet awsec2.ISubnet `field:"optional" json:"subnet" yaml:"subnet"`
-	// The VPC to connect to resources within.
-	//
-	// When provided, the CDK selects a
-	// subnet from this VPC using `vpcSubnets`. A Glue connection targets a single
-	// subnet, so the first subnet of the selection is used.
-	//
-	// Mutually exclusive with `subnet`.
-	// Default: - no VPC, the subnet is taken from `subnet` if provided.
-	//
-	// Experimental.
-	Vpc awsec2.IVpc `field:"optional" json:"vpc" yaml:"vpc"`
-	// Which subnets of `vpc` to select the connection subnet from.
-	//
-	// Only used when
-	// `vpc` is provided. Since a Glue connection targets a single subnet, the
-	// first subnet of the selection is used.
-	// Default: - private subnets.
-	//
-	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `field:"optional" json:"vpcSubnets" yaml:"vpcSubnets"`
 }
 

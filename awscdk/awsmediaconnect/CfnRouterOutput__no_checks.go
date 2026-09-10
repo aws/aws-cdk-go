@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnRouterOutput) validateSetConfigurationParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnRouterOutput) validateSetFabricConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRouterOutput) validateSetMaintenanceConfigurationParameters(val interface{}) error {
 	return nil
 }

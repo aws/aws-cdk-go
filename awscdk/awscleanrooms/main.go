@@ -321,6 +321,10 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTable_AggregationConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.AggregationThresholdProperty",
+		reflect.TypeOf((*CfnConfiguredTable_AggregationThresholdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.AnalysisRuleAggregationProperty",
 		reflect.TypeOf((*CfnConfiguredTable_AnalysisRuleAggregationProperty)(nil)).Elem(),
 	)
@@ -341,6 +345,10 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTable_AthenaTableReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.ComparisonControlsProperty",
+		reflect.TypeOf((*CfnConfiguredTable_ComparisonControlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.ConfiguredTableAnalysisRulePolicyProperty",
 		reflect.TypeOf((*CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyProperty)(nil)).Elem(),
 	)
@@ -359,6 +367,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.GlueTableReferenceProperty",
 		reflect.TypeOf((*CfnConfiguredTable_GlueTableReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.OutputColumnThresholdProperty",
+		reflect.TypeOf((*CfnConfiguredTable_OutputColumnThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.SnowflakeTableReferenceProperty",
@@ -695,6 +707,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnIntermediateTable.AggregationThresholdProperty",
+		reflect.TypeOf((*CfnIntermediateTable_AggregationThresholdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnIntermediateTable.ComparisonControlsProperty",
+		reflect.TypeOf((*CfnIntermediateTable_ComparisonControlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnIntermediateTable.DifferentialPrivacyColumnProperty",
 		reflect.TypeOf((*CfnIntermediateTable_DifferentialPrivacyColumnProperty)(nil)).Elem(),
 	)
@@ -717,6 +737,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnIntermediateTable.IntermediateTableAnalysisRuleProperty",
 		reflect.TypeOf((*CfnIntermediateTable_IntermediateTableAnalysisRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnIntermediateTable.OutputColumnThresholdProperty",
+		reflect.TypeOf((*CfnIntermediateTable_OutputColumnThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnIntermediateTable.PopulationAnalysisConfigurationProperty",

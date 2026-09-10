@@ -30,9 +30,7 @@ import (
 //   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
 //   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
 //   	Actions: []Action{
-//   		&Action{
-//   			Job: *Job,
-//   		},
+//   		glue.Action_Job(job),
 //   	},
 //   })
 //

@@ -6,19 +6,13 @@ package awscdkgluealpha
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var job Job
+//   var condition Condition
 //
 //   predicate := &Predicate{
 //   	Conditions: []Condition{
-//   		&Condition{
-//   			CrawlerName: jsii.String("crawlerName"),
-//   			CrawlState: glue_alpha.CrawlerState_RUNNING,
-//   			Job: job,
-//   			LogicalOperator: glue_alpha.ConditionLogicalOperator_EQUALS,
-//   			State: glue_alpha.JobState_SUCCEEDED,
-//   		},
+//   		condition,
 //   	},
 //   	Logical: glue_alpha.PredicateLogical_AND,
 //   }
@@ -29,7 +23,7 @@ type Predicate struct {
 	// Default: - no conditions are provided.
 	//
 	// Experimental.
-	Conditions *[]*Condition `field:"optional" json:"conditions" yaml:"conditions"`
+	Conditions *[]Condition `field:"optional" json:"conditions" yaml:"conditions"`
 	// The logical operator to be applied to the conditions.
 	// Default: - PredicateLogical.AND if multiple conditions are provided, no logical operator if only one condition
 	//

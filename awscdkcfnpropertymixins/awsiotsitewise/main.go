@@ -292,6 +292,30 @@ func init() {
 		reflect.TypeOf((*CfnGatewayPropsMixin_SiemensIEProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnPipelineMixinProps",
+		reflect.TypeOf((*CfnPipelineMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnPipelinePropsMixin",
+		reflect.TypeOf((*CfnPipelinePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPipelinePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnPipelinePropsMixin.ComputeNodeProperty",
+		reflect.TypeOf((*CfnPipelinePropsMixin_ComputeNodeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnPortalMixinProps",
 		reflect.TypeOf((*CfnPortalMixinProps)(nil)).Elem(),
 	)
@@ -338,5 +362,57 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskMixinProps",
+		reflect.TypeOf((*CfnTaskMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin",
+		reflect.TypeOf((*CfnTaskPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTaskPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.ContainerTaskConfigurationProperty",
+		reflect.TypeOf((*CfnTaskPropsMixin_ContainerTaskConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.TaskConfigurationProperty",
+		reflect.TypeOf((*CfnTaskPropsMixin_TaskConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnWorkspaceMixinProps",
+		reflect.TypeOf((*CfnWorkspaceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnWorkspacePropsMixin",
+		reflect.TypeOf((*CfnWorkspacePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWorkspacePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnWorkspacePropsMixin.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnWorkspacePropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 }

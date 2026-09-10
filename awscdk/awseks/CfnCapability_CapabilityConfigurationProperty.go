@@ -10,10 +10,13 @@ package awseks
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var ack interface{}
-//
 //   capabilityConfigurationProperty := &CapabilityConfigurationProperty{
-//   	Ack: ack,
+//   	Ack: &AckProperty{
+//   		DisabledServices: []*string{
+//   			jsii.String("disabledServices"),
+//   		},
+//   		EnableCrossNamespace: jsii.Boolean(false),
+//   	},
 //   	ArgoCd: &ArgoCdProperty{
 //   		AwsIdc: &AwsIdcProperty{
 //   			IdcInstanceArn: jsii.String("idcInstanceArn"),
@@ -48,6 +51,7 @@ package awseks
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-capabilityconfiguration.html
 //
 type CfnCapability_CapabilityConfigurationProperty struct {
+	// Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-capabilityconfiguration.html#cfn-eks-capability-capabilityconfiguration-ack
 	//
 	Ack interface{} `field:"optional" json:"ack" yaml:"ack"`

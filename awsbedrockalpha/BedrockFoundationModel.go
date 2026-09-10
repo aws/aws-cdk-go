@@ -763,6 +763,83 @@ func BedrockFoundationModel_MISTRAL_SMALL_2402_V1() BedrockFoundationModel {
 	return returns
 }
 
+func BedrockFoundationModel_OPENAI_GPT_5_6_LUNA() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_5_6_LUNA",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_5_6_SOL() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_5_6_SOL",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_5_6_TERRA() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_5_6_TERRA",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_OSS_120B_V1() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_OSS_120B_V1",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_OSS_20B_V1() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_OSS_20B_V1",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_OSS_SAFEGUARD_120B() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_OSS_SAFEGUARD_120B",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_OSS_SAFEGUARD_20B() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_OSS_SAFEGUARD_20B",
+		&returns,
+	)
+	return returns
+}
+
 func BedrockFoundationModel_TITAN_EMBED_TEXT_V1() BedrockFoundationModel {
 	_init_.Initialize()
 	var returns BedrockFoundationModel

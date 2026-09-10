@@ -158,6 +158,44 @@ file you are referencing. Zips from untrusted sources might be able to execute
 arbitrary code in the Lambda Function used by this module, and use its permissions
 to read or write unexpected files in the S3 bucket.
 
+## Referencing deployed object versions
+
+When you deploy a single zip file without extracting it (`extract: false`) to a
+**versioned** destination bucket, you can obtain the S3 `VersionId` of each deployed
+object via `objectVersionIds`. This is useful when a consumer must reference a specific,
+immutable version of a deployed object — for example a Lambda function that references its
+code in S3 by version rather than copying it.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+bucket := s3.NewBucket(this, jsii.String("CodeBucket"), &BucketProps{
+	Versioned: jsii.Boolean(true),
+})
+
+deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployCode"), &BucketDeploymentProps{
+	Sources: []ISource{
+		s3deploy.Source_Asset(jsii.String("/path/to/handler.zip")),
+	},
+	DestinationBucket: bucket,
+	Extract: jsii.Boolean(false),
+})
+
+// `objectVersionIds` positionally matches `objectKeys`
+objectKey := cdk.Fn_Select(jsii.Number(0), deployment.objectKeys)
+versionId := cdk.Fn_Select(jsii.Number(0), deployment.objectVersionIds)
+```
+
+`objectVersionIds` returns a list of tokenized version IDs that positionally matches
+`objectKeys`. It is only supported with `extract: false` (reading it with `extract: true`
+throws), and requires versioning to be enabled on the destination bucket — otherwise the
+returned version IDs are empty strings. Because the list is defined to align with `objectKeys`,
+it also requires `outputObjectKeys` to remain enabled (its default); reading it with
+`outputObjectKeys: false` throws. A consumer holding a version reference pins that
+specific object version, so it should not rely on `prune` semantics for lifecycle of the
+referenced version.
+
 ## Retain on Delete
 
 By default, the contents of the destination bucket will **not** be deleted when the

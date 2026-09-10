@@ -4,11 +4,11 @@ package awscdkgluealpha
 
 // Building without runtime type checking enabled, so all the below just return nil
 
-func (i *jsiiProxy_IWorkflow) validateAddCustomScheduledTriggerParameters(id *string, options *CustomScheduledTriggerOptions) error {
+func (i *jsiiProxy_IWorkflow) validateAddConditionalTriggerParameters(id *string, options *ConditionalTriggerOptions) error {
 	return nil
 }
 
-func (i *jsiiProxy_IWorkflow) validateAddDailyScheduledTriggerParameters(id *string, options *DailyScheduleTriggerOptions) error {
+func (i *jsiiProxy_IWorkflow) validateAddEventTriggerParameters(id *string, options *EventTriggerOptions) error {
 	return nil
 }
 
@@ -16,7 +16,7 @@ func (i *jsiiProxy_IWorkflow) validateAddOnDemandTriggerParameters(id *string, o
 	return nil
 }
 
-func (i *jsiiProxy_IWorkflow) validateAddWeeklyScheduledTriggerParameters(id *string, options *WeeklyScheduleTriggerOptions) error {
+func (i *jsiiProxy_IWorkflow) validateAddScheduledTriggerParameters(id *string, options *ScheduledTriggerOptions) error {
 	return nil
 }
 

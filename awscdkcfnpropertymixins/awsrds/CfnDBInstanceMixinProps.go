@@ -17,6 +17,8 @@ import (
 //   			AllocatedStorage: jsii.String("allocatedStorage"),
 //   			Iops: jsii.Number(123),
 //   			MaxAllocatedStorage: jsii.Number(123),
+//   			StorageOperationPercentProgress: jsii.Number(123),
+//   			StorageOperationStatus: jsii.String("storageOperationStatus"),
 //   			StorageThroughput: jsii.Number(123),
 //   			StorageType: jsii.String("storageType"),
 //   			VolumeName: jsii.String("volumeName"),

@@ -60,6 +60,8 @@ type DeployTimeSubstitutedFile interface {
 	// For example, use `Fn.select(0, myBucketDeployment.objectKeys)` to reference the object key of the
 	// first source file in your bucket deployment.
 	ObjectKeys() *[]*string
+	// `objectVersionIds` is not supported for `DeployTimeSubstitutedFile`, which always extracts its file (`extract` is forced to `true`), so there is no single deployed object to version.
+	ObjectVersionIds() *[]*string
 	// Add an additional source to the bucket deployment.
 	//
 	// Example:
@@ -145,6 +147,16 @@ func (j *jsiiProxy_DeployTimeSubstitutedFile) ObjectKeys() *[]*string {
 	_jsii_.Get(
 		j,
 		"objectKeys",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployTimeSubstitutedFile) ObjectVersionIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"objectVersionIds",
 		&returns,
 	)
 	return returns

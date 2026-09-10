@@ -105,6 +105,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	FabricConfiguration: &FabricConfigurationProperty{
+//   		RecoveryLatencyMode: jsii.String("recoveryLatencyMode"),
+//   	},
 //   	MaintenanceConfiguration: &MaintenanceConfigurationProperty{
 //   		Default: default_,
 //   		PreferredDayTime: &PreferredDayTimeMaintenanceConfigurationProperty{
@@ -148,6 +151,10 @@ type CfnRouterOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-availabilityzone
 	//
 	AvailabilityZone *string `field:"optional" json:"availabilityZone" yaml:"availabilityZone"`
+	// The fabric configuration settings for the router output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-fabricconfiguration
+	//
+	FabricConfiguration interface{} `field:"optional" json:"fabricConfiguration" yaml:"fabricConfiguration"`
 	// The maintenance configuration settings applied to this router output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-maintenanceconfiguration
 	//

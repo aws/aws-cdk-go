@@ -48,7 +48,8 @@ type ExternalTaskDefinition interface {
 	Env() *interfaces.ResourceEnvironment
 	// The amount (in GiB) of ephemeral storage to be allocated to the task.
 	//
-	// Only supported in Fargate platform version 1.4.0 or later.
+	// Only supported in Fargate platform version 1.4.0 or later for Linux tasks,
+	// and platform version 1.0.0 or later for Windows tasks.
 	EphemeralStorageGiB() *float64
 	// Execution role for this task definition.
 	ExecutionRole() awsiam.IRole
@@ -88,6 +89,11 @@ type ExternalTaskDefinition interface {
 	PidMode() PidMode
 	// Whether this task definition has at least a container that references a specific JSON field of a secret stored in Secrets Manager.
 	ReferencesSecretJsonField() *bool
+	// The runtime platform (operating system family and CPU architecture) for the task definition, or `undefined` if none was configured.
+	//
+	// Intentionally public: `runtimePlatform` is already public API as an input prop and on the
+	// underlying L1 `CfnTaskDefinition`, so reading it back from the L2 is deliberate read-parity.
+	RuntimePlatform() *RuntimePlatform
 	// The stack in which this resource is defined.
 	Stack() awscdk.Stack
 	// The full Amazon Resource Name (ARN) of the task definition.
@@ -346,6 +352,16 @@ func (j *jsiiProxy_ExternalTaskDefinition) ReferencesSecretJsonField() *bool {
 	_jsii_.Get(
 		j,
 		"referencesSecretJsonField",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) RuntimePlatform() *RuntimePlatform {
+	var returns *RuntimePlatform
+	_jsii_.Get(
+		j,
+		"runtimePlatform",
 		&returns,
 	)
 	return returns

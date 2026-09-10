@@ -88,6 +88,14 @@ package awsbedrockagentcore
 //   					},
 //   				},
 //   			},
+//   			Connector: &HttpConnectorTargetConfigurationProperty{
+//   				Parameters: map[string]*string{
+//   					"parametersKey": jsii.String("parameters"),
+//   				},
+//   				Source: &HttpConnectorSourceProperty{
+//   					ConnectorId: jsii.String("connectorId"),
+//   				},
+//   			},
 //   			Passthrough: &PassthroughTargetConfigurationProperty{
 //   				Endpoint: jsii.String("endpoint"),
 //   				ProtocolType: jsii.String("protocolType"),

@@ -20,8 +20,6 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var ack interface{}
-//
 //   cfnCapability := awscdk.Aws_eks_v2.NewCfnCapability(this, jsii.String("MyCfnCapability"), &CfnCapabilityProps{
 //   	CapabilityName: jsii.String("capabilityName"),
 //   	ClusterName: jsii.String("clusterName"),
@@ -31,7 +29,12 @@ import (
 //
 //   	// the properties below are optional
 //   	Configuration: &CapabilityConfigurationProperty{
-//   		Ack: ack,
+//   		Ack: &AckProperty{
+//   			DisabledServices: []*string{
+//   				jsii.String("disabledServices"),
+//   			},
+//   			EnableCrossNamespace: jsii.Boolean(false),
+//   		},
 //   		ArgoCd: &ArgoCdProperty{
 //   			AwsIdc: &AwsIdcProperty{
 //   				IdcInstanceArn: jsii.String("idcInstanceArn"),

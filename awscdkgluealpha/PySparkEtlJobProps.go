@@ -25,9 +25,7 @@ import (
 //   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
 //   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
 //   	Actions: []Action{
-//   		&Action{
-//   			Job: *Job,
-//   		},
+//   		glue.Action_Job(job),
 //   	},
 //   })
 //
@@ -59,7 +57,16 @@ type PySparkEtlJobProps struct {
 	ContinuousLogging *ContinuousLoggingProps `field:"optional" json:"continuousLogging" yaml:"continuousLogging"`
 	// Default Arguments (optional) The default arguments for every run of this Glue job, specified as name-value pairs.
 	//
-	// These are emitted verbatim into the CloudFormation template, so avoid
+	// This map is the escape hatch for Glue job arguments that this construct does not model. It
+	// MUST NOT be used to set arguments that already have a dedicated prop — configure those through
+	// the corresponding prop instead (`continuousLogging`, `enableMetrics`,
+	// `enableObservabilityMetrics`, `sparkUI`, `className`, `extraJars`, `extraJarsFirst`,
+	// `extraPythonFiles`, `extraFiles`). Passing a construct-managed argument (e.g.
+	// `--enable-continuous-cloudwatch-log`, `--enable-metrics`, `--enable-spark-ui`,
+	// `--job-language`) or a Glue-reserved argument (`--debug`, `--mode`, `--JOB_NAME`, `--endpoint`)
+	// here throws at synthesis time, so there is exactly one way to express each intent.
+	//
+	// Also note that these are emitted verbatim into the CloudFormation template, so avoid
 	// placing secrets here in plaintext. Pass secrets to the job at runtime
 	// through AWS Secrets Manager instead. A synthesis-time warning is emitted
 	// when an argument key looks like a credential and holds a plaintext literal.

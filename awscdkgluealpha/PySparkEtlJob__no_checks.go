@@ -68,11 +68,15 @@ func (p *jsiiProxy_PySparkEtlJob) validateOnTimeoutParameters(id *string, option
 	return nil
 }
 
+func (p *jsiiProxy_PySparkEtlJob) validateSetManagedArgumentParameters(key *string) error {
+	return nil
+}
+
 func (p *jsiiProxy_PySparkEtlJob) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	return nil
 }
 
-func (p *jsiiProxy_PySparkEtlJob) validateSetupExtraCodeArgumentsParameters(args *map[string]*string, props *SparkExtraCodeProps) error {
+func (p *jsiiProxy_PySparkEtlJob) validateSetupExtraCodeArgumentsParameters(props *SparkExtraCodeProps) error {
 	return nil
 }
 

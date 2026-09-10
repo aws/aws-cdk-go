@@ -117,12 +117,12 @@ import (
 //   	},
 //   	Name: jsii.String("name"),
 //   	RecordType: jsii.String("recordType"),
-//   	RegistryId: jsii.String("registryId"),
 //
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	RecordVersion: jsii.String("recordVersion"),
+//   	RegistryId: jsii.String("registryId"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -198,7 +198,7 @@ type CfnRegistryRecord interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The identifier of the registry containing the record.
+	// The identifier of the registry in which to create the record.
 	RegistryId() *string
 	SetRegistryId(val *string)
 	// A reference to a RegistryRecord resource.
@@ -762,9 +762,6 @@ func (j *jsiiProxy_CfnRegistryRecord)SetRecordVersion(val *string) {
 }
 
 func (j *jsiiProxy_CfnRegistryRecord)SetRegistryId(val *string) {
-	if err := j.validateSetRegistryIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"registryId",

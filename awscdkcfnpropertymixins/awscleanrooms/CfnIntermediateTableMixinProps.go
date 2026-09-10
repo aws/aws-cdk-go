@@ -18,6 +18,22 @@ import (
 //   				V1: &IntermediateTableAnalysisRulePolicyV1Property{
 //   					Custom: &IntermediateTableAnalysisRuleCustomProperty{
 //   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
+//   						AggregationThresholds: []interface{}{
+//   							&AggregationThresholdProperty{
+//   								AllowedAggregateExpressionType: jsii.String("allowedAggregateExpressionType"),
+//   								IdentityColumns: []*string{
+//   									jsii.String("identityColumns"),
+//   								},
+//   								MinimumIdentityCount: jsii.Number(123),
+//   								OutputColumnThresholds: []interface{}{
+//   									&OutputColumnThresholdProperty{
+//   										MinimumIdentityCount: jsii.Number(123),
+//   										OutputColumnName: jsii.String("outputColumnName"),
+//   									},
+//   								},
+//   								Type: jsii.String("type"),
+//   							},
+//   						},
 //   						AllowedAnalyses: []*string{
 //   							jsii.String("allowedAnalyses"),
 //   						},
@@ -26,6 +42,14 @@ import (
 //   						},
 //   						AllowedResultReceivers: []*string{
 //   							jsii.String("allowedResultReceivers"),
+//   						},
+//   						ComparisonControls: &ComparisonControlsProperty{
+//   							AllowedColumnComparisonColumns: []*string{
+//   								jsii.String("allowedColumnComparisonColumns"),
+//   							},
+//   							AllowedLiteralComparisonColumns: []*string{
+//   								jsii.String("allowedLiteralComparisonColumns"),
+//   							},
 //   						},
 //   						DifferentialPrivacy: &DifferentialPrivacyProperty{
 //   							Columns: []interface{}{

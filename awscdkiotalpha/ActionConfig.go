@@ -96,6 +96,25 @@ import (
 //   				},
 //   			},
 //   		},
+//   		InfluxDb: &InfluxDBActionProperty{
+//   			DatabaseName: jsii.String("databaseName"),
+//   			DestinationArn: jsii.String("destinationArn"),
+//   			RoleArn: jsii.String("roleArn"),
+//   			TableName: jsii.String("tableName"),
+//
+//   			// the properties below are optional
+//   			BatchConfig: &InfluxDBBatchConfigProperty{
+//   				BatchAcrossTopics: jsii.Boolean(false),
+//   				MaxBatchOpenMs: jsii.Number(123),
+//   				MaxBatchSize: jsii.Number(123),
+//   				MaxBatchSizeBytes: jsii.Number(123),
+//   			},
+//   			Organization: jsii.String("organization"),
+//   			Tags: map[string]*string{
+//   				"tagsKey": jsii.String("tags"),
+//   			},
+//   			TimestampUnit: jsii.String("timestampUnit"),
+//   		},
 //   		IotAnalytics: &IotAnalyticsActionProperty{
 //   			ChannelName: jsii.String("channelName"),
 //   			RoleArn: jsii.String("roleArn"),

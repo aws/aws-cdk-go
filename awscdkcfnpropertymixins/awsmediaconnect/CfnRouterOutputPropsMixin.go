@@ -91,6 +91,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	FabricConfiguration: &FabricConfigurationProperty{
+//   		RecoveryLatencyMode: jsii.String("recoveryLatencyMode"),
+//   	},
 //   	MaintenanceConfiguration: &MaintenanceConfigurationProperty{
 //   		Default: default_,
 //   		PreferredDayTime: &PreferredDayTimeMaintenanceConfigurationProperty{

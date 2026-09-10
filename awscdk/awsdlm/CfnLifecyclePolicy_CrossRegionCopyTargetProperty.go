@@ -13,6 +13,7 @@ package awsdlm
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html
 //
 type CfnLifecyclePolicy_CrossRegionCopyTargetProperty struct {
+	// The target Region, for example `us-east-1`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html#cfn-dlm-lifecyclepolicy-crossregioncopytarget-targetregion
 	//
 	TargetRegion *string `field:"optional" json:"targetRegion" yaml:"targetRegion"`

@@ -924,6 +924,10 @@ func init() {
 		reflect.TypeOf((*CfnTopicRuleDestinationPropsMixin_HttpUrlDestinationSummaryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnTopicRuleDestinationPropsMixin.InfluxDBDestinationPropertiesProperty",
+		reflect.TypeOf((*CfnTopicRuleDestinationPropsMixin_InfluxDBDestinationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnTopicRuleDestinationPropsMixin.VpcDestinationPropertiesProperty",
 		reflect.TypeOf((*CfnTopicRuleDestinationPropsMixin_VpcDestinationPropertiesProperty)(nil)).Elem(),
 	)
@@ -1006,6 +1010,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnTopicRulePropsMixin.HttpAuthorizationProperty",
 		reflect.TypeOf((*CfnTopicRulePropsMixin_HttpAuthorizationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnTopicRulePropsMixin.InfluxDBActionProperty",
+		reflect.TypeOf((*CfnTopicRulePropsMixin_InfluxDBActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnTopicRulePropsMixin.InfluxDBBatchConfigProperty",
+		reflect.TypeOf((*CfnTopicRulePropsMixin_InfluxDBBatchConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnTopicRulePropsMixin.IotAnalyticsActionProperty",

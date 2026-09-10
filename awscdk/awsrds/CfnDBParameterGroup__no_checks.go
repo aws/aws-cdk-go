@@ -88,14 +88,6 @@ func validateCfnDBParameterGroup_ArnForDBParameterGroupParameters(resource inter
 	return nil
 }
 
-func validateCfnDBParameterGroup_FromDBParameterGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnDBParameterGroup_FromDBParameterGroupNameParameters(scope constructs.Construct, id *string, dbParameterGroupName *string) error {
-	return nil
-}
-
 func validateCfnDBParameterGroup_IsCfnDBParameterGroupParameters(x interface{}) error {
 	return nil
 }

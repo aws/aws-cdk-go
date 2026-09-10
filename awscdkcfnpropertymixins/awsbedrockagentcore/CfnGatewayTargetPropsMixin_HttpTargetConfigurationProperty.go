@@ -20,6 +20,14 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	Connector: &HttpConnectorTargetConfigurationProperty{
+//   		Parameters: map[string]*string{
+//   			"parametersKey": jsii.String("parameters"),
+//   		},
+//   		Source: &HttpConnectorSourceProperty{
+//   			ConnectorId: jsii.String("connectorId"),
+//   		},
+//   	},
 //   	Passthrough: &PassthroughTargetConfigurationProperty{
 //   		Endpoint: jsii.String("endpoint"),
 //   		ProtocolType: jsii.String("protocolType"),
@@ -45,6 +53,9 @@ type CfnGatewayTargetPropsMixin_HttpTargetConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-httptargetconfiguration-agentcoreruntime
 	//
 	AgentcoreRuntime interface{} `field:"optional" json:"agentcoreRuntime" yaml:"agentcoreRuntime"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-httptargetconfiguration-connector
+	//
+	Connector interface{} `field:"optional" json:"connector" yaml:"connector"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httptargetconfiguration.html#cfn-bedrockagentcore-gatewaytarget-httptargetconfiguration-passthrough
 	//
 	Passthrough interface{} `field:"optional" json:"passthrough" yaml:"passthrough"`

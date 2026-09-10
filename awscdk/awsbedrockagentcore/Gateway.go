@@ -93,6 +93,8 @@ type Gateway interface {
 	// - a concrete name generated automatically during synthesis, in
 	//   cross-environment scenarios.
 	PhysicalName() *string
+	// The policy engine configuration associated with this gateway.
+	PolicyEngineConfiguration() *GatewayPolicyEngineConfig
 	// The protocol configuration for the gateway.
 	ProtocolConfiguration() IGatewayProtocolConfig
 	// The Cognito Resource Server created for the gateway (if using default Cognito authorizer).
@@ -393,6 +395,16 @@ func (j *jsiiProxy_Gateway) PhysicalName() *string {
 	_jsii_.Get(
 		j,
 		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Gateway) PolicyEngineConfiguration() *GatewayPolicyEngineConfig {
+	var returns *GatewayPolicyEngineConfig
+	_jsii_.Get(
+		j,
+		"policyEngineConfiguration",
 		&returns,
 	)
 	return returns

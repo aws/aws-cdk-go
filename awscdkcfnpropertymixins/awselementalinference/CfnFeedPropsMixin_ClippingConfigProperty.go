@@ -19,6 +19,7 @@ type CfnFeedPropsMixin_ClippingConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-clippingconfig.html#cfn-elementalinference-feed-clippingconfig-callbackmetadata
 	//
 	CallbackMetadata *string `field:"optional" json:"callbackMetadata" yaml:"callbackMetadata"`
+	// Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-clippingconfig.html#cfn-elementalinference-feed-clippingconfig-datasourceconfiguration
 	//
 	DataSourceConfiguration interface{} `field:"optional" json:"dataSourceConfiguration" yaml:"dataSourceConfiguration"`

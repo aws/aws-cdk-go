@@ -26,9 +26,12 @@ package awscdkgluealpha
 //   			"min": jsii.String("2020-01-01"),
 //   			"max": jsii.String("2023-12-31"),
 //   			"format": jsii.String("yyyy-MM-dd"),
-//   			"interval": jsii.Number(1),
-//   			 // optional, defaults to 1
-//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   			// `step` bundles interval + unit (supply both or neither). Optional at day
+//   			// precision or coarser; required when the format is sub-day (e.g. hours).
+//   			"step": &DateProjectionStep{
+//   				"interval": jsii.Number(1),
+//   				"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   			},
 //   		}),
 //   	},
 //   })
@@ -62,23 +65,15 @@ type DatePartitionProjectionConfigurationProps struct {
 	//
 	// Experimental.
 	Min *string `field:"required" json:"min" yaml:"min"`
-	// Interval between partition values.
+	// Interval step (`interval` + `intervalUnit`) between partition values.
 	//
-	// Required (together with `intervalUnit`) when `format` carries sub-day
-	// precision — i.e. a field finer than a day, such as hours or AM/PM. At day
-	// or coarser precision Athena defaults the step, so it is optional.
+	// The two are supplied together, so a partial step cannot be expressed.
+	// Required when `format` carries sub-day precision — a field finer than a
+	// day, such as hours or AM/PM; at day or coarser precision Athena defaults
+	// the step, so it may be omitted.
 	// Default: - Athena's default step for the format's precision; required when `format` is sub-day precision.
 	//
 	// Experimental.
-	Interval *float64 `field:"optional" json:"interval" yaml:"interval"`
-	// Unit for the interval.
-	//
-	// Required (together with `interval`) when `format` carries sub-day
-	// precision — i.e. a field finer than a day, such as hours or AM/PM. At day
-	// or coarser precision Athena defaults the step, so it is optional.
-	// Default: - Athena's default unit for the format's precision; required when `format` is sub-day precision.
-	//
-	// Experimental.
-	IntervalUnit DateIntervalUnit `field:"optional" json:"intervalUnit" yaml:"intervalUnit"`
+	Step *DateProjectionStep `field:"optional" json:"step" yaml:"step"`
 }
 

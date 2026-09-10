@@ -39,7 +39,11 @@ type FirewallRuleGroupAssociationProps struct {
 	// Experimental.
 	Vpc awsec2.IVpc `field:"required" json:"vpc" yaml:"vpc"`
 	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-	// Default: true.
+	//
+	// Note that mutation protection also blocks CloudFormation from updating or
+	// deleting the association, so leave it disabled for associations whose
+	// lifecycle is managed by this stack.
+	// Default: - mutation protection is disabled; the association can be modified or removed.
 	//
 	// Experimental.
 	MutationProtection *bool `field:"optional" json:"mutationProtection" yaml:"mutationProtection"`

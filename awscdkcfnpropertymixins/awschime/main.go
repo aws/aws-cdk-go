@@ -115,4 +115,32 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_chime.CfnChannelFlowPropsMixin.ProcessorProperty",
 		reflect.TypeOf((*CfnChannelFlowPropsMixin_ProcessorProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnMediaPipelineKinesisVideoStreamPoolMixinProps",
+		reflect.TypeOf((*CfnMediaPipelineKinesisVideoStreamPoolMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnMediaPipelineKinesisVideoStreamPoolPropsMixin",
+		reflect.TypeOf((*CfnMediaPipelineKinesisVideoStreamPoolPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnMediaPipelineKinesisVideoStreamPoolPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnMediaPipelineKinesisVideoStreamPoolPropsMixin.StreamConfigurationProperty",
+		reflect.TypeOf((*CfnMediaPipelineKinesisVideoStreamPoolPropsMixin_StreamConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_chime.CfnMediaPipelineKinesisVideoStreamPoolPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnMediaPipelineKinesisVideoStreamPoolPropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
 }

@@ -24,6 +24,13 @@ import (
 //   	HttpUrlProperties: &HttpUrlDestinationSummaryProperty{
 //   		ConfirmationUrl: jsii.String("confirmationUrl"),
 //   	},
+//   	InfluxDbProperties: &InfluxDBDestinationPropertiesProperty{
+//   		Endpoint: jsii.String("endpoint"),
+//   		InfluxDbVersion: jsii.String("influxDbVersion"),
+//   		SecretId: jsii.String("secretId"),
+//   		SecretKey: jsii.String("secretKey"),
+//   		SecretType: jsii.String("secretType"),
+//   	},
 //   	Status: jsii.String("status"),
 //   	VpcProperties: &VpcDestinationPropertiesProperty{
 //   		RoleArn: jsii.String("roleArn"),

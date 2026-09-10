@@ -62,6 +62,22 @@ type BucketDeployment interface {
 	// For example, use `Fn.select(0, myBucketDeployment.objectKeys)` to reference the object key of the
 	// first source file in your bucket deployment.
 	ObjectKeys() *[]*string
+	// The S3 version IDs of the objects deployed to the destination bucket.
+	//
+	// Returns a list of tokenized version IDs, positionally matching `objectKeys`: the version ID at
+	// a given index corresponds to the object key at the same index.
+	//
+	// This is useful when a consumer must reference a specific, immutable version of a deployed
+	// object — for example a Lambda function that references its code in S3 by version rather than
+	// copying it.
+	//
+	// Requires versioning to be enabled on the destination bucket; otherwise the returned version IDs
+	// will be empty strings. Only supported with `extract` set to `false`, where each source zip maps
+	// 1:1 to a destination object. Reading this accessor with `extract` set to `true` (the default)
+	// throws. It also requires `outputObjectKeys` to remain enabled (the default), since the returned
+	// list is defined to be positionally aligned with `objectKeys`; reading it with
+	// `outputObjectKeys` set to `false` throws.
+	ObjectVersionIds() *[]*string
 	// Add an additional source to the bucket deployment.
 	//
 	// Example:
@@ -130,6 +146,16 @@ func (j *jsiiProxy_BucketDeployment) ObjectKeys() *[]*string {
 	_jsii_.Get(
 		j,
 		"objectKeys",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BucketDeployment) ObjectVersionIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"objectVersionIds",
 		&returns,
 	)
 	return returns

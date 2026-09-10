@@ -43,6 +43,16 @@ import (
 //   					},
 //   				},
 //   			},
+//   			Connector: &HttpConnectorTargetConfigurationProperty{
+//   				Source: &HttpConnectorSourceProperty{
+//   					ConnectorId: jsii.String("connectorId"),
+//   				},
+//
+//   				// the properties below are optional
+//   				Parameters: map[string]*string{
+//   					"parametersKey": jsii.String("parameters"),
+//   				},
+//   			},
 //   			Passthrough: &PassthroughTargetConfigurationProperty{
 //   				Endpoint: jsii.String("endpoint"),
 //   				ProtocolType: jsii.String("protocolType"),

@@ -11,13 +11,16 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var ack interface{}
-//
 //   cfnCapabilityMixinProps := &CfnCapabilityMixinProps{
 //   	CapabilityName: jsii.String("capabilityName"),
 //   	ClusterName: jsii.String("clusterName"),
 //   	Configuration: &CapabilityConfigurationProperty{
-//   		Ack: ack,
+//   		Ack: &AckProperty{
+//   			DisabledServices: []*string{
+//   				jsii.String("disabledServices"),
+//   			},
+//   			EnableCrossNamespace: jsii.Boolean(false),
+//   		},
 //   		ArgoCd: &ArgoCdProperty{
 //   			AwsIdc: &AwsIdcProperty{
 //   				IdcInstanceArn: jsii.String("idcInstanceArn"),

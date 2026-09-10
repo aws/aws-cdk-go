@@ -13,11 +13,37 @@ package awscleanrooms
 //
 //   	// the properties below are optional
 //   	AdditionalAnalyses: jsii.String("additionalAnalyses"),
+//   	AggregationThresholds: []interface{}{
+//   		&AggregationThresholdProperty{
+//   			AllowedAggregateExpressionType: jsii.String("allowedAggregateExpressionType"),
+//   			IdentityColumns: []*string{
+//   				jsii.String("identityColumns"),
+//   			},
+//   			MinimumIdentityCount: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			OutputColumnThresholds: []interface{}{
+//   				&OutputColumnThresholdProperty{
+//   					MinimumIdentityCount: jsii.Number(123),
+//   					OutputColumnName: jsii.String("outputColumnName"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	AllowedAnalysisProviders: []*string{
 //   		jsii.String("allowedAnalysisProviders"),
 //   	},
 //   	AllowedResultReceivers: []*string{
 //   		jsii.String("allowedResultReceivers"),
+//   	},
+//   	ComparisonControls: &ComparisonControlsProperty{
+//   		AllowedColumnComparisonColumns: []*string{
+//   			jsii.String("allowedColumnComparisonColumns"),
+//   		},
+//   		AllowedLiteralComparisonColumns: []*string{
+//   			jsii.String("allowedLiteralComparisonColumns"),
+//   		},
 //   	},
 //   	DifferentialPrivacy: &DifferentialPrivacyProperty{
 //   		Columns: []interface{}{
@@ -40,12 +66,18 @@ type CfnIntermediateTable_IntermediateTableAnalysisRuleCustomProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom.html#cfn-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom-additionalanalyses
 	//
 	AdditionalAnalyses *string `field:"optional" json:"additionalAnalyses" yaml:"additionalAnalyses"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom.html#cfn-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom-aggregationthresholds
+	//
+	AggregationThresholds interface{} `field:"optional" json:"aggregationThresholds" yaml:"aggregationThresholds"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom.html#cfn-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom-allowedanalysisproviders
 	//
 	AllowedAnalysisProviders *[]*string `field:"optional" json:"allowedAnalysisProviders" yaml:"allowedAnalysisProviders"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom.html#cfn-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom-allowedresultreceivers
 	//
 	AllowedResultReceivers *[]*string `field:"optional" json:"allowedResultReceivers" yaml:"allowedResultReceivers"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom.html#cfn-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom-comparisoncontrols
+	//
+	ComparisonControls interface{} `field:"optional" json:"comparisonControls" yaml:"comparisonControls"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom.html#cfn-cleanrooms-intermediatetable-intermediatetableanalysisrulecustom-differentialprivacy
 	//
 	DifferentialPrivacy interface{} `field:"optional" json:"differentialPrivacy" yaml:"differentialPrivacy"`

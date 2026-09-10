@@ -150,6 +150,12 @@ import (
 //   			ClusterArn: jsii.String("clusterArn"),
 //   		},
 //   		Slurm: &ClusterOrchestratorSlurmConfigProperty{
+//   			AccountingDatabase: &ClusterAccountingDatabaseProperty{
+//   				Endpoint: jsii.String("endpoint"),
+//   				Name: jsii.String("name"),
+//   				Port: jsii.Number(123),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
 //   			SlurmConfigStrategy: jsii.String("slurmConfigStrategy"),
 //   		},
 //   	},

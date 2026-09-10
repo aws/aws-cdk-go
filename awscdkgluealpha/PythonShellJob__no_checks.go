@@ -64,6 +64,10 @@ func (p *jsiiProxy_PythonShellJob) validateOnTimeoutParameters(id *string, optio
 	return nil
 }
 
+func (p *jsiiProxy_PythonShellJob) validateSetManagedArgumentParameters(key *string) error {
+	return nil
+}
+
 func (p *jsiiProxy_PythonShellJob) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	return nil
 }

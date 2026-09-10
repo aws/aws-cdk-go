@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/aws-cdk-go/awscdkgluealpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -16,6 +17,7 @@ import (
 // Experimental.
 type IJob interface {
 	awsiam.IGrantable
+	interfacesawsglue.IJobRef
 	awscdk.IResource
 	// Create a CloudWatch metric.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
@@ -62,6 +64,7 @@ type IJob interface {
 // The jsii proxy for IJob
 type jsiiProxy_IJob struct {
 	internal.Type__awsiamIGrantable
+	internal.Type__interfacesawsglueIJobRef
 	internal.Type__awscdkIResource
 }
 
@@ -257,6 +260,16 @@ func (j *jsiiProxy_IJob) GrantPrincipal() awsiam.IPrincipal {
 	_jsii_.Get(
 		j,
 		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJob) JobRef() *interfacesawsglue.JobReference {
+	var returns *interfacesawsglue.JobReference
+	_jsii_.Get(
+		j,
+		"jobRef",
 		&returns,
 	)
 	return returns

@@ -82,6 +82,23 @@ package awsiot
 //   		},
 //   		Url: jsii.String("url"),
 //   	},
+//   	InfluxDb: &InfluxDBActionProperty{
+//   		BatchConfig: &InfluxDBBatchConfigProperty{
+//   			BatchAcrossTopics: jsii.Boolean(false),
+//   			MaxBatchOpenMs: jsii.Number(123),
+//   			MaxBatchSize: jsii.Number(123),
+//   			MaxBatchSizeBytes: jsii.Number(123),
+//   		},
+//   		DatabaseName: jsii.String("databaseName"),
+//   		DestinationArn: jsii.String("destinationArn"),
+//   		Organization: jsii.String("organization"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		TableName: jsii.String("tableName"),
+//   		Tags: map[string]*string{
+//   			"tagsKey": jsii.String("tags"),
+//   		},
+//   		TimestampUnit: jsii.String("timestampUnit"),
+//   	},
 //   	IotAnalytics: &IotAnalyticsActionProperty{
 //   		BatchMode: jsii.Boolean(false),
 //   		ChannelName: jsii.String("channelName"),
@@ -255,6 +272,9 @@ type CfnTopicRulePropsMixin_ActionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
 	//
 	Http interface{} `field:"optional" json:"http" yaml:"http"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-influxdb
+	//
+	InfluxDb interface{} `field:"optional" json:"influxDb" yaml:"influxDb"`
 	// Sends message data to an AWS IoT Analytics channel.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
 	//

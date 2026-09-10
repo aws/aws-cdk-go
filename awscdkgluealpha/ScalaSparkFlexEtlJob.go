@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -114,6 +115,9 @@ type ScalaSparkFlexEtlJob interface {
 	// The name of the job.
 	// Experimental.
 	JobName() *string
+	// A reference to this Job resource, for use with the generated L1 ref interface.
+	// Experimental.
+	JobRef() *interfacesawsglue.JobReference
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -160,11 +164,6 @@ type ScalaSparkFlexEtlJob interface {
 	// Returns the job arn.
 	// Experimental.
 	BuildJobArn(scope constructs.Construct, jobName *string) *string
-	// Check no usage of reserved arguments.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Experimental.
-	CheckNoReservedArgs(defaultArguments *map[string]*string) *map[string]*string
 	// Experimental.
 	CodeS3ObjectUrl(code Code) *string
 	// Experimental.
@@ -184,6 +183,35 @@ type ScalaSparkFlexEtlJob interface {
 	// which will be a concrete name.
 	// Experimental.
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Merge the customer-supplied `defaultArguments` with the arguments this construct manages.
+	//
+	// The construct owns every argument it emits — whether the value comes from a dedicated typed
+	// prop (e.g. `continuousLogging`, `enableMetrics`, `sparkUI`) or from the job class itself
+	// (e.g. `--job-language`). Those arguments, plus the arguments Glue reserves for its own use,
+	// MUST be configured through their dedicated props rather than the untyped `defaultArguments`
+	// map, so there is exactly one way to express each intent. Passing such a key through
+	// `defaultArguments` therefore throws instead of silently winning or being silently dropped.
+	//
+	// A managed key whose supplied value is identical to the construct's value is not contradictory,
+	// so it is allowed rather than rejected (auto-correcting config is preferred over errors).
+	// Glue-reserved keys are never emitted by the construct, so there is no value to reconcile and
+	// they always throw.
+	//
+	// The reserved set is `_managedArgumentKeys` — every key the construct declared through
+	// {@link setManagedArgument}, whether or not a value was emitted for it. It is deliberately NOT
+	// derived from the keys that carry a value: a typed prop that turns a feature *off* (e.g.
+	// `enableMetrics: false`) emits no value but still reserves its key, so `defaultArguments` cannot
+	// silently re-enable it.
+	//
+	// Conflict detection relies on string equality of the argument keys, which cannot see through
+	// unresolved tokens (e.g. a key produced by `CfnJson` that only resolves at deploy time). If a
+	// key is a token, the check is skipped for that key and a synthesis-time warning is emitted, so
+	// the (rare) case where a token key resolves to a managed argument at deploy time — in which the
+	// construct-managed value would silently take precedence — is surfaced rather than hidden.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	MergeDefaultArguments(defaultArguments *map[string]*string) *map[string]*string
 	// Create a CloudWatch metric.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
 	//
@@ -204,8 +232,14 @@ type ScalaSparkFlexEtlJob interface {
 	// This metric is based on the Rule returned by no-args onTimeout() call.
 	// Experimental.
 	MetricTimeout(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Register the arguments this construct manages for a Spark job.
+	//
+	// These are owned by the construct
+	// (derived from typed props). Each key is declared via {@link setManagedArgument} whether or not
+	// the current configuration emits a value, so a disabled feature (e.g. `enableMetrics: false`)
+	// cannot be silently re-enabled through `defaultArguments`.
 	// Experimental.
-	NonExecutableCommonArguments(props *SparkJobProps) *map[string]*string
+	NonExecutableCommonArguments(props *SparkJobProps)
 	// Create a CloudWatch Event Rule for this Glue Job when it's in a given state.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
 	//
@@ -223,14 +257,26 @@ type ScalaSparkFlexEtlJob interface {
 	// Return a CloudWatch Event Rule matching TIMEOUT state.
 	// Experimental.
 	OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	// Setup Continuous Logging Properties.
+	// Declare `key` as construct-managed and, when `value` is defined, emit it into the job's arguments.
 	//
-	// Returns: String containing the args for the continuous logging command.
+	// This is the single sink for every argument a job construct derives from its typed props (or
+	// from the job class itself). Call it once per managed key, passing `undefined` as the value when
+	// the corresponding feature is turned off or unset — the key is still reserved from
+	// `defaultArguments` either way, so a disabled feature cannot be re-enabled through the escape
+	// hatch. There is deliberately no other way for a subclass to emit a managed argument, so the
+	// reserved set can never drift from what is emitted.
 	// Experimental.
-	SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps) interface{}
-	// Set the arguments for extra {@link Code}-related properties.
+	SetManagedArgument(key *string, value *string)
+	// Register (and, when enabled, emit) the continuous-logging arguments this job manages.
+	//
+	// All five continuous-logging keys are reserved on every job type regardless of configuration:
+	// they are always registered through {@link setManagedArgument}, and carry a value only when
+	// logging is enabled. This keeps `defaultArguments` from re-enabling logging a user turned off.
 	// Experimental.
-	SetupExtraCodeArguments(args *map[string]*string, props *SparkExtraCodeProps)
+	SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps, securityConfiguration ISecurityConfiguration)
+	// Register the arguments for extra {@link Code}-related properties.
+	// Experimental.
+	SetupExtraCodeArguments(props *SparkExtraCodeProps)
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
@@ -284,6 +330,16 @@ func (j *jsiiProxy_ScalaSparkFlexEtlJob) JobName() *string {
 	_jsii_.Get(
 		j,
 		"jobName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ScalaSparkFlexEtlJob) JobRef() *interfacesawsglue.JobReference {
+	var returns *interfacesawsglue.JobReference
+	_jsii_.Get(
+		j,
+		"jobRef",
 		&returns,
 	)
 	return returns
@@ -516,19 +572,6 @@ func (s *jsiiProxy_ScalaSparkFlexEtlJob) BuildJobArn(scope constructs.Construct,
 	return returns
 }
 
-func (s *jsiiProxy_ScalaSparkFlexEtlJob) CheckNoReservedArgs(defaultArguments *map[string]*string) *map[string]*string {
-	var returns *map[string]*string
-
-	_jsii_.Invoke(
-		s,
-		"checkNoReservedArgs",
-		[]interface{}{defaultArguments},
-		&returns,
-	)
-
-	return returns
-}
-
 func (s *jsiiProxy_ScalaSparkFlexEtlJob) CodeS3ObjectUrl(code Code) *string {
 	if err := s.validateCodeS3ObjectUrlParameters(code); err != nil {
 		panic(err)
@@ -584,6 +627,19 @@ func (s *jsiiProxy_ScalaSparkFlexEtlJob) GetResourceNameAttribute(nameAttr *stri
 		s,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_ScalaSparkFlexEtlJob) MergeDefaultArguments(defaultArguments *map[string]*string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		s,
+		"mergeDefaultArguments",
+		[]interface{}{defaultArguments},
 		&returns,
 	)
 
@@ -654,20 +710,15 @@ func (s *jsiiProxy_ScalaSparkFlexEtlJob) MetricTimeout(props *awscloudwatch.Metr
 	return returns
 }
 
-func (s *jsiiProxy_ScalaSparkFlexEtlJob) NonExecutableCommonArguments(props *SparkJobProps) *map[string]*string {
+func (s *jsiiProxy_ScalaSparkFlexEtlJob) NonExecutableCommonArguments(props *SparkJobProps) {
 	if err := s.validateNonExecutableCommonArgumentsParameters(props); err != nil {
 		panic(err)
 	}
-	var returns *map[string]*string
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		s,
 		"nonExecutableCommonArguments",
 		[]interface{}{props},
-		&returns,
 	)
-
-	return returns
 }
 
 func (s *jsiiProxy_ScalaSparkFlexEtlJob) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -750,30 +801,36 @@ func (s *jsiiProxy_ScalaSparkFlexEtlJob) OnTimeout(id *string, options *awsevent
 	return returns
 }
 
-func (s *jsiiProxy_ScalaSparkFlexEtlJob) SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps) interface{} {
+func (s *jsiiProxy_ScalaSparkFlexEtlJob) SetManagedArgument(key *string, value *string) {
+	if err := s.validateSetManagedArgumentParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		s,
+		"setManagedArgument",
+		[]interface{}{key, value},
+	)
+}
+
+func (s *jsiiProxy_ScalaSparkFlexEtlJob) SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps, securityConfiguration ISecurityConfiguration) {
 	if err := s.validateSetupContinuousLoggingParameters(role, props); err != nil {
 		panic(err)
 	}
-	var returns interface{}
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		s,
 		"setupContinuousLogging",
-		[]interface{}{role, props},
-		&returns,
+		[]interface{}{role, props, securityConfiguration},
 	)
-
-	return returns
 }
 
-func (s *jsiiProxy_ScalaSparkFlexEtlJob) SetupExtraCodeArguments(args *map[string]*string, props *SparkExtraCodeProps) {
-	if err := s.validateSetupExtraCodeArgumentsParameters(args, props); err != nil {
+func (s *jsiiProxy_ScalaSparkFlexEtlJob) SetupExtraCodeArguments(props *SparkExtraCodeProps) {
+	if err := s.validateSetupExtraCodeArgumentsParameters(props); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		s,
 		"setupExtraCodeArguments",
-		[]interface{}{args, props},
+		[]interface{}{props},
 	)
 }
 

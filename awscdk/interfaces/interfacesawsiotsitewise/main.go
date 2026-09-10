@@ -148,6 +148,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_iotsitewise.IPipelineRef",
+		reflect.TypeOf((*IPipelineRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "pipelineRef", GoGetter: "PipelineRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPipelineRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_iotsitewise.IPortalRef",
 		reflect.TypeOf((*IPortalRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -179,6 +195,42 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_iotsitewise.ITaskRef",
+		reflect.TypeOf((*ITaskRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "taskRef", GoGetter: "TaskRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITaskRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_iotsitewise.IWorkspaceRef",
+		reflect.TypeOf((*IWorkspaceRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceRef", GoGetter: "WorkspaceRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkspaceRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_iotsitewise.PipelineReference",
+		reflect.TypeOf((*PipelineReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_iotsitewise.PortalReference",
 		reflect.TypeOf((*PortalReference)(nil)).Elem(),
@@ -186,5 +238,13 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_iotsitewise.ProjectReference",
 		reflect.TypeOf((*ProjectReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_iotsitewise.TaskReference",
+		reflect.TypeOf((*TaskReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_iotsitewise.WorkspaceReference",
+		reflect.TypeOf((*WorkspaceReference)(nil)).Elem(),
 	)
 }

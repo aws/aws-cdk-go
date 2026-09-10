@@ -491,6 +491,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrResumeFullAutomationModeTime", GoGetter: "AttrResumeFullAutomationModeTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecondaryAvailabilityZone", GoGetter: "AttrSecondaryAvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatusInfos", GoGetter: "AttrStatusInfos"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStorageOperationPercentProgress", GoGetter: "AttrStorageOperationPercentProgress"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStorageOperationStatus", GoGetter: "AttrStorageOperationStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationKmsKeyId", GoGetter: "AutomaticBackupReplicationKmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationRegion", GoGetter: "AutomaticBackupReplicationRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "automaticBackupReplicationRetentionPeriod", GoGetter: "AutomaticBackupReplicationRetentionPeriod"},

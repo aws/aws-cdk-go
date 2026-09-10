@@ -112,10 +112,6 @@ func (j *jsiiProxy_CfnRegistryRecord) validateSetRecordTypeParameters(val *strin
 	return nil
 }
 
-func (j *jsiiProxy_CfnRegistryRecord) validateSetRegistryIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnRegistryRecord) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/aws-cdk-go/awscdkgluealpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -43,6 +44,9 @@ type JobBase interface {
 	// The name of the job.
 	// Experimental.
 	JobName() *string
+	// A reference to this Job resource, for use with the generated L1 ref interface.
+	// Experimental.
+	JobRef() *interfacesawsglue.JobReference
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -189,6 +193,16 @@ func (j *jsiiProxy_JobBase) JobName() *string {
 	_jsii_.Get(
 		j,
 		"jobName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_JobBase) JobRef() *interfacesawsglue.JobReference {
+	var returns *interfacesawsglue.JobReference
+	_jsii_.Get(
+		j,
+		"jobRef",
 		&returns,
 	)
 	return returns

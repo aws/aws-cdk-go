@@ -1,61 +1,97 @@
 package awscdkgluealpha
 
 import (
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue"
+	_init_ "github.com/aws/aws-cdk-go/awscdkgluealpha/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 )
 
-// Represents a trigger action.
+// An action initiated by a trigger.
+//
+// An action runs exactly one target: use {@link Action.job} to run a job or
+// {@link Action.crawler} to run a crawler. Because these are separate factory
+// methods, an action can never target both or neither.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
-//   var cfnCrawler CfnCrawler
-//   var job Job
-//   var securityConfiguration SecurityConfiguration
 //
-//   action := &Action{
-//   	Arguments: map[string]*string{
-//   		"argumentsKey": jsii.String("arguments"),
+//   // Create a job to run from the workflow
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   })
+//
+//   // Create a workflow and add a trigger that runs the job
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
+//   	Actions: []Action{
+//   		glue.Action_Job(job),
 //   	},
-//   	Crawler: cfnCrawler,
-//   	Job: job,
-//   	SecurityConfiguration: securityConfiguration,
-//   	Timeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   }
+//   })
 //
 // Experimental.
-type Action struct {
-	// The job arguments used when this trigger fires.
-	// Default: - no arguments are passed to the job.
-	//
-	// Experimental.
-	Arguments *map[string]*string `field:"optional" json:"arguments" yaml:"arguments"`
-	// The name of the crawler to be used with this action.
-	// Default: - no crawler is used.
-	//
-	// Experimental.
-	Crawler awsglue.CfnCrawler `field:"optional" json:"crawler" yaml:"crawler"`
-	// The job to be executed.
-	// Default: - no job is executed.
-	//
-	// Experimental.
-	Job IJob `field:"optional" json:"job" yaml:"job"`
-	// The `SecurityConfiguration` to be used with this action.
-	// Default: - no security configuration is used.
-	//
-	// Experimental.
-	SecurityConfiguration ISecurityConfiguration `field:"optional" json:"securityConfiguration" yaml:"securityConfiguration"`
-	// The job run timeout.
-	//
-	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
-	// Default: - the default timeout value set in the job definition.
-	//
-	// Experimental.
-	Timeout awscdk.Duration `field:"optional" json:"timeout" yaml:"timeout"`
+type Action interface {
+}
+
+// The jsii proxy struct for Action
+type jsiiProxy_Action struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewAction_Override(a Action) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-glue-alpha.Action",
+		nil, // no parameters
+		a,
+	)
+}
+
+// Create an action that runs a crawler.
+// Experimental.
+func Action_Crawler(crawler interfacesawsglue.ICrawlerRef, options *CrawlerActionOptions) Action {
+	_init_.Initialize()
+
+	if err := validateAction_CrawlerParameters(crawler, options); err != nil {
+		panic(err)
+	}
+	var returns Action
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Action",
+		"crawler",
+		[]interface{}{crawler, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create an action that runs a job.
+// Experimental.
+func Action_Job(job interfacesawsglue.IJobRef, options *JobActionOptions) Action {
+	_init_.Initialize()
+
+	if err := validateAction_JobParameters(job, options); err != nil {
+		panic(err)
+	}
+	var returns Action
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.Action",
+		"job",
+		[]interface{}{job, options},
+		&returns,
+	)
+
+	return returns
 }
 

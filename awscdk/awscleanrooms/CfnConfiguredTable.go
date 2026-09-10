@@ -104,8 +104,34 @@ import (
 //
 //   						// the properties below are optional
 //   						AdditionalAnalyses: jsii.String("additionalAnalyses"),
+//   						AggregationThresholds: []interface{}{
+//   							&AggregationThresholdProperty{
+//   								AllowedAggregateExpressionType: jsii.String("allowedAggregateExpressionType"),
+//   								IdentityColumns: []*string{
+//   									jsii.String("identityColumns"),
+//   								},
+//   								MinimumIdentityCount: jsii.Number(123),
+//   								Type: jsii.String("type"),
+//
+//   								// the properties below are optional
+//   								OutputColumnThresholds: []interface{}{
+//   									&OutputColumnThresholdProperty{
+//   										MinimumIdentityCount: jsii.Number(123),
+//   										OutputColumnName: jsii.String("outputColumnName"),
+//   									},
+//   								},
+//   							},
+//   						},
 //   						AllowedAnalysisProviders: []*string{
 //   							jsii.String("allowedAnalysisProviders"),
+//   						},
+//   						ComparisonControls: &ComparisonControlsProperty{
+//   							AllowedColumnComparisonColumns: []*string{
+//   								jsii.String("allowedColumnComparisonColumns"),
+//   							},
+//   							AllowedLiteralComparisonColumns: []*string{
+//   								jsii.String("allowedLiteralComparisonColumns"),
+//   							},
 //   						},
 //   						DifferentialPrivacy: &DifferentialPrivacyProperty{
 //   							Columns: []interface{}{

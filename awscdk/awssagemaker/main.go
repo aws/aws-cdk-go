@@ -511,6 +511,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_CapacitySizeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterAccountingDatabaseProperty",
+		reflect.TypeOf((*CfnCluster_ClusterAccountingDatabaseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnCluster.ClusterAutoScalingConfigProperty",
 		reflect.TypeOf((*CfnCluster_ClusterAutoScalingConfigProperty)(nil)).Elem(),
 	)
@@ -1323,7 +1327,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "asyncInferenceConfig", GoGetter: "AsyncInferenceConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointConfigArn", GoGetter: "AttrEndpointConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointConfigName", GoGetter: "AttrEndpointConfigName"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},

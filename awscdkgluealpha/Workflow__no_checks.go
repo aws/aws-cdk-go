@@ -8,15 +8,7 @@ func (w *jsiiProxy_Workflow) validateAddConditionalTriggerParameters(id *string,
 	return nil
 }
 
-func (w *jsiiProxy_Workflow) validateAddCustomScheduledTriggerParameters(id *string, options *CustomScheduledTriggerOptions) error {
-	return nil
-}
-
-func (w *jsiiProxy_Workflow) validateAddDailyScheduledTriggerParameters(id *string, options *DailyScheduleTriggerOptions) error {
-	return nil
-}
-
-func (w *jsiiProxy_Workflow) validateAddNotifyEventTriggerParameters(id *string, options *NotifyEventTriggerOptions) error {
+func (w *jsiiProxy_Workflow) validateAddEventTriggerParameters(id *string, options *EventTriggerOptions) error {
 	return nil
 }
 
@@ -24,7 +16,7 @@ func (w *jsiiProxy_Workflow) validateAddOnDemandTriggerParameters(id *string, op
 	return nil
 }
 
-func (w *jsiiProxy_Workflow) validateAddWeeklyScheduledTriggerParameters(id *string, options *WeeklyScheduleTriggerOptions) error {
+func (w *jsiiProxy_Workflow) validateAddScheduledTriggerParameters(id *string, options *ScheduledTriggerOptions) error {
 	return nil
 }
 

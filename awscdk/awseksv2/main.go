@@ -410,6 +410,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks_v2.CfnCapability.AckProperty",
+		reflect.TypeOf((*CfnCapability_AckProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks_v2.CfnCapability.ArgoCdProperty",
 		reflect.TypeOf((*CfnCapability_ArgoCdProperty)(nil)).Elem(),
 	)

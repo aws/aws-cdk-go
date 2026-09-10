@@ -604,6 +604,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.FabricConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutputPropsMixin_FabricConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.FlowTransitEncryptionKeyConfigurationProperty",
 		reflect.TypeOf((*CfnRouterOutputPropsMixin_FlowTransitEncryptionKeyConfigurationProperty)(nil)).Elem(),
 	)

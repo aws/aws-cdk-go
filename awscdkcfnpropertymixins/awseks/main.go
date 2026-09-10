@@ -84,6 +84,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnCapabilityPropsMixin.AckProperty",
+		reflect.TypeOf((*CfnCapabilityPropsMixin_AckProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnCapabilityPropsMixin.ArgoCdProperty",
 		reflect.TypeOf((*CfnCapabilityPropsMixin_ArgoCdProperty)(nil)).Elem(),
 	)

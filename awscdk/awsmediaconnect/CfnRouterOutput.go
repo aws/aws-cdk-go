@@ -112,6 +112,9 @@ import (
 //
 //   	// the properties below are optional
 //   	AvailabilityZone: jsii.String("availabilityZone"),
+//   	FabricConfiguration: &FabricConfigurationProperty{
+//   		RecoveryLatencyMode: jsii.String("recoveryLatencyMode"),
+//   	},
 //   	MaintenanceConfiguration: &MaintenanceConfigurationProperty{
 //   		Default: default_,
 //   		PreferredDayTime: &PreferredDayTimeMaintenanceConfigurationProperty{
@@ -172,6 +175,9 @@ type CfnRouterOutput interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// The fabric configuration settings for the router output.
+	FabricConfiguration() interface{}
+	SetFabricConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -580,6 +586,16 @@ func (j *jsiiProxy_CfnRouterOutput) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRouterOutput) FabricConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fabricConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRouterOutput) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -765,6 +781,17 @@ func (j *jsiiProxy_CfnRouterOutput)SetConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"configuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRouterOutput)SetFabricConfiguration(val interface{}) {
+	if err := j.validateSetFabricConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"fabricConfiguration",
 		val,
 	)
 }

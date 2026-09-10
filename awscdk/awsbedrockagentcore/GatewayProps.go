@@ -67,6 +67,14 @@ type GatewayProps struct {
 	// Default: - No encryption.
 	//
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	// The policy engine configuration for this gateway.
+	//
+	// When provided, the specified policy engine will be associated with this gateway.
+	// All agent requests through this gateway will be evaluated against the Cedar policies
+	// defined in the policy engine.
+	// Default: - No policy engine (requests are not subject to Cedar policy authorization).
+	//
+	PolicyEngineConfiguration *GatewayPolicyEngineConfig `field:"optional" json:"policyEngineConfiguration" yaml:"policyEngineConfiguration"`
 	// The protocol configuration for the gateway.
 	// Default: - A default protocol configuration will be created using MCP with following params
 	// supportedVersions: [MCPProtocolVersion.MCP_2025_03_26],

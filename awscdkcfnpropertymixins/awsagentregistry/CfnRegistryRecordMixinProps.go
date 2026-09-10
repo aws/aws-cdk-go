@@ -143,7 +143,9 @@ type CfnRegistryRecordMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-recordversion
 	//
 	RecordVersion *string `field:"optional" json:"recordVersion" yaml:"recordVersion"`
-	// The identifier of the registry containing the record.
+	// The identifier of the registry in which to create the record.
+	//
+	// You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-registryid
 	//
 	RegistryId *string `field:"optional" json:"registryId" yaml:"registryId"`

@@ -187,6 +187,8 @@ type CfnDBInstance interface {
 	//
 	// If the DB instance isn't a read replica, the value is blank.
 	AttrStatusInfos() awscdk.IResolvable
+	AttrStorageOperationPercentProgress() *float64
+	AttrStorageOperationStatus() *string
 	// The AWS KMS key identifier for encryption of the replicated automated backups.
 	AutomaticBackupReplicationKmsKeyId() *string
 	SetAutomaticBackupReplicationKmsKeyId(val *string)
@@ -952,6 +954,26 @@ func (j *jsiiProxy_CfnDBInstance) AttrStatusInfos() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrStatusInfos",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrStorageOperationPercentProgress() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrStorageOperationPercentProgress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBInstance) AttrStorageOperationStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStorageOperationStatus",
 		&returns,
 	)
 	return returns

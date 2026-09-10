@@ -10,17 +10,23 @@ import (
 // Represents a trigger schedule.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import iam "github.com/aws/aws-cdk-go/awscdk"
+//   var stack Stack
+//   var role IRole
+//   var script Code
 //
-//   triggerSchedule := glue_alpha.TriggerSchedule_Cron(&CronOptions{
-//   	Day: jsii.String("day"),
-//   	Hour: jsii.String("hour"),
-//   	Minute: jsii.String("minute"),
-//   	Month: jsii.String("month"),
-//   	WeekDay: jsii.String("weekDay"),
-//   	Year: jsii.String("year"),
+//   job := glue.NewPySparkEtlJob(stack, jsii.String("Job"), &PySparkEtlJobProps{
+//   	Role: Role,
+//   	Script: Script,
+//   })
+//   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
+//
+//   workflow.AddScheduledTrigger(jsii.String("WeeklyTrigger"), &ScheduledTriggerOptions{
+//   	Actions: []Action{
+//   		glue.Action_Job(job),
+//   	},
+//   	Schedule: glue.TriggerSchedule_Weekly(),
 //   })
 //
 // Experimental.
@@ -68,6 +74,25 @@ func TriggerSchedule_Cron(options *awsevents.CronOptions) TriggerSchedule {
 	return returns
 }
 
+// Creates a schedule that fires once a day, at midnight UTC.
+//
+// Returns: A new TriggerSchedule instance.
+// Experimental.
+func TriggerSchedule_Daily() TriggerSchedule {
+	_init_.Initialize()
+
+	var returns TriggerSchedule
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.TriggerSchedule",
+		"daily",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Creates a new TriggerSchedule instance with a custom expression.
 //
 // Returns: A new TriggerSchedule instance.
@@ -84,6 +109,25 @@ func TriggerSchedule_Expression(expression *string) TriggerSchedule {
 		"@aws-cdk/aws-glue-alpha.TriggerSchedule",
 		"expression",
 		[]interface{}{expression},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a schedule that fires once a week, at midnight UTC on Sunday.
+//
+// Returns: A new TriggerSchedule instance.
+// Experimental.
+func TriggerSchedule_Weekly() TriggerSchedule {
+	_init_.Initialize()
+
+	var returns TriggerSchedule
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/aws-glue-alpha.TriggerSchedule",
+		"weekly",
+		nil, // no parameters
 		&returns,
 	)
 

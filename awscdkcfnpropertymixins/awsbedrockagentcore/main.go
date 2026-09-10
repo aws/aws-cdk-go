@@ -556,6 +556,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayRulePropsMixin_StaticRouteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.SystemManagedBlockProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_SystemManagedBlockProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.TargetTrafficSplitEntryProperty",
 		reflect.TypeOf((*CfnGatewayRulePropsMixin_TargetTrafficSplitEntryProperty)(nil)).Elem(),
 	)
@@ -646,6 +650,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.HttpApiSchemaConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_HttpApiSchemaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.HttpConnectorSourceProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_HttpConnectorSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.HttpConnectorTargetConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_HttpConnectorTargetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.HttpTargetConfigurationProperty",

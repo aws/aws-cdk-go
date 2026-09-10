@@ -12,6 +12,15 @@ package awsiot
 //   	HttpUrlProperties: &HttpUrlDestinationSummaryProperty{
 //   		ConfirmationUrl: jsii.String("confirmationUrl"),
 //   	},
+//   	InfluxDbProperties: &InfluxDBDestinationPropertiesProperty{
+//   		Endpoint: jsii.String("endpoint"),
+//   		InfluxDbVersion: jsii.String("influxDbVersion"),
+//   		SecretId: jsii.String("secretId"),
+//
+//   		// the properties below are optional
+//   		SecretKey: jsii.String("secretKey"),
+//   		SecretType: jsii.String("secretType"),
+//   	},
 //   	Status: jsii.String("status"),
 //   	VpcProperties: &VpcDestinationPropertiesProperty{
 //   		RoleArn: jsii.String("roleArn"),
@@ -32,6 +41,9 @@ type CfnTopicRuleDestinationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
 	//
 	HttpUrlProperties interface{} `field:"optional" json:"httpUrlProperties" yaml:"httpUrlProperties"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-influxdbproperties
+	//
+	InfluxDbProperties interface{} `field:"optional" json:"influxDbProperties" yaml:"influxDbProperties"`
 	// - **IN_PROGRESS** - A topic rule destination was created but has not been confirmed.
 	//
 	// You can set status to `IN_PROGRESS` by calling `UpdateTopicRuleDestination` . Calling `UpdateTopicRuleDestination` causes a new confirmation challenge to be sent to your confirmation endpoint.

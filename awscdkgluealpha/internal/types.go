@@ -9,3 +9,4 @@ type Type__interfacesawsglueICatalogRef = interfacesawsglue.ICatalogRef
 type Type__awscdkIResource = awscdk.IResource
 type Type__interfacesawsglueIDatabaseRef = interfacesawsglue.IDatabaseRef
 type Type__awsiamIGrantable = awsiam.IGrantable
+type Type__interfacesawsglueIJobRef = interfacesawsglue.IJobRef

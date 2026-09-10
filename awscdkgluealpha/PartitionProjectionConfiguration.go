@@ -30,43 +30,21 @@ import (
 //   			"min": jsii.String("2020-01-01"),
 //   			"max": jsii.String("2023-12-31"),
 //   			"format": jsii.String("yyyy-MM-dd"),
-//   			"interval": jsii.Number(1),
-//   			 // optional, defaults to 1
-//   			"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   			// `step` bundles interval + unit (supply both or neither). Optional at day
+//   			// precision or coarser; required when the format is sub-day (e.g. hours).
+//   			"step": &DateProjectionStep{
+//   				"interval": jsii.Number(1),
+//   				"intervalUnit": glue.DateIntervalUnit_DAYS,
+//   			},
 //   		}),
 //   	},
 //   })
 //
 // Experimental.
 type PartitionProjectionConfiguration interface {
-	// Range of partition values for DATE type.
-	//
-	// Array of [start, end] as date strings.
-	// Experimental.
-	DateRange() *[]*string
-	// Number of digits to pad INTEGER partition values.
-	// Experimental.
-	Digits() *float64
-	// Date format for DATE partition values (Java SimpleDateFormat).
-	// Experimental.
-	Format() *string
-	// Range of partition values for INTEGER type.
-	//
-	// Array of [min, max] as numbers.
-	// Experimental.
-	IntegerRange() *[]*float64
-	// Interval between partition values.
-	// Experimental.
-	Interval() *float64
-	// Unit for DATE partition interval.
-	// Experimental.
-	IntervalUnit() DateIntervalUnit
 	// The type of partition projection.
 	// Experimental.
 	Type() PartitionProjectionType
-	// Explicit list of values for ENUM partitions.
-	// Experimental.
-	Values() *[]*string
 }
 
 // The jsii proxy struct for PartitionProjectionConfiguration
@@ -74,81 +52,11 @@ type jsiiProxy_PartitionProjectionConfiguration struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_PartitionProjectionConfiguration) DateRange() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"dateRange",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PartitionProjectionConfiguration) Digits() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"digits",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PartitionProjectionConfiguration) Format() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"format",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PartitionProjectionConfiguration) IntegerRange() *[]*float64 {
-	var returns *[]*float64
-	_jsii_.Get(
-		j,
-		"integerRange",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PartitionProjectionConfiguration) Interval() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"interval",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PartitionProjectionConfiguration) IntervalUnit() DateIntervalUnit {
-	var returns DateIntervalUnit
-	_jsii_.Get(
-		j,
-		"intervalUnit",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_PartitionProjectionConfiguration) Type() PartitionProjectionType {
 	var returns PartitionProjectionType
 	_jsii_.Get(
 		j,
 		"type",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_PartitionProjectionConfiguration) Values() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"values",
 		&returns,
 	)
 	return returns

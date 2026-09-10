@@ -177,6 +177,14 @@ func (j *jsiiProxy_Job) validateOnTimeoutParameters(id *string, options *awseven
 	return nil
 }
 
+func (j *jsiiProxy_Job) validateSetManagedArgumentParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_Job) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")

@@ -216,6 +216,10 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTablePropsMixin_AggregationConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.AggregationThresholdProperty",
+		reflect.TypeOf((*CfnConfiguredTablePropsMixin_AggregationThresholdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.AnalysisRuleAggregationProperty",
 		reflect.TypeOf((*CfnConfiguredTablePropsMixin_AnalysisRuleAggregationProperty)(nil)).Elem(),
 	)
@@ -236,6 +240,10 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTablePropsMixin_AthenaTableReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.ComparisonControlsProperty",
+		reflect.TypeOf((*CfnConfiguredTablePropsMixin_ComparisonControlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.ConfiguredTableAnalysisRulePolicyProperty",
 		reflect.TypeOf((*CfnConfiguredTablePropsMixin_ConfiguredTableAnalysisRulePolicyProperty)(nil)).Elem(),
 	)
@@ -254,6 +262,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.GlueTableReferenceProperty",
 		reflect.TypeOf((*CfnConfiguredTablePropsMixin_GlueTableReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.OutputColumnThresholdProperty",
+		reflect.TypeOf((*CfnConfiguredTablePropsMixin_OutputColumnThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnConfiguredTablePropsMixin.SnowflakeTableReferenceProperty",
@@ -356,6 +368,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.AggregationThresholdProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_AggregationThresholdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.ComparisonControlsProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_ComparisonControlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.DifferentialPrivacyColumnProperty",
 		reflect.TypeOf((*CfnIntermediateTablePropsMixin_DifferentialPrivacyColumnProperty)(nil)).Elem(),
 	)
@@ -378,6 +398,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.IntermediateTableAnalysisRuleProperty",
 		reflect.TypeOf((*CfnIntermediateTablePropsMixin_IntermediateTableAnalysisRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.OutputColumnThresholdProperty",
+		reflect.TypeOf((*CfnIntermediateTablePropsMixin_OutputColumnThresholdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cleanrooms.CfnIntermediateTablePropsMixin.PopulationAnalysisConfigurationProperty",

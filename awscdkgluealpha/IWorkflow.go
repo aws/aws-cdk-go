@@ -4,7 +4,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsglue"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/aws-cdk-go/awscdkgluealpha/v2/internal"
 )
 
@@ -14,18 +14,26 @@ import (
 // Experimental.
 type IWorkflow interface {
 	awscdk.IResource
-	// Add an custom-scheduled trigger to the workflow.
+	// Add a conditional (predicate-based) trigger to the workflow.
+	//
+	// Returns: a reference to the created trigger.
 	// Experimental.
-	AddCustomScheduledTrigger(id *string, options *CustomScheduledTriggerOptions) awsglue.CfnTrigger
-	// Add an daily-scheduled trigger to the workflow.
+	AddConditionalTrigger(id *string, options *ConditionalTriggerOptions) interfacesawsglue.ITriggerRef
+	// Add an EventBridge event-based trigger to the workflow.
+	//
+	// Returns: a reference to the created trigger.
 	// Experimental.
-	AddDailyScheduledTrigger(id *string, options *DailyScheduleTriggerOptions) awsglue.CfnTrigger
+	AddEventTrigger(id *string, options *EventTriggerOptions) interfacesawsglue.ITriggerRef
 	// Add an on-demand trigger to the workflow.
+	//
+	// Returns: a reference to the created trigger.
 	// Experimental.
-	AddOnDemandTrigger(id *string, options *OnDemandTriggerOptions) awsglue.CfnTrigger
-	// Add an weekly-scheduled trigger to the workflow.
+	AddOnDemandTrigger(id *string, options *OnDemandTriggerOptions) interfacesawsglue.ITriggerRef
+	// Add a scheduled trigger to the workflow.
+	//
+	// Returns: a reference to the created trigger.
 	// Experimental.
-	AddWeeklyScheduledTrigger(id *string, options *WeeklyScheduleTriggerOptions) awsglue.CfnTrigger
+	AddScheduledTrigger(id *string, options *ScheduledTriggerOptions) interfacesawsglue.ITriggerRef
 	// The ARN of the workflow.
 	// Experimental.
 	WorkflowArn() *string
@@ -39,15 +47,15 @@ type jsiiProxy_IWorkflow struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_IWorkflow) AddCustomScheduledTrigger(id *string, options *CustomScheduledTriggerOptions) awsglue.CfnTrigger {
-	if err := i.validateAddCustomScheduledTriggerParameters(id, options); err != nil {
+func (i *jsiiProxy_IWorkflow) AddConditionalTrigger(id *string, options *ConditionalTriggerOptions) interfacesawsglue.ITriggerRef {
+	if err := i.validateAddConditionalTriggerParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns awsglue.CfnTrigger
+	var returns interfacesawsglue.ITriggerRef
 
 	_jsii_.Invoke(
 		i,
-		"addCustomScheduledTrigger",
+		"addConditionalTrigger",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -55,15 +63,15 @@ func (i *jsiiProxy_IWorkflow) AddCustomScheduledTrigger(id *string, options *Cus
 	return returns
 }
 
-func (i *jsiiProxy_IWorkflow) AddDailyScheduledTrigger(id *string, options *DailyScheduleTriggerOptions) awsglue.CfnTrigger {
-	if err := i.validateAddDailyScheduledTriggerParameters(id, options); err != nil {
+func (i *jsiiProxy_IWorkflow) AddEventTrigger(id *string, options *EventTriggerOptions) interfacesawsglue.ITriggerRef {
+	if err := i.validateAddEventTriggerParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns awsglue.CfnTrigger
+	var returns interfacesawsglue.ITriggerRef
 
 	_jsii_.Invoke(
 		i,
-		"addDailyScheduledTrigger",
+		"addEventTrigger",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -71,11 +79,11 @@ func (i *jsiiProxy_IWorkflow) AddDailyScheduledTrigger(id *string, options *Dail
 	return returns
 }
 
-func (i *jsiiProxy_IWorkflow) AddOnDemandTrigger(id *string, options *OnDemandTriggerOptions) awsglue.CfnTrigger {
+func (i *jsiiProxy_IWorkflow) AddOnDemandTrigger(id *string, options *OnDemandTriggerOptions) interfacesawsglue.ITriggerRef {
 	if err := i.validateAddOnDemandTriggerParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns awsglue.CfnTrigger
+	var returns interfacesawsglue.ITriggerRef
 
 	_jsii_.Invoke(
 		i,
@@ -87,15 +95,15 @@ func (i *jsiiProxy_IWorkflow) AddOnDemandTrigger(id *string, options *OnDemandTr
 	return returns
 }
 
-func (i *jsiiProxy_IWorkflow) AddWeeklyScheduledTrigger(id *string, options *WeeklyScheduleTriggerOptions) awsglue.CfnTrigger {
-	if err := i.validateAddWeeklyScheduledTriggerParameters(id, options); err != nil {
+func (i *jsiiProxy_IWorkflow) AddScheduledTrigger(id *string, options *ScheduledTriggerOptions) interfacesawsglue.ITriggerRef {
+	if err := i.validateAddScheduledTriggerParameters(id, options); err != nil {
 		panic(err)
 	}
-	var returns awsglue.CfnTrigger
+	var returns interfacesawsglue.ITriggerRef
 
 	_jsii_.Invoke(
 		i,
-		"addWeeklyScheduledTrigger",
+		"addScheduledTrigger",
 		[]interface{}{id, options},
 		&returns,
 	)

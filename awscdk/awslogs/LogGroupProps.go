@@ -52,11 +52,17 @@ type LogGroupProps struct {
 	// Default: - no field index policies for this log group.
 	//
 	FieldIndexPolicies *[]FieldIndexPolicy `field:"optional" json:"fieldIndexPolicies" yaml:"fieldIndexPolicies"`
-	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS.
+	// The class of the log group. Possible values are: STANDARD, INFREQUENT_ACCESS and DELIVERY.
 	//
 	// INFREQUENT_ACCESS class provides customers a cost-effective way to consolidate
 	// logs which supports querying using Logs Insights. The logGroupClass property cannot
 	// be changed once the log group is created.
+	//
+	// DELIVERY class is used to deliver logs to a destination such as Amazon S3 or Amazon
+	// Data Firehose (for example, Lambda vended logs). A Delivery log group forwards events
+	// to a destination instead of storing them, so it does not support `retention`,
+	// `dataProtectionPolicy`, or `fieldIndexPolicies`; setting any of these together with
+	// `LogGroupClass.DELIVERY` results in a synthesis-time error.
 	// Default: LogGroupClass.STANDARD
 	//
 	LogGroupClass LogGroupClass `field:"optional" json:"logGroupClass" yaml:"logGroupClass"`

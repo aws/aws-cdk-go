@@ -13,6 +13,14 @@ package awssagemaker
 //   		ClusterArn: jsii.String("clusterArn"),
 //   	},
 //   	Slurm: &ClusterOrchestratorSlurmConfigProperty{
+//   		AccountingDatabase: &ClusterAccountingDatabaseProperty{
+//   			Endpoint: jsii.String("endpoint"),
+//   			SecretArn: jsii.String("secretArn"),
+//
+//   			// the properties below are optional
+//   			Name: jsii.String("name"),
+//   			Port: jsii.Number(123),
+//   		},
 //   		SlurmConfigStrategy: jsii.String("slurmConfigStrategy"),
 //   	},
 //   }

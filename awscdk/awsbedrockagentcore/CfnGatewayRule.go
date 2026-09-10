@@ -107,6 +107,7 @@ type CfnGatewayRule interface {
 	AttrGatewayArn() *string
 	AttrRuleId() *string
 	AttrStatus() *string
+	AttrSystem() awscdk.IResolvable
 	AttrUpdatedAt() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -378,6 +379,16 @@ func (j *jsiiProxy_CfnGatewayRule) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGatewayRule) AttrSystem() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrSystem",
 		&returns,
 	)
 	return returns

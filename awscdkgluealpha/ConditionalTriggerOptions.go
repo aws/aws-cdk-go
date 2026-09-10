@@ -6,35 +6,18 @@ package awscdkgluealpha
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdkgluealpha"
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   import glue_alpha "github.com/aws/aws-cdk-go/awscdkgluealpha"
 //
-//   var cfnCrawler CfnCrawler
-//   var job Job
-//   var securityConfiguration SecurityConfiguration
+//   var action Action
+//   var condition Condition
 //
 //   conditionalTriggerOptions := &ConditionalTriggerOptions{
 //   	Actions: []Action{
-//   		&Action{
-//   			Arguments: map[string]*string{
-//   				"argumentsKey": jsii.String("arguments"),
-//   			},
-//   			Crawler: cfnCrawler,
-//   			Job: job,
-//   			SecurityConfiguration: securityConfiguration,
-//   			Timeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   		},
+//   		action,
 //   	},
 //   	Predicate: &Predicate{
 //   		Conditions: []Condition{
-//   			&Condition{
-//   				CrawlerName: jsii.String("crawlerName"),
-//   				CrawlState: glue_alpha.CrawlerState_RUNNING,
-//   				Job: job,
-//   				LogicalOperator: glue_alpha.ConditionLogicalOperator_EQUALS,
-//   				State: glue_alpha.JobState_SUCCEEDED,
-//   			},
+//   			condition,
 //   		},
 //   		Logical: glue_alpha.PredicateLogical_AND,
 //   	},
@@ -49,7 +32,7 @@ package awscdkgluealpha
 type ConditionalTriggerOptions struct {
 	// The actions initiated by this trigger.
 	// Experimental.
-	Actions *[]*Action `field:"required" json:"actions" yaml:"actions"`
+	Actions *[]Action `field:"required" json:"actions" yaml:"actions"`
 	// A description for the trigger.
 	// Default: - no description.
 	//

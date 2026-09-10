@@ -188,6 +188,14 @@ func (s *jsiiProxy_ScalaSparkStreamingJob) validateOnTimeoutParameters(id *strin
 	return nil
 }
 
+func (s *jsiiProxy_ScalaSparkStreamingJob) validateSetManagedArgumentParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (s *jsiiProxy_ScalaSparkStreamingJob) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")
@@ -200,11 +208,7 @@ func (s *jsiiProxy_ScalaSparkStreamingJob) validateSetupContinuousLoggingParamet
 	return nil
 }
 
-func (s *jsiiProxy_ScalaSparkStreamingJob) validateSetupExtraCodeArgumentsParameters(args *map[string]*string, props *SparkExtraCodeProps) error {
-	if args == nil {
-		return fmt.Errorf("parameter args is required, but nil was provided")
-	}
-
+func (s *jsiiProxy_ScalaSparkStreamingJob) validateSetupExtraCodeArgumentsParameters(props *SparkExtraCodeProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}

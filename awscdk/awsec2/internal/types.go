@@ -7,8 +7,9 @@ import (
 type Type__awscdkResource = awscdk.Resource
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsec2ICapacityManagerDataExportRef = interfacesawsec2.ICapacityManagerDataExportRef
+type Type__interfacesawsec2IApplicationStatusCheckRef = interfacesawsec2.IApplicationStatusCheckRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsec2ICapacityManagerDataExportRef = interfacesawsec2.ICapacityManagerDataExportRef
 type Type__interfacesawsec2ICapacityReservationRef = interfacesawsec2.ICapacityReservationRef
 type Type__interfacesawsec2ICapacityReservationFleetRef = interfacesawsec2.ICapacityReservationFleetRef
 type Type__interfacesawsec2ICarrierGatewayRef = interfacesawsec2.ICarrierGatewayRef

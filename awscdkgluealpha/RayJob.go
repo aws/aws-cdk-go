@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsglue"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -103,6 +104,11 @@ type RayJob interface {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	JobName() *string
+	// A reference to this Job resource, for use with the generated L1 ref interface.
+	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
+	// Migrate to Amazon EKS with KubeRay Operator. See
+	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
+	JobRef() *interfacesawsglue.JobReference
 	// The tree node.
 	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
 	// Migrate to Amazon EKS with KubeRay Operator. See
@@ -158,13 +164,6 @@ type RayJob interface {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	BuildJobArn(scope constructs.Construct, jobName *string) *string
-	// Check no usage of reserved arguments.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
-	// Migrate to Amazon EKS with KubeRay Operator. See
-	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
-	CheckNoReservedArgs(defaultArguments *map[string]*string) *map[string]*string
 	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
@@ -192,6 +191,37 @@ type RayJob interface {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	GetResourceNameAttribute(nameAttr *string) *string
+	// Merge the customer-supplied `defaultArguments` with the arguments this construct manages.
+	//
+	// The construct owns every argument it emits — whether the value comes from a dedicated typed
+	// prop (e.g. `continuousLogging`, `enableMetrics`, `sparkUI`) or from the job class itself
+	// (e.g. `--job-language`). Those arguments, plus the arguments Glue reserves for its own use,
+	// MUST be configured through their dedicated props rather than the untyped `defaultArguments`
+	// map, so there is exactly one way to express each intent. Passing such a key through
+	// `defaultArguments` therefore throws instead of silently winning or being silently dropped.
+	//
+	// A managed key whose supplied value is identical to the construct's value is not contradictory,
+	// so it is allowed rather than rejected (auto-correcting config is preferred over errors).
+	// Glue-reserved keys are never emitted by the construct, so there is no value to reconcile and
+	// they always throw.
+	//
+	// The reserved set is `_managedArgumentKeys` — every key the construct declared through
+	// {@link setManagedArgument}, whether or not a value was emitted for it. It is deliberately NOT
+	// derived from the keys that carry a value: a typed prop that turns a feature *off* (e.g.
+	// `enableMetrics: false`) emits no value but still reserves its key, so `defaultArguments` cannot
+	// silently re-enable it.
+	//
+	// Conflict detection relies on string equality of the argument keys, which cannot see through
+	// unresolved tokens (e.g. a key produced by `CfnJson` that only resolves at deploy time). If a
+	// key is a token, the check is skipped for that key and a synthesis-time warning is emitted, so
+	// the (rare) case where a token key resolves to a managed argument at deploy time — in which the
+	// construct-managed value would silently take precedence — is surfaced rather than hidden.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
+	// Migrate to Amazon EKS with KubeRay Operator. See
+	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
+	MergeDefaultArguments(defaultArguments *map[string]*string) *map[string]*string
 	// Create a CloudWatch metric.
 	// See: https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
 	//
@@ -247,13 +277,27 @@ type RayJob interface {
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
 	OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	// Setup Continuous Logging Properties.
+	// Declare `key` as construct-managed and, when `value` is defined, emit it into the job's arguments.
 	//
-	// Returns: String containing the args for the continuous logging command.
+	// This is the single sink for every argument a job construct derives from its typed props (or
+	// from the job class itself). Call it once per managed key, passing `undefined` as the value when
+	// the corresponding feature is turned off or unset — the key is still reserved from
+	// `defaultArguments` either way, so a disabled feature cannot be re-enabled through the escape
+	// hatch. There is deliberately no other way for a subclass to emit a managed argument, so the
+	// reserved set can never drift from what is emitted.
 	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
 	// Migrate to Amazon EKS with KubeRay Operator. See
 	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
-	SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps) interface{}
+	SetManagedArgument(key *string, value *string)
+	// Register (and, when enabled, emit) the continuous-logging arguments this job manages.
+	//
+	// All five continuous-logging keys are reserved on every job type regardless of configuration:
+	// they are always registered through {@link setManagedArgument}, and carry a value only when
+	// logging is enabled. This keeps `defaultArguments` from re-enabling logging a user turned off.
+	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
+	// Migrate to Amazon EKS with KubeRay Operator. See
+	// https://docs.aws.amazon.com/glue/latest/dg/awsglue-ray-jobs-availability-change.html
+	SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps, securityConfiguration ISecurityConfiguration)
 	// Returns a string representation of this construct.
 	// Deprecated: AWS Glue for Ray is closed to new customers as of April 30, 2026.
 	// Migrate to Amazon EKS with KubeRay Operator. See
@@ -311,6 +355,16 @@ func (j *jsiiProxy_RayJob) JobName() *string {
 	_jsii_.Get(
 		j,
 		"jobName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RayJob) JobRef() *interfacesawsglue.JobReference {
+	var returns *interfacesawsglue.JobReference
+	_jsii_.Get(
+		j,
+		"jobRef",
 		&returns,
 	)
 	return returns
@@ -545,19 +599,6 @@ func (r *jsiiProxy_RayJob) BuildJobArn(scope constructs.Construct, jobName *stri
 	return returns
 }
 
-func (r *jsiiProxy_RayJob) CheckNoReservedArgs(defaultArguments *map[string]*string) *map[string]*string {
-	var returns *map[string]*string
-
-	_jsii_.Invoke(
-		r,
-		"checkNoReservedArgs",
-		[]interface{}{defaultArguments},
-		&returns,
-	)
-
-	return returns
-}
-
 func (r *jsiiProxy_RayJob) CodeS3ObjectUrl(code Code) *string {
 	if err := r.validateCodeS3ObjectUrlParameters(code); err != nil {
 		panic(err)
@@ -613,6 +654,19 @@ func (r *jsiiProxy_RayJob) GetResourceNameAttribute(nameAttr *string) *string {
 		r,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+func (r *jsiiProxy_RayJob) MergeDefaultArguments(defaultArguments *map[string]*string) *map[string]*string {
+	var returns *map[string]*string
+
+	_jsii_.Invoke(
+		r,
+		"mergeDefaultArguments",
+		[]interface{}{defaultArguments},
 		&returns,
 	)
 
@@ -763,20 +817,26 @@ func (r *jsiiProxy_RayJob) OnTimeout(id *string, options *awsevents.OnEventOptio
 	return returns
 }
 
-func (r *jsiiProxy_RayJob) SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps) interface{} {
+func (r *jsiiProxy_RayJob) SetManagedArgument(key *string, value *string) {
+	if err := r.validateSetManagedArgumentParameters(key); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		r,
+		"setManagedArgument",
+		[]interface{}{key, value},
+	)
+}
+
+func (r *jsiiProxy_RayJob) SetupContinuousLogging(role awsiam.IRole, props *ContinuousLoggingProps, securityConfiguration ISecurityConfiguration) {
 	if err := r.validateSetupContinuousLoggingParameters(role, props); err != nil {
 		panic(err)
 	}
-	var returns interface{}
-
-	_jsii_.Invoke(
+	_jsii_.InvokeVoid(
 		r,
 		"setupContinuousLogging",
-		[]interface{}{role, props},
-		&returns,
+		[]interface{}{role, props, securityConfiguration},
 	)
-
-	return returns
 }
 
 func (r *jsiiProxy_RayJob) ToString() *string {

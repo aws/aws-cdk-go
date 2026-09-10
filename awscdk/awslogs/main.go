@@ -1524,6 +1524,7 @@ func init() {
 		map[string]interface{}{
 			"STANDARD": LogGroupClass_STANDARD,
 			"INFREQUENT_ACCESS": LogGroupClass_INFREQUENT_ACCESS,
+			"DELIVERY": LogGroupClass_DELIVERY,
 		},
 	)
 	_jsii_.RegisterClass(

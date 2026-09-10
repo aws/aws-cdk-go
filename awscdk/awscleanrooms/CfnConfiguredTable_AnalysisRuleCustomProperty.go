@@ -17,8 +17,34 @@ package awscleanrooms
 //
 //   	// the properties below are optional
 //   	AdditionalAnalyses: jsii.String("additionalAnalyses"),
+//   	AggregationThresholds: []interface{}{
+//   		&AggregationThresholdProperty{
+//   			AllowedAggregateExpressionType: jsii.String("allowedAggregateExpressionType"),
+//   			IdentityColumns: []*string{
+//   				jsii.String("identityColumns"),
+//   			},
+//   			MinimumIdentityCount: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			OutputColumnThresholds: []interface{}{
+//   				&OutputColumnThresholdProperty{
+//   					MinimumIdentityCount: jsii.Number(123),
+//   					OutputColumnName: jsii.String("outputColumnName"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	AllowedAnalysisProviders: []*string{
 //   		jsii.String("allowedAnalysisProviders"),
+//   	},
+//   	ComparisonControls: &ComparisonControlsProperty{
+//   		AllowedColumnComparisonColumns: []*string{
+//   			jsii.String("allowedColumnComparisonColumns"),
+//   		},
+//   		AllowedLiteralComparisonColumns: []*string{
+//   			jsii.String("allowedLiteralComparisonColumns"),
+//   		},
 //   	},
 //   	DifferentialPrivacy: &DifferentialPrivacyProperty{
 //   		Columns: []interface{}{
@@ -43,12 +69,18 @@ type CfnConfiguredTable_AnalysisRuleCustomProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-additionalanalyses
 	//
 	AdditionalAnalyses *string `field:"optional" json:"additionalAnalyses" yaml:"additionalAnalyses"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-aggregationthresholds
+	//
+	AggregationThresholds interface{} `field:"optional" json:"aggregationThresholds" yaml:"aggregationThresholds"`
 	// The IDs of the AWS accounts that are allowed to query by the custom analysis rule.
 	//
 	// Required when `allowedAnalyses` is `ANY_QUERY` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-allowedanalysisproviders
 	//
 	AllowedAnalysisProviders *[]*string `field:"optional" json:"allowedAnalysisProviders" yaml:"allowedAnalysisProviders"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-comparisoncontrols
+	//
+	ComparisonControls interface{} `field:"optional" json:"comparisonControls" yaml:"comparisonControls"`
 	// The differential privacy configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html#cfn-cleanrooms-configuredtable-analysisrulecustom-differentialprivacy
 	//

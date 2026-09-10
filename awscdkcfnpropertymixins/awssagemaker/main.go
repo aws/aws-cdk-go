@@ -240,6 +240,10 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_CapacitySizeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.ClusterAccountingDatabaseProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_ClusterAccountingDatabaseProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.ClusterAutoScalingConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_ClusterAutoScalingConfigProperty)(nil)).Elem(),
 	)

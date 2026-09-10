@@ -21,9 +21,7 @@ package awscdkgluealpha
 //   workflow := glue.NewWorkflow(stack, jsii.String("Workflow"))
 //   workflow.AddOnDemandTrigger(jsii.String("OnDemandTrigger"), &OnDemandTriggerOptions{
 //   	Actions: []Action{
-//   		&Action{
-//   			Job: *Job,
-//   		},
+//   		glue.Action_Job(job),
 //   	},
 //   })
 //
@@ -31,7 +29,7 @@ package awscdkgluealpha
 type OnDemandTriggerOptions struct {
 	// The actions initiated by this trigger.
 	// Experimental.
-	Actions *[]*Action `field:"required" json:"actions" yaml:"actions"`
+	Actions *[]Action `field:"required" json:"actions" yaml:"actions"`
 	// A description for the trigger.
 	// Default: - no description.
 	//

@@ -188,6 +188,14 @@ func (p *jsiiProxy_PySparkEtlJob) validateOnTimeoutParameters(id *string, option
 	return nil
 }
 
+func (p *jsiiProxy_PySparkEtlJob) validateSetManagedArgumentParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_PySparkEtlJob) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")
@@ -200,11 +208,7 @@ func (p *jsiiProxy_PySparkEtlJob) validateSetupContinuousLoggingParameters(role 
 	return nil
 }
 
-func (p *jsiiProxy_PySparkEtlJob) validateSetupExtraCodeArgumentsParameters(args *map[string]*string, props *SparkExtraCodeProps) error {
-	if args == nil {
-		return fmt.Errorf("parameter args is required, but nil was provided")
-	}
-
+func (p *jsiiProxy_PySparkEtlJob) validateSetupExtraCodeArgumentsParameters(props *SparkExtraCodeProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")
 	}

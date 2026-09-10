@@ -14,6 +14,8 @@ package awsrds
 //   	AllocatedStorage: jsii.String("allocatedStorage"),
 //   	Iops: jsii.Number(123),
 //   	MaxAllocatedStorage: jsii.Number(123),
+//   	StorageOperationPercentProgress: jsii.Number(123),
+//   	StorageOperationStatus: jsii.String("storageOperationStatus"),
 //   	StorageThroughput: jsii.Number(123),
 //   	StorageType: jsii.String("storageType"),
 //   	VolumeName: jsii.String("volumeName"),
@@ -36,6 +38,12 @@ type CfnDBInstance_AdditionalStorageVolumeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html#cfn-rds-dbinstance-additionalstoragevolume-maxallocatedstorage
 	//
 	MaxAllocatedStorage *float64 `field:"optional" json:"maxAllocatedStorage" yaml:"maxAllocatedStorage"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html#cfn-rds-dbinstance-additionalstoragevolume-storageoperationpercentprogress
+	//
+	StorageOperationPercentProgress *float64 `field:"optional" json:"storageOperationPercentProgress" yaml:"storageOperationPercentProgress"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html#cfn-rds-dbinstance-additionalstoragevolume-storageoperationstatus
+	//
+	StorageOperationStatus *string `field:"optional" json:"storageOperationStatus" yaml:"storageOperationStatus"`
 	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps).
 	//
 	// This setting applies only to the General Purpose SSD (``gp3``) storage type.

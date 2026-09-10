@@ -1465,6 +1465,83 @@ func FoundationModelIdentifier_MISTRAL_SMALL_V0_1() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_OPENAI_GPT_5_4() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_5_4",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_5_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_5_5",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_5_6_CYBER() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_5_6_CYBER",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_5_6_LUNA() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_5_6_LUNA",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_5_6_SOL() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_5_6_SOL",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_5_6_TERRA() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_5_6_TERRA",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_DAYBREAK_BLUE_5_6_SOL() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_DAYBREAK_BLUE_5_6_SOL",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_OPENAI_GPT_OSS_120B_1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1482,6 +1559,28 @@ func FoundationModelIdentifier_OPENAI_GPT_OSS_20B_1() FoundationModelIdentifier 
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"OPENAI_GPT_OSS_20B_1",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_OSS_SAFEGUARD_120B() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_OSS_SAFEGUARD_120B",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_OSS_SAFEGUARD_20B() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_OSS_SAFEGUARD_20B",
 		&returns,
 	)
 	return returns

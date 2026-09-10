@@ -7,7 +7,7 @@ package awssam
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   eventSourceProperty := &EventSourceProperty{
-//   	Properties: &DynamoDBEventProperty{
+//   	Properties: &AlexaSkillEventProperty{
 //   		SkillId: jsii.String("skillId"),
 //   	},
 //   	Type: jsii.String("type"),

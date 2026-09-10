@@ -233,6 +233,7 @@ import (
 //   		TsUseAudioRenditionGroup: jsii.Boolean(false),
 //   	},
 //   	StartoverWindowSeconds: jsii.Number(123),
+//   	StreamNameOutputMode: jsii.String("streamNameOutputMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -334,6 +335,8 @@ type CfnOriginEndpoint interface {
 	// The size of the window (in seconds) to specify a window of the live stream that's available for on-demand viewing.
 	StartoverWindowSeconds() *float64
 	SetStartoverWindowSeconds(val *float64)
+	StreamNameOutputMode() *string
+	SetStreamNameOutputMode(val *string)
 	// The tags associated with the origin endpoint.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -833,6 +836,16 @@ func (j *jsiiProxy_CfnOriginEndpoint) StartoverWindowSeconds() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOriginEndpoint) StreamNameOutputMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"streamNameOutputMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOriginEndpoint) Tags() *[]*awscdk.CfnTag {
 	var returns *[]*awscdk.CfnTag
 	_jsii_.Get(
@@ -1025,6 +1038,14 @@ func (j *jsiiProxy_CfnOriginEndpoint)SetStartoverWindowSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"startoverWindowSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOriginEndpoint)SetStreamNameOutputMode(val *string) {
+	_jsii_.Set(
+		j,
+		"streamNameOutputMode",
 		val,
 	)
 }

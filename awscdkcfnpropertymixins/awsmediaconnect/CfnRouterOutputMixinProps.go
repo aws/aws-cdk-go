@@ -83,6 +83,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	FabricConfiguration: &FabricConfigurationProperty{
+//   		RecoveryLatencyMode: jsii.String("recoveryLatencyMode"),
+//   	},
 //   	MaintenanceConfiguration: &MaintenanceConfigurationProperty{
 //   		Default: default_,
 //   		PreferredDayTime: &PreferredDayTimeMaintenanceConfigurationProperty{
@@ -114,6 +117,10 @@ type CfnRouterOutputMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`
+	// The fabric configuration settings for the router output.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-fabricconfiguration
+	//
+	FabricConfiguration interface{} `field:"optional" json:"fabricConfiguration" yaml:"fabricConfiguration"`
 	// The maintenance configuration settings applied to this router output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-routeroutput.html#cfn-mediaconnect-routeroutput-maintenanceconfiguration
 	//

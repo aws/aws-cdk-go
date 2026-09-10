@@ -177,6 +177,14 @@ func (r *jsiiProxy_RayJob) validateOnTimeoutParameters(id *string, options *awse
 	return nil
 }
 
+func (r *jsiiProxy_RayJob) validateSetManagedArgumentParameters(key *string) error {
+	if key == nil {
+		return fmt.Errorf("parameter key is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (r *jsiiProxy_RayJob) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	if role == nil {
 		return fmt.Errorf("parameter role is required, but nil was provided")

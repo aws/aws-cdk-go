@@ -226,6 +226,7 @@ import (
 //   		TsUseAudioRenditionGroup: jsii.Boolean(false),
 //   	},
 //   	StartoverWindowSeconds: jsii.Number(123),
+//   	StreamNameOutputMode: jsii.String("streamNameOutputMode"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -290,6 +291,9 @@ type CfnOriginEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-startoverwindowseconds
 	//
 	StartoverWindowSeconds *float64 `field:"optional" json:"startoverWindowSeconds" yaml:"startoverWindowSeconds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-streamnameoutputmode
+	//
+	StreamNameOutputMode *string `field:"optional" json:"streamNameOutputMode" yaml:"streamNameOutputMode"`
 	// The tags associated with the origin endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-tags
 	//

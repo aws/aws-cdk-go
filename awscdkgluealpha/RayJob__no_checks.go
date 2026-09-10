@@ -64,6 +64,10 @@ func (r *jsiiProxy_RayJob) validateOnTimeoutParameters(id *string, options *awse
 	return nil
 }
 
+func (r *jsiiProxy_RayJob) validateSetManagedArgumentParameters(key *string) error {
+	return nil
+}
+
 func (r *jsiiProxy_RayJob) validateSetupContinuousLoggingParameters(role awsiam.IRole, props *ContinuousLoggingProps) error {
 	return nil
 }

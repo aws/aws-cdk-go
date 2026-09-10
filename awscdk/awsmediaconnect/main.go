@@ -1138,6 +1138,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "configuration", GoGetter: "Configuration"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "fabricConfiguration", GoGetter: "FabricConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -1174,6 +1175,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.FabricConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutput_FabricConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.FlowTransitEncryptionKeyConfigurationProperty",

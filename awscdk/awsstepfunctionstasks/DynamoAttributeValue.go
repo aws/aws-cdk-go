@@ -291,9 +291,10 @@ func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	return returns
 }
 
-// Sets an attribute of type String Set.
+// Sets an attribute of type String Set. For example:  "SS": ["Giraffe", "Hippo" ,"Zebra"].
 //
-// For example:  "SS": ["Giraffe", "Hippo" ,"Zebra"].
+// This method only accepts static arrays defined at CDK synthesis time.
+// Dynamic value resolution via JSONata or JsonPath is not supported for Set types.
 func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 	_init_.Initialize()
 

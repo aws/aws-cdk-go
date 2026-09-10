@@ -8,7 +8,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-func (i *jsiiProxy_IWorkflow) validateAddCustomScheduledTriggerParameters(id *string, options *CustomScheduledTriggerOptions) error {
+func (i *jsiiProxy_IWorkflow) validateAddConditionalTriggerParameters(id *string, options *ConditionalTriggerOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
@@ -23,7 +23,7 @@ func (i *jsiiProxy_IWorkflow) validateAddCustomScheduledTriggerParameters(id *st
 	return nil
 }
 
-func (i *jsiiProxy_IWorkflow) validateAddDailyScheduledTriggerParameters(id *string, options *DailyScheduleTriggerOptions) error {
+func (i *jsiiProxy_IWorkflow) validateAddEventTriggerParameters(id *string, options *EventTriggerOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
@@ -53,7 +53,7 @@ func (i *jsiiProxy_IWorkflow) validateAddOnDemandTriggerParameters(id *string, o
 	return nil
 }
 
-func (i *jsiiProxy_IWorkflow) validateAddWeeklyScheduledTriggerParameters(id *string, options *WeeklyScheduleTriggerOptions) error {
+func (i *jsiiProxy_IWorkflow) validateAddScheduledTriggerParameters(id *string, options *ScheduledTriggerOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
